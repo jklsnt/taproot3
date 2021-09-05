@@ -20,7 +20,6 @@ ORG_GEN := $(subst src/,gen/,$(ORG_TARGET))
 IMG_GEN := $(subst src/,gen/,$(IMG_TARGET))
 
 HTML_GEN := $(subst .org,.html, $(ORG_GEN))
-PDF_GEN := $(subst .org,.pdf, $(ORG_GEN))
 
 
 
@@ -57,10 +56,7 @@ gen: $(ORG_GEN) $(IMG_GEN)
 gen/%.html: gen/%.org
 	emacsclient -e "(progn (find-file \"$<\") (org-html-export-to-html) (kill-buffer))" 
 
-gen/%.pdf: gen/%.org
-	emacsclient -e "(progn (find-file \"$<\") (org-latex-export-to-pdf) (kill-buffer))" 
-
-export: $(HTML_GEN) $(PDF_GEN) $(IMAGE_GEN)
+export: $(HTML_GEN) $(IMAGE_GEN)
 
 
 
