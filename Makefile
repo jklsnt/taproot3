@@ -1,5 +1,4 @@
 # Source lists
-ORG_SRC := $(shell find . -name "*.org" -not -path "./gen/*")
 MARKDOWN_SRC := $(shell find . -name "*.md" -not -path "./gen/*")
 RST_SRC := $(shell find . -name "*.rst" -not -path "./gen/*")
 
@@ -9,27 +8,66 @@ RST_CONV := $(TEX_SRC:.rst=.org)
 
 CONV_ALL := $(MARKDOWN_CONV) $(RST_CONV)
 
+# Raw org
+ORG_SRC := $(filter-out $(CONV_ALL), $(shell find . -name "*.org" -not -path "./gen/*")) 
+
 # Target lists
-ORG_GEN := $(ORG_SRC) $(CONV_ALL) 
-IMG_GEN := $(shell find . -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -not -path "./gen/*" -not -path "*/ltximg/*")
+ORG_TARGET := $(ORG_SRC) $(CONV_ALL) 
+IMG_TARGET := $(shell find . -name "*.jpg" -not -path "./gen/*"  -o -name "*.jpeg" -not -path "./gen/*" -o -name "*.png" -not -path "./gen/*" -not -path "*/ltximg/*")
+
+# Generation lists
+ORG_GEN := $(subst src/,gen/,$(ORG_TARGET)) 
+IMG_GEN := $(subst src/,gen/,$(IMG_TARGET))
+
+HTML_GEN := $(subst .org,.html, $(ORG_GEN))
+PDF_GEN := $(subst .org,.pdf, $(ORG_GEN))
+
+
 
 # Conversion recipes
-%.org: %.md
+src/%.org: src/%.md
 	cat "$<" | sed "s/\[\[\(.*\)\]\]/[[file:\1.org]]/g" > "$<_.gen"
 	pandoc -s -f markdown -t org "$<_.gen" -o "$@"
 
-%.org: %.rst
+src/%.org: src/%.rst
 	pandoc -s "$<" -o "$@"
 
-# Generation recipe
-gen: $(ORG_GEN) $(IMG_GEN)
-	for FILE in $(ORG_GEN); do mkdir -p $$(dirname $$(echo $$FILE | sed "s/src\//gen\//g")) && cp $$FILE $$(echo $$FILE | sed "s/src\//gen\//g"); done
-	for FILE in $(IMG_GEN); do mkdir -p $$(dirname $$(echo $$FILE | sed "s/src\//gen\//g")) && cp $$FILE $$(echo $$FILE | sed "s/src\//gen\//g"); done
 
+
+# Copying recipies
+gen/%.org: src/%.org
+	mkdir -p $$(dirname "$@")
+	cp "$<" "$@"
+gen/%.png: src/%.png
+	mkdir -p $$(dirname "$@")
+	cp "$<" "$@"
+gen/%.jpeg: src/%.jpeg
+	mkdir -p $$(dirname "$@")
+	cp "$<" "$@"
+gen/%.jpg: src/%.jpg
+	mkdir -p $$(dirname "$@")
+	cp "$<" "$@"
+
+gen: $(ORG_GEN) $(IMG_GEN)
+
+
+
+# Export recipes
+gen/%.html: gen/%.org
+	emacsclient -e "(progn (find-file \"$<\") (org-html-export-to-html) (kill-buffer))" 
+
+gen/%.pdf: gen/%.org
+	emacsclient -e "(progn (find-file \"$<\") (org-latex-export-to-pdf) (kill-buffer))" 
+
+export: $(PDF_GEN) $(HTML_GEN) $(IMAGE_GEN)
+
+
+
+# Aftercare
 clean: 
 	find . -d -name "*.latex" -exec rm -f {} \;
 	find . -d -name "_*.md" -exec rm -f {} \;
-	find . -d -name "_.gen" -exec rm -f {} \;
+	find . -d -name "*_.gen" -exec rm -f {} \;
 	find . -d -name "*.html" -exec rm -f {} \;
 	find . -d -name "*.pdf" -exec rm -f {} \;
 	find . -d -name "*.tex" -exec rm -f {} \;
@@ -37,4 +75,6 @@ clean:
 	rm -f $(CONV_ALL)
 	rm -rf gen/*
 
-.PHONY: gen clean
+all: gen export 
+.DEFAULT_GOAL := export
+.PHONY: gen export clean
