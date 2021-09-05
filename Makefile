@@ -15,7 +15,8 @@ IMG_GEN := $(shell find . -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -not 
 
 # Conversion recipes
 %.org: %.md
-	pandoc -s "$<" -o "$@"
+	cat "$<" | sed "s/\[\[\(.*\)\]\]/[[file:\1.org]]/g" > "$<_.gen"
+	pandoc -s -f markdown -t org "$<_.gen" -o "$@"
 
 %.org: %.rst
 	pandoc -s "$<" -o "$@"
@@ -28,6 +29,7 @@ gen: $(ORG_GEN) $(IMG_GEN)
 clean: 
 	find . -d -name "*.latex" -exec rm -f {} \;
 	find . -d -name "_*.md" -exec rm -f {} \;
+	find . -d -name "_.gen" -exec rm -f {} \;
 	find . -d -name "*.html" -exec rm -f {} \;
 	find . -d -name "*.pdf" -exec rm -f {} \;
 	find . -d -name "*.tex" -exec rm -f {} \;
