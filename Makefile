@@ -11,7 +11,7 @@ CONV_ALL := $(MARKDOWN_CONV) $(RST_CONV)
 
 # Target lists
 ORG_GEN := $(ORG_SRC) $(CONV_ALL) 
-IMG_GEN := $(wildcard *.jpeg) $(wildcard *.png)
+IMG_GEN := $(shell find . -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -not -path "./gen/*" -not -path "*/ltximg/*")
 
 # Conversion recipes
 %.org: %.md
@@ -21,8 +21,9 @@ IMG_GEN := $(wildcard *.jpeg) $(wildcard *.png)
 	pandoc -s "$<" -o "$@"
 
 # Generation recipe
-gen: $(ORG_GEN)
-	for FILE in $(ORG_GEN); do mkdir -p gen/$$(basename $$(dirname $$FILE)) && cp $$FILE gen/$$(basename $$(dirname $$FILE))/$$(basename $$FILE); done
+gen: $(ORG_GEN) $(IMG_GEN)
+	for FILE in $(ORG_GEN); do mkdir -p $$(dirname $$(echo $$FILE | sed "s/src\//gen\//g")) && cp $$FILE $$(echo $$FILE | sed "s/src\//gen\//g"); done
+	for FILE in $(IMG_GEN); do mkdir -p $$(dirname $$(echo $$FILE | sed "s/src\//gen\//g")) && cp $$FILE $$(echo $$FILE | sed "s/src\//gen\//g"); done
 
 clean: 
 	find . -d -name "*.latex" -exec rm -f {} \;
