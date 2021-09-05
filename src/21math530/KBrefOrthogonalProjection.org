@@ -1,0 +1,37 @@
+#+TITLE: Orthogonal Projection
+#+CONTEXT: Linear Algebra
+* Axler6.53 orthogonal projection, $P_U$                                :def:
+  #+begin_quote
+  Suppose $U$ is a finite-dimensional subspace of $V$. The /orthogonal projection/ of $V$ onto $U$ is the operator $P_U \in\mathcal{L} (V)$ defined as follows:
+
+  For $v \in  V$, write $v = u + w$, where $u \in  U$ and $w \in  U^\bot$. Then $P_Uv = u$.
+  #+end_quote
+  In other words, $P_U \in \mathcal{L} (V)$ takes $v$ to the component of $v$ that is in $U$.
+
+  This concept is closely related to the [[file:KBrefOrthogonalDecomposition.org][Orthogonal Decomposition]]
+** Results
+*** Axler6.54 calculating $P_U v$
+
+	\[\begin{aligned}
+    P_U v = \frac{\langle  v, x \rangle}{\lVert x \rVert ^2} x
+	\end{aligned}\]
+
+	Because orthogonal decompositions and stuff
+*** Axler6.55 properties
+	Suppose $U$ is a finite-dimensional subspace of $V$ and $v \in  V$. Then,
+**** $P_U \in \mathcal{L}(V)$
+**** $P_U u = u \forall u \in  U$
+**** $P_U w = 0 \forall w \in  U^\bot$
+**** $\orange P_U = U$
+**** $\onull P_U = U^\bot$
+**** $P_U ^2 = P_U$ (by \#2 and \#4)
+**** $\lVert P_U v \rVert \leq  \lVert v \rVert$
+**** for every orthonormal basis $e_1, \ldots, e_m$ of $U$,
+
+	 \[\begin{aligned}
+     P_U v = \langle  v, e_1 \rangle e_1, + \cdots + \langle v, e_m \rangle e_m
+	 \end{aligned}\]
+
+	 (because $P_U v \in  U$)
+*** Axler6.56 Minimizing the distance to a subspace
+	See [[file:KBrefMinimizingDistanceToSubspace.org][Minimizing the distance to a subpsace]]

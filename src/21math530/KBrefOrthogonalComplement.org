@@ -1,0 +1,51 @@
+#+TITLE: Orthogonal Complement
+#+CONTEXT: Linear Algebra
+* Axler6.45 orthogonal complement, $U^\bot$                             :def:
+  #+begin_quote
+  if $U$ is a subset of $V$, then the orthogonal complement of $U$, denoted $U^\bot$, is the set of all vectors in $V$ that are orthogonal to every vector in $U$:
+
+  \[\begin{aligned}
+  U^\bot = \{ v \in V : \langle v, u \rangle = 0 \forall u \in  U \}
+  \end{aligned}\]
+
+  #+end_quote
+** results
+*** Axler6.46 basic properties
+**** complement is a subspace: if $U$ is a subset of $V$, then $U^\bot$ is a subspace of $V$
+***** zero is orthogonal to each vector, any vector that is the sum of two fully orthogonal vectors or the scalar multiple of an orthogonal vector will still be fully orthogonal.
+**** $\{0\}^\bot = V$
+***** zero orthogonal to every vector
+**** $V ^\bot = \{0\}$
+***** only zero orthogonal to every vector
+**** If $U$ is a subset of $V$, then $U \cap U^\bot\subseteq \{0\}$
+***** only zero is orthogonal to itself
+**** If $U$ and $W$ are subsets of $V$ and $U\subseteq W$ then $W^\bot \subseteq U^\bot$
+***** Everything in $W^\bot$ is in $U^\bot$, and more.
+*** Axler6.47 direct sum of a subspace and its orthogonal complement
+	#+begin_quote
+	Suppose $U$ is a finite-dimensional subspace of $V$. Then,
+	\[\begin{aligned}
+    V = U \oplus U^\bot
+	\end{aligned}\]
+	#+end_quote
+	This can be shown by seeing that splitting any vector in $V$ into a $U$ part and a non-$U$ part leads to the non-$U$ being in $U^\bot$
+*** Axler6.50 dimension of orthogonal complement
+	#+begin_quote
+	Suppose $V$ is finite-dimensional and $U$ is a subpsace of $V$. Then,
+
+	\[\begin{aligned}
+    \odim $U^\bot$ = $\odim V - \odim U$
+	\end{aligned}\]
+	#+end_quote
+	By the dimension of a subspace addition (Axler3.78)
+
+*** Axler6.51 orthogonal complement of orthogonal complement is itself
+	#+begin_quote
+	Suppose $U$ is a finite-dimensional subspace of $V$. Then
+	\[\begin{aligned}
+    U = (U^\bot) ^\bot
+	\end{aligned}\]
+	#+end_quote
+	Because $U \oplus U^\bot = V$ is a direct sum and equals $V$.
+
+	The actual proof is by double-inclusion.
