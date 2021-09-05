@@ -24,9 +24,10 @@ HTML_GEN := $(subst .org,.html, $(ORG_GEN))
 
 
 # Conversion recipes
-src/%.org: src/%.md
+src/%.md_.gen: src/%.md
 	cat "$<" | sed "s/\[\[\(.*\)\]\]/[[file:\1.org]]/g" > "$<_.gen"
-	pandoc -s -f markdown -t org "$<_.gen" -o "$@"
+src/%.org: src/%.md_.gen
+	pandoc -s -f markdown -t org "$<" -o "$@"
 
 src/%.org: src/%.rst
 	pandoc -s "$<" -o "$@"
