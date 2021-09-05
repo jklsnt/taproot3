@@ -19,8 +19,6 @@ IMG_TARGET := $(shell find . -name "*.jpg" -not -path "./gen/*"  -o -name "*.jpe
 ORG_GEN := $(subst src/,gen/,$(ORG_TARGET)) 
 IMG_GEN := $(subst src/,gen/,$(IMG_TARGET))
 
-HTML_GEN := $(subst .org,.html, $(ORG_GEN))
-
 
 
 # Conversion recipes
@@ -34,7 +32,7 @@ src/%.org: src/%.rst
 
 
 
-# Copying recipies
+# Generation recipies
 gen/%.org: src/%.org
 	mkdir -p $$(dirname "$@")
 	cp "$<" "$@"
@@ -53,14 +51,6 @@ gen: $(ORG_GEN) $(IMG_GEN)
 
 
 
-# Exporting recipies
-gen/%.html: gen/%.org
-	emacsclient -e "(progn (find-file \"$<\") (org-html-export-to-html) (kill-buffer))" 
-
-export: $(HTML_GEN) $(IMAGE_GEN)
-
-
-
 # Aftercare
 clean: 
 	find . -d -name "*.latex" -exec rm -f {} \;
@@ -73,6 +63,6 @@ clean:
 	rm -f $(CONV_ALL)
 	rm -rf gen/*
 
-all: gen export 
-.DEFAULT_GOAL := export
-.PHONY: gen export clean
+all: gen 
+.DEFAULT_GOAL := gen
+.PHONY: gen clean
