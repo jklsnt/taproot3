@@ -9,7 +9,7 @@ RST_CONV := $(TEX_SRC:.rst=.org)
 CONV_ALL := $(MARKDOWN_CONV) $(RST_CONV)
 
 # Raw org
-ORG_SRC := $(filter-out $(CONV_ALL), $(shell find . -name "*.org" -not -path "./gen/*")) 
+ORG_SRC := $(filter-out $(CONV_ALL), $(shell find . -name "*.org" -not -path "./gen/*" -not -path "./*.org")) 
 
 # Target lists
 ORG_TARGET := $(ORG_SRC) $(CONV_ALL) 
@@ -38,6 +38,7 @@ src/%.org: src/%.rst
 gen/%.org: src/%.org
 	mkdir -p $$(dirname "$@")
 	cp "$<" "$@"
+	echo "#+SETUPFILE: ../../setup.org" >> "$@"
 gen/%.png: src/%.png
 	mkdir -p $$(dirname "$@")
 	cp "$<" "$@"
@@ -52,14 +53,14 @@ gen: $(ORG_GEN) $(IMG_GEN)
 
 
 
-# Export recipes
+# Exporting recipies
 gen/%.html: gen/%.org
 	emacsclient -e "(progn (find-file \"$<\") (org-html-export-to-html) (kill-buffer))" 
 
 gen/%.pdf: gen/%.org
 	emacsclient -e "(progn (find-file \"$<\") (org-latex-export-to-pdf) (kill-buffer))" 
 
-export: $(PDF_GEN) $(HTML_GEN) $(IMAGE_GEN)
+export: $(HTML_GEN) $(PDF_GEN) $(IMAGE_GEN)
 
 
 
