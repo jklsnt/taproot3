@@ -9,7 +9,7 @@ RST_CONV := $(TEX_SRC:.rst=.org)
 CONV_ALL := $(MARKDOWN_CONV) $(RST_CONV)
 
 # Raw org
-ORG_SRC := $(filter-out $(CONV_ALL), $(shell find . -name "*.org" -not -path "./gen/*" -not -path "./*.org")) 
+ORG_SRC := $(filter-out $(CONV_ALL), $(shell find . -name "*.org" -not -path "./gen/*" -not -path "./setup.org")) 
 
 # Target lists
 ORG_TARGET := $(ORG_SRC) $(CONV_ALL) 
