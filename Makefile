@@ -36,7 +36,6 @@ src/%.org: src/%.rst
 gen/%.org: src/%.org
 	mkdir -p $$(dirname "$@")
 	cp "$<" "$@"
-	echo "#+SETUPFILE: ../../setup.org" >> "$@"
 gen/%.png: src/%.png
 	mkdir -p $$(dirname "$@")
 	cp "$<" "$@"
@@ -51,6 +50,12 @@ gen: $(ORG_GEN) $(IMG_GEN)
 
 
 
+# Publishing recipes
+publish: gen
+	./publish.el
+
+
+
 # Aftercare
 clean: 
 	find . -d -name "*.latex" -exec rm -f {} \;
@@ -62,7 +67,8 @@ clean:
 	find . -d -name "*sync-conflict*" -exec rm -f {} \;
 	rm -f $(CONV_ALL)
 	rm -rf gen/*
+	rm -rf build/*
 
-all: gen 
-.DEFAULT_GOAL := gen
-.PHONY: gen clean
+all: gen publish
+.DEFAULT_GOAL := publish
+.PHONY: gen publish clean
