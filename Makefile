@@ -23,9 +23,9 @@ IMG_GEN := $(subst src/,gen/,$(IMG_TARGET))
 
 # Conversion recipes
 src/%.md_.gen: src/%.md
-	cat "$<" | sed "s/\[\[\(.*\)\]\]/[[file:\1.org]]/g" > "$<_.gen"
+	cat "$<" | sed "s/\[\[\(.*\)\]\]/[[file:\1.org][\1]]/g" > "$<_.gen"
 src/%.org: src/%.md_.gen
-	pandoc -s -f markdown -t org "$<" -o "$@"
+	pandoc -f markdown -t org "$<" -o "$@" --template=./templates/org.org
 
 src/%.org: src/%.rst
 	pandoc -s "$<" -o "$@"

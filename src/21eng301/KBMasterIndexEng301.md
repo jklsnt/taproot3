@@ -1,7 +1,7 @@
 ---
 title: English 11 Master Index
 course: ENG301
-source: #index
+index: ENG301
 ---
 
 It's time for... American lit!

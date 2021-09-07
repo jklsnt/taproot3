@@ -1,7 +1,6 @@
 ---
-title: hist master index
-author: comp
-context: HIST301
+title: History Master Index
+index: HIST301
 ---
 
 - [[KBxWhatDoesItMeanToBeAmerican]] 

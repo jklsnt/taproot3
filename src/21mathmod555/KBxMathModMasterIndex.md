@@ -1,8 +1,7 @@
 ---
 title:   Mathematical Master Index
 context: MATH555
-author:  Huxley Marvit
-source:  #index
+index: MATH555
 ---
 
 #flo #ref #disorganized 

@@ -12,6 +12,9 @@
 	  :makeindex t
 	  :sitemap-title "Taproot Navigation"
 	  :html-head-extra "<link rel=\"stylesheet\" href=\"../global.css\" type=\"text/css\"/>\n<link rel=\"stylesheet\" href=\"./global.css\" type=\"text/css\"/>"
+	  :html-html5-fancy t
+	  :html-link-home "."
+	  :html-link-up "../"
 	  :publishing-function org-html-publish-to-html)
 	 ("taproot-static"
 	  :base-directory "./gen"

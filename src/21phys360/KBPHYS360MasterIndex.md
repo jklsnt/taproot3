@@ -1,7 +1,7 @@
 ---
 title: Advanced Mechanics Master Index
-source: #index 
 course: PHYS360
+index: PHYS360
 ---
 
 # Advanced Mechanics Master Index
