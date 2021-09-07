@@ -10,6 +10,8 @@
 	  :recursive t
 	  :auto-sitemap t
 	  :makeindex t
+	  :sitemap-title "Taproot Navigation"
+	  :html-head-extra "<link rel=\"stylesheet\" href=\"../global.css\" type=\"text/css\"/>\n<link rel=\"stylesheet\" href=\"./global.css\" type=\"text/css\"/>"
 	  :publishing-function org-html-publish-to-html)
 	 ("taproot-static"
 	  :base-directory "./gen"

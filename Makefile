@@ -47,6 +47,7 @@ gen/%.jpg: src/%.jpg
 	cp "$<" "$@"
 
 gen: $(ORG_GEN) $(IMG_GEN)
+	cp -r static/ gen/
 
 
 
