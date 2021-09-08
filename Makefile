@@ -25,7 +25,7 @@ IMG_GEN := $(subst src/,gen/,$(IMG_TARGET))
 src/%.md_.gen: src/%.md
 	cat "$<" | sed "s/\[\[\(.*\)\]\]/[[file:\1.org][\1]]/g" > "$<_.gen"
 src/%.org: src/%.md_.gen
-	pandoc -f markdown -t org "$<" -o "$@" --template=./templates/org.org
+	pandoc -f markdown -t org "$<" -o "$@" --template=./templates/pandoc.org
 
 src/%.org: src/%.rst
 	pandoc -s "$<" -o "$@"
@@ -36,6 +36,7 @@ src/%.org: src/%.rst
 gen/%.org: src/%.org
 	mkdir -p $$(dirname "$@")
 	cp "$<" "$@"
+	echo "#+SETUPFILE: ../../templates/setup.org" >> "$@"
 gen/%.png: src/%.png
 	mkdir -p $$(dirname "$@")
 	cp "$<" "$@"

@@ -11,11 +11,17 @@
 	  :auto-sitemap t
 	  :makeindex t
 	  :sitemap-title "Taproot Navigation"
-	  :html-head-extra "<link rel=\"stylesheet\" href=\"../global.css\" type=\"text/css\"/>\n<link rel=\"stylesheet\" href=\"./global.css\" type=\"text/css\"/>"
+	  :html-head-extra "<link rel=\"stylesheet\" href=\"./global.css\" type=\"text/css\"/>"
 	  :html-html5-fancy t
 	  :html-link-home "."
 	  :html-link-up "../"
 	  :publishing-function org-html-publish-to-html)
+	 ("taproot-pdf"
+	  :base-directory "./gen"
+	  :base-extension "org"
+	  :publishing-directory "./build"
+	  :recursive t
+	  :publishing-function org-latex-publish-to-pdf)
 	 ("taproot-static"
 	  :base-directory "./gen"
 	  :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
