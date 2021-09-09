@@ -13,6 +13,8 @@
 	  :sitemap-title "Taproot Navigation"
 	  :html-head-extra "<link rel=\"stylesheet\" href=\"./global.css\" type=\"text/css\"/>"
 	  :html-html5-fancy t
+	  :html-preamble "<div class=\"title\"><h1>%t</h1></div><p class=\"subtitle\"><span class=\"author\">%a</span><span class=\"date\">%C</span></p>"
+	  :html-postamble ""
 	  :html-link-home "."
 	  :html-link-up "../"
 	  :publishing-function org-html-publish-to-html)
