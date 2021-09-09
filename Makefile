@@ -9,7 +9,7 @@ RST_CONV := $(TEX_SRC:.rst=.org)
 CONV_ALL := $(MARKDOWN_CONV) $(RST_CONV)
 
 # Raw org
-ORG_SRC := $(filter-out $(CONV_ALL), $(shell find . -name "*.org" -not -path "./gen/*" -not -path "./setup.org")) 
+ORG_SRC := $(filter-out $(CONV_ALL), $(shell find . -name "*.org" -not -path "./gen/*" -not -path "./templates/*")) 
 
 # Target lists
 ORG_TARGET := $(ORG_SRC) $(CONV_ALL) 
@@ -18,6 +18,13 @@ IMG_TARGET := $(shell find . -name "*.jpg" -not -path "./gen/*"  -o -name "*.jpe
 # Generation lists
 ORG_GEN := $(subst src/,gen/,$(ORG_TARGET)) 
 IMG_GEN := $(subst src/,gen/,$(IMG_TARGET))
+
+# Compilation Lists
+ORG_BUILD := $(subst src/,build/,$(ORG_TARGET)) 
+PDF_BUILD := $(ORG_BUILD:.org=.pdf)
+
+# Redux Lists
+PDF_REDUX := $(subst build/,src/,$(PDF_BUILD))
 
 
 
@@ -52,9 +59,25 @@ gen: $(ORG_GEN) $(IMG_GEN)
 
 
 
-# Publishing recipes
-publish: gen
-	./publish.el
+# Transpiling recipes
+transpile: gen
+	./transpile.el
+
+
+
+# Compliation recipies
+build/%.pdf: build/%.tex
+	-(cd $$(dirname "$@") && xelatex -interaction nonstopmode $$(basename "$<") $$(basename "$@"))
+
+compile: transpile $(PDF_BUILD)
+
+
+
+# Reduxing recipies
+src/%.pdf: build/%.pdf
+	-cp "$<" "$@"
+
+redux: $(PDF_REDUX)
 
 
 
@@ -71,6 +94,6 @@ clean:
 	rm -rf gen/*
 	rm -rf build/*
 
-all: gen publish
-.DEFAULT_GOAL := publish
-.PHONY: gen publish clean
+all: gen transpile compile redux
+.DEFAULT_GOAL := compile
+.PHONY: gen transpile compile clean
