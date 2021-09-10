@@ -1,0 +1,83 @@
+#+TITLE: prep for first individual assesment
+#+AUTHOR: Exr0n
+* Definitions
+** DONE group
+   CLOSED: [2020-10-24 Sat 11:23]
+   A set and binary operation that satisfies Group Properties
+   - Closed
+   - Identity
+   - Inverse
+   - Associative
+** DONE field
+   CLOSED: [2020-10-24 Sat 11:23]
+   A set and two binary operations: the primary (addition) and secondary (multiplication) that "mostly" satisfies group properties for both operations, and are *commutative and distributive*.
+   It must be a group under the primary operation and a group under the secondary operation except without a secondary inverse for the primary indentity.
+** DONE non-singular matrices
+   CLOSED: [2020-10-24 Sat 11:26]
+   singular matrix: has no inverse.
+   non-singular matrix: has an inverse aka determinant non zero
+* Connections
+** DONE connect direct sum and linear independence
+   CLOSED: [2020-10-24 Sat 11:28]
+   the sum of two spaces is direct if their basises are linearly independent
+** DONE matrices to represent complex numbers
+   CLOSED: [2020-10-24 Sat 13:28]
+   The negative one matrix is $\begin{bmatrix}-1&0\\0&-1\end{bmatrix}$ and we want the square root of that. It turns out that $\begin{bmatrix}0&-1\\1&0\end{bmatrix}$ satisfies this, and in fact, any complex number $a + bi$ can be represented as $\begin{bmatrix}a&-b\\b&a\end{bmatrix}$.
+   These matrices are commutative under multiplication (like complex numbers should be), have their complex conjugates equal to their transposes, and a bunch of other nice properties. Also related to rotation matrices.
+   #source https://www.nagwa.com/en/explainers/152196980513/
+* Computation
+** DONE Find the determinant of matrices
+   CLOSED: [2020-10-24 Sat 11:59]
+   $$\left|\begin{matrix}a&b\\c&d\end{matrix}\right| = ad-bc$$
+** DONE compute cross product
+   CLOSED: [2020-10-24 Sat 12:16]
+   $$
+   \begin{pmatrix}a\\b\\c\end{pmatrix}\times\begin{pmatrix}d\\e\\f\end{pmatrix} = \left|\begin{matrix}i&j&k\\a&b&c\\d&e&f\end{matrix}\right| = i \left|\begin{matrix}b&c\\e&f\end{matrix}\right|+ j\left|\begin{matrix}c&a\\f&d\end{matrix}\right| + k\left|\begin{matrix}a&b\\d&e\end{matrix}\right| = bf-ce, cd-fa, ae - bd
+   $$
+** DONE Find equations of lines and planes using cross product and dot product
+   CLOSED: [2020-10-24 Sat 13:52]
+   Use the cross product to find an orthagonal vector $\vec p$. The plane is all vectors that are orthagonal to $\vec p$, which is to say that the dot product is zero ($\left\{ \vec{u} : \vec{u}\cdot\vec{p} = 0 \right\}$).
+* Derivations
+** DONE properties of the determinant
+   CLOSED: [2020-10-24 Sat 13:17]
+*** zero when matrix has no inverse (singular)
+*** det = -1 for rotation matrices?
+
+** DONE inverse of a 2x2 matrix
+   CLOSED: [2020-10-24 Sat 12:41]
+   $$ \begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}e&f\\g&h\end{bmatrix} = \begin{bmatrix}1&0\\0&1\end{bmatrix} $$
+   $$ \begin{aligned} ae+bg = 1\\ ce+dg = 0\\ af+bh = 0\\ cf+dh = 1\\ \end{aligned} $$
+   Then you do some algebra to get
+   $$
+   \begin{aligned}
+   e = \frac{d}{ad-bc}\\
+   g = \frac{-c}{ad-bc}\\
+   f = \frac{-b}{ad-bc}\\
+   h = \frac{a}{ad-bc}\\
+   \end{aligned}
+   $$
+** DONE rotation matrices
+   CLOSED: [2020-10-24 Sat 13:09]
+   Don't try to algebra it. Use polar coordinates and the angle sum trig identities:
+   $$\begin{aligned}
+   \sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta\\
+   \cos(\alpha + \beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta
+   \end{aligned}$$
+
+   anyways, you get $\begin{bmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{bmatrix}$.
+
+* review quizzes
+** DONE first quiz
+   CLOSED: [2020-10-24 Sat 12:05]
+*** see "find equations of lines and planes using cross product and dot product"
+*** rotation matrices
+*** cross product
+** DONE mini take home quiz
+   CLOSED: [2020-10-24 Sat 12:04]
+   no feedback
+** DONE linear independence quiz
+   CLOSED: [2020-10-24 Sat 12:02]
+   teacher gave no problems
+** DONE quick linear quiz (linear independence and bases)
+   CLOSED: [2020-10-24 Sat 12:01]
+   no feedback, I think that quiz was pretty solid..

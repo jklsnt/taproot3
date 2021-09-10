@@ -1,0 +1,22 @@
+Do
+- Preamble
+    - Have a null hypothesis
+    - Don't get too attached to any one hypothesis
+    - Diverse group of people generating hypotheses
+- Data collection
+    - Know your measurement proxies
+    - Use larger sample sizes
+    - Control group
+- Analysis
+    - Have an analysis plan before beginning
+    - State your analysis methods clearly
+    - Be aware of the assumptions
+    - Be aware of overgeneralization
+    - Correlation vs Causation
+- Peer Review
+    - peer reviewers should be objective or people who disagree
+    - be critical of results
+    - check statistics and data
+- Aftercare
+    - Redo experiments
+

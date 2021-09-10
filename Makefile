@@ -89,6 +89,7 @@ clean:
 	find . -d -name "*.html" -exec rm -f {} \;
 	find . -d -name "*.pdf" -exec rm -f {} \;
 	find . -d -name "*.tex" -exec rm -f {} \;
+	find . -d -name "*~" -exec rm -f {} \;
 	find . -d -name "*sync-conflict*" -exec rm -f {} \;
 	rm -f $(CONV_ALL)
 	rm -rf gen/*

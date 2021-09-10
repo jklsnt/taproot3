@@ -1,0 +1,120 @@
+#+TITLE: Handout 17 Riemann Sums
+#+AUTHOR: Exr0n
+
+* Reading
+#+begin_export latex
+\setcounter{subsubsection}{7}
+#+end_export
+** Definition of a Definite Integral
+  For each interval $[x_i, x_{i+1}]$, we choose $x_i^*$ in the interval to be the position of the minimum (for lower bound) or maximum (upper bound) value.
+
+* Problems
+
+** exr1.3
+   Using the left edge: -8.4375
+
+   Summation notation for left edge approximation:
+   \[\begin{aligned}
+   \sum_{i=0}^n \underbrace{\frac{b-a}{n}}_{\text{ width }} \underbrace{f\left(a+\frac{b-a}{n}i\right)}_\text{ height }
+   \end{aligned}\]
+
+** exr1.4 (in class)
+   0.21875 using the left estimate
+
+** exr1.5
+
+*** left estimate
+
+	34.7 feet (add all except last number and divide by two, because we are stopping at 3.0 seconds in.)
+
+*** right estimate
+	44.8 feet (add the last number and drop the zero from the beginning)
+
+*** middle estimate
+	Not enough information to do it for $\Delta x = 0.5$, so I will use $n=3$ aka $\Delta x = 1$
+
+	\[\begin{aligned}
+    6.2 + 14.9 + 19.4 = 40.5 \text{ feet }
+	\end{aligned}\]
+
+** exr1.6
+
+*** $\int_0^1 \sqrt{x^2+1}dx$
+	$\sqrt{x^2+1}$ is the length the hypotenuse of a triangle with leg-lengths 1 and $x$. Because $x$ is continuous, this is like the area of a right triangle with leg-lengths 1 and 1, which is \boxed{\frac{1}{2}}.
+
+
+**** TODO Wolfram Alpha doesn't agree though
+
+	 Probably because as you take approximations, there will be overlap, so the actual value is bigger than I think it is.
+
+	 I also don't know how to take the anti-chain-rule, so I don't know how to integrate the function symbolically.
+
+*** $\int_0^3 (x-1)dx$
+	Not sure area wise, but the anti-derivative is guess-able:
+
+	\[\begin{aligned}
+    \frac{d}{dx}\left( \frac{x^2}{2} -x\right) = x-1
+	\end{aligned}\]
+
+
+	\[\begin{aligned}
+    \frac{3^2}{2}-3 = 1.5
+	\end{aligned}\]
+
+** exr1.7
+
+*** right endpoint approx for $y=x^2$
+
+	\[\begin{aligned}
+    \sum_{i=1}^{n+1} \Delta x f(i \Delta x) = \sum_{i=1}^{n+1} \frac{1}{n} \left( \frac{i}{n}\right) ^2
+	\end{aligned}\]
+	where $\Delta x = \frac{1}{n}$
+
+*** general form for left-side riemann sum
+	See exr1.3
+
+** exr1.11
+
+   \[\begin{aligned}
+   \int_\pi^{2\pi} \cos(x)dx = \lim_{n\to \infty} \sum_{i=0}^n \frac{\pi}{n}\cos\left( \pi + \frac{i\pi}{n}\right)
+   \end{aligned}\]
+
+** exr1.12
+
+*** 1
+	\[\begin{aligned}
+    \lim_{n \to \infty} \sum_{k=0}^n \Delta x \sqrt{4+(1+k\Delta x)^2} \text{ where }\Delta x = \frac{2}{n}
+	\end{aligned}\]
+
+*** 2
+	\[\begin{aligned}
+    \lim_{n \to  \infty} \sum_{k=0}^n \Delta x(2+k\Delta x)^2 + \frac{1}{2+k\Delta x} \text{ where } \Delta x = \frac{3}{n}
+	\end{aligned}\]
+
+** exr1.13
+
+*** 1
+
+	\[\begin{aligned}
+    \int_0^1 \frac{e^x}{1+x} dx
+	\end{aligned}\]
+
+*** 2
+
+	\[\begin{aligned}
+    \int_2^5 x\sqrt{1+x^3}dx
+	\end{aligned}\]
+
+*** 3
+
+	\[\begin{aligned}
+    \int_1^3 \frac{x}{x^2+4}dx
+	\end{aligned}\]
+
+** exr1.14
+   Graphically, it's the right triangle from origin to B minus the one from origin to A. Algebraically,
+
+   \[\begin{aligned}
+   \frac{d}{dx}\frac{1}{2}x^2 = x\\
+&\implies \int_a^b xdx = \frac{1}{2}b^2 + c - \left(\frac{1}{2} a^2 + c\right) = \frac{b^2-a^2}{2}
+   \end{aligned}\]
