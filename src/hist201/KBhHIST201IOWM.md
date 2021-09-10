@@ -28,5 +28,5 @@ This one is simple — cholera, measles, the Freaking Plague
 Using... Modern Warfare
 
 ## Created an unstoppable advancement in military technology
-See [[[KBhHIST201ImpactsofIR]] on the section .w.r.t warfare.
+See [[KBhHIST201ImpactsofIR]] on the section .w.r.t warfare.
 

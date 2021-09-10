@@ -8,7 +8,7 @@
        '(("taproot-notes"
 	  :base-directory "./gen"
 	  :base-extension "org"
-	  :publishing-directory "./build"
+	  :publishing-directory "./docs"
 	  :recursive t
 	  :auto-sitemap t
 	  :makeindex t
@@ -23,13 +23,13 @@
 	 ("taproot-tex"
 	  :base-directory "./gen"
 	  :base-extension "org"
-	  :publishing-directory "./build"
+	  :publishing-directory "./docs"
 	  :recursive t
 	  :publishing-function org-latex-publish-to-latex)
 	 ("taproot-static"
-	  :base-directory "./gen"
+	  :base-directory "./src"
 	  :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-	  :publishing-directory "./build/"
+	  :publishing-directory "./docs/"
 	  :recursive t
 	  :publishing-function org-publish-attachment)))
 

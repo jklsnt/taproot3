@@ -5,7 +5,6 @@ author: Huxley
 source: #index
 ---
 
----
 
 #flo 
 
@@ -31,11 +30,7 @@ Weapons become better and more powerful, organization and resource allocation be
 
 This forced more centralization? 
 
-|
-|
 Bunch of names and dates lacking concepts
-|
-|
 
 Religious worries started to re-emerge after the renaissance 
 
@@ -45,7 +40,7 @@ Bunch of tech increase despite religious wars
 
 Science did not oppose religious beliefs, necessarily 
 
-###### Perceived importance of universal agreement decreased 
+# Perceived importance of universal agreement decreased 
 
 
 ==intellectual pluralism baby!==
@@ -58,22 +53,5 @@ In class jots:
 
 
 during a time of significant change and growth -- was the first sort of highly interconnected region? 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
