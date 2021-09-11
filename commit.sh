@@ -13,7 +13,7 @@ do
 
     NUMCHANGED=$(git diff --cached --numstat | wc -l)
 
-    if (( NUMCHANGED < 25 )); then
+    if (( NUMCHANGED < 10 )); then
         sleep 20
         continue
     fi
