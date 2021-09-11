@@ -4,6 +4,7 @@
 
 (setq user-full-name "Taproot")
 (setq user-mail-address "services@sanity.gq")
+(setq org-publish-use-timestamps-flag t)
 
 (setq org-publish-project-alist
       '(("taproot-notes"

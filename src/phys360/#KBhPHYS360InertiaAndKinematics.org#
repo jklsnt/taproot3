@@ -76,21 +76,21 @@ Given $a=a_0$, initial velocity $v_0$, and position $y_0$, we derive the kinemat
 We are given that $v(0)=v_0$. $v(0) = C = v_0$, hence, $C=v_0$. The velocity statement is therefore,
 
 \begin{equation}
-    v(t) = a_0x+v_0
+    v(t) = a_0t+v_0
 \end{equation}
 
 Continuing with integration:
 
 \begin{align}
-    v(t) =& a_0x + v_0 \\
-    \int v(t) =& \int a_0x + v_0 dt \\
-    y(t) =& \frac{1}{2}a_0x^2+v_0x+C \\
+    v(t) =& a_0t + v_0 \\
+    \int v(t) =& \int a_0t + v_0 dt \\
+    y(t) =& \frac{1}{2}a_0t^2+v_0t+C \\
 \end{align}
 
 Again, substituting $C = y_0$ by the same logic above --- $y(0) = C = y_0$, we derive the statement for the position equation.
 
 \begin{equation}
-    y(t) = \frac{1}{2}a_0x^2 + v_0x + y_0
+    y(t) = \frac{1}{2}a_0t^2 + v_0t + y_0
 \end{equation}
 
 
@@ -98,10 +98,10 @@ Again, substituting $C = y_0$ by the same logic above --- $y(0) = C = y_0$, we d
 We start at the statement for $v(t)$, squaring it, and substituting the necessary statements.
 
 \begin{align}
-    v(t) =& a_0x+v_0 \\
-    \Rightarrow v^2(t) =& a_0^2 x^2 + 2a_0v_0x + v_0^2 \\
-    v^2(t) =& v_0^2 + 2a_0 (\frac{1}{2} a_0 x^2 + v_0x) \\
-    v^2(t) =& v_0^2 + 2a_0 (\frac{1}{2} a_0 x^2 + v_0x + y_0 - y_0) \\
+    v(t) =& a_0t+v_0 \\
+    \Rightarrow v^2(t) =& a_0^2 t^2 + 2a_0v_0t + v_0^2 \\
+    v^2(t) =& v_0^2 + 2a_0 (\frac{1}{2} a_0 t^2 + v_0t) \\
+    v^2(t) =& v_0^2 + 2a_0 (\frac{1}{2} a_0 t^2 + v_0t + y_0 - y_0) \\
     v^2(t) =& v_0^2 + 2a_0 (y(t) - y_0) 
 \end{align}
 
@@ -112,6 +112,13 @@ It is therefore shown that:
 \end{equation}
 
 ** Proving $\Delta y = \frac{v(t_1)+v(t_2)}{2}\Delta t$
-Showing $\Delta y = \frac{v(t_1)+v(t_2)}{2}\Delta t$, defining $\Delta y=y(t_2)-y(t_1)$ and $\Delta t = t_2 - t_1$. Substituting the appropriate functions for $v(t)$:
+Showing $\Delta y = \frac{v(t_1)+v(t_2)}{2}\Delta t$, defining $\Delta y=y(t_2)-y(t_1)$ and $\Delta t = t_2 - t_1$. Substituting the appropriate values for $v(t)$, $\Delta y$, $\Delta t$ and solving...
 
+\begin{align}
+    \Delta y &= \frac{v(t_1)+v(t_2)}{2}\Delta t \\
+    y(t_2)-y(t_1) &= \frac{v(t_1)+v(t_2)}{2} t_2 - t_1 \\
+    y(t_2)-y(t_1) &= \frac{((a_0t_1+v_0)+(a_0t_2+v_0))}{2} t_2 - t_1 \\
+    y(t_2)-y(t_1) &= \frac{((a_0t_1t_2+v_0t_2)-(a_0{t_1}^2+v_0t_1)+(a_0{t_2}^2+v_0t_2)-(a_0t_1t_2+v_0t_1))}{2} \\
+    y(t_2)-y(t_1) &= \frac{-a_0{t_1}^2+a_0{t_2}^2}{2} \\
+\end{align}
 
