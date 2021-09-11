@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-11 Sat 09:35 -->
+<!-- 2021-09-11 Sat 10:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Fast multiplication with fast fourier transforms</title>
@@ -246,171 +246,171 @@
  <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
 </div><div id="content">
 <h1 class="title">Fast multiplication with fast fourier transforms</h1>
-<div id="outline-container-org1c7f704" class="outline-2">
-<h2 id="org1c7f704"><span class="section-number-2">1</span> base knowlege</h2>
+<div id="outline-container-org2b14f7c" class="outline-2">
+<h2 id="org2b14f7c"><span class="section-number-2">1</span> base knowlege</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org29417da" class="outline-3">
-<h3 id="org29417da"><span class="section-number-3">1.1</span> primitive root of unity</h3>
+<div id="outline-container-org5888d20" class="outline-3">
+<h3 id="org5888d20"><span class="section-number-3">1.1</span> primitive root of unity</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org705eb3d" class="outline-4">
-<h4 id="org705eb3d"><span class="section-number-4">1.1.1</span> a number \(r\) is a primitive $n$th root of unity iff \(n\) is the smallest counting number for which \(r^n = 1\).</h4>
+<div id="outline-container-orgdb3f154" class="outline-4">
+<h4 id="orgdb3f154"><span class="section-number-4">1.1.1</span> a number \(r\) is a primitive $n$th root of unity iff \(n\) is the smallest counting number for which \(r^n = 1\).</h4>
 </div>
-<div id="outline-container-org16cf36a" class="outline-4">
-<h4 id="org16cf36a"><span class="section-number-4">1.1.2</span> <a href="https://mathworld.wolfram.com/PrimitiveRootofUnity.html">https://mathworld.wolfram.com/PrimitiveRootofUnity.html</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="source">source</span></span></h4>
+<div id="outline-container-orgd8d94e5" class="outline-4">
+<h4 id="orgd8d94e5"><span class="section-number-4">1.1.2</span> <a href="https://mathworld.wolfram.com/PrimitiveRootofUnity.html">https://mathworld.wolfram.com/PrimitiveRootofUnity.html</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="source">source</span></span></h4>
 </div>
 </div>
-<div id="outline-container-org3c3eecd" class="outline-3">
-<h3 id="org3c3eecd"><span class="section-number-3">1.2</span> convolution theorem</h3>
+<div id="outline-container-org93647f9" class="outline-3">
+<h3 id="org93647f9"><span class="section-number-3">1.2</span> convolution theorem</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-orgc085a99" class="outline-4">
-<h4 id="orgc085a99"><span class="section-number-4">1.2.1</span> 'depends fundamentally on the convolution theorem, which provides an efficient way to compute the cyclic convolution of two sequences. It states that the cyclic convolution of two vectors can be found by taking the discreate fourier transform of each of them, multiplying the resulting vectors element by element, and then taking the inverse discrete fourier transform.'</h4>
+<div id="outline-container-org52652d6" class="outline-4">
+<h4 id="org52652d6"><span class="section-number-4">1.2.1</span> 'depends fundamentally on the convolution theorem, which provides an efficient way to compute the cyclic convolution of two sequences. It states that the cyclic convolution of two vectors can be found by taking the discreate fourier transform of each of them, multiplying the resulting vectors element by element, and then taking the inverse discrete fourier transform.'</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-org43cef60" class="outline-2">
-<h2 id="org43cef60"><span class="section-number-2">2</span> sources</h2>
+<div id="outline-container-org95d7e3b" class="outline-2">
+<h2 id="org95d7e3b"><span class="section-number-2">2</span> sources</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org2c75581" class="outline-3">
-<h3 id="org2c75581"><span class="section-number-3">2.1</span> <a href="http://numbers.computation.free.fr/Constants/Algorithms/fft.html">explanation of multiplication algorithm</a></h3>
+<div id="outline-container-org9e20827" class="outline-3">
+<h3 id="org9e20827"><span class="section-number-3">2.1</span> <a href="http://numbers.computation.free.fr/Constants/Algorithms/fft.html">explanation of multiplication algorithm</a></h3>
 </div>
-<div id="outline-container-orgb4ea1d4" class="outline-3">
-<h3 id="orgb4ea1d4"><span class="section-number-3">2.2</span> <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;ved=2ahUKEwjtqdjE57jvAhV_HzQIHeAwALsQFjAFegQIEhAD&amp;url=http%3A%2F%2Fwww.cs.rug.nl%2F~ando%2Fpdfs%2FAndo_Emerencia_multiplying_huge_integers_using_fourier_transforms_paper.pdf&amp;usg=AOvVaw1Sf0WR5er7An2U2vjzypZy">paper explaining the multiplication ANDO EMERENCIA (S1283936)</a></h3>
+<div id="outline-container-orgd47f159" class="outline-3">
+<h3 id="orgd47f159"><span class="section-number-3">2.2</span> <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;ved=2ahUKEwjtqdjE57jvAhV_HzQIHeAwALsQFjAFegQIEhAD&amp;url=http%3A%2F%2Fwww.cs.rug.nl%2F~ando%2Fpdfs%2FAndo_Emerencia_multiplying_huge_integers_using_fourier_transforms_paper.pdf&amp;usg=AOvVaw1Sf0WR5er7An2U2vjzypZy">paper explaining the multiplication ANDO EMERENCIA (S1283936)</a></h3>
 </div>
-<div id="outline-container-orgb7e51fb" class="outline-3">
-<h3 id="orgb7e51fb"><span class="section-number-3">2.3</span> <a href="https://medium.com/@aiswaryamathur/understanding-fast-fourier-transform-from-scratch-to-solve-polynomial-multiplication-8018d511162f">FFT Medium Blog Post</a></h3>
+<div id="outline-container-org0607229" class="outline-3">
+<h3 id="org0607229"><span class="section-number-3">2.3</span> <a href="https://medium.com/@aiswaryamathur/understanding-fast-fourier-transform-from-scratch-to-solve-polynomial-multiplication-8018d511162f">FFT Medium Blog Post</a></h3>
 </div>
-<div id="outline-container-orge7cfc40" class="outline-3">
-<h3 id="orge7cfc40"><span class="section-number-3">2.4</span> <a href="https://en.wikipedia.org/wiki/Sch%C3%B6nhage%E2%80%93Strassen_algorithm">wikipedia on schonhage-strassen (multiplication algo)</a></h3>
+<div id="outline-container-org90b8a6b" class="outline-3">
+<h3 id="org90b8a6b"><span class="section-number-3">2.4</span> <a href="https://en.wikipedia.org/wiki/Sch%C3%B6nhage%E2%80%93Strassen_algorithm">wikipedia on schonhage-strassen (multiplication algo)</a></h3>
 </div>
 </div>
-<div id="outline-container-org848380f" class="outline-2">
-<h2 id="org848380f"><span class="section-number-2">3</span> uses of FFT</h2>
+<div id="outline-container-org4b29fd2" class="outline-2">
+<h2 id="org4b29fd2"><span class="section-number-2">3</span> uses of FFT</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgaed1838" class="outline-3">
-<h3 id="orgaed1838"><span class="section-number-3">3.1</span> convert mixed signals into constituent sinusoids</h3>
+<div id="outline-container-org59d8d97" class="outline-3">
+<h3 id="org59d8d97"><span class="section-number-3">3.1</span> convert mixed signals into constituent sinusoids</h3>
 </div>
-<div id="outline-container-orgece5d3a" class="outline-3">
-<h3 id="orgece5d3a"><span class="section-number-3">3.2</span> multiply polynomials using convolution theorem</h3>
+<div id="outline-container-org13d2ea4" class="outline-3">
+<h3 id="org13d2ea4"><span class="section-number-3">3.2</span> multiply polynomials using convolution theorem</h3>
 </div>
-<div id="outline-container-org895549d" class="outline-3">
-<h3 id="org895549d"><span class="section-number-3">3.3</span> reduce matrix dimensionality</h3>
+<div id="outline-container-org559a8f2" class="outline-3">
+<h3 id="org559a8f2"><span class="section-number-3">3.3</span> reduce matrix dimensionality</h3>
 </div>
-<div id="outline-container-orgfe2e2ab" class="outline-3">
-<h3 id="orgfe2e2ab"><span class="section-number-3">3.4</span> audio processing (eg. bass boost, or radio denoising for eg. wifi)</h3>
+<div id="outline-container-org7724363" class="outline-3">
+<h3 id="org7724363"><span class="section-number-3">3.4</span> audio processing (eg. bass boost, or radio denoising for eg. wifi)</h3>
 </div>
-<div id="outline-container-org5a0d199" class="outline-3">
-<h3 id="org5a0d199"><span class="section-number-3">3.5</span> MRI machines? scan certain parts using different overlapping sinusoidal magnitudes of magnetic field</h3>
+<div id="outline-container-org6c801f1" class="outline-3">
+<h3 id="org6c801f1"><span class="section-number-3">3.5</span> MRI machines? scan certain parts using different overlapping sinusoidal magnitudes of magnetic field</h3>
 </div>
-<div id="outline-container-org348ba20" class="outline-3">
-<h3 id="org348ba20"><span class="section-number-3">3.6</span> microscope or astronomy image decomposition</h3>
+<div id="outline-container-org3997843" class="outline-3">
+<h3 id="org3997843"><span class="section-number-3">3.6</span> microscope or astronomy image decomposition</h3>
 </div>
-<div id="outline-container-orga9fefef" class="outline-3">
-<h3 id="orga9fefef"><span class="section-number-3">3.7</span> connection to Heisenberg uncertainty principle (<a href="https://www.youtube.com/watch?v=MBnnXbOM5S4">https://www.youtube.com/watch?v=MBnnXbOM5S4</a>)</h3>
+<div id="outline-container-org0dc5423" class="outline-3">
+<h3 id="org0dc5423"><span class="section-number-3">3.7</span> connection to Heisenberg uncertainty principle (<a href="https://www.youtube.com/watch?v=MBnnXbOM5S4">https://www.youtube.com/watch?v=MBnnXbOM5S4</a>)</h3>
 <div class="outline-text-3" id="text-3-7">
 </div>
-<div id="outline-container-orge49699f" class="outline-4">
-<h4 id="orge49699f"><span class="section-number-4">3.7.1</span> the fourier transform graph says something about correlation</h4>
+<div id="outline-container-org6c8887b" class="outline-4">
+<h4 id="org6c8887b"><span class="section-number-4">3.7.1</span> the fourier transform graph says something about correlation</h4>
 <div class="outline-text-4" id="text-3-7-1">
 </div>
 <ol class="org-ol">
-<li><a id="orgc4011de"></a>eg. for a pure signal (sine 5Hz), a winding frequency of \(\xi=5.01\) will come out pretty high on the almost-fourier-transform graph, aka it is closely correlated<br /></li>
-<li><a id="orgcc3a14f"></a>since the actual fourier transform isn't divided by signal length, longer signals will lead to higher (and steeper) peaks<br /></li>
-<li><a id="orgaf0fbe1"></a>these steeper peaks represent more certainty, and a shorter signal means fewer cycles means the signal has less time to balance itself out means the almost-fourier-transform will have shallower and wider peak means less certainty<br /></li>
+<li><a id="org860a1be"></a>eg. for a pure signal (sine 5Hz), a winding frequency of \(\xi=5.01\) will come out pretty high on the almost-fourier-transform graph, aka it is closely correlated<br /></li>
+<li><a id="org00cf826"></a>since the actual fourier transform isn't divided by signal length, longer signals will lead to higher (and steeper) peaks<br /></li>
+<li><a id="orgb1a9395"></a>these steeper peaks represent more certainty, and a shorter signal means fewer cycles means the signal has less time to balance itself out means the almost-fourier-transform will have shallower and wider peak means less certainty<br /></li>
 </ol>
 </div>
-<div id="outline-container-orgb708e01" class="outline-4">
-<h4 id="orgb708e01"><span class="section-number-4">3.7.2</span> can also use the norm of the fourier transform (to capture both x and y bc complex)</h4>
+<div id="outline-container-org96044d6" class="outline-4">
+<h4 id="org96044d6"><span class="section-number-4">3.7.2</span> can also use the norm of the fourier transform (to capture both x and y bc complex)</h4>
 </div>
-<div id="outline-container-org56da231" class="outline-4">
-<h4 id="org56da231"><span class="section-number-4">3.7.3</span> when using Doppler radar (in which a single pulse detects position normally and velocity using Doppler shift), this trade off the uncertainty principle shows up</h4>
+<div id="outline-container-org48dd089" class="outline-4">
+<h4 id="org48dd089"><span class="section-number-4">3.7.3</span> when using Doppler radar (in which a single pulse detects position normally and velocity using Doppler shift), this trade off the uncertainty principle shows up</h4>
 <div class="outline-text-4" id="text-3-7-3">
 </div>
 <ol class="org-ol">
-<li><a id="orgcacf339"></a>since longer radar pulse introduce distance uncertainty and shorter radar pulses have the frequency uncertainty implied by the fourier transform as correlation above<br /></li>
+<li><a id="orgad4c16a"></a>since longer radar pulse introduce distance uncertainty and shorter radar pulses have the frequency uncertainty implied by the fourier transform as correlation above<br /></li>
 </ol>
 </div>
-<div id="outline-container-orgfa69b73" class="outline-4">
-<h4 id="orgfa69b73"><span class="section-number-4">3.7.4</span> particle as a wave -&gt; relativistic doppler effect ends up having something similar</h4>
+<div id="outline-container-org1634621" class="outline-4">
+<h4 id="org1634621"><span class="section-number-4">3.7.4</span> particle as a wave -&gt; relativistic doppler effect ends up having something similar</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc6597ff" class="outline-2">
-<h2 id="orgc6597ff"><span class="section-number-2">4</span> 3b1b video <a href="https://www.youtube.com/watch?v=spUNpyF58BY">https://www.youtube.com/watch?v=spUNpyF58BY</a></h2>
+<div id="outline-container-org463a2fb" class="outline-2">
+<h2 id="org463a2fb"><span class="section-number-2">4</span> 3b1b video <a href="https://www.youtube.com/watch?v=spUNpyF58BY">https://www.youtube.com/watch?v=spUNpyF58BY</a></h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orga845898" class="outline-3">
-<h3 id="orga845898"><span class="section-number-3">4.1</span> unmixing waves</h3>
+<div id="outline-container-org4b0f39c" class="outline-3">
+<h3 id="org4b0f39c"><span class="section-number-3">4.1</span> unmixing waves</h3>
 <div class="outline-text-3" id="text-4-1">
 </div>
-<div id="outline-container-org9bd9dda" class="outline-4">
-<h4 id="org9bd9dda"><span class="section-number-4">4.1.1</span> the added up ones seem needlessly complex for such a little amount of info</h4>
+<div id="outline-container-orgf7ce210" class="outline-4">
+<h4 id="orgf7ce210"><span class="section-number-4">4.1.1</span> the added up ones seem needlessly complex for such a little amount of info</h4>
 </div>
 </div>
-<div id="outline-container-org2d564e3" class="outline-3">
-<h3 id="org2d564e3"><span class="section-number-3">4.2</span> rotating the wave around a circle</h3>
+<div id="outline-container-orge4c3427" class="outline-3">
+<h3 id="orge4c3427"><span class="section-number-3">4.2</span> rotating the wave around a circle</h3>
 <div class="outline-text-3" id="text-4-2">
 </div>
-<div id="outline-container-org53961d2" class="outline-4">
-<h4 id="org53961d2"><span class="section-number-4">4.2.1</span> aka: wave around the circle is polar coords: length = magnitude of wave at that point, offset = phase + some angular velocity (the 'rotation' frequency)</h4>
+<div id="outline-container-org18e99f2" class="outline-4">
+<h4 id="org18e99f2"><span class="section-number-4">4.2.1</span> aka: wave around the circle is polar coords: length = magnitude of wave at that point, offset = phase + some angular velocity (the 'rotation' frequency)</h4>
 </div>
-<div id="outline-container-org56c1cb0" class="outline-4">
-<h4 id="org56c1cb0"><span class="section-number-4">4.2.2</span> there are two frequencies: 1. the frequency at which the vector goes around the circle 'winding frequency', and 2. the original and 'true' frequency of the wave</h4>
+<div id="outline-container-org1925afd" class="outline-4">
+<h4 id="org1925afd"><span class="section-number-4">4.2.2</span> there are two frequencies: 1. the frequency at which the vector goes around the circle 'winding frequency', and 2. the original and 'true' frequency of the wave</h4>
 </div>
-<div id="outline-container-orgdcd4d73" class="outline-4">
-<h4 id="orgdcd4d73"><span class="section-number-4">4.2.3</span> when the frequencies match, all the high points are on the right and low points are on the left&#x2026; question is how can we quantify this specialness</h4>
+<div id="outline-container-org7e5e399" class="outline-4">
+<h4 id="org7e5e399"><span class="section-number-4">4.2.3</span> when the frequencies match, all the high points are on the right and low points are on the left&#x2026; question is how can we quantify this specialness</h4>
 </div>
-<div id="outline-container-org90966f9" class="outline-4">
-<h4 id="org90966f9"><span class="section-number-4">4.2.4</span> center of mass as a function of the winding frequency</h4>
+<div id="outline-container-org4c5f297" class="outline-4">
+<h4 id="org4c5f297"><span class="section-number-4">4.2.4</span> center of mass as a function of the winding frequency</h4>
 <div class="outline-text-4" id="text-4-2-4">
 </div>
 <ol class="org-ol">
-<li><a id="org8bd1b39"></a>frequency of zero is high, and then it wobbles for a while until a frequency matches<br /></li>
+<li><a id="org1921ef1"></a>frequency of zero is high, and then it wobbles for a while until a frequency matches<br /></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgfa94d74" class="outline-3">
-<h3 id="orgfa94d74"><span class="section-number-3">4.3</span> central construct</h3>
+<div id="outline-container-org3e9bc13" class="outline-3">
+<h3 id="org3e9bc13"><span class="section-number-3">4.3</span> central construct</h3>
 <div class="outline-text-3" id="text-4-3">
 </div>
-<div id="outline-container-org075d161" class="outline-4">
-<h4 id="org075d161"><span class="section-number-4">4.3.1</span> original plot (intensity | time)</h4>
+<div id="outline-container-org8bf2206" class="outline-4">
+<h4 id="org8bf2206"><span class="section-number-4">4.3.1</span> original plot (intensity | time)</h4>
 </div>
-<div id="outline-container-org53c41ee" class="outline-4">
-<h4 id="org53c41ee"><span class="section-number-4">4.3.2</span> winding chart (wound signal | signal, winding frequency)</h4>
+<div id="outline-container-org0a03197" class="outline-4">
+<h4 id="org0a03197"><span class="section-number-4">4.3.2</span> winding chart (wound signal | signal, winding frequency)</h4>
 </div>
-<div id="outline-container-orgbd3ac9c" class="outline-4">
-<h4 id="orgbd3ac9c"><span class="section-number-4">4.3.3</span> center-of-mass plot (x coord | winding frequency)</h4>
+<div id="outline-container-org13b3fc1" class="outline-4">
+<h4 id="org13b3fc1"><span class="section-number-4">4.3.3</span> center-of-mass plot (x coord | winding frequency)</h4>
 <div class="outline-text-4" id="text-4-3-3">
 </div>
 <ol class="org-ol">
-<li><a id="orgc8620d0"></a>the spike at zero only happens because the original freq doesn't oscillate about zero<br /></li>
+<li><a id="orgdf31c56"></a>the spike at zero only happens because the original freq doesn't oscillate about zero<br /></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgff42fd2" class="outline-3">
-<h3 id="orgff42fd2"><span class="section-number-3">4.4</span> he calls this the 'almost Fourier transform'</h3>
+<div id="outline-container-org03781dd" class="outline-3">
+<h3 id="org03781dd"><span class="section-number-3">4.4</span> he calls this the 'almost Fourier transform'</h3>
 <div class="outline-text-3" id="text-4-4">
 </div>
-<div id="outline-container-org08f78b5" class="outline-4">
-<h4 id="org08f78b5"><span class="section-number-4">4.4.1</span> additive: you can take the almost fourier transform first or you can take the sum first and you will get the same center-of-mass plot out</h4>
+<div id="outline-container-org901f0bb" class="outline-4">
+<h4 id="org901f0bb"><span class="section-number-4">4.4.1</span> additive: you can take the almost fourier transform first or you can take the sum first and you will get the same center-of-mass plot out</h4>
 <div class="outline-text-4" id="text-4-4-1">
 </div>
 <ol class="org-ol">
-<li><a id="org82490d1"></a>pause and ponder: multiple arrows going around the circle, tip to tail<br /></li>
+<li><a id="orgb525d8e"></a>pause and ponder: multiple arrows going around the circle, tip to tail<br /></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org0d0af65" class="outline-3">
-<h3 id="org0d0af65"><span class="section-number-3">4.5</span> formalizing the 'center of mass'</h3>
+<div id="outline-container-orgfed67a4" class="outline-3">
+<h3 id="orgfed67a4"><span class="section-number-3">4.5</span> formalizing the 'center of mass'</h3>
 <div class="outline-text-3" id="text-4-5">
 </div>
-<div id="outline-container-orgd42548c" class="outline-4">
-<h4 id="orgd42548c"><span class="section-number-4">4.5.1</span> complex numbers: works well for 2d plane and rotation can be described by</h4>
+<div id="outline-container-orgc94d244" class="outline-4">
+<h4 id="orgc94d244"><span class="section-number-4">4.5.1</span> complex numbers: works well for 2d plane and rotation can be described by</h4>
 <div class="outline-text-4" id="text-4-5-1">
 <p>
 \[\begin{aligned}
@@ -423,12 +423,12 @@ by multiplying that \(t\) by a scalar, you can change the frequency:
 </p>
 </div>
 </div>
-<div id="outline-container-org239a652" class="outline-4">
-<h4 id="org239a652"><span class="section-number-4">4.5.2</span> actual formalization</h4>
+<div id="outline-container-org2a009b8" class="outline-4">
+<h4 id="org2a009b8"><span class="section-number-4">4.5.2</span> actual formalization</h4>
 <div class="outline-text-4" id="text-4-5-2">
 </div>
 <ol class="org-ol">
-<li><a id="orga57cea2"></a>convention: rotate in clockwise direction<br />
+<li><a id="org1f1f55f"></a>convention: rotate in clockwise direction<br />
 <div class="outline-text-5" id="text-4-5-2-1">
 <p>
 \[\begin{aligned}
@@ -437,7 +437,7 @@ by multiplying that \(t\) by a scalar, you can change the frequency:
 </p>
 </div>
 </li>
-<li><a id="org4f69b0c"></a>let the original function be called \(g(t)\), then scale by that for the 'vector following the original graph magnitude'<br />
+<li><a id="org9aae2d4"></a>let the original function be called \(g(t)\), then scale by that for the 'vector following the original graph magnitude'<br />
 <div class="outline-text-5" id="text-4-5-2-2">
 <p>
 \[\begin{aligned}
@@ -446,7 +446,7 @@ by multiplying that \(t\) by a scalar, you can change the frequency:
 </p>
 </div>
 </li>
-<li><a id="org4504cb2"></a>tracking 'center of mass': sample points and average them<br />
+<li><a id="org957659f"></a>tracking 'center of mass': sample points and average them<br />
 <div class="outline-text-5" id="text-4-5-2-3">
 <p>
 if \(N\) is the number of points that you sample and \(t_k\) is the k-th sampled point,
@@ -456,7 +456,7 @@ if \(N\) is the number of points that you sample and \(t_k\) is the k-th sampled
 </p>
 </div>
 </li>
-<li><a id="org3cde1af"></a>and if we want a more accurate sample, just take the limit to infinity<br />
+<li><a id="org166b8e1"></a>and if we want a more accurate sample, just take the limit to infinity<br />
 <div class="outline-text-5" id="text-4-5-2-4">
 <p>
 \[\begin{aligned}
@@ -465,7 +465,7 @@ if \(N\) is the number of points that you sample and \(t_k\) is the k-th sampled
 </p>
 </div>
 </li>
-<li><a id="org6e10ed0"></a>which is really the same as taking the integral<br />
+<li><a id="org5bc1d07"></a>which is really the same as taking the integral<br />
 <div class="outline-text-5" id="text-4-5-2-5">
 <p>
 \[\begin{aligned}
@@ -474,7 +474,7 @@ if \(N\) is the number of points that you sample and \(t_k\) is the k-th sampled
 </p>
 </div>
 </li>
-<li><a id="org2e98a68"></a>but we don't actually need to divide by the time interval<br />
+<li><a id="orga791adb"></a>but we don't actually need to divide by the time interval<br />
 <div class="outline-text-5" id="text-4-5-2-6">
 <p>
 \[\begin{aligned}
@@ -491,76 +491,76 @@ This means that when a frequency persists for a long time, it gets scaled more
 </div>
 </div>
 </div>
-<div id="outline-container-orge805d21" class="outline-2">
-<h2 id="orge805d21"><span class="section-number-2">5</span> <a href="https://www.youtube.com/watch?v=h7apO7q16V0">Reducible on FFT</a></h2>
+<div id="outline-container-org6f25a89" class="outline-2">
+<h2 id="org6f25a89"><span class="section-number-2">5</span> <a href="https://www.youtube.com/watch?v=h7apO7q16V0">Reducible on FFT</a></h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgcf47c30" class="outline-3">
-<h3 id="orgcf47c30"><span class="section-number-3">5.1</span> intro: its important and beautiful</h3>
+<div id="outline-container-orgf1fbf5d" class="outline-3">
+<h3 id="orgf1fbf5d"><span class="section-number-3">5.1</span> intro: its important and beautiful</h3>
 </div>
-<div id="outline-container-orgd667875" class="outline-3">
-<h3 id="orgd667875"><span class="section-number-3">5.2</span> start with multiplying polynomials</h3>
+<div id="outline-container-org5065882" class="outline-3">
+<h3 id="org5065882"><span class="section-number-3">5.2</span> start with multiplying polynomials</h3>
 <div class="outline-text-3" id="text-5-2">
 </div>
-<div id="outline-container-orga728b76" class="outline-4">
-<h4 id="orga728b76"><span class="section-number-4">5.2.1</span> represent by list of coefficients in ascending order (index = degree of term) (polynomial representation)</h4>
+<div id="outline-container-org4c7cc40" class="outline-4">
+<h4 id="org4c7cc40"><span class="section-number-4">5.2.1</span> represent by list of coefficients in ascending order (index = degree of term) (polynomial representation)</h4>
 </div>
-<div id="outline-container-org6b4d967" class="outline-4">
-<h4 id="org6b4d967"><span class="section-number-4">5.2.2</span> another option: two-point representation</h4>
+<div id="outline-container-org3c9d51d" class="outline-4">
+<h4 id="org3c9d51d"><span class="section-number-4">5.2.2</span> another option: two-point representation</h4>
 <div class="outline-text-4" id="text-5-2-2">
 </div>
 <ol class="org-ol">
-<li><a id="org5ea5237"></a>extension: any degree \(n\) polynomial can be represented by \(n+1\) points uniquely<br /></li>
-<li><a id="org7170c3e"></a>proof: write as a system of equations, matrixify, and we know that the matrix will be invertible<br /></li>
-<li><a id="org1c6a4dd"></a>its a bijection, lets call it the value representation<br /></li>
+<li><a id="org69c9016"></a>extension: any degree \(n\) polynomial can be represented by \(n+1\) points uniquely<br /></li>
+<li><a id="org5cd5b47"></a>proof: write as a system of equations, matrixify, and we know that the matrix will be invertible<br /></li>
+<li><a id="org6fdb795"></a>its a bijection, lets call it the value representation<br /></li>
 </ol>
 </div>
-<div id="outline-container-org9ada31d" class="outline-4">
-<h4 id="org9ada31d"><span class="section-number-4">5.2.3</span> now to multiply, we can just take enough points on each polynomial and multiply those points to get \(d_1 + d_2 + 1\) points on the product polynomial, and then solve for the actual equation</h4>
+<div id="outline-container-org05618a6" class="outline-4">
+<h4 id="org05618a6"><span class="section-number-4">5.2.3</span> now to multiply, we can just take enough points on each polynomial and multiply those points to get \(d_1 + d_2 + 1\) points on the product polynomial, and then solve for the actual equation</h4>
 </div>
-<div id="outline-container-org8c8662b" class="outline-4">
-<h4 id="org8c8662b"><span class="section-number-4">5.2.4</span> only O(d) operations</h4>
+<div id="outline-container-orgaa07d68" class="outline-4">
+<h4 id="orgaa07d68"><span class="section-number-4">5.2.4</span> only O(d) operations</h4>
 </div>
-<div id="outline-container-orga065276" class="outline-4">
-<h4 id="orga065276"><span class="section-number-4">5.2.5</span> now, we need a function take coefficients to values and values to coefficients, this box is the fast fourier transform</h4>
+<div id="outline-container-orgc4dda62" class="outline-4">
+<h4 id="orgc4dda62"><span class="section-number-4">5.2.5</span> now, we need a function take coefficients to values and values to coefficients, this box is the fast fourier transform</h4>
 </div>
 </div>
-<div id="outline-container-org16a7944" class="outline-3">
-<h3 id="org16a7944"><span class="section-number-3">5.3</span> forward direction: evaluation</h3>
+<div id="outline-container-org1fe67ec" class="outline-3">
+<h3 id="org1fe67ec"><span class="section-number-3">5.3</span> forward direction: evaluation</h3>
 <div class="outline-text-3" id="text-5-3">
 </div>
-<div id="outline-container-org9a32829" class="outline-4">
-<h4 id="org9a32829"><span class="section-number-4">5.3.1</span> naive: evaluating each point takes O(d) operations which means the total eval will be \(d^2\), which is no better</h4>
+<div id="outline-container-orga90805f" class="outline-4">
+<h4 id="orga90805f"><span class="section-number-4">5.3.1</span> naive: evaluating each point takes O(d) operations which means the total eval will be \(d^2\), which is no better</h4>
 </div>
-<div id="outline-container-orgc0aed9f" class="outline-4">
-<h4 id="orgc0aed9f"><span class="section-number-4">5.3.2</span> simpler problem</h4>
+<div id="outline-container-orga2d97ff" class="outline-4">
+<h4 id="orga2d97ff"><span class="section-number-4">5.3.2</span> simpler problem</h4>
 <div class="outline-text-4" id="text-5-3-2">
 </div>
 <ol class="org-ol">
-<li><a id="orgc9f7ec4"></a>suppose \(f(x) = x^2\), then picking points that are symmetric (bc even function) means you only have to evaluate half of them<br /></li>
-<li><a id="org6fd791a"></a>can also do something similar for odd functions. so when you split a general polynomial into even terms and odd terms, then we can just eval each and get double the results<br /></li>
+<li><a id="orgf468d37"></a>suppose \(f(x) = x^2\), then picking points that are symmetric (bc even function) means you only have to evaluate half of them<br /></li>
+<li><a id="org8660da4"></a>can also do something similar for odd functions. so when you split a general polynomial into even terms and odd terms, then we can just eval each and get double the results<br /></li>
 </ol>
 </div>
-<div id="outline-container-org487a396" class="outline-4">
-<h4 id="org487a396"><span class="section-number-4">5.3.3</span> he calls them \(P_e(x^2)\) and \(P_o(x^2)\), and they are polynomials of \(x^2\) so deg 2??&#xa0;&#xa0;&#xa0;<span class="tag"><span class="toexpand">toexpand</span></span></h4>
+<div id="outline-container-org6a3948e" class="outline-4">
+<h4 id="org6a3948e"><span class="section-number-4">5.3.3</span> he calls them \(P_e(x^2)\) and \(P_o(x^2)\), and they are polynomials of \(x^2\) so deg 2??&#xa0;&#xa0;&#xa0;<span class="tag"><span class="toexpand">toexpand</span></span></h4>
 </div>
-<div id="outline-container-org2332cc1" class="outline-4">
-<h4 id="org2332cc1"><span class="section-number-4">5.3.4</span> so now we recurse</h4>
+<div id="outline-container-orgff9bdb3" class="outline-4">
+<h4 id="orgff9bdb3"><span class="section-number-4">5.3.4</span> so now we recurse</h4>
 <div class="outline-text-4" id="text-5-3-4">
 </div>
 <ol class="org-ol">
-<li><a id="org542c701"></a>now it will be \(O(n \log  n)\)<br /></li>
+<li><a id="org6425e9f"></a>now it will be \(O(n \log  n)\)<br /></li>
 </ol>
 </div>
-<div id="outline-container-orgd14dafa" class="outline-4">
-<h4 id="orgd14dafa"><span class="section-number-4">5.3.5</span> a problem: we need to choose positive/negative pairs but since the recursed ones are squared, then everything will be positive</h4>
+<div id="outline-container-orge4bf05f" class="outline-4">
+<h4 id="orge4bf05f"><span class="section-number-4">5.3.5</span> a problem: we need to choose positive/negative pairs but since the recursed ones are squared, then everything will be positive</h4>
 <div class="outline-text-4" id="text-5-3-5">
 </div>
 <ol class="org-ol">
-<li><a id="org195cbd8"></a>how to solve this problem&#x2026; work over the complex numbers!<br /></li>
-<li><a id="org81b4add"></a>now what initial points do we want to choose&#x2026; an example shows that it should be \(x^n = 1\) for a fourth degree polynomial<br /></li>
-<li><a id="org827c31b"></a>so we want roots of unity, for some \(n \leq d+1\) and \(n = 2^k\)<br /></li>
-<li><a id="orgb291476"></a>how to write it:<br />
+<li><a id="orgef04d0e"></a>how to solve this problem&#x2026; work over the complex numbers!<br /></li>
+<li><a id="org8096ab7"></a>now what initial points do we want to choose&#x2026; an example shows that it should be \(x^n = 1\) for a fourth degree polynomial<br /></li>
+<li><a id="orgb62fd58"></a>so we want roots of unity, for some \(n \leq d+1\) and \(n = 2^k\)<br /></li>
+<li><a id="org2f21b41"></a>how to write it:<br />
 <div class="outline-text-5" id="text-5-3-5-4">
 <p>
 \[\begin{aligned}
@@ -580,114 +580,114 @@ evaluate P(x) at
 </p>
 </div>
 </li>
-<li><a id="org382477f"></a>why these<br />
+<li><a id="org891695a"></a>why these<br />
 <ol class="org-ol">
-<li><a id="org3d46967"></a>positive-negative paired: the point across the circle is the pair<br /></li>
-<li><a id="org559b52c"></a>when squared, the n roots of unity become the n/2 roots of unity, which still have points across the circle<br /></li>
+<li><a id="org8ed4e90"></a>positive-negative paired: the point across the circle is the pair<br /></li>
+<li><a id="orgd22a239"></a>when squared, the n roots of unity become the n/2 roots of unity, which still have points across the circle<br /></li>
 </ol>
 </li>
 </ol>
 </div>
-<div id="outline-container-org6136aa3" class="outline-4">
-<h4 id="org6136aa3"><span class="section-number-4">5.3.6</span> recursion time</h4>
+<div id="outline-container-org3da4379" class="outline-4">
+<h4 id="org3da4379"><span class="section-number-4">5.3.6</span> recursion time</h4>
 <div class="outline-text-4" id="text-5-3-6">
 </div>
 <ol class="org-ol">
-<li><a id="orgd33396e"></a>base case: n = 1 -&gt; P(1)<br /></li>
-<li><a id="org5974bbc"></a>recurse<br />
+<li><a id="orgdf7d32a"></a>base case: n = 1 -&gt; P(1)<br /></li>
+<li><a id="orga09fd9e"></a>recurse<br />
 <ol class="org-ol">
-<li><a id="org976d14e"></a>split into even/odd degree terms<br /></li>
-<li><a id="org22ee113"></a>recurse to get \(y_e, y_o\)<br /></li>
-<li><a id="org0a47105"></a>some math ( \(x_j = \omega ^j\), \(-\omega ^j = \omega ^{j+\frac{n}{2}}\), \(y_e[j] = P_e(\omega ^{2j}), y_o[j] = P_o(\omega ^{2j})\) ) shows \(P(\omega ^j) = y_e[j] + \omega ^j y_o[j], P(\omega ^{j+\frac{n}{2}}) = y_e[j] - \omega ^j y_o[j]\)<br /></li>
+<li><a id="org70b3d5b"></a>split into even/odd degree terms<br /></li>
+<li><a id="org3c3867b"></a>recurse to get \(y_e, y_o\)<br /></li>
+<li><a id="orgb4a9d82"></a>some math ( \(x_j = \omega ^j\), \(-\omega ^j = \omega ^{j+\frac{n}{2}}\), \(y_e[j] = P_e(\omega ^{2j}), y_o[j] = P_o(\omega ^{2j})\) ) shows \(P(\omega ^j) = y_e[j] + \omega ^j y_o[j], P(\omega ^{j+\frac{n}{2}}) = y_e[j] - \omega ^j y_o[j]\)<br /></li>
 </ol>
 </li>
 </ol>
 </div>
-<div id="outline-container-orgb97a209" class="outline-4">
-<h4 id="orgb97a209"><span class="section-number-4">5.3.7</span> its clean to use \(d\) is a power of two, but there are impls that can handle others also</h4>
+<div id="outline-container-org8f2ef69" class="outline-4">
+<h4 id="org8f2ef69"><span class="section-number-4">5.3.7</span> its clean to use \(d\) is a power of two, but there are impls that can handle others also</h4>
 </div>
 </div>
-<div id="outline-container-org19db99a" class="outline-3">
-<h3 id="org19db99a"><span class="section-number-3">5.4</span> backward direction: interpolation</h3>
+<div id="outline-container-org1f1d65d" class="outline-3">
+<h3 id="org1f1d65d"><span class="section-number-3">5.4</span> backward direction: interpolation</h3>
 <div class="outline-text-3" id="text-5-4">
 </div>
-<div id="outline-container-org20d2818" class="outline-4">
-<h4 id="org20d2818"><span class="section-number-4">5.4.1</span> step back</h4>
+<div id="outline-container-org1111a84" class="outline-4">
+<h4 id="org1111a84"><span class="section-number-4">5.4.1</span> step back</h4>
 <div class="outline-text-4" id="text-5-4-1">
 </div>
 <ol class="org-ol">
-<li><a id="org7f90657"></a>evaluation was a matrix vector product, and using the $k$-th roots of unity allows us to simplify the product<br /></li>
-<li><a id="org9a209e2"></a>interpolation is just the inverse of the DFT matrix<br /></li>
+<li><a id="orgd797c7f"></a>evaluation was a matrix vector product, and using the $k$-th roots of unity allows us to simplify the product<br /></li>
+<li><a id="org0eac665"></a>interpolation is just the inverse of the DFT matrix<br /></li>
 </ol>
 </div>
-<div id="outline-container-org04905d0" class="outline-4">
-<h4 id="org04905d0"><span class="section-number-4">5.4.2</span> inverse FFT</h4>
+<div id="outline-container-org45e2055" class="outline-4">
+<h4 id="org45e2055"><span class="section-number-4">5.4.2</span> inverse FFT</h4>
 <div class="outline-text-4" id="text-5-4-2">
 </div>
 <ol class="org-ol">
-<li><a id="org39ce707"></a>given polynomial evaluated at roots of unity, get the coefficients back out<br /></li>
-<li><a id="org64f428e"></a>after inverting the matrix, you find that each corresponding \(\omega\) became \(\frac{1}{n}\omega^{-1}\)<br /></li>
-<li><a id="org8673cca"></a>so now we define the inverse fft as just the fft but with new inputs: define \(\omega = \frac{1}{n}e^{\frac{-2\pi i}{n}}\)<br /></li>
+<li><a id="org24c5e46"></a>given polynomial evaluated at roots of unity, get the coefficients back out<br /></li>
+<li><a id="org5704843"></a>after inverting the matrix, you find that each corresponding \(\omega\) became \(\frac{1}{n}\omega^{-1}\)<br /></li>
+<li><a id="org65eff3c"></a>so now we define the inverse fft as just the fft but with new inputs: define \(\omega = \frac{1}{n}e^{\frac{-2\pi i}{n}}\)<br /></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org8f2cd9e" class="outline-3">
-<h3 id="org8f2cd9e"><span class="section-number-3">5.5</span> recap:</h3>
+<div id="outline-container-org29ca896" class="outline-3">
+<h3 id="org29ca896"><span class="section-number-3">5.5</span> recap:</h3>
 <div class="outline-text-3" id="text-5-5">
 </div>
-<div id="outline-container-orgb309281" class="outline-4">
-<h4 id="orgb309281"><span class="section-number-4">5.5.1</span> polynomial multiplication is sped in value representation</h4>
+<div id="outline-container-org85635dd" class="outline-4">
+<h4 id="org85635dd"><span class="section-number-4">5.5.1</span> polynomial multiplication is sped in value representation</h4>
 </div>
-<div id="outline-container-orga4c5b28" class="outline-4">
-<h4 id="orga4c5b28"><span class="section-number-4">5.5.2</span> evaluation at +/- pairs allows splitting the computation</h4>
+<div id="outline-container-org2c60d12" class="outline-4">
+<h4 id="org2c60d12"><span class="section-number-4">5.5.2</span> evaluation at +/- pairs allows splitting the computation</h4>
 </div>
-<div id="outline-container-org26c111e" class="outline-4">
-<h4 id="org26c111e"><span class="section-number-4">5.5.3</span> evaluation at complex $n$-th roots of unity allows proper recursion</h4>
+<div id="outline-container-orgb84be16" class="outline-4">
+<h4 id="orgb84be16"><span class="section-number-4">5.5.3</span> evaluation at complex $n$-th roots of unity allows proper recursion</h4>
 </div>
-<div id="outline-container-org3c4772c" class="outline-4">
-<h4 id="org3c4772c"><span class="section-number-4">5.5.4</span> backwards direction is the same thing with matrix inverse</h4>
+<div id="outline-container-org54ecae6" class="outline-4">
+<h4 id="org54ecae6"><span class="section-number-4">5.5.4</span> backwards direction is the same thing with matrix inverse</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-org239e450" class="outline-2">
-<h2 id="org239e450"><span class="section-number-2">6</span> FFT video by steve brunton</h2>
+<div id="outline-container-org45566b8" class="outline-2">
+<h2 id="org45566b8"><span class="section-number-2">6</span> FFT video by steve brunton</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org1c81098" class="outline-3">
-<h3 id="org1c81098"><span class="section-number-3">6.1</span> begin with the DFT (vandermonde) matrix. naive calculation is \(N^2\), since there are \(N^2\) terms</h3>
+<div id="outline-container-org86973d9" class="outline-3">
+<h3 id="org86973d9"><span class="section-number-3">6.1</span> begin with the DFT (vandermonde) matrix. naive calculation is \(N^2\), since there are \(N^2\) terms</h3>
 </div>
-<div id="outline-container-orgc385d25" class="outline-3">
-<h3 id="orgc385d25"><span class="section-number-3">6.2</span> spends a bunch of time talking about \(N^2\) is way worse than \(N \log  N\), eg. \(4KHz \times 10 sec\)</h3>
+<div id="outline-container-org57913ea" class="outline-3">
+<h3 id="org57913ea"><span class="section-number-3">6.2</span> spends a bunch of time talking about \(N^2\) is way worse than \(N \log  N\), eg. \(4KHz \times 10 sec\)</h3>
 </div>
-<div id="outline-container-org4cd9fca" class="outline-3">
-<h3 id="org4cd9fca"><span class="section-number-3">6.3</span> uses</h3>
+<div id="outline-container-org2d5a470" class="outline-3">
+<h3 id="org2d5a470"><span class="section-number-3">6.3</span> uses</h3>
 <div class="outline-text-3" id="text-6-3">
 </div>
-<div id="outline-container-org73a064f" class="outline-4">
-<h4 id="org73a064f"><span class="section-number-4">6.3.1</span> derivatives -&gt; partial differential equations</h4>
+<div id="outline-container-org4e13fcc" class="outline-4">
+<h4 id="org4e13fcc"><span class="section-number-4">6.3.1</span> derivatives -&gt; partial differential equations</h4>
 </div>
-<div id="outline-container-org0bb3712" class="outline-4">
-<h4 id="org0bb3712"><span class="section-number-4">6.3.2</span> data de-noising (remove certain frequencies)</h4>
+<div id="outline-container-orgaeb6a3b" class="outline-4">
+<h4 id="orgaeb6a3b"><span class="section-number-4">6.3.2</span> data de-noising (remove certain frequencies)</h4>
 </div>
-<div id="outline-container-org4bcdd16" class="outline-4">
-<h4 id="org4bcdd16"><span class="section-number-4">6.3.3</span> data analysis</h4>
+<div id="outline-container-org0a797a0" class="outline-4">
+<h4 id="org0a797a0"><span class="section-number-4">6.3.3</span> data analysis</h4>
 </div>
-<div id="outline-container-org279ef1a" class="outline-4">
-<h4 id="org279ef1a"><span class="section-number-4">6.3.4</span> audio/image compression &lt;- wavelet transform</h4>
+<div id="outline-container-org529b95f" class="outline-4">
+<h4 id="org529b95f"><span class="section-number-4">6.3.4</span> audio/image compression &lt;- wavelet transform</h4>
 </div>
-<div id="outline-container-org39b4872" class="outline-4">
-<h4 id="org39b4872"><span class="section-number-4">6.3.5</span> polynomial multiplication</h4>
+<div id="outline-container-orgb5ce1cf" class="outline-4">
+<h4 id="orgb5ce1cf"><span class="section-number-4">6.3.5</span> polynomial multiplication</h4>
 </div>
 </div>
-<div id="outline-container-orge2f7000" class="outline-3">
-<h3 id="orge2f7000"><span class="section-number-3">6.4</span> DFT video</h3>
+<div id="outline-container-org58f9121" class="outline-3">
+<h3 id="org58f9121"><span class="section-number-3">6.4</span> DFT video</h3>
 <div class="outline-text-3" id="text-6-4">
 </div>
-<div id="outline-container-org6e63475" class="outline-4">
-<h4 id="org6e63475"><span class="section-number-4">6.4.1</span> discrete locations -&gt; a vector of data \(\begin{pmatrix}f_1, f_2, \ldots, f_n\end{pmatrix}\)</h4>
+<div id="outline-container-orgcf7b581" class="outline-4">
+<h4 id="orgcf7b581"><span class="section-number-4">6.4.1</span> discrete locations -&gt; a vector of data \(\begin{pmatrix}f_1, f_2, \ldots, f_n\end{pmatrix}\)</h4>
 </div>
-<div id="outline-container-org9dca7bc" class="outline-4">
-<h4 id="org9dca7bc"><span class="section-number-4">6.4.2</span> what we want</h4>
+<div id="outline-container-org60eb505" class="outline-4">
+<h4 id="org60eb505"><span class="section-number-4">6.4.2</span> what we want</h4>
 <div class="outline-text-4" id="text-6-4-2">
 <p>
 \[\begin{aligned}
@@ -715,8 +715,8 @@ The omegas, he calls 'fundamental frequencies'
 </p>
 </div>
 </div>
-<div id="outline-container-org8890db1" class="outline-4">
-<h4 id="org8890db1"><span class="section-number-4">6.4.3</span> now matrixify</h4>
+<div id="outline-container-org00d0ce3" class="outline-4">
+<h4 id="org00d0ce3"><span class="section-number-4">6.4.3</span> now matrixify</h4>
 <div class="outline-text-4" id="text-6-4-3">
 <p>
 \[\begin{aligned}
@@ -737,49 +737,49 @@ The omegas, he calls 'fundamental frequencies'
 </div>
 </div>
 </div>
-<div id="outline-container-orgf88b23a" class="outline-2">
-<h2 id="orgf88b23a"><span class="section-number-2">7</span> meeting</h2>
+<div id="outline-container-orge1fffa0" class="outline-2">
+<h2 id="orge1fffa0"><span class="section-number-2">7</span> meeting</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org1d35f0e" class="outline-3">
-<h3 id="org1d35f0e"><span class="section-number-3">7.1</span> more focuses while cutting back</h3>
+<div id="outline-container-org1358d88" class="outline-3">
+<h3 id="org1358d88"><span class="section-number-3">7.1</span> more focuses while cutting back</h3>
 <div class="outline-text-3" id="text-7-1">
 </div>
-<div id="outline-container-org2a0562f" class="outline-4">
-<h4 id="org2a0562f"><span class="section-number-4">7.1.1</span> linear algebra</h4>
+<div id="outline-container-orgb0db3ea" class="outline-4">
+<h4 id="orgb0db3ea"><span class="section-number-4">7.1.1</span> linear algebra</h4>
 </div>
-<div id="outline-container-orgd93d4ed" class="outline-4">
-<h4 id="orgd93d4ed"><span class="section-number-4">7.1.2</span> additional verbal explanation for people who haven't seen 3b1b before</h4>
+<div id="outline-container-org46742c6" class="outline-4">
+<h4 id="org46742c6"><span class="section-number-4">7.1.2</span> additional verbal explanation for people who haven't seen 3b1b before</h4>
 </div>
-<div id="outline-container-org822ec65" class="outline-4">
-<h4 id="org822ec65"><span class="section-number-4">7.1.3</span> any periodic function as a <i>linear combination</i></h4>
+<div id="outline-container-org977dd54" class="outline-4">
+<h4 id="org977dd54"><span class="section-number-4">7.1.3</span> any periodic function as a <i>linear combination</i></h4>
 <div class="outline-text-4" id="text-7-1-3">
 </div>
 <ol class="org-ol">
-<li><a id="orgeb30ff5"></a>space of periodic functions<br /></li>
-<li><a id="org5df11a4"></a>show its a vector space<br /></li>
-<li><a id="org84859f9"></a>show its a basis<br /></li>
-<li><a id="org2ce805e"></a>simple concepts, but sophisticated context<br /></li>
-<li><a id="org5121c5c"></a>talk about normal fourier transform, not just discrete<br /></li>
+<li><a id="org81ce6fe"></a>space of periodic functions<br /></li>
+<li><a id="org097c1b6"></a>show its a vector space<br /></li>
+<li><a id="org83256c8"></a>show its a basis<br /></li>
+<li><a id="org3e1b904"></a>simple concepts, but sophisticated context<br /></li>
+<li><a id="orgbeba467"></a>talk about normal fourier transform, not just discrete<br /></li>
 </ol>
 </div>
-<div id="outline-container-orgfcb5290" class="outline-4">
-<h4 id="orgfcb5290"><span class="section-number-4">7.1.4</span> maybe focus on periodic functions</h4>
+<div id="outline-container-org6df649e" class="outline-4">
+<h4 id="org6df649e"><span class="section-number-4">7.1.4</span> maybe focus on periodic functions</h4>
 <div class="outline-text-4" id="text-7-1-4">
 </div>
 <ol class="org-ol">
-<li><a id="orgb3778fd"></a>space of continouous functions is also a vector space<br /></li>
-<li><a id="org98a3e8b"></a>the fourier transform is classically about perodic functions<br /></li>
+<li><a id="orgd143880"></a>space of continouous functions is also a vector space<br /></li>
+<li><a id="orgdf08e47"></a>the fourier transform is classically about perodic functions<br /></li>
 </ol>
 </div>
-<div id="outline-container-orgcbbb7c4" class="outline-4">
-<h4 id="orgcbbb7c4"><span class="section-number-4">7.1.5</span> careful definitions</h4>
+<div id="outline-container-org726b10a" class="outline-4">
+<h4 id="org726b10a"><span class="section-number-4">7.1.5</span> careful definitions</h4>
 <div class="outline-text-4" id="text-7-1-5">
 </div>
 <ol class="org-ol">
-<li><a id="org66cf875"></a>non-infinite period<br /></li>
-<li><a id="org446cc66"></a>what do you need to add to keep it closed under addition?<br /></li>
-<li><a id="org0085730"></a>with finite-length sums<br />
+<li><a id="org4b953d6"></a>non-infinite period<br /></li>
+<li><a id="org799f4ad"></a>what do you need to add to keep it closed under addition?<br /></li>
+<li><a id="org000468b"></a>with finite-length sums<br />
 <div class="outline-text-5" id="text-7-1-5-3">
 </div>
 </li>

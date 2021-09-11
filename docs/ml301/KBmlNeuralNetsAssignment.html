@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-11 Sat 09:33 -->
+<!-- 2021-09-11 Sat 10:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Neural Nets Assignment</title>
@@ -330,7 +330,7 @@ their model?
 Tried to add more regularization with this model setup:
 </p>
 
-<pre class="example" id="org47d9f77">
+<pre class="example" id="org1f194fa">
 model = Sequential()
 model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
 model.add(Activation('relu'))
@@ -358,7 +358,7 @@ model.summary()
 After <i>hours</i> of training, the model produced these results:
 </p>
 
-<pre class="example" id="org29737a3">
+<pre class="example" id="org42472ba">
 Test loss: 0.930192768573761
 Test accuracy: 0.7660999894142151
 Training loss: 0.057676762342453
@@ -384,7 +384,7 @@ great.
 Once realizing I wasn't on a GPU, and trying out this new model setup:
 </p>
 
-<pre class="example" id="org1e27bc1">
+<pre class="example" id="org39918c3">
 model = Sequential()
 model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
 model.add(Activation('relu'))
@@ -413,7 +413,7 @@ model.summary()
 It produced these results:
 </p>
 
-<pre class="example" id="org5e65c59">
+<pre class="example" id="org8f6c3cc">
 Test loss: 0.7443265914916992
 Test accuracy: 0.7879999876022339
 Training loss: 0.08786039799451828
@@ -424,7 +424,7 @@ Training accuracy: 0.9797599911689758
 Which, when compared with the original results:
 </p>
 
-<pre class="example" id="org5c25178">
+<pre class="example" id="org0ebadab">
 Test loss: 0.9660877988576889
 Test accuracy: 0.779
 Training loss: 0.024635728995651005
@@ -446,7 +446,7 @@ Is better!
 Dialed up dropout again&#x2026;
 </p>
 
-<pre class="example" id="org1197489">
+<pre class="example" id="org7d11a41">
 model = Sequential()
 model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
 model.add(Activation('relu'))
@@ -471,7 +471,7 @@ model.add(Activation('softmax'))
 model.summary()
 </pre>
 
-<pre class="example" id="org7da2bda">
+<pre class="example" id="orge347587">
 Test loss: 0.6344813704490662
 Test accuracy: 0.7918000221252441
 Training loss: 0.20304201543331146
@@ -489,7 +489,7 @@ Which gave an even better score!
 <div id="outline-container-i4-more-layers" class="outline-3">
 <h3 id="i4-more-layers"><span class="section-number-3">2.4</span> I4: More Layers</h3>
 <div class="outline-text-3" id="text-i4-more-layers">
-<pre class="example" id="orgc1e66ab">
+<pre class="example" id="org56eae6f">
 model = Sequential()
 model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
 model.add(Activation('relu'))
@@ -520,7 +520,7 @@ model.add(Activation('softmax'))
 model.summary()
 </pre>
 
-<pre class="example" id="org045cbdb">
+<pre class="example" id="org0cf4986">
 Test loss: 0.5848628878593445
 Test accuracy: 0.8004999756813049
 Training loss: 0.34681835770606995
@@ -538,7 +538,7 @@ Our test accuracy and training accuracy are approaching each other.
 <div id="outline-container-i9-more-more-layers" class="outline-3">
 <h3 id="i9-more-more-layers"><span class="section-number-3">2.5</span> I(9?): More More Layers</h3>
 <div class="outline-text-3" id="text-i9-more-more-layers">
-<pre class="example" id="org5b7f061">
+<pre class="example" id="orge96690f">
 model = Sequential()
 model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
 model.add(Activation('relu'))
@@ -579,7 +579,7 @@ model.add(Activation('softmax'))
 model.summary()
 </pre>
 
-<pre class="example" id="org16ba40e">
+<pre class="example" id="orgd9ec5ff">
 Test loss: 0.5869606137275696
 Test accuracy: 0.8033999800682068
 Training loss: 0.4103561043739319
