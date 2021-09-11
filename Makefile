@@ -1,6 +1,6 @@
 # Source lists
-MARKDOWN_SRC := $(shell find . -name "*.md" -not -path "./gen/*" -not -path "./src/.stversions")
-RST_SRC := $(shell find . -name "*.rst" -not -path "./gen/*" -not -path "./src/.stversions")
+MARKDOWN_SRC := $(shell find . -name "*.md" -not -path "./gen/*" -not -path "./src/.stversions/*")
+RST_SRC := $(shell find . -name "*.rst" -not -path "./gen/*" -not -path "./src/.stversions/*")
 
 # Conversion lists
 MARKDOWN_CONV := $(MARKDOWN_SRC:.md=.org)
@@ -9,7 +9,7 @@ RST_CONV := $(TEX_SRC:.rst=.org)
 CONV_ALL := $(MARKDOWN_CONV) $(RST_CONV)
 
 # Raw org
-ORG_SRC := $(filter-out $(CONV_ALL), $(shell find . -name "*.org" -not -path "./gen/*" -not -path "./templates/*" -not -path "./README.org" -not -path "./src/.stversions")) 
+ORG_SRC := $(filter-out $(CONV_ALL), $(shell find . -name "*.org" -not -path "./gen/*" -not -path "./templates/*" -not -path "./README.org" -not -path "./src/.stversions/*")) 
 
 # Target lists
 ORG_TARGET := $(ORG_SRC) $(CONV_ALL) 
