@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,150 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Huxley Marvit}
 \date{\today}
-\title{}
+\title{Introduction to Groups and Matrices}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Huxley Marvit},
+ pdftitle={Introduction to Groups and Matrices},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\#ref \#ret
 
+\noindent\rule{\textwidth}{0.5pt}
+
+\section{[[\url{https://nuevaschool.instructure.com/courses/3718/assignments/61005}][The}
+\label{sec:orgacde67c}
+Assignment]]
+:CUSTOM\textsubscript{ID}: the-assignment
+\href{Screen Shot 2021-08-28 at 6.12.09 PM.png.org}{Screen Shot
+2021-08-28 at 6.12.09 PM.png} \href{8-28-21, 9:32 PM Microsoft Lens.pdf.org}{8-28-21, 9:32 PM Microsoft Lens.pdf}
+
+\begin{verbatim}
+For some reason the pdf isn't rendering, so I'll attach it as an additional file. Apologies for the handwriting..
+\end{verbatim}
+
+\subsubsection{\textbf{Tell us why you decided to sign up for this class.}}
+\label{sec:orgd0f79ca}
+I spend most of my free time doing programming projects with my friends,
+and recently I've been doing a lot of Machine Learning. My 'excuse' for
+taking linear algebra is that in my more recent ML projects I've had to
+go lower level and I'm being held back by my understanding of linear
+algebra and statistics, but frankly linear algebra just sounds really
+cool and I enjoy Nueva math classes a lot.
+
+\subsubsection{*read 1.a from the textbook. we will discuss any questions on}
+\label{sec:org089d2ff}
+monday! *
+:CUSTOM\textsubscript{ID}: read-1.a-from-the-textbook.-we-will-discuss-any-questions-on-monday
+q: is division also a lie? yes! q: do tuples all need the same type? why
+call them n-tuples instead of lists? q: why is it called liniear
+algebra? the explanation that it doesnt deal with geo doesnt explain it
+
+\subsubsection{*Which of the number systems we discussed are groups under addition?}
+\label{sec:org8f18811}
+Under multiplication?*
+:CUSTOM\textsubscript{ID}: which-of-the-number-systems-we-discussed-are-groups-under-addition-under-multiplication
+
+\begin{itemize}
+\item natural
+
+\begin{itemize}
+\item + N: no identity
+\item * N: no inverse
+\end{itemize}
+
+\item whole
+
+\begin{itemize}
+\item + N: no inverse
+\item * N: no inverse
+\end{itemize}
+
+\item integers
+
+\begin{itemize}
+\item + Y
+\item * N: no inverse
+\end{itemize}
+
+\item rational
+
+\begin{itemize}
+\item + Y
+\item * Y : wrong! no inverse for 0. ish\ldots{}
+\end{itemize}
+
+\item real
+
+\begin{itemize}
+\item + Y
+\item * Y
+\end{itemize}
+
+\item complex
+
+\begin{itemize}
+\item + Y
+\item * Y missing zero!
+\end{itemize}
+\end{itemize}
+
+\subsubsection{*Is there a multiplication for 3 by 1 vectors that satisfies all}
+\label{sec:org389fd84}
+group requirements?*
+:CUSTOM\textsubscript{ID}: is-there-a-multiplication-for-3-by-1-vectors-that-satisfies-all-group-requirements
+Y -- Multiply equal indices.
+
+E.g. \$
+\begin{bmatrix} 1 & 2 & 3 \end{bmatrix}
+\$ \$
+\begin{bmatrix} 2 & 2 & 2 \end{bmatrix}
+=
+\begin{bmatrix} 1*2 & 2*2 & 3*2 \end{bmatrix}
+=
+\begin{bmatrix} 2 & 4 & 6 \end{bmatrix}
+\$
+
+\subsubsection{\textbf{Is there an identity for multiplication on 2 by 2 matrices?}}
+\label{sec:org4a527ef}
+Y -- \$
+\begin{bmatrix} 1 & 0 \\ 0 & 1  \end{bmatrix}
+\$
+
+0s cancel the multiplications where the operation index doesn't match
+the sum of the matrix indices.
+
+expand to 1s along the diagonal
 \end{document}

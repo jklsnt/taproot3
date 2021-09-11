@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-10 Fri 23:24 -->
+<!-- 2021-09-11 Sat 08:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Capacitors</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Taproot" />
+<meta name="author" content="Houjun Liu, Exr0n" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="./global.css" type="text/css"/>
+<link rel="stylesheet" href="../global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,6 +216,28 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -223,9 +245,249 @@
  |
  <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
 </div><div id="content">
+<h1 class="title">Capacitors</h1>
+<p>
+#ref
+</p>
+
+<div id="outline-container-capacitors-vs.-batteries" class="outline-2">
+<h2 id="capacitors-vs.-batteries"><span class="section-number-2">1</span> Capacitors vs. Batteries</h2>
+<div class="outline-text-2" id="text-capacitors-vs.-batteries">
+<p>
+<b>Batteries</b> =&gt; Converting \(PE_{chem}\) =&gt; Eletrical energy
+</p>
+
+<p>
+<b>Capacitors</b> =&gt; Converting \(PE_{elec}\) =&gt; Eletrical energy
+</p>
+
+<p>
+When you are discharging a battery, they remain at constant voltage
+until they are used up, at which point the voltage drop like a plate.
+</p>
+
+<p>
+When you are discharging a capacitor, there is a linear fall in voltage
+that is constant.
+</p>
+
+<p>
+Charge remaining: capacitance times voltage
+</p>
+</div>
+</div>
+
+<div id="outline-container-energy-on-a-capacitor" class="outline-2">
+<h2 id="energy-on-a-capacitor"><span class="section-number-2">2</span> Energy on a Capacitor</h2>
+<div class="outline-text-2" id="text-energy-on-a-capacitor">
+<p>
+A little bit #disorganized
+</p>
+
+<p>
+Energy stored on a capacitor: \(E=\frac{V_c * Q}{2}\).
+</p>
+
+<p>
+Charge on a capacitor: \(Q = C \times V_c\)
+</p>
+
+<p>
+Farads: \(F = \frac{C}{V}\)
+</p>
+
+<p>
+So, putting this together, the energy stored on a capacitor would be&#x2026;
+</p>
+
+<p>
+\definition[as $Q=C \times V_c$]{Energy stored in a capacitor}{\(E=\frac{V \times Q}{2} = \frac{CV^2}{2}\)}
+\(Q_{cap} \propto V\). In fact \(Q_{cap} = C \times V_c\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-capacitors-interacting-with-resistance" class="outline-2">
+<h2 id="capacitors-interacting-with-resistance"><span class="section-number-2">3</span> Capacitors interacting with Resistance</h2>
+<div class="outline-text-2" id="text-capacitors-interacting-with-resistance">
+<p>
+As you increase the
+<a href="KBhPHYS201ResistanceConductivity.html">KBhPHYS201ResistanceConductivity</a>,
+the a capacitor of the same capacitance would charge slower. (<i>"Less
+charge flows in"</i>)
+</p>
+
+<p>
+As you fix the Resistance, the capacitor of a higher capacitance would
+charge slower. (<i>"Need more change to fill"</i>)
+</p>
+
+
+<div id="org9ef3c6a" class="figure">
+<p><img src="Screen Shot 2020-09-30 at 10.42.44 AM.png" alt="Screen Shot 2020-09-30 at 10.42.44 AM.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Screen Shot 2020-09-30 at 10.42.44 AM.png</p>
+</div>
+
+<p>
+<i>Charging time</i> is in fairly good agreement with <i>resistance times
+capacitance</i>.
+</p>
+
+<p>
+So&#x2026; #disorganized
+</p>
+
+<p>
+Experimentally, "Charging time", \(\tau\) \(\approx R \times C\).
+</p>
+
+<p>
+Let's check the units!
+</p>
+
+<ul class="org-ul">
+<li>\(V = IR\)</li>
+
+<li>\(R = \frac{V}{I}\)</li>
+
+<li>So \(R = \omega = \frac{V * s}{Q}\)</li>
+
+<li>\(Q = CV\)</li>
+
+<li>So \(\frac{Q}{V} = C\)</li>
+</ul>
+
+<p>
+Hence,
+\(R \times C = \frac{\cancel{V} \times s}{\cancel{Q}} = \cancel{\frac{Q}{V}}\),
+indeed, has a unit Seconds!
+</p>
+</div>
+</div>
+
+<div id="outline-container-equations-modeling-charging-a-capacitor" class="outline-2">
+<h2 id="equations-modeling-charging-a-capacitor"><span class="section-number-2">4</span> Equations modeling charging a capacitor</h2>
+<div class="outline-text-2" id="text-equations-modeling-charging-a-capacitor">
+<p>
+\definition[where $R$ is the resistance, $C$ is the capacitance]{Time Constant Tau}{$RC = \tau$ — time constant to be able to change the capacitor to a useful voltage; aka how much does the capacitor need to noticeably charge/discharge.}
+Now that we have this value, we could also represent the full charge
+process using the equations as follows:
+</p>
+
+<p>
+\definition[where $V_b$ is the battery voltage, $t$ is time elapsed, $R$ is resistance, and $C$ is the capacitance]{Current in circuit as you charge a capacitor}{\(I(t) = \frac{V_b}{R} \times e^{\frac{-t}{RC}}\)}
+As you start to charge a capacitor, the current starts at
+\(\frac{V_b}{R}\) &#x2014; current just without the resistor. Then, it will
+slowly drop down to 0.
+</p>
+
+<p>
+\definition[where $V_b$ is the battery voltage, $t$ is time elapsed, $R$ is resistance, and $C$ is the capacitance]{Voltage before and after a capacitor as you charge a capacitor}{\(V(t) = V_b \times (1 - e^{\frac{-t}{RC}})\)}
+#disorganized
+</p>
+</div>
+</div>
+
+<div id="outline-container-capacitors-in-series-and-parallel" class="outline-2">
+<h2 id="capacitors-in-series-and-parallel"><span class="section-number-2">5</span> Capacitors in series and parallel</h2>
+<div class="outline-text-2" id="text-capacitors-in-series-and-parallel">
+<p>
+Helpful to see:
+<a href="KBhPHYS201CombiningResistors.html">KBhPHYS201CombiningResistors</a>
+</p>
+</div>
+
+<div id="outline-container-capacitors-in-parallel" class="outline-3">
+<h3 id="capacitors-in-parallel"><span class="section-number-3">5.1</span> Capacitors in Parallel</h3>
+<div class="outline-text-3" id="text-capacitors-in-parallel">
+
+<div id="orgfe40e23" class="figure">
+<p><img src="Screen Shot 2020-10-07 at 10.20.06 AM.png" alt="Screen Shot 2020-10-07 at 10.20.06 AM.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span>Screen Shot 2020-10-07 at 10.20.06 AM.png</p>
+</div>
+
+<p>
+\(Q_{tot} = Q_1 + Q_2\).
+</p>
+
+<p>
+And, because of the fact that \(C = \frac{Q}{V}\),
+\(V\times C_{eq} = V \times C_1 + V \times C_2\)
+</p>
+
+<p>
+Dividing \(V\) out of the previous equations \(C_{eq} = C_1 + C_2\).
+</p>
+
+<p>
+<b>Capacitors in parallel act like resistors in series.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-capacitors-in-series" class="outline-3">
+<h3 id="capacitors-in-series"><span class="section-number-3">5.2</span> Capacitors in Series</h3>
+<div class="outline-text-3" id="text-capacitors-in-series">
+
+<div id="org29bb81f" class="figure">
+<p><img src="Screen Shot 2020-10-07 at 10.23.08 AM.png" alt="Screen Shot 2020-10-07 at 10.23.08 AM.png" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Screen Shot 2020-10-07 at 10.23.08 AM.png</p>
+</div>
+
+<p>
+Because of the fact that the middle wire does not carry any changes, it
+is "neutral" and simply polarized &#x2014; making \(Q_1\) equaling \(Q_2.\)
+</p>
+
+<p>
+Why is this? If the middle bit is neutral, the \(Q^+\) on one end would
+equal to the \(Q^-\) on the other. Correspondingly, the other side of
+the plates of the capacitor would have the opposite of the same values
+\(Q^-\) and \(Q^+\) on the neutral middle plate.
+</p>
+
+<p>
+By the transitive property, \(Q_1 = Q_2\).
+</p>
+
+<p>
+Because \(V_1 + V_2 = V_b\) &#x2014; see
+<a href="KBhPHYS201CombiningResistors.html">KBhPHYS201CombiningResistors</a>
+&amp; \(C = \frac{Q}{V}\) ,
+\(\frac{Q_1}{V} + \frac{Q_2}{V} = \frac{Q_{tot}}{V}\).
+</p>
+
+<p>
+Given \(Q_1 = Q_2\).
+</p>
+
+<p>
+So
+</p>
+</div>
+</div>
+
+<div id="outline-container-construction-of-capacitors" class="outline-3">
+<h3 id="construction-of-capacitors"><span class="section-number-3">5.3</span> Construction of Capacitors</h3>
+<div class="outline-text-3" id="text-construction-of-capacitors">
+<p>
+A diagram of the plates inside a polar capacitor before being rolled up.
+</p>
+
+
+<div id="orgfe7f5fa" class="figure">
+<p><img src="./Pastedimage20201007131933.png" alt="Pastedimage20201007131933.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-10 Fri 23:23</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+<div class="namedate"><p class="subtitle"><span class="author">Houjun Liu, Exr0n</span><span class="date">2021-09-11 Sat 08:14</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>

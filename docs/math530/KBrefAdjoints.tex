@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,105 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
 \author{Taproot}
 \date{\today}
-\title{}
+\title{Adjoint}
 \hypersetup{
  pdfauthor={Taproot},
- pdftitle={},
+ pdftitle={Adjoint},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\section{adjoint, \(T^*\)\hfill{}\textsc{def}}
+\label{sec:orge27e0fb}
+\begin{quote}
+Suppose \$T \(\in\) \mathcal L(V, W). The \emph{adjoint} of \(T\) is the function \(T^* : W \to  V\) s.t.
+\[\begin{aligned}
+   \langle Tv, w \rangle = \langle v, T^* w \rangle
+  \end{aligned}\]
+\end{quote}
+Apparently there's another meaning for 'adjoint' in linear algebra too, but it's not covered here.
 
+This definition makes sense because of the \href{KBrefLinearFunctional.org}{Riesz Representation Theorem}\ldots{} :question:
+
+Adjoints are kind of like complex conjugates, as seen in \href{KBrefConjugateTranspose.org}{Axler 7.10}
+
+\section{results}
+\label{sec:orgdbd7cd8}
+
+\subsection{Useful technique: 'flip \(T^*\) from one side of an inner product to become \(T\) on the other side'}
+\label{sec:org5567dd7}
+You can always do this by definition of adjoint.
+
+\subsection{Axler7.5 the adjoint is a linear map}
+\label{sec:org402d27a}
+
+\begin{quote}
+If \(T \in   \mathcal{L} (V, W)\), then \(T^* \in  \mathcal{L} (W, V)\).
+\end{quote}
+
+\subsection{Axler7.6 Properties of the adjoint}
+\label{sec:orgde8c17f}
+
+\subsubsection{\((S+T)^* = S^* + T^*\) for all \(S, T \in  \mathcal{L}(V, W)\)}
+\label{sec:org3b5c6e5}
+
+\subsubsection{\((\lambda T)^* = \overline{\lambda}  T^*\) for all \(\lambda \in  \mathbb{F}\) and \(T \in  \mathcal{L} (V, W)\)}
+\label{sec:org87b9f5c}
+
+\subsubsection{\((T^*)^* = T\) for all \(T \in  L(V, W)\)}
+\label{sec:org61b71cf}
+
+\subsubsection{\(I^* = I\)}
+\label{sec:org2b68f6d}
+
+\subsubsection{\((ST)^* = T*S*\) for all \(T \in \mathcal{L} (V, W)\) and \(S \in  \mathcal{L} (W, U)\) where \(U\) is an inner product space over \(\mathbb{F}\)}
+\label{sec:org0125827}
+
+\subsection{Axler7.7 null space and range of \(T^*\)}
+\label{sec:orgab76d18}
+
+Suppose \(T \in  \mathcal{L}(V, W)\). Then,
+
+\subsubsection{\(\onull T^* = (\orange T)^\bot\)}
+\label{sec:org86c206d}
+
+\subsubsection{\(\orange T^* = (\onull T)^\bot\)}
+\label{sec:orgbfee994}
+
+\subsubsection{\(\onull T = (\orange T^*)^\bot\)}
+\label{sec:org110a782}
+
+\subsubsection{\(\orange T = (\onull T^*)^\bot\)}
+\label{sec:org18fa302}
 \end{document}

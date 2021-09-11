@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,114 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Houjun Liu}
 \date{\today}
-\title{}
+\title{Energy, a review!}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Houjun Liu},
+ pdftitle={Energy, a review!},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+So let's talk about energy!
 
+\section{Types of Energy}
+\label{sec:org59821e0}
+\begin{itemize}
+\item Potential Energy \(PE_{grav}=mgh\) (which is work (force times
+distance) for moving stuff up \(\vec{F} \cdot \vec{h}\))
+\item Kinetic Energy \(KE_{translational} = \frac{1}{2}mv^2\) +
+\(KE_{rotational} = \frac{1}{2}I \omega^2\)
+\end{itemize}
+
+Where\ldots{}
+
+\begin{itemize}
+\item \(I\): moment of inertia
+\item \(\omega\): rotational velocity
+\end{itemize}
+
+\section{Work}
+\label{sec:org049809d}
+\(W = \vec{F} \cdot \vec{d}\), where \(\vec{F}\) force and \(\vec{d}\)
+change of distance that the force manifest.
+
+=> \(W = |\vec{F}|\cos{\theta} \times |\vec{d}|\)
+
+which, => \(W = |\vec{d}|\cos{\theta} \times |\vec{F}|\)
+
+so, essentially, work is either displacement times parallel as part of
+force, or visa versa.
+
+Why?
+
+\subsection{The Dot Product, a review}
+\label{sec:org53325e6}
+\subsubsection{What is it}
+\label{sec:orge81424c}
+The Dot product is a measure of the "pararllelity" of \(\vec{F}\) with
+\(\vec{D}\).
+
+=> Dot product: the component of the first vector parallel to the second
+vector multiplied to the magnitude of d.
+
+\(\vec{A} \cdot \vec{B} = |\vec{A}||\vec{B}|\cos{\theta}\)
+
+\subsubsection{Calculating it}
+\label{sec:org172bda3}
+Given two vectors
+
+\begin{itemize}
+\item \(\vec{V_1} = <a_x, a_y, a_z>\)
+\item \(\vec{V_2} = <b_x, b_y, b_z>\)
+\end{itemize}
+
+The dot product is\ldots{}
+
+\(\vec{V1} \times \vec{V2} = a_x b_x + a_y b_y + a_z b_z\)
+
+\section{Potential Energy}
+\label{sec:org82e36f6}
+Potential energy exists because of a force field. There is an object
+"propping" it up pending release of energy.
+
+\subsection{Where did \(\Delta PE = W = mg \Delta h\) come from?}
+\label{sec:org572aeff}
+So, define \(PE = -W_{AB}\). Which is "potential energy of A to B."
+Gravity will do a certain amount of work from one point to anther, it
+will do the opposite the other way.
+
+\(\Delta PE_g = -W_{AB} = -\vec{F} \cdot \vec{d}\)
+
+\(\Delta PE_g = -((-mg) \cdot \Delta h)\) The negative again! \$ is
 \end{document}

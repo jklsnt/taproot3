@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:16
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,63 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
-\title{}
+\title{Calc ret3\textsubscript{4} light aka 3\textsubscript{5}}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Exr0n},
+ pdftitle={Calc ret3\textsubscript{4} light aka 3\textsubscript{5}},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
-
+\maketitle
+\section{lamar chain rule}
+\label{sec:org173621e}
+\subsection{4}
+\label{sec:orgd5c2523}
+$$\frac{\partial}{\partial w}\sqrt{w^3+8w^2} =\frac{\left(3w^2+16w\right)}{2 \sqrt{w^3+8w^2}}$$
+\subsection{8}
+\label{sec:org1944ba0}
+$$\frac{\partial}{\partial x} \tan\left(1-2e^x\right) = -2e^x\sec^2\left(1-2e^x\right)$$
+\subsection{9}
+\label{sec:orga5335aa}
+$$\frac{\partial}{\partial z} \cos\left(\sin\left(z\right)+z^2\right) = -\sin\left(\sin x+x^{2}\right)\left(\cos x+2x\right)$$
+\subsection{13}
+\label{sec:org925c8b0}
+$$\frac{\partial}{\partial z} e^{12z-z^6} = e^{12z-z^6}\left(12-6z^5\right)$$
+\subsection{42}
+\label{sec:orga975fc2}
+$$\frac{\partial}{\partial v} \sqrt{\frac{e^v}{7+2v}} = \frac{1}{2\sqrt{\frac{e^v}{7+2v}}}\frac{(7+2v)e^v-2e^v}{(7+2v)^2} = \frac{\left(5+2v\right)e^v}{2\left(7+2v\right)^2\sqrt{\frac{e^v}{7+2v}}}$$
+\subsection{43}
+\label{sec:org926f84a}
+$$\frac{\partial}{\partial x} \sqrt{x^2+\sqrt{1+4x}} = \frac{1}{2\sqrt{x^2+\sqrt{1+4x}}}\left(2x+\frac{4}{2\sqrt{1+4x}}\right) = \frac{x+\frac{1}{\sqrt{1+4x}}}{\sqrt{x^2+\sqrt{1+4x}}}$$
 \end{document}

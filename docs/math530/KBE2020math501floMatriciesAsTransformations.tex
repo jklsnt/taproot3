@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,76 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
-\title{}
+\title{Matricies as transformations}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Exr0n},
+ pdftitle={Matricies as transformations},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\#flo
 
+\section{Flo}
+\label{sec:org2dd2022}
+\subsection{Thought Processes}
+\label{sec:orgb3ac4ac}
+\begin{itemize}
+\item As geometric transformations
+\item As algebraic transformations
+\end{itemize}
+
+\subsection{Examples}
+\label{sec:org7e45af5}
+\(\begin{matrix}x &0 \\ 0 &y\end{matrix}\) | Scale by \(x\) and \(y\)
+\(\begin{matrix}0 &1 \\ -1 & 0\end{matrix}\) | Rotate -90deg (easier to
+visualize geometrically, also two reflections (over \(y=x\) and
+\(y=0\))) \(\begin{matrix}1 &1 \\ 0 &1\end{matrix}\) | Add \(y\) to
+\(x\) (easier to visualize algebraically, also a shear)
+
+\subsection{Related}
+\label{sec:orge028f1f}
+\begin{itemize}
+\item \href{KBe2020math530retPracticeMultiplyMatrixIdentfyGroups.org}{KBe2020math530retPracticeMultiplyMatrixIdentfyGroups}
+\end{itemize}
+
+\section{Rotation Matrices}
+\label{sec:org920df6e}
+\begin{itemize}
+\item We can get 90deg rotations decently easily, but what about other
+angles?
+\end{itemize}
+
+\noindent\rule{\textwidth}{0.5pt}
 \end{document}

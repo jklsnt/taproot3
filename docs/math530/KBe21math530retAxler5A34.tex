@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,81 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Albert Huang}
 \date{\today}
-\title{}
+\title{Axler 5.A 34}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Albert Huang},
+ pdftitle={Axler 5.A 34},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\section{Problem}
+\label{sec:org783fa7a}
+\begin{quote}
+Suppose \(T \in \mathcal L (V)\). Prove that \(T / (\onull T)\) is injective if and only if \((\onull T) \cap (\orange T) = \{ 0 \}\)
+\end{quote}
+\section{Proof}
+\label{sec:orga4a3562}
+\subsection{Condition Manipulation}
+\label{sec:org2c5affc}
+First, we will rewrite the problem as logical statements for easier manipulation.
 
+\subsubsection{Left Condition}
+\label{sec:org97e8af6}
+The left-hand side "\(T / (\onull T)\) is injective" is equivalent to:
+
+\[\begin{aligned}
+	\left( T/U \left( v+U\right) = 0 \right)  &\implies \left(  v+U = 0 \right) &&\text{(alternate definition of injective)}\\
+	Tv + U = \onull T &\implies v + U = \onull T &&\text{(\(T/U(v+U)\) is defined as \(Tv + U\))}\\
+	Tv + \left( \onull T \right) = \onull T &\implies v + \left( \onull T \right) = \onull T  &&\text{(}U=\onull T\text)\\
+	Tv \in \onull T &\implies v \in \onull T\\
+	T^2v = 0 &\implies v \in \onull T
+	\end{aligned}\]
+
+\subsubsection{Right Condition}
+\label{sec:org533b97f}
+We can also rewrite the right-hand condition for easier manipulation. The intersection of the null space and the range being \(0\) is the same as (assuming \(w \neq 0\)) "if \(w \in \onull T\) then \(w \notin \orange T\)" and "if \(w \in \orange T\) then \(w \notin \onull T\)". Note that these are contrapositives of eachother, so we just need to work with the second statement.
+
+Thus, assuming \(w \neq 0\), these statements are equivalent:
+
+\[\begin{aligned}
+	\left( \exists v : Tv = w \right) &\implies  \left( Tw \neq  0 \right)     &&\text{(definitions of null space and range)}\\
+	v \notin \onull T &\implies T^2 v \neq 0                                   &&\text{(}w \neq 0\text{)}\\
+	T^2 v = 0 &\implies v \in \onull T                                         &&\text{(contrapositive)}
+	\end{aligned}\]
+
+\subsection{Proof}
+\label{sec:orgbfb04e9}
+The statements are equivalent. \(\hfill\blacksquare\)
 \end{document}

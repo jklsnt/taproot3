@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,412 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
 \author{Taproot}
 \date{\today}
-\title{}
+\title{Fast multiplication with fast fourier transforms}
 \hypersetup{
  pdfauthor={Taproot},
- pdftitle={},
+ pdftitle={Fast multiplication with fast fourier transforms},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\section{base knowlege}
+\label{sec:org0b59ab3}
+\subsection{primitive root of unity}
+\label{sec:org7f03cb0}
+\subsubsection{a number \(r\) is a primitive \$n\$th root of unity iff \(n\) is the smallest counting number for which \(r^n = 1\).}
+\label{sec:org2781101}
+\subsubsection{\url{https://mathworld.wolfram.com/PrimitiveRootofUnity.html}\hfill{}\textsc{source}}
+\label{sec:orgb57f06e}
+\subsection{convolution theorem}
+\label{sec:org6773199}
+\subsubsection{'depends fundamentally on the convolution theorem, which provides an efficient way to compute the cyclic convolution of two sequences. It states that the cyclic convolution of two vectors can be found by taking the discreate fourier transform of each of them, multiplying the resulting vectors element by element, and then taking the inverse discrete fourier transform.'}
+\label{sec:orgd8a3c74}
+\section{sources}
+\label{sec:orgba33963}
+\subsection{\href{http://numbers.computation.free.fr/Constants/Algorithms/fft.html}{explanation of multiplication algorithm}}
+\label{sec:org2cd2400}
+\subsection{\href{https://www.google.com/url?sa=t\&rct=j\&q=\&esrc=s\&source=web\&cd=\&ved=2ahUKEwjtqdjE57jvAhV\_HzQIHeAwALsQFjAFegQIEhAD\&url=http\%3A\%2F\%2Fwww.cs.rug.nl\%2F\~ando\%2Fpdfs\%2FAndo\_Emerencia\_multiplying\_huge\_integers\_using\_fourier\_transforms\_paper.pdf\&usg=AOvVaw1Sf0WR5er7An2U2vjzypZy}{paper explaining the multiplication ANDO EMERENCIA (S1283936)}}
+\label{sec:orgb13231a}
+\subsection{\href{https://medium.com/@aiswaryamathur/understanding-fast-fourier-transform-from-scratch-to-solve-polynomial-multiplication-8018d511162f}{FFT Medium Blog Post}}
+\label{sec:orgf9dc6c0}
+\subsection{\href{https://en.wikipedia.org/wiki/Sch\%C3\%B6nhage\%E2\%80\%93Strassen\_algorithm}{wikipedia on schonhage-strassen (multiplication algo)}}
+\label{sec:orgccc0ef0}
+\section{uses of FFT}
+\label{sec:org0cc4b00}
+\subsection{convert mixed signals into constituent sinusoids}
+\label{sec:org77a58b3}
+\subsection{multiply polynomials using convolution theorem}
+\label{sec:org4578347}
+\subsection{reduce matrix dimensionality}
+\label{sec:org7bb9254}
+\subsection{audio processing (eg. bass boost, or radio denoising for eg. wifi)}
+\label{sec:org4e3a0f1}
+\subsection{MRI machines? scan certain parts using different overlapping sinusoidal magnitudes of magnetic field}
+\label{sec:org48aa112}
+\subsection{microscope or astronomy image decomposition}
+\label{sec:org8733c75}
+\subsection{connection to Heisenberg uncertainty principle (\url{https://www.youtube.com/watch?v=MBnnXbOM5S4})}
+\label{sec:org9678b8b}
+\subsubsection{the fourier transform graph says something about correlation}
+\label{sec:org9589372}
+\begin{enumerate}
+\item eg. for a pure signal (sine 5Hz), a winding frequency of \(\xi=5.01\) will come out pretty high on the almost-fourier-transform graph, aka it is closely correlated
+\label{sec:org3d263f8}
+\item since the actual fourier transform isn't divided by signal length, longer signals will lead to higher (and steeper) peaks
+\label{sec:org96b9008}
+\item these steeper peaks represent more certainty, and a shorter signal means fewer cycles means the signal has less time to balance itself out means the almost-fourier-transform will have shallower and wider peak means less certainty
+\label{sec:org5713774}
+\end{enumerate}
+\subsubsection{can also use the norm of the fourier transform (to capture both x and y bc complex)}
+\label{sec:org5db07ae}
+\subsubsection{when using Doppler radar (in which a single pulse detects position normally and velocity using Doppler shift), this trade off the uncertainty principle shows up}
+\label{sec:org79e0062}
+\begin{enumerate}
+\item since longer radar pulse introduce distance uncertainty and shorter radar pulses have the frequency uncertainty implied by the fourier transform as correlation above
+\label{sec:org079a5c9}
+\end{enumerate}
+\subsubsection{particle as a wave -> relativistic doppler effect ends up having something similar}
+\label{sec:orgb0544a9}
+\section{3b1b video \url{https://www.youtube.com/watch?v=spUNpyF58BY}}
+\label{sec:org201ab5f}
+\subsection{unmixing waves}
+\label{sec:org4a794f1}
+\subsubsection{the added up ones seem needlessly complex for such a little amount of info}
+\label{sec:orgb5a356f}
+\subsection{rotating the wave around a circle}
+\label{sec:org5a9dfd8}
+\subsubsection{aka: wave around the circle is polar coords: length = magnitude of wave at that point, offset = phase + some angular velocity (the 'rotation' frequency)}
+\label{sec:org6d7ca77}
+\subsubsection{there are two frequencies: 1. the frequency at which the vector goes around the circle 'winding frequency', and 2. the original and 'true' frequency of the wave}
+\label{sec:org149a341}
+\subsubsection{when the frequencies match, all the high points are on the right and low points are on the left\ldots{} question is how can we quantify this specialness}
+\label{sec:orgef2c4b5}
+\subsubsection{center of mass as a function of the winding frequency}
+\label{sec:orgd77cf7a}
+\begin{enumerate}
+\item frequency of zero is high, and then it wobbles for a while until a frequency matches
+\label{sec:org5bab9d0}
+\end{enumerate}
+\subsection{central construct}
+\label{sec:org7628956}
+\subsubsection{original plot (intensity | time)}
+\label{sec:orgc8bbf0f}
+\subsubsection{winding chart (wound signal | signal, winding frequency)}
+\label{sec:org28e9320}
+\subsubsection{center-of-mass plot (x coord | winding frequency)}
+\label{sec:org74e4b32}
+\begin{enumerate}
+\item the spike at zero only happens because the original freq doesn't oscillate about zero
+\label{sec:org455dd6d}
+\end{enumerate}
+\subsection{he calls this the 'almost Fourier transform'}
+\label{sec:org2f24db0}
+\subsubsection{additive: you can take the almost fourier transform first or you can take the sum first and you will get the same center-of-mass plot out}
+\label{sec:orgda1bfa3}
+\begin{enumerate}
+\item pause and ponder: multiple arrows going around the circle, tip to tail
+\label{sec:org9f4681a}
+\end{enumerate}
+\subsection{formalizing the 'center of mass'}
+\label{sec:org3fbacd5}
+\subsubsection{complex numbers: works well for 2d plane and rotation can be described by}
+\label{sec:org408b0cf}
+\[\begin{aligned}
+    e^{2\pi i t}
+	\end{aligned}\]
+by multiplying that \(t\) by a scalar, you can change the frequency:
+\[\begin{aligned}
+    e^{2\pi i f t }
+	\end{aligned}\]
+\subsubsection{actual formalization}
+\label{sec:org935e035}
+\begin{enumerate}
+\item convention: rotate in clockwise direction
+\label{sec:orgbc4c086}
 
+\[\begin{aligned}
+     e^{-2\pi ift}
+	 \end{aligned}\]
+\item let the original function be called \(g(t)\), then scale by that for the 'vector following the original graph magnitude'
+\label{sec:orgd2e9400}
+
+\[\begin{aligned}
+     g(t) e^{-2\pi ift}
+	 \end{aligned}\]
+\item tracking 'center of mass': sample points and average them
+\label{sec:org566e53e}
+
+if \(N\) is the number of points that you sample and \(t_k\) is the k-th sampled point,
+\[\begin{aligned}
+	\frac{1}{N}\sum_{i=1}^{N} g(t_k) e^{-2\pi i f t_k}
+	 \end{aligned}\]
+\item and if we want a more accurate sample, just take the limit to infinity
+\label{sec:org0ab1b2c}
+
+\[\begin{aligned}
+    \lim_{N \to\infty }\frac{1}{N} \sum_{i=1}^{N} g(t_k) e^{-2\pi i f t_k}
+	 \end{aligned}\]
+\item which is really the same as taking the integral
+\label{sec:org6317b91}
+
+\[\begin{aligned}
+     \frac{1}{t_2-t_1}\int_{t_1}^{t_2} g(t) e^{-2\pi ift} dt
+	 \end{aligned}\]
+\item but we don't actually need to divide by the time interval
+\label{sec:org7a52e8f}
+\[\begin{aligned}
+     \int_{t_1}^{t_2} g(t) e^{-2\pi ift} dt
+	 \end{aligned}\]
+
+This means that when a frequency persists for a long time, it gets scaled more
+\end{enumerate}
+\section{\href{https://www.youtube.com/watch?v=h7apO7q16V0}{Reducible on FFT}}
+\label{sec:org8ba8603}
+\subsection{intro: its important and beautiful}
+\label{sec:orgc506639}
+\subsection{start with multiplying polynomials}
+\label{sec:orgbc00104}
+\subsubsection{represent by list of coefficients in ascending order (index = degree of term) (polynomial representation)}
+\label{sec:orgace15a9}
+\subsubsection{another option: two-point representation}
+\label{sec:org0b93880}
+\begin{enumerate}
+\item extension: any degree \(n\) polynomial can be represented by \(n+1\) points uniquely
+\label{sec:orgd867871}
+\item proof: write as a system of equations, matrixify, and we know that the matrix will be invertible
+\label{sec:orgbb7bf22}
+\item its a bijection, lets call it the value representation
+\label{sec:orgdaa8875}
+\end{enumerate}
+\subsubsection{now to multiply, we can just take enough points on each polynomial and multiply those points to get \(d_1 + d_2 + 1\) points on the product polynomial, and then solve for the actual equation}
+\label{sec:org194ef91}
+\subsubsection{only O(d) operations}
+\label{sec:org2395f93}
+\subsubsection{now, we need a function take coefficients to values and values to coefficients, this box is the fast fourier transform}
+\label{sec:org079ea44}
+\subsection{forward direction: evaluation}
+\label{sec:org4b92cf4}
+\subsubsection{naive: evaluating each point takes O(d) operations which means the total eval will be \(d^2\), which is no better}
+\label{sec:orgdd9c2fa}
+\subsubsection{simpler problem}
+\label{sec:orgb1821b4}
+\begin{enumerate}
+\item suppose \(f(x) = x^2\), then picking points that are symmetric (bc even function) means you only have to evaluate half of them
+\label{sec:orgd901d0f}
+\item can also do something similar for odd functions. so when you split a general polynomial into even terms and odd terms, then we can just eval each and get double the results
+\label{sec:orgf9f19eb}
+\end{enumerate}
+\subsubsection{he calls them \(P_e(x^2)\) and \(P_o(x^2)\), and they are polynomials of \(x^2\) so deg 2??\hfill{}\textsc{toexpand}}
+\label{sec:orge47dbc2}
+\subsubsection{so now we recurse}
+\label{sec:orgebcd93c}
+\begin{enumerate}
+\item now it will be \(O(n \log  n)\)
+\label{sec:orgb821df8}
+\end{enumerate}
+\subsubsection{a problem: we need to choose positive/negative pairs but since the recursed ones are squared, then everything will be positive}
+\label{sec:org9748566}
+\begin{enumerate}
+\item how to solve this problem\ldots{} work over the complex numbers!
+\label{sec:org0402963}
+\item now what initial points do we want to choose\ldots{} an example shows that it should be \(x^n = 1\) for a fourth degree polynomial
+\label{sec:orgb53980d}
+\item so we want roots of unity, for some \(n \leq d+1\) and \(n = 2^k\)
+\label{sec:orge0e53b7}
+\item how to write it:
+\label{sec:org049dd53}
+
+\[\begin{aligned}
+     \omega = e^{\frac{2\pi i}{n}}
+	 \end{aligned}\]
+
+Then each root of unity can be expressed as a power of \(\omega\)
+
+evaluate P(x) at
+\[\begin{aligned}
+	 [1, \omega , \omega ^2, \ldots, \omega ^{n-1}]
+	 \end{aligned}\]
+\item why these
+\label{sec:org2548675}
+\begin{enumerate}
+\item positive-negative paired: the point across the circle is the pair
+\label{sec:org018df69}
+\item when squared, the n roots of unity become the n/2 roots of unity, which still have points across the circle
+\label{sec:orge55a274}
+\end{enumerate}
+\end{enumerate}
+\subsubsection{recursion time}
+\label{sec:orgcaac171}
+\begin{enumerate}
+\item base case: n = 1 -> P(1)
+\label{sec:orge081573}
+\item recurse
+\label{sec:org1231c6f}
+\begin{enumerate}
+\item split into even/odd degree terms
+\label{sec:org0cc57da}
+\item recurse to get \(y_e, y_o\)
+\label{sec:org04e296e}
+\item some math ( \(x_j = \omega ^j\), \(-\omega ^j = \omega ^{j+\frac{n}{2}}\), \(y_e[j] = P_e(\omega ^{2j}), y_o[j] = P_o(\omega ^{2j})\) ) shows \(P(\omega ^j) = y_e[j] + \omega ^j y_o[j], P(\omega ^{j+\frac{n}{2}}) = y_e[j] - \omega ^j y_o[j]\)
+\label{sec:orgc1d9aed}
+\end{enumerate}
+\end{enumerate}
+\subsubsection{its clean to use \(d\) is a power of two, but there are impls that can handle others also}
+\label{sec:org547402b}
+\subsection{backward direction: interpolation}
+\label{sec:orgfdf16de}
+\subsubsection{step back}
+\label{sec:org2938d96}
+\begin{enumerate}
+\item evaluation was a matrix vector product, and using the \$k\$-th roots of unity allows us to simplify the product
+\label{sec:orgfa3598a}
+\item interpolation is just the inverse of the DFT matrix
+\label{sec:org4ae7949}
+\end{enumerate}
+\subsubsection{inverse FFT}
+\label{sec:orgc1ee43a}
+\begin{enumerate}
+\item given polynomial evaluated at roots of unity, get the coefficients back out
+\label{sec:org86f8a2f}
+\item after inverting the matrix, you find that each corresponding \(\omega\) became \(\frac{1}{n}\omega^{-1}\)
+\label{sec:org3b63591}
+\item so now we define the inverse fft as just the fft but with new inputs: define \(\omega = \frac{1}{n}e^{\frac{-2\pi i}{n}}\)
+\label{sec:org0f74d9f}
+\end{enumerate}
+\subsection{recap:}
+\label{sec:org0228bb9}
+\subsubsection{polynomial multiplication is sped in value representation}
+\label{sec:orgbf9b5d1}
+\subsubsection{evaluation at +/- pairs allows splitting the computation}
+\label{sec:org69ec693}
+\subsubsection{evaluation at complex \$n\$-th roots of unity allows proper recursion}
+\label{sec:org5dd882b}
+\subsubsection{backwards direction is the same thing with matrix inverse}
+\label{sec:orgd644f91}
+\section{FFT video by steve brunton}
+\label{sec:org3be38bf}
+\subsection{begin with the DFT (vandermonde) matrix. naive calculation is \(N^2\), since there are \(N^2\) terms}
+\label{sec:org24c7c44}
+\subsection{spends a bunch of time talking about \(N^2\) is way worse than \(N \log  N\), eg. \(4KHz \times 10 sec\)}
+\label{sec:orgf3c2298}
+\subsection{uses}
+\label{sec:org821e7e0}
+\subsubsection{derivatives -> partial differential equations}
+\label{sec:orgc0efab1}
+\subsubsection{data de-noising (remove certain frequencies)}
+\label{sec:orge81fa46}
+\subsubsection{data analysis}
+\label{sec:org3880d33}
+\subsubsection{audio/image compression <- wavelet transform}
+\label{sec:orgf2908f5}
+\subsubsection{polynomial multiplication}
+\label{sec:orgdf53871}
+\subsection{DFT video}
+\label{sec:org6112322}
+\subsubsection{discrete locations -> a vector of data \(\begin{pmatrix}f_1, f_2, \ldots, f_n\end{pmatrix}\)}
+\label{sec:org7687135}
+\subsubsection{what we want}
+\label{sec:org299f55a}
+
+$\backslash$[\begin{aligned}
+\begin{pmatrix}\hat{f}_0 \\ \hat{f}_1 \\ \hat{f}_2 \\ \vdots \\ \hat{f}_{n-1}\end{pmatrix} =
+\begin{pmatrix}&&&&&\\&&&&&\\&&&&&\\&&&&&\\&&&&&\end{pmatrix}
+\begin{pmatrix}f_0 \\ f_1\\f_2\\\vdots \\f_{n-1}\end{pmatrix}
+\end{aligned}$\backslash$]
+
+For each \(1 \leq  k \leq n\),
+\[\begin{aligned}
+    \hat{f} _k =\sum_{j=0}^{n-1} f_j e^{\frac{-i 2\pi k}{n}}\\
+    f _k = \frac{1}{n}\sum_{j=0}^{n-1} \hat{f} _j e^{\frac{i 2\pi k}{n}}\\
+	\end{aligned}\]
+
+The omegas, he calls 'fundamental frequencies'
+\[\begin{aligned}
+    \omega _n = e^{-2\pi \frac{i}{n}}
+	\end{aligned}\]
+\subsubsection{now matrixify}
+\label{sec:org3761d83}
+
+$\backslash$[\begin{aligned}
+\begin{pmatrix}\hat{f}_1 \\ \hat{f}_2 \\ \hat{f}_3 \\ \vdots \\ \hat{f}_n\end{pmatrix} =
+\begin{pmatrix}
+1 & 1 & 1 & \cdots & 1 \\
+1 & \omega & \omega ^2 & \cdots & \omega ^{n-1}\\
+1 & \omega^2 & \omega ^4 & \cdots & \omega ^{2(n-1)}\\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+1 & \omega^{n-1} & \omega ^{2(n-1)} & \cdots & \omega ^{n(n-1)}\\
+\end{pmatrix}
+\begin{pmatrix}f_1 \\ f_2\\f_3\\\vdots \\f_n\end{pmatrix}
+\end{aligned}$\backslash$]
+\section{meeting}
+\label{sec:org912dd68}
+\subsection{more focuses while cutting back}
+\label{sec:org63f2c84}
+\subsubsection{linear algebra}
+\label{sec:org66e1b1b}
+\subsubsection{additional verbal explanation for people who haven't seen 3b1b before}
+\label{sec:org5762ad3}
+\subsubsection{any periodic function as a \emph{linear combination}}
+\label{sec:org909fd7e}
+\begin{enumerate}
+\item space of periodic functions
+\label{sec:orga0f9560}
+\item show its a vector space
+\label{sec:orgd305730}
+\item show its a basis
+\label{sec:orgeed17dc}
+\item simple concepts, but sophisticated context
+\label{sec:org037f9ef}
+\item talk about normal fourier transform, not just discrete
+\label{sec:org2fbe3cb}
+\end{enumerate}
+\subsubsection{maybe focus on periodic functions}
+\label{sec:orgc245f1e}
+\begin{enumerate}
+\item space of continouous functions is also a vector space
+\label{sec:org49b5e1d}
+\item the fourier transform is classically about perodic functions
+\label{sec:orgc502600}
+\end{enumerate}
+\subsubsection{careful definitions}
+\label{sec:orgd5b8dbb}
+\begin{enumerate}
+\item non-infinite period
+\label{sec:org0716490}
+\item what do you need to add to keep it closed under addition?
+\label{sec:org748f33a}
+\item with finite-length sums
+\label{sec:org6595b31}
+\end{enumerate}
 \end{document}

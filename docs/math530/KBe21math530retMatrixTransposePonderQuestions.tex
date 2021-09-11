@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,105 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
 \author{Taproot}
 \date{\today}
-\title{}
+\title{Questions to Ponder about \(A^TA\) and \(AA^T\)}
 \hypersetup{
  pdfauthor={Taproot},
- pdftitle={},
+ pdftitle={Questions to Ponder about \(A^TA\) and \(AA^T\)},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\section{A real valued matrix}
+\label{sec:orge426052}
 
+Let \(A =\begin{pmatrix}2 &1 \\ 3 & 2\end{pmatrix}\)
+\[\begin{aligned}
+  AA^T &= \begin{pmatrix}2 &1 \\ 3 & 2\end{pmatrix}\begin{pmatrix}2 &3 \\ 1 & 2\end{pmatrix} &=\begin{pmatrix}5 & 8 \\ 8 & 13\end{pmatrix}
+  A^TA &= \begin{pmatrix}2 &3 \\ 1 & 2\end{pmatrix}\begin{pmatrix}2 &1 \\ 3 & 2\end{pmatrix} &=\begin{pmatrix}13 & 8 \\ 8 & 5\end{pmatrix}
+  \end{aligned}\]
+
+$\backslash$[\begin{aligned}
+\begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}a&c\\b&d\end{pmatrix} =\begin{pmatrix}a^2+b^2 & ac+bd \\ ac+bd & c^2+d^2 \end{pmatrix}
+\end{aligned}$\backslash$]
+Then, \(A^TA\) is the same thing, but with \(b, c\) swapped.
+\section{For complex matrices}
+\label{sec:orge1e0448}
+
+$\backslash$[\begin{aligned}
+\begin{pmatrix}a+bi & c+di \\ f+gi & j+ki\end{pmatrix} \begin{pmatrix}a+bi & f+gi \\ c+di & j+ki\end{pmatrix} =
+\begin{pmatrix}a^2-b^2+2abi + c^2-d^2+2cdi & af + agi + bfi - bg \\ af + agi + bfi - bg & f^2-g^2+2fgi + j^2-k^2+2jki\end{pmatrix}
+\end{aligned}$\backslash$]
+
+I'm not sure if I'm noticing anything different from the real ones, although maybe the variables are just too confusing.
+\section{Complex conjugate (\(A^*A\) vs \(A A^*\))}
+\label{sec:org9f59e6b}
+
+$\backslash$[\begin{aligned}
+\begin{pmatrix}a+bi & c+di \\ f+gi & j+ki \end{pmatrix}
+\begin{pmatrix}a-bi & f-gi \\ c-di & j-ki \end{pmatrix} =
+\begin{pmatrix} a^2 + b^2 + c^2 + d^2 & () \\ () & f^2 + g^2 + j^2 + k^2 \end{pmatrix}
+\end{aligned}$\backslash$]
+
+$\backslash$[\begin{aligned}
+\begin{pmatrix}a-bi & f-gi \\ c-di & j-ki \end{pmatrix}
+\begin{pmatrix}a+bi & c+di \\ f+gi & j+ki \end{pmatrix} =
+\begin{pmatrix} a^2 + b^2 + f^2 + g^2 & () \\ () & c^2 + d^2 + j^2 + k^2 \end{pmatrix}
+\end{aligned}$\backslash$]
+
+The diagonals are real-valued, and the matrices are symmetric about the diagonal. I wonder if this means the matrices have identical eigenvalues\ldots{} how do the diagonals of complex matricies change when they are upper-triangularized?
+\section{Transpose distributivity with matrix multiplication}
+\label{sec:orga83d902}
+
+\[\begin{aligned}
+  (AB)^\top =\left(\begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}w&x\\y&z\end{pmatrix}\right) ^\top
+  =\begin{pmatrix}aw+by & cw+dy \\ ax + bz & cx + dz \end{pmatrix} =\begin{pmatrix}w&y\\x&z\end{pmatrix}\begin{pmatrix}a&c\\b&d\end{pmatrix} = B^\top A^\top
+  \end{aligned}\]
+
+I have no good proof of this for larger matrices or non-square matrices, but it makes sense because both scalar addition and scalar multiplication are commutative and transposing swaps rows for columns. Thus, when a matrix on the left is multiplied by a matrix on the right, it is the same as the left matrix becoming the right matrix but after a transpose, because both operations swap the rows and columns in some sense so they "cancel out".
+\section{Determinant distributivity with matrix multiplication}
+\label{sec:org0118a17}
+
+\[\begin{aligned}
+  &\left| \begin{pmatrix}aw+by & ax + bz\\ cw + dy & cx + dz\end{pmatrix} \right|   \\
+  &= (aw+by)(cx+dz) - (ax+bz)(cw+dy) \\
+  &= \cancel{acwx} + adwz + bcxy + \cancel{bdyz} - (\cancel{acwx} + adxy + bcwz + \cancel{bdyz}) \\
+  &= adwz - adxy - bcwz + bcxy\\
+  &= (ad-bc)(wz-xy) \\
+  &= \left|\begin{pmatrix}a&b\\c&d\end{pmatrix}\right|\left|\begin{pmatrix}w&x\\y&z\end{pmatrix}\right|
+  \end{aligned}\]
+
+This makes sense given that the determinant of a matrix can be considered a "scaling factor." We had talked about the determinant being the area of the parallelogram of the column vectors, but not about how that represented the matrix multiplied by the identity whose column parallelogram has area one. Thus, the composition should multiply areas, which it seems to do.
+
+This can probably be the base case of an induction proof that extends this to larger matrices, since determinants are defined recursively.
 \end{document}

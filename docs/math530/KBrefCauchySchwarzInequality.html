@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-10 Fri 23:24 -->
+<!-- 2021-09-11 Sat 08:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Axler6.15 Cauchy-Schwarz Inequality</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Taproot" />
 <style type="text/css">
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="./global.css" type="text/css"/>
+<link rel="stylesheet" href="../global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,6 +216,28 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -223,9 +245,93 @@
  |
  <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
 </div><div id="content">
+<h1 class="title">Axler6.15 Cauchy-Schwarz Inequality</h1>
+<div id="outline-container-org8c15dba" class="outline-2">
+<h2 id="org8c15dba"><span class="section-number-2">1</span> Cauchy-Schwarz Inequality&#xa0;&#xa0;&#xa0;<span class="tag"><span class="important">important</span></span></h2>
+<div class="outline-text-2" id="text-1">
+<p>
+'One of the most important inequalities in mathematics'
+</p>
+<blockquote>
+<p>
+Suppose \(u, v \in V\) (where \(V\) is an inner product space). Then
+\[\begin{aligned}
+  \vert \langle u, v \rangle \vert \leq \lVert u \rVert \lVert v \rVert
+  \end{aligned}\]
+</p>
+
+<p>
+The inequality is an equality iff one of \(u, v\) is a scalar multiple of the other.
+</p>
+</blockquote>
+</div>
+
+<div id="outline-container-orge79b371" class="outline-3">
+<h3 id="orge79b371"><span class="section-number-3">1.1</span> intuition</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+For the Euclidean inner product, this is true because \(\langle u, v \rangle = \lVert u \rVert \lVert v \rVert \cos \theta\). However, the Cauchy-Schwarz inequality works for all inner product spaces, using the generalized Pythagorean theorem (instead of the law of cosines).
+</p>
+</div>
+</div>
+<div id="outline-container-orgf3fc11b" class="outline-3">
+<h3 id="orgf3fc11b"><span class="section-number-3">1.2</span> proof is by <a href="KBrefOrthogonalDecomposition.html">the orthogonal decomposition</a></h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+By homogeneity of norms,
+\[\begin{aligned}
+   \left\lVert \frac{ \langle u, v \rangle }{\lVert v \rVert} v \right\rVert ^2 = \left| \frac{ \langle u, v \rangle }{\lVert v \rVert}\right|^2 \lVert v \rVert ^2
+   \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgebc3575" class="outline-3">
+<h3 id="orgebc3575"><span class="section-number-3">1.3</span> results</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-orgb9b4414" class="outline-4">
+<h4 id="orgb9b4414"><span class="section-number-4">1.3.1</span> triangle inequality</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<blockquote>
+<p>
+Suppose \(u, v \in V\). Then
+</p>
+
+<p>
+\[\begin{aligned}
+    \lVert u+v \rVert \leq \lVert u \rVert + \lVert v \rVert
+	\end{aligned}\]
+</p>
+
+<p>
+The inequality is an equality if and only if one of \(u, v\) is a non-negative multiple of the other (degenerate triangle)
+</p>
+</blockquote>
+<p>
+This is proven by noticing that \(\langle u, v \rangle + \langle  v, u \rangle = \langle  u, v \rangle \overline{\langle v, u \rangle} = 2 Re \langle u, v \rangle \leq  2|\langle u, v \rangle| \leq 2\lVert u \rVert \lVert v \rVert\) by conjugate symmetry and Cauchy-Schwarz.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfbf6f8c" class="outline-4">
+<h4 id="orgfbf6f8c"><span class="section-number-4">1.3.2</span> Parallelogram Equality</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<blockquote>
+<p>
+Suppose \(u, v \in V\). Then
+\[\begin{aligned}
+    \lVert u+v \rVert^2 + \lVert u-v \rVert^2 = 2(\lVert u \rVert^2 + \lVert v \rVert^2)
+	\end{aligned}\]
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-10 Fri 23:22</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-11 Sat 08:10</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>

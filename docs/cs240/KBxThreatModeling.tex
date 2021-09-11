@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,180 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Huxley Marvit}
 \date{\today}
-\title{}
+\title{Threat Modeling}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Huxley Marvit},
+ pdftitle={Threat Modeling},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\#ret
 
+\noindent\rule{\textwidth}{0.5pt}
+
+\section{Voice assistant}
+\label{sec:org4e6a548}
+\begin{enumerate}
+\item \textbf{What are we protecting?}
+
+\begin{enumerate}
+\item User privacy and data
+\item User mental space (advertising)
+\item Peace of mind
+\item Product and brand
+\item Protect external agendas
+
+\begin{itemize}
+\item brand ecosystem, publicity
+\end{itemize}
+
+\item User entry points
+\item User resources (energy)
+\end{enumerate}
+
+\item \textbf{Who are we protecting it from, and what are their motivations?}
+
+\begin{enumerate}
+\item Data miners
+
+\begin{itemize}
+\item Money (companies) or personal gain (blackmailers)
+\end{itemize}
+
+\item Advertisers
+
+\begin{itemize}
+\item Money
+\end{itemize}
+
+\item Foreign state actors
+
+\begin{itemize}
+\item Gaining influence
+\end{itemize}
+
+\item Physical attackers
+
+\begin{itemize}
+\item "Alexa, open the pod bay doors." Digital entry point to physical
+resources
+\end{itemize}
+
+\item Misinformed users
+
+\begin{itemize}
+\item To help
+\end{itemize}
+
+\item Accidental users
+
+\begin{itemize}
+\item !voice assistant actions
+\end{itemize}
+
+\item Trolls
+
+\begin{itemize}
+\item Fun
+\end{itemize}
+
+\item DDOSers
+
+\begin{itemize}
+\item Bot net
+\end{itemize}
+\end{enumerate}
+
+\item \textbf{What methods of attacks do we prevent?}
+
+\begin{enumerate}
+\item External system hijacking (remote control)
+\item Unauthorized activation for certain actions
+\item Exploitation of security vulnerabilities for accessing user data
+and creating bot nets
+\end{enumerate}
+
+\item \textbf{What are the possible effects of these attacks?}
+
+\begin{enumerate}
+\item Damaged financial well being
+\item Damaged emotional well being
+\item Damaged physical well being
+\item Damage to company brand / ecosystem
+\end{enumerate}
+
+\item \textbf{What are their resources?}
+
+\begin{enumerate}
+\item Expertise and platform
+\item Potential for money
+
+\begin{itemize}
+\item Which is a commodity
+\end{itemize}
+
+\item Exploitable users
+\item Some have financial resources
+\end{enumerate}
+
+\item \textbf{What are our resources?}
+
+\begin{enumerate}
+\item Massive company
+
+\begin{itemize}
+\item Funding
+\item Workers
+\item Smart people
+\item Infrastructure
+\end{itemize}
+
+\item Potential for exploitation / damage
+\item Intended access to our product
+\end{enumerate}
+
+\item \textbf{What should we do?}
+
+\begin{enumerate}
+\item Educate users
+\item Authorization
+\item Multi-step confirmations / actions for potentially damaging
+actions
+\item Patch programmatic security vulnerabilities
+\item Look secure
+\item High reward for finding vulnerabilities
+\end{enumerate}
+\end{enumerate}
 \end{document}

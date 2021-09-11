@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,68 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
 \author{Taproot}
 \date{\today}
-\title{}
+\title{Orthonormal List}
 \hypersetup{
  pdfauthor={Taproot},
- pdftitle={},
+ pdftitle={Orthonormal List},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\section{Axler6.23 orthonormal\hfill{}\textsc{def}}
+\label{sec:org090fce5}
+\begin{quote}
+\begin{itemize}
+\item A list of vectors is called \emph{orthonormal} if each vector in the list has norm 1 and is orthogonal to all other vectors in the list
+\item in other words, a list \(e_1, \ldots, e_m\) of vectors in \(V\) is orthonormal if
+\end{itemize}
+\[\begin{aligned}
+  \langle  e_j, e_k \rangle = \begin{cases}1 & \text{ if } j = k \\ 0 & \text{ if } j \neq  k\end{cases}
+  \end{aligned}\]
+\end{quote}
+\section{results}
+\label{sec:orgf99dfb8}
+\subsection{Axler6.25 norm of an orthonormal linear combination Pythagorean theorem}
+\label{sec:orgc3dadfb}
+If \(e_1, \ldots, e_m\) is an orthonormal list of vectors in \(V\) then
+\[\begin{aligned}
+   \lVert a_1 e_1 + \cdots + a_m e_m \rVert ^2 = \vert a_1 \vert ^2 + \cdots + \lvert a_m \rvert^2
+   \end{aligned}\]
+Pythagorean theorem
+\subsection{Axler6.26 orthonormal lists are linearly independent}
+\label{sec:orgee112d1}
+Any orthogonal list is linearly independent, so an orthonormal list must also be linearly independent.
 
+Or you can use 6.25, set it to zero, and see that all the coefficients must be zero.
 \end{document}

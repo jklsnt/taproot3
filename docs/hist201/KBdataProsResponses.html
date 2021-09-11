@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-10 Fri 23:24 -->
+<!-- 2021-09-11 Sat 08:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Data Processing Responses</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Taproot" />
+<meta name="author" content="Huxley" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="./global.css" type="text/css"/>
+<link rel="stylesheet" href="../global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -223,9 +223,123 @@
  |
  <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
 </div><div id="content">
+<h1 class="title">Data Processing Responses</h1>
+<p>
+#ret
+</p>
+
+<hr />
+
+<p>
+Original Submission:
+<a href="KBDataProcessingRett.html">KBDataProcessingRett</a>
+</p>
+
+<div id="outline-container-comment-response" class="outline-2">
+<h2 id="comment-response"><span class="section-number-2">1</span> Comment Response</h2>
+<div class="outline-text-2" id="text-comment-response">
+<ul class="org-ul">
+<li>2b. How do you convert from the 1-10 rating scale to
+positive/negative/neutral?
+
+<ul class="org-ul">
+<li>You would have to pick ranges that define what is
+positive/negative/neutral</li>
+</ul></li>
+
+<li>2c. Given that the reviews vary greatly in their length, is one of
+these preferred over the other?
+
+<ul class="org-ul">
+<li>BOW doesn't work well when length varies. TFIDF, however, does.</li>
+</ul></li>
+
+<li>2e. Why not accuracy, precision, or recall?
+
+<ul class="org-ul">
+<li>Those would all work as well. I just decided to list one possible
+validation metric as opposed to all of them.</li>
+</ul></li>
+
+<li>3a. This could work, but I think you will find this problem more
+straightforward as a different kind of problem.
+
+<ul class="org-ul">
+<li>I guess this problem could be done as a clustering problem,
+representing each movie as a location in a multidimensional space
+then placing users in the space and clustering.</li>
+</ul></li>
+
+<li>3b. Semi-supervised usually refers to models where we have some
+labels, and we generate additional labels. Where do our labels come
+from? How do we generate the additional ones?
+
+<ul class="org-ul">
+<li>The original labels would most likely be generated. As time
+progresses, we get labels back from the users that are interacting
+with our model's recommendations.</li>
+</ul></li>
+
+<li>3c. Be more specific: which features would you use which techniques
+on? For example, you could use bag of words or OHE on the names of the
+stars, but you'd get pretty different results depending on which one
+you picked.
+
+<ul class="org-ul">
+<li>OHE: name of stars, genre. BOW or TFID: title.</li>
+</ul></li>
+
+<li>3e. A user not watching a recommendation is not necessarily good
+signal on whether it's a good recommendation (i.e. I might really like
+a movie, and just not have time to watch it right now). Conversely, a
+user watching a movie is not necessarily signal that it was a good
+recommendation (maybe I watched it because you recommended it, but I
+hated it).
+
+<ul class="org-ul">
+<li>This depends on the goal of the recommendation. If you get a good
+recommendation and don't watch it, was it really a good
+recommendation? If the goal is simply to increase watch time, and
+thus increase the number of ads viewed, then yes watching or not
+watching is a good metric. Think click-bait. Of course, this has to
+be weighed against the long term effects of the recommendation.</li>
+</ul></li>
+
+<li>3f. I know you are kidding (I hope so, at least!), but the whole point
+of us learning about ethics is precisely so that they do not crumble
+in the face of capitalism!
+
+<ul class="org-ul">
+<li>I think maybe we should shift the goal to rebuilding the already
+crumbled ethics&#x2026;</li>
+</ul></li>
+
+<li>4b. Where do these labels come from?
+
+<ul class="org-ul">
+<li>From the friends you asked.</li>
+</ul></li>
+
+<li>4c/d. Why WPIE/NN? Is there a simpler approach we might try first?
+
+<ul class="org-ul">
+<li>BOW, TFIDF, or word vectors would work, but Facebook's method itself
+would most likely work better. As for the type of model, Decision
+Trees and Random Forests would work.</li>
+</ul></li>
+
+<li>4e. Why not accuracy, precision, or recall?
+
+<ul class="org-ul">
+<li>Again, just decided to list one validation metric. Accuracy,
+precision, and recall would also work.</li>
+</ul></li>
+</ul>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-10 Fri 23:23</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+<div class="namedate"><p class="subtitle"><span class="author">Huxley</span><span class="date">2021-09-11 Sat 08:14</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>

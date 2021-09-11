@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,99 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
-\title{}
+\title{Algebraic operations on \(\mathcal{L}(V, W)\)}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Exr0n},
+ pdftitle={Algebraic operations on \(\mathcal{L}(V, W)\)},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\#+ TITLE: Algebraic Operations on Linear Maps
 
+\section{Axler3.6 sum (\(S+T\))}
+\label{sec:org00c3403}
+If \(S, T \in \mathcal{L}(V, W)\) then the \emph{sum} \(S + T\) is defined by
+$$ (S+T)(v) = Sv + Tv $$
+\((S+T)\) is a linear map.
+
+\section{Axler3.6 scalar product \(\lambda T\)}
+\label{sec:org18be1cf}
+If \(T \in \mathcal{L}(V, W)\) and \(\lambda \in \mathbb{F}\) then the \emph{product} \((\lambda T)v = \lambda Tv\). \(\lambda T\) is a linear map.
+
+\section{Axler3.8 Product of Linear Maps}
+\label{sec:org8fba430}
+It's basically the composition of linear maps. Let \(U, V, W\) be vector spaces over \(\mathbb F\) and \(T, S\) be linear maps s.t. \(T \in \mathcal L(U, V)\) and \(S \in \mathcal L(V, W)\). Then the \emph{product}
+$$ ST \in \mathcal L (U, W) : (ST)(u) = S(Tu) $$
+
+\#aka \(ST = S \circ T\)
+
+\subsection{careful}
+\label{sec:orgd7296cc}
+
+\subsubsection{Evaluate backwards}
+\label{sec:org29be956}
+Like the composition of functions, remember to evaluate these guys backwards. \((ST)(u) = S(Tu)\) meaning you evaluate \(Tu\) first, then \(S\) of that.
+
+\subsubsection{\(T\) maps into the domain of \(S\)}
+\label{sec:org11b0c01}
+Otherwise it's not defined.
+
+\section{Results}
+\label{sec:orge2b4d8f}
+
+\subsection{Axler3.7 \(\mathcal{L}(V, W)\) is a vector space over \(\mathbb{F}\)}
+\label{sec:orgba8aa57}
+
+\subsection{Axler3.9 Algebraic properties}
+\label{sec:orga55c8ce}
+
+\subsubsection{associativity}
+\label{sec:org94b3f2d}
+$$(T_1 T_2) T_3 = T_1 (T_2 T_3)$$ when it makes sense to multiply them.
+
+\begin{enumerate}
+\item {\bfseries\sffamily DONE} \#question what about \((T_1 + T_2) + T_3 \stackrel{?}{=} T_1 + (T_2 + T_3)\)?
+\label{sec:orgd683f14}
+Yes, it's inhereted from vector space properties
+\end{enumerate}
+
+\subsubsection{identity}
+\label{sec:orgc0f1876}
+$$TI = IT = T$$ where \(T \in \mathcal L(U, V)\) and \(I\) is the identity of \(U\) or \(V\) respectively.
+
+\subsubsection{distributive properties}
+\label{sec:orgb1c393f}
+$$(S_1 + S_2)T = S_1T + S_2T \text{  and  } T(S_1 + S_2) = TS_1 + TS_2$$
 \end{document}

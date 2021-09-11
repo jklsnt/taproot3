@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:16
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,77 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
 \author{Taproot}
 \date{\today}
-\title{}
+\title{Arc Length}
 \hypersetup{
  pdfauthor={Taproot},
- pdftitle={},
+ pdftitle={Arc Length},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
 
+\section{Formula}
+\label{sec:org12aea06}
+
+\[\begin{aligned}
+   \int_{a}^{b} \sqrt{1+ f'^2(x)} dx
+  \end{aligned}\]
+
+\section{Derivation}
+\label{sec:orgbb5889d}
+
+Let \(S\) equal the total length of the curve.
+
+Start with the pythagorean theorem: for any differentiable function,
+\[ S = \sum_{a}^{b} dS \]
+where \(dS\) can be calculated using the pythagorean theorem:
+
+\[\begin{aligned}
+  dS = \sqrt{\Delta y ^2 + \Delta x ^2 }
+  \end{aligned}\]
+
+We can simplify this by dividing \(dS\) by \(\Delta x\)
+
+\[\begin{aligned}
+  \frac{dS}{\Delta x} &=  \lim_{\Delta x \to  0} \sqrt{\frac{\Delta y^2}{\Delta x^2} + \frac{\Delta x^2}{\Delta x^2}}\\
+  &=  \lim_{\Delta x \to  0} \sqrt{\frac{\Delta y^2}{\Delta x^2} + 1}\\
+  &= \sqrt{f'^2(x) + 1}
+  \end{aligned}\]
+
+Now, to find \(dS\) again, we just have to multiply by \(dx\)
+
+\[\begin{aligned}
+  dS = \frac{dS}{\Delta x}dx = \sqrt{1+f'^2(x)}dx
+  \end{aligned}\]
 \end{document}

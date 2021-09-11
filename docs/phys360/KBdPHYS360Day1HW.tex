@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,104 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Dylan Wallace}
 \date{\today}
-\title{}
+\title{Adv Mech Day 1 HW}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Dylan Wallace},
+ pdftitle={Adv Mech Day 1 HW},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
 
+
+\section{Section A}
+\label{sec:org2af54bc}
+First, we will simplify the problem to a single dimension. We can do
+this because the object is only moving in a single direction and won't
+change its direction at any point. Therefore, all vectors will act like
+scalars or will be replaced by scalars for the moment. Also, the initial
+starting point for the object will be at \(<0>\). Given that:
+
+$\backslash$[
+\begin{aligned}
+F = m\cdot a \\
+W = \int_{0}^{d} F \,dx \\
+= \int_{0}^{d} m\cdot a \,dx \\
+\text{Mass is constant so we can extract that from the integral:} \\
+= m\cdot \int_{0}^{d} a \,dx \\
+\text{Because acceleration is the derivative of velocity, the next step is trivial:} \\
+= m\cdot \frac{1}{2}\int_{0}^{d} 2a \,dx \\
+= m\cdot \frac{1}{2}v_f^2 \\
+= \frac{1}{2}mv_f^2 \\
+\end{aligned}
+$\backslash$]
+
+\section{Section B}
+\label{sec:org9778c7a}
+We will define \(d_{2x}\) as the final distance, and \(d_{1x}\) as the
+initial distance that the object hypothetically would have traveled
+given constant force. Given this:
+
+$\backslash$[
+\begin{aligned}
+\delta KE_{x} &= \int_{d_{1x}}^{d_{2x}} F \,dx \\
+&= \int_{d_{1x}}^{d_{2x}} ma \,dx \\
+&= m\cdot \int_{d_{1x}}^{d_{2x}} a \,dx
+&= \frac{1}{2}m\cdot [v_{f}^2]_{d_{1x}}^{d_{2x}} \\
+\text{By definition, we can replace the result of the integral with } v_{2x}^2 - v_{1x}^2 \\
+&= \frac{1}{2}m\cdot (v_{2x}^2 - v_{1x}^2) \\
+&= \frac{1}{2}mv_{2x}^2 - \frac{1}{2}mv_{1x}^2 \\
+\end{aligned}
+$\backslash$]
+
+\section{Section C}
+\label{sec:org9fc0b25}
+We extrapolate from previous sections.
+
+$\backslash$[
+\begin{aligned}
+W &= \int \vec{F}\cdot d\vec{r} \\
+&= \int F_{x} \,dx + \int F_{y} \,dy + \int F_{z} \,dz \\
+\text{We can just use our 1D formulas from the other sections.} \\
+\text{I trust you to be forgiving enough to let me reuse them.} \\
+&= KE_{x} + KE_{y} + KE_{z} \\
+&= (KE_{xf} + KE_{yf} + KE_{zf}) - (KE_{xo} + KE_{yo} + KE_{zo}) \\
+&= (\frac{1}{2}mv_{xf}^2 + \frac{1}{2}mv_{yf}^2 + \frac{1}{2}mv_{zf}^2) - (\frac{1}{2}mv_{xo}^2 + \frac{1}{2}mv_{yo}^2 + \frac{1}{2}mv_{zo}^2) \\
+&= \frac{1}{2}mv_{f}^2 - \frac{1}{2}mv_{o}^2
+\end{aligned}
+$\backslash$]
+
+\section{Calculus is scary}
+\label{sec:orgf7f2aa0}
 \end{document}

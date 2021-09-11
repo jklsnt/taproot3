@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,72 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
 \author{Taproot}
 \date{\today}
-\title{}
+\title{Polynomials of Operators}
 \hypersetup{
  pdfauthor={Taproot},
- pdftitle={},
+ pdftitle={Polynomials of Operators},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\section{\(p(T)\)\hfill{}\textsc{def}}
+\label{sec:org671f705}
+\begin{quote}
+Suppose \(T \in  \mathcal{L} (V)\) and \(p \in \mathcal{P} (\mathbb{F} )\) is a polynomial given by
 
+\[\begin{aligned}
+  P(z) = a_0 + a_1z + a_2z^2 + \cdots + a_m z^m
+  \end{aligned}\]
+for \$z \(\in\)  \mathbb{F} \$. Then \(p(T)\) is the operator defined by
+\[\begin{aligned}
+  p(T) = a_0I + a_1T + a_2T^2 + \cdots + a_m T^m
+  \end{aligned}\]
+\end{quote}
+\section{using\hfill{}\textsc{deps}}
+\label{sec:orge7be251}
+\subsection{\href{KBrefOperatorExponents.org}{Operator Exponents}}
+\label{sec:orgf3f3964}
+\section{intuition}
+\label{sec:orgf507657}
+\subsection{Exactly how you would expect it to work}
+\label{sec:orgdd377b9}
+\section{results}
+\label{sec:orgd56c015}
+\subsection{For some operator \(T \in  \mathcal{L} (V)\) the function from \(\mathcal{P} (\mathbb{F} )\) to \(\mathcal{L} (V)\)}
+\label{sec:org443e8aa}
+\[\begin{aligned}
+   p \mapsto p(T)
+   \end{aligned}\]
+is linear
 \end{document}

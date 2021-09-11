@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:17
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,571 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
-\title{}
+\title{Fall Project 1 Master Doc}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Exr0n},
+ pdftitle={Fall Project 1 Master Doc},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
 
+\section{Preliminary Research}
+\label{sec:orgb474f61}
+
+\subsection{Sources}
+\label{sec:orga927a15}
+\url{https://www.frontiersin.org/articles/10.3389/fchem.2019.00540/full}
+
+\section{Notes}
+\label{sec:org635714d}
+
+\subsection{Target Processes}
+\label{sec:org4ba737b}
+
+\subsubsection{Enzyme catalysis}
+\label{sec:org0140b5e}
+
+catalyzing reactions with actions
+
+\subsubsection{Protein-ligand binding}
+\label{sec:org315c09c}
+
+neurotransmitters (dopamine), protien is dopamine receptor
+how does the ligand bind the proper site to open the channel?
+\begin{itemize}
+\item ligand: how to pronounce?
+\end{itemize}
+
+\subsubsection{signal transduction}
+\label{sec:org71feec0}
+
+bind to other protein to trigger chain of actions
+\begin{itemize}
+\item release calcium from intercellular stores
+\end{itemize}
+
+\subsubsection{allosteric regulation}
+\label{sec:org4eeeef5}
+
+\begin{itemize}
+\item a reason why knowing the structure and pockets is important
+\item predict allosteric cites
+\begin{itemize}
+\item similar to non-competative inhibiton?
+\item but for dna binding protiens, like the dna transcription inhibitor
+\end{itemize}
+\item ligand binds allosteric site and activates the protien
+\end{itemize}
+
+\subsection{Folding Simulation Methods}
+\label{sec:orgd04e281}
+
+\subsubsection{all-atom molecular dynamics (MD)}
+\label{sec:org09cb5aa}
+\begin{itemize}
+\item Obtains all desired information regarding the kinetics and thermodynamics
+\end{itemize}
+
+\begin{enumerate}
+\item Time scale bottleneck
+\label{sec:org98d4e31}
+
+\begin{itemize}
+\item very slow (supercomputers -> microseconds of simulation)
+\item require microsecond to milisecond time scales
+\end{itemize}
+
+\begin{enumerate}
+\item optimizations
+\label{sec:org74ac514}
+
+\begin{enumerate}
+\item conformational sampling?
+\label{sec:org34392ba}
+\begin{itemize}
+\item retains atomistic representation of the system
+\end{itemize}
+
+\item overcome kinetic trapping and thourough sampling of conformational space techniques
+\label{sec:org183c531}
+\begin{itemize}
+\item umbrella sampling
+\item multicanonical algorithms
+\item simulated tempering
+\item transition path sampling
+\item targeted molecular dynamics
+\item replica exchange method molecular dynamics (REMD)
+\item accelerated molecular dynamics (AMD)
+\begin{itemize}
+\item see below
+\end{itemize}
+\end{itemize}
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+
+\subsubsection{Accelerated molecular dynamics (AMD)}
+\label{sec:orge75992f}
+
+epic
+
+\subsection{Voltage gated ion channels}
+\label{sec:org9615b3d}
+
+\subsubsection{overview}
+\label{sec:org4c89515}
+
+\begin{enumerate}
+\item lives on cell membrane
+\label{sec:orgd0ce301}
+\item role
+\label{sec:org41f31cd}
+\begin{enumerate}
+\item allows ions in/out
+\label{sec:org1db4da7}
+\item crucial in "excitable" cells, like neurons
+\label{sec:orge9fbf09}
+\item propogates elecrical signals directionally
+\label{sec:org54a65d1}
+\item ion specific
+\label{sec:org68cbd39}
+\begin{enumerate}
+\item Na\^{}+
+\label{sec:org6b41c5b}
+\item K\^{}+
+\label{sec:org4dc4a87}
+\item Ca\textsuperscript{2+}
+\label{sec:org8a2555f}
+\item Cl\^{}-
+\label{sec:orge8c768d}
+\end{enumerate}
+\item triggered by voltage across cell membrane
+\label{sec:org484d320}
+\end{enumerate}
+\item parts
+\label{sec:orge63fcc5}
+\begin{enumerate}
+\item voltage sensor
+\label{sec:org4f79603}
+\item pore/conducting pathway
+\label{sec:org68ec6c9}
+\item gate
+\label{sec:orgeac5f66}
+\end{enumerate}
+\item \textbf{sodium/calcium channels}
+\label{sec:org32bf488}
+\begin{enumerate}
+\item parts
+\label{sec:org7769525}
+\begin{enumerate}
+\item one polypeptide
+\label{sec:org546f203}
+\item creates "four homologous domains"
+\label{sec:orga4f40fb}
+\begin{enumerate}
+\item each one consists of 6 membrane spanning alpha helices
+\label{sec:org62d9d5b}
+\end{enumerate}
+\item the S4 helix [of each domain?] is the voltage sensing helix
+\label{sec:org1ad6327}
+\begin{enumerate}
+\item This helix contains enough positive charges to feel an electrostatic repelling force from the high charge outside the cell.
+\label{sec:orgb224d5b}
+\begin{enumerate}
+\item lysine or arginine "residues in repeated motifs"
+\label{sec:org1b78de2}
+\item in resting state, half of each S4 helix is in contact with the cell cytosol
+\label{sec:org505ce96}
+\item upon depolarization, positive residues move towards surface of membrane?
+\label{sec:org47b4bf8}
+\item movement triggers comformational change in the gate
+\label{sec:orgc6adb3f}
+\end{enumerate}
+\end{enumerate}
+\item s6 domain
+\label{sec:orge8d92b5}
+\begin{enumerate}
+\item thought to mechanically block the ions from passing through the channel
+\label{sec:org20f7380}
+\end{enumerate}
+\item inactivation gate
+\label{sec:org73ca7e8}
+\begin{enumerate}
+\item structure
+\label{sec:orgffefd16}
+Another gate that stops ions from flowing, [giving the main gate more to reset?]
+\begin{enumerate}
+\item modeled as a ball tethered to a flexible chain
+\label{sec:org3e98034}
+\item the chain is supposed to fold up on itself to pull the ball in and block ion flow
+\label{sec:org79e396a}
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+
+\subsubsection{mechanical function}
+\label{sec:org888e769}
+
+\begin{enumerate}
+\item sources
+\label{sec:org0f1aa28}
+
+\begin{enumerate}
+\item \url{https://www.pnas.org/content/112/1/124}\hfill{}\textsc{source}
+\label{sec:org539c468}
+
+\item \url{https://www.sciencedirect.com/science/article/pii/S0076687918300156}\hfill{}\textsc{source}
+\label{sec:orgf544eff}
+\end{enumerate}
+
+\item explanation
+\label{sec:org18c9496}
+
+\begin{enumerate}
+\item structural overview
+\label{sec:org755f8d9}
+In each analogous subdomain, the segment S4 (of 6) (where the first four are voltage sensing, S5, S6 form the pore, and the S4-S5 linker is important but ellusive) is quite positively charged (3-7 positive Rgroups like Agrinine?)
+
+\item salt bridge pattern rearranges?
+\label{sec:orga5d0c56}
+
+\item something about gating currents and inactivation
+\label{sec:org20866bb}
+\end{enumerate}
+\end{enumerate}
+
+\subsubsection{related components}
+\label{sec:org22cc14b}
+\begin{enumerate}
+\item membrane depolarization
+\label{sec:org2d45554}
+The interior of the cell temporarily becomes more positive (less negative) than the exterior
+\begin{enumerate}
+\item \url{https://en.wikipedia.org/wiki/Depolarization}\hfill{}\textsc{source}
+\label{sec:org238fc5f}
+\end{enumerate}
+\item membrane potential
+\label{sec:orgd88c952}
+the "default" charge/voltage difference accross a cell membrane
+\begin{itemize}
+\item the inside is usually more negative
+\end{itemize}
+\begin{enumerate}
+\item \url{https://en.wikipedia.org/wiki/Ball\_and\_chain\_inactivation}\hfill{}\textsc{source}
+\label{sec:org7c32dce}
+\end{enumerate}
+\item graded potentials
+\label{sec:orgd9bd8d8}
+\begin{enumerate}
+\item a "smallish change in the membrane potential that is porportional to the size of the stimulus"
+\label{sec:org05518f1}
+\begin{enumerate}
+\item doesn't travel a long distance
+\label{sec:orgb6199a4}
+\item diminishes/fades away as its spreads
+\label{sec:orgda83be4}
+\end{enumerate}
+\item \url{https://www.khanacademy.org/science/biology/human-biology/neuron-nervous-system/a/depolarization-hyperpolarization-and-action-potentials}\hfill{}\textsc{source}
+\label{sec:org6c90e85}
+\end{enumerate}
+\item action potential
+\label{sec:org22796a5}
+\begin{enumerate}
+\item always the same size
+\label{sec:org52ffd75}
+\item binary (all or none)
+\label{sec:org32cd2d2}
+\item happens when depolarization increases the membrane voltage across a threshold value (usually about -55mV)
+\label{sec:orga139c85}
+\item causes voltage gated Na\^{}+ channels to open
+\label{sec:org7fe50aa}
+\item voltage goes up quickl to around 40mV (positive)
+\label{sec:org9be14ca}
+\item after some time, Na+ VGICs inactivate
+\label{sec:org81c561e}
+\item potassium channels stay open a little longer to bring the membrane potential back
+\label{sec:org2293b0e}
+\item sodium channels return to normal state (still closed, but can respond to voltage again)
+\label{sec:orgb46f9dc}
+\item "refactor period ensures that the action potential will only travel forward down the axon, not backwards through the portion of the axon that just underwent an action potential"
+\label{sec:orgbf30bc9}
+\end{enumerate}
+\item Impulse speed
+\label{sec:orga40b64b}
+\begin{enumerate}
+\item larger diameter axon
+\label{sec:orgac95581}
+A greater diameter will allow the action potential to travel faster because there are structures in the cytoplasm of each axon to block the ions' travel. However, with a larger diameter, there are more paths for the ion to travel though, even if the concentration is the same? (because there is more volume to surface area? and a direction is a point on surface area but the ion is a point in volume?)
+\item Mylelin sheath
+\label{sec:orgdc69297}
+Increases the distances between cations and anions on opposite sides of the axon membrane, which decreases capacitence (yes physics capacitence). So less charge can be tied to the membrane, so depolarization happens faster (fewer charges need to move).
+\begin{enumerate}
+\item \url{https://www.khanacademy.org/science/health-and-medicine/nervous-system-and-sensory-infor/neuron-membrane-potentials-topic/v/effects-of-axon-diameter-and-myelination}\hfill{}\textsc{source}
+\label{sec:org6ef3e32}
+\end{enumerate}
+\end{enumerate}
+\item Salt bridge
+\label{sec:org3546b4a}
+When two oppositely charged R-groups are close enough together to experience electrostatic attraction
+\end{enumerate}
+
+\subsubsection{sources\hfill{}\textsc{source}}
+\label{sec:orgb4cbfb3}
+\begin{itemize}
+\item \url{https://en.wikipedia.org/wiki/Voltage-gated\_ion\_channel}
+\item \href{https://www.sciencedirect.com/science/article/pii/S0076687918300156}{Computational Approaches to Studying Voltage-Gated Ion Channel Modulation by General Anesthetics - ScienceDirect}
+\item \href{https://ars.els-cdn.com/content/image/1-s2.0-S0092867419307342-fx1\_lrg.jpg}{1-s2.0-S0092867419307342-fx1\textsubscript{lrg.jpg} (996×996)}
+\item \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3266868/}{THE CRYSTAL STRUCTURE OF A VOLTAGE-GATED SODIUM CHANNEL}
+\item \href{https://www.pnas.org/content/112/1/124/tab-figures-data}{Free-energy landscape of ion-channel voltage-sensor–domain activation | PNAS}
+\begin{itemize}
+\item \href{https://www.pnas.org/content/pnas/112/1/124/F1.large.jpg}{F1.large.jpg (1036×1280)}
+\end{itemize}
+\item \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2950829/}{Ion Channel Voltage Sensors: Structure, Function, and Pathophysiology}
+\item \href{https://www.sciencedirect.com/science/article/abs/pii/S0959440X16301506}{Voltage-gated sodium channels viewed through a structural biology lens - ScienceDirect}
+\item \href{https://www.khanacademy.org/science/health-and-medicine/nervous-system-and-sensory-infor/neuron-membrane-potentials-topic/v/effects-of-axon-diameter-and-myelination}{Effects of axon diameter and myelination (video) | Khan Academy}
+\item \href{https://www.sciencedirect.com/science/article/pii/S0006349514007875}{Probing α-310 Transitions in a Voltage-Sensing S4 Helix - ScienceDirect}
+\item \href{https://www.cell.com/structure/fulltext/S0969-2126(15)00500-6?\_returnURL=https\%3A\%2F\%2Flinkinghub.elsevier.com\%2Fretrieve\%2Fpii\%2FS0969212615005006\%3Fshowall\%3Dtrue}{Molecular Interactions in the Voltage Sensor Controlling Gating Properties of CaV Calcium Channels: Structure}
+\item \href{https://www.sciencedirect.com/science/article/pii/S0092867419307342}{Resting-State Structure and Gating Mechanism of a Voltage-Gated Sodium Channel - ScienceDirect}
+\item \href{https://www.pnas.org/content/109/2/E93}{Structural basis for gating charge movement in the voltage sensor of a sodium channel | PNAS}
+\item \href{https://science.sciencemag.org/content/362/6412/eaau2596?rss\%253D1=}{Structural basis for the modulation of voltage-gated sodium channels by animal toxins | Science}
+\item \href{https://pharmrev.aspetjournals.org/content/57/4/387.full}{Overview of Molecular Relationships in the Voltage-Gated Ion Channel Superfamily | Pharmacological Reviews}
+\item \href{https://physoc.onlinelibrary.wiley.com/doi/10.1113/expphysiol.2013.071969}{Structure and function of voltage‐gated sodium channels at atomic resolution - Catterall - 2014 - Experimental Physiology - Wiley Online Library}
+\item \href{https://www.cell.com/cell/fulltext/S0092-8674(11)00997-4?\_returnURL=https\%3A\%2F\%2Flinkinghub.elsevier.com\%2Fretrieve\%2Fpii\%2FS0092867411009974\%3Fshowall\%3Dtrue}{Crystal Structure of the Mammalian GIRK2 K+ Channel and Gating Regulation by G Proteins, PIP2, and Sodium: Cell}
+\item \href{https://www.sciencedirect.com/science/article/pii/S2211124719301512}{The Role of CaV2.1 Channel Facilitation in Synaptic Facilitation - ScienceDirect}
+\item \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3448954/}{The sliding-helix voltage sensor}
+\item \href{https://www.pnas.org/content/103/19/7292}{Voltage sensor conformations in the open and closed states in rosetta structural models of K+ channels | PNAS}
+\item \href{https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/voltage-gated-ion-channel\#:\~:text=Voltage\%2Dgated ion channels contain,domain responsible for sensing voltage.}{Voltage-Gated Ion Channel - an overview | ScienceDirect Topics}
+\end{itemize}
+
+\section{Meetings}
+\label{sec:orgc34f329}
+
+\subsection{12 oct 2020}
+\label{sec:org5f6f534}
+\begin{itemize}
+\item computational prediction modeling
+\begin{itemize}
+\item trying to predict the crystal structure
+\begin{itemize}
+\item why?
+\begin{itemize}
+\item to analyze would this fit?
+\item does it work with this target
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\item solving the structure
+\begin{itemize}
+\item xray cristolography
+\begin{itemize}
+\item gold standard
+\item now got the structure
+\begin{itemize}
+\item what does that mean?
+\item can we simulate how it interacts?
+\item can you then do modeling on that to see if drug molecules work? are useful
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\item look at some concrete examples?
+\item tell a biological story alongside with computational relevance piece
+\end{itemize}
+
+\subsubsection{protien synthase}
+\label{sec:orgbeee775}
+not as much simulation stuff
+
+\subsubsection{neurotransmitters}
+\label{sec:orgdeeb700}
+dopamine
+sodium rushes in, electrochemical and concentration gradient
+recharge gradient by releasing potassium
+
+\begin{enumerate}
+\item nerst equation
+\label{sec:orga114164}
+electrochemical gradient as battery
+
+\item goldman-katz equation
+\label{sec:org47266f6}
+\begin{itemize}
+\item applied to neuro
+\item takes into account the concentrations of the 4 ions
+\begin{itemize}
+\item how does the power of the battery work given those components?
+\item ligands and pH can change/denature protiens, but there are also voltage gated channels
+\end{itemize}
+\end{itemize}
+\end{enumerate}
+
+\subsubsection{Voltage Driven Things}
+\label{sec:orgc5b0e40}
+\begin{itemize}
+\item Heartbeart
+\item nervous system
+\begin{itemize}
+\item how do voltage gated ion channels work?
+\end{itemize}
+\end{itemize}
+
+\begin{enumerate}
+\item things to know about
+\label{sec:org5902cce}
+\begin{itemize}
+\item action potential
+\item voltage gated calcium channels open at depolarization threshold
+\end{itemize}
+
+\begin{enumerate}
+\item neurotransmitters
+\label{sec:org732ee2e}
+\begin{itemize}
+\item "calcium mediated exocitosis of neurotransmitter vesicles in the synaptic terminal"
+\item calcium rushes somewhere to allow the neurotransmitters to leave the cell
+\end{itemize}
+\end{enumerate}
+\end{enumerate}
+
+\subsubsection{Case study}
+\label{sec:org22930fd}
+\begin{itemize}
+\item why do we care? why is this useful
+\item knowing the structure can lead to some useful information
+\item how did it lead to some sort of accelerated understanding?
+\end{itemize}
+
+\subsubsection{prions}
+\label{sec:org3f01443}
+\begin{itemize}
+\item how to pronounce?
+\end{itemize}
+
+\begin{enumerate}
+\item CJD
+\label{sec:org86fc614}
+\begin{itemize}
+\item is it inheritable?
+\item one case per million population
+\end{itemize}
+
+\begin{enumerate}
+\item Casues
+\label{sec:orgddf9924}
+\begin{itemize}
+\item the gene that causes CJD in 5-10\% of cases is PRNP
+\item 87\% of cases are sporatic
+\end{itemize}
+\end{enumerate}
+
+\item isoform
+\label{sec:org56deeed}
+\begin{itemize}
+\item a different set of intons and exons
+\item splicosome takes pre-RNA and cuts out intons
+\begin{itemize}
+\item even if the pre-RNA had 10 exons, the splicosome might take a subset of those exons and remove the others
+\end{itemize}
+\item An isoform is a variant of that subset, an abnormal isoform is one that is "bad" and causes problems
+\end{itemize}
+\end{enumerate}
+
+\subsection{29 Oct 2020}
+\label{sec:org2f5697b}
+
+uh nothing happened
+
+\subsection{03 nov 2020}
+\label{sec:org5367552}
+
+\subsubsection{apparently I can just turn in this notes document, and the detail is good enough}
+\label{sec:orgcbf75a5}
+
+\section{Poster Plannning}
+\label{sec:orgf4df0fd}
+
+\subsection{nerve cell, action potential, depolarization}
+\label{sec:org396b900}
+
+\subsubsection{resources}
+\label{sec:orga39c2af}
+\begin{itemize}
+\item \href{https://www.khanacademy.org/science/biology/human-biology/neuron-nervous-system/a/depolarization-hyperpolarization-and-action-potentials}{Khan Academy on Depolarization, hyperpolarization, and action potentials + some epic comments}
+\end{itemize}
+
+\subsubsection{membrane potential graph}
+\label{sec:org6e00be4}
+
+\subsection{structure of VGIC + conformational change within subunit}
+\label{sec:org368c44d}
+
+\subsubsection{resources\hfill{}\textsc{source}}
+\label{sec:orgae2adee}
+\begin{itemize}
+\item \href{https://www.sciencedirect.com/science/article/pii/S0076687918300156}{Computational Approaches to Studying Voltage-Gated Ion Channel Modulation by General Anesthetics - ScienceDirect}
+\end{itemize}
+
+\subsection{electrostatic interactions of S4}
+\label{sec:org1494a1f}
+
+\subsubsection{resources\hfill{}\textsc{source}}
+\label{sec:org0e77303}
+\begin{itemize}
+\item \href{https://www.pnas.org/content/112/1/124/tab-figures-data}{Free-energy landscape of ion-channel voltage-sensor–domain activation | PNAS}
+\begin{itemize}
+\item \href{https://www.pnas.org/content/pnas/112/1/124/F1.large.jpg}{F1.large.jpg (1036×1280)}
+\end{itemize}
+\end{itemize}
+
+\subsection{bottom diagrams}
+\label{sec:org9ade79e}
+
+\subsubsection{Nav}
+\label{sec:org6f51da3}
+
+\begin{enumerate}
+\item side view, all alpha domains
+\label{sec:orgf1c3233}
+
+\item top view, all alpha domains
+\label{sec:org0f26d54}
+
+\begin{enumerate}
+\item open/close?
+\label{sec:orgd17fa82}
+\end{enumerate}
+\end{enumerate}
 \end{document}

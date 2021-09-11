@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,89 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
 \author{Taproot}
 \date{\today}
-\title{}
+\title{Axler6.15 Cauchy-Schwarz Inequality}
 \hypersetup{
  pdfauthor={Taproot},
- pdftitle={},
+ pdftitle={Axler6.15 Cauchy-Schwarz Inequality},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\section{Cauchy-Schwarz Inequality\hfill{}\textsc{important}}
+\label{sec:orgf7079a9}
+'One of the most important inequalities in mathematics'
+\begin{quote}
+Suppose \(u, v \in V\) (where \(V\) is an inner product space). Then
+\[\begin{aligned}
+  \vert \langle u, v \rangle \vert \leq \lVert u \rVert \lVert v \rVert
+  \end{aligned}\]
 
+The inequality is an equality iff one of \(u, v\) is a scalar multiple of the other.
+\end{quote}
+
+\subsection{intuition}
+\label{sec:org1ca7c01}
+For the Euclidean inner product, this is true because \(\langle u, v \rangle = \lVert u \rVert \lVert v \rVert \cos \theta\). However, the Cauchy-Schwarz inequality works for all inner product spaces, using the generalized Pythagorean theorem (instead of the law of cosines).
+\subsection{proof is by \href{KBrefOrthogonalDecomposition.org}{the orthogonal decomposition}}
+\label{sec:org1f391b8}
+
+By homogeneity of norms,
+\[\begin{aligned}
+   \left\lVert \frac{ \langle u, v \rangle }{\lVert v \rVert} v \right\rVert ^2 = \left| \frac{ \langle u, v \rangle }{\lVert v \rVert}\right|^2 \lVert v \rVert ^2
+   \end{aligned}\]
+
+\subsection{results}
+\label{sec:org1841669}
+\subsubsection{triangle inequality}
+\label{sec:orgded72c4}
+\begin{quote}
+Suppose \(u, v \in V\). Then
+
+\[\begin{aligned}
+    \lVert u+v \rVert \leq \lVert u \rVert + \lVert v \rVert
+	\end{aligned}\]
+
+The inequality is an equality if and only if one of \(u, v\) is a non-negative multiple of the other (degenerate triangle)
+\end{quote}
+This is proven by noticing that \(\langle u, v \rangle + \langle  v, u \rangle = \langle  u, v \rangle \overline{\langle v, u \rangle} = 2 Re \langle u, v \rangle \leq  2|\langle u, v \rangle| \leq 2\lVert u \rVert \lVert v \rVert\) by conjugate symmetry and Cauchy-Schwarz.
+
+\subsubsection{Parallelogram Equality}
+\label{sec:org0e3b63d}
+\begin{quote}
+Suppose \(u, v \in V\). Then
+\[\begin{aligned}
+    \lVert u+v \rVert^2 + \lVert u-v \rVert^2 = 2(\lVert u \rVert^2 + \lVert v \rVert^2)
+	\end{aligned}\]
+\end{quote}
 \end{document}

@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:17
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,122 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
-\title{}
+\title{Fields and Voltage PhET Exploration}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Exr0n},
+ pdftitle={Fields and Voltage PhET Exploration},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\#ret
 
+Run this PhET simulation (Links to an external site.). Using both an
+Electric Field Sensor, and Voltage inspector (cross hairs), explore the
+following topics. Submit your notes when you are finished. Be sure your
+notes include both the questions and their answers!
+
+\begin{enumerate}
+\item Place a single charge in the working area. Using the E-field sensor
+(with "values" selected), and the measuring tape, confirm that the
+E-field calculated by the PhET simulation agrees with the equation we
+have used in class. (Note, the units for E-field that we learned in
+class were N/C. The PhET simulation may express the units
+differently. But the numerical values should be the same.)
+
+\begin{enumerate}
+\item The numbers seem to check out, (voltage is \textasciitilde{}9 volts 1m away) since
+the charges are in nanoCoulombs
+\end{enumerate}
+
+\item Place two positive charges in the working area. Where do you expect
+the E field to be zero? Does the simulation confirm that?
+
+\begin{enumerate}
+\item Between the charges
+\href{srcPhETChargesFieldsNeutralBetweenPositives.png.org}{srcPhETChargesFieldsNeutralBetweenPositives.png}
+\end{enumerate}
+
+\item Same as above, but use one positive and one negative charge.
+
+\begin{enumerate}
+\item E won't ever be zero, since the charges don't cancel each other
+out. However, if you are far enough away the field becomes
+negligible.
+\href{srcPhETChargesFieldsNegligableField.png.org}{srcPhETChargesFieldsNegligableField.png}
+\end{enumerate}
+
+\item The E field at a given point can be thought of as the force that a +1
+C charge would feel if it were placed there. What does "electric
+potential" or "voltage" appear to represent? The units mentioned in
+\#1 may be of interest as you consider this question.
+
+\begin{enumerate}
+\item Apparently \(\frac{N}{C}\) is equivalent to \(\frac{V}{m}\), then
+the volt is \(\frac{Nm}{C}\) aka \(\frac{J}{C}\) (Joules per
+Coulomb)
+\item Then, "voltage is the difference in energy when you move a charge"
+\end{enumerate}
+
+\item Does electric potential appear to be a scalar or a vector?
+
+\begin{enumerate}
+\item Seems like a scalar, there's no arrow.
+\end{enumerate}
+
+\item What or where is the zero-point for electric potential?
+
+\begin{enumerate}
+\item On the line perpendicular to the segment between the charges
+through the midpoint of the charges.
+\end{enumerate}
+
+\item What is the relationship between the local E-field vector and a line
+of constant electric potential? (You can explore this first by moving
+the voltage sensor (drag the little box, not the crosshairs) and
+observing the voltage values, then by plotting lines of constant
+potential).
+
+\begin{enumerate}
+\item Constant voltage:
+\href{20phys201srcPhETChargesAndFieldsConstantVoltage.png.org}{20phys201srcPhETChargesAndFieldsConstantVoltage.png}
+\item The lines seem to be perpendicular to the field vectors.
+\end{enumerate}
+\end{enumerate}
+
+When you are finished, you can play electric field hockey (Links to an
+external site.)for fun!
+
+\noindent\rule{\textwidth}{0.5pt}
 \end{document}

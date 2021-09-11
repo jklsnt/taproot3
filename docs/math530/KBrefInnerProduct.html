@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-10 Fri 23:24 -->
+<!-- 2021-09-11 Sat 08:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Inner Product</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Taproot" />
 <style type="text/css">
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="./global.css" type="text/css"/>
+<link rel="stylesheet" href="../global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,6 +216,28 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -223,9 +245,87 @@
  |
  <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
 </div><div id="content">
+<h1 class="title">Inner Product</h1>
+<div id="outline-container-org19cd799" class="outline-2">
+<h2 id="org19cd799"><span class="section-number-2">1</span> inner product&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></h2>
+<div class="outline-text-2" id="text-1">
+<blockquote>
+<p>
+An <i>inner product</i> on \(V\) is a function that takes each ordered pair \((u, v)\) of elements of \(V\) to a number \(\langle u, v \rangle \in \FF\)  and has the following properties
+</p>
+<ul class="org-ul">
+<li><b>positivity</b> \(\langle v, v \rangle \geq  0 \forall v\in V\)</li>
+<li><b>definiteness</b> \(\langle v, v \rangle = 0 \iff v = 0\)</li>
+<li><b>additivity in first slot</b> \(\langle u+v, w \rangle = \langle u, w \rangle + \langle v, w \rangle \forall u, v, w, \in V\)</li>
+<li><b>homogeneity in first slot</b> \(\langle \lambda u, v \rangle = \lambda \langle u,v \rangle \forall \lambda \in \FF, u,v \in  V\)</li>
+<li><b>conjugate symmetry</b> \(\langle u,v \rangle = \overline{\langle v,u \rangle} \forall u,v \in V\)
+<ul class="org-ul">
+<li>Over the reals, this is equal to \(\langle u,v \rangle = \langle v, u \rangle\)</li>
+</ul></li>
+</ul>
+</blockquote>
+</div>
+</div>
+<div id="outline-container-orgb4fc7ad" class="outline-2">
+<h2 id="orgb4fc7ad"><span class="section-number-2">2</span> motivation</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org1bd8bfc" class="outline-3">
+<h3 id="org1bd8bfc"><span class="section-number-3">2.1</span> The norm of a complex number \(\lVert z \rVert\) should be non-negative, so we can define it as</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+\[\begin{aligned}
+   \lVert z \rVert =\sqrt{|z_1|^2 + \cdots + |z_n| ^2}
+   \end{aligned}\]
+Since the square of the absolute value is just a complex number times a conjugate, and because the norm squared should be the inner product of \(z\) with itself, maybe the inner product of \(w, z \in  \CC ^n\) should equal
+\[\begin{aligned}
+   w_1 \overline{z_1} + \cdots + w_n \overline{z_n}
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-org58ff6ad" class="outline-3">
+<h3 id="org58ff6ad"><span class="section-number-3">2.2</span> positivity: we want inner product to be the size of the vector, so it should be a positive and real number</h3>
+</div>
+<div id="outline-container-org3942df9" class="outline-3">
+<h3 id="org3942df9"><span class="section-number-3">2.3</span> notation</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+For a complex scalar \(\lambda \in \CC\), \(\lambda \geq 0\) means \(\lambda\) is real and non-negative
+</p>
+
+<p>
+\(\langle u, v \rangle\) denotes an inner product.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org0eb7dab" class="outline-2">
+<h2 id="org0eb7dab"><span class="section-number-2">3</span> intuition</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orga215d06" class="outline-3">
+<h3 id="orga215d06"><span class="section-number-3">3.1</span> additivity/homogeneity in the first slot also implies additivity in the second slot, and 'conjugate homogeneity in the second slot'</h3>
+</div>
+<div id="outline-container-orgedd4402" class="outline-3">
+<h3 id="orgedd4402"><span class="section-number-3">3.2</span> we want the norm to be a real scalar, so we need to take the complex conjugate of the second one</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-org95ed605" class="outline-4">
+<h4 id="org95ed605"><span class="section-number-4">3.2.1</span> so, the Euclidean inner product is conjugate the second, then dot product</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+\[\begin{aligned}
+    \langle u, v \rangle = u \overline{z}
+	\end{aligned}\]
+</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-10 Fri 23:22</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-11 Sat 08:10</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>

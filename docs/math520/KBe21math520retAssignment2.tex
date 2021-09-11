@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:17
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,221 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Albert H}
 \date{\today}
-\title{}
+\title{Assignment 2: parameterization continued}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Albert H},
+ pdftitle={Assignment 2: parameterization continued},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\href{https://www.desmos.com/calculator/hhb49omfkj}{Desmos graphs}
 
+\begin{latex}
+\setcounter{section}{3}
+\end{latex}
+
+\section{witch of Maria Agnesi}
+\label{sec:org7656b52}
+
+Let \(B\) be the center of the orange circle with radius \(a\), let \(D\) be the closest point to \(C\) on the x-axis, and let \(Q\) be the closest point to \(A\) on the y-axis.
+
+\subsection{\(x(t)\)}
+\label{sec:org0b29cc3}
+
+\[\begin{aligned}
+    \tan \theta &= \frac{\overline{CD}}{\overline{OD}}\\
+    \cot  \theta &= \frac{\overline{OD}}{\overline{CD}}\\
+    \overline{CD} \cot  \theta &= \overline{OD} \\
+    2a \cot  \theta &= x
+   \end{aligned}\]
+
+\subsection{\(y(t)\)}
+\label{sec:orgabca3cb}
+
+
+First, note that the distances
+\[\begin{aligned}
+   \overline{AB} &= \overline{BO} = a\\
+   \overline{PD} &= \overline{QO} = \overline{QB} + \overline{BO} = \overline{QB} + a = y\\
+   \end{aligned}\]
+
+Using some geometry:
+
+\[\begin{aligned}
+   \angle AOB &= 90-\theta \\
+   \angle OAB &= 90-\theta && \quad\text{(isocelese triangle)}\\
+   \angle ABO &= 2\theta \\
+   \end{aligned}\]
+
+Which implies:
+
+\[\begin{aligned}
+   \overline{QB} &= -a \cos  (2 \theta )  \\
+   &= -a \left( 1 - 2 \sin ^2 \theta \right)  \\
+   &= -a + 2a \sin  ^2 \theta 
+   \end{aligned}\]
+
+By going back to the original distance relations, we have 
+\[\begin{aligned}
+   y &= \overline{QB} + a \\
+   &= \cancel{a - a} + 2a \sin  ^2 \theta 
+   &= 2 a \sin  ^2 \theta 
+   \end{aligned}\]
+
+
+\section{parameterization of an elipse}
+\label{sec:org3c00d79}
+\url{https://www.desmos.com/calculator/wcu1okhjyz}
+
+\[\begin{aligned}
+  x(t) = a \sqrt{c} \sin  t\\
+  y(t) = b \sqrt{c} \cos  t
+  \end{aligned}\]
+
+\section{mystery curve}
+\label{sec:org6109474}
+it's just \((a \cos  t, b \sin  t)\) because of how the right triangle aligns with the axes. 
+\begin{latex}
+\setcounter{section}{7}
+\end{latex}
+
+\section{swallowtail catastrophe curves}
+\label{sec:org285e05a}
+Defined by 
+\[\begin{aligned}
+  x &= 2ct - 4t^3\\
+  y &= -ct^2 + 3 t^4
+  \end{aligned}\]
+\subsection{features}
+\label{sec:orgd707a84}
+\subsubsection{approaches a parabola-like shape above the y-axis}
+\label{sec:org745d6e4}
+\subsubsection{approaches a parabola-like shape below the x-axis if \(c > 0\)}
+\label{sec:orga0d2c46}
+\subsubsection{has a cross-over in a triangle shape}
+\label{sec:orgff59e8f}
+\begin{enumerate}
+\item gets bigger when \(c\) gets bigger
+\label{sec:orgba8dc14}
+\end{enumerate}
+\subsubsection{it looks like a dorito that scales with the value of \(c\)}
+\label{sec:orgf6ae6ca}
+\begin{enumerate}
+\item as \(c\) approaches zero from the positive direction, the swollowtail gets smaller
+\label{sec:org7e4a8f2}
+\end{enumerate}
+\section{Lissajous Figures}
+\label{sec:org2b1d81c}
+Defined by 
+\[\begin{aligned}
+  x &= a \sin (nt)\\
+  y &= b \cos  t
+  \end{aligned}\]
+\subsection{features}
+\label{sec:orgf312a11}
+\subsubsection{spring-like coil shape (almost like standing waves) with tighter "loops" at the ends}
+\label{sec:org59ce502}
+\subsubsection{\(a, b\) control the size of the coil (default \(-1 \le x, y \le 1\) because of range of \(\sin, \cos\)}
+\label{sec:orgba5e4ea}
+\subsubsection{number of y-intercepts is \(n+1\) except in the degenerate cases \(n \le 0\)}
+\label{sec:orgc3d742e}
+
+\begin{latex}
+\setcounter{section}{10}
+\end{latex}
+\section{cycloid}
+\label{sec:org2693b81}
+Suppose instead that the circle slides along the surface and the point rotates at one radian per radian traveled. Let's start with the radian rotation\ldots{}
+
+\[\begin{aligned}
+  x(t) &= &r\sin t\\
+  y(t) &= r + &r\cos t\\
+  \end{aligned}\]
+
+Then, we just have to move the origin as well:
+
+\[\begin{aligned}
+  x(t) &= t + r \sin  t\\
+  y(t) &= r + r \cos t
+  \end{aligned}\]
+\section{first order derivative}
+\label{sec:orgc5733c9}
+
+I think I did not come to this conclusion on my own on 30 Aug. because I didn't realize we could assume we had \(y(x)\).
+\[\begin{aligned}
+  y &= y(x(t))\\
+  \frac{dy}{dt} &= y'(x(t)) x'(t) = \frac{dy}{dx} \frac{dx}{dt} && \quad \text{(chain rule)}\\
+  \frac{dy}{dx} &= \frac{\frac{dy}{dt}}{\frac{dx}{dt}}
+  \end{aligned}\]
+\section{second order derivative}
+\label{sec:orge26c11d}
+
+
+\[\begin{aligned}
+  x &= f(t)\\
+  y &= g(t) = g(f(t))\\
+  \end{aligned}\]
+
+
+\[\begin{aligned}
+  \frac{dy}{dt} &= \frac{dy}{dx}\frac{dx}{dt}\\
+  \frac{d^2y}{dt^2} &= \frac{dy}{dx} \frac{d}{dt}\frac{dx}{dt} + \frac{dx}{dt} \frac{d}{dt}\frac{dy}{dx}\\
+  &= \frac{dy}{dx} \frac{d^2x}{dt^2} + \frac{dx}{dt} \frac{d^2y}{dxdt (??)}\\
+  \end{aligned}\]
+
+
+\[\begin{aligned}
+  \frac{d^2x}{dt^2} &= \frac{d}{dt} \frac{dx}{dt} 
+  \end{aligned}\]
+
+um\ldots{} that seems like it didn't actually do anything. I'm kind of stuck\ldots{} lets try working backwards:
+
+
+\[\begin{aligned}
+  \frac{d^2y}{dx^2} &= \frac{\dot x \ddot y - \dot y \ddot x}{(\dot x)^3} \\
+  &= \dot x \frac{d}{dx} \left( \frac{\dot{y}}{\dot{x}} \right)  \\
+  \end{aligned}\]
+
+
+why should the \(\dot x\) in the bottom be cubed?
+\subsection{in class review}
+\label{sec:orge19ea56}
+
+\[\begin{aligned}
+   \frac{d}{dx} \frac{dy}{dx} = \frac{d}{dx} \left( \frac{\frac{dy}{dt}}{\frac{dx}{dt}} \right) = \frac{d}{dx} u = \frac{\frac{du}{dt}}{\frac{dx}{dt}}\\
+   = \frac{\frac{d}{dt}u}{\frac{dx}{dt}} = \frac{\frac{d}{dt} \frac{\dot{y}}{\dot{x}} }{\dot{x}}\\
+   = \frac{ \frac{\dot{x}\ddot{y}-\dot{y}\ddot{x}}{\dot{x}^2}}{\dot{x}}
+   \end{aligned}\]
 \end{document}

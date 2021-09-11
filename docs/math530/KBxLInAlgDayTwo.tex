@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,11 +12,36 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
 \date{\today}
 \title{}
 \hypersetup{
- pdfauthor={Taproot},
+ pdfauthor={},
  pdftitle={},
  pdfkeywords={},
  pdfsubject={},
@@ -26,6 +49,139 @@
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
 
+
+\section{Types of Numbers}
+\label{sec:orgb40ab52}
+algebra:
+
+\begin{verbatim}
+algebra is doing stuff to things
+\end{verbatim}
+
+\begin{itemize}
+\item idea of a number changes -- 500yago they didnt know about negs
+\end{itemize}
+
+natural numbers are the most natural, apparently 0 not in natural, 0 in
+whole
+
+\(\mathbb{z}\) for integers, counting in german
+
+rational numbers: a/b \(a,b \mathbb{e} \mathbb{z}\)
+
+real numbers: infinite all the way down way more real numbers than
+rational numbers
+
+\begin{itemize}
+\item Zero: important for groups -- starting point on number lines. true
+neutral, \textbf{Additive Identity}
+
+\begin{itemize}
+\item \textbf{Multiplicative Identity}: 1
+\item identity lets it keep it's identity? when the op doesn't change
+\end{itemize}
+
+\item negs: so we can deal with negs? so we can undo addition
+\end{itemize}
+
+\begin{verbatim}
+subtraction is a lie! add negs
+subtraction on the natural numbers is not closed
+\end{verbatim}
+
+\begin{verbatim}
+closed: can't make a number not in the set
+\end{verbatim}
+
+\section{Groups}
+\label{sec:org9f205a6}
+\begin{verbatim}
+any set of mathematical elemements under one operation such that there is an identity each element has an inverse
+\end{verbatim}
+
+\begin{itemize}
+\item they do not need to be \textbf{communitive}
+
+\begin{itemize}
+\item a+b = b+a
+\end{itemize}
+
+\item \textbf{associativity}
+
+\begin{itemize}
+\item (a+b)+c=a+(b+c)
+\item order doesnt matter
+\item most things we are doing will be associative
+\item nice number systems are almost always associative
+\end{itemize}
+\end{itemize}
+
+can add dimensions, like complex adding more leads to quaternions or
+hamiltonians, then to sadonians?
+
+\begin{verbatim}
+called the cayley dickson construction, or smt
+\end{verbatim}
+
+\subsubsection{axioms:}
+\label{sec:orgd90f5d3}
+\begin{itemize}
+\item there exists an identity
+\item each element has an inverse
+\item it's closed
+\item associativity
+\end{itemize}
+
+\section{Matrices}
+\label{sec:orgaa61a9c}
+\begin{itemize}
+\item can be called an array
+\item 2d can use rows and columns as coords
+\end{itemize}
+
+\subsubsection{operations:}
+\label{sec:orgdedc21e}
+addition: only if same dimensions, loop through indicies dot: cross:
+wrong! first row by first column with addition to make first entry,
+first row by second column for second entry loop through indicies like
+addition
+
+\subsubsection{vectors:}
+\label{sec:org57205e3}
+special case of matrix
+
+column vec ( 1, 2 )
+
+row vec ( 1, 2 )
+
+cannot add diff dimensions
+
+\subsubsection{representations}
+\label{sec:org1a75d73}
+can draw up to 3, ish geometric is just arrow on graph to coords
+
+adding vecs on the graph is just tip to tail, then first tip to last
+tail for resultant just like phys
+
+\begin{verbatim}
+(
+    a1
+    a2
+    .
+    .
+    .
+    an
+)
+\end{verbatim}
+
+is a vector of \(\mathbb{r}^n\)
+
+\begin{verbatim}
+matrix multiplication identity?
+multiplication on group? multiplication on to collum vectors
+\end{verbatim}
+
+Homework: -
+\href{KBxGroupAndMatricesIntro.org}{KBxGroupAndMatricesIntro}
 \end{document}

@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-10 Fri 23:24 -->
+<!-- 2021-09-11 Sat 08:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Handout 17 Riemann Sums</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Taproot" />
+<meta name="author" content="Exr0n" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="./global.css" type="text/css"/>
+<link rel="stylesheet" href="../global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,6 +216,28 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -223,9 +245,261 @@
  |
  <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
 </div><div id="content">
+<h1 class="title">Handout 17 Riemann Sums</h1>
+
+<div id="outline-container-orgb0f90b7" class="outline-2">
+<h2 id="orgb0f90b7"><span class="section-number-2">1</span> Reading</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org10bab2c" class="outline-3">
+<h3 id="org10bab2c"><span class="section-number-3">1.1</span> Definition of a Definite Integral</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+For each interval \([x_i, x_{i+1}]\), we choose \(x_i^*\) in the interval to be the position of the minimum (for lower bound) or maximum (upper bound) value.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4aee3b6" class="outline-2">
+<h2 id="org4aee3b6"><span class="section-number-2">2</span> Problems</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org66346f9" class="outline-3">
+<h3 id="org66346f9"><span class="section-number-3">2.1</span> exr1.3</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Using the left edge: -8.4375
+</p>
+
+<p>
+Summation notation for left edge approximation:
+\[\begin{aligned}
+   \sum_{i=0}^n \underbrace{\frac{b-a}{n}}_{\text{ width }} \underbrace{f\left(a+\frac{b-a}{n}i\right)}_\text{ height }
+   \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org22686ed" class="outline-3">
+<h3 id="org22686ed"><span class="section-number-3">2.2</span> exr1.4 (in class)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+0.21875 using the left estimate
+</p>
+</div>
+</div>
+
+<div id="outline-container-org11af890" class="outline-3">
+<h3 id="org11af890"><span class="section-number-3">2.3</span> exr1.5</h3>
+<div class="outline-text-3" id="text-2-3">
+</div>
+<div id="outline-container-org32b0441" class="outline-4">
+<h4 id="org32b0441"><span class="section-number-4">2.3.1</span> left estimate</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<p>
+34.7 feet (add all except last number and divide by two, because we are stopping at 3.0 seconds in.)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0257179" class="outline-4">
+<h4 id="org0257179"><span class="section-number-4">2.3.2</span> right estimate</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<p>
+44.8 feet (add the last number and drop the zero from the beginning)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org18a630b" class="outline-4">
+<h4 id="org18a630b"><span class="section-number-4">2.3.3</span> middle estimate</h4>
+<div class="outline-text-4" id="text-2-3-3">
+<p>
+Not enough information to do it for \(\Delta x = 0.5\), so I will use \(n=3\) aka \(\Delta x = 1\)
+</p>
+
+<p>
+\[\begin{aligned}
+    6.2 + 14.9 + 19.4 = 40.5 \text{ feet }
+	\end{aligned}\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfd5cb63" class="outline-3">
+<h3 id="orgfd5cb63"><span class="section-number-3">2.4</span> exr1.6</h3>
+<div class="outline-text-3" id="text-2-4">
+</div>
+<div id="outline-container-org47f7781" class="outline-4">
+<h4 id="org47f7781"><span class="section-number-4">2.4.1</span> \(\int_0^1 \sqrt{x^2+1}dx\)</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<p>
+\(\sqrt{x^2+1}\) is the length the hypotenuse of a triangle with leg-lengths 1 and \(x\). Because \(x\) is continuous, this is like the area of a right triangle with leg-lengths 1 and 1, which is \boxed{\frac{1}{2}}.
+</p>
+</div>
+
+
+<ol class="org-ol">
+<li><a id="orgbba18fc"></a><span class="todo TODO">TODO</span> Wolfram Alpha doesn't agree though<br />
+<div class="outline-text-5" id="text-2-4-1-1">
+<p>
+Probably because as you take approximations, there will be overlap, so the actual value is bigger than I think it is.
+</p>
+
+<p>
+I also don't know how to take the anti-chain-rule, so I don't know how to integrate the function symbolically.
+</p>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org0c7782d" class="outline-4">
+<h4 id="org0c7782d"><span class="section-number-4">2.4.2</span> \(\int_0^3 (x-1)dx\)</h4>
+<div class="outline-text-4" id="text-2-4-2">
+<p>
+Not sure area wise, but the anti-derivative is guess-able:
+</p>
+
+<p>
+\[\begin{aligned}
+    \frac{d}{dx}\left( \frac{x^2}{2} -x\right) = x-1
+	\end{aligned}\]
+</p>
+
+
+<p>
+\[\begin{aligned}
+    \frac{3^2}{2}-3 = 1.5
+	\end{aligned}\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd589fbc" class="outline-3">
+<h3 id="orgd589fbc"><span class="section-number-3">2.5</span> exr1.7</h3>
+<div class="outline-text-3" id="text-2-5">
+</div>
+<div id="outline-container-org0d5703a" class="outline-4">
+<h4 id="org0d5703a"><span class="section-number-4">2.5.1</span> right endpoint approx for \(y=x^2\)</h4>
+<div class="outline-text-4" id="text-2-5-1">
+<p>
+\[\begin{aligned}
+    \sum_{i=1}^{n+1} \Delta x f(i \Delta x) = \sum_{i=1}^{n+1} \frac{1}{n} \left( \frac{i}{n}\right) ^2
+	\end{aligned}\]
+where \(\Delta x = \frac{1}{n}\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0669892" class="outline-4">
+<h4 id="org0669892"><span class="section-number-4">2.5.2</span> general form for left-side riemann sum</h4>
+<div class="outline-text-4" id="text-2-5-2">
+<p>
+See exr1.3
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf60fe1d" class="outline-3">
+<h3 id="orgf60fe1d"><span class="section-number-3">2.6</span> exr1.11</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+\[\begin{aligned}
+   \int_\pi^{2\pi} \cos(x)dx = \lim_{n\to \infty} \sum_{i=0}^n \frac{\pi}{n}\cos\left( \pi + \frac{i\pi}{n}\right)
+   \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org23e4013" class="outline-3">
+<h3 id="org23e4013"><span class="section-number-3">2.7</span> exr1.12</h3>
+<div class="outline-text-3" id="text-2-7">
+</div>
+<div id="outline-container-orgd7840fb" class="outline-4">
+<h4 id="orgd7840fb"><span class="section-number-4">2.7.1</span> 1</h4>
+<div class="outline-text-4" id="text-2-7-1">
+<p>
+\[\begin{aligned}
+    \lim_{n \to \infty} \sum_{k=0}^n \Delta x \sqrt{4+(1+k\Delta x)^2} \text{ where }\Delta x = \frac{2}{n}
+	\end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6800641" class="outline-4">
+<h4 id="org6800641"><span class="section-number-4">2.7.2</span> 2</h4>
+<div class="outline-text-4" id="text-2-7-2">
+<p>
+\[\begin{aligned}
+    \lim_{n \to  \infty} \sum_{k=0}^n \Delta x(2+k\Delta x)^2 + \frac{1}{2+k\Delta x} \text{ where } \Delta x = \frac{3}{n}
+	\end{aligned}\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfaaa847" class="outline-3">
+<h3 id="orgfaaa847"><span class="section-number-3">2.8</span> exr1.13</h3>
+<div class="outline-text-3" id="text-2-8">
+</div>
+<div id="outline-container-orgb64a548" class="outline-4">
+<h4 id="orgb64a548"><span class="section-number-4">2.8.1</span> 1</h4>
+<div class="outline-text-4" id="text-2-8-1">
+<p>
+\[\begin{aligned}
+    \int_0^1 \frac{e^x}{1+x} dx
+	\end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org04bbf6d" class="outline-4">
+<h4 id="org04bbf6d"><span class="section-number-4">2.8.2</span> 2</h4>
+<div class="outline-text-4" id="text-2-8-2">
+<p>
+\[\begin{aligned}
+    \int_2^5 x\sqrt{1+x^3}dx
+	\end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8fcf336" class="outline-4">
+<h4 id="org8fcf336"><span class="section-number-4">2.8.3</span> 3</h4>
+<div class="outline-text-4" id="text-2-8-3">
+<p>
+\[\begin{aligned}
+    \int_1^3 \frac{x}{x^2+4}dx
+	\end{aligned}\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbc53ba3" class="outline-3">
+<h3 id="orgbc53ba3"><span class="section-number-3">2.9</span> exr1.14</h3>
+<div class="outline-text-3" id="text-2-9">
+<p>
+Graphically, it's the right triangle from origin to B minus the one from origin to A. Algebraically,
+</p>
+
+<p>
+\[\begin{aligned}
+   \frac{d}{dx}\frac{1}{2}x^2 = x\\
+&\implies \int_a^b xdx = \frac{1}{2}b^2 + c - \left(\frac{1}{2} a^2 + c\right) = \frac{b^2-a^2}{2}
+   \end{aligned}\]
+</p>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-10 Fri 23:22</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+<div class="namedate"><p class="subtitle"><span class="author">Exr0n</span><span class="date">2021-09-11 Sat 08:10</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>

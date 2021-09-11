@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,70 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
 \author{Taproot}
 \date{\today}
-\title{}
+\title{Self-adjoint operators}
 \hypersetup{
  pdfauthor={Taproot},
- pdftitle={},
+ pdftitle={Self-adjoint operators},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
-
+\maketitle
+\section{Axler7.11 self-adjoint, Hermitian\hfill{}\textsc{def}}
+\label{sec:orgc52fca3}
+\begin{quote}
+An operator \(T \in  \mathcal{L}(V)\) is called \emph{self-adjoint} if \(T = T^*\) aka it is \href{KBrefAdjoints.org}{adjoint} to itself. aka: \(T \in  \mathcal{L} (V)\) is self-adjoint iff
+\[\begin{aligned}
+   \langle Tv, w \rangle = \langle v, Tw \rangle
+  \end{aligned}\]
+\end{quote}
+Because adjoint-ness is in some ways analygous to complex conjugation, a self-adjoint operator is somewhat analygous to real numbers (kinda like a number who equals its conjugates real, a map that equals its adjoint is "real")
+\section{results}
+\label{sec:org13dfc27}
+\subsection{Axler7.13 Eigenvalues of self-adjoint operators are real}
+\label{sec:orgc64505b}
+\begin{quote}
+Every eigenvalue of a self-adjoint operator is real.
+\end{quote}
+\subsection{Axler7.14 Over \(\mathbb{C}\), only the \(0\) operator has \(Tv\) being orthogonal to \(v\) for all \(v\)}
+\label{sec:org6b485d4}
+For some \textbf{complex} vector space \(V\) and \(T \in  \mathcal{L}(V)\), if
+\[\begin{aligned}
+    \langle Tv, v \rangle = 0
+   \end{aligned}\]
+for all \(v \in  V\), then \(T = 0\).
+\subsection{{\bfseries\sffamily TODO} Axler7.15 and Axler7.16??}
+\label{sec:orgbfe1aba}
+\subsection{Every self-adjoint operator is \href{KBrefNormal.org}{normal}.}
+\label{sec:org03ef98f}
 \end{document}

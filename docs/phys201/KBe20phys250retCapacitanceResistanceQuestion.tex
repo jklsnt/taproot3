@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:17
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,139 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
-\title{}
+\title{Computer Speed by Capacitance and Resistance}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Exr0n},
+ pdftitle={Computer Speed by Capacitance and Resistance},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
 
+
+\section{Homework Question}
+\label{sec:orga3a44cd}
+\begin{quote}
+To carry signals on silicon chips, metal conductors are created. These
+are usually in the form of rectangular strips as seen in the highly
+magnified image below. Many of the conductors in this image appear to
+be connected to nothing, but they are making contact to structures and
+conductors in lower layer(s). Some are short, but others may run the
+entire length of the chip.
+\end{quote}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{KBsrcComputerInternalsAsCapacitors.png}
+\caption{KBsrcComputerInternalsAsCapacitors.png}
+\end{figure}
+
+\begin{quote}
+"Signals" are of course nothing other than changing voltages. So
+imagine that at one point on the chip, a switch is closed that
+connects two conductors to the opposite ends of a battery. The
+question is, how long does it take for the other end of the conductors
+to reach a substantial fraction of the battery voltage?
+\end{quote}
+
+\begin{quote}
+Assume the conductors are L meters long, H meters high, W meters wide,
+and are separated by S meters. The gap between the conductors is
+filled with an insulator having relative dielectric constant
+\(\kappa\).
+\end{quote}
+
+\begin{quote}
+Write an expression for the resistance of each conductor in terms of
+the above quantities, and the resistivity of the conductor material,
+\(\rho\).
+\end{quote}
+
+\[R = \frac{L\rho}{HW}\]
+
+\begin{quote}
+Write an expression for the capacitance of the two conductors,
+assuming they form a parallel-plate capacitor.
+\end{quote}
+
+\[C = \frac{\kappa \epsilon_0 LH}{S}\]
+
+The area should be \(LH\) and not \(HW\), because while charge collects
+in the opposite corners when there is no field \(E\) (in
+electrostatics), charge will collect on the face near the other wire in
+this case because we have a E field (the whole point of a capacitor).
+
+\begin{quote}
+Combine these to estimate the time it takes for the far end of the
+conductors to rise to an appreciable fraction of the battery voltage.
+Do any of the parameters listed above cancel out?
+\end{quote}
+
+$\backslash$[
+\begin{aligned}
+\tau = RC = \frac{L\rho}{\cancel{H}W} \frac{\kappa \epsilon_0 L\cancel{H}}{S} \text{in} \frac{m^2\Omega m\frac{C^2}{Nm^2}}{m^2} = \frac{\cancel{m^2}\Omega m C^2}{m^2N\cancel{m^2}} = \frac{\cancel{m^2}kg\ \cancel{m^2}\ m \cancel{C^2}}{\cancel{m^2}N\cancel{m^2}\cancel{C^2}s} = \frac{kg\ m}{\frac{kg\ m}{s^2}s} = s\\
+\end{aligned}
+$\backslash$]
+
+\begin{quote}
+Assume the conductive strips are made of aluminum, L = 250 μm, k = 2,
+and H = W = S = 20 nanometers, \(\rho = 2.65\times10^{−8}\). What is
+your calculation of the time constant? Be careful with units, and
+check to make sure that your answer is in seconds. What does the time
+constant have to do with how many signals or voltage changes can be
+sent per second?
+\end{quote}
+
+\[\tau
+= \rho\kappa\epsilon_0\frac{L^2}{WS} = 7.33\times10^{-11}
+\]
+
+where \(\tau\) is the "time constant", which will show up alot:
+\href{KBrefPhysTimeConstant.org}{KBrefPhysTimeConstant}
+
+\section{\#icr in class review}
+\label{sec:org776877f}
+The voltage that we expect to see across the ends of the conductors:
+\href{srcWiresAsCapacitorsSlowSignal.png.org}{srcWiresAsCapacitorsSlowSignal.png}
+
+\subsection{why does capacitence make it go slower?}
+\label{sec:orgd2c4b95}
+\begin{itemize}
+\item Because you are able to fit more charge onto the wire, which means you
+have to put more charge to get the signal to go all the way down the
+wire
+\end{itemize}
+
+\noindent\rule{\textwidth}{0.5pt}
 \end{document}

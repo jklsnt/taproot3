@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,123 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Dylan Wallace}
 \date{\today}
-\title{}
+\title{Adv Mech Center Of Mass HW}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Dylan Wallace},
+ pdftitle={Adv Mech Center Of Mass HW},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
 
+
+\section{Problem 1}
+\label{sec:org09dedbf}
+\subsection{\((1a)\)}
+\label{sec:orgbe6b0df}
+$\backslash$[
+\begin{aligned}
+PE &= -W \\
+W &= \int_{R_e}^\infty F(r) \,dr \\
+\end{aligned}
+$\backslash$] We know that the force applied to a point mass \(m\) by the
+gravitational field of the earth (with mass \(M_e\)) with distance \(x\)
+is modeled by \[F(r) = \frac{GmM_e}{r^2}\]. Therefore, our work integral
+can be modified to be $\backslash$[
+\begin{aligned}
+W &= \int_{R_e}^\infty \frac{GmM_e}{r^2}\,dr \\
+&= GmM_e \int_{R_e}^\infty \frac{1}{r^2} \,dr \\
+&= GmM_e [-\frac{1}{r}]_{R_e}^\infty \\
+&= -\frac{GmM_e}{R_e} \\
+PE &= \frac{GmM_e}{R_e}
+\end{aligned}
+$\backslash$]
+
+\subsection{\((1b)\)}
+\label{sec:org05d5417}
+$\backslash$[
+\begin{aligned}
+KE &= \frac{1}{2}mv^2 \\
+KE &= PE \\
+\frac{1}{2}mv^2 &= \frac{GmM_e}{R_e} \\
+v &= \sqrt{\frac{2GM_e}{R_e}}
+\end{aligned}
+$\backslash$]
+
+\subsection{\((1c)\)}
+\label{sec:orgf43c8d9}
+$\backslash$[
+\begin{aligned}
+v &= \sqrt{\frac{2GM_e}{R_e}} \\
+&= \sqrt{\frac{2\cdot 6.674 \cdot 10^{-11} \cdot 5.972 × 10^{24}}{6.371\cdot 10^{6}}} \\
+&= 11185.7 m/s \\
+&= 25020.1 mph \\
+\end{aligned}
+$\backslash$]
+
+\section{Problem 2}
+\label{sec:org1c33a90}
+$\backslash$[
+\begin{aligned}
+\sum_{i=1}^{n} \vec{F}_{net,i} &= (\sum_{i=1}^{n} m_i) \ddot{\vec{r}}_{CM} \\
+\sum_{i=1}^{n} m_i \ddot{\vec{r}}_{i} &= (\sum_{i=1}^{n} m_i) \ddot{\vec{r}}_{CM} \\
+\int \int \sum_{i=1}^{n} m_i \ddot{\vec{r}}_{i} \,dt\,dt &= \int \int (\sum_{i=1}^{n} m_i) \ddot{\vec{r}}_{CM} \,dt\,dt \\
+\int \sum_{i=1}^{n} m_i \dot{\vec{r}}_{i} \,dt + C_1 &= \int (\sum_{i=1}^{n} m_i) \dot{\vec{r}}_{CM} \,dt + C_1 \\
+\sum_{i=1}^{n} m_i \vec{r}_{i} + C_1t + C_2 &= (\sum_{i=1}^{n} m_i) \vec{r}_{CM} + C_1t + C_2 \\
+\end{aligned}
+$\backslash$] Both constants are the same constant on both sides of the equation so
+they will cancel out. The sum of all mass is just \(M\). $\backslash$[
+\begin{aligned}
+\vec{r}_{CM} &= \frac{1}{M} \sum_{i=1}^{n} m_i \vec{r}_{i} \\
+\end{aligned}
+$\backslash$]
+
+\section{Problem 3}
+\label{sec:org5ef0d1c}
+Any force within a system will have an opposite force applied as well
+(Newton's 3rd law). Therefore, forces within a system will cancel out
+and will have no effect on the center of mass.
+
+\section{Problem 4}
+\label{sec:orga17b25b}
+$\backslash$[
+\begin{aligned}
+\vec{v} &= \frac{<1, −4, 1> + 2<−3, −2, 6> + 3<2, 5, −3> + 4<−2, 4, 6>}{1 + 2 + 3 + 4} \\
+&= <-0.7, 2.3, 2.8> \\
+\end{aligned}
+$\backslash$]
+
+\href{Screen Shot 2021-09-05 at 7.09.00 PM.png.org}{Screen Shot
+2021-09-05 at 7.09.00 PM.png}
 \end{document}

@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-10 Fri 23:24 -->
+<!-- 2021-09-11 Sat 08:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Neural Nets Assignment</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Taproot" />
+<meta name="author" content="Huxley" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="./global.css" type="text/css"/>
+<link rel="stylesheet" href="../global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -223,9 +223,384 @@
  |
  <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
 </div><div id="content">
+<h1 class="title">Neural Nets Assignment</h1>
+<p>
+#ref #ret
+</p>
+
+<hr />
+
+<div id="outline-container-opt-3" class="outline-2">
+<h2 id="opt-3"><span class="section-number-2">1</span> Opt 3 +</h2>
+<div class="outline-text-2" id="text-opt-3">
+<p>
+Looked at the
+<a href="https://github.com/ml4a/ml4a-guides/blob/master/notebooks/convolutional_neural_networks.ipynb">Convolutional
+Neural Network Notebook</a>
+</p>
+
+<ul class="org-ul">
+<li>What type of data are they using?
+
+<ul class="org-ul">
+<li>They are using images as their input data.</li>
+</ul></li>
+
+<li>What conversions (if any) had to be done to the data before it could
+be put into the neural network?
+
+<ul class="org-ul">
+<li>For the basic neural network, they reshape the data to be individual
+vectors, make them float32, normalize the data, then convert the
+vectors to binary class matrices via one hot encoding. For the CNN,
+they repeat the previous steps except without reshaping the data
+into unrolled input vectors.</li>
+</ul></li>
+
+<li>What is the output of the neural network, both in terms of what it
+looks like to the computer (e.g. integers in the range [0-2]) and how
+humans should interpret it (e.g. the type of iris)?
+
+<ul class="org-ul">
+<li>The output should be an array of probabilities for each category,
+which can be interpreted as, at a given index in the array, the
+item's probabilities for belonging in each category.</li>
+</ul></li>
+
+<li>How many hidden layers does the network have, and what type are they
+(e.g. fully connected, convolutional, recurrent, LSTM, sparse, etc.)?
+
+<ul class="org-ul">
+<li>For the final iteration of the CNN, the model has four hidden layers
+&#x2014; two convolutional, and two dense.</li>
+</ul></li>
+
+<li>What activation function(s) does it use?
+
+<ul class="org-ul">
+<li>The CNN used ReLU and softmax.</li>
+</ul></li>
+
+<li>What loss or cost function is it using?
+
+<ul class="org-ul">
+<li>The model's loss function is categorical crossentropy</li>
+</ul></li>
+
+<li>What kind of validation (if any) are they using?
+
+<ul class="org-ul">
+<li>The model uses accuracy as it's validation metric.</li>
+</ul></li>
+
+<li>What other validation methods might work for this type of problem?
+
+<ul class="org-ul">
+<li>Any validation that works for classification problems, such as
+recall, f-measure, or precision.</li>
+</ul></li>
+
+<li>Why do you think the authors may have chosen this architecture for
+their network?
+
+<ul class="org-ul">
+<li>They started with a small network to help illustrate the concepts
+more clearly, then gradually added more layers. They used a CNN so
+the model would be able to perform feature based recognition.</li>
+</ul></li>
+
+<li>Are there any changes you might try, if you were going to improve on
+their model?
+
+<ul class="org-ul">
+<li>I will try to add some more layers, as well as some more dropout.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-opt-3-pt.-2" class="outline-2">
+<h2 id="opt-3-pt.-2"><span class="section-number-2">2</span> Opt 3 pt. 2!</h2>
+<div class="outline-text-2" id="text-opt-3-pt.-2">
+</div>
+<div id="outline-container-iteration-one-more-regularization" class="outline-3">
+<h3 id="iteration-one-more-regularization"><span class="section-number-3">2.1</span> Iteration One: More Regularization</h3>
+<div class="outline-text-3" id="text-iteration-one-more-regularization">
+<p>
+Tried to add more regularization with this model setup:
+</p>
+
+<pre class="example" id="orgf5a9512">
+model = Sequential()
+model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Flatten())
+model.add(Dense(256))
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+model.add(Dense(100))
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+model.add(Dense(num_classes))
+model.add(Activation('softmax'))
+model.summary()
+</pre>
+
+<p>
+After <i>hours</i> of training, the model produced these results:
+</p>
+
+<pre class="example" id="org14c6b1c">
+Test loss: 0.930192768573761
+Test accuracy: 0.7660999894142151
+Training loss: 0.057676762342453
+Training accuracy: 0.9868000149726868
+</pre>
+
+<p>
+Which is roughly <i>one percent worse.</i>
+</p>
+
+<p>
+great.
+</p>
+
+<hr />
+</div>
+</div>
+
+<div id="outline-container-i2-better-placed-regularization" class="outline-3">
+<h3 id="i2-better-placed-regularization"><span class="section-number-3">2.2</span> I2: Better Placed Regularization</h3>
+<div class="outline-text-3" id="text-i2-better-placed-regularization">
+<p>
+Once realizing I wasn't on a GPU, and trying out this new model setup:
+</p>
+
+<pre class="example" id="orgb46df1b">
+model = Sequential()
+model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25)) ## CHANGED ##
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25))
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Flatten())
+model.add(Dense(256))
+model.add(Activation('relu'))
+model.add(Dropout(0.25)) ## CHANGED ##
+model.add(Dense(100))
+model.add(Activation('relu'))
+model.add(Dropout(0.25)) ## CHANGED ##
+model.add(Dense(num_classes))
+model.add(Activation('softmax'))
+model.summary()
+</pre>
+
+<p>
+It produced these results:
+</p>
+
+<pre class="example" id="org4312dc7">
+Test loss: 0.7443265914916992
+Test accuracy: 0.7879999876022339
+Training loss: 0.08786039799451828
+Training accuracy: 0.9797599911689758
+</pre>
+
+<p>
+Which, when compared with the original results:
+</p>
+
+<pre class="example" id="org045776a">
+Test loss: 0.9660877988576889
+Test accuracy: 0.779
+Training loss: 0.024635728995651005
+Training accuracy: 0.99504
+</pre>
+
+<p>
+Is better!
+</p>
+
+<hr />
+</div>
+</div>
+
+<div id="outline-container-i3-more-of-that" class="outline-3">
+<h3 id="i3-more-of-that"><span class="section-number-3">2.3</span> I3: More of That</h3>
+<div class="outline-text-3" id="text-i3-more-of-that">
+<p>
+Dialed up dropout again&#x2026;
+</p>
+
+<pre class="example" id="org8e59bb4">
+model = Sequential()
+model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25))
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.35)) ## CHANGED ##
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Flatten())
+model.add(Dense(256))
+model.add(Activation('relu'))
+model.add(Dropout(0.35)) ## CHANGED ##
+model.add(Dense(100))
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+model.add(Dense(num_classes))
+model.add(Activation('softmax'))
+model.summary()
+</pre>
+
+<pre class="example" id="org2545423">
+Test loss: 0.6344813704490662
+Test accuracy: 0.7918000221252441
+Training loss: 0.20304201543331146
+Training accuracy: 0.9369400143623352
+</pre>
+
+<p>
+Which gave an even better score!
+</p>
+
+<hr />
+</div>
+</div>
+
+<div id="outline-container-i4-more-layers" class="outline-3">
+<h3 id="i4-more-layers"><span class="section-number-3">2.4</span> I4: More Layers</h3>
+<div class="outline-text-3" id="text-i4-more-layers">
+<pre class="example" id="orgbba77e4">
+model = Sequential()
+model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+
+model.add(Dropout(0.25)) ## CHANGED ##
+model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3))) ## CHANGED ##
+model.add(Activation('relu')) ## CHANGED ##
+model.add(MaxPooling2D(pool_size=(2, 2))) ## CHANGED ##
+
+model.add(Dropout(0.35))
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.35))
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Flatten())
+model.add(Dense(256))
+model.add(Activation('relu'))
+model.add(Dropout(0.35))
+model.add(Dense(100))
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+model.add(Dense(num_classes))
+model.add(Activation('softmax'))
+model.summary()
+</pre>
+
+<pre class="example" id="org1688226">
+Test loss: 0.5848628878593445
+Test accuracy: 0.8004999756813049
+Training loss: 0.34681835770606995
+Training accuracy: 0.878600001335144
+</pre>
+
+<p>
+Our test accuracy and training accuracy are approaching each other.
+</p>
+
+<hr />
+</div>
+</div>
+
+<div id="outline-container-i9-more-more-layers" class="outline-3">
+<h3 id="i9-more-more-layers"><span class="section-number-3">2.5</span> I(9?): More More Layers</h3>
+<div class="outline-text-3" id="text-i9-more-more-layers">
+<pre class="example" id="orgef0f901">
+model = Sequential()
+model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+
+model.add(Dropout(0.25))
+model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+
+model.add(Dropout(0.35)) ## CHANGED ##
+model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3))) ## CHANGED ##
+model.add(Activation('relu')) ## CHANGED ##
+model.add(MaxPooling2D(pool_size=(2, 2))) ## CHANGED ##
+
+model.add(Dropout(0.35))
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.35))
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Flatten())
+model.add(Dense(256))
+model.add(Activation('relu'))
+model.add(Dropout(0.35))
+
+model.add(Dense(256)) ## CHANGED ##
+model.add(Activation('relu')) ## CHANGED ##
+model.add(Dropout(0.35)) ## CHANGED ##
+
+model.add(Dense(100))
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+model.add(Dense(num_classes))
+model.add(Activation('softmax'))
+model.summary()
+</pre>
+
+<pre class="example" id="org287339f">
+Test loss: 0.5869606137275696
+Test accuracy: 0.8033999800682068
+Training loss: 0.4103561043739319
+Training accuracy: 0.8682600259780884
+</pre>
+
+<p>
+After quite some more experimenting, these were around the best results
+I could get. I achieved this by adding two new layers, and a significant
+amount more dropout from the original model. However, this process was
+mostly guess and check. I assume that as I get more practice with this
+kind of work and gain a deeper understanding, I will get better at
+iterating more quickly and more effectively. Right now, however, I don't
+know how those skills would manifest.
+</p>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-10 Fri 23:22</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+<div class="namedate"><p class="subtitle"><span class="author">Huxley</span><span class="date">2021-09-11 Sat 08:10</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>

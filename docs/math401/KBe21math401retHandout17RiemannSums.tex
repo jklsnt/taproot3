@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:16
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,186 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
-\title{}
+\title{Handout 17 Riemann Sums}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Exr0n},
+ pdftitle={Handout 17 Riemann Sums},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
 
+\section{Reading}
+\label{sec:orgdf605ad}
+\setcounter{subsubsection}{7}
+\subsection{Definition of a Definite Integral}
+\label{sec:orgf86b8d6}
+For each interval \([x_i, x_{i+1}]\), we choose \(x_i^*\) in the interval to be the position of the minimum (for lower bound) or maximum (upper bound) value.
+
+\section{Problems}
+\label{sec:org51bddbe}
+
+\subsection{exr1.3}
+\label{sec:org41e09a7}
+Using the left edge: -8.4375
+
+Summation notation for left edge approximation:
+\[\begin{aligned}
+   \sum_{i=0}^n \underbrace{\frac{b-a}{n}}_{\text{ width }} \underbrace{f\left(a+\frac{b-a}{n}i\right)}_\text{ height }
+   \end{aligned}\]
+
+\subsection{exr1.4 (in class)}
+\label{sec:org217ee95}
+0.21875 using the left estimate
+
+\subsection{exr1.5}
+\label{sec:orgfc1c3e2}
+
+\subsubsection{left estimate}
+\label{sec:orgc3cbe4d}
+
+34.7 feet (add all except last number and divide by two, because we are stopping at 3.0 seconds in.)
+
+\subsubsection{right estimate}
+\label{sec:orgbb5a92c}
+44.8 feet (add the last number and drop the zero from the beginning)
+
+\subsubsection{middle estimate}
+\label{sec:org82246f6}
+Not enough information to do it for \(\Delta x = 0.5\), so I will use \(n=3\) aka \(\Delta x = 1\)
+
+\[\begin{aligned}
+    6.2 + 14.9 + 19.4 = 40.5 \text{ feet }
+	\end{aligned}\]
+
+\subsection{exr1.6}
+\label{sec:org2cf4946}
+
+\subsubsection{\(\int_0^1 \sqrt{x^2+1}dx\)}
+\label{sec:orgc00546e}
+\(\sqrt{x^2+1}\) is the length the hypotenuse of a triangle with leg-lengths 1 and \(x\). Because \(x\) is continuous, this is like the area of a right triangle with leg-lengths 1 and 1, which is \boxed\{\frac{1}{2}\}.
+
+
+\begin{enumerate}
+\item {\bfseries\sffamily TODO} Wolfram Alpha doesn't agree though
+\label{sec:org58e7e6a}
+
+Probably because as you take approximations, there will be overlap, so the actual value is bigger than I think it is.
+
+I also don't know how to take the anti-chain-rule, so I don't know how to integrate the function symbolically.
+\end{enumerate}
+
+\subsubsection{\(\int_0^3 (x-1)dx\)}
+\label{sec:org007f803}
+Not sure area wise, but the anti-derivative is guess-able:
+
+\[\begin{aligned}
+    \frac{d}{dx}\left( \frac{x^2}{2} -x\right) = x-1
+	\end{aligned}\]
+
+
+\[\begin{aligned}
+    \frac{3^2}{2}-3 = 1.5
+	\end{aligned}\]
+
+\subsection{exr1.7}
+\label{sec:org23ba77c}
+
+\subsubsection{right endpoint approx for \(y=x^2\)}
+\label{sec:org681c8fb}
+
+\[\begin{aligned}
+    \sum_{i=1}^{n+1} \Delta x f(i \Delta x) = \sum_{i=1}^{n+1} \frac{1}{n} \left( \frac{i}{n}\right) ^2
+	\end{aligned}\]
+where \(\Delta x = \frac{1}{n}\)
+
+\subsubsection{general form for left-side riemann sum}
+\label{sec:orgaa6ed92}
+See exr1.3
+
+\subsection{exr1.11}
+\label{sec:org1f325ae}
+
+\[\begin{aligned}
+   \int_\pi^{2\pi} \cos(x)dx = \lim_{n\to \infty} \sum_{i=0}^n \frac{\pi}{n}\cos\left( \pi + \frac{i\pi}{n}\right)
+   \end{aligned}\]
+
+\subsection{exr1.12}
+\label{sec:org4230cb6}
+
+\subsubsection{1}
+\label{sec:orgb4501af}
+\[\begin{aligned}
+    \lim_{n \to \infty} \sum_{k=0}^n \Delta x \sqrt{4+(1+k\Delta x)^2} \text{ where }\Delta x = \frac{2}{n}
+	\end{aligned}\]
+
+\subsubsection{2}
+\label{sec:org7b56ba0}
+\[\begin{aligned}
+    \lim_{n \to  \infty} \sum_{k=0}^n \Delta x(2+k\Delta x)^2 + \frac{1}{2+k\Delta x} \text{ where } \Delta x = \frac{3}{n}
+	\end{aligned}\]
+
+\subsection{exr1.13}
+\label{sec:orga0f28d4}
+
+\subsubsection{1}
+\label{sec:org0b0f79d}
+
+\[\begin{aligned}
+    \int_0^1 \frac{e^x}{1+x} dx
+	\end{aligned}\]
+
+\subsubsection{2}
+\label{sec:orgb8b059d}
+
+\[\begin{aligned}
+    \int_2^5 x\sqrt{1+x^3}dx
+	\end{aligned}\]
+
+\subsubsection{3}
+\label{sec:org0d05ec8}
+
+\[\begin{aligned}
+    \int_1^3 \frac{x}{x^2+4}dx
+	\end{aligned}\]
+
+\subsection{exr1.14}
+\label{sec:org12f6b47}
+Graphically, it's the right triangle from origin to B minus the one from origin to A. Algebraically,
+
+\[\begin{aligned}
+   \frac{d}{dx}\frac{1}{2}x^2 = x\\
+&\implies \int_a^b xdx = \frac{1}{2}b^2 + c - \left(\frac{1}{2} a^2 + c\right) = \frac{b^2-a^2}{2}
+   \end{aligned}\]
 \end{document}

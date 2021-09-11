@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,78 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
-\title{}
+\title{Axler 3.C Flow because CanVaS PoStInG is cool}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Exr0n},
+ pdftitle={Axler 3.C Flow because CanVaS PoStInG is cool},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
-
+\maketitle
+\section{Axler3.30 \#def matrix \(A_{j,k}\)\hfill{}\textsc{def}}
+\label{sec:orgc53c15e}
+A \(m\time n\) matrix is a rectangle of numbers with \(m\) rows and \(n\) columns. And other stuff you would expect
+\section{Axler3.32 \#def matrix of a linear map, \(\mathcal M(T)\)\hfill{}\textsc{def}}
+\label{sec:org457f671}
+\begin{quote}
+Suppose \(T \in \mathcal L(V, W)\) and \(v_1, \ldots, v_n\) is a basis of \(V\) and \(w_1, \ldots, w_m\) is a basis of \(W\). The \emph{matrix of \(T\)} with respect to these bases is the \(m\times n\) matrix \(\mathcal M\left(\mathcal T, \left(v_1, \ldots, v_n\right), \left(w_1, \ldots, w_m\right)\right)\) whose entries \(A_{j,k}\) are defined by
+$$Tv_k = A_{1, k}w_1 + \cdots + A_{m, k}w_m$$.
+\end{quote}
+Note that for each output \(Tv_k\) is a linear combination of a column.
+\section{Algebra things}
+\label{sec:org72f5fc8}
+\subsection{Axler3.35 \#def Matrix Sum\hfill{}\textsc{def}}
+\label{sec:orgac6eba0}
+Pointwise addition, pretty straight forward. \textbf{Only works on matrices of the same size!}
+\subsection{Axler 3.36 The matrix sum of linear maps}
+\label{sec:org9ebcffa}
+Basically matrices that are linear maps also satisfie additivity of linear maps (Given \(S, T \in \mathcal L(V, W), \mathcal M(S) + \mathcal M(T) = \mathcal M(S+T)\))
+\subsection{Axler3.37 and Axler3.38 (same for scalar multiplication)}
+\label{sec:org97172ac}
+Its the same for scalar multiplication, yay
+\section{Notation Axler3.39 \(\mathbb F^{m,n}\)\hfill{}\textsc{notation}}
+\label{sec:org25ec1e7}
+\(F^{m, n}\) is the set of all \(m\times n\) matrices with entries in \(\mathbb F\).
+\section{Axler3.40 \(\text{dim }\mathbb F^{m,n} = mn\)}
+\label{sec:org984b62b}
+\(\mathbb F^{m,n}\) is itself a vector space with dimension \(mn\). (Each basis vector being a matrix with a single one at \(i, j\) for each pair of \(i, j\))?
+\section{Axler3.44 \(A_{j,\cdot}\), \(A_{\cdot, k}\)}
+\label{sec:orgfc2055e}
+The dot just means "everything in that row/column".
+\section{Axler3.49 Column of matri product equal matrix times column}
+\label{sec:org2d7ab5d}
+For \(m\times n\) matrix \(A\) and \(n\times p\) matrix \(C\), $$(AC)_{\cdot, k} = AC_{\cdot, k}$$.
+\section{And many other ways to think about matrix multplication}
+\label{sec:org6125fef}
 \end{document}

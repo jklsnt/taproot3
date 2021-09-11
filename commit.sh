@@ -4,6 +4,13 @@ while :
 do 
     # Make it!
     make all
+    NUMCHANGED=$(git whatchanged -1 --format=oneline | wc -l)
+
+    if (( NUMCHANGED < 25 )); then
+	sleep 20
+	continue
+    fi
+
     # Add it! 
     git add src
     git add docs

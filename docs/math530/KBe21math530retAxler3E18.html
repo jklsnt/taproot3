@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-10 Fri 23:24 -->
+<!-- 2021-09-11 Sat 08:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Axler 3.E ex18</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Taproot" />
+<meta name="author" content="Exr0n" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="./global.css" type="text/css"/>
+<link rel="stylesheet" href="../global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,6 +216,28 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -223,9 +245,93 @@
  |
  <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
 </div><div id="content">
+<h1 class="title">Axler 3.E ex18</h1>
+<div id="outline-container-org260f973" class="outline-2">
+<h2 id="org260f973"><span class="section-number-2">1</span> Problem: Axler 3.E exercise 18</h2>
+<div class="outline-text-2" id="text-1">
+<blockquote>
+<p>
+Suppose \(T \in \mathcal L(V, W)\) and \(U\) is a subspace of \(V\). Let &pi; denote the quotient map from \(V\) onto \(V/U\). Prove that there exists \(S \in \mathcal L(V/U, W)\) such that \(T = S \circ \pi\) if and only if \(U \subseteq \text{null }T\).
+</p>
+</blockquote>
+<p>
+Intuitively, if we mod out part of the \(\text{null }T\), then we should still be able to have a map that does what \(T\) would do. If we are able to do what \(T\) would do, then when modding out \(U\) we only removed part of \(\text{null }T\) and lost no information.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6901b18" class="outline-2">
+<h2 id="org6901b18"><span class="section-number-2">2</span> Forward Direction</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Intuitively, we can treat \(S \circ \pi\) as a single map and take a basis of \(V\) to the same place that \(T\) would, and the maps would be equal.
+</p>
+
+<p>
+Let \(S\) be a relation between \(V/U\) and \(W\) defined by
+\[ S(U+v) = Tv \]
+</p>
+
+<p>
+If \(S\) is well defined (every element in \(V/U\) is mapped to exactly one place), then \(S\) will inherit additivity and homogeneity from \(T\) and \(S \circ \pi\) will equal \(T\).
+</p>
+
+<p>
+Let \(v \in V\) and \(v' \in V/U\) s.t. \(v' = \pi v\) (\(v'\) is where \(\pi\) takes \(v\)). Then, to show that \(S\) is well defined, we must show that \(v\) has atleast one and at most one image through \(S \circ \pi\).
+</p>
+
+<p>
+Because \(\pi v\) is well defined, and \(U+v\) was arbitrary in the definition of \(S\), each \(v\) must have atleast one image in \(W\).
+</p>
+
+<p>
+Take \(S\) to be an arbitrary linear map. The only restriction on \(S\) that could cause \(S(U+v) \neq Tv\) is \(S(0) = 0\) (this statement is not watertight).
+Thus, \(S\) is defined if \(\forall U+v = U = 0\), \(Tv = 0\). Equivalently, \(S\) is defined if \(U \subseteq \text{null }T\), which is given in the problem.
+</p>
+
+<p>
+Thus, \(S\) is well defined. To show that it inherits additivity and homogeneity:
+\[ S(U+u) + S(U+v) = Tu + Tv = T(u+v) = S(U+u + U+v) = S(U+(u+v)) \]
+</p>
+
+<p>
+\[ \lambda\left(S(U+v)\right) = \lambda Tv = T(\lambda v) = S(U+(\lambda v)) \]
+</p>
+
+<p>
+Thus, \(S\) is linear, and \(S \circ \pi = T\) if \(U \subseteq \text{null }T\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4ab49ca" class="outline-2">
+<h2 id="org4ab49ca"><span class="section-number-2">3</span> Reverse Direction by Contrapositive</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Intuitively, if we lost information, then we can't reconstruct what \(T\) would do.
+</p>
+
+<p>
+Assume \(U \nsubseteq \text{null }T\). There exists \(v \in U\) s.t. \(Tv \neq 0\). This is some of the "information" that was "lost". Because \(v \in U\),
+</p>
+
+<p>
+\[ \pi v = U + v = U \]
+</p>
+
+<p>
+Because \(U\) is the additive identity (\(0\)) in \(V/U\), and because linear maps take zero to zero, \(S \in \mathcal L(V/U, W)\) must take \(\pi v = 0\) to zero.
+Thus, either \(S(\pi v) \neq Tv\) or \(S\) is not a linear map, both of which are contradictions.
+</p>
+
+<p>
+This shows that if \(U \nsubseteq \text{null }T\), then \(S \notin \mathcal L(V/U, W)\) or \(T \neq S \circ \pi\). Thus, if \(S \in \mathcal L(V/U, W)\) and \(T = S \circ \pi\), then \(U \subseteq \text{null }T\).
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-10 Fri 23:22</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+<div class="namedate"><p class="subtitle"><span class="author">Exr0n</span><span class="date">2021-09-11 Sat 08:10</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>

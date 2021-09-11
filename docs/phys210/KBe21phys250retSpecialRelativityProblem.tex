@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,54 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
-\title{}
+\title{Special Relativity Problem: Linear Escape}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Exr0n},
+ pdftitle={Special Relativity Problem: Linear Escape},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+To test his prized cows' intelligence, Farmer John has trapped Bessie and Elsie in an escape room!
 
+The escape room is a long tunnel in which the cows are traveling--Bessie at -0.4c and Elsie at 0.6c. At the start of the puzzle, both cows are at position zero in the tunnel where Farmer John is observing. To escape, Bessie has to turn on a light so Elsie sees it exactly six seconds after the challenge begins. Then, Farmer John will be satisfied that his cows are properly educated.
+
+\begin{enumerate}
+\item Bessie has a terrible sense of time and can only measure how far she has gone by regular 1-lightsecond markings on the tunnel wall. How far from the start should Bessie be when she turns on the light?
+
+\item Farmer John realizes that the previous rendition of the escape room was too mentally taxing on Bessie. That afternoon, he repeats the test but provides Bessie with a long measuring stick to take with her. As measured by the stick, how far from the start should Bessie be when she turns on the light?
+
+\item If you have too much time on your hands: Bessie successfully completes the challenge and returns to the barn for for the evening. Elsie sleeps peacefully on the on the bunk below her, but Bessie realizes that Farmer John has let her off easy. Taking light travel time into account, where along the measuring stick should the start have been when Bessie turned on the light?
+\end{enumerate}
 \end{document}

@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:16
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,113 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Houjun Liu}
 \date{\today}
-\title{}
+\title{Solving Limits with Elimination}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Houjun Liu},
+ pdftitle={Solving Limits with Elimination},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
 
+
+\section{Solving Limits with Elimination}
+\label{sec:org790ee6f}
+With solving limits via elimination, we are tipically analyzing a
+rational function that needs factoring of a term out of the polynomials
+on the top and/or the bottom to get out of the indeterminate form
+\((\frac{0}{0})\).
+
+\begin{itemize}
+\item Try factoring both the top and bottom
+
+\begin{itemize}
+\item \((x\pm1)\)
+\item \((x\pm2)\)
+\end{itemize}
+
+\item Rationalize all of the square roots
+\end{itemize}
+
+Tip for picking factors
+
+\noindent\rule{\textwidth}{0.5pt}
+
+\textbf{Tip!} If you plug in a value to an expression, and out pops 0, that
+value is a \textbf{zero} of the expression. It is helpful like this
+
+Factor: \((x^6-1)\)
+
+As you could see, plugging \(x=1\) yields \(0\), meaning that \((x-1)\)
+is a \textbf{zero} of \((x^6-1)\), and hence would be able to be factored out.
+
+To factor it out, either do synthetic division or long division.
+
+\noindent\rule{\textwidth}{0.5pt}
+
+Let's do a problem solve for \(\lim_{x\to 2} \frac{(x^2-4)}{(x-2)}\)
+
+\begin{enumerate}
+\item First, notice the fact this function will have a hole at \(x=2\).
+This is especially important because after we simplify we will loose
+this hole.
+\item Ok, now let's simply.
+\(\frac{(x^2-4)}{(x-2)} = \frac{(x+2)(\cancel{(x-2)})}{(\cancel{x-2})} = (x+2)\)
+\item Great! So, we know that this function behaves linearly with simply a
+hole at 2.
+\item Doing the double-sided limits\ldots{}
+
+\begin{itemize}
+\item Evaluating \(\lim_{x\to2^+}\), the value will be \(4\) because
+\(2+2=4\).
+\item Evaluating\\
+\end{itemize}
+\end{enumerate}
+
+Here's another one! \(\lim_{x\to0} \frac{\sqrt{x+4}-2}{x}\)
+
+\begin{enumerate}
+\item First, notice that if we are going to solve this problem, we have to
+divide the top thing (\(\sqrt{x+4}-2\)) by \(x\), somehow
+\item The only thing we could do here is rationalize the top by multiplying
+the whole faction by a fancy one
+\(\frac{\sqrt{x+4}+2}{\sqrt{x+4}+2}\).
+\item This results in \(\frac{x+4-4}{x\times(\sqrt{x+4}+2)}\), which
+simplifies to \(\frac{\cancel{x}}{\cancel{x}\times(\sqrt{x+4}+2)}\)
+\item Plugging in \(x=0\), you get \(\frac{1}{4}\).
+\end{enumerate}
+
+\textbf{If there is no factors, you got yourself a vertical asymtote. Refer to
+\#missing \#disorganized for solution!}
 \end{document}

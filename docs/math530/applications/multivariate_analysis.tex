@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,11 +12,37 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
 \title{}
 \hypersetup{
- pdfauthor={Taproot},
+ pdfauthor={Exr0n},
  pdftitle={},
  pdfkeywords={},
  pdfsubject={},
@@ -26,6 +50,72 @@
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
-
+\section{multivariate analysis}
+\label{sec:orga65fb0c}
+\subsection{terms}
+\label{sec:orgb57572b}
+\subsubsection{null hypothesis}
+\label{sec:orgeb1710c}
+\subsubsection{dependence - if one set of variables can predict another}
+\label{sec:org43b4f24}
+\subsubsection{interdependent analysis - intercorrelations for underlying understanding}
+\label{sec:orgfcce9a0}
+\subsubsection{metric vs non metric - a metric variable is numeric}
+\label{sec:orgf6fe6e8}
+\subsection{then a bunch of methods for dependence analysis}
+\label{sec:orgc060bd0}
+\subsubsection{pick by matching which ones match your input/output variable types and numbers}
+\label{sec:org037b00f}
+\subsection{interdependent multivariate analysis}
+\label{sec:orgfcb4b04}
+\subsubsection{factor analysis}
+\label{sec:org7a6a125}
+\begin{enumerate}
+\item understand which variables highly correlate to others
+\label{sec:org659ca75}
+\begin{enumerate}
+\item common factor analysis - extracts factors that correlate
+\label{sec:org7b70c71}
+\item principal component analysis - extract factors that have the largest impact
+\label{sec:orgcea0944}
+\end{enumerate}
+\item clusterananlysis
+\label{sec:org2f23f41}
+\item multidimensional scaling
+\label{sec:orge284685}
+\begin{enumerate}
+\item obtain tabluar data from a weighted graph structure?
+\label{sec:org230b11b}
+\end{enumerate}
+\item corresponding analysis
+\label{sec:org71e9753}
+\begin{enumerate}
+\item like factor analysis or something?
+\label{sec:orgce52d59}
+\end{enumerate}
+\end{enumerate}
+\subsection{important matrices}
+\label{sec:orgb7d6165}
+\subsubsection{data matrix}
+\label{sec:orgdb80f15}
+\subsubsection{USSCP}
+\label{sec:org1421945}
+\begin{enumerate}
+\item data matrix multiplied by the transpose
+\label{sec:org3b316d1}
+\end{enumerate}
+\subsubsection{some other thing CSSCP}
+\label{sec:org0a7b9c4}
+\subsubsection{covariance matrix (C)}
+\label{sec:org7a44657}
+\subsubsection{correlation matrix (R)}
+\label{sec:org33216a3}
+\begin{enumerate}
+\item variables normalized for mean 0 and stddev 1
+\label{sec:org4dffc0b}
+\end{enumerate}
+\subsection{applications}
+\label{sec:org38f1c28}
+\subsubsection{lots of fields}
+\label{sec:org10279b9}
 \end{document}

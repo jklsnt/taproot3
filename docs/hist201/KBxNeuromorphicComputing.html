@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-10 Fri 23:24 -->
+<!-- 2021-09-11 Sat 08:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Neuromorphic Computing</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Taproot" />
+<meta name="author" content="Huxley" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="./global.css" type="text/css"/>
+<link rel="stylesheet" href="../global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -223,9 +223,222 @@
  |
  <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
 </div><div id="content">
+<h1 class="title">Neuromorphic Computing</h1>
+<p>
+#flo #ref #ret #incomplete
+</p>
+
+<hr />
+
+<div id="outline-container-final-exploration" class="outline-2">
+<h2 id="final-exploration"><span class="section-number-2">1</span> Final Exploration</h2>
+<div class="outline-text-2" id="text-final-exploration">
+<p>
+Note: I did a dive into trying to label the axes of a word vector space,
+and I also tried to do some stuff with summarization models, but neither
+of those projects worked out within the time frame. Delegated to summer
+they go. Instead, here are my notes on
+</p>
+</div>
+
+<div id="outline-container-neuromorphic-computing" class="outline-3">
+<h3 id="neuromorphic-computing"><span class="section-number-3">1.1</span> Neuromorphic Computing!</h3>
+<div class="outline-text-3" id="text-neuromorphic-computing">
+<p>
+<a href="https://www.youtube.com/watch?v=-dl1FPrpw1A&amp;ab_channel=NeuroInspiredComputationalElementsWorkshop">Cool
+talk</a>
+</p>
+
+<p>
+Notes on the talk:
+</p>
+
+<ul class="org-ul">
+<li>Talks about autonomous drone racing
+
+<ul class="org-ul">
+<li>only possible recently due to tech limitations</li>
+<li>Bird brain vs Drone "brain"
+
+<ul class="org-ul">
+<li>Parrot
+
+<ul class="org-ul">
+<li>50mW, 2.2G</li>
+
+<li>Can learn words</li>
+
+<li>Can nav new environments at 35km/h</li>
+
+<li><blockquote>
+<p>
+Can learn to manipulate cups for drinking
+</p>
+</blockquote></li>
+</ul></li>
+</ul></li>
+
+<li>Drone
+
+<ul class="org-ul">
+<li>18000 mW, 40g</li>
+
+<li>Pre trained flying at walking pace</li>
+
+<li><blockquote>
+<p>
+Can't learn anything online
+</p>
+</blockquote></li>
+</ul></li>
+
+<li>Main idea is the birds adaptability
+
+<ul class="org-ul">
+<li>Can learn to "really understand what a cup can be useful for"
+despite it not being in its evolutionary past</li>
+<li>way beyond current autonomous drones</li>
+</ul></li>
+
+<li>We have a lot to learn from nature!</li>
+</ul></li>
+
+<li>Deep learning is very power hungry
+
+<ul class="org-ul">
+<li>increasingly so &#x2013; grew by 300,000x in the last 6 years</li>
+<li>not on a trajectory to close the gap with the parrot!</li>
+</ul></li>
+
+<li>Deep learning has slow generalization
+
+<ul class="org-ul">
+<li>Training currently is mostly offline and batched</li>
+<li>example of a child looking at a few pictures of a cat: they can now
+easily tell what is a cat, and can even recognize cartoons of a cat.</li>
+</ul></li>
+
+<li>looking to the brain!
+
+<ul class="org-ul">
+<li>they implemented neural networks with temporal states in each neuron
+
+<ul class="org-ul">
+<li>with some course of evolution</li>
+</ul></li>
+
+<li>current tools break down on these new models
+
+<ul class="org-ul">
+<li>arn't differentiable, cant do stochastic descent, ect.</li>
+</ul></li>
+</ul></li>
+
+<li>motivates a different type of computing?
+
+<ul class="org-ul">
+<li>memory elements is embedded in the synaptic neurons</li>
+<li>redefines what is efficient
+
+<ul class="org-ul">
+<li>conventional is forced into vectorized approach</li>
+</ul></li>
+</ul></li>
+
+<li>their new chip doesn't have floating point numbers, multiply
+accumulators, or off-chip DRAM
+
+<ul class="org-ul">
+<li>but they can do all this amazing stuff
+
+<ul class="org-ul">
+<li>highlights that they are genuinely operating in a totally
+different paradigm</li>
+</ul></li>
+</ul></li>
+
+<li>results!
+
+<ul class="org-ul">
+<li>sensing domain
+
+<ul class="org-ul">
+<li>in spiking event based paradigm</li>
+<li>IO no longer a bottleneck</li>
+<li>can natively send event from sensor to chip, can do gesture reg
+with just 15mW for both the camera and chip combined</li>
+<li>early new live learning</li>
+<li>doing new things with touch</li>
+<li>and created odor recognition&#x2026;?
+
+<ul class="org-ul">
+<li>3000x more efficient than deep autoencoder</li>
+</ul></li>
+</ul></li>
+
+<li>robotics and drone space
+
+<ul class="org-ul">
+<li>adaptive robotic arms that can learn real world forces like
+friction and remap itself</li>
+<li>iCub scene understanding</li>
+<li>can use visual cues to and live learning for directionality</li>
+<li>event based camera input for horizon tracking with crazy specs</li>
+<li>super small 35 neuron network to achieve smooth MAV landings
+
+<ul class="org-ul">
+<li>like some kind of insect brain</li>
+</ul></li>
+</ul></li>
+
+<li>abstract
+
+<ul class="org-ul">
+<li>graph search can use inherent parallelism to be over 100x faster
+
+<ul class="org-ul">
+<li>with "temporally propagated wavefronts"</li>
+</ul></li>
+
+<li>much better and faster similarity search</li>
+<li>can easily model heat diffusion</li>
+<li>combinatorial optimization 40x faster, 2000x lower energy
+
+<ul class="org-ul">
+<li>like real world train scheduling problems</li>
+</ul></li>
+</ul></li>
+
+<li><p>
+can map problem space onto energy and time gain for their new
+neuromorphic techniques
+</p>
+
+<p>
+<a href="Screen Shot 2021-06-11 at 3.48.43 PM.png.html">Screen Shot
+2021-06-11 at 3.48.43 PM.png</a>
+</p></li>
+
+<li>gains mostly in RNNs instead of feed forward
+
+<ul class="org-ul">
+<li>like the brain</li>
+</ul></li>
+</ul></li>
+
+<li>1000x gains, not percentage wise
+
+<ul class="org-ul">
+<li>on a programmable chip!</li>
+<li>hardware is still very early</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-10 Fri 23:23</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+<div class="namedate"><p class="subtitle"><span class="author">Huxley</span><span class="date">2021-09-11 Sat 08:14</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>

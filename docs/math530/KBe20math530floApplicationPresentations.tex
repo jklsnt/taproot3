@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,117 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
-\title{}
+\title{Application Presentations}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Exr0n},
+ pdftitle={Application Presentations},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
-
+\maketitle
+\section{{\bfseries\sffamily DONE} Brian P: Traffic control}
+\label{sec:org1100574}
+model and predict flow through streets using systems of linear equations
+\subsection{traffic circle example}
+\label{sec:org86b76c8}
+\subsubsection{info}
+\label{sec:org4c5fac5}
+\begin{enumerate}
+\item cars perminute from each direction
+\label{sec:orgdeefe0c}
+\item but counters only counted four of the road segments
+\label{sec:orge540fc5}
+\item calculate how many cars went through the other road segments
+\label{sec:orgf9ebfad}
+\end{enumerate}
+\subsubsection{calculation}
+\label{sec:org27c7dc4}
+\$\$
+\begin{aligned}
+x_2 + 75 = x_5+92\\
+x_1+x_2 = x_3+56\\
+75 = x_1+x_4\\
+x_3+x_4+23 = 46?\\
+x_5 = 33
+\end{aligned}
+\$\$
+\subsubsection{Take RREF (it happens to not be the identity, which means there isn't enough information to)}
+\label{sec:orgf128b03}
+\begin{enumerate}
+\item pivot columns?
+\label{sec:org615d97a}
+\item replace the dependent variable (in this case \(x_4\) with \(t\), and try to remember how many cars went on the other roads (create parametric equations)
+\label{sec:orge8f0d97}
+\end{enumerate}
+\subsection{Block example}
+\label{sec:org4d88dca}
+\subsubsection{goal}
+\label{sec:org722cbdc}
+Given some flow rates, figure out how many cars should be allowed to go through an area.
+Even though there are multiple solutions, it is possible to see which streets will become bottlenecks.
+\subsection{general steps}
+\label{sec:org18a6aa1}
+\subsubsection{assign variables}
+\label{sec:orgc9f9862}
+\subsubsection{create system of equations}
+\label{sec:org65818ad}
+\subsubsection{create matrix}
+\label{sec:org4db68b9}
+\subsubsection{use gaussian elimination to gain information}
+\label{sec:org1fd3d0c}
+\subsection{with this information you can}
+\label{sec:org152f539}
+\subsubsection{adjust traffic light timings}
+\label{sec:orge77d59c}
+\subsection{more complexity}
+\label{sec:orgc981bc0}
+\subsubsection{some examples with 120 variables or more}
+\label{sec:org9f65ffd}
+\subsubsection{done by computers}
+\label{sec:orgd4c6329}
+\subsubsection{jamiton lines/envelopes (phantom traffic slowdowns)}
+\label{sec:org60e6cbd}
+\subsection{limitations}
+\label{sec:orgaccb055}
+\subsubsection{spikes of traffic vary based on time of day or year}
+\label{sec:org079887f}
+\subsubsection{routes are not considered}
+\label{sec:org322ff5a}
+\subsubsection{size / type of vehicle}
+\label{sec:orgc0ffca6}
+\subsubsection{speed of vehicles}
+\label{sec:org9aa3580}
+\subsubsection{line of sight}
+\label{sec:orgce0fa34}
 \end{document}

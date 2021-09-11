@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-10 Fri 23:24 -->
+<!-- 2021-09-11 Sat 08:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>LinAlg Flow</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Taproot" />
+<meta name="author" content="Exr0n" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="./global.css" type="text/css"/>
+<link rel="stylesheet" href="../global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,6 +216,28 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -223,9 +245,118 @@
  |
  <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
 </div><div id="content">
+<h1 class="title">LinAlg Flow</h1>
+
+
+<div id="outline-container-looking-forward" class="outline-2">
+<h2 id="looking-forward"><span class="section-number-2">1</span> Looking forward</h2>
+<div class="outline-text-2" id="text-looking-forward">
+<ul class="org-ul">
+<li>Will use canvas's discussion board in the future.</li>
+<li>Assume matrices have real numbers</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-solving-with-matrices" class="outline-2">
+<h2 id="solving-with-matrices"><span class="section-number-2">2</span> Solving with Matrices</h2>
+<div class="outline-text-2" id="text-solving-with-matrices">
+<ul class="org-ul">
+<li>Elementary matrices (like
+\(\left[\begin{matrix}1 &-2 \\ 0 &1\end{matrix}\right]\))</li>
+<li>Steps walk through
+
+<ul class="org-ul">
+<li>Start with \(\left[\begin{matrix}a&b\\d&e\end{matrix}\right]\) (the
+coefficient matrix).</li>
+<li>You want to get somewhere such that
+\(\left[\begin{matrix}1x\\0y\end{matrix}\right] = \left[\begin{matrix}c\\f\end{matrix}\right]\)</li>
+<li>And ultimately
+\(\left[\begin{matrix}1&0\\0&1\end{matrix}\right]\left[\begin{matrix}x\\y\end{matrix}\right]=\left[\begin{matrix}{ans}_x\\{ans}_y\end{matrix}\right]\)</li>
+<li><a href="srcD3SolveWithMatricies.png.html">srcD3SolveWithMatricies.png</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-matrix-inverse-formula" class="outline-2">
+<h2 id="matrix-inverse-formula"><span class="section-number-2">3</span> Matrix Inverse Formula</h2>
+<div class="outline-text-2" id="text-matrix-inverse-formula">
+<ul class="org-ul">
+<li>I should technically know this already.</li>
+</ul>
+</div>
+
+<div id="outline-container-derivation" class="outline-3">
+<h3 id="derivation"><span class="section-number-3">3.1</span> Derivation</h3>
+<div class="outline-text-3" id="text-derivation">
+<p>
+\[
+\left[\begin{matrix}a&amp;b\\c&amp;d\end{matrix}\right]
+\left[\begin{matrix}w&amp;x\\y&amp;z\end{matrix}\right]
+\left[\begin{matrix}aw+by&amp;ax+bz \\ cw+dy&amp;cx+dz\end{matrix}\right]
+\\&there4;<br />
+</p>
+\begin{split}
+aw + by = 1\\
+cw + dy = 0\\
+ax + bz = 0\\
+cx + dz = 1\\
+\end{split}
+<p>
+\]
+</p>
+
+<ul class="org-ul">
+<li>There's two 2 variable equations.
+<a href="srcIdentityMatrixFormula.png.html">srcIdentityMatrixFormula.png</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-matrix-operations" class="outline-2">
+<h2 id="matrix-operations"><span class="section-number-2">4</span> Matrix Operations</h2>
+<div class="outline-text-2" id="text-matrix-operations">
+<ul class="org-ul">
+<li>If we have a set of objects that are almost groups in under both
+addition and multiplication, then it's called a field
+
+<ul class="org-ul">
+<li>2x2 Matrices aren't quite close enough on the multiplication (too
+many no inverses) but we can work with other sizes. ### Vector
+Products</li>
+</ul></li>
+
+<li>Matrices of dimension \(n\)x\(1\)</li>
+<li>What multiplications on vectors are "nice"?
+
+<ul class="org-ul">
+<li>Transpose the first (left) one and multiply normally, then squish
+2x2 into 2x1</li>
+<li>Cross product</li>
+<li>Element wise (is closed)</li>
+<li>Take every element and multiply them all together, and then
+duplicate?
+
+<ul class="org-ul">
+<li>No, no identity</li>
+</ul></li>
+
+<li>Any one to one mapping?
+
+<ul class="org-ul">
+<li>No, identity doesn't work if it's on the left.</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<hr />
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-10 Fri 23:24</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+<div class="namedate"><p class="subtitle"><span class="author">Exr0n</span><span class="date">2021-09-11 Sat 08:15</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>

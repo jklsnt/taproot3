@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-10 Fri 23:24 -->
+<!-- 2021-09-11 Sat 08:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Algebra with Integrals</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Taproot" />
 <style type="text/css">
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="./global.css" type="text/css"/>
+<link rel="stylesheet" href="../global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,6 +216,28 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -223,9 +245,282 @@
  |
  <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
 </div><div id="content">
+<h1 class="title">Algebra with Integrals</h1>
+<div id="outline-container-org94ca244" class="outline-2">
+<h2 id="org94ca244"><span class="section-number-2">1</span> general trends</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org96ab32a" class="outline-3">
+<h3 id="org96ab32a"><span class="section-number-3">1.1</span> split fractions</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Always consider splitting sums of fractions
+\[\begin{aligned}
+   \int \frac{a+b}{c} dx = \int \frac{a}{c} dx +\int \frac{b}{c} dx
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-orgd16b997" class="outline-3">
+<h3 id="orgd16b997"><span class="section-number-3">1.2</span> pull out constant factors</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+\[\begin{aligned}
+   \int af(x) dx = a \int f(x) dx
+   \end{aligned}\]
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orge26661b" class="outline-2">
+<h2 id="orge26661b"><span class="section-number-2">2</span> additive</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+\[\begin{aligned}
+  \int f(x) + g(x) dx = \int f(x) dx  + \int g(x) dx
+  \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org546f00b" class="outline-2">
+<h2 id="org546f00b"><span class="section-number-2">3</span> change of lower bound</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+\[\begin{aligned}
+  \int_{a}^{b} f(x) dx + \int_{b}^{c} f(x) dx = \int_{a}^{c} f(x) dx\\
+  \implies \int_{a}^{x} f(t) dt = \int_{b}^{x} f(t) dt - \int_{a}^{b} f(t) dt
+  \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1a7a468" class="outline-2">
+<h2 id="org1a7a468"><span class="section-number-2">4</span> <a href="KBrefFundamentalTheoremOfCalculus.html">fundamental theorem of calculus</a></h2>
+<div class="outline-text-2" id="text-4">
+<p>
+\[\begin{aligned}
+  \int_{}^{} f'(x) dx = f(x) + C\\
+  \frac{d}{dx} \int_{}^{} f(x) dx = f(x)\\
+  \frac{d}{dx} \int_{a}^{x} f(t) dt = f(x)
+  \end{aligned}\]
+</p>
+
+<p>
+(second one doesn't have a \(+C\) because the derivative sends that to zero)
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgf8cae3f" class="outline-2">
+<h2 id="orgf8cae3f"><span class="section-number-2">5</span> net change theorem</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+\[\begin{aligned}
+  \int_{a}^{b} f'(x) dx = f(b) - f(a)\\
+  \frac{d}{dx}\int_{a}^{x} f(x) dx = f(x)\\
+  \int_{a}^{x} f'(x) dx = f(x) - f(a)\\
+  \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc6b47bf" class="outline-2">
+<h2 id="orgc6b47bf"><span class="section-number-2">6</span> variable bounds</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+\[\begin{aligned}
+  \frac{d}{dx}\int_{a}^{p(x)} f(x) dx = f(p(x))p'(x)\\
+  \int_{p(x)}^{q(x)} f(t)dt = \int_{0}^{q(x)} f(t)dt - \int_{0}^{p(x)} f(t)dt
+  \end{aligned}\]
+</p>
+
+<p>
+An example
+</p>
+
+<p>
+\[\begin{aligned}
+  k(x) = \int_{x^2}^{e^x} \sqrt{\sin t} dt = \int_{0}^{e^x} \sqrt{\sin t}dt - \int_{0}^{x^2} \sqrt{\sin t} dt\\
+  k'(x) = \sqrt{\sin e^x}e^x - 2x\sqrt{\sin x^2}
+  \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgff76d25" class="outline-2">
+<h2 id="orgff76d25"><span class="section-number-2">7</span> mean value theorem (for integrals)</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+There exists some point \(c\) over an integrable interval \([a, b]\) s.t.
+\[\begin{aligned}
+  f(c) = \frac{1}{b-a}\int_{a}^{b} f(x) dx
+  \end{aligned}\]
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org4e19128" class="outline-2">
+<h2 id="org4e19128"><span class="section-number-2">8</span> integration rules</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-orgb3c2638" class="outline-3">
+<h3 id="orgb3c2638"><span class="section-number-3">8.1</span> power rule for integrals</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+\[\begin{aligned}
+   \int x^n dx = \frac{x^{n+1}}{n+1} +C
+   \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf03cfa5" class="outline-3">
+<h3 id="orgf03cfa5"><span class="section-number-3">8.2</span> k-angle formulas for sinusoids</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+\[\begin{aligned}
+   \int \sin kx dx &= - \frac{\cos kx}{k}\\
+   \int \cos kx dx &= \frac{\sin kx}{k}
+   \end{aligned}\]
+</p>
+</div>
+
+<div id="outline-container-org7a7cd24" class="outline-4">
+<h4 id="org7a7cd24"><span class="section-number-4">8.2.1</span> for \(\sin ^2x\) or \(\cos ^2x\),</h4>
+<div class="outline-text-4" id="text-8-2-1">
+<p>
+Try to get a double angle using the \(\cos 2x\) identities.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org85a68a1" class="outline-4">
+<h4 id="org85a68a1"><span class="section-number-4">8.2.2</span> for a product of \(\sin x \cos  x\) or similar,</h4>
+<div class="outline-text-4" id="text-8-2-2">
+<p>
+Use the double angle identity for \(\sin 2x = 2 \sin x \cos  x\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf1f9ed8" class="outline-4">
+<h4 id="orgf1f9ed8"><span class="section-number-4">8.2.3</span> for \(\sec x\) and \(\tan x\),</h4>
+<div class="outline-text-4" id="text-8-2-3">
+<p>
+We know their derivatives contain themselves, so we can look for something cyclic.
+</p>
+
+<p>
+For example,
+</p>
+
+<p>
+\[\begin{aligned}
+    \int \sec x dx &= \int \sec x \frac{\sec  x + \tan  x}{\sec x+\tan x} dx \\
+	&= \int \frac{\sec ^2x + \sec x \tan x}{\sec x+\tan x} dx \\
+	\end{aligned}\]
+</p>
+
+<p>
+Let \(u = \sec x+\tan x\), \(du = \sec x\tan x + \sec ^2x\)
+</p>
+
+<p>
+\[\begin{aligned}
+    \int \sec x dx &= \int \frac{du}{u} dx \\
+	&= \int \frac{1}{u} du\\
+	&= \ln | u | \\
+	&= \ln | \sec x+\tan x|
+	\end{aligned}\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org82def4d" class="outline-3">
+<h3 id="org82def4d"><span class="section-number-3">8.3</span> u-substitution (on products, chain rule)</h3>
+<div class="outline-text-3" id="text-8-3">
+<p>
+if it happens to work:
+\[\begin{aligned}
+   \int f'(g(x)) g'(x)dx = f(g(x)) + C
+   \end{aligned}\]
+</p>
+
+<p>
+an example:
+</p>
+
+<p>
+\[\begin{aligned}
+   \int 2x \sin (x^2) dx\\
+   \end{aligned}\]
+Let \(u = x^2\) and \(du = frac{du}{dx} dx = 2x dx\)
+</p>
+
+<p>
+\[\begin{aligned}
+   \int \sin x^2 2x dx &= \int \sin u du\\
+   &= -\cos (u) +C\\
+   &= -\cos (x^2) +C
+   \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgad134a1" class="outline-3">
+<h3 id="orgad134a1"><span class="section-number-3">8.4</span> integration by parts (on products, product rule)</h3>
+<div class="outline-text-3" id="text-8-4">
+<p>
+\[\begin{aligned}
+   &\frac{d}{dx}f(x)g(x) &=& f'(x)g(x) + g'(x)f(x)\\
+   &\int \frac{d}{dx}f(x)g(x) dx &=& \int  f'(x)g(x) + g'(x)f(x) dx\\
+   &f(x)g(x)+C &=& \int f'(x)g(x) dx + \int g'(x)f(x) dx\\
+   \implies & \int f'(x)g(x) dx &=& f(x)g(x) - \int g'(x)f(x) dx +C
+   \end{aligned}\]
+</p>
+</div>
+
+<div id="outline-container-orge27fc84" class="outline-4">
+<h4 id="orge27fc84"><span class="section-number-4">8.4.1</span> tips</h4>
+<div class="outline-text-4" id="text-8-4-1">
+</div>
+<ol class="org-ol">
+<li><a id="org04d221c"></a>can use \(1\) as the other part of the product<br /></li>
+</ol>
+</div>
+
+<div id="outline-container-org2551cec" class="outline-4">
+<h4 id="org2551cec"><span class="section-number-4">8.4.2</span> <span class="todo TODO">TODO</span> a graphical representation</h4>
+<div class="outline-text-4" id="text-8-4-2">
+<p>
+Imagine graphing \(f(g(x))\) as a function of \(f(x)\) and \(g(x)\). Then, for some interval on \(g(x)\), the bounding rectangle has area \(fg(x)\), the area under the curve is \(\int TODO dx\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2c07f5d" class="outline-4">
+<h4 id="org2c07f5d"><span class="section-number-4">8.4.3</span> tabular technique</h4>
+<div class="outline-text-4" id="text-8-4-3">
+<p>
+Just syntactic sugar for integral by parts repeatedly (eg. when you have a power function \(x^n\) multiplied by eg. \(a^bx\)). It has to be a case where one of the functions has a derivative that goes to zero (a power function).
+</p>
+
+<p>
+Take repeated derivatives on the left (with the power function) and take repeated integrals to the right. Match up the entries in the table, and alternate negatives and positives to expand the integration by parts relatively quickly.
+</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-10 Fri 23:22</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-11 Sat 08:10</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>

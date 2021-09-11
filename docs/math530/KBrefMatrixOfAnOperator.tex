@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,72 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
 \author{Taproot}
 \date{\today}
-\title{}
+\title{Axler5.22 Matrix of an Operator}
 \hypersetup{
  pdfauthor={Taproot},
- pdftitle={},
+ pdftitle={Axler5.22 Matrix of an Operator},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\section{Axler5.22 matrix of an operator, \(\mathcal{M} (T)\)\hfill{}\textsc{def}}
+\label{sec:orga1366cf}
+\begin{quote}
+Suppose \(T \in  \mathcal{L} (V)\) and \(v_1, \ldots, v_n\) is a basis of \(V\). The \emph{matrix of \(T\)} wrt this basis is the \emph{n}-by-\emph{n} matrix
+\[\begin{aligned}
+  \mathcal{M} (T) = \begin{pmatrix}A_{1,1} & \cdots & A_{1, n} \\ \vdots & \ddots & \vdots \\ A_{n, 1} & \cdots & A_{n, n} \end{pmatrix}
+  \end{aligned}\]
+whose entries \(A_{j, k}\) are defined by
+\[\begin{aligned}
+  Tv_k = A_{1, k}v_1 + \cdots + A_{n,k}v_n
+  \end{aligned}\]
 
+Specify a basis with \(\mathcal{M} \left( T, (v_1, \ldots, v_n) \right)\)
+\end{quote}
+\subsection{intuition}
+\label{sec:orga234483}
+\subsubsection{each column is where the map takes a basis vector}
+\label{sec:org028c18e}
+\section{Simplifying The Matrix Representation}
+\label{sec:org6c89fec}
+\subsection{'A central goal of linear algebra is to show that given an operator \(T \in  \mathcal{L} (V)\), there exists a basis of \(V\) wrt which \(T\) has a reasonably simple matrix'}
+\label{sec:orgb9804d8}
+\subsection{If by simple we mean "has many zeros" or RREF, then we know enough to ensure that there exists a basis s.t. the first column has zeros everywhere except the first row.}
+\label{sec:org5e99ac8}
+
+$\backslash$[\begin{aligned}
+\begin{pmatrix}\lambda &&&\\0&*&&\\\vdots&&&\\0&&&\end{pmatrix}
+\end{aligned}$\backslash$]
+Where \(*\) denotes all the other entries. Find \(\lambda\) by taking the lone eigenvalue and letting it's eigenvector be the first basis vector.
 \end{document}

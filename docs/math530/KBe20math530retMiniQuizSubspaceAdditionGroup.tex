@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,107 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
-\title{}
+\title{Mini Quiz: Subspace Addition forms Groups?}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Exr0n},
+ pdftitle={Mini Quiz: Subspace Addition forms Groups?},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
 
+
+\section{Problem}
+\label{sec:org88d9928}
+\begin{quote}
+Do subspaces form a group under subspace addition?
+\end{quote}
+
+\begin{itemize}
+\item Properties for a group:
+\href{KBe2020math530refGroups.org}{KBe2020math530refGroups}
+\item Closed, Identity, Inverses, Associative
+\end{itemize}
+
+\section{Working it out}
+\label{sec:org93f834f}
+I don't actually remember the exact definition of subspace addition. If
+I remember correctly from the proof of Axler exercise 1.C.14, the sum of
+two subspaces is the subspace where each vector is the sum of two
+vectors in the original two subspaces?
+
+\subsection{Closed}
+\label{sec:org6e1b83c}
+I don't remember if it was guaranteed to be a subspace, but it must have
+the identity (because the constituents both had the identity), it is
+closed under scalar multiplication (because you could take the sum
+apart, multiply the bits from each smaller subspace which are closed
+under scalar multiplication, and then put them back together again). I
+think it is closed under addition because both parts are closed under
+addition. This is by no means a rigorous proof, but it is as close as I
+can get without knowing the actual definition of a subspace sum, and I
+think its reasonably convincing.
+
+\subsection{Identity}
+\label{sec:org4186504}
+If the above is true, then subspaces are closed under subspace addition.
+The identity subspace would be the one with only the field additive
+identity, because there is only one element so the resulting subspace
+sum has the same number of elements as the other original subspace, and
+because the identity vector plus any vector of the other subspace will
+be that other vector by definition.
+
+\subsection{Inverse}
+\label{sec:org8b190ca}
+Because the subspace sum is all of the possible outputs when adding each
+vector in the two subspaces, if a subspace has two or more unique
+elements then it's not possible to have an inverse subspace: it would
+not be possible to create a subspace and force the parings such that the
+resulting subpsace sum is the degenerate one (\({0}\)).
+
+\section{Checking}
+\label{sec:org18d1608}
+Now I will look back at the textbook to see what the formal definition
+of subspace sum is and if my previous conclusions were valid. The quiz
+assignment says to avoid help from classes or websites, so I am not sure
+if I am allowed to look at the textbook. If not, please grade me on the
+previous sections only.
+
+It seems like my notion of subspace sums is roughly correct, so I am
+pretty sure that \[
+\fbox{ No, subspaces do not form a group under subspace addition due to a lack of inverses. }
+\]
+
+\noindent\rule{\textwidth}{0.5pt}
 \end{document}

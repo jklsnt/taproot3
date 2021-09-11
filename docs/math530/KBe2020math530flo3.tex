@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,132 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
-\title{}
+\title{LinAlg Flow}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Exr0n},
+ pdftitle={LinAlg Flow},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
 
+
+\section{Looking forward}
+\label{sec:orgc3d6526}
+\begin{itemize}
+\item Will use canvas's discussion board in the future.
+\item Assume matrices have real numbers
+\end{itemize}
+
+\section{Solving with Matrices}
+\label{sec:org6dc2635}
+\begin{itemize}
+\item Elementary matrices (like
+\(\left[\begin{matrix}1 &-2 \\ 0 &1\end{matrix}\right]\))
+\item Steps walk through
+
+\begin{itemize}
+\item Start with \(\left[\begin{matrix}a&b\\d&e\end{matrix}\right]\) (the
+coefficient matrix).
+\item You want to get somewhere such that
+\(\left[\begin{matrix}1x\\0y\end{matrix}\right] = \left[\begin{matrix}c\\f\end{matrix}\right]\)
+\item And ultimately
+\(\left[\begin{matrix}1&0\\0&1\end{matrix}\right]\left[\begin{matrix}x\\y\end{matrix}\right]=\left[\begin{matrix}{ans}_x\\{ans}_y\end{matrix}\right]\)
+\item \href{srcD3SolveWithMatricies.png.org}{srcD3SolveWithMatricies.png}
+\end{itemize}
+\end{itemize}
+
+\section{Matrix Inverse Formula}
+\label{sec:org9bd5833}
+\begin{itemize}
+\item I should technically know this already.
+\end{itemize}
+
+\subsection{Derivation}
+\label{sec:org1fae862}
+$\backslash$[
+\left[\begin{matrix}a\&b$\backslash$\c\&d\end{matrix}\right]
+\left[\begin{matrix}w\&x$\backslash$\y\&z\end{matrix}\right]
+\left[\begin{matrix}aw+by\&ax+bz $\backslash$\ cw+dy\&cx+dz\end{matrix}\right]
+$\backslash$\\(\therefore\)\\
+\begin{split}
+aw + by = 1\\
+cw + dy = 0\\
+ax + bz = 0\\
+cx + dz = 1\\
+\end{split}
+$\backslash$]
+
+\begin{itemize}
+\item There's two 2 variable equations.
+\href{srcIdentityMatrixFormula.png.org}{srcIdentityMatrixFormula.png}
+\end{itemize}
+
+\section{Matrix Operations}
+\label{sec:orgafd5493}
+\begin{itemize}
+\item If we have a set of objects that are almost groups in under both
+addition and multiplication, then it's called a field
+
+\begin{itemize}
+\item 2x2 Matrices aren't quite close enough on the multiplication (too
+many no inverses) but we can work with other sizes. \#\#\# Vector
+Products
+\end{itemize}
+
+\item Matrices of dimension \(n\)x\(1\)
+\item What multiplications on vectors are "nice"?
+
+\begin{itemize}
+\item Transpose the first (left) one and multiply normally, then squish
+2x2 into 2x1
+\item Cross product
+\item Element wise (is closed)
+\item Take every element and multiply them all together, and then
+duplicate?
+
+\begin{itemize}
+\item No, no identity
+\end{itemize}
+
+\item Any one to one mapping?
+
+\begin{itemize}
+\item No, identity doesn't work if it's on the left.
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\noindent\rule{\textwidth}{0.5pt}
 \end{document}

@@ -42,7 +42,7 @@ gen/%.org: src/%.org
 	mkdir -p $$(dirname "$@")
 	cp "$<" "$@"
 	cat ./templates/setup.org >> "$@"
-	cat "$@" | sed "s/%20/ /g" > "$@"
+	sed -i "s/%20/ /g" "$@"
 
 gen: $(ORG_GEN)
 	cp -r static/ gen/

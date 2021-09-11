@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:17
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,162 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Houjun Liu}
 \date{\today}
-\title{}
+\title{Electric fields}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Houjun Liu},
+ pdftitle={Electric fields},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
 
+
+\section{Electric Fields}
+\label{sec:org9c3927b}
+\noindent\rule{\textwidth}{0.5pt}
+
+\subsection{\textbf{Calculation CheatSheet!}}
+\label{sec:org4ec280a}
+To recall, Coulomb's Law
+\href{KBhPHYS201ColoumbsLaw.org}{KBhPHYS201ColoumbsLaw} looks like
+\(F_{attraction} = k\frac{Q_1Q_2}{R^2}\), which is eerily similar to the
+Force of Gravity, \(F_{grav} = G\frac{M_2M_2}{R^2}\).
+
+And so, by the some token, we could also redefine electric force by
+splitting the function in the same way as with gravity fields:
+
+\definition{Electric Field}\{\(E = \frac{k \times Q_2}{R^2}\)\}
+\definition[where $E$ is $Q_2$'s electric field]{Electric Force}\{\(F_{attraction} = E Q_1\)\}
+Unsurprisingly, the units for \emph{Electric Field} is \(\frac{N}{C}\), and
+no, before you get excited, there is nothing it equals.
+
+\noindent\rule{\textwidth}{0.5pt}
+
+\subsection{Directionality of Electric Fields}
+\label{sec:org820aff5}
+With masses (and w.r.t.
+\href{KBh\_PHYS201\_GravitationalFields.org}{KBh\textsubscript{PHYS201}\textsubscript{GravitationalFields}}
+gravitational fields), it's easy. Masses always \emph{attracts} because
+negative mass doesn't exist (\emph{yet}). But, with an electric field,
+figuring out directions is harder.
+
+So, we have two choices to dealing with directions:
+
+\begin{enumerate}
+\item Electric field of any \(Q\) has two values, one "attract field" and
+one "repel field"
+\item Drawing a single vector \(\vec{E}\), but remember that the direction
+of the vector depends on what's dropped in it
+\end{enumerate}
+
+USE OPTION \textbf{2}.
+
+In this manner, when we say, "this atom has a electric field vector in
+this direction", we mean two things
+
+\begin{enumerate}
+\item When a positive test change is dropped onto that vector, it will
+experience force in the same direction as the vector
+\item When a negative “” “” “","” “” “” the opposite direction as the
+vector
+\end{enumerate}
+
+\subsection{Illustrating Electric Fields}
+\label{sec:org1042076}
+There are two ways of illustrating electric fields --- either drawing an
+infinite amount of vectors (that's a lot of vectors), or drawing lines
+originating from the main particle lining up all the vectors (Think! The
+original Japanese flag.)
+
+See
+\href{KBhPHYS201IllustratingElectricFields.org}{KBhPHYS201IllustratingElectricFields}
+illustrating electric fields.
+
+\subsection{Electric Field Interactions}
+\label{sec:orga84e048}
+See
+\href{KBhPHYS201ElectricFieldInteractions.org}{KBhPHYS201ElectricFieldInteractions}
+Electric Field Interactions.
+
+\subsection{Conductors + Electric Field Interactions}
+\label{sec:org1f66bfc}
+To get our modern world, \textbf{Conductors} --- metals and other elements in
+which electrons could move freely --- are an important item to study and
+model. Lots of problems involve interactions between electrons +
+electric fields being placed in and around conductors.
+
+See
+\href{KBhPHYS201ConductorsEquilibrium.org}{KBhPHYS201ConductorsEquilibrium}
+
+\subsection{Gravity and Voltage}
+\label{sec:org57b8683}
+In addition to the measurements of field strength with \(\frac{N}{C}\),
+there is a unit called Volts (\(V\)), measuring the amount of energy in
+an electric field.
+
+See \href{KBhPHYS201Voltage.org}{KBhPHYS201Voltage}
+
+\subsection{An now, something interesting}
+\label{sec:orga415edf}
+Take, a neutral conductor.
+
+\href{./Screen Shot 2020-08-24 at 9.44.46 PM.png}{Screen Shot
+2020-08-24 at 9.44.46 PM.png}
+
+At the point of the cursor, there would be an electric field cause by
+the central charge going outwards; at which point the following will
+happen\ldots{}
+
+\begin{enumerate}
+\item The red (positive) charge attracts electrons to the inside of the
+tube
+\item These newly electrons set up their own electric fields equal and
+opposite to the electric field by the central electron (because of
+the Electric Field Deux. Gravitational Field thing)
+\end{enumerate}
+
+So, the conductor has a net electric field of 0. It's static.
+
+Because of the fact that the neutral conductor had both 1) and 2) going
+on, there is no tangent changes to the conductor (\textbf{think!} rule 2
+aforementioned), and only field lines that are perpendicular (emitted by
+the red, positive charge), will be passed out.
+
+\subsection{Pressure of a field: voltage}
+\label{sec:orgcd363af}
+\href{KBe20phys201refVoltage.org}{KBe20phys201refVoltage}
+
+Annotated document:
+\href{SRCelectrostaticsPacket1annotatedExr0n.pdf.org}{SRCelectrostaticsPacket1annotatedExr0n.pdf}
 \end{document}

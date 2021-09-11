@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-10 Fri 23:24 -->
+<!-- 2021-09-11 Sat 08:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Solving Limits with Elimination</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Taproot" />
+<meta name="author" content="Houjun Liu" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="./global.css" type="text/css"/>
+<link rel="stylesheet" href="../global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,6 +216,28 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -223,9 +245,101 @@
  |
  <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
 </div><div id="content">
+<h1 class="title">Solving Limits with Elimination</h1>
+
+
+<div id="outline-container-solving-limits-with-elimination" class="outline-2">
+<h2 id="solving-limits-with-elimination"><span class="section-number-2">1</span> Solving Limits with Elimination</h2>
+<div class="outline-text-2" id="text-solving-limits-with-elimination">
+<p>
+With solving limits via elimination, we are tipically analyzing a
+rational function that needs factoring of a term out of the polynomials
+on the top and/or the bottom to get out of the indeterminate form
+\((\frac{0}{0})\).
+</p>
+
+<ul class="org-ul">
+<li>Try factoring both the top and bottom
+
+<ul class="org-ul">
+<li>\((x\pm1)\)</li>
+<li>\((x\pm2)\)</li>
+</ul></li>
+
+<li>Rationalize all of the square roots</li>
+</ul>
+
+<p>
+Tip for picking factors
+</p>
+
+<hr />
+
+<p>
+<b>Tip!</b> If you plug in a value to an expression, and out pops 0, that
+value is a <b>zero</b> of the expression. It is helpful like this
+</p>
+
+<p>
+Factor: \((x^6-1)\)
+</p>
+
+<p>
+As you could see, plugging \(x=1\) yields \(0\), meaning that \((x-1)\)
+is a <b>zero</b> of \((x^6-1)\), and hence would be able to be factored out.
+</p>
+
+<p>
+To factor it out, either do synthetic division or long division.
+</p>
+
+<hr />
+
+<p>
+Let's do a problem solve for \(\lim_{x\to 2} \frac{(x^2-4)}{(x-2)}\)
+</p>
+
+<ol class="org-ol">
+<li>First, notice the fact this function will have a hole at \(x=2\).
+This is especially important because after we simplify we will loose
+this hole.</li>
+<li>Ok, now let's simply.
+\(\frac{(x^2-4)}{(x-2)} = \frac{(x+2)(\cancel{(x-2)})}{(\cancel{x-2})} = (x+2)\)</li>
+<li>Great! So, we know that this function behaves linearly with simply a
+hole at 2.</li>
+<li>Doing the double-sided limits&#x2026;
+
+<ul class="org-ul">
+<li>Evaluating \(\lim_{x\to2^+}\), the value will be \(4\) because
+\(2+2=4\).</li>
+<li>Evaluating<br /></li>
+</ul></li>
+</ol>
+
+<p>
+Here's another one! \(\lim_{x\to0} \frac{\sqrt{x+4}-2}{x}\)
+</p>
+
+<ol class="org-ol">
+<li>First, notice that if we are going to solve this problem, we have to
+divide the top thing (\(\sqrt{x+4}-2\)) by \(x\), somehow</li>
+<li>The only thing we could do here is rationalize the top by multiplying
+the whole faction by a fancy one
+\(\frac{\sqrt{x+4}+2}{\sqrt{x+4}+2}\).</li>
+<li>This results in \(\frac{x+4-4}{x\times(\sqrt{x+4}+2)}\), which
+simplifies to \(\frac{\cancel{x}}{\cancel{x}\times(\sqrt{x+4}+2)}\)</li>
+<li>Plugging in \(x=0\), you get \(\frac{1}{4}\).</li>
+</ol>
+
+<p>
+<b>If there is no factors, you got yourself a vertical asymtote. Refer to
+#missing #disorganized for solution!</b>
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-10 Fri 23:22</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+<div class="namedate"><p class="subtitle"><span class="author">Houjun Liu</span><span class="date">2021-09-11 Sat 08:10</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>

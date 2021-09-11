@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:17
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,110 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Huxley}
 \date{\today}
-\title{}
+\title{linier regresstion}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Huxley},
+ pdftitle={linier regresstion},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
 
+
+\section{One:}
+\label{sec:orgc6fdb71}
+\begin{itemize}
+\item I would expect to see numbers similar to the y intercept and slope of
+the line that the model is trying to fit (𝑦=0.3𝑥+1). In this
+particular example, I would expect to see an intercept close to 1, and
+a coefficients close to 0.3.
+\end{itemize}
+
+\section{Two:}
+\label{sec:org40f8b06}
+\begin{itemize}
+\item I expected it to print out the corresponding y values when plugged
+back into the original equation.
+\end{itemize}
+
+\section{Three:}
+\label{sec:orgc4d4e34}
+\begin{itemize}
+\item I expected to see a line similar to the graph of 𝑦=0.3𝑥+1.
+\end{itemize}
+
+\section{Four}
+\label{sec:org86e3c6c}
+\begin{itemize}
+\item I changed the equation of the line to
+\texttt{data\_one\_x['y'] = 1 * data\_one\_x['x'] + 1} and verified that the code
+still functioned. The output was
+\texttt{Intercept: [1.]  Coefficients: [[file:1..org][1.]]} meaning that it
+came to the correct answer, verifying that the code was working
+properly.
+\end{itemize}
+
+\section{One}
+\label{sec:org2ead8ba}
+\begin{itemize}
+\item I expected it to print numbers similar to the definition of the plane:
+\texttt{y\_two\_x = 0.5 * x1\_two\_x - 2.7 * x2\_two\_x- 2 + noise\_two\_x}
+\texttt{(0.5, -2.7, -2)}
+\end{itemize}
+
+\section{Two}
+\label{sec:org2b8dd15}
+\begin{itemize}
+\item I expected to see a plane similar to the one defined above.
+\end{itemize}
+
+\section{Three}
+\label{sec:org71a72dc}
+\begin{itemize}
+\item I decided to change the definition of the graph to
+\texttt{y\_two\_x = 1 * x1\_two\_x + 1 * x2\_two\_x +1 + noise\_two\_x} and see if
+the code still functioned. \texttt{print\_model\_fit} printed
+\texttt{Intercept: 1.061603912300199  Coefficients: [0.97499882 0.96615802]},
+showing that the code was working properly.
+\end{itemize}
+
+\section{Four}
+\label{sec:orgc474c2f}
+\begin{itemize}
+\item The only major differences were in the visualization section. I would
+imagine that these visualizations are very helpful with graphs
+containing few dimensions, but become far less useful as the math
+stays the same and the dimensions increase.
+\end{itemize}
 \end{document}

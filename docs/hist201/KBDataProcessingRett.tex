@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,238 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Huxley}
 \date{\today}
-\title{}
+\title{Data Processing Assignment}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Huxley},
+ pdftitle={Data Processing Assignment},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\#ret
 
+\noindent\rule{\textwidth}{0.5pt}
+
+\section{Prompt:}
+\label{sec:org1d4d8e4}
+\begin{verbatim}
+For each of the scenarios below, answer the following questions. You do not have to explain your answers other than to explain where your targets would come from (Are they in the dataset already? Do you need to create them by hand?) and how you would make any non-numerical inputs numerical, if required by the algorithm you choose.
+
+1. What type of machine learning problem (regression, classification, clustering) do you think this is?
+2. If this is a supervised problem, what will you use as your targets (aka labels) and how will you get them? If this is an unsupervised problem, just write "none".
+3. What processing do you need to do to your input data? (How will you handle non-numerical inputs? Do you plan to do any scaling? etc.)
+4. What type(s) of model(s) would you try? Remember to start with the simplest thing that might work! The types of models we've talked about are linear regression, decision trees, random forest, logistic regression, naive bayes, K-means, DBSCAN, and fully connected neural networks.
+5. What validation metric(s) would you use to decide how well you're doing?
+6. What ethical challenges do the data collection, creation, and/or use of this model create? If you feel there aren’t any, just say “None”.
+
+
+Scenarios:
+
+1. You are playing fantasy football and want to predict how many points each player will score next season. You have their stats, including points scored, from last season, plus their height, weight, and position -- except for players new to the league, for whom you don't have last year's stats, only height, weight, and position.
+2. You have customer reviews, each one of which has a rating from 1 (worst) to 10 (best) and some text. The reviews vary greatly in their length. You would like to use this to write a model that can predict if text is positive, negative, or neutral, along with a probability score (e.g., 68% likely to be positive, 30% neutral, 2% negative).
+3. You have data from a movie streaming service that consists of lists of movies that each user has watched as well as information about each movie: title, names of the stars, genre, and length. You would like to make a model that will help you decide what movies to recommend to users.
+4. You want to predict whether a random stranger owns a cat, a dog, or neither, based on things that they like on Facebook. You decide to train your model on your friends, and write a program to collect all of their public Likes. 
+5. You want a model to predict the number of deer that will be born in a breeding season. You have a large amount of historical data, and each row consists of the following information for the breeding season of a particular area and species:
+        number of fawns born
+        the genus and species
+        number of does sighted during the mating season
+        vegetation quality during the mating season ("low", "average", or "high")
+\end{verbatim}
+
+\section{Scenarios:}
+\label{sec:orga2a200a}
+\begin{itemize}
+\item Football
+
+\begin{enumerate}
+\item Note: Since we only have one season of point values, and hence
+cannot see cross season change in point values, the old season
+players will be used as training data.
+\item Regression
+\item Label: Point value
+\item One Hot Encoding, 0-1 normalization
+\item Linear Regression or Neural Networks
+\item RMSE
+\item None
+\end{enumerate}
+
+\item Customer Reviews
+
+\begin{enumerate}
+\item Classification
+\item Positive, Negative, Neutral
+\item Some form of text processing -- BOW, TFIDF, word vectors, ect.
+\item Out of the models we have learned, Naive Bayes.
+\item F score
+\item Could misrepresent reviews and allow for automation
+\end{enumerate}
+
+\item Movie Recommendations
+
+\begin{enumerate}
+\item Classification
+\item Semi-supervised.
+\item One Hot Encoding and BOW or TFIDF
+\item Random forest? NN?
+\item Click rate or watch time, depending on goal.
+\item Ethics crumble in the face of capitalism. We gotta get our clients
+the right recommendations!
+\end{enumerate}
+
+\item Facebook Pet
+
+\begin{enumerate}
+\item Classification
+\item Supervised: Dog, Cat, Neither
+\item WPIE type system.
+\item NN
+\item F score\\
+\item Collection of likes is invasive. Categorizing of people is also
+problematic, as is trying to determine private info.
+\end{enumerate}
+
+\item Deer Born
+
+\begin{enumerate}
+\item Regression
+\item Supervised: Number of deer
+\item One Hot
+\item Linear regression, NN
+\item RMSE
+\item None
+\end{enumerate}
+\end{itemize}
+
+\section{Comment Response}
+\label{sec:orgfc95cef}
+\begin{itemize}
+\item 2b. How do you convert from the 1-10 rating scale to
+positive/negative/neutral?
+
+\begin{itemize}
+\item You would have to pick ranges that define what is
+positive/negative/neutral
+\end{itemize}
+
+\item 2c. Given that the reviews vary greatly in their length, is one of
+these preferred over the other?
+
+\begin{itemize}
+\item BOW doesn't work well when length varies. TFIDF, however, does.
+\end{itemize}
+
+\item 2e. Why not accuracy, precision, or recall?
+
+\begin{itemize}
+\item Those would all work as well. I just decided to list one possible
+validation metric as opposed to all of them.
+\end{itemize}
+
+\item 3a. This could work, but I think you will find this problem more
+straightforward as a different kind of problem.
+
+\begin{itemize}
+\item I guess this problem could be done as a clustering problem,
+representing each movie as a location in a multidimensional space
+then placing users in the space and clustering.
+\end{itemize}
+
+\item 3b. Semi-supervised usually refers to models where we have some
+labels, and we generate additional labels. Where do our labels come
+from? How do we generate the additional ones?
+
+\begin{itemize}
+\item The original labels would most likely be generated. As time
+progresses, we get labels back from the users that are interacting
+with our model's recommendations.
+\end{itemize}
+
+\item 3c. Be more specific: which features would you use which techniques
+on? For example, you could use bag of words or OHE on the names of the
+stars, but you'd get pretty different results depending on which one
+you picked.
+
+\begin{itemize}
+\item OHE: name of stars, genre. BOW or TFID: title.
+\end{itemize}
+
+\item 3e. A user not watching a recommendation is not necessarily good
+signal on whether it's a good recommendation (i.e. I might really like
+a movie, and just not have time to watch it right now). Conversely, a
+user watching a movie is not necessarily signal that it was a good
+recommendation (maybe I watched it because you recommended it, but I
+hated it).
+
+\begin{itemize}
+\item This depends on the goal of the recommendation. If you get a good
+recommendation and don't watch it, was it really a good
+recommendation? If the goal is simply to increase watch time, and
+thus increase the number of ads viewed, then yes watching or not
+watching is a good metric. Think click-bait. Of course, this has to
+be weighed against the long term effects of the recommendation.
+\end{itemize}
+
+\item 3f. I know you are kidding (I hope so, at least!), but the whole point
+of us learning about ethics is precisely so that they do not crumble
+in the face of capitalism!
+
+\begin{itemize}
+\item I think maybe we should shift the goal to rebuilding the already
+crumbled ethics\ldots{}
+\end{itemize}
+
+\item 4b. Where do these labels come from?
+
+\begin{itemize}
+\item From the friends you asked.
+\end{itemize}
+
+\item 4c/d. Why WPIE/NN? Is there a simpler approach we might try first?
+
+\begin{itemize}
+\item BOW, TFIDF, or word vectors would work, but Facebook's method itself
+would most likely work better. As for the type of model, Decision
+Trees and Random Forests would work.
+\end{itemize}
+
+\item 4e. Why not accuracy, precision, or recall?
+
+\begin{itemize}
+\item Again, just decided to list one validation metric. Accuracy,
+precision, and recall would also work.
+\end{itemize}
+\end{itemize}
+
+\href{KBdataProsResponses.org}{KBdataProsResponses}
 \end{document}

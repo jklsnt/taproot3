@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,11 +12,37 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
 \title{}
 \hypersetup{
- pdfauthor={Taproot},
+ pdfauthor={Exr0n},
  pdftitle={},
  pdfkeywords={},
  pdfsubject={},
@@ -26,6 +50,72 @@
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\section{eigenvalues}
+\label{sec:org056ee47}
+eigenvalue: multiplied by a scalar?
+a subspace that, when put through a linear map, only gets scaled.
 
+\[ Tv = \lambda v \]
+
+Where \(v \neq 0\). (we ignore it because its no fun to send zero to zero, and bc the span is empty).
+
+\textbf{T must be an operator!} Otherwise the matrix sizes don't work out when subtracting \(\lambda I\).
+
+where \(v\) is the eigenvector and \(\lambda\) is the eigenvalue. The equation is often rewritten as:
+
+\[
+  \begin{aligned}
+  Tv - \lambda v &= 0
+  Tv - \lambda Iv &= 0
+  (T-\lambda I) v &= 0
+  \end{aligned} \]
+
+We want \(T-\lambda I\) to be singular, because we want the null space to include \(v\).
+So we subtract \(\lambda\) from the \(I\) diagonal of \(T\) and then find values of \(v\) which are equal to zero?
+
+now this can be factored and roots can be found. also it's an operator.
+
+\subsection{Axler 5.6 equivalent conditions}
+\label{sec:orgde6755f}
+Only when \(V\) is finite dimensional!
+\subsubsection{\(T-\lambda I\) is not injective, because both \(v, 0\) are in the null space.}
+\label{sec:org3c4e45d}
+\subsubsection{\(T-\lambda I\) is also not surjective or invertible bc finite dim operator.}
+\label{sec:org196d734}
+
+\section{an example}
+\label{sec:org6c7ce82}
+Given the matrix \(\begin{pmatrix}3&1\\0&2\end{pmatrix}\), find the eigenvalues and eigenvectors.
+
+Now that we have that other fomulation, we can just subtract \(\lambda I\) from \(T\) to get
+\[ \begin{pmatrix}3-\lambda &1\\0&2-lambda \end{pmatrix} \]
+
+Then, we just need to find whether it is non-invertible aka singular aka determinant.
+
+\[ (3-\lambda)(2-\lambda) = 0 \]
+The solutions are \(\lambda = 2 \text{ or } 3\). These are the eigenvalues.
+
+Now just plug in \(\lambda\) and find the null space using RREF. The null space for \(\lambda = 3\) has null space \(\text{span}(x, 0)\), so we just pick one of those vectors (ex. \((1, 0)\)) to be the eigenvector.
+
+
+\subsection{review of terms}
+\label{sec:org3860a0e}
+
+\subsubsection{\(span(1, 0)\) is an invariant subspace. (also whatever you get for \(\lambda = 2\)}
+\label{sec:org8703233}
+
+\subsubsection{any vector in an invariant subspace is an eigenvector}
+\label{sec:org453c3de}
+
+\subsubsection{the eigenvalues are \(2, 3\)}
+\label{sec:org7d0b675}
+
+\subsection{general idea}
+\label{sec:orgc35a34c}
+the point of eigenvectors is to figure out where other vectors go by looking at pieces that only get streched or shrunk.
+
+\section{depends on}
+\label{sec:orgd2a984d}
+\subsection{finding roots is helpful}
+\label{sec:org908ee6c}
 \end{document}

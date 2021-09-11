@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:16
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,99 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
-\title{}
+\title{math 401 ret 2\textsubscript{1}}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Exr0n},
+ pdftitle={math 401 ret 2\textsubscript{1}},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
-
+\maketitle
+\#source openstax calculus volume 1 section 2.4 exercises
+\section{131}
+\label{sec:org935fbba}
+$$
+  x \le 0 \implies \boxed{\text{infinite}}
+  $$
+\section{132}
+\label{sec:orgb6504db}
+$$
+  \boxed{\text{no discontinuities}}
+  $$
+\section{140}
+\label{sec:org3f266d6}
+$$
+  \boxed{\text{Infinite discontinuity }} \left(\frac{-1}{0}\right)
+  $$
+\section{141}
+\label{sec:orge0cc390}
+$$
+  \boxed{\text{Continuous}} \left(\frac{\cancel{(2u-1)}(3u+2)}{\cancel{2u-1}}\right)
+  $$
+\section{145}
+\label{sec:org61bbc85}
+$$
+  3x+2 = 2x-3 \implies \boxed{x = -5}
+  $$
+\section{150}
+\label{sec:orgaefc737}
+$$
+  \boxed{\text{The function is not continuous at }x = 2}
+  $$
+\section{152}
+\label{sec:org3ce0482}
+\subsection{a}
+\label{sec:org4e13467}
+$$\cos t = t^3$$
+\subsection{b}
+\label{sec:org59cc842}
+Let \(f(x) = \cos x\) and \(g(x) = x^3\). For \(a = 0\) and \(b = \frac{\pi}{2}\):
+\$\$
+\begin{aligned}
+f(a) &= 1\\
+g(a) &= 0\\
+f(b) &= 0\\
+g(b) &= \frac{\pi^3}{8} > 1\\
+\end{aligned}
+\$\$
+Because these functions each traverse \(0 \le y \le 1\) over the interval \(0 \le x \le \frac{\pi}{2}\) in opposite directions and are continuous over that range, they must cross somewhere in that range.
+\subsection{c}
+\label{sec:orgbba57f5}
+$$
+   \boxed{x = 0.8655 \pm 0.005}
+   $$
+\section{164}
+\label{sec:org88f2c05}
+$$\boxed{\text{It's true.}}$$
 \end{document}

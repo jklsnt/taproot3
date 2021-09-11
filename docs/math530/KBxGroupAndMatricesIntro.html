@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-10 Fri 23:24 -->
+<!-- 2021-09-11 Sat 08:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Introduction to Groups and Matrices</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Taproot" />
+<meta name="author" content="Huxley Marvit" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="./global.css" type="text/css"/>
+<link rel="stylesheet" href="../global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,6 +216,28 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -223,9 +245,179 @@
  |
  <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
 </div><div id="content">
+<h1 class="title">Introduction to Groups and Matrices</h1>
+<p>
+#ref #ret
+</p>
+
+<hr />
+
+<div id="outline-container-org5904424" class="outline-2">
+<h2 id="org5904424"><span class="section-number-2">1</span> [[<a href="https://nuevaschool.instructure.com/courses/3718/assignments/61005">https://nuevaschool.instructure.com/courses/3718/assignments/61005</a>][The</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Assignment]]
+</p>
+<p>
+:CUSTOM<sub>ID</sub>: the-assignment
+</p>
+<p>
+<a href="Screen Shot 2021-08-28 at 6.12.09 PM.png.html">Screen Shot
+2021-08-28 at 6.12.09 PM.png</a> <a href="8-28-21, 9:32 PM Microsoft Lens.pdf.html">8-28-21, 9:32 PM Microsoft Lens.pdf</a>
+</p>
+
+<pre class="example" id="orga3a0e1c">
+For some reason the pdf isn't rendering, so I'll attach it as an additional file. Apologies for the handwriting..
+</pre>
+</div>
+
+<div id="outline-container-tell-us-why-you-decided-to-sign-up-for-this-class." class="outline-4">
+<h4 id="tell-us-why-you-decided-to-sign-up-for-this-class."><span class="section-number-4">1.0.1</span> <b>Tell us why you decided to sign up for this class.</b></h4>
+<div class="outline-text-4" id="text-tell-us-why-you-decided-to-sign-up-for-this-class.">
+<p>
+I spend most of my free time doing programming projects with my friends,
+and recently I've been doing a lot of Machine Learning. My 'excuse' for
+taking linear algebra is that in my more recent ML projects I've had to
+go lower level and I'm being held back by my understanding of linear
+algebra and statistics, but frankly linear algebra just sounds really
+cool and I enjoy Nueva math classes a lot.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org338610f" class="outline-4">
+<h4 id="org338610f"><span class="section-number-4">1.0.2</span> *read 1.a from the textbook. we will discuss any questions on</h4>
+<div class="outline-text-4" id="text-1-0-2">
+<p>
+monday! *
+</p>
+<p>
+:CUSTOM<sub>ID</sub>: read-1.a-from-the-textbook.-we-will-discuss-any-questions-on-monday
+</p>
+<p>
+q: is division also a lie? yes! q: do tuples all need the same type? why
+call them n-tuples instead of lists? q: why is it called liniear
+algebra? the explanation that it doesnt deal with geo doesnt explain it
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcae05d9" class="outline-4">
+<h4 id="orgcae05d9"><span class="section-number-4">1.0.3</span> *Which of the number systems we discussed are groups under addition?</h4>
+<div class="outline-text-4" id="text-1-0-3">
+<p>
+Under multiplication?*
+</p>
+<p>
+:CUSTOM<sub>ID</sub>: which-of-the-number-systems-we-discussed-are-groups-under-addition-under-multiplication
+</p>
+
+<ul class="org-ul">
+<li>natural
+
+<ul class="org-ul">
+<li>+ N: no identity</li>
+<li>* N: no inverse</li>
+</ul></li>
+
+<li>whole
+
+<ul class="org-ul">
+<li>+ N: no inverse</li>
+<li>* N: no inverse</li>
+</ul></li>
+
+<li>integers
+
+<ul class="org-ul">
+<li>+ Y</li>
+<li>* N: no inverse</li>
+</ul></li>
+
+<li>rational
+
+<ul class="org-ul">
+<li>+ Y</li>
+<li>* Y : wrong! no inverse for 0. ish&#x2026;</li>
+</ul></li>
+
+<li>real
+
+<ul class="org-ul">
+<li>+ Y</li>
+<li>* Y</li>
+</ul></li>
+
+<li>complex
+
+<ul class="org-ul">
+<li>+ Y</li>
+<li>* Y missing zero!</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6f4ef71" class="outline-4">
+<h4 id="org6f4ef71"><span class="section-number-4">1.0.4</span> *Is there a multiplication for 3 by 1 vectors that satisfies all</h4>
+<div class="outline-text-4" id="text-1-0-4">
+<p>
+group requirements?*
+</p>
+<p>
+:CUSTOM<sub>ID</sub>: is-there-a-multiplication-for-3-by-1-vectors-that-satisfies-all-group-requirements
+</p>
+<p>
+Y &#x2013; Multiply equal indices.
+</p>
+
+<p>
+E.g. $
+</p>
+\begin{bmatrix} 1 & 2 & 3 \end{bmatrix}
+<p>
+$ $
+</p>
+\begin{bmatrix} 2 & 2 & 2 \end{bmatrix}
+<p>
+=
+</p>
+\begin{bmatrix} 1*2 & 2*2 & 3*2 \end{bmatrix}
+<p>
+=
+</p>
+\begin{bmatrix} 2 & 4 & 6 \end{bmatrix}
+<p>
+$
+</p>
+</div>
+</div>
+
+<div id="outline-container-is-there-an-identity-for-multiplication-on-2-by-2-matrices" class="outline-4">
+<h4 id="is-there-an-identity-for-multiplication-on-2-by-2-matrices"><span class="section-number-4">1.0.5</span> <b>Is there an identity for multiplication on 2 by 2 matrices?</b></h4>
+<div class="outline-text-4" id="text-is-there-an-identity-for-multiplication-on-2-by-2-matrices">
+<p>
+Y &#x2013; $
+</p>
+\begin{bmatrix} 1 & 0 \\ 0 & 1  \end{bmatrix}
+<p>
+$
+</p>
+
+<p>
+0s cancel the multiplications where the operation index doesn't match
+the sum of the matrix indices.
+</p>
+
+<p>
+expand to 1s along the diagonal
+</p>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-10 Fri 23:24</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+<div class="namedate"><p class="subtitle"><span class="author">Huxley Marvit</span><span class="date">2021-09-11 Sat 08:15</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>

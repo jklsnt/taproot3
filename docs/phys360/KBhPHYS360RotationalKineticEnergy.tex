@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,88 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Houjun Liu}
 \date{\today}
-\title{}
+\title{Rotational Kinetic Energy}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Houjun Liu},
+ pdftitle={Rotational Kinetic Energy},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
 
+\section{A review of what happened before}
+\label{sec:org841348f}
+
+\begin{align}
+PE &= mg \Delta h \\
+KE &= \frac{1}{2} mv^2
+\end{align}
+
+\section{Rotational Kinetic Energy}
+\label{sec:orge109bf5}
+But, really, the definition of kinetic energy is a bit of a lie. Because really, its actually the following thing:
+
+\begin{equation}
+KE_{total} = KE_{translational} + KE_{rotational}
+\end{equation}
+
+Where, \(KE_{rotational} = \frac{1}{2}MV^2\) we already know. That's the movement of CM. But, there is another energy if the object spins:
+
+\begin{equation}
+KE_{rotational} = \frac{1}{2}I\omega^2
+\end{equation}
+
+Where, \(I\) is the moment of inertia ("spinny mass") around the axis of rotation, and \(\omega\) the angular velocity ("spinny velocity").
+
+You could see, the same equation just happens twice, but the variables are different for the rotational case.
+
+
+\subsection{Axis of Rotation}
+\label{sec:org94182ee}
+A line through the center of mass such that the rest of the mass of the object are going in circular motion around that axis. Yes, if the object is tubing, it will just rapidly change.
+
+\subsection{Angular Velocity}
+\label{sec:org4437497}
+Its the speed at which its rotating. So:
+
+\begin{equation}
+||\vec{\omega}|| = \frac{d\theta}{dt}
+\end{equation}
+
+But, its a vector! So there is an actual "direction" of rotation. If you have an object that's rotating and an axis for that rotation, take your fingers to the direction by which the object is rotating, your thumb is point at the direction of rotation and hence you could assign a sign.
+
+\subsection{Deriving the Value of Kinetic Energy}
+\label{sec:orged942ec}
+\href{KBhPHYS360RotationalKineticEnergyDerivation.org}{See here.}
 \end{document}

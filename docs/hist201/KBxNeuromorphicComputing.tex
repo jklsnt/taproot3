@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:17
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,233 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Huxley}
 \date{\today}
-\title{}
+\title{Neuromorphic Computing}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Huxley},
+ pdftitle={Neuromorphic Computing},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\#flo \#ref \#ret \#incomplete
 
+\noindent\rule{\textwidth}{0.5pt}
+
+\section{Final Exploration}
+\label{sec:orgd482f4d}
+Note: I did a dive into trying to label the axes of a word vector space,
+and I also tried to do some stuff with summarization models, but neither
+of those projects worked out within the time frame. Delegated to summer
+they go. Instead, here are my notes on
+
+\subsection{Neuromorphic Computing!}
+\label{sec:org6bac365}
+\href{https://www.youtube.com/watch?v=-dl1FPrpw1A\&ab\_channel=NeuroInspiredComputationalElementsWorkshop}{Cool
+talk}
+
+Notes on the talk:
+
+\begin{itemize}
+\item Talks about autonomous drone racing
+
+\begin{itemize}
+\item only possible recently due to tech limitations
+\item Bird brain vs Drone "brain"
+
+\begin{itemize}
+\item Parrot
+
+\begin{itemize}
+\item 50mW, 2.2G
+
+\item Can learn words
+
+\item Can nav new environments at 35km/h
+
+\item \begin{quote}
+Can learn to manipulate cups for drinking
+\end{quote}
+\end{itemize}
+\end{itemize}
+
+\item Drone
+
+\begin{itemize}
+\item 18000 mW, 40g
+
+\item Pre trained flying at walking pace
+
+\item \begin{quote}
+Can't learn anything online
+\end{quote}
+\end{itemize}
+
+\item Main idea is the birds adaptability
+
+\begin{itemize}
+\item Can learn to "really understand what a cup can be useful for"
+despite it not being in its evolutionary past
+\item way beyond current autonomous drones
+\end{itemize}
+
+\item We have a lot to learn from nature!
+\end{itemize}
+
+\item Deep learning is very power hungry
+
+\begin{itemize}
+\item increasingly so -- grew by 300,000x in the last 6 years
+\item not on a trajectory to close the gap with the parrot!
+\end{itemize}
+
+\item Deep learning has slow generalization
+
+\begin{itemize}
+\item Training currently is mostly offline and batched
+\item example of a child looking at a few pictures of a cat: they can now
+easily tell what is a cat, and can even recognize cartoons of a cat.
+\end{itemize}
+
+\item looking to the brain!
+
+\begin{itemize}
+\item they implemented neural networks with temporal states in each neuron
+
+\begin{itemize}
+\item with some course of evolution
+\end{itemize}
+
+\item current tools break down on these new models
+
+\begin{itemize}
+\item arn't differentiable, cant do stochastic descent, ect.
+\end{itemize}
+\end{itemize}
+
+\item motivates a different type of computing?
+
+\begin{itemize}
+\item memory elements is embedded in the synaptic neurons
+\item redefines what is efficient
+
+\begin{itemize}
+\item conventional is forced into vectorized approach
+\end{itemize}
+\end{itemize}
+
+\item their new chip doesn't have floating point numbers, multiply
+accumulators, or off-chip DRAM
+
+\begin{itemize}
+\item but they can do all this amazing stuff
+
+\begin{itemize}
+\item highlights that they are genuinely operating in a totally
+different paradigm
+\end{itemize}
+\end{itemize}
+
+\item results!
+
+\begin{itemize}
+\item sensing domain
+
+\begin{itemize}
+\item in spiking event based paradigm
+\item IO no longer a bottleneck
+\item can natively send event from sensor to chip, can do gesture reg
+with just 15mW for both the camera and chip combined
+\item early new live learning
+\item doing new things with touch
+\item and created odor recognition\ldots{}?
+
+\begin{itemize}
+\item 3000x more efficient than deep autoencoder
+\end{itemize}
+\end{itemize}
+
+\item robotics and drone space
+
+\begin{itemize}
+\item adaptive robotic arms that can learn real world forces like
+friction and remap itself
+\item iCub scene understanding
+\item can use visual cues to and live learning for directionality
+\item event based camera input for horizon tracking with crazy specs
+\item super small 35 neuron network to achieve smooth MAV landings
+
+\begin{itemize}
+\item like some kind of insect brain
+\end{itemize}
+\end{itemize}
+
+\item abstract
+
+\begin{itemize}
+\item graph search can use inherent parallelism to be over 100x faster
+
+\begin{itemize}
+\item with "temporally propagated wavefronts"
+\end{itemize}
+
+\item much better and faster similarity search
+\item can easily model heat diffusion
+\item combinatorial optimization 40x faster, 2000x lower energy
+
+\begin{itemize}
+\item like real world train scheduling problems
+\end{itemize}
+\end{itemize}
+
+\item can map problem space onto energy and time gain for their new
+neuromorphic techniques
+
+\href{Screen Shot 2021-06-11 at 3.48.43 PM.png.org}{Screen Shot
+2021-06-11 at 3.48.43 PM.png}
+
+\item gains mostly in RNNs instead of feed forward
+
+\begin{itemize}
+\item like the brain
+\end{itemize}
+\end{itemize}
+
+\item 1000x gains, not percentage wise
+
+\begin{itemize}
+\item on a programmable chip!
+\item hardware is still very early
+\end{itemize}
+\end{itemize}
 \end{document}

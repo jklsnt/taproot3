@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:16
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,73 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
-\title{}
+\title{integrals intro}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Exr0n},
+ pdftitle={integrals intro},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\section{antiderivative}
+\label{sec:orgd871b2d}
+\subsection{intuition}
+\label{sec:org7bc7064}
+An antiderivative is the opposite of a derivative--given a slope, find a function with that slope
+\subsection{example}
+\label{sec:org3e5c1f5}
 
+\[ \int (2x) dx = x^2 + c \]
+Where \(c\) is the 'integration constant' that we don't know. This exists because when taking the derivative, we loose the constant term, so when taking the integral, we should get it back.
+
+The function that is being integrated is called the \emph{integrand}.
+
+Similarly,
+\[ \frac{d}{dx} \ln x = \frac{1}{x} \implies \int \ln x dx = \ln x \]
+\subsection{uses}
+\label{sec:orgd3f11b7}
+\subsubsection{more taylor series polynomials!}
+\label{sec:org571ae17}
+\[ \begin{aligned}
+\frac{d}{dx}\ln(1+x) = \frac{1}{1+x} = 1-x+x^2-x^3+\cdots\\
+\ln(1+x) = \int \frac{d}{dx}\ln(1+x) dx =\\
+=& \int \left(1 - x + x^2 - x^3 + \cdots \right) dx\\
+=& \int 1dx - \int x dx + \int x^2dx - \int x^3 dx \cdots\\
+=& x - \frac{x^2}{x} + \frac{x^3}{3} - \frac{x^4}{4} \cdots\\
+\end{aligned}\]
+\section{integration rules}
+\label{sec:orgb90c640}
+\subsection{\(\int \left(f(x) + g(x)\right) dx = \int f(x)dx + \int g(x)dx\)}
+\label{sec:org59a8369}
 \end{document}

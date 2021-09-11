@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-10 Fri 23:25 -->
+<!-- 2021-09-11 Sat 08:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Questions to Ponder about \(A^TA\) and \(AA^T\)</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Taproot" />
 <style type="text/css">
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="./global.css" type="text/css"/>
+<link rel="stylesheet" href="../global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,6 +216,28 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -223,9 +245,114 @@
  |
  <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
 </div><div id="content">
+<h1 class="title">Questions to Ponder about \(A^TA\) and \(AA^T\)</h1>
+<div id="outline-container-orgc110b40" class="outline-2">
+<h2 id="orgc110b40"><span class="section-number-2">1</span> A real valued matrix</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Let \(A =\begin{pmatrix}2 &1 \\ 3 & 2\end{pmatrix}\)
+\[\begin{aligned}
+  AA^T &= \begin{pmatrix}2 &1 \\ 3 & 2\end{pmatrix}\begin{pmatrix}2 &3 \\ 1 & 2\end{pmatrix} &=\begin{pmatrix}5 & 8 \\ 8 & 13\end{pmatrix}\\
+  A^TA &= \begin{pmatrix}2 &3 \\ 1 & 2\end{pmatrix}\begin{pmatrix}2 &1 \\ 3 & 2\end{pmatrix} &=\begin{pmatrix}13 & 8 \\ 8 & 5\end{pmatrix}\\
+  \end{aligned}\]
+</p>
+
+<p>
+\[\begin{aligned}
+</p>
+\begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}a&c\\b&d\end{pmatrix} =\begin{pmatrix}a^2+b^2 & ac+bd \\ ac+bd & c^2+d^2 \end{pmatrix}
+<p>
+\end{aligned}\]
+Then, \(A^TA\) is the same thing, but with \(b, c\) swapped.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd5fdad8" class="outline-2">
+<h2 id="orgd5fdad8"><span class="section-number-2">2</span> For complex matrices</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+\[\begin{aligned}
+</p>
+\begin{pmatrix}a+bi & c+di \\ f+gi & j+ki\end{pmatrix} \begin{pmatrix}a+bi & f+gi \\ c+di & j+ki\end{pmatrix} =
+\begin{pmatrix}a^2-b^2+2abi + c^2-d^2+2cdi & af + agi + bfi - bg \\ af + agi + bfi - bg & f^2-g^2+2fgi + j^2-k^2+2jki\end{pmatrix}
+<p>
+\end{aligned}\]
+</p>
+
+<p>
+I'm not sure if I'm noticing anything different from the real ones, although maybe the variables are just too confusing.
+</p>
+</div>
+</div>
+<div id="outline-container-orge44a855" class="outline-2">
+<h2 id="orge44a855"><span class="section-number-2">3</span> Complex conjugate (\(A^*A\) vs \(A A^*\))</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+\[\begin{aligned}
+</p>
+\begin{pmatrix}a+bi & c+di \\ f+gi & j+ki \end{pmatrix}
+\begin{pmatrix}a-bi & f-gi \\ c-di & j-ki \end{pmatrix} =
+\begin{pmatrix} a^2 + b^2 + c^2 + d^2 & () \\ () & f^2 + g^2 + j^2 + k^2 \end{pmatrix}
+<p>
+\end{aligned}\]
+</p>
+
+<p>
+\[\begin{aligned}
+</p>
+\begin{pmatrix}a-bi & f-gi \\ c-di & j-ki \end{pmatrix}
+\begin{pmatrix}a+bi & c+di \\ f+gi & j+ki \end{pmatrix} =
+\begin{pmatrix} a^2 + b^2 + f^2 + g^2 & () \\ () & c^2 + d^2 + j^2 + k^2 \end{pmatrix}
+<p>
+\end{aligned}\]
+</p>
+
+<p>
+The diagonals are real-valued, and the matrices are symmetric about the diagonal. I wonder if this means the matrices have identical eigenvalues&#x2026; how do the diagonals of complex matricies change when they are upper-triangularized?
+</p>
+</div>
+</div>
+<div id="outline-container-orgcd0cc09" class="outline-2">
+<h2 id="orgcd0cc09"><span class="section-number-2">4</span> Transpose distributivity with matrix multiplication</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+\[\begin{aligned}
+  (AB)^\top =\left(\begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}w&x\\y&z\end{pmatrix}\right) ^\top
+  =\begin{pmatrix}aw+by & cw+dy \\ ax + bz & cx + dz \end{pmatrix} =\begin{pmatrix}w&y\\x&z\end{pmatrix}\begin{pmatrix}a&c\\b&d\end{pmatrix} = B^\top A^\top
+  \end{aligned}\]
+</p>
+
+<p>
+I have no good proof of this for larger matrices or non-square matrices, but it makes sense because both scalar addition and scalar multiplication are commutative and transposing swaps rows for columns. Thus, when a matrix on the left is multiplied by a matrix on the right, it is the same as the left matrix becoming the right matrix but after a transpose, because both operations swap the rows and columns in some sense so they "cancel out".
+</p>
+</div>
+</div>
+<div id="outline-container-orga6495f0" class="outline-2">
+<h2 id="orga6495f0"><span class="section-number-2">5</span> Determinant distributivity with matrix multiplication</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+\[\begin{aligned}
+  &\left| \begin{pmatrix}aw+by & ax + bz\\ cw + dy & cx + dz\end{pmatrix} \right|   \\
+  &= (aw+by)(cx+dz) - (ax+bz)(cw+dy) \\
+  &= \cancel{acwx} + adwz + bcxy + \cancel{bdyz} - (\cancel{acwx} + adxy + bcwz + \cancel{bdyz}) \\
+  &= adwz - adxy - bcwz + bcxy\\
+  &= (ad-bc)(wz-xy) \\
+  &= \left|\begin{pmatrix}a&b\\c&d\end{pmatrix}\right|\left|\begin{pmatrix}w&x\\y&z\end{pmatrix}\right|
+  \end{aligned}\]
+</p>
+
+<p>
+This makes sense given that the determinant of a matrix can be considered a "scaling factor." We had talked about the determinant being the area of the parallelogram of the column vectors, but not about how that represented the matrix multiplied by the identity whose column parallelogram has area one. Thus, the composition should multiply areas, which it seems to do.
+</p>
+
+<p>
+This can probably be the base case of an induction proof that extends this to larger matrices, since determinants are defined recursively.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-10 Fri 23:22</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-11 Sat 08:10</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>

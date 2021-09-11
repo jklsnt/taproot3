@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:18
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,150 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
-\title{}
+\title{Flo 10}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Exr0n},
+ pdftitle={Flo 10},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
+\#flo
 
+\section{Span}
+\label{sec:org13d5544}
+\subsection{Smallest/largest containing subspaces}
+\label{sec:org76e59ad}
+\begin{itemize}
+\item Spans are not the largest vector space that contains the given vectors
+\href{Pasted image 20200924131215.png.org}{Pasted image
+20200924131215.png}
+\item The span of that vector is a line. It's a subspace. But it's not the
+biggest, because there's also R\textsuperscript{2}
+\end{itemize}
+
+\subsection{Spans tend to be infinite}
+\label{sec:orgc6b8e06}
+\begin{itemize}
+\item Usually a span has infinitely many vectors (unless you're in a weird
+field (modulo) or have the zero span)
+\item In the span of just one vector, you can multiply by any scalar which
+there tends to be infinite of \href{Pasted image 20200924131215.png.org}{Pasted image 20200924131215.png}
+\item The span of that vector is a line. It's a subspace. But it's not the
+biggest, because there's also R\textsuperscript{2}
+\item It only won't be infinite if your span is the span of \(()\) (empty
+list)
+\end{itemize}
+
+\subsection{Given a linearly independent set of vectors, would the span equal to}
+\label{sec:orgd13e71c}
+the vector space?
+:CUSTOM\textsubscript{ID}: given-a-linearly-independent-set-of-vectors-would-the-span-equal-to-the-vector-space
+
+\begin{itemize}
+\item No? It's unclear which vector space is being referred to.
+\end{itemize}
+
+\subsection{Span of vectors (example 2.6)}
+\label{sec:org31ec080}
+\begin{itemize}
+\item When it's two vectors, you'd expect the span to be a 2d plane unless
+the vectors are parallel
+
+\begin{itemize}
+\item In other words, if they are linear combinations or scalar multiples
+of one another
+\item A linear combination on one other vector is the same as a scalar
+multiple
+\item in 2space they have to not be colinear, in 3space they have to not
+be coplanar.
+\item They have to be linearly independent
+\end{itemize}
+
+\item That probably generalizes to higher and lower dimensions
+\end{itemize}
+
+\subsection{Adding a vector doesn't make the span smaller}
+\label{sec:org007230e}
+\begin{itemize}
+\item Because you can just do what you had originally and make it's
+coefficient zero
+\end{itemize}
+
+\subsection{Size of spans/subspaces}
+\label{sec:orgf10ea4d}
+\begin{itemize}
+\item You can't really just count the number of vectors, because say a line
+and a plane both have infinite points
+\item But we still want a plane to be larger than a line and a space to be
+larger than a plane
+\item So one way we compare is to say \(A\) is larger than \(B\) if \(B\) is
+strictly contained within \(A\)
+\item something like "dimensionality", maybe the minimum number of vectors
+needed for their span to be equal to the space
+\end{itemize}
+
+\section{2.7 Span is the smallest containing subspace}
+\label{sec:org70110e9}
+\begin{itemize}
+\item First the proof shows that the span is a subspace
+\item Then, because the span only neds to contain each vector and be a
+subspace, any subspace containing those vectors will at least contain
+the span.
+\end{itemize}
+
+\section{Linear Dependence}
+\label{sec:org3ecd3ca}
+\begin{itemize}
+\item When one of the vectors provides no "new information" aka can be
+constructed by a linear combination of vectors you already had
+\item It's a property of a set of vectors, not just one vector. A single
+vector is always linearly independent on its own, because there's
+nothing else to depend on.
+\item The span of the zero vector \((0)\) is linearly dependent on itself,
+and you already don't really get anything. So we usually talk about it
+as a span of no vectors \(()\)
+\end{itemize}
+
+\section{Rotation matrices}
+\label{sec:orgec8d163}
+\begin{itemize}
+\item Find a formula
+\item Prove the formula
+\item maybe draw a picture
+\item \href{KBE2020math501floMatriciesAsTransformations.org}{KBE2020math501floMatriciesAsTransformations}
+\end{itemize}
+
+\noindent\rule{\textwidth}{0.5pt}
 \end{document}

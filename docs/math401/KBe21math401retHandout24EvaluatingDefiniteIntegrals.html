@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-10 Fri 23:24 -->
+<!-- 2021-09-11 Sat 08:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Evaluating definite integrals</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Taproot" />
 <style type="text/css">
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="./global.css" type="text/css"/>
+<link rel="stylesheet" href="../global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,6 +216,28 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -223,9 +245,186 @@
  |
  <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
 </div><div id="content">
+<h1 class="title">Evaluating definite integrals</h1>
+<div id="outline-container-orgfd546ae" class="outline-2">
+<h2 id="orgfd546ae"><span class="section-number-2">1</span> \(\int_{1}^{2} \frac{e^{\frac{1}{x}}}{x^2} dx\)</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+\[\begin{aligned}
+  \int - e^{u} du &= - e^u +C\\
+  &= -e^{\frac{1}{2}} + e^{\frac{1}{1}}\\
+  &= e-e^{\frac{1}{2}}\\
+  \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-orgd956f59" class="outline-2">
+<h2 id="orgd956f59"><span class="section-number-2">2</span> \(\int_{0}^{1} r e^{\frac{r}{2}} dr\)</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+\[\begin{aligned}
+  \int_{0}^{1} r e^{\frac{r}{2}} dx &\implies r 2e^{\frac{r}{2}} - \int 2e^{\frac{r}{2}}dr\\
+  &=  2r e^{\frac{r}{2}} - \int 2 e^{\frac{r}{2}}dr\\
+  &=  2r e^{\frac{r}{2}} - 4 e^{\frac{r}{2}}\\
+  &= 2r e^{\frac{r}{2}} - 4 e^{\frac{r}{2}}\\
+  &\implies 2e^{\frac{1}{2}} - 4e^{\frac{1}{2}} - (- 4)\\
+  &= 4 - 2e^{\frac{1}{2}}
+  \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6b00783" class="outline-2">
+<h2 id="org6b00783"><span class="section-number-2">3</span> \(\int_{4}^{9} \frac{ \ln  y}{\sqrt{y}} dy\)</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+\[\begin{aligned}
+  \int \frac{\ln y}{\sqrt{y}} dy &= 2 \ln y \sqrt{y}- \int 2 \frac{1}{y} \sqrt{y} dy\\
+  &=  2 \ln y \sqrt{y}- \int 2 \frac{1}{\sqrt{y}} dy\\
+  &=  2 \ln y \sqrt{y}- 2 \int y^{-\frac{1}{2}} dy\\
+  &=  2 \ln  y \sqrt{y} - 4 \sqrt{y} +C\\
+  &=  2 \sqrt{y}(\ln  y - 2) +C\\
+  \implies&\ \quad 6( \ln  9 - 2) - 4 ( \ln 4 - 2)
+  \end{aligned}\]
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgda0bc95" class="outline-2">
+<h2 id="orgda0bc95"><span class="section-number-2">4</span> \(\int_{0}^{\sqrt{\pi}} \cos \sqrt{x} dx\)</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Let \(u = \sqrt{x}\), \(du = \frac{1}{2 \sqrt{x}} dx\), \(dx = 2 u du\)
+\[\begin{aligned}
+  \int_{0}^{ \sqrt{\pi} } \cos \sqrt{x} dx &= 2\int u \cos u  du\\
+  &= 2u \sin  u - 2\int \sin u du\\
+  &= 2 u \sin  u + 2 \cos  u\\
+  &= 2 \sqrt{x} \sin  \sqrt{x} + 2 \cos  \sqrt{x}\\
+  \implies  & \ \ \ \ 2 \pi^{\frac{1}{4}} \sin \pi^{\frac{1}{4}} + 2 \cos \pi ^{\frac{1}{4}}-2
+  \end{aligned}\]
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org0dee96e" class="outline-2">
+<h2 id="org0dee96e"><span class="section-number-2">5</span> \(\int_{1}^{e} \sin  \ln  x dx\)</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+\[\begin{aligned}
+  \int_{1}^{e} \sin  \ln  x dx &= x \sin  \ln  x - \int x \frac{1}{x} \cos \ln x dx\\
+  &= x \sin  \ln  x - \int \cos \ln  x dx\\
+  &= x \sin  \ln  x -\left( x \cos  \ln  x + \int \cancel{x \frac{1}{x}} \sin  \ln  x dx\right)\\
+  &= x \sin  \ln  x - x \cos  \ln  x -\int \sin \ln x dx\\
+  2\int \sin  \ln  x dx  &= x \sin  \ln  x - x \cos  \ln  x\\
+ \int \sin  \ln  x dx &= \frac{1}{2}x (\sin  \ln  x - \cos  \ln  x)\\
+ \implies &\ \ \ \ \frac{1}{2}e (\sin 1 - \cos  1) - \frac{1}{2} ( \sin  0 - \cos  0)\\
+ &= \frac{e}{2} ( \sin  1 - \cos  1 ) + \frac{1}{2}
+  \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1e8e62b" class="outline-2">
+<h2 id="org1e8e62b"><span class="section-number-2">6</span> \(\int_{0}^{1} \frac{x^3}{\sqrt{4+x}} dx\)</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Let \(u = 4 + x^2\), \(du = 2xdx\)
+</p>
+
+<p>
+\[\begin{aligned}
+  \int \frac{x^3}{\sqrt{4+x}} dx &=\frac{1}{2}\int  \frac{(u-4)}{\sqrt{u}}du\\
+  &= \frac{1}{2}\int \sqrt{u} dx - 2\int \frac{1}{\sqrt{u}} dx
+  \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgefcc675" class="outline-2">
+<h2 id="orgefcc675"><span class="section-number-2">7</span> (additional problems)</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-orgaab0edb" class="outline-3">
+<h3 id="orgaab0edb"><span class="section-number-3">7.1</span> \(\int \sin^2 x dx\)</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+\[\begin{aligned}
+   \int \sin  ^2 x dx &= - \sin  x \cos  x +\int \cos  ^2 x dx\\
+   &= - \sin  x \cos  x +\int 1 dx -\int  \sin  ^2 x dx\\
+   2\int \sin ^2 x dx &= - \sin  x \cos  x + x\\
+   \int \sin ^2 x dx  &= \frac{1}{2} (x-\sin  x \cos  x)
+   \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge4447c0" class="outline-3">
+<h3 id="orge4447c0"><span class="section-number-3">7.2</span> \(\int \cos^2 x  dx\)</h3>
+<div class="outline-text-3" id="text-7-2">
+<p>
+\[\begin{aligned}
+   \int \cos  ^2 x dx &= \cos  x \sin  x + \int \sin^2 x dx\\
+   &= \cos x \sin  x + \int 1 dx - \int \cos^2 x dx\\
+   2\int \cos  ^2 x dx &= \cos  x \sin  x + x\\
+   \int \cos  ^2 x dx &= \frac{1}{2}\cos  x \sin  x + \frac{x}{2}+C
+   \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org26d5a85" class="outline-3">
+<h3 id="org26d5a85"><span class="section-number-3">7.3</span> \(\int \sin^2 x\cos^2 x dx\)</h3>
+<div class="outline-text-3" id="text-7-3">
+<p>
+\[\begin{aligned}
+   \sin  2 x = 2 \sin  x \cos  x\\
+   \int \sin  ^2 x \cos  ^2 x dx &= \frac{1}{4}\int \sin  ^2 2 x dx\\
+   \text{Let } u &= 2x, du = 2 dx\\
+   &= \frac{1}{8}\int \sin  ^2 u du\\
+   &= \frac{1}{8} \frac{1}{2}  (u-\sin  u \cos  u)\\
+   &= \frac{1}{16} (2x - \sin  2x \cos  2x)+C
+   \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6b43687" class="outline-3">
+<h3 id="org6b43687"><span class="section-number-3">7.4</span> \(\int \sin^3 x dx\)</h3>
+<div class="outline-text-3" id="text-7-4">
+<p>
+\[\begin{aligned}
+   \int \sin  ^3 x  dx &=\int \sin  x (1 - \cos  ^2 x) dx\\
+   &=\int \sin  x dx  -\int \cos ^2 x \sin  x dx\\
+   \text{Let }& u = \cos  x, du = - \sin  x dx\\
+   &=\int \sin  x dx  +\int u ^2 du\\
+   &= - \cos  x + \frac{1}{3} u ^3 +C\\
+   &= \frac{1}{3} \cos  ^3 x - \cos  x +C
+   \end{aligned}\]
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orga5e4467" class="outline-3">
+<h3 id="orga5e4467"><span class="section-number-3">7.5</span> \(\int \cos ^3 x dx\)</h3>
+<div class="outline-text-3" id="text-7-5">
+<p>
+\[\begin{aligned}
+   \int \cos  ^3 x dx &=\int \cos  x (1 - \sin  ^2 x) dx \\
+   &=\int \cos  x - \sin  ^2 x \cos  x dx \\
+   &= \sin  x -\int u ^2 du\\
+   &= \sin  x - \frac{1}{3} u ^3 +C\\
+   &= \sin  x - \frac{1}{3} \sin  ^3 x +C
+   \end{aligned}\]
+</p>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-10 Fri 23:22</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-11 Sat 08:10</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>

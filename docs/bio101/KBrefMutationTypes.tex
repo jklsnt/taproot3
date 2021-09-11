@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:17
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,93 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
 \date{\today}
-\title{}
+\title{Mutation Types}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Exr0n},
+ pdftitle={Mutation Types},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
 
+\section{Types of micro (point) mutations}
+\label{sec:org3a177db}
+
+\subsection{insert/remove}
+\label{sec:org439f029}
+\subsubsection{frameshift mutation}
+\label{sec:org842853a}
+\begin{enumerate}
+\item deletion/insertion that nets a non-multiple of 3, so the codons don't line up anymore
+\label{sec:orgc7c9dbc}
+\item everything downstream is "corrupted"
+\label{sec:org0e17204}
+\end{enumerate}
+\subsection{substitute}
+\label{sec:org0b8f099}
+\subsubsection{missense mutation}
+\label{sec:org2d6b112}
+\begin{enumerate}
+\item changes an amino acid to another amino acid
+\label{sec:org8c4ce2b}
+\end{enumerate}
+\subsubsection{nonsense mutation}
+\label{sec:org09984ce}
+\begin{enumerate}
+\item changes an amino acid to a stop codon
+\label{sec:org3a1b235}
+\end{enumerate}
+\subsubsection{silent mutation}
+\label{sec:org5e6d223}
+\begin{enumerate}
+\item does not change an amino acid
+\label{sec:org397d21f}
+\end{enumerate}
+\section{macro mutations}
+\label{sec:org2adcd57}
+\subsection{deletion of a large chunk}
+\label{sec:org04dd6c4}
+\subsection{duplication of a large chunk}
+\label{sec:org69d6d89}
+\subsection{inversion of a large chunk (reverses it)}
+\label{sec:org93ec4e7}
+\subsection{substitution (move a chunk elsewhere)}
+\label{sec:orgbcaef16}
+\subsection{translation?}
+\label{sec:org7fcdc9d}
+\section{comparison}
+\label{sec:orgd55abb5}
+\subsection{micro mutations tend to happen and then cause macro mutations, both can cause cancer}
+\label{sec:org8f35a91}
 \end{document}

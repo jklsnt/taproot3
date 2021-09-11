@@ -1,8 +1,6 @@
-% Created 2021-09-10 Fri 23:25
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Created 2021-09-11 Sat 08:16
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{longtable}
@@ -14,18 +12,84 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Taproot}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Houjun Liu}
 \date{\today}
-\title{}
+\title{Epsilon Delta Proofs}
 \hypersetup{
- pdfauthor={Taproot},
- pdftitle={},
+ pdfauthor={Houjun Liu},
+ pdftitle={Epsilon Delta Proofs},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
-\tableofcontents
+\maketitle
 
+
+\section{Epsilon Delta Proofs}
+\label{sec:orgb188e26}
+The secrets of the limit
+
+\subsection{Formal Definition of a Limit}
+\label{sec:org214004e}
+\definition[for all $\epsilon > 0$, there exists a $\delta$ such that $if\ 0<|x-a|<\delta,\ then\  0<|f(x)-L|<\epsilon$]{Limit Definition}\{\(\lim_{x\to a} f(x) = L\)\}
+
+\subsection{An Epsilon Delta Proof}
+\label{sec:orgbd740c7}
+Let's prove \(\lim_{x\to 2} x^2 = 4\) together!
+
+The crux of the proof is to come up with a value \(\delta\) that is a
+function of \(\epsilon\) assuming that \(0 < \epsilon\) that meets
+\(0<|x-a|<\delta\).
+
+Oh, here's some symbols
+
+\begin{center}
+\begin{tabular}{ll}
+Symbol & Definition\\
+\hline
+\(\forall\) & For all\\
+\(\exists\) & There exisits\\
+\(s.t.\) & Such that\\
+\end{tabular}
+\end{center}
+
+And so, the formal and pretentious definition of a limit:
+
+\(\lim_{x\to a} f(x) = L\ where\ \forall \epsilon > 0, \exists \delta > 0,\ s.t.\ 0<|x-a|<\delta \to |f(x) -L|<\epsilon.\)
+
+This needs to go before \textbf{every Epsilon Delta proof.}
+
+\begin{itemize}
+\item Step 1: Re-write the Definition Above w.r.t. the function
+\item Step 2: Do scratch work to identify delta
+\item Step 3: Plug it in to verify
+\end{itemize}
 \end{document}
