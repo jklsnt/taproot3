@@ -175,16 +175,37 @@ We begin by deriving an equation of $a(y)$ --- acceleration as a function of pos
 Based on first principles, the following is true:
 
 \begin{equation}
-    a = \frac{dv}{dt}
+    a(t) = \frac{dv}{dt}
 \end{equation}
 
-Apply the chain rule, we derive the following:
+With apply the chain rule, we derive the following:
 
 \begin{align}
-    a =& \frac{dv}{dt} \\
-    \Rightarrow a =& \frac{dv}{dy}\frac{dy}{dt}
-    \Rightarrow a(y) =& \frac{dv}{dy}v
+    a(t) =& \frac{dv}{dt} \\
+    \Rightarrow a(t) =& \frac{dv}{dy}\frac{dy}{dt} \\
+    \Rightarrow a(t) =& \frac{dv}{dy}v(t) \\
+    \Rightarrow \frac{a(t)}{v(t)} =& a(y)
+\end{align}
+
+Integrating both sides w.r.t. position...
+
+\begin{align}
+    \frac{a(t)}{v(t)} =& a(y) \\
+    \Rightarrow \int \frac{a(t)}{v(t)}\ dy =& \int a(y)\ dy \\
+    \Rightarrow \int \frac{dv}{dt}\frac{dy}{dt}\ dy =& \int a(y)\ dy
 \end{align}
 
 
+The right integral now requires some additional movement to solve.
 
+\begin{align}
+     \int \frac{dv}{dy}v\ dy =& v^2 - \int \frac{dv}{dy} v\ dy \\
+     \Rightarrow 2\int \frac{dv}{dy}v\ dy =& v^2 + C \\
+     \Rightarrow \int \frac{dv}{dy}v\ dy =& \frac{v^2}{2} + C
+\end{align}
+
+Substituting the right statement back into the original expression, and continuing to solve.
+
+\begin{align}
+    \Rightarrow ay =& \frac{v^2}{2} + C \\
+\end{align}
