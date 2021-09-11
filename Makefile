@@ -68,6 +68,7 @@ src/%.pdf: docs/%.pdf
 	-cp "$<" "$@"
 
 redux: $(PDF_REDUX)
+	find . -d -name "*~" -exec rm -f {} \;
 
 
 

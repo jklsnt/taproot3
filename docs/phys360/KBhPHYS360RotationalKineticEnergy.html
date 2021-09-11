@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-11 Sat 08:16 -->
+<!-- 2021-09-11 Sat 09:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rotational Kinetic Energy</title>
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="../global.css" type="text/css"/>
+<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -247,8 +247,8 @@
 </div><div id="content">
 <h1 class="title">Rotational Kinetic Energy</h1>
 
-<div id="outline-container-org059db13" class="outline-2">
-<h2 id="org059db13"><span class="section-number-2">1</span> A review of what happened before</h2>
+<div id="outline-container-orgcdc8334" class="outline-2">
+<h2 id="orgcdc8334"><span class="section-number-2">1</span> A review of what happened before</h2>
 <div class="outline-text-2" id="text-1">
 \begin{align}
 PE &= mg \Delta h \\
@@ -257,8 +257,8 @@ KE &= \frac{1}{2} mv^2
 </div>
 </div>
 
-<div id="outline-container-org952f81f" class="outline-2">
-<h2 id="org952f81f"><span class="section-number-2">2</span> Rotational Kinetic Energy</h2>
+<div id="outline-container-org6ca8439" class="outline-2">
+<h2 id="org6ca8439"><span class="section-number-2">2</span> Rotational Kinetic Energy</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 But, really, the definition of kinetic energy is a bit of a lie. Because really, its actually the following thing:
@@ -286,8 +286,8 @@ You could see, the same equation just happens twice, but the variables are diffe
 </div>
 
 
-<div id="outline-container-org90850b2" class="outline-3">
-<h3 id="org90850b2"><span class="section-number-3">2.1</span> Axis of Rotation</h3>
+<div id="outline-container-orgc3050d9" class="outline-3">
+<h3 id="orgc3050d9"><span class="section-number-3">2.1</span> Axis of Rotation</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 A line through the center of mass such that the rest of the mass of the object are going in circular motion around that axis. Yes, if the object is tubing, it will just rapidly change.
@@ -295,8 +295,8 @@ A line through the center of mass such that the rest of the mass of the object a
 </div>
 </div>
 
-<div id="outline-container-org0404733" class="outline-3">
-<h3 id="org0404733"><span class="section-number-3">2.2</span> Angular Velocity</h3>
+<div id="outline-container-orgad8fa95" class="outline-3">
+<h3 id="orgad8fa95"><span class="section-number-3">2.2</span> Angular Velocity</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Its the speed at which its rotating. So:
@@ -312,18 +312,234 @@ But, its a vector! So there is an actual "direction" of rotation. If you have an
 </div>
 </div>
 
-<div id="outline-container-orgd83bc13" class="outline-3">
-<h3 id="orgd83bc13"><span class="section-number-3">2.3</span> Deriving the Value of Kinetic Energy</h3>
+<div id="outline-container-orgb6e0fb7" class="outline-3">
+<h3 id="orgb6e0fb7"><span class="section-number-3">2.3</span> Deriving the Value of Kinetic Energy</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 <a href="KBhPHYS360RotationalKineticEnergyDerivation.html">See here.</a>
 </p>
+
+<p>
+In summary,
+</p>
+
+\begin{equation}
+     KE_{total} = \frac{1}{2} M \vec{V_{CM}}^2 + \sum^N_{i=1} \frac{1}{2}m_i\vec{v_i}'^2
+\end{equation}
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org7b436a1" class="outline-2">
+<h2 id="org7b436a1"><span class="section-number-2">3</span> Actually using Rotational Kinetic Energy</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+This:
+</p>
+
+\begin{equation}
+    \vec{v} = r_i \times w
+\end{equation}
+
+<p>
+But um. He won't tell us. Also, defining center of mass:
+</p>
+
+\begin{equation}
+CM \equiv \frac{1}{M} \sum m_i \vec{r_i}
+\end{equation}
+
+
+<p>
+To fully define rotation, we need to know both the <i>axis</i> around which it is rotating. The act of rotation, at an instant, will be around a specific axis "always".
+</p>
+
+<p>
+Given \(m_i\), mass, \(\vec{r_i}'\), location of the center of mass, \(l_i\), \(\omega\), the angular velocity, figure a \(KE_{tot,rot}\). 
+</p>
+
+<p>
+Because of the fact that the value \(\omega\) is in units \(\frac{d\theta}{dt}\), the rate of radians change, and we know of a radius of the spin \(l_i\), we could figure the velocity at which it is moving by simply scaling the change in radians up to a circle of radius \(l_i\), that is:
+</p>
+
+\begin{equation}
+    V_i' = l_i \omega 
+\end{equation}
+
+<p>
+(note that, to understand this, radians \(\frac{arc length}{radius}\))
+</p>
+
+<p>
+And so, substituting into the statement of \(\sum^N_{i=1} \frac{1}{2}m_i\vec{v_i}'^2\)
+</p>
+
+\begin{align}
+    KE_{rot} =& \sum^N_{i=1} \frac{1}{2}m_i\vec{v_i}'^2 \\
+    =& \sum^N_{i=1} \frac{1}{2}m_i(l_i \omega)^2 \\
+    =& \sum^N_{i=1} \frac{1}{2}m_i l_i^2 \omega^2 \\
+    =& \frac{1}{2}\omega^2 \sum^N_{i=1} (m_i l_i^2)
+\end{align}
+</div>
+
+<div id="outline-container-org6dd7e61" class="outline-3">
+<h3 id="org6dd7e61"><span class="section-number-3">3.1</span> Rotational Inertia</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+The right sum &#x2014; the mass times the distance away from maxis of rotation (\(\sum^N_{i=1} (m_i l_i^2)\)) &#x2014; is defined as the rotational (moment) of inertia (spinny mass). Hence:
+</p>
+
+\begin{equation}
+    I = \sum^N_{i=1} (m_i l_i^2)
+\end{equation}
+
+<p>
+But it's like not the same thing as <a href="KBhPHYS360Impulse.html">impulse</a>. The two $I$s does not relate to each other.
+</p>
+
+<p>
+Intuitively, "inertia" is the resistance to movement. Moment of Inertia is the object's unwillingness to be rotated.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf4ded36" class="outline-3">
+<h3 id="orgf4ded36"><span class="section-number-3">3.2</span> The Many Properties of an Object</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-org081a2aa" class="outline-4">
+<h4 id="org081a2aa"><span class="section-number-4">3.2.1</span> Properties</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Property</th>
+<th scope="col" class="org-left">Linear</th>
+<th scope="col" class="org-left">Rotational</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Inertia</td>
+<td class="org-left">\(M\)</td>
+<td class="org-left">\(I\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Velocity</td>
+<td class="org-left">\(V\)</td>
+<td class="org-left">\(\omega\)</td>
+</tr>
+
+<tr>
+<td class="org-left">KE</td>
+<td class="org-left">\(\frac{1{2}Mv^2\)</td>
+<td class="org-left">\(\frac{1}{2}\omega^2\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org3e21f50" class="outline-4">
+<h4 id="org3e21f50"><span class="section-number-4">3.2.2</span> Densities</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Symbol</th>
+<th scope="col" class="org-left">Density</th>
+<th scope="col" class="org-left">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\(\rho\) (rho)</td>
+<td class="org-left">Volume density</td>
+<td class="org-left">\(\frac{kg}{m^3}\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\sigma\) (sigma)</td>
+<td class="org-left">Area density</td>
+<td class="org-left">\(\frac{kg}{m^2}\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\lambda\) (lambda)</td>
+<td class="org-left">Linear density</td>
+<td class="org-left">\(\frac{kg}{m}\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org35d44b7" class="outline-3">
+<h3 id="org35d44b7"><span class="section-number-3">3.3</span> Moment of Inertia of a Flat Disk</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+For a solid object, to calculate the rotational inertia will essentially be the sums of all rings.
+</p>
+
+\begin{equation}
+    I = \int_0^d M(r)R^2 dr
+\end{equation}
+
+\begin{equation}
+    max(m(a) = 2\pi r c \lambda
+\end{equation}
+
+<p>
+Substituting that in.
+</p>
+
+\begin{equation}
+I = \int_0^d 2\pi c \lambda r^3 dr
+\end{equation}
+
+<p>
+Integrating it:
+</p>
+
+\begin{equation}
+I = \frac{1}{2} \pi c \lambda r^4 \mid^d_0
+\end{equation}
+
+<p>
+And then something happens that I am not entirely sure about:
+</p>
+
+\begin{equation}
+    I = \frac{1}{2} M R^2
+\end{equation}
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Houjun Liu</span><span class="date">2021-09-11 Sat 08:10</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+<div class="namedate"><p class="subtitle"><span class="author">Houjun Liu</span><span class="date">2021-09-11 Sat 09:29</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>

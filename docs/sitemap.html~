@@ -1,0 +1,1148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-11 Sat 09:56 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Taproot Navigation</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Taproot" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="./global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="https://taproot3.sanity.gq/sitemap.html"> UP </a>
+ |
+ <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
+</div><div id="content">
+<h1 class="title">Taproot Navigation</h1>
+<ul class="org-ul">
+<li><a href="theindex.html">Index</a></li>
+<li><a href="index.html">Taproot</a></li>
+<li>bio101
+<ul class="org-ul">
+<li><a href="bio101/KBe20bio201retFallProjectExport.html">"Fall Project Resources: Voltage Gated Sodium Channels"</a></li>
+<li><a href="bio101/20bio201flo4.html">20bio201flo4</a></li>
+<li><a href="bio101/KBhBIO101Inheritance.html">Alleals traits and Inheritance</a></li>
+<li><a href="bio101/KBe20bio101refAminoAcids.html">Amino Acids</a></li>
+<li><a href="bio101/KBhBIO101AminoAcids.html">Amino Acids, Functional Groups</a></li>
+<li><a href="bio101/KBhBIO101AntiViralDrugs.html">Antiviral Drugs</a></li>
+<li><a href="bio101/KBe20bio101refBactera.html">Bacteria</a></li>
+<li><a href="bio101/KBhBIO101BacterialInfections.html">Bacterial Infections</a></li>
+<li><a href="bio101/KB20200825142200.html">Bio</a></li>
+<li><a href="bio101/KBe2020bio101retFreeAssociation.html">Bio Day 1</a></li>
+<li><a href="bio101/KBe2020bio101refElements.html">Bio Elements</a></li>
+<li><a href="bio101/KB20200831091126.html">Bio Scientific writing guides and electronegativity</a></li>
+<li><a href="bio101/KBxBioSelfEval2020.html">Bio Self Eval</a></li>
+<li><a href="bio101/KBhBIO101BioMoleculesQuizReview.html">Bio-Molecules Quiz Review</a></li>
+<li><a href="bio101/KBhBIO101SelfOrganization.html">Biological Self-Organization</a></li>
+<li><a href="bio101/KBhBIO101Day1.html">Biology Day 1</a></li>
+<li><a href="bio101/KBBiologyMasterIndex.html">Biology Master Index</a></li>
+<li><a href="bio101/KBBIO101ProteinReading.html">Biology Reading Protein Notes</a></li>
+<li><a href="bio101/KBhBIO101LetsDoBio.html">Biology, Day 1</a></li>
+<li><a href="bio101/KBhBIO201BioMoleculesRAW.html">Biomolecules RAW</a></li>
+<li><a href="bio101/KBe20bio101refBondingMonomers.html">Bonding monomers</a></li>
+<li><a href="bio101/KBhBIO101BondingReview.html">Bonding, a Review</a></li>
+<li><a href="bio101/KB20200911095443.html">Bonds and Carbohydrate Chains</a></li>
+<li><a href="bio101/cancer_angiogenesis.html">Cancer Hallmark - Inducing Angiogenesis</a></li>
+<li><a href="bio101/KBrefCancerVocab.html">Cancer Terms</a></li>
+<li><a href="bio101/KBhBIO101Carbs.html">Carbohydrates</a></li>
+<li><a href="bio101/KB20200905180226.html">Carbohydrates Tutorial (De)</a></li>
+<li><a href="bio101/KBhBIO101CellCycleRegulation.html">Cell Cycle Regulation</a></li>
+<li><a href="bio101/KBhBIO101CellMembraines.html">Cell Membrains</a></li>
+<li><a href="bio101/KbhBIO101CellTransport.html">Cell Membranes Transports</a></li>
+<li><a href="bio101/KBhBIO101CellReproduction.html">Cell Reproduction</a></li>
+<li><a href="bio101/KBhBIO101Cells.html">Cells</a></li>
+<li><a href="bio101/KBhBIO101CentralDogmaQuizReview.html">Central Dogma Quiz Review</a></li>
+<li><a href="bio101/KBBIO101CentralDogma.html">Central Dogma of Biology</a></li>
+<li><a href="bio101/KBhBIO101CentralDogma.html">Central Dogma, Protein Synthesis</a></li>
+<li><a href="bio101/KBerefChlorophyll.html">Chlorophyll</a></li>
+<li><a href="bio101/KBe2020bio101refProtienFoldingConflict.html">DNA</a></li>
+<li><a href="bio101/KBe20bio101refDNA.html">DNA Index</a></li>
+<li><a href="bio101/KBhBIO101DNAReplication.html">DNA Replication</a></li>
+<li><a href="bio101/KBhBIO101DNAStructures.html">DNA Structures</a></li>
+<li><a href="bio101/KBhBIO101DNATranscription.html">DNA Transcription</a></li>
+<li><a href="bio101/20bio201floD3.html">Day 3 Flow</a></li>
+<li><a href="bio101/KBe20bio201retDietFinderIndex.html">Diet Finder</a></li>
+<li><a href="bio101/KBhBIO101Diseases.html">Diseases, an Overview</a></li>
+<li><a href="bio101/KBBIO101DogmaNuecleotidesNotes.html">Dogma HW Notes</a></li>
+<li><a href="bio101/KB20200826090938.html">Emergent Properties</a></li>
+<li><a href="bio101/KBhBIO101Endosymbiotic.html">Endosymbiotic Theory</a></li>
+<li><a href="bio101/KBhBIO101Enthalpy.html">Enthalpy</a></li>
+<li><a href="bio101/KBhBIO101Entropy.html">Entropy</a></li>
+<li><a href="bio101/KBhBIO101Enzymes.html">Enzymes</a></li>
+<li><a href="bio101/KBBIO101GeneExpression.html">Eukaryotic Gene Expression</a></li>
+<li><a href="bio101/KBBIO101GeneExpression2.html">Eukaryotic Gene Expression</a></li>
+<li><a href="bio101/KBhBIO101Evolution.html">Evolution</a></li>
+<li><a href="bio101/KBe20bio101retWaterFreewrite.html">Exr0n Water Freewrite</a></li>
+<li><a href="bio101/KBe20bio101retIndex.html">Exr0n's Bio Ret Index</a></li>
+<li><a href="bio101/KBe20bio201retFallProject1.html">Fall Project 1 Master Doc</a></li>
+<li><a href="bio101/KBhBIO101FluidMosaic.html">Fluid Mosaic Model</a></li>
+<li><a href="bio101/KBe20bio101retFoodDataProteinAminos.html">Food Data Protein Amino Acids</a></li>
+<li><a href="bio101/KBhBIO101Rosalind.html">Form and Function in Biodiversity</a></li>
+<li><a href="bio101/KBFreeAssociationBioReviewHuxley.html">Free Association Bio Review</a></li>
+<li><a href="bio101/KBhBIO101FunctionalGroups.html">Functional Groups</a></li>
+<li><a href="bio101/KBxGelElectrophoresisPrep.html">Gel electrophoresis prep</a></li>
+<li><a href="bio101/KBhBIO101GeneticVariation.html">Genetic Variation</a></li>
+<li><a href="bio101/KBxGeneticVariationMA.html">Genetic variation synthesis questions</a></li>
+<li><a href="bio101/KB20200826173039.html">History Readings Notes Index</a></li>
+<li><a href="bio101/KBhBIO101HumanDiseases.html">Human Diseases</a></li>
+<li><a href="bio101/KB202008251020.html">KB202008251020</a></li>
+<li><a href="bio101/KBBIO101EpigeneticHammering.html">KBBIO101EpigeneticHammering</a></li>
+<li><a href="bio101/KBBIO101TranscriptionTranslation.html">KBBIO101TranscriptionTranslation</a></li>
+<li><a href="bio101/KBBioDietStorage.html">KBBioDietStorage</a></li>
+<li><a href="bio101/KBd20200911notes.html">KBd20200911notes</a></li>
+<li><a href="bio101/KBe20bio101retFoodDataProteinEssentialAminoAcids.html">KBe20bio101retFoodDataProteinEssentialAminoAcids</a></li>
+<li><a href="bio101/KBe21bio201floMitosisVSMeiosis.html">KBe21bio201floMitosisVSMeiosis</a></li>
+<li><a href="bio101/KBhExpirementDesignBIO101.html">KBhExpirementDesignBIO101</a></li>
+<li><a href="bio101/KBxDeepLearningCOVIDForecasting.html">KBxDeepLearningCOVIDForecasting</a></li>
+<li><a href="bio101/KBxRaceAndHumanBio.html">KBxRaceAndHumanBio</a></li>
+<li><a href="bio101/KBhBIO101Lipids.html">Lipids</a></li>
+<li><a href="bio101/KBe2020bio101refLipids.html">Lipids Index</a></li>
+<li><a href="bio101/KBhBIO101Macromolecules.html">Macromolecules</a></li>
+<li><a href="bio101/KBMacromelecules.html">Macromolecules</a></li>
+<li><a href="bio101/KBe2020bio101refMacromolecules.html">Macromolecules index</a></li>
+<li><a href="bio101/KBhBIO101Meiosis.html">Meiosis</a></li>
+<li><a href="bio101/KBhBIO101Mitosis.html">Mitosis</a></li>
+<li><a href="bio101/KBhBIO101MorePCRStuff.html">More PCR Stuff</a></li>
+<li><a href="bio101/KBrefMutationTypes.html">Mutation Types</a></li>
+<li><a href="bio101/KBhBIO101MutationInheritanceQuizReview.html">Mutation and Inheritance Quiz Review</a></li>
+<li><a href="bio101/KBhBIO101Mutations.html">Mutations</a></li>
+<li><a href="bio101/KBhBIO101MutationsAllealsInheritance.html">Mutations, Allels, and Inheritance</a></li>
+<li><a href="bio101/KBNitrogen.html">Nitrogen!</a></li>
+<li><a href="bio101/KBhBIO101NucleicAcidsDNARNA.html">Nucleic Acids, DNA, RNA</a></li>
+<li><a href="bio101/KBhBIO101EukaryoticOrganells.html">Organelles in Eukaryotic Cells</a></li>
+<li><a href="bio101/KBhBIO101OrganellsBasedOnMembranes.html">Organizing Organelle Based on Membranes</a></li>
+<li><a href="bio101/KBxPCRcont.html">PCR Problem Sheet</a></li>
+<li><a href="bio101/KBhBIO101PathogenicityandVirulence.html">Pathogenicity and Virulence</a></li>
+<li><a href="bio101/KBe2020bio101floPolysaccharides.html">Polysaccharides</a></li>
+<li><a href="bio101/KBBioPrimoridalSoupPlanning.html">Primordial soup vid planning doc</a></li>
+<li><a href="bio101/KBhBIO101PrinciplesofBio.html">Principals of Biology</a></li>
+<li><a href="bio101/KBrefPropertiesOfDNA.html">Properties of DNA</a></li>
+<li><a href="bio101/KBhBIO101PropsOfWater.html">Properties of Water</a></li>
+<li><a href="bio101/KBe2020bio101refProteinFolding.html">Protein Folding</a></li>
+<li><a href="bio101/KBhBIO101ProteinSynthesis.html">Protein Synthesis</a></li>
+<li><a href="bio101/KBhBIO101Translation.html">Protein Translation</a></li>
+<li><a href="bio101/KBhBIO101Proteins.html">Proteins</a></li>
+<li><a href="bio101/KBe20bio101refProteinsIndex.html">Proteins!</a></li>
+<li><a href="bio101/KBhBIO101RNAReplication.html">RNA Replication</a></li>
+<li><a href="bio101/KBhBIO101RaceAndGenetics.html">Race and Genetic Differences</a></li>
+<li><a href="bio101/KBhBIO101Retroviruses.html">Retroviruses</a></li>
+<li><a href="bio101/KBrefRubisco.html">Rubisco</a></li>
+<li><a href="bio101/KBxSNPFinal.html">SNP Final Project</a></li>
+<li><a href="bio101/KBxSNPPCR.html">SNP PCR research</a></li>
+<li><a href="bio101/KBhBIO101SenseAndAntisense.html">Sense and Antisense DNA/RNA</a></li>
+<li><a href="bio101/KBhBIO101SNP.html">Single Nucleotide Polymorphism</a></li>
+<li><a href="bio101/KBhBIO101StructuresofCarbs.html">Structure of Cabs, Monomers, Polymers</a></li>
+<li><a href="bio101/KBhBIO101StructureOfViruses.html">Structure of Viruses</a></li>
+<li><a href="bio101/KBhBIO101StructuresOfLipids.html">Structure of lipids, Fatty Acids, Glycerol</a></li>
+<li><a href="bio101/KBhBIO101TATABinding.html">TATA Binding Protein</a></li>
+<li><a href="bio101/KBhBIO101CellCycle.html">The Cell Cycle</a></li>
+<li><a href="bio101/KBhBIO101CoreRuleofBio.html">The Core Rule of Biology</a></li>
+<li><a href="bio101/KBhBIO101CellLifecycle.html">The Lifecycle of a Cell</a></li>
+<li><a href="bio101/KBxLittleMoreBIO.html">The Quiz!</a></li>
+<li><a href="bio101/KBhBIO101GeneticInheritance.html">Types of Genetic Inheritance</a></li>
+<li><a href="bio101/KBhBIO101TypesOfMutations.html">Types of Mutations</a></li>
+<li><a href="bio101/KBhBIO101TypesOfViruses.html">Types of Viruses</a></li>
+<li><a href="bio101/KBhBIO101UnitsThatMakeLife.html">Units That Make Life</a></li>
+<li><a href="bio101/KBhBIO101ViralAttachment.html">Viral Attachment</a></li>
+<li><a href="bio101/KBhBIO101ViralEntry.html">Viral Entry</a></li>
+<li><a href="bio101/KBhBIO101ViralExit.html">Viral Exit</a></li>
+<li><a href="bio101/KBhBIO101ViralGeneticModulationMutation.html">Viral Genetic Modulation</a></li>
+<li><a href="bio101/KBhBIO101ViralReplication.html">Viral Replication</a></li>
+<li><a href="bio101/KBhBIO101ViralUncoating.html">Viral Uncoating</a></li>
+<li><a href="bio101/KBhBIO101ViralInfection.html">Virus Infections and Lifecycle</a></li>
+<li><a href="bio101/KBhBIO101Viruses.html">Viruses</a></li>
+<li><a href="bio101/KBrefCellularVoltage.html">Voltage in Cells</a></li>
+<li><a href="bio101/KBWaterFreewrite.html">Water Free-write + notes</a></li>
+<li><a href="bio101/KBe20bio101floTripBreakout.html">Water beads experiement</a></li>
+<li><a href="bio101/KBhBIO101Watah.html">Water with Paul</a></li>
+<li><a href="bio101/KB20200826173515.html">Watson Reading pages 1-3</a></li>
+<li><a href="bio101/KBhBIO101WhatsBio.html">What is Biology (biOLGO,gee)</a></li>
+<li><a href="bio101/KBBIO101YelloSky.html">What's up with weather today?</a></li>
+<li><a href="bio101/KBe21bio101flo1.html">bio flo 1 (with paul)</a></li>
+<li><a href="bio101/KBe21bio201floHallmarksOfCancer.html">flo - hallmarks of cancer (2011) reading</a></li>
+<li><a href="bio101/KBrefCancerDiagnosisSteps.html">how cancer is diagnosed</a></li>
+<li><a href="bio101/KBe21bio201floKRASgeneMutationCellCycleAndCancer.html">looking at this k-ras gene</a></li>
+<li><a href="bio101/KBhBIO101mRNAPreprocessing.html">mRNA preprocessing</a></li>
+<li><a href="bio101/test.html">test</a></li>
+</ul></li>
+<li>bio201
+<ul class="org-ul">
+<li><a href="bio201/cancer_angiogenesis.html">Cancer Hallmark - Inducing Angiogenesis</a></li>
+<li><a href="bio201/KBrefCancerVocab.html">Cancer Terms</a></li>
+<li><a href="bio201/KBe21bio201floMitosisVSMeiosis.html">KBe21bio201floMitosisVSMeiosis</a></li>
+<li><a href="bio201/KBrefMutationTypes.html">Mutation Types</a></li>
+<li><a href="bio201/KBrefPropertiesOfDNA.html">Properties of DNA</a></li>
+<li><a href="bio201/KBe21bio201floHallmarksOfCancer.html">flo - hallmarks of cancer (2011) reading</a></li>
+<li><a href="bio201/KBrefCancerDiagnosisSteps.html">how cancer is diagnosed</a></li>
+<li><a href="bio201/KBe21bio201floKRASgeneMutationCellCycleAndCancer.html">looking at this k-ras gene</a></li>
+</ul></li>
+<li>bus150
+<ul class="org-ul">
+<li><a href="bus150/KBrefBusinesssModelCanvas.html">Business Model Canvases</a></li>
+<li><a href="bus150/KBe21bus150retBusinessModelCanvasRedHad.html">RedHat Business Model Canvas</a></li>
+</ul></li>
+<li>chin401
+<ul class="org-ul">
+<li><a href="chin401/KBCHIN401MasterIndex.html">CHIN401 Master Index</a></li>
+<li><a href="chin401/KBdCHIN401Vocabulary.html">CHIN401 Vocabulary List</a></li>
+</ul></li>
+<li>cs240
+<ul class="org-ul">
+<li><a href="cs240/KBhCS240Day1.html">CS240 Day 1</a></li>
+<li><a href="cs240/KBCS240MasterIndex.html">CS240 Master Index</a></li>
+<li><a href="cs240/KBxCS240CodeofConduct.html">Code of Conduct</a></li>
+<li><a href="cs240/KBxDayOneCompSec.html">Day One</a></li>
+<li><a href="cs240/KBhCS240EthicsQuestions.html">Ethics Questions</a></li>
+<li><a href="cs240/KBhCS240PersonalEthics.html">Personal Ethics Ruless</a></li>
+<li><a href="cs240/KBhCS240Rubric.html">Rubric</a></li>
+<li><a href="cs240/KBhCS240ThreatModeling.html">Threat Modeling</a></li>
+<li><a href="cs240/KBxThreatModeling.html">Threat Modeling</a></li>
+<li><a href="cs240/KBhCS240ThreatModelingAssignment.html">Threat Modeling Assignment</a></li>
+<li><a href="cs240/KBxCS240Rubric.html">huxley's comps sec rubric</a></li>
+<li><a href="cs240/KBxLegalityInCompSec.html">legality in computer security</a></li>
+</ul></li>
+<li>edf285
+<ul class="org-ul">
+<li><a href="edf285/KBMech_E_Master_Index.html">Mech E. Master Index</a></li>
+</ul></li>
+<li>eng201
+<ul class="org-ul">
+<li><a href="eng201/20eng201floBaobabColonialism.html">Baobab Debrief</a></li>
+<li><a href="eng201/KBBaobabNotes.html">Baobab Notes</a></li>
+<li><a href="eng201/20eng201floBaobabDebrief.html">Bird dreaming Baobab Debrief</a></li>
+<li><a href="eng201/KBe21eng201floPoetryCalypso.html">Calypso Poem by Kamau Braithwaite</a></li>
+<li><a href="eng201/KBe20eng201retA1index.html">Close Reading Paragraph (Assessment 1)</a></li>
+<li><a href="eng201/exr0n20eng201retA1Index.html">Close Reading Paragraph (Assessment 1)</a></li>
+<li><a href="eng201/KBhENG201CloseReading.html">Close Reading!</a></li>
+<li><a href="eng201/KBhENG201CloseReadingAss1.html">Close Reading, Assessment 1 Synthesis</a></li>
+<li><a href="eng201/KBhENG201ColonialismInMVs.html">Colonialism in MVs</a></li>
+<li><a href="eng201/KBhENG201AlexaD1.html">Day 1 with Alexa &#x2014; Jack</a></li>
+<li><a href="eng201/KBxEcoPoetryDiscussionPrep.html">Eco Poetry Discussion Prep</a></li>
+<li><a href="eng201/KBElizabethBishop.html">Elizabeth Bishop Poems</a></li>
+<li><a href="eng201/KBhENG201CloseReadingParagraph.html">Eng. Assess. 1 &#x2014; close reading paragraph</a></li>
+<li><a href="eng201/KBEnglishMasterIndex.html">English Master Index</a></li>
+<li><a href="eng201/KBxEngSelfEval.html">English Self Eval</a></li>
+<li><a href="eng201/KBENG201GradedDiscussionPrep.html">English graded discussion prep</a></li>
+<li><a href="eng201/KBe20eng201retHeartOfDarknessEssay.html">Exr0n Heart of Darkness Essay Index</a></li>
+<li><a href="eng201/KB20200824144641.html">Globalization Colonialism Imperialism ThinkPairShare</a></li>
+<li><a href="eng201/KBe-2020eng201floD1Breakout.html">Globalization/Colonialism/Imperialism ThinkPairShare</a></li>
+<li><a href="eng201/KBxGoSTCulminationPlanning.html">GoST Culmination Assignment Planning</a></li>
+<li><a href="eng201/KBe21eng201retGoSTEssay.html">God of Small Things Essay</a></li>
+<li><a href="eng201/KBhENG201GoSTEssayPlanningJack.html">God of Small Things Essay (Jack)</a></li>
+<li><a href="eng201/KBe20eng201part1.html">Heart Of Darkness Part 1 debrief</a></li>
+<li><a href="eng201/KBhENG201HeartOfHardness.html">Heart of Darkness (index)</a></li>
+<li><a href="eng201/KBheartday1.html">Heart of Darkness Day One</a></li>
+<li><a href="eng201/KBe20eng201retHeartOfDarknessDump.html">Heart of Darkness Deliverables</a></li>
+<li><a href="eng201/KBxHoDEssay.html">Heart of Darkness Essay</a></li>
+<li><a href="eng201/KBhENG201HODEssayPlanning.html">Heart of Darkness Essay Work Doc (Jack)</a></li>
+<li><a href="eng201/KBENG201HoDLitAnalysisEssay.html">Heart of Darkness Essay, Info</a></li>
+<li><a href="eng201/KBhENG201Page0t17.html">Heart of Darkness p1 to 17</a></li>
+<li><a href="eng201/KBe2020eng201floImperalismNotes.html">Imperialism notes</a></li>
+<li><a href="eng201/KBxInClassCloseReadingGOST1.html">In Class Close Reading GOST 1</a></li>
+<li><a href="eng201/KBe21eng201index.html">Index for lb's 21eng201 with alexa</a></li>
+<li><a href="eng201/KBDayoneEnglishZachary.html">KBDayoneEnglishZachary</a></li>
+<li><a href="eng201/KBEngDayOne.html">KBEngDayOne</a></li>
+<li><a href="eng201/KBTheIIsNeverAloneEnglishReadingNotes.html">KBTheIIsNeverAloneEnglishReadingNotes</a></li>
+<li><a href="eng201/KBWhatIsCloseReading.html">KBWhatIsCloseReading</a></li>
+<li><a href="eng201/KBe20eng201retASmallPlacePastiche.html">KBe20eng201retASmallPlacePastiche</a></li>
+<li><a href="eng201/KBxEcoPoetryFinal.html">KBxEcoPoetryFinal</a></li>
+<li><a href="eng201/KBxHoDDiscussionNotes.html">KBxHoDDiscussionNotes</a></li>
+<li><a href="eng201/KBe21eng201retMA1CloseReadingParagraph.html">MA1: God of Small Things Close Reading Paragraph</a></li>
+<li><a href="eng201/KB20200826232159.html">Notes for The I Is Never Alone</a></li>
+<li><a href="eng201/KB2NotesonTheIIsNeverAlone.html">Notes on <code>The I Is Never Alone</code></a></li>
+<li><a href="eng201/KBxPastichePlanning.html">Pastiche Planning</a></li>
+<li><a href="eng201/KBhENG201PoetryCloseReadingAnalysis.html">Poetry Close Reading</a></li>
+<li><a href="eng201/KBhENG201CongoFreeState.html">The Congo Free State</a></li>
+<li><a href="eng201/KBhENG201TheIIsNeverAlone.html">The I is Never Alone &#x2014; Jack's Thoughts</a></li>
+<li><a href="eng201/KBhENG201ThingsFallApart.html">Things Fall Apart Indx</a></li>
+<li><a href="eng201/KBhENG201TPSGlobalizationColonialismImperialism.html">ThinkPairShare &#x2014; Globalization, Colonialism, Imperialism</a></li>
+<li><a href="eng201/KBhENG201ImperialismColonialism.html">Thoughts on Imperialism + Colonialism</a></li>
+<li><a href="eng201/KBhENG201CloseReadingTimed.html">Timed Closed Reading Prep</a></li>
+<li><a href="eng201/KBe2020eng201refEnglishTopics.html">Topics for English 10</a></li>
+<li><a href="eng201/Untitled.html">Untitled</a></li>
+</ul></li>
+<li>eng301
+<ul class="org-ul">
+<li><a href="eng301/KBMasterIndexEng301.html">English 11 Master Index</a></li>
+<li><a href="eng301/KBhThereThereEssayPrep.html">KBhThereThereEssayPrep</a></li>
+<li><a href="eng301/KBxDayOneEng301.html">KBxDayOneEng301</a></li>
+<li><a href="eng301/KBxThereTherePromptsAndQuestions.html">KBxThereTherePromptsAndQuestions</a></li>
+<li><a href="eng301/KBxQuickWrite.html">Quick Write!</a></li>
+<li><a href="eng301/KBxRowlandson.html">Rowlandson Notes</a></li>
+<li><a href="eng301/KBdRowlandson.html">Rowlandson Notes (Dylan)</a></li>
+<li><a href="eng301/KBhENG301ThereThereDiscussion.html">There There Discussion</a></li>
+<li><a href="eng301/KBdThereThereEssayOutline.html">There There Essay Outline</a></li>
+<li><a href="eng301/KBxThereThereEssayPlanning.html">There There Essay Planning</a></li>
+</ul></li>
+<li>hist201
+<ul class="org-ul">
+<li><a href="hist201/KBhHIST201MannMing.html">(C. Mann's) 1500s Ming</a></li>
+<li><a href="hist201/KBe20hist201retUnit1EssayDraft.html">20hist201 ret Unit 1 Essay Draft</a></li>
+<li><a href="hist201/KBe21hist201retFreewriteWar.html">29 March 2021 war freewrite</a></li>
+<li><a href="hist201/KBhHIST201AcienRegime.html">Acien Regime</a></li>
+<li><a href="hist201/KB20200826093400.html">Breakout Maps</a></li>
+<li><a href="hist201/KBhHIST201BritishRaj.html">Bulliet British Raj</a></li>
+<li><a href="hist201/KBBullietCh19.html">Bulliet Chapter 19</a></li>
+<li><a href="hist201/KBhHIST201BullietCh19.html">Bulliet Chapter 19</a></li>
+<li><a href="hist201/KBe21hist201floCausesOfWWIEssayOutline.html">Causes of WWI Essay Outline</a></li>
+<li><a href="hist201/KBe21hist201retCausesOfWWIEssay.html">Causes of World War I Essay</a></li>
+<li><a href="hist201/KBhHIST201TheoriesOfLittleIceAge.html">Causes of the Little Ice Age</a></li>
+<li><a href="hist201/KBhHIST201ChinasDeclineWRTReopening.html">China's Decline w.r.t Reopening</a></li>
+<li><a href="hist201/KBhHIST201ChinasDeclineWRTCurrency.html">China's Decline w.r.t. Currency</a></li>
+<li><a href="hist201/KBhHIST201ChinasDeclineWRTZhengHe.html">China's Decline w.r.t. Zheng He</a></li>
+<li><a href="hist201/KBhHIST201ChinasDecline1500.html">China's Economic Decline in the 1500s</a></li>
+<li><a href="hist201/KBhHIST201ChinaWoes1500.html">China's Woes During the 1500s</a></li>
+<li><a href="hist201/KBe2020hist201refClassResources.html">Class Resources</a></li>
+<li><a href="hist201/KBhHIST201ColbertAndSmith.html">Colbert and Smith</a></li>
+<li><a href="hist201/KBhHIST201ColdWarCrossroads.html">Cold War Crossroads</a></li>
+<li><a href="hist201/KBhHIST201ColdWarEssayPlanningJack.html">Cold War Essay Planning Jack</a></li>
+<li><a href="hist201/KBxColdWarDevelopingWorldPlanning.html">Cold War in the Developing World Planning</a></li>
+<li><a href="hist201/KBhHIST201Communism.html">Communism</a></li>
+<li><a href="hist201/KBhHIST201CookZhengHe.html">Cook. Zheng He. Don't mind me!</a></li>
+<li><a href="hist201/KBhHIST201CounterReformation.html">Counter-Reformation, 30 Years' War</a></li>
+<li><a href="hist201/KBxDataAnalysisExercise.html">Data Analysis Exercise</a></li>
+<li><a href="hist201/KBDataProcessingRett.html">Data Processing Assignment</a></li>
+<li><a href="hist201/KBdataProsResponses.html">Data Processing Responses</a></li>
+<li><a href="hist201/KB20200825102230.html">Day 1 History Emily</a></li>
+<li><a href="hist201/KBhHIST201Kissinger.html">Diplomacy - Kissinger</a></li>
+<li><a href="hist201/KBe20hist201retUnit2Essay.html">E Unit 2 Essay Planning + Outline</a></li>
+<li><a href="hist201/KBhHIST201IRonWarfare.html">Effects of IR on Warfare</a></li>
+<li><a href="hist201/KBhHIST201EnglandMediator.html">England, The Mediator, Grand Alliance</a></li>
+<li><a href="hist201/KBhHIST201Enlightenment.html">Enlightment</a></li>
+<li><a href="hist201/KBhHIST201KennedyStillHoldsUp.html">Essay 1 &#x2014; does Kennedy still hold up?</a></li>
+<li><a href="hist201/KBEssay1PlanningAttemp2.html">Essay One Planning Attempt Two</a></li>
+<li><a href="hist201/KBhHIST201PoliticalFragmentationofEurope.html">Europe Political Fragmentation</a></li>
+<li><a href="hist201/KBhHIST201Europe1500s.html">Europe in the 1500s</a></li>
+<li><a href="hist201/KBhHIST201EuropesWesternTakeover.html">Europe's Western Takeover</a></li>
+<li><a href="hist201/KBhHIST201WWIBeginning.html">European Tensions leading to WWI</a></li>
+<li><a href="hist201/KBxFascism.html">Fascism. Time.</a></li>
+<li><a href="hist201/KBxFeedbackResponses.html">Feedback Responses</a></li>
+<li><a href="hist201/KBe20hist201floGelvinCh5.html">Gelvin Ch 5</a></li>
+<li><a href="hist201/KBhHIST201GelvinChapter5.html">Gelvyn Chapter 5</a></li>
+<li><a href="hist201/KBhHIST201GermanicNationalism.html">Germanic Nationalism</a></li>
+<li><a href="hist201/KBhHIST201GHIntro.html">Global History, Intro</a></li>
+<li><a href="hist201/KBxDayOne.html">Hist Day One</a></li>
+<li><a href="hist201/KB20200824141300.html">Hist Day one</a></li>
+<li><a href="hist201/KBxHistSelfEval2020.html">Hist Self Eval</a></li>
+<li><a href="hist201/KBhHIST201WWIEssayOutlineJack.html">History Essay Planning</a></li>
+<li><a href="hist201/KBHistoryMasterIndex.html">History Master Index</a></li>
+<li><a href="hist201/20hist201refTechniques.html">History Techniques</a></li>
+<li><a href="hist201/KBe21hist201retFinalProject.html">History final project</a></li>
+<li><a href="hist201/KBhHIST201HolyRomanEmpire1500s.html">Holy Roman Empire in the 1500s</a></li>
+<li><a href="hist201/KBhHIST201HomogenosceneLN.html">Homogenocene</a></li>
+<li><a href="hist201/KBhHIST201HomogenosceneRedux.html">Homogenocene, Redux</a></li>
+<li><a href="hist201/KBhHIST201ImpactsofIR.html">Impacts of the Industrial Revolution</a></li>
+<li><a href="hist201/KBe21hist201floBittersweetIndianIndependence.html">Indian independence was good but not handled great</a></li>
+<li><a href="hist201/KBhHIST201Unit3EssayJack.html">Industrial Revolution Essay Planning, Jack</a></li>
+<li><a href="hist201/KBhHIST201JapanClassFlo.html">Japan Class Flo</a></li>
+<li><a href="hist201/KBxJapanandtheWest.html">Japan and the West Notes</a></li>
+<li><a href="hist201/KBGelvinCh3n4.html">KBGelvinCh3n4</a></li>
+<li><a href="hist201/KBe20hist201Unit1EssayOutline.html">KBe20hist201Unit1EssayOutline</a></li>
+<li><a href="hist201/KBe21hist201floDecolonization.html">KBe21hist201floDecolonization</a></li>
+<li><a href="hist201/KBhHIST201IOWM.html">KBhHIST201IOWM</a></li>
+<li><a href="hist201/KBhHIST201KennedyCh4.html">KBhHIST201KennedyCh4</a></li>
+<li><a href="hist201/KBhHIST201MasonCh4.html">KBhHIST201MasonCh4</a></li>
+<li><a href="hist201/KBhHIST201MasonCh7.html">KBhHIST201MasonCh7</a></li>
+<li><a href="hist201/KBxHist301MasterIndex.html">KBxHist301MasterIndex</a></li>
+<li><a href="hist201/KBxSomethingElse.html">KBxSomethingElse</a></li>
+<li><a href="hist201/Kbe20hist201floSummarizedOttomanEmpireVideo.html">Kbe20hist201floSummarizedOttomanEmpireVideo</a></li>
+<li><a href="hist201/KBhHIST201KennedyCh1.html">Kenedy, Chapter 1</a></li>
+<li><a href="hist201/retExr0nKennedyCh1Pt2.html">Kennedy Chapter 1 Part 2</a></li>
+<li><a href="hist201/KBe20hist201floKennedyCH1pt1.html">Kennedy Chapter 1 first half</a></li>
+<li><a href="hist201/KBhHIST201KennedyEssay.html">Kennedy Essay</a></li>
+<li><a href="hist201/KBhHIST201EssayBackup.html">Kennedy Essay Backup</a></li>
+<li><a href="hist201/KBdHistMAKennedyOutline.html">Kennedy Essay Outline</a></li>
+<li><a href="hist201/KBe20hist201retKennedyEssay.html">Kennedy Essay Planning</a></li>
+<li><a href="hist201/KBhHIST201KennedyIsFrustrating.html">Kennedy Is Frustrating</a></li>
+<li><a href="hist201/KBKennedyNotes.html">Kennedy Reading Notes</a></li>
+<li><a href="hist201/KBhHIST101LateQingChina.html">Late Qing China</a></li>
+<li><a href="hist201/KBhHIST201LiberalismAndNationalism.html">Liberalism and Nationalism</a></li>
+<li><a href="hist201/KBhHIST201Qing1500s.html">Manchus</a></li>
+<li><a href="hist201/retExr0nMannMingTrade.html">Mann Ming Trade notes</a></li>
+<li><a href="hist201/KBhHIST201MasonCh1n2.html">Mason Ch 1 and 2</a></li>
+<li><a href="hist201/KBxMason10.html">Mason Ch. 10</a></li>
+<li><a href="hist201/KBhHIST201MasonCh5.html">Mason Chapter 5</a></li>
+<li><a href="hist201/KBhHIST201MasonCh8.html">Mason Chapter 8</a></li>
+<li><a href="hist201/KBxMasonCh8.html">Mason Chapter Eight</a></li>
+<li><a href="hist201/KBxHIST201MasonCh5n7.html">Mason Chapter Five</a></li>
+<li><a href="hist201/KBxMasonCh4.html">Mason Chapter Four</a></li>
+<li><a href="hist201/KBhHIST201MasonAndKennedy.html">Mason and Kennedy</a></li>
+<li><a href="hist201/KBMcNeill.html">McNeill Reading Notes</a></li>
+<li><a href="hist201/KBhHIST201MingChina1500.html">Ming China in the 1500s</a></li>
+<li><a href="hist201/KBMlMasterIndex.html">Ml Master Index</a></li>
+<li><a href="hist201/KBMlSelfEval.html">Ml Self Eval</a></li>
+<li><a href="hist201/KBhHIST201HistModHist.html">Models of History Systems</a></li>
+<li><a href="hist201/KBe20hist201MughalsReadings.html">Mughals Readings</a></li>
+<li><a href="hist201/KBhHIST201Mughals1600s.html">Mughals in the 1600s</a></li>
+<li><a href="hist201/KBhHIST201NapoleonDebatePrep.html">Napoleon Debate Prep Sources</a></li>
+<li><a href="hist201/KBhHIST201NationStates.html">Nation-states</a></li>
+<li><a href="hist201/KBhHIST201Nationalism.html">Nationalism</a></li>
+<li><a href="hist201/Kbe21hist201floNaziGeneticism.html">Nazi Geneticism</a></li>
+<li><a href="hist201/KBxNeuromorphicComputing.html">Neuromorphic Computing</a></li>
+<li><a href="hist201/KBhHIST201OttomanGovmntOverview.html">Ottoman Goverment, an Overview</a></li>
+<li><a href="hist201/KBOttomansMilitary.html">Ottoman's Military</a></li>
+<li><a href="hist201/KBhHIST201Ottomans1500.html">Ottomans in the 1500s</a></li>
+<li><a href="hist201/KBhHIST201OttomansRise.html">Ottomans' Rise in the 1500s</a></li>
+<li><a href="hist201/KBxPalmerCH17.html">Palmer Ch. 17</a></li>
+<li><a href="hist201/KBxWeimarRepublic.html">Palmer and Weitz on Weimar Republic</a></li>
+<li><a href="hist201/KBhHIST201PalmerCh17.html">Palmer, Ch. 17</a></li>
+<li><a href="hist201/KBxPopExibhit.html">Pop Essasy thing</a></li>
+<li><a href="hist201/KBhHIST201ProblemsWithSilver.html">Problems with Silver</a></li>
+<li><a href="hist201/KBhHIST201RaisonDeEtat.html">Raison d'etat</a></li>
+<li><a href="hist201/KBrefRaisondetat.html">Raison d'etat</a></li>
+<li><a href="hist201/KBhHIST201Realism.html">Realism</a></li>
+<li><a href="hist201/KBhHIST201WWIResults.html">Results of WWI</a></li>
+<li><a href="hist201/KBe21hist201floRevolutionInChina.html">Revolution in China Stearns</a></li>
+<li><a href="hist201/KBhHIST201RobertsCh5.html">Roberts Ch. 5</a></li>
+<li><a href="hist201/KBRobertsNotes.html">Roberts Notes</a></li>
+<li><a href="hist201/KBOnRoberts.html">Roberts Notes</a></li>
+<li><a href="hist201/KBe20hist201retRoppLateQingSummary.html">Ropp Late Qing Summary</a></li>
+<li><a href="hist201/KBxRoppChina.html">Ropp on China</a></li>
+<li><a href="hist201/KBhHIST201RussianRevolution.html">Russian Revolution</a></li>
+<li><a href="hist201/KBhHIST201WWIStartWRTGermany.html">Start of WWI w.r.t. Germany</a></li>
+<li><a href="hist201/KB20200827104601.html">State theory</a></li>
+<li><a href="hist201/KBhHIST201SushuCourseExpectation.html">Sushu Course Expectations</a></li>
+<li><a href="hist201/KBhHIST201CrisisOfLibDemo.html">The Crisis of the Liberal Democracy</a></li>
+<li><a href="hist201/KBhHIST201TheEnlightenment.html">The Enlightenment</a></li>
+<li><a href="hist201/KBhHIST201EnlightenmentFrenchRev.html">The Enlightenment, The French Revolution</a></li>
+<li><a href="hist201/KBhHIST201FrenchRevolution.html">The French Revolution</a></li>
+<li><a href="hist201/KBhHIST201IndustrialRevolution.html">The Industrial Revolution</a></li>
+<li><a href="hist201/KBhHIST201LittleIceAge.html">The Little Ice Age</a></li>
+<li><a href="hist201/KBhHIST201ColdWar.html">The Mid 20th Century Crisis</a></li>
+<li><a href="hist201/KBrefOttomanEmpire.html">The Ottoman Empire</a></li>
+<li><a href="hist201/KBhHIST201OttomansFall1500s.html">The Ottomans' Fall in the 1499s</a></li>
+<li><a href="hist201/KBhHIST201OttomansSuccess.html">The Ottomans' Success + Effective Government</a></li>
+<li><a href="hist201/KBhHIST201RiseOfEurope1500.html">The Rise of Europe in the 1500s</a></li>
+<li><a href="hist201/KBrefSecurityDilemma.html">The security dilemma</a></li>
+<li><a href="hist201/KBhHIST201Trauttmann.html">Trauttmann</a></li>
+<li><a href="hist201/KBhHIST201WWITriggering.html">Triggering WWI</a></li>
+<li><a href="hist201/KBhHIST201Liberalism.html">Two Liberalisms</a></li>
+<li><a href="hist201/KBhHIST201Unit1EssayJack.html">Unit 1 Essay Planning</a></li>
+<li><a href="hist201/KBe20hist201Unit1Essay.html">Unit 1 Essay Planning - Exr0n</a></li>
+<li><a href="hist201/KBhHIST201Unit2EssayJack.html">Unit 2 French Revolution Essay</a></li>
+<li><a href="hist201/KBhHIST201Unit3EssayOutlineForSushuJack.html">Unit 3 Essay (Outline)</a></li>
+<li><a href="hist201/KBxUnit3EssayPlanning.html">Unit 3 Essay Planning</a></li>
+<li><a href="hist201/KBxUnitOneEssayPlanning.html">Unit One Essay Planning</a></li>
+<li><a href="hist201/KBUnitTwoEssayHux.html">Unit Two Essay</a></li>
+<li><a href="hist201/KBe21hist201retVictoryForDemocracy.html">Victory for Democracy Essay</a></li>
+<li><a href="hist201/KBxWW1EssayPlanning.html">WW1 Essay Planning</a></li>
+<li><a href="hist201/KBhHIST201WWI.html">WWI Disrupting Hegemony, an Overview</a></li>
+<li><a href="hist201/KBhHIST201WWIStrategies.html">WWI Strategies</a></li>
+<li><a href="hist201/KBe21hist201floWWIPlaysOut.html">WWI happens</a></li>
+<li><a href="hist201/KBhHIST201WWIActualWar.html">WWI, the war</a></li>
+<li><a href="hist201/KBhHIST201WWII.html">WWII</a></li>
+<li><a href="hist201/KBWatsonInClassNotes.html">Watson In-class notes</a></li>
+<li><a href="hist201/KB20200825121700.html">Watson Notes</a></li>
+<li><a href="hist201/KBhHIST201Watson.html">Watson's Model of States</a></li>
+<li><a href="hist201/KBWeightAgnosticNN.html">Weight Agnostic Neural Networks</a></li>
+<li><a href="hist201/KBhHIST201ZhengHeSeafaring.html">Zheng He + Seafaring</a></li>
+<li><a href="hist201/KBhHIST201FrenchRichelieuAndRaisonDeEtat.html">deRichelieu and French Raison de Etat</a></li>
+<li><a href="hist201/KBe21hist201retWWICausesPowerStruggle.html">germany, france, and russia</a></li>
+<li><a href="hist201/KBe21hist201floWWICauses.html">germany, france, and russia</a></li>
+<li><a href="hist201/KB20200826092400.html">reading Mann-Homogenocene</a></li>
+</ul></li>
+<li>hist301
+<ul class="org-ul">
+<li><a href="hist301/KBhHIST301ColonialAmerica.html">Colonial America</a></li>
+<li><a href="hist301/KBxIndigenousPeoplesHistoftheUS.html">Dunbar<sub>Ortiz</sub><sub>intro</sub> to Indigenous peoples history</a></li>
+<li><a href="hist301/KBdHIST301Day2.html">HIST301 Day 2</a></li>
+<li><a href="hist301/KBdHIST301Day3.html">HIST301 Day 3</a></li>
+<li><a href="hist301/KBdHIST301HWIndigenousPeoplesHistory.html">HIST301 Indigenous People's History HW</a></li>
+<li><a href="hist301/KBHIST301MasterIndex.html">HIST301 Master Index</a></li>
+<li><a href="hist301/KBx1619ProjectTookOver2020.html">How the 1619 Project took over 2020</a></li>
+<li><a href="hist301/KBhIntersectionsEssayPrep.html">Indigenous Intersection Essay Prep</a></li>
+<li><a href="hist301/KBxHannahJones1619Project.html">KBxHannahJones1619Project</a></li>
+<li><a href="hist301/KBhHIST301Lenses.html">Leses Discussion</a></li>
+<li><a href="hist301/KBxNotesonHannahJones.html">Notes on Hannah-Jones 1619 Project</a></li>
+<li><a href="hist301/KBxIndigenousPeoplesHistoftheUSNotes.html">Notes on Indigenous Peoples History</a></li>
+<li><a href="hist301/KBhHIST301IndianPersp.html">Perspectives and Intersection</a></li>
+<li><a href="hist301/KBdPilgrimsPuritans.html">Pilgrims and Puritans</a></li>
+<li><a href="hist301/KBxSlaveryandFreedomTheAmericanParadox.html">Slavery and Freedom &#x2013; The American Paradox</a></li>
+<li><a href="hist301/Untitled.html">Untitled</a></li>
+<li><a href="hist301/KBxWhatDoesItMeanToBeAmerican.html">what does it mean to be american?</a></li>
+</ul></li>
+<li>isos101
+<ul class="org-ul">
+<li><a href="isos101/KB20200828003106.html">Document Notes</a></li>
+<li><a href="isos101/KBIsEconScience.html">Econ. Science?</a></li>
+<li><a href="isos101/KBhISOS101GenderandBio.html">Gender and Biological Sciences</a></li>
+<li><a href="isos101/KB20200912233524.html">Gender and Biological Sciences</a></li>
+<li><a href="isos101/KBGenderAndBioISOS.html">Gender and Biology ISOS Reading</a></li>
+<li><a href="isos101/KBdGenderAndBio.html">Gender and Biology Reading</a></li>
+<li><a href="isos101/KBAreWeRight.html">How do we know we're right about climate change</a></li>
+<li><a href="isos101/KBdwkwnwISOSNotes.html">How do we know were not wrong</a></li>
+<li><a href="isos101/KBhISOS101D1.html">ISOS Day 1</a></li>
+<li><a href="isos101/KBxISOSMLPrivacy.html">ISOS ML Privacy</a></li>
+<li><a href="isos101/KBISOSMasterIndex.html">ISOS Master Index</a></li>
+<li><a href="isos101/KBxIsosSE.html">ISOS Self Eval</a></li>
+<li><a href="isos101/KBhISOS101StoryResearch.html">ISOS Story Research</a></li>
+<li><a href="isos101/KBAintNesSoNotes.html">It Ain't Necessarily So</a></li>
+<li><a href="isos101/KBe20isos101floScienceDoDont.html">KBe20isos101floScienceDoDont</a></li>
+<li><a href="isos101/KBe21isos101retRoundtableNotes.html">KBe21isos101retRoundtableNotes</a></li>
+<li><a href="isos101/KBhISOSAIEthics.html">KBhISOSAIEthics</a></li>
+<li><a href="isos101/KbhISOS101WeAreNotWrong.html">KbhISOS101WeAreNotWrong</a></li>
+<li><a href="isos101/KB20200904151754.html">Patterns of Discovery</a></li>
+<li><a href="isos101/KBhISOS101PatternsOfDiscovery.html">Patterns of Discovery</a></li>
+<li><a href="isos101/KBPatternsOfDiscoveryNotes.html">Patterns of Discovery Notes</a></li>
+<li><a href="isos101/KBhISOS101Robustness.html">Robustness</a></li>
+<li><a href="isos101/KBRobustness.html">Robustness Notes</a></li>
+<li><a href="isos101/KBxSOMPREZTHING.html">Som Prez Thing</a></li>
+<li><a href="isos101/KBxSOMWithAPerspective.html">Som With A Perspective</a></li>
+<li><a href="isos101/KBxStoryOfScience.html">Story Of Science Planning</a></li>
+<li><a href="isos101/KBe21isos201retStoryOfScienceComputationalComplexity.html">Story of Science: Computational Complexity Theory</a></li>
+<li><a href="isos101/KBhISOS101StrongInference.html">Strong Inference</a></li>
+<li><a href="isos101/KBStrongInferenceNotes.html">Strong Inference Notes</a></li>
+<li><a href="isos101/KBhISOS101Thaetetus.html">Thaetetus Selections</a></li>
+<li><a href="isos101/KBTheaetetus.html">Theaetetus Notes</a></li>
+<li><a href="isos101/KB20200828003333.html">Theaetus Reading Notes</a></li>
+<li><a href="isos101/Untitled.html">Untitled</a></li>
+<li><a href="isos101/KBsciencenotbrokenotes.html">science - not broke?</a></li>
+</ul></li>
+<li>jap201
+<ul class="org-ul">
+<li><a href="jap201/KBxPenPalScript.html">Don't</a></li>
+<li><a href="jap201/KBxGRME.html">Giving and Receiving Mini Essay</a></li>
+<li><a href="jap201/KB202008241103.html">Jap Day One</a></li>
+<li><a href="jap201/KBxJapFInalProj.html">Japanese Final Project</a></li>
+<li><a href="jap201/KBJapanese_Master_Index.html">Japanese Master Index</a></li>
+<li><a href="jap201/KBxJapSelfEval.html">Japanese Self Eval</a></li>
+<li><a href="jap201/KBNezumiPractice.html">Nezumi Practice</a></li>
+<li><a href="jap201/KBxPenPalEmail.html">Pen Pen Email</a></li>
+<li><a href="jap201/KBxAdviceColumn.html">Write your own advice column!</a></li>
+</ul></li>
+<li>jap401
+<ul class="org-ul">
+<li><a href="jap401/KBxJAPDAYTWO.html">KBxJAPDAYTWO</a></li>
+<li><a href="jap401/KBxJapDayOne.html">KBxJapDayOne</a></li>
+</ul></li>
+<li>math401
+<ul class="org-ul">
+<li><a href="math401/KBrefIntegralAlgebra.html">Algebra with Integrals</a></li>
+<li><a href="math401/KBrefArcLength.html">Arc Length</a></li>
+<li><a href="math401/KBxCalcMod5.html">Calc Mod 5 Planning</a></li>
+<li><a href="math401/KBe2020math401floCalcBeforeNewtonLeibniz.html">Calc before newton</a></li>
+<li><a href="math401/KBe20math401retEasy4.html">Calc easy 4</a></li>
+<li><a href="math401/KBe20math401ret3_5.html">Calc ret3<sub>4</sub> light aka 3<sub>5</sub></a></li>
+<li><a href="math401/KBe2020math401refCalcConceptsNotation.html">Calculus Concepts and Notation</a></li>
+<li><a href="math401/00-Topic-KB202008250914.html">Calculus Index with Nas</a></li>
+<li><a href="math401/KBe2020math401flo1.html">Calculus Introduction with Nas</a></li>
+<li><a href="math401/KBCalculusMasterIndex.html">Calculus Master Index</a></li>
+<li><a href="math401/KBd2020math401SubIndex.html">Calculus Sub Index - Dylan</a></li>
+<li><a href="math401/KBe21math401retSurfaceAreaOfSphere.html">Circumfrence of a circle and Surface Area of a sphere</a></li>
+<li><a href="math401/KBMATH401ComputingLimits.html">Computing Limits Algebraically</a></li>
+<li><a href="math401/KBhMATH401Day1.html">Day 1 with Veena</a></li>
+<li><a href="math401/KBe2020math401flo2.html">Day 2 Flow</a></li>
+<li><a href="math401/eFloCalcD3.html">Day 3</a></li>
+<li><a href="math401/KBhMATH401Derivatives.html">Deravitaves</a></li>
+<li><a href="math401/KBrefDerivativeRules.html">Derivative Rules</a></li>
+<li><a href="math401/KBrefDerivingKinematicEquations.html">Deriving Kinematic Equations</a></li>
+<li><a href="math401/KBhMATH401Discontinuity.html">Discontinuity</a></li>
+<li><a href="math401/KBtestreflectionquestionhuxley.html">Dont read this man</a></li>
+<li><a href="math401/KbhMATH401EpsilonDeltaProofs.html">Epsilon Delta Proofs</a></li>
+<li><a href="math401/KBe21math401retHandout24EvaluatingDefiniteIntegrals.html">Evaluating definite integrals</a></li>
+<li><a href="math401/KBe21math401retCrossSectionSolidExample.html">Final Project B: Volume of a Solid with Known Cross Section</a></li>
+<li><a href="math401/KBhMATH401APCalc.html">Final things to clear up by the test</a></li>
+<li><a href="math401/KBhMATH401FirstAndSecondOrder.html">First and Second Order Differences</a></li>
+<li><a href="math401/KBrefFundamentalTheoremOfCalculus.html">Fundamental Theorem of Calculus</a></li>
+<li><a href="math401/KBe20math401ret1_4.html">HW 1<sub>4</sub></a></li>
+<li><a href="math401/KBdHandout4p2.html">Handout</a></li>
+<li><a href="math401/KBdHandout4p1.html">Handout</a></li>
+<li><a href="math401/KBe21math401retHandout16TaylorSeries.html">Handout 16 Problems</a></li>
+<li><a href="math401/KBe21math401retHandout17RiemannSums.html">Handout 17 Riemann Sums</a></li>
+<li><a href="math401/KBe21math401retHandout17AdditionalExercises.html">Handout 17 Riemann Sums Additional Exercises</a></li>
+<li><a href="math401/KBe21math401retHandout19FundamentalTheoremCalculus.html">Handout 19 responses: fundamental theorem of calculus</a></li>
+<li><a href="math401/KBe21math401retHandout20.html">Handout 20: Applications of FTC and Net Change Theorem</a></li>
+<li><a href="math401/KBe21math401retHandout21uSubstitution.html">Handout 21: u-substitution</a></li>
+<li><a href="math401/KBe21math401retHandout25AreaBetweenCurves.html">Handout 25 Additional Answers</a></li>
+<li><a href="math401/KBe21math401retHandout23IntegrationByParts.html">Integration By Parts</a></li>
+<li><a href="math401/KBe21math401floIntegrationByPartsPractice.html">Integration by Parts Practice</a></li>
+<li><a href="math401/KBhMATH401Intergrals.html">Intergration and Anti-Derivation</a></li>
+<li><a href="math401/KBhMATH401SubIndex.html">Jack's Calculus Subindex</a></li>
+<li><a href="math401/KBe-2020math401-index.html">KBe-2020math401-index</a></li>
+<li><a href="math401/KBe2020math401floDailyIndex.html">KBe2020math401floDailyIndex</a></li>
+<li><a href="math401/KBe2020math401index.html">KBe2020math401index</a></li>
+<li><a href="math401/KBe21math401ret15_1TaylorSeriesPolynomial.html">KBe21math401ret15<sub>1TaylorSeriesPolynomial</sub></a></li>
+<li><a href="math401/KBe21math401retFunctionsDefinition.html">KBe21math401retFunctionsDefinition</a></li>
+<li><a href="math401/KBe21math401retLinearApproxAndDefferentials.html">KBe21math401retLinearApproxAndDefferentials</a></li>
+<li><a href="math401/KBhMATH401Test.html">KBhMATH401Test</a></li>
+<li><a href="math401/eRefLHopitalRule.html">LHopital's Rule</a></li>
+<li><a href="math401/KBhMATH401LimitLaws.html">Limit Laws</a></li>
+<li><a href="math401/KBhMATH401Limits.html">Limits</a></li>
+<li><a href="math401/KBxMaffSSelfEval.html">Maff Self Eval</a></li>
+<li><a href="math401/KB20200824094500.html">Math Day one</a></li>
+<li><a href="math401/KBe20math401flo5.html">Math day 5</a></li>
+<li><a href="math401/KBe20math401retModule2GroupTestPrelim.html">Module 2 Group Test Prelim</a></li>
+<li><a href="math401/KBe2020math401floCalcMotivation.html">Motivation for Calculus</a></li>
+<li><a href="math401/KBe2020math401ret0MyIntro.html">My Intro</a></li>
+<li><a href="math401/KBe21math401refQuizPrep.html">Quiz Prep</a></li>
+<li><a href="math401/KBe2020math401refRecommendedBooks.html">Recommended Books</a></li>
+<li><a href="math401/KBe20math401retLight3.html">Ret Easy 3</a></li>
+<li><a href="math401/KBrefRevolvingShapes.html">Revolving Shapes</a></li>
+<li><a href="math401/KBrefRiemannSums.html">Riemann Sums</a></li>
+<li><a href="math401/KBhMATH401SeriesConvergence.html">Series Convergence</a></li>
+<li><a href="math401/KBhMATH401LimitsEliminationMethod.html">Solving Limits with Elimination</a></li>
+<li><a href="math401/KBhMATH401TaylorSeriesApprox.html">Talor Series Approx.</a></li>
+<li><a href="math401/KBhMATH401SequencesAndSeries.html">Talor Series Expansions</a></li>
+<li><a href="math401/KBhMATH401TheLimitNotation.html">The Limit Notation, Single and Double Sided Limits</a></li>
+<li><a href="math401/KBhMATH401UsefulTrig.html">Useful Trig</a></li>
+<li><a href="math401/KBe21math401retHandout26VolumesOfRevolutions.html">Volumes of Revolutions</a></li>
+<li><a href="math401/KBe21math401retCrossSectionVolumes.html">Volumes of shapes with known cross sections</a></li>
+<li><a href="math401/KbhMATH401e.html">e</a></li>
+<li><a href="math401/eRefCalcQuestions.html">eRefCalcQuestions</a></li>
+<li><a href="math401/KB20200916215836.html">homework<sub>light</sub><sub>3</sub></a></li>
+<li><a href="math401/KBe21math401floIntegrals.html">integrals intro</a></li>
+<li><a href="math401/KBe20math401ret2_1.html">math 401 ret 2<sub>1</sub></a></li>
+<li><a href="math401/KBrefMeanValueTheoremForIntegrals.html">mean value theorem for integrals</a></li>
+<li><a href="math401/recent_errors.html">recent<sub>errors</sub></a></li>
+<li><a href="math401/KBe20math401ret1_5.html">ret 1<sub>5</sub></a></li>
+</ul></li>
+<li>math520
+<ul class="org-ul">
+<li><a href="math520/KBe21math520retAssignment2.html">Assignment 2: parameterization continued</a></li>
+<li><a href="math520/KBe21math520retAssign3.html">Assignment 3: arclength</a></li>
+<li><a href="math520/KBrefDerivativesOfComposedFunctions.html">Derivatives of Composed Functions</a></li>
+<li><a href="math520/KBhMATH520Jack.html">Jack's note on Math 520</a></li>
+<li><a href="math520/KBdMATH520Day1HW.html">MVC Day 1 HW</a></li>
+<li><a href="math520/KBdMATH520Day2.html">MVC Day 2</a></li>
+<li><a href="math520/KBdMATH520Day2HW.html">MVC Day 2 HW</a></li>
+<li><a href="math520/KBdMATH520Day3HW.html">MVC Day 3 HW</a></li>
+<li><a href="math520/KBdMATH520Dylan.html">MVC Dylan</a></li>
+<li><a href="math520/KBdMATH520PS4.html">MVC PS#4</a></li>
+<li><a href="math520/KBMATH520MasterIndex.html">Multivariable Calculus Master Index</a></li>
+<li><a href="math520/KBrefLeonardsMultiDimensionalMultiverse.html">Multiverse: how to think about many dimensions</a></li>
+<li><a href="math520/KBrefSecondDerivativeOfComposedFunctions.html">Second Derivative of a Composed Function</a></li>
+</ul></li>
+<li>math530
+<ul class="org-ul">
+<li><a href="math530/KBrefAdjoints.html">Adjoint</a></li>
+<li><a href="math530/KBrefLinearMapAlgebra.html">Algebraic operations on \(\mathcal{L}(V, W)\)</a></li>
+<li><a href="math530/KBe20math530floApplicationPresentations.html">Application Presentations</a></li>
+<li><a href="math530/KBe20math530retAxler2C17.html">Axler 2.C Exercise 17</a></li>
+<li><a href="math530/KBe20math530retAxler3B22.html">Axler 3.B Exercise 22</a></li>
+<li><a href="math530/KBe20math530floAxler3C.html">Axler 3.C Flow because CanVaS PoStInG is cool</a></li>
+<li><a href="math530/KBe21math530retAxler3E18.html">Axler 3.E ex18</a></li>
+<li><a href="math530/KBe21math530retAxler3E18old.html">Axler 3.E ex18</a></li>
+<li><a href="math530/KBe21math530retAxler5A34.html">Axler 5.A 34</a></li>
+<li><a href="math530/KBe21math530retAxler5B13.html">Axler 5.B exercise 13</a></li>
+<li><a href="math530/KBe21math530retAxler5C7.html">Axler 5.C exercise 7</a></li>
+<li><a href="math530/KBe21math530retAxler6A9.html">Axler 6.A exercise 9</a></li>
+<li><a href="math530/KBe21math530retAxler6B10.html">Axler 6.B #10</a></li>
+<li><a href="math530/KBe21math530retAxler6B3.html">Axler 6.B #3</a></li>
+<li><a href="math530/KBe21math530retAxler7A2.html">Axler 7.A ex 2</a></li>
+<li><a href="math530/KBe21math530retAxler7A3.html">Axler 7.A exercise 3</a></li>
+<li><a href="math530/KBe21math530retAxler7B1.html">Axler 7.B exercise 1</a></li>
+<li><a href="math530/KBe21math530retAxler7B7.html">Axler 7.B exercise 7</a></li>
+<li><a href="math530/KBe21math530retAxler7B8.html">Axler 7.B exercise 8</a></li>
+<li><a href="math530/KBrefOperatorsOverInnerProductSpaces.html">Axler Ch7: Operators over Inner Product Spaces</a></li>
+<li><a href="math530/KBrefProductOfPolynomials.html">Axler5.19 Product of Polynomials</a></li>
+<li><a href="math530/KBrefComplexOperatorsHaveEigenvalues.html">Axler5.21 Complex vector spaces have eigenvalues</a></li>
+<li><a href="math530/KBrefMatrixOfAnOperator.html">Axler5.22 Matrix of an Operator</a></li>
+<li><a href="math530/KBrefEigenspace.html">Axler5.36 Eigenspace</a></li>
+<li><a href="math530/KBrefOrthogonalDecomposition.html">Axler6.14 Orthogonal Decomposition</a></li>
+<li><a href="math530/KBrefCauchySchwarzInequality.html">Axler6.15 Cauchy-Schwarz Inequality</a></li>
+<li><a href="math530/KBe21math530retAxler6B9.html">Axler6.B #9</a></li>
+<li><a href="math530/KBeRefLinAlgBases.html">Bases</a></li>
+<li><a href="math530/KBrefBijectiveFunction.html">Bijective Functions</a></li>
+<li><a href="math530/KBxChapter1B.html">Chapter 1.B</a></li>
+<li><a href="math530/KBxChessMovesandMoreReading.html">Chess moves and more reading</a></li>
+<li><a href="math530/KBe20math530retCollaborativeMatrixEquationsRREF.html">Collaborative Matrix Equations and RREF</a></li>
+<li><a href="math530/KBrefConjugateTranspose.html">Conjugate Transpose</a></li>
+<li><a href="math530/KBrefLinearMapConjugation.html">Conjugation of Linear Maps</a></li>
+<li><a href="math530/ConvergenceOfMarkovTransitionMatrices.html">Convergence of Transition Matrices in Markov Trains</a></li>
+<li><a href="math530/KBrefDiagonalMatrix.html">Diagonal Matrix and Diagonalizability</a></li>
+<li><a href="math530/KBrefDiagonalOfAMatrix.html">Diagonal of a matrix</a></li>
+<li><a href="math530/KBrefDimension.html">Dimension of a Vector Space</a></li>
+<li><a href="math530/KBrefDotProduct.html">Dot Product</a></li>
+<li><a href="math530/KBrefDotProductTranspose.html">Dot Product Transpose Trick</a></li>
+<li><a href="math530/KBe21math530retEigenstuffFollowup.html">Eigenstuff Followup</a></li>
+<li><a href="math530/KBrefEigenvaluesAndEigenVectors.html">Eigenvalues and Eigenvectors</a></li>
+<li><a href="math530/KBe2020math530floLinalgEtymology.html">Etymology</a></li>
+<li><a href="math530/KBe20math530flo12.html">Exr0n</a></li>
+<li><a href="math530/KBe2020math530refExr0nRetIndex.html">Exr0n's Homework</a></li>
+<li><a href="math530/KBe21math530floFastMultiplicationWithFFT.html">Fast multiplication with fast fourier transforms</a></li>
+<li><a href="math530/KBe20math530refField.html">Fields</a></li>
+<li><a href="math530/KBe20math530refFallFinalPrep.html">Final Prep (review)</a></li>
+<li><a href="math530/KBxFirstTestReview.html">First Test Review</a></li>
+<li><a href="math530/KBe20math530flo10.html">Flo 10</a></li>
+<li><a href="math530/KBe20math530flo23.html">Flo 23 (19 Nov 2020, skipped a bunch of proofs)</a></li>
+<li><a href="math530/KBe20math530flo24.html">Flo 24</a></li>
+<li><a href="math530/Kbe20math530flo8.html">Flo 8</a></li>
+<li><a href="math530/KBe2020math530floIndex.html">Flo Index</a></li>
+<li><a href="math530/KBe2020math530flo2.html">Flow of day 2</a></li>
+<li><a href="math530/KBrefFundamentalTheoremOfLinearMaps.html">Fundamental Theorem of Linear Maps!</a></li>
+<li><a href="math530/KBrefGramSchmidtProcedure.html">Gram-Schmidt Procedure</a></li>
+<li><a href="math530/KBe2020math530refGroups.html">Groups</a></li>
+<li><a href="math530/KBe20math530retSysEquationsLinearInDependence.html">HW Systems of equations and linear independence/dependence</a></li>
+<li><a href="math530/KBrefHomogeneousSystemsOfEquations.html">Homogeneous Systems of Equations</a></li>
+<li><a href="math530/KBrefInjective.html">Injectivity (math)</a></li>
+<li><a href="math530/KBrefInnerProduct.html">Inner Product</a></li>
+<li><a href="math530/KBrefInnerProductSpaces.html">Inner Product Space</a></li>
+<li><a href="math530/KBxGroupAndMatricesIntro.html">Introduction to Groups and Matrices</a></li>
+<li><a href="math530/KBrefInvariantSubspaces.html">Invariant Subspaces</a></li>
+<li><a href="math530/KBrefInvertibleLinearMaps.html">Invertibility of Linear Maps</a></li>
+<li><a href="math530/KBrefIsomorphicVectorSpace.html">Isomorphic vector spaces and isomorphisms</a></li>
+<li><a href="math530/KBe20math530retPremierProofPresentation.html">KBe20math530retPremierProofPresentation</a></li>
+<li><a href="math530/KBe21math530floEigenEverything.html">KBe21math530floEigenEverything</a></li>
+<li><a href="math530/KBe21math530floInvarientSubspaces.html">KBe21math530floInvarientSubspaces</a></li>
+<li><a href="math530/KBrefColumnSpace.html">KBrefColumnSpace</a></li>
+<li><a href="math530/KBrefDeterminant.html">KBrefDeterminant</a></li>
+<li><a href="math530/KBrefHomogeneousEquations.html">KBrefHomogeneousEquations</a></li>
+<li><a href="math530/KBxLInAlgDayTwo.html">KBxLInAlgDayTwo</a></li>
+<li><a href="math530/KBe20math530retLinearTransformationQuiz.html">LInear Transformation Quiz</a></li>
+<li><a href="math530/KBe20math530retProofSpanningListLongerThanLinearIndependent.html">Length of spanning list is greater equal to length of linearly independent list</a></li>
+<li><a href="math530/KBe20math530flo19.html">Lin Alg flo 19</a></li>
+<li><a href="math530/KBe20math530flo9.html">LinAlg Flo 9</a></li>
+<li><a href="math530/KBe2020math530flo3.html">LinAlg Flow</a></li>
+<li><a href="math530/KBe20math530flo14.html">LinAlg flo 14</a></li>
+<li><a href="math530/KBe20math530flo7.html">LinAlg flo 7</a></li>
+<li><a href="math530/KBe20math530flo6.html">Linalg Flo 6</a></li>
+<li><a href="math530/KBe20math530flo13.html">Linalg Flow 13</a></li>
+<li><a href="math530/KBe2020math530flo1.html">Linear Algebra Day 1</a></li>
+<li><a href="math530/KBeRefLinAlgDimension.html">Linear Algebra Dimensions (Axler 2.C)</a></li>
+<li><a href="math530/KBxLinAlgMasterIndex.html">Linear Algebra Master Index</a></li>
+<li><a href="math530/KBe2020math530index.html">Linear Algebra Master Index</a></li>
+<li><a href="math530/KBe20math530floQuestions.html">Linear Algebra Questions</a></li>
+<li><a href="math530/KBe20math530flo4.html">Linear Algebra class Flo 4</a></li>
+<li><a href="math530/KBe20math530flo22.html">Linear Algebra flo 22</a></li>
+<li><a href="math530/KBrefLinearFunctional.html">Linear Functional</a></li>
+<li><a href="math530/KB20math530refLinearIndependence.html">Linear Independence</a></li>
+<li><a href="math530/KBe2020math530floMatriciesSystemsEquations.html">Matrices as systems of equations</a></li>
+<li><a href="math530/KBE2020math501floMatriciesAsTransformations.html">Matricies as transformations</a></li>
+<li><a href="math530/KBe20math530retMiniQuizSubspaceAdditionGroup.html">Mini Quiz: Subspace Addition forms Groups?</a></li>
+<li><a href="math530/KBrefMinimizingDistanceToSubspace.html">Minimizing the Distance to a Subspace</a></li>
+<li><a href="math530/KBrefNorm.html">Norm</a></li>
+<li><a href="math530/KBrefNormal.html">Normal (vector)</a></li>
+<li><a href="math530/KBrefNormalOperators.html">Normal Operators</a></li>
+<li><a href="math530/KBrefNullSpace.html">Null Spaces</a></li>
+<li><a href="math530/KBe2020math530floNumbers.html">Numbers</a></li>
+<li><a href="math530/KBrefOperators.html">Operators (linear algebra)</a></li>
+<li><a href="math530/KBrefOrthogonal.html">Orthogonal</a></li>
+<li><a href="math530/KBrefOrthogonalComplement.html">Orthogonal Complement</a></li>
+<li><a href="math530/KBrefOrthogonalProjection.html">Orthogonal Projection</a></li>
+<li><a href="math530/KBrefOrthonormalBasis.html">Orthonormal Basis</a></li>
+<li><a href="math530/KBrefOrthonormal.html">Orthonormal List</a></li>
+<li><a href="math530/KBrefPolynomial.html">Polynomials</a></li>
+<li><a href="math530/KBrefPolynomialOfOperators.html">Polynomials of Operators</a></li>
+<li><a href="math530/KBrefOperatorExponents.html">Powers of Operator maps</a></li>
+<li><a href="math530/KBe2020math530retPracticeMultiplyMatrixIdentfyGroups.html">Practice multiplying matrices and identifying groups</a></li>
+<li><a href="math530/20math530retProblemsPracticeLaTeX.html">Problems to Practice LaTeX</a></li>
+<li><a href="math530/KBe20math530flo15.html">Proof presentations again</a></li>
+<li><a href="math530/KBe21math530retMatrixTransposePonderQuestions.html">Questions to Ponder about \(A^TA\) and \(AA^T\)</a></li>
+<li><a href="math530/KBrefFunctionRange.html">Range of a function</a></li>
+<li><a href="math530/KBcrefRestrictionAndQuotientOperators.html">Relationship between Restriction of Map and Quotient of Space</a></li>
+<li><a href="math530/KBrefSchursTheorem.html">Schur's Theorem</a></li>
+<li><a href="math530/20math530retScratchpad.html">Scratchpad</a></li>
+<li><a href="math530/KBrefSelfAdjointOperators.html">Self-adjoint operators</a></li>
+<li><a href="math530/KB20math530flo2_1.html">Semester 2 flo 1</a></li>
+<li><a href="math530/KBxSolvingSystems.html">Solving Systems Homework</a></li>
+<li><a href="math530/20math530retSolvingWithMatrices.html">Solving with matrices</a></li>
+<li><a href="math530/KBe20math530refSpan.html">Span of vector lists</a></li>
+<li><a href="math530/KBrefSurjectiveFunction.html">Surjectivity of Functions</a></li>
+<li><a href="math530/Untitled.html">Untitled</a></li>
+<li><a href="math530/KBrefUpperTriangularMatrix.html">Upper Triangular Matrix</a></li>
+<li><a href="math530/KBe20math530refVectorSpace.html">Vector Spaces Index</a></li>
+<li><a href="math530/KBe20math530flo11.html">flo 11</a></li>
+<li><a href="math530/KBe20math530flo16.html">flo 16</a></li>
+<li><a href="math530/KBe20math530flo21.html">flo 20</a></li>
+<li><a href="math530/KBe20math530flo17.html">flo17</a></li>
+<li><a href="math530/KBe20math530flo20.html">lin alg flo 20</a></li>
+<li><a href="math530/kbe20math530flo18.html">lin alg flo18</a></li>
+<li><a href="math530/KBe20math530flo5.html">linalg flow 5</a></li>
+<li><a href="math530/KBrefLinearMap.html">linear map</a></li>
+<li><a href="math530/KBrefMatrixOfVector.html">matrix of a vector (Axler3.62)</a></li>
+<li><a href="math530/KBe20math530refIndividualAsssesment1.html">prep for first individual assesment</a></li>
+<li><a href="math530/KBe20math530retMoreSystemsAndProofs.html">ret More Systems and Proofs</a></li>
+<li><a href="math530/20math530retReadingTheTextbook.html">ret Reading The Textbook!</a></li>
+<li><a href="math530/KBxChapter1aReview.html">temp &#x2013; lin alg day 3</a></li>
+<li><a href="math530/KBrefVectorStar.html">v* conjugate transpose</a></li>
+<li><a href="math530/other.html">v* conjugate transpose</a></li>
+<li><a href="math530/other2.html">v* conjugate transpose</a></li>
+<li>applications
+<ul class="org-ul">
+<li><a href="math530/applications/axler3Dexercise.html">axler3Dexercise</a></li>
+<li><a href="math530/applications/multivariate_analysis.html">multivariate<sub>analysis</sub></a></li>
+</ul></li>
+</ul></li>
+<li>mathmod555
+<ul class="org-ul">
+<li><a href="mathmod555/KBxLakeProb.html">Lake Problem</a></li>
+<li><a href="mathmod555/KBxMathModMasterIndex.html">Mathematical Master Index</a></li>
+<li><a href="mathmod555/KBxTheElevatorProblem.html">The Elevator Problem</a></li>
+<li><a href="mathmod555/KBxDayOneMathMod55.html">day one</a></li>
+</ul></li>
+<li>ml301
+<ul class="org-ul">
+<li><a href="ml301/KBEthicalConcerns.html">Ethical Concerns</a></li>
+<li><a href="ml301/KBML_Day_One.html">KBML<sub>Day</sub><sub>One</sub></a></li>
+<li><a href="ml301/KBMLCorrectionsBin.html">Ml Corrections Bin</a></li>
+<li><a href="ml301/KBmlNeuralNetsAssignment.html">Neural Nets Assignment</a></li>
+<li><a href="ml301/KBPoker_With_Wes.html">Poker with Wes!</a></li>
+<li><a href="ml301/KBTypes_of_Machine_Learning.html">Types of Machine Learning</a></li>
+<li><a href="ml301/KBValidation.html">Validation</a></li>
+<li><a href="ml301/KBValidationPB.html">Validation Part B</a></li>
+<li><a href="ml301/KBLinierRegression.html">linier regresstion</a></li>
+</ul></li>
+<li>mus201
+<ul class="org-ul">
+<li><a href="mus201/KBhMUS150Arrangement.html">Arrangement</a></li>
+<li><a href="mus201/KBhMUS150CriticalListeningJournal.html">Critical Listening Journal</a></li>
+<li><a href="mus201/KbMUS150INDEX.html">Music Prod. Master Index</a></li>
+<li><a href="mus201/KBhMUS150D1.html">Music Production Day 1</a></li>
+<li><a href="mus201/KBhMUS150MusicVideos.html">Music Videos</a></li>
+<li><a href="mus201/KBhMUS150Project1.html">Project1</a></li>
+<li><a href="mus201/KBhMUS150StartingASong.html">Starting a Song</a></li>
+</ul></li>
+<li>mus231
+<ul class="org-ul">
+<li><a href="mus231/KB20200824111126.html">Adv Steel Drums</a></li>
+</ul></li>
+<li>phys201
+<ul class="org-ul">
+<li><a href="phys201/KBhPHYS201AtomInteractions.html">Atom Charge Interactions</a></li>
+<li><a href="phys201/KBe20phys250retCapacitorsLab.html">Capacitor Lab</a></li>
+<li><a href="phys201/KBhPHYS201Capacitors.html">Capacitors</a></li>
+<li><a href="phys201/KBe20phys250retCapacitorsLabExport.html">Capacitors Lab Writeup</a></li>
+<li><a href="phys201/KBhPHYS201AtomChargeProps.html">Charge Properties of Atoms</a></li>
+<li><a href="phys201/KBhPHYS201CircuitCalculations.html">Circuit Calculations</a></li>
+<li><a href="phys201/KBhPHYS201ColoumbsLaw.html">Coloumb's Law</a></li>
+<li><a href="phys201/KBhPHYS201CombiningResistors.html">Combining Resistors Method</a></li>
+<li><a href="phys201/KBe20phys250retComplexCircuitTable1.html">Complex Circuit Thing</a></li>
+<li><a href="phys201/KBe20phys250retCapacitanceResistanceQuestion.html">Computer Speed by Capacitance and Resistance</a></li>
+<li><a href="phys201/KBhPHYS201ConductorsEquilibrium.html">Conductors and Equlibrium</a></li>
+<li><a href="phys201/KBhPHYS201Current.html">Current</a></li>
+<li><a href="phys201/KBhPHYS201D1AtHomeActivity.html">D1 At home Activity</a></li>
+<li><a href="phys201/KBhPHYS201DigitalLogic.html">Digital Logic</a></li>
+<li><a href="phys201/KBhPHYS201ElectricFieldInteractions.html">Electric Field Interactions</a></li>
+<li><a href="phys201/KBhPHYS201ElectricFields.html">Electric fields</a></li>
+<li><a href="phys201/KB20200825215200.html">Electrostatics Cheat Sheet</a></li>
+<li><a href="phys201/KBhPHYS201IntroToElectrostaticsLN.html">Electrostatics Index</a></li>
+<li><a href="phys201/KBe20phys201retFieldsVoltagePhET.html">Fields and Voltage PhET Exploration</a></li>
+<li><a href="phys201/KBhPHYS201GettingStarted.html">Getting started with Physics</a></li>
+<li><a href="phys201/KBhPHYS201GravitationalFields.html">Gravitational Fields, Newton's Law of Gravitation</a></li>
+<li><a href="phys201/KBhPHYS201GuidedProblemCoulomb.html">Guided Problem &#x2014; Particle Interactions, Coloumb's law</a></li>
+<li><a href="phys201/KBe20phys250retCapacitenceResistanceQuestion.html">Homework Question in Capacitence and Resistance</a></li>
+<li><a href="phys201/KBhPHYS201IllustratingElectricFields.html">Illustrating electric fields</a></li>
+<li><a href="phys201/KBPHSY201FirstReadingNotes.html">KBPHSY201FirstReadingNotes</a></li>
+<li><a href="phys201/KBPHYS201SecondReadingNotes.html">KBPHYS201SecondReadingNotes</a></li>
+<li><a href="phys201/KBRemoteRollingBall.html">KBRemoteRollingBall</a></li>
+<li><a href="phys201/KBVectorIntro.html">KBVectorIntro</a></li>
+<li><a href="phys201/KBe20phys201flo5vandegraph.html">KBe20phys201flo5vandegraph</a></li>
+<li><a href="phys201/KBe20phys250floSemiconductorRun.html">KBe20phys250floSemiconductorRun</a></li>
+<li><a href="phys201/KBhPHYS201QuantumWorldBookNotesIndex.html">KBhPHYS201QuantumWorldBookNotesIndex</a></li>
+<li><a href="phys201/KBhPHYS201KirkoffsLaws.html">Kirkoff's Laws</a></li>
+<li><a href="phys201/KBhPHYS201LazerPrinters.html">Lazer Scanners/Printers</a></li>
+<li><a href="phys201/KBhPHYS201MagneticSolids.html">Magnetic Solids</a></li>
+<li><a href="phys201/KBPHYS201ZachsPhysicsNotesForTest.html">Modern Physics Quiz Notes</a></li>
+<li><a href="phys201/KBhPHYS201NuclearPhysics.html">Nuclear Physics</a></li>
+<li><a href="phys201/KBhPHYS201ElectrostaticPolarization.html">Object Electrostatic Polarization</a></li>
+<li><a href="phys201/KBhPHYS201PHETElectricFields.html">PHET Simulation w Electric Fields</a></li>
+<li><a href="phys201/KB20200825090600.html">Phys Day One</a></li>
+<li><a href="phys201/KBPhysicsMasterIndex.html">Physics Master Index</a></li>
+<li><a href="phys201/physQuestions.html">Physics Questions</a></li>
+<li><a href="phys201/KBxPhysSelvEval2020.html">Physics Self Eval</a></li>
+<li><a href="phys201/KBrefPhysTimeConstant.html">Physics Time Constant au</a></li>
+<li><a href="phys201/KBhPHYS201QuantumMechanics.html">Quantum Mechanics</a></li>
+<li><a href="phys201/KBhPHYS201ResistanceConductivity.html">Resistivity and Conductivity</a></li>
+<li><a href="phys201/SRCelectrostaticsPacket1annotatedExr0n.pdf.html">SRCelectrostaticsPacket1annotatedExr0n.pdf</a></li>
+<li><a href="phys201/KBhPHYS201Silicon.html">Silicon</a></li>
+<li><a href="phys201/KbhPHYS201SpecialRelativity.html">Special Relativity</a></li>
+<li><a href="phys201/KBhPHYS201Electroscope.html">The Electroscope</a></li>
+<li><a href="phys201/KBhPHYS201QuantumWorldBook.html">The Quantum World, Notes</a></li>
+<li><a href="phys201/KBhPHYS201VanDeGraff.html">Van De Graff Generators</a></li>
+<li><a href="phys201/KBhPHYS201Voltage.html">Voltage</a></li>
+<li><a href="phys201/KBe20phys201refVoltage.html">Voltage</a></li>
+<li><a href="phys201/exr0n20phys201retIndex.html">physics ret index</a></li>
+</ul></li>
+<li>phys210
+<ul class="org-ul">
+<li><a href="phys210/KBhPHYS210ChainFountainIndex.html">Chain Fountain Index</a></li>
+<li><a href="phys210/KBxElectrostaticsInvestigation.html">Eletrostatics Investigation</a></li>
+<li><a href="phys210/KBxFirstPhysTestReview.html">First Phys Test Review</a></li>
+<li><a href="phys210/KBe21phys250flo1.html">KBe21phys250flo1</a></li>
+<li><a href="phys210/KBxPhys250MasterIndex.html">KBxPhys250MasterIndex</a></li>
+<li><a href="phys210/KBe21phys250floTheQuantumWorldBook.html">Notes on The Quantum World by Kenneth W Ford</a></li>
+<li><a href="phys210/KBhPHYS210Day1.html">Physics Day 1</a></li>
+<li><a href="phys210/KBPHYS210MasterIndex.html">Physics Research Master Index</a></li>
+<li><a href="phys210/KBhPHYS210Guidelines.html">Research Guidelines</a></li>
+<li><a href="phys210/KBe21phys250retSpecialRelativityProblem.html">Special Relativity Problem: Linear Escape</a></li>
+</ul></li>
+<li>phys250
+<ul class="org-ul">
+<li><a href="phys250/KBPHYS250MasterIndex.html">Modern Physics Master Index</a></li>
+<li><a href="phys250/KBdPHYS250Day1.html">Physics 250 Day 1</a></li>
+<li><a href="phys250/KBdPHYS250Day2.html">Physics 250 Day 2</a></li>
+</ul></li>
+<li>phys360
+<ul class="org-ul">
+<li><a href="phys360/KBdPHYS360CenterOfMassHW.html">Adv Mech Center Of Mass HW</a></li>
+<li><a href="phys360/KBdPHYS360Day1HW.html">Adv Mech Day 1 HW</a></li>
+<li><a href="phys360/KBPHYS360MasterIndex.html">Advanced Mechanics Master Index</a></li>
+<li><a href="phys360/KBhPHYS360CenterOfMass.html">Center of Mass</a></li>
+<li><a href="phys360/KBhPHYS360RotationalKineticEnergyDerivation.html">Deriving Rotational Energy</a></li>
+<li><a href="phys360/KBhPHYS360Energy.html">Energy, a review!</a></li>
+<li><a href="phys360/KBhPHYS360EscapeVelocity.html">Escape Velocity</a></li>
+<li><a href="phys360/KBhPHYS360GravitationMass.html">Gravitational Potential and Center of Mass</a></li>
+<li><a href="phys360/KBhPHYS360Impulse.html">Impulse</a></li>
+<li><a href="phys360/KBhPHYS360Day1.html">Physics 360 Day 1</a></li>
+<li><a href="phys360/KBdPHYS360Day2.html">Physics 360 Day 2</a></li>
+<li><a href="phys360/KBdPHYS360TranslationalRotationalKE.html">Physics 360 Translational and Rotational KE HW</a></li>
+<li><a href="phys360/KBhPHYS360InertiaAndKinematics.html">Rotational Inertia and Kinematics</a></li>
+<li><a href="phys360/KBhPHYS360RotationalKineticEnergy.html">Rotational Kinetic Energy</a></li>
+</ul></li>
+<li>span301
+<ul class="org-ul">
+<li><a href="span301/KB20200824175405.html">Day one Spanish</a></li>
+<li><a href="span301/KBhSPAN201DirectIndirectObject.html">Direct and Indirect objects</a></li>
+<li><a href="span301/KBhSPAN301Preterito.html">El Preterito + Imperfecto</a></li>
+<li><a href="span301/KBhSPAN301ImpersonalExpressions.html">Impersonal Expressions</a></li>
+<li><a href="span301/KBhSPAN301ArteLatinamerica.html">KBhSPAN301ArteLatinamerica</a></li>
+<li><a href="span301/KBhSPAN301PainsAndFeeling.html">Pains and Feelings</a></li>
+<li><a href="span301/KBhSPAN301ParticipioPasando.html">Participio Pasando</a></li>
+<li><a href="span301/KBhSPAN3012TaL.html">Spanish 2 truths and a lie</a></li>
+<li><a href="span301/KB20200824124831.html">Spanish 3 Master Index</a></li>
+<li><a href="span301/KB20200824132256.html">Spanish 3 Unit 1</a></li>
+<li><a href="span301/KBhSPAN301SpanD1.html">Spanish3 &#x2014; Day 1</a></li>
+</ul></li>
+<li>span401
+<ul class="org-ul">
+<li><a href="span401/KBhMiPalabraFavorita.html">Mi Palabra Favorita</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="postamble" class="status">
+<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-11 Sat 09:56</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+</div>
+</body>
+</html>
