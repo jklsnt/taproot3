@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-11 Sat 11:59 -->
+<!-- 2021-09-11 Sat 12:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rotational Inertia and Kinematics</title>
@@ -353,6 +353,10 @@ Mathematically, as \(M\) is staying at the same value, in the disk case has more
 <h2 id="org42eb6e9"><span class="section-number-2">2</span> Kinematics Equations</h2>
 <div class="outline-text-2" id="text-2">
 <p>
+We begin by defining a coordinate system such that positive values are pointed "downwards". That is, as values increase in the positive direction, their corresponding vectors are pointed further towards the "down" direction.
+</p>
+
+<p>
 Given \(a=a_0\), initial velocity \(v_0\), and position \(y_0\), we derive the kinematics equations.
 </p>
 
@@ -446,11 +450,54 @@ Hence, it is demonstrated that:
 <div id="outline-container-orga3ef23c" class="outline-2">
 <h2 id="orga3ef23c"><span class="section-number-2">3</span> Question regarding signage of the equations demonstrated above.</h2>
 <div class="outline-text-2" id="text-3">
+<p>
+The <a href="#org42eb6e9">Kinematics Equations derivations</a> above relied on the fact that the coordinate system was defined as "positive downwards". Were this not to be the case, constants would have to be redefined and the signs of most terms would be flipped:
+</p>
+
+<p>
+Given \(a=-a_0\), initial velocity \(-v_0\), and position \(-y_0\), we (re)derive the kinematics equations.
+</p>
+
+\begin{align}
+    a(t) =& -a_0 \\
+    \int a(t) dt =& \int -a_0 dt \\
+    v(t) =& -a_0t + C 
+\end{align}
+
+<p>
+We are given that \(v(0)=-v_0\). \(v(0) = C = -v_0\), hence, \(C=-v_0\). The velocity statement is therefore,
+</p>
+
+\begin{equation}
+    v(t) = -a_0t-v_0
+\end{equation}
+
+<p>
+Continuing with integration:
+</p>
+
+\begin{align}
+    v(t) =& -a_0t - v_0 \\
+    \int v(t) =& \int -a_0t - v_0 dt \\
+    y(t) =& \frac{-1}{2}a_0t^2 - v_0t+C \\
+\end{align}
+
+<p>
+Again, substituting \(C = -y_0\) by the same logic above &#x2014; \(y(0) = C = -y_0\), we derive the statement for the position equation.
+</p>
+
+\begin{equation}
+    y(t) = \frac{-1}{2}a_0t^2 - v_0t - y_0
+\end{equation}
+
+<p>
+As such, if the signage were flipped, terms of the kinematics equation would therefore be flipped.
+</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Houjun Liu</span><span class="date">2021-09-11 Sat 11:58</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+<div class="namedate"><p class="subtitle"><span class="author">Houjun Liu</span><span class="date">2021-09-11 Sat 12:07</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>

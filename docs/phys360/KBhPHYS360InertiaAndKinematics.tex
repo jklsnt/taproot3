@@ -1,4 +1,4 @@
-% Created 2021-09-11 Sat 12:01
+% Created 2021-09-11 Sat 12:09
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -121,6 +121,8 @@ Mathematically, as \(M\) is staying at the same value, in the disk case has more
 
 \section{Kinematics Equations}
 \label{sec:org1e44f1a}
+We begin by defining a coordinate system such that positive values are pointed "downwards". That is, as values increase in the positive direction, their corresponding vectors are pointed further towards the "down" direction.
+
 Given \(a=a_0\), initial velocity \(v_0\), and position \(y_0\), we derive the kinematics equations.
 
 \begin{align}
@@ -190,4 +192,35 @@ Hence, it is demonstrated that:
 
 \section{Question regarding signage of the equations demonstrated above.}
 \label{sec:org36125e8}
+The \hyperref[sec:org1e44f1a]{Kinematics Equations derivations} above relied on the fact that the coordinate system was defined as "positive downwards". Were this not to be the case, constants would have to be redefined and the signs of most terms would be flipped:
+
+Given \(a=-a_0\), initial velocity \(-v_0\), and position \(-y_0\), we (re)derive the kinematics equations.
+
+\begin{align}
+    a(t) =& -a_0 \\
+    \int a(t) dt =& \int -a_0 dt \\
+    v(t) =& -a_0t + C 
+\end{align}
+
+We are given that \(v(0)=-v_0\). \(v(0) = C = -v_0\), hence, \(C=-v_0\). The velocity statement is therefore,
+
+\begin{equation}
+    v(t) = -a_0t-v_0
+\end{equation}
+
+Continuing with integration:
+
+\begin{align}
+    v(t) =& -a_0t - v_0 \\
+    \int v(t) =& \int -a_0t - v_0 dt \\
+    y(t) =& \frac{-1}{2}a_0t^2 - v_0t+C \\
+\end{align}
+
+Again, substituting \(C = -y_0\) by the same logic above --- \(y(0) = C = -y_0\), we derive the statement for the position equation.
+
+\begin{equation}
+    y(t) = \frac{-1}{2}a_0t^2 - v_0t - y_0
+\end{equation}
+
+As such, if the signage were flipped, terms of the kinematics equation would therefore be flipped.
 \end{document}
