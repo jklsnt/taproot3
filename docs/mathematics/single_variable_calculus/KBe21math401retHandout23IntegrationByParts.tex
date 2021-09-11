@@ -1,0 +1,186 @@
+% Created 2021-09-11 Sat 16:43
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Taproot}
+\date{\today}
+\title{Integration By Parts}
+\hypersetup{
+ pdfauthor={Taproot},
+ pdftitle={Integration By Parts},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\setcounter{section}{2}
+\section{\(\int \ln x dx\)}
+\label{sec:org980c0a7}
+
+\[\begin{aligned}
+  \int \ln  x dx &=\int 1 \ln  x dx \\
+  &= x \ln  x -\int x \frac{1}{x} dx \\
+  &= x \ln  x -\int 1 dx \\
+  &= \boxed{x \ln  x - x}
+  \end{aligned}\]
+\section{\(\int\tan ^-x dx\)}
+\label{sec:org5268b80}
+
+\[\begin{aligned}
+  \int\tan ^-x dx &= x \tan^- x -\int x \frac{1}{x^2+1} dx \\
+  &= x\tan ^- x - \frac{1}{2}\int \frac{du}{u}\\
+  &= x\tan ^- x - \frac{1}{2}\ln  u + C\\
+  &= x\tan ^- x - \frac{1}{2}\ln (x^2+1) +C
+  \end{aligned}\]
+\section{\(\int x\sec ^2 x dx\)}
+\label{sec:orgcfe8be1}
+
+\[\begin{aligned}
+  \int x\sec ^2 x dx &= x\tan x -\int\tan x dx\\
+  &= x\tan x + \ln | \cos  x | + C
+  \end{aligned}\]
+\section{\(\int x^2 e^{5x} dx\)}
+\label{sec:org3a49255}
+
+\[\begin{aligned}
+  \int x^2 e^{5x} dx &= x^2 \frac{1}{5}e^{5x} - \int 2x \frac{1}{5}e^{5x} dx\\
+  &= x^2 \frac{1}{5}e^{5x} - 2x \frac{1}{25}e^{5x} +\int 2 \frac{1}{25}e^{5x} dx\\
+  &= \frac{1}{5} e^{5x} ( x^2 - \frac{2}{5}x + \frac{2}{25} ) +C
+  \end{aligned}\]
+
+\section{\(\int x ^2\cos x  dx = f(x) -\int 2x\sin x dx\)}
+\label{sec:org344536f}
+Find \(f(x)\)
+\[\begin{aligned}
+  f(x) = x^2 \sin  x
+  \end{aligned}\]
+
+\section{\(\int x\cos x  dx\)}
+\label{sec:orgabe1259}
+
+\[\begin{aligned}
+  \int x \cos  x dx &= x \sin  x -\int \sin  x dx \\
+  &= x \sin  x + \cos  x + C
+  \end{aligned}\]
+
+\section{\(\int x^2\sin x dx\)}
+\label{sec:org7f6f4ef}
+
+\[\begin{aligned}
+  \int x^2 \sin  x dx &= - x \cos  x -\int - \cos  x dx \\
+  &= - x \cos  x - \sin  x dx +C
+  \end{aligned}\]
+
+
+\section{\(\int x^3 e^{x^2} dx\)}
+\label{sec:org34ca394}
+Let \(u = x^2\)
+
+\[\begin{aligned}
+  \int x^3 e^{x^2} dx &=\int x^2 x e^{x^2} dx \\
+  &=\int u \frac{1}{2}du e^u\\
+  &= \frac{1}{2}\int u e^u du\\
+  &= \frac{1}{2} u e^u - \frac{1}{2}\int e^u du\\
+  &= \frac{1}{2} u e^u - \frac{1}{2} e^u  +C\\
+  &= \frac{1}{2} x^2 e^{x^2} - \frac{1}{2} e^{x^2}
+  \end{aligned}\]
+
+
+\section{\(\int x^2 \ln x dx\)}
+\label{sec:org74a1bbd}
+
+\[\begin{aligned}
+  \int x^2 \ln x dx &= \frac{1}{3}x^3 \ln  x -\int \frac{1}{3} x^3 \frac{1}{x} dx\\
+  &= \frac{1}{3}x^3 \ln  x - \int \frac{1}{3} x^2 dx\\
+  &= \frac{1}{3}x^3 \ln  x - \frac{1}{9} x^3 +C
+  \end{aligned}\]
+
+\section{\(\int \cos \ln x dx\)}
+\label{sec:orgb3eb93f}
+
+\[\begin{aligned}
+  \int 1 \cos  \ln  x dx &= x \cos  \ln  x + \int \sin  \ln  x dx\\
+  &= x \cos  \ln  x + x \sin \ln  x - \int \cos \ln  x dx\\
+  2\int \cos  \ln  x dx &= x \cos  \ln  x - x \sin \ln  x\\
+  \int \cos  \ln  x dx &= \frac{1}{2}\left(  x \cos  \ln  x - x \sin \ln  x\right) +C
+  \end{aligned}\]
+
+Or you could use \(u = \ln  x\), apparently.
+
+\section{multiple parts}
+\label{sec:org0513a98}
+
+\subsection{e}
+\label{sec:org0fbe6e1}
+
+\subsection{\(\int e^{2x} \cos 3x dx\)}
+\label{sec:orgf34fbb6}
+
+\[\begin{aligned}
+   \int e^{2x} \cos 3x dx &= \cos 3x \frac{1}{2}e^{2x} +\int 3 \sin 3x \frac{1}{2}e^{2x} dx\\
+   &= \cos 3x \frac{1}{2}e^{2x} + 3\sin 3x \frac{1}{4}e^{2x} - \int 3 \cos 3x \frac{1}{4}e^{2x} dx\\
+   &= \cos 3x \frac{1}{2}e^{2x} + 3\sin 3x \frac{1}{4}e^{2x} - \frac{9}{4} \int e^{2x} \cos 3x dx\\
+   \frac{13}{4} \int e^{2x} \cos 3x dx &= \cos 3x \frac{1}{2}e^{2x} + 3 \sin 3x \frac{1}{4}e^{2x} +C\\
+   \int e^{2x} \cos 3x dx &= \frac{4}{13} \left( \cos 3x \frac{1}{2}e^{2x} + 3 \sin 3x \frac{1}{4}e^{2x} \right) +C\\
+   &=\frac{2}{13} e^{2x} \left( \cos 3x + \frac{3}{2} \sin 3x \right) +C
+   \end{aligned}\]
+
+
+\subsection{evaluate previous from \([0, \frac{pi}{6}]\)}
+\label{sec:org7b4bada}
+
+\[\begin{aligned}
+   \frac{3}{13}e^{ \frac{pi}{3} } - \frac{2}{13}
+   \end{aligned}\]
+
+\section{\(\int \sec^3 x dx\)}
+\label{sec:org8bfef30}
+
+\[\begin{aligned}
+  \int \sec ^3 x dx  &=\int\sec x\sec ^2 x dx \\
+  &=\sec x\tan x - \int\sec x\tan^2 x dx\\
+  &=\sec x\tan x -\int\sec x (\sec ^2 x - 1) dx\\
+  &=\sec x\tan x -\int \sec ^3 x dx - \int \sec x dx\\
+  2 \int \sec ^3 x dx &= \sec x\tan x - \int \sec x dx\\
+  &=\sec x\tan x - \ln  |\sec x +\tan x | +C
+  \int \sec ^3 x dx  &= \frac{1}{2}\left( \sec x\tan x - \ln  |\sec x +\tan x |\right)  +C
+  \end{aligned}\]
+\end{document}

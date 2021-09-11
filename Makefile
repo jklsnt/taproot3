@@ -50,7 +50,14 @@ gen: $(ORG_GEN)
 
 
 # Transpiling recipes
+docs/%.tex: gen/%.org
+	./transpile.el "$<"
+
+docs/%.html: gen/%.org
+	./transpile.el "$<"
+
 transpile: gen
+	./genstatic.el
 	./transpile.el
 
 

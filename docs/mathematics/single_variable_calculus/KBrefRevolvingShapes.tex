@@ -1,0 +1,115 @@
+% Created 2021-09-11 Sat 16:43
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Taproot}
+\date{\today}
+\title{Revolving Shapes}
+\hypersetup{
+ pdfauthor={Taproot},
+ pdftitle={Revolving Shapes},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\section{an example: semicircle revolved around the x-axis to create a sphere}
+\label{sec:orgaaa904d}
+We can make cuts perpendicular to the axis of rotation. In this case, you end up with a bunch of circular disks, where the height of each slice is your semicircle function.
+
+Thus, the volume of the disk is
+\[\begin{aligned}
+   \pi f^2(x_i) \Delta x = (a^2-x^2) \pi \Delta x
+  \end{aligned}\]
+
+This is kinda like a Riemann Sum, but with more stuff added on. We can take the limit of the sum
+
+\[\begin{aligned}
+   \lim_{n \to \infty} \sum_{k=1}^{n} \pi (a^2 - x_i^2) \Delta x
+  \end{aligned}\]
+
+Where \(\Delta x = \frac{1}{n}\) and \(x_i = -a + \frac{2ak}{n}\)
+
+Expressed as an integral:
+
+\[\begin{aligned}
+   \int_{-a}^{a} \pi (a^2-x^2) dx &\to  \int \pi a^2 dx - \int \pi x^2 dx \\
+   &= \pi a^2 x - \pi \frac{1}{3}x^3\\
+   &\to \pi a^3 - \pi \frac{1}{3} a^3 + \pi a^3 + \pi \frac{1}{3} (-a)^3\\
+   &= 2\pi a^3 - \pi \frac{2}{3} a^3\\
+   &= \frac{4}{3} \pi a^3
+  \end{aligned}\]
+\section{now lets try a cone}
+\label{sec:org7b113ff}
+
+Rotate
+\[\begin{aligned}
+  y = -ax +b
+  \end{aligned}\]
+Around the y-axis. Then, each circle (which is layed out flat) has thickness \(dy\) and radius \(x\) or \(\frac{y-b}{-a}\)
+
+The volume of the disk is then
+\[\begin{aligned}
+  \pi  \left(\frac{y-b}{-a}\right)  ^2 dy
+  \end{aligned}\]
+
+Or using \(r, h\) as the radius and height of the cone,
+
+\[\begin{aligned}
+   \pi  \left(r-\frac{r}{h}y \right)  ^2 dy
+  \end{aligned}\]
+
+And we can take the integral of that from \(0\) to \(h\)
+
+\[\xcancel{\begin{aligned}
+  \int_{0}^{h}  \pi  \left(r-\frac{r}{h}y \right)  ^2 dy &\to \pi  \int \left(r - \frac{r}{h}y \right)  ^2 dx \\
+  \text{Let } u = r-\frac{r}{h}y, du = -\frac{r}{h} dx\\
+  &= \pi -\frac{h}{r} \int u ^2 du\\
+  &= -\pi \frac{h}{r} \frac{1}{3}u^3 +C\\
+  &= -\pi \frac{h}{r} \frac{1}{3} \left(r-\frac{r}{h}y \right)  ^3
+  \end{aligned}}\]
+
+
+\[\begin{aligned}
+  \int_{0}^{h}  \pi  \left(r-\frac{r}{h}y \right)  ^2 dy &\to \pi  \int r^2 +   \left(\frac{r}{h}y \right)  ^2 - 2 r  \left(\frac{r}{h}y \right)  dx \\
+  &= \frac{1}{3} \pi r^3 + \frac{1}{3}\frac{r^2}{h^2}y^3
+  \end{aligned}\]
+\end{document}

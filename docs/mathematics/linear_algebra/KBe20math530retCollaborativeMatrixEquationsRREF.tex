@@ -1,0 +1,96 @@
+% Created 2021-09-11 Sat 16:42
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
+\date{\today}
+\title{Collaborative Matrix Equations and RREF}
+\hypersetup{
+ pdfauthor={Exr0n},
+ pdftitle={Collaborative Matrix Equations and RREF},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{When is it possible to transform the coefficient matrix into the identity matrix?}
+\label{sec:org279d83f}
+When the matrix is square and has an inverse.
+
+\section{What should RREF be?}
+\label{sec:org34fba9f}
+If we are trying to get "as close as possible" to the identity, then we should prioritize the top left corner. So, for a non-square matrix RREF is the matrix where the top or left square is the identity matrix and everything else is zero, or failing the zeros everything else is as many zeros as possible, or failing that just anything. If the top/left square cannot be the identity matrix, then fill in as large an identity matrix as possible. Here are some examples in order of best to worst.
+\subsection{Largest square identity intact:}
+\label{sec:org994fdf4}
+$$
+   \begin{pmatrix}1&0&0&0\\0&1&0&0\\0&0&1&0\end{pmatrix} >
+   \begin{pmatrix}1&0&0&0\\0&1&0&0\\0&0&1&1\end{pmatrix} >
+   \begin{pmatrix}1&0&0&1\\0&1&0&0\\0&0&1&0\end{pmatrix} >
+   \begin{pmatrix}1&0&0&0\\0&1&0&1\\0&0&1&1\end{pmatrix} >
+   \begin{pmatrix}1&0&0&1\\0&1&0&1\\0&0&1&1\end{pmatrix} >
+   $$
+\subsection{Maximize identity square:}
+\label{sec:orgca28ff3}
+\$\$
+\begin{pmatrix}1&0&0&0\\0&1&0&0\\0&0&2&0\end{pmatrix} >
+\begin{pmatrix}1&0&0&0\\0&1&0&0\\0&1&1&0\end{pmatrix} >
+\begin{pmatrix}1&1&0&0\\0&1&0&0\\0&0&1&0\end{pmatrix} >
+\begin{pmatrix}0&1&0&0\\0&1&0&0\\0&0&1&0\end{pmatrix}
+\$\$
+\section{Find the column space and null space of the matrices?}
+\label{sec:org1f4fb64}
+\subsection{\(\begin{pmatrix}1&2&1\\2&0&1\\1&-2&0\end{pmatrix}\)}
+\label{sec:org57e5ab6}
+RREF: \(\begin{pmatrix}1&0&\frac{1}{2}\\0&1&\frac{1}{4}\\0&0&0\end{pmatrix}\)
+Column space: vectors of the form \((x, y, 0) : x, y \in \mathbb F\).
+Null space: vectors of the form \((4x, 2x, -x)\).
+\subsection{\(\begin{pmatrix}1&-1\\0&3\\1&1\end{pmatrix}\)}
+\label{sec:orga6307ab}
+RREF: \(\begin{pmatrix}1&0\\0&1\\0&0\end{pmatrix}\)
+Column space: vectors of the form \((x, y, 0)\).
+Null space: 0.
+\subsection{\(\begin{pmatrix}1&0&2&4\\2&-1&0&1\end{pmatrix}\)}
+\label{sec:org5c3946f}
+RREF: \(\begin{pmatrix}1&0&2&4\\0&1&4&7\end{pmatrix}\)
+Column space: vectors of the form \((x, y)\).
+Null space: \((w, x, y, z)\) where \(x = -2y - 4 z\) and \(y = -4y -7z\).
+\end{document}

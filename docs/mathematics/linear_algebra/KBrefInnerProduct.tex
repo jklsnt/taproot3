@@ -1,0 +1,98 @@
+% Created 2021-09-11 Sat 16:42
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Taproot}
+\date{\today}
+\title{Inner Product}
+\hypersetup{
+ pdfauthor={Taproot},
+ pdftitle={Inner Product},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\section{inner product\hfill{}\textsc{def}}
+\label{sec:org2ef6dc1}
+\begin{quote}
+An \emph{inner product} on \(V\) is a function that takes each ordered pair \((u, v)\) of elements of \(V\) to a number \(\langle u, v \rangle \in \FF\)  and has the following properties
+\begin{itemize}
+\item \textbf{positivity} \(\langle v, v \rangle \geq  0 \forall v\in V\)
+\item \textbf{definiteness} \(\langle v, v \rangle = 0 \iff v = 0\)
+\item \textbf{additivity in first slot} \(\langle u+v, w \rangle = \langle u, w \rangle + \langle v, w \rangle \forall u, v, w, \in V\)
+\item \textbf{homogeneity in first slot} \(\langle \lambda u, v \rangle = \lambda \langle u,v \rangle \forall \lambda \in \FF, u,v \in  V\)
+\item \textbf{conjugate symmetry} \(\langle u,v \rangle = \overline{\langle v,u \rangle} \forall u,v \in V\)
+\begin{itemize}
+\item Over the reals, this is equal to \(\langle u,v \rangle = \langle v, u \rangle\)
+\end{itemize}
+\end{itemize}
+\end{quote}
+\section{motivation}
+\label{sec:org0860cc7}
+\subsection{The norm of a complex number \(\lVert z \rVert\) should be non-negative, so we can define it as}
+\label{sec:orgb02cb75}
+\[\begin{aligned}
+   \lVert z \rVert =\sqrt{|z_1|^2 + \cdots + |z_n| ^2}
+   \end{aligned}\]
+Since the square of the absolute value is just a complex number times a conjugate, and because the norm squared should be the inner product of \(z\) with itself, maybe the inner product of \(w, z \in  \CC ^n\) should equal
+\[\begin{aligned}
+   w_1 \overline{z_1} + \cdots + w_n \overline{z_n}
+   \end{aligned}\]
+\subsection{positivity: we want inner product to be the size of the vector, so it should be a positive and real number}
+\label{sec:orga6f27f0}
+\subsection{notation}
+\label{sec:org2c4b5cc}
+For a complex scalar \(\lambda \in \CC\), \(\lambda \geq 0\) means \(\lambda\) is real and non-negative
+
+\(\langle u, v \rangle\) denotes an inner product.
+\section{intuition}
+\label{sec:orgbb91782}
+\subsection{additivity/homogeneity in the first slot also implies additivity in the second slot, and 'conjugate homogeneity in the second slot'}
+\label{sec:orgcc8497b}
+\subsection{we want the norm to be a real scalar, so we need to take the complex conjugate of the second one}
+\label{sec:org94eaaf1}
+\subsubsection{so, the Euclidean inner product is conjugate the second, then dot product}
+\label{sec:orga4add13}
+\[\begin{aligned}
+    \langle u, v \rangle = u \overline{z}
+	\end{aligned}\]
+\end{document}

@@ -1,0 +1,116 @@
+% Created 2021-09-11 Sat 16:42
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
+\date{\today}
+\title{Flo 23 (19 Nov 2020, skipped a bunch of proofs)}
+\hypersetup{
+ pdfauthor={Exr0n},
+ pdftitle={Flo 23 (19 Nov 2020, skipped a bunch of proofs)},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{Row Reduced Echelon Form}
+\label{sec:orgfc9b860}
+Null space is the same (because algebra).
+Then turn it into a system of equations and use those equations to find the null space.
+
+\section{Factoring a vector}
+\label{sec:org4730855}
+Say we have \(\begin{pmatrix}-2x_3-4x_4\\-4x_3-7x_4\\x_3\\x_4\end{pmatrix}\).
+Then you can write it as the linear combination $$\begin{pmatrix}-2x_3\\-4x_3\\x_3\\0\end{pmatrix}+\begin{pmatrix}-4x_4\\-7x_4\\0\\x_4\end{pmatrix} = x_3\begin{pmatrix}-2\\-4\\1\\0\end{pmatrix}+x_4\begin{pmatrix}-4\\-7\\0\\1\end{pmatrix}$$
+
+\section{\#icr 3.C\hfill{}\textsc{icr}}
+\label{sec:org8b3a7fe}
+
+\subsection{Matrix Definition}
+\label{sec:org8582740}
+Old news (but lots of subscripts)
+
+\subsection{Making a matrix from a map}
+\label{sec:org73982a3}
+Based on maps being uniquely determined
+
+\subsection{Matrix addition and scalar multiplication}
+\label{sec:org5c05a44}
+Not news
+
+\subsection{The matrix for the derivative map (finite)}
+\label{sec:org8d3eafe}
+$$T \in \mathcal L\left(\mathcal P_5\left(\mathbb R\right), \mathcal P_4\left(\mathbb R\right)\right)$$
+Start with standard bases: \(\mathcal P_5 \rightarrow 1, x, x^2, x^3, x^4, x^5\), \(\mathcal P_4 \rightarrow 1, x, x^2, x^3, x^4\)
+Now lets define the map:
+$$\begin{align*}
+   T 1 &= 0\\
+   T x &= 1\\
+   T x^2 &= 2x\\
+   T x^3 &= 3x^2\\
+   T x^4 &= 4x^3\\
+   T x^5 &= 5x^4\\
+   \end{align*}$$
+
+And then we write each output as a linear combo of the basis of \(\mathcal P_4\) then we can define the matrix:
+
+$$ \begin{pmatrix}
+   0&1&0&0&0&0\\
+   0&0&2&0&0&0\\
+   0&0&0&3&0&0\\
+   0&0&0&0&4&0\\
+   0&0&0&0&0&5\\
+   \end{pmatrix} \begin{pmatrix}
+   a_0\\a_1\\a_2\\a_3\\a_4\\a_5
+   \end{pmatrix} $$
+
+Note that the matrix is \(5\times 6\) because we are going from dimension \(6 \to 5\) (and the second dimension gets "consumed" in the multiplication)
+
+\subsection{Axler3.40 dimension of the matrix vector space\hfill{}\textsc{icr}}
+\label{sec:orgf6a2ffe}
+Put a one in every location which forms a basis.
+
+\subsection{Axler3.49 column of matrix product equals matrix times column\hfill{}\textsc{icr}}
+\label{sec:org7a444bb}
+Makes sense if you draw it out.. basically a column in the product \(AC\) will have used all of \(A\) but only the one column in \(C\).
+$$(AC)_{\cdot, k} = A(C_{\cdot, k})$$ and $$(AC)_{j, \cdot} = (A_{j, \cdot})C$$
+\end{document}

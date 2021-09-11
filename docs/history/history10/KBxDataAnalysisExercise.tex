@@ -1,0 +1,173 @@
+% Created 2021-09-11 Sat 16:40
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Huxley}
+\date{\today}
+\title{Data Analysis Exercise}
+\hypersetup{
+ pdfauthor={Huxley},
+ pdftitle={Data Analysis Exercise},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\#ref \#ret
+
+\noindent\rule{\textwidth}{0.5pt}
+
+\%\%For \textbf{each} of the four scenarios below, answer the following
+questions. Please explain where your targets/rewards would come from
+(\#2), how you would make your inputs numerical (\#3), and a bit of your
+reasoning on ethical issues (\#6). Other questions do not need
+explanation.
+
+\begin{enumerate}
+\item What type of machine learning problem (regression, classification,
+clustering, generation, reinforcement learning) do you think this is?
+\item If this is a supervised problem, what will you use as your targets
+(aka labels)? If it is reinforcement learning, what will you use as
+your rewards? If it is unsupervised, just say "unsupervised".
+\item What processing do you need to do to your input data?
+\item What type(s) of model(s) would you try? You may need to combine
+models. Remember to start with the simplest thing that might work!
+Types of models we've talked about are linear regression, decision
+trees, random forest, logistic regression, naive bayes, support
+vector machines, K-means, DBSCAN, hierarchical clustering, fully
+connected neural networks, convolutional neural networks, recurrent
+neural networks, generative adversarial networks, deep Q learning,
+and evolutionary methods.
+\item What validation metric(s) would you use to decide how well you're
+doing?
+\item What ethical challenges do the data collection, creation, and/or use
+of this model create? If you feel there aren't any, just say
+"None".\%\%
+\end{enumerate}
+
+\section{Scenarios:}
+\label{sec:org82e1eee}
+\begin{enumerate}
+\item \textbf{You want your model to learn to play
+\href{https://en.wikipedia.org/wiki/Frogger}{Frogger}.}
+
+\begin{enumerate}
+\item Reinforcement learning
+\item Points, as given by the game.
+\item The agent would be passed some input vector with a grid
+representing the game, perhaps in addition to some extra
+normalized variables like time left and goals filled.
+\item Perhaps deep Q learning with an RNN to be able to process
+different obstacle speeds.
+\item Regret
+\item Botting in video games, when the same techniques are applied to
+multiplayer?
+\end{enumerate}
+
+\item \textbf{You would like a model to write tweets in the style of a particular
+author.}
+
+\begin{enumerate}
+\item Generation
+\item Unsupervised
+\item Padding, byte pair encoding, tokenization, ect.
+\item GAN, RNN / LSTM for generator, RNN for discriminator
+\item Human evaluation
+\item Could be used to fake tweets or impersonate people which has many
+larger implications. Data harvesting might also be a problem.
+\end{enumerate}
+
+\item *A company would like to be able to predict the next months' sales
+for each of its products. You have a dataset that the company has
+collected for many years, with data for a particular product on a
+particular month in each row. Each row contains the number of sales
+for the month, the number of sales from the previous month, the
+average rating (1-5) of the product in the previous month, the number
+of reviews in the previous month, the product type (e.g. "toaster",
+"coffee maker", "rice cooker"), its price the previous month, and its
+price for the current month.*
+
+\begin{enumerate}
+\item Regression
+\item The number of sales for the month in the collected dataset
+\item Normalize average rating, OHE product type
+\item FNN
+\item R\textsuperscript{2}
+\item None
+\end{enumerate}
+
+\item *You would like to predict the presence of a certain disease using
+chest x-ray data. You have a lot of x-ray images, a small amount of
+which have been labeled as having the disease or not having the
+disease. The rest of the images are unknown as to whether or not the
+person has the disease.*
+
+\begin{enumerate}
+\item Classification
+\item Semi-supervised, using the provided labels as well as generated
+pseudo-labels
+\item Down-sampling, grayscale?
+\item CNN
+\item F-score
+\item Model explainability challenges, covered in our ethics
+presentation last semester in ML.
+\end{enumerate}
+\end{enumerate}
+
+\%\%\#\#\# Example:
+
+Here is an example answer, taken from
+\url{http://archive.ics.uci.edu/ml/datasets/Abalone}:
+
+Scenario: You want to predict the age of an abalone (a type of
+shellfish). You have a dataset that includes the age of the abalone, the
+sex ('M', 'F', and 'I'), the length, the diameter, the height, and the
+weight.
+
+\begin{enumerate}
+\item regression
+\item age (included in dataset)
+\item Length, diameter, height, and weight are numeric. I will scale them.
+For the sex feature, make it one-hot-encoded.
+\item linear regression. maybe a fully connected neural network later
+\item R\textsuperscript{2}\%\%
+\end{enumerate}
+\end{document}

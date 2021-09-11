@@ -1,0 +1,104 @@
+% Created 2021-09-11 Sat 16:42
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Taproot}
+\date{\today}
+\title{Orthogonal Projection}
+\hypersetup{
+ pdfauthor={Taproot},
+ pdftitle={Orthogonal Projection},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\section{Axler6.53 orthogonal projection, \(P_U\)\hfill{}\textsc{def}}
+\label{sec:org38bfe11}
+\begin{quote}
+Suppose \(U\) is a finite-dimensional subspace of \(V\). The \emph{orthogonal projection} of \(V\) onto \(U\) is the operator \(P_U \in\mathcal{L} (V)\) defined as follows:
+
+For \(v \in  V\), write \(v = u + w\), where \(u \in  U\) and \(w \in  U^\bot\). Then \(P_Uv = u\).
+\end{quote}
+In other words, \(P_U \in \mathcal{L} (V)\) takes \(v\) to the component of \(v\) that is in \(U\).
+
+This concept is closely related to the \href{KBrefOrthogonalDecomposition.org}{Orthogonal Decomposition}
+\subsection{Results}
+\label{sec:org91578c0}
+\subsubsection{Axler6.54 calculating \(P_U v\)}
+\label{sec:org2c7ea10}
+
+\[\begin{aligned}
+    P_U v = \frac{\langle  v, x \rangle}{\lVert x \rVert ^2} x
+	\end{aligned}\]
+
+Because orthogonal decompositions and stuff
+\subsubsection{Axler6.55 properties}
+\label{sec:orgb12139e}
+Suppose \(U\) is a finite-dimensional subspace of \(V\) and \(v \in  V\). Then,
+\begin{enumerate}
+\item \(P_U \in \mathcal{L}(V)\)
+\label{sec:orgb4328e1}
+\item \(P_U u = u \forall u \in  U\)
+\label{sec:org3998a17}
+\item \(P_U w = 0 \forall w \in  U^\bot\)
+\label{sec:org0c7c4f7}
+\item \(\orange P_U = U\)
+\label{sec:org2f1a90f}
+\item \(\onull P_U = U^\bot\)
+\label{sec:org726ac7a}
+\item \(P_U ^2 = P_U\) (by $\backslash$#2 and $\backslash$#4)
+\label{sec:org15c028b}
+\item \(\lVert P_U v \rVert \leq  \lVert v \rVert\)
+\label{sec:org9216a83}
+\item for every orthonormal basis \(e_1, \ldots, e_m\) of \(U\),
+\label{sec:org605055c}
+
+\[\begin{aligned}
+     P_U v = \langle  v, e_1 \rangle e_1, + \cdots + \langle v, e_m \rangle e_m
+	 \end{aligned}\]
+
+(because \(P_U v \in  U\))
+\end{enumerate}
+\subsubsection{Axler6.56 Minimizing the distance to a subspace}
+\label{sec:org8a7e648}
+See \href{KBrefMinimizingDistanceToSubspace.org}{Minimizing the distance to a subpsace}
+\end{document}

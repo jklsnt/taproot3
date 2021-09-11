@@ -1,0 +1,184 @@
+% Created 2021-09-11 Sat 16:43
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Taproot}
+\date{\today}
+\title{Handout 25 Additional Answers}
+\hypersetup{
+ pdfauthor={Taproot},
+ pdftitle={Handout 25 Additional Answers},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\setcounter{section}{10}
+
+\section{cubic and a line}
+\label{sec:orgc3bf02f}
+
+\subsection{show tangency}
+\label{sec:org9de31be}
+
+\[\begin{aligned}
+   \frac{dy}{dx} = \frac{d}{dx}(4 x ^2 - x ^3) = 8 x - 3 x^2&\Bigr|_3\\
+   &= 24 - 27 = -3\\
+   \frac{dy}{dx} = \frac{d}{dx}(18 - 3 x) = -3 \\
+   \end{aligned}\]
+
+\subsection{area between curves}
+\label{sec:orgf035a91}
+
+\[\begin{aligned}
+    \int_{3}^{6} 18-3x - 4x^2 + x^3 dx &\to \frac{1}{4}x^4 - \frac{1}{3}4x^3 - \frac{1}{2} 3x^2 + 18 x +C\\
+	&= \frac{1}{4}(6)^4 - \frac{1}{3}4(6)^3 - \frac{1}{2} 3(6)^2 + 18 (6) \\
+	&- \frac{1}{4}(3)^4 + \frac{1}{3}4(3)^3 + \frac{1}{2} 3(3)^2 - 18 (3)\\
+	&= \boxed{\frac{261}{4}}
+   \end{aligned}\]
+
+\section{estimate area}
+\label{sec:orgc6f250e}
+
+Right handed Riemann Sum:
+\[\begin{aligned}
+  0.5 + 4 + 10 + 13 + 10 + 0 = 37.5
+  \end{aligned}\]
+
+\section{estimate area again}
+\label{sec:org228a107}
+
+\[\begin{aligned}
+  4(200 + 2700 + 1100 + 4000 + 200) = 32800
+  \end{aligned}\]
+
+\section{area between curves}
+\label{sec:org8db90aa}
+
+\[\begin{aligned}
+  \int_{0}^{10} 2200e^{0.024t} dx - \int_0^{10} 1360e^{0.018t} dx &= \frac{1}{0.024} 2200e^{0.024t} - \frac{1}{0.018} 1360e^{0.018t}\\
+  \implies &\quad \ \frac{1}{0.024} 2200e^{0.24} - \frac{1}{0.018} 1360e^{0.18} - \frac{1}{0.024} 2200 + \frac{1}{0.018} 1360
+  &\approx  9964
+  \end{aligned}\]
+
+The area represents the population over those ten years.
+
+\section{meaning of area}
+\label{sec:orgb484157}
+The shaded region represents the profit made between producing 50 units and 100 units.
+
+\section{slicing pizza into three using parallel cuts}
+\label{sec:org514910e}
+The problem of placing slices is the same if we only worry about the top half of the pizza. Thus, we can choose some \(x\) for the first slice s.t.
+
+\[\begin{aligned}
+  2\int_{-7}^{x} \sqrt{7^2 - t^2} dt &= \int_{x}^{7} \sqrt{7^2 - t^2} dt\\
+  2\int_{-7}^{x} \sqrt{7^2 - t^2} dt &- \int_{x}^{7} \sqrt{7^2 - t^2} dt = 0\\
+  2\int_{-7}^{x} \sqrt{7^2 - t^2} dt &+ \int_{7}^{x} \sqrt{7^2 - t^2} dt = 0\\
+  2\left( \int_{0}^{x} \sqrt{7^2 - t^2} dt - \int_{0}^{-7} \sqrt{7^2 - t^2} dt \right)  &+\left( \int_{0}^{x} \sqrt{7^2 - t^2} dt - \int_{0}^{7} \sqrt{7^2 - t^2} dt \right)  = 0\\
+  2\left( \int_{0}^{x} \sqrt{7^2 - t^2} dt + \int_{-7}^{0} \sqrt{7^2 - t^2} dt \right)  &+\left( \int_{0}^{x} \sqrt{7^2 - t^2} dt - \int_{0}^{7} \sqrt{7^2 - t^2} dt \right)  = 0\\
+  2\int_{0}^{x} \sqrt{7^2 - t^2} dt + 2\int_{-7}^{0} \sqrt{7^2 - t^2} dt  &+\int_{0}^{x} \sqrt{7^2 - t^2} dt - \int_{0}^{7} \sqrt{7^2 - t^2} dt = 0\\
+  3\int_{0}^{x} \sqrt{7^2 - t^2} dt + 2\int_{-7}^{0} \sqrt{7^2 - t^2} dt  &- \int_{0}^{7} \sqrt{7^2 - t^2} dt = 0\\
+  3\int_{0}^{x} \sqrt{7^2 - t^2} dt + \int_{-7}^{0} \sqrt{7^2 - t^2} dt &= 0\\
+  3\int_{0}^{x} \sqrt{7^2 - t^2} dt + \frac{49\pi}{4}  &= 0\\
+  \end{aligned}\]
+Now, we need to use trigonometric substitution, apparently.
+\[\begin{aligned}
+  x = a \sin \theta, dx = a \cos  \theta d \theta
+  \end{aligned}\]
+
+
+Or, you could use David's method, which is just better (cut horizontally instead of vertically)
+\[\begin{aligned}
+  \int_{-7}^{7} \sqrt{49-x^2} - a dx = \frac{49\pi }{3}\\
+  \int_{-7}^{7} \sqrt{49-x^2} dx -\int_{-7}^{7}  a dx = \frac{49\pi }{3}\\
+  \frac{49\pi }{2} -\int_{-7}^{7}  a dx = \frac{49\pi }{3}\\
+  \frac{49\pi }{2} -\left( 7a - -7a \right)  = \frac{49\pi }{3}\\
+  \frac{49\pi }{6} = 14a\\
+  a = \frac{49\pi }{84} = \frac{7\pi }{12}
+  \end{aligned}\]
+Since \(a\) is the upper half of the center portion, the width of each slice is \(2a = \frac{7 \pi}{6}\)
+
+\section{tractrix}
+\label{sec:orgb7dc723}
+
+\subsection{derivative}
+\label{sec:org41cbfe4}
+
+At any moment, if the boat is at \((x, y)\) and the puller is at \((0, h)\), then the velocity of the boat is in the direction
+\[\begin{aligned}
+  \frac{\Delta y}{\Delta x}
+  \end{aligned}\]
+
+Where \(\Delta x = -x\) and \(\Delta y\) can be found using the Pythagorean Theorem
+
+\[\begin{aligned}
+  &&L ^2 &= \Delta y ^2 + x ^2\\
+  \implies && \Delta y &= \sqrt{L^2 - x ^2}
+  \end{aligned}\]
+
+Thus, the boat is moving in the direction
+
+\[\begin{aligned}
+  \frac{\sqrt{L^2-x^2}}{ -x}
+  \end{aligned}\]
+
+\subsection{integral}
+\label{sec:orga151ba1}
+
+\[\begin{aligned}
+   \int \frac{\sqrt{L^2-x^2}}{-x} dx &= - \int \frac{1}{x} \sqrt{L^2 - x^2} dx\\
+   \text{Let } x = L \sin \theta, dx = L \cos  \theta d\theta \\
+   &= - \int \frac{1}{L \sin \theta } \sqrt{L^2 - L ^2 \sin  ^2 \theta } dx\\
+   &= - \int \frac{1}{L \sin \theta } L \sqrt{1 - \sin  ^2 \theta } dx\\
+   &= - \int \frac{1}{L \sin \theta } L \sqrt{\cos  ^2 \theta } dx\\
+   &= - \int \frac{L \cos  \theta }{L \sin  \theta } L \cos  \theta  d\theta \\
+   &= - \int L \frac{\cos ^2 \theta}{\sin  \theta} d\theta\\
+   &= - L \int \frac{1}{\sin \theta } d\theta  + L \int \sin  \theta  d\theta\\
+   &= L \ln  \lvert \csc \theta  + \cot  \theta  \rvert - L \cos  \theta +C\\
+   &= L \ln  \left\lvert \frac{L}{x}  + \frac{\sqrt{L^2-x^2}}{x} \right\rvert - \sqrt{L^2-x^2} +C
+   \end{aligned}\]
+
+\section{{\bfseries\sffamily TODO} water displacement}
+\label{sec:orgcda841d}
+
+Plan: find a function \(f(r)\) which represents the amount of water displaced for any radius, then take the derivative and find roots.
+\end{document}

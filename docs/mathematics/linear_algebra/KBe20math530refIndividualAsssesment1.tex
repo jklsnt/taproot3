@@ -1,0 +1,147 @@
+% Created 2021-09-11 Sat 16:43
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
+\date{\today}
+\title{prep for first individual assesment}
+\hypersetup{
+ pdfauthor={Exr0n},
+ pdftitle={prep for first individual assesment},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\section{Definitions}
+\label{sec:org5fba4f3}
+\subsection{{\bfseries\sffamily DONE} group}
+\label{sec:orgb53f1ee}
+A set and binary operation that satisfies Group Properties
+\begin{itemize}
+\item Closed
+\item Identity
+\item Inverse
+\item Associative
+\end{itemize}
+\subsection{{\bfseries\sffamily DONE} field}
+\label{sec:org86f4036}
+A set and two binary operations: the primary (addition) and secondary (multiplication) that "mostly" satisfies group properties for both operations, and are \textbf{commutative and distributive}.
+It must be a group under the primary operation and a group under the secondary operation except without a secondary inverse for the primary indentity.
+\subsection{{\bfseries\sffamily DONE} non-singular matrices}
+\label{sec:org4003fe2}
+singular matrix: has no inverse.
+non-singular matrix: has an inverse aka determinant non zero
+\section{Connections}
+\label{sec:org8581f98}
+\subsection{{\bfseries\sffamily DONE} connect direct sum and linear independence}
+\label{sec:orgf25a53c}
+the sum of two spaces is direct if their basises are linearly independent
+\subsection{{\bfseries\sffamily DONE} matrices to represent complex numbers}
+\label{sec:orga2a8387}
+The negative one matrix is \(\begin{bmatrix}-1&0\\0&-1\end{bmatrix}\) and we want the square root of that. It turns out that \(\begin{bmatrix}0&-1\\1&0\end{bmatrix}\) satisfies this, and in fact, any complex number \(a + bi\) can be represented as \(\begin{bmatrix}a&-b\\b&a\end{bmatrix}\).
+These matrices are commutative under multiplication (like complex numbers should be), have their complex conjugates equal to their transposes, and a bunch of other nice properties. Also related to rotation matrices.
+\#source \url{https://www.nagwa.com/en/explainers/152196980513/}
+\section{Computation}
+\label{sec:orge71cf32}
+\subsection{{\bfseries\sffamily DONE} Find the determinant of matrices}
+\label{sec:org250f814}
+$$\left|\begin{matrix}a&b\\c&d\end{matrix}\right| = ad-bc$$
+\subsection{{\bfseries\sffamily DONE} compute cross product}
+\label{sec:org4aa88f6}
+$$
+   \begin{pmatrix}a\\b\\c\end{pmatrix}\times\begin{pmatrix}d\\e\\f\end{pmatrix} = \left|\begin{matrix}i&j&k\\a&b&c\\d&e&f\end{matrix}\right| = i \left|\begin{matrix}b&c\\e&f\end{matrix}\right|+ j\left|\begin{matrix}c&a\\f&d\end{matrix}\right| + k\left|\begin{matrix}a&b\\d&e\end{matrix}\right| = bf-ce, cd-fa, ae - bd
+   $$
+\subsection{{\bfseries\sffamily DONE} Find equations of lines and planes using cross product and dot product}
+\label{sec:org44d6bd0}
+Use the cross product to find an orthagonal vector \(\vec p\). The plane is all vectors that are orthagonal to \(\vec p\), which is to say that the dot product is zero (\(\left\{ \vec{u} : \vec{u}\cdot\vec{p} = 0 \right\}\)).
+\section{Derivations}
+\label{sec:orgee4c7fe}
+\subsection{{\bfseries\sffamily DONE} properties of the determinant}
+\label{sec:org4d49c81}
+\subsubsection{zero when matrix has no inverse (singular)}
+\label{sec:orgfe4120c}
+\subsubsection{det = -1 for rotation matrices?}
+\label{sec:org14f3137}
+
+\subsection{{\bfseries\sffamily DONE} inverse of a 2x2 matrix}
+\label{sec:org8bb7357}
+$$ \begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}e&f\\g&h\end{bmatrix} = \begin{bmatrix}1&0\\0&1\end{bmatrix} $$
+$$ \begin{aligned} ae+bg = 1\\ ce+dg = 0\\ af+bh = 0\\ cf+dh = 1\\ \end{aligned} $$
+Then you do some algebra to get
+\$\$
+\begin{aligned}
+e = \frac{d}{ad-bc}\\
+g = \frac{-c}{ad-bc}\\
+f = \frac{-b}{ad-bc}\\
+h = \frac{a}{ad-bc}\\
+\end{aligned}
+\$\$
+\subsection{{\bfseries\sffamily DONE} rotation matrices}
+\label{sec:org8073e50}
+Don't try to algebra it. Use polar coordinates and the angle sum trig identities:
+$$\begin{aligned}
+   \sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta\\
+   \cos(\alpha + \beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta
+   \end{aligned}$$
+
+anyways, you get \(\begin{bmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{bmatrix}\).
+
+\section{review quizzes}
+\label{sec:orgbbd2a52}
+\subsection{{\bfseries\sffamily DONE} first quiz}
+\label{sec:org1a0385e}
+\subsubsection{see "find equations of lines and planes using cross product and dot product"}
+\label{sec:org09d59e1}
+\subsubsection{rotation matrices}
+\label{sec:org336d292}
+\subsubsection{cross product}
+\label{sec:org7a53d6b}
+\subsection{{\bfseries\sffamily DONE} mini take home quiz}
+\label{sec:org8f88a33}
+no feedback
+\subsection{{\bfseries\sffamily DONE} linear independence quiz}
+\label{sec:org6f07590}
+teacher gave no problems
+\subsection{{\bfseries\sffamily DONE} quick linear quiz (linear independence and bases)}
+\label{sec:org878c227}
+no feedback, I think that quiz was pretty solid..
+\end{document}

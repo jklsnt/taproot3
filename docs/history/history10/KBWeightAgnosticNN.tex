@@ -1,0 +1,137 @@
+% Created 2021-09-11 Sat 16:40
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Huxley}
+\date{\today}
+\title{Weight Agnostic Neural Networks}
+\hypersetup{
+ pdfauthor={Huxley},
+ pdftitle={Weight Agnostic Neural Networks},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\#ref \#ret
+
+\noindent\rule{\textwidth}{0.5pt}
+
+\section{Weight Agnostic Neural Networks}
+\label{sec:org7173109}
+\emph{Or WANNN, for short.}
+
+My personal note's on
+\href{https://towardsdatascience.com/weight-agnostic-neural-networks-fce8120ee829}{this
+article}, and also
+\href{https://ai.googleblog.com/2019/08/exploring-weight-agnostic-neural.html}{this
+article}.
+
+\noindent\rule{\textwidth}{0.5pt}
+
+Animals can perform tasks when they are born without prior experience to
+the world. If the brain is pre-wired, then learning new from experience
+would cause a loss of the old skill. What gives?
+
+WANNs can perform tasks regardless of the weights in its connections by
+operating off of a pre-made structure.
+
+Also, finding structures with inductive bias is hard and slow!
+
+\subsection{NEAT}
+\label{sec:orgbe0f1fb}
+\emph{NeuroEvolution of Augmented Topologies}
+
+Genetic algorithm in which mutations are done by changing the
+\textbf{structure} of the network.
+
+\subsection{Back to WANN}
+\label{sec:org92c26c1}
+Can generalize the network to work with a range of weight values?
+
+Instead of changing connection weights, they
+
+\begin{itemize}
+\item add connections,
+\item add weight,
+\item change activation functions.
+\end{itemize}
+
+\begin{quote}
+Networks in which the structure enables the task to be completed, not
+the weights, can be developed.
+\end{quote}
+
+\subsubsection{Finding WANNs}
+\label{sec:org7eebda7}
+Start with a small amount of network architectures then use NEAT on
+them. With this system of growth and training, easier and more efficient
+to optimize models across a wide range of input values.
+
+Also optimizes for less complexity in the network.
+
+Is general, but not as good at the individual scenarios as normal
+networks.
+
+\textbf{Proposed: WANN as starting point, then run normal training on the
+network}
+
+Also allows for much easier training as the structure generally has a
+lot less nodes as it is specialized for a certain task.
+
+Analogous to how animals learn.
+
+Can also copy WANN network, and individually train, then use them in
+collections for different input values?
+
+\subsection{So?}
+\label{sec:orgadd0252}
+WANNs make models more interpretable, as their solutions or logic is
+encoded directly into their structure.
+
+More general, and deals better with varying inputs.
+
+Also allows us to encode 'intellegence' from the creation of of the
+network
+
+Can be used to find 'building blocks,' sort of like automating the
+finding of revolutionary structures like CNNs.
+\end{document}

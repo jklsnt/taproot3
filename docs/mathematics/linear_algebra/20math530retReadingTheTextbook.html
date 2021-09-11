@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-11 Sat 16:39 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ret Reading The Textbook!</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Exr0n" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="https://taproot3.sanity.gq/sitemap.html"> UP </a>
+ |
+ <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
+</div><div id="content">
+<h1 class="title">ret Reading The Textbook!</h1>
+<p>
+#ret
+</p>
+
+<div id="outline-container-exercises" class="outline-2">
+<h2 id="exercises"><span class="section-number-2">1</span> Exercises</h2>
+<div class="outline-text-2" id="text-exercises">
+</div>
+<div id="outline-container-a.2" class="outline-3">
+<h3 id="a.2"><span class="section-number-3">1.1</span> 1.A.2</h3>
+<div class="outline-text-3" id="text-a.2">
+<p>
+\[
+</p>
+\begin{split}
+\left(\frac{-1+\sqrt{3}i}{2}\right)^3 =
+\left(\frac{-1+\sqrt{3}i}{2}\right)\left(\frac{-2-2\sqrt{3}i}{4}\right) =
+\frac{2+\cancel{2\sqrt{3}i-2\sqrt{3}i}-2*3*i^2}{8} = \frac{8}{8} = 1
+\end{split}
+<p>
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-a.10" class="outline-3">
+<h3 id="a.10"><span class="section-number-3">1.2</span> 1.A.10</h3>
+<div class="outline-text-3" id="text-a.10">
+<p>
+\[
+</p>
+\begin{aligned}
+(4, -3, 1, 7) + 2(x_1, x_2, x_3, x_4) = (5, 9, -6, 8)\\
+4+2x_1 &= 5,\\-3+2x_2 &= 9,\\1+2x_3 &= -6,\\7+2x_4 &= 8\\
+x &= (\frac{1}{2}, 6, \frac{-7}{2}, \frac{1}{2})\\
+\end{aligned}
+<p>
+\] Not sure how to do this with matrices?
+</p>
+</div>
+</div>
+
+<div id="outline-container-a.15" class="outline-3">
+<h3 id="a.15"><span class="section-number-3">1.3</span> 1.A.15</h3>
+<div class="outline-text-3" id="text-a.15">
+<p>
+\[
+</p>
+\begin{split}
+\lambda(x+y)\\
+&=\lambda(x_1+y_1, x_2+y_2, x_3+y_3\ ...\ x_n+y_n)\\
+&=(\lambda(x_1+y_1), \lambda(x_2+y_2), \lambda(x_3+y_3)\  ...\ \lambda(x_n+y_n))\\
+&=(\lambda x_1 + \lambda y_1, \lambda x_2 + \lambda y_2, \lambda x_3 + \lambda y_3 \ ...\ \lambda x_n + \lambda y_n)\\
+&=(\lambda x_1, \lambda x_2, \lambda x_3\ ...\ \lambda x_n) + (\lambda y_1, \lambda y_2, \lambda y_3\ ...\ \lambda y_n)\\
+&= \lambda(x) + \lambda(y) = \lambda x + \lambda y
+\end{split}
+<p>
+\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-matrices-for-solving-systems" class="outline-2">
+<h2 id="matrices-for-solving-systems"><span class="section-number-2">2</span> Matrices for Solving Systems</h2>
+<div class="outline-text-2" id="text-matrices-for-solving-systems">
+<p>
+I'm not sure what I should notice, although it's interesting that they
+are all 2x2 matrices that are (or can be decomposed into) one number
+away from the identity. I think we mentioned that they were "essential
+matrices" or something?
+</p>
+</div>
+</div>
+
+<div id="outline-container-geometric-interpretation-of-dot-product" class="outline-2">
+<h2 id="geometric-interpretation-of-dot-product"><span class="section-number-2">3</span> Geometric Interpretation of Dot Product</h2>
+<div class="outline-text-2" id="text-geometric-interpretation-of-dot-product">
+<p>
+We talked about it in class, and learned it in physics, but a dot
+product \(A \cdot B\) can be interpreted as the magnitude of \(A\)'s
+projection onto \(B\) multiplied by the magnitude of \(B\).
+\(A \cdot B = |A||B|cos\theta\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-dot-product-on-vectors-as-a-group" class="outline-2">
+<h2 id="dot-product-on-vectors-as-a-group"><span class="section-number-2">4</span> Dot Product on Vectors as a Group</h2>
+<div class="outline-text-2" id="text-dot-product-on-vectors-as-a-group">
+<p>
+No. Dot product returns a scalar, which means that this operation is
+distinctly not closed.
+</p>
+
+<p>
+After class on 3 Sep, Daniel mentioned that it might be a group if you
+define a modified dot product where you take the normal dot product and
+put it in the direction of the second vector. However, this doesn't work
+because the for any given \(N\)x\(1\) matrixe \(A\) the identity \(e\)
+has to satisfy \(A\cdot e = e \cdot A = A\). Thus, the definition that
+relies on the direction of the second operand will break when the
+identity is on one of the sides. *Because dot product relies on the
+angle between the two vectors, I think it would be difficult to find an
+angle for an identity vector that works with all other angles of
+vectors. I'm not sure how to formalize this&#x2026;* #todo
+</p>
+</div>
+</div>
+
+<div id="outline-container-inverse-of-a-matrix" class="outline-2">
+<h2 id="inverse-of-a-matrix"><span class="section-number-2">5</span> Inverse of a matrix</h2>
+<div class="outline-text-2" id="text-inverse-of-a-matrix">
+<p>
+I tried this for the previous homework when we were to determine if 2x2
+matrices were groups under multiplication, but didn't end up getting
+anywhere. I will try again&#x2026;
+</p>
+
+<p>
+<a href="srcIdentityMatrixFormula.png.html">srcIdentityMatrixFormula.png</a>
+</p>
+
+<p>
+I got something like \(w = \frac{1-\frac{bc}{bc-ad}}{a}\), which I don't
+think is correct. It's also been an hour and a half, so I think I'll
+have to leave this here for now. #todo
+</p>
+
+<hr />
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="namedate"><p class="subtitle"><span class="author">Exr0n</span><span class="date">2021-09-11 Sat 16:35</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+</div>
+</body>
+</html>

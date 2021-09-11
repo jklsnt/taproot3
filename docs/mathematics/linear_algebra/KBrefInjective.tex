@@ -1,0 +1,80 @@
+% Created 2021-09-11 Sat 16:42
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
+\date{\today}
+\title{Injectivity (math)}
+\hypersetup{
+ pdfauthor={Exr0n},
+ pdftitle={Injectivity (math)},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\section{In the context of Linear Algebra (Axler 3.15)}
+\label{sec:org2a3bf0b}
+\subsection{\#definition injective\hfill{}\textsc{def}}
+\label{sec:org7f99a37}
+\begin{quote}
+A function \(T : V \to W\) is called \emph{injective} if \(Tu = Tv\) implies \(u = v\)
+\end{quote}
+\subsection{\#aka one-to-one\hfill{}\textsc{aka}}
+\label{sec:orgaa0abbc}
+\subsection{Properties}
+\label{sec:org57716fa}
+\subsubsection{A map is injective iff it's null space equals \(\{0\}\)}
+\label{sec:org1245f08}
+\subsubsection{A map to a smaller dimensional space is not injective (Axler3.23)}
+\label{sec:org9ec1561}
+\begin{quote}
+Suppose \(V\) and \(W\) are finite-dimensional vector spaces such that \(\text{dim }V > \text{dim }W\). Then no linear map from \(V\) to \(W\) is injective.
+\end{quote}
+\begin{enumerate}
+\item Intuition
+\label{sec:org883a202}
+That makes sense, because if the output space has a smaller dimension, then there should be two inputs that go to the same output somewhere. Otherwise all the inputs just don't "fit".
+\end{enumerate}
+\subsection{Intuition}
+\label{sec:orgc630725}
+\(Tu = Tv \implies u = v\) means that if the outputs are the same, then the inputs are the same, aka only one input goes to that one output. That's why it's called "one-to-one": only one input goes to that one output
+\end{document}

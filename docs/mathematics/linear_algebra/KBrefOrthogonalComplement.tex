@@ -1,0 +1,130 @@
+% Created 2021-09-11 Sat 16:42
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Taproot}
+\date{\today}
+\title{Orthogonal Complement}
+\hypersetup{
+ pdfauthor={Taproot},
+ pdftitle={Orthogonal Complement},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\section{Axler6.45 orthogonal complement, \(U^\bot\)\hfill{}\textsc{def}}
+\label{sec:org22e6f4c}
+\begin{quote}
+if \(U\) is a subset of \(V\), then the orthogonal complement of \(U\), denoted \(U^\bot\), is the set of all vectors in \(V\) that are orthogonal to every vector in \(U\):
+
+\[\begin{aligned}
+  U^\bot = \{ v \in V : \langle v, u \rangle = 0 \forall u \in  U \}
+  \end{aligned}\]
+\end{quote}
+\subsection{results}
+\label{sec:orge01f50a}
+\subsubsection{Axler6.46 basic properties}
+\label{sec:orgf819249}
+\begin{enumerate}
+\item complement is a subspace: if \(U\) is a subset of \(V\), then \(U^\bot\) is a subspace of \(V\)
+\label{sec:orge3d662b}
+\begin{enumerate}
+\item zero is orthogonal to each vector, any vector that is the sum of two fully orthogonal vectors or the scalar multiple of an orthogonal vector will still be fully orthogonal.
+\label{sec:org54afb4d}
+\end{enumerate}
+\item \(\{0\}^\bot = V\)
+\label{sec:org8cd419c}
+\begin{enumerate}
+\item zero orthogonal to every vector
+\label{sec:org3b5c8da}
+\end{enumerate}
+\item \(V ^\bot = \{0\}\)
+\label{sec:orgcb389b1}
+\begin{enumerate}
+\item only zero orthogonal to every vector
+\label{sec:orgf5e6577}
+\end{enumerate}
+\item If \(U\) is a subset of \(V\), then \(U \cap U^\bot\subseteq \{0\}\)
+\label{sec:org5005ba2}
+\begin{enumerate}
+\item only zero is orthogonal to itself
+\label{sec:org0c7918f}
+\end{enumerate}
+\item If \(U\) and \(W\) are subsets of \(V\) and \(U\subseteq W\) then \(W^\bot \subseteq U^\bot\)
+\label{sec:orgea25036}
+\begin{enumerate}
+\item Everything in \(W^\bot\) is in \(U^\bot\), and more.
+\label{sec:orgba8b1b8}
+\end{enumerate}
+\end{enumerate}
+\subsubsection{Axler6.47 direct sum of a subspace and its orthogonal complement}
+\label{sec:org295567a}
+\begin{quote}
+Suppose \(U\) is a finite-dimensional subspace of \(V\). Then,
+\[\begin{aligned}
+    V = U \oplus U^\bot
+	\end{aligned}\]
+\end{quote}
+This can be shown by seeing that splitting any vector in \(V\) into a \(U\) part and a non-\(U\) part leads to the non-\(U\) being in \(U^\bot\)
+\subsubsection{Axler6.50 dimension of orthogonal complement}
+\label{sec:org64cba05}
+\begin{quote}
+Suppose \(V\) is finite-dimensional and \(U\) is a subpsace of \(V\). Then,
+
+\[\begin{aligned}
+    \odim $U^\bot$ = $\odim V - \odim U$
+	\end{aligned}\]
+\end{quote}
+By the dimension of a subspace addition (Axler3.78)
+
+\subsubsection{Axler6.51 orthogonal complement of orthogonal complement is itself}
+\label{sec:org3e57f29}
+\begin{quote}
+Suppose \(U\) is a finite-dimensional subspace of \(V\). Then
+\[\begin{aligned}
+    U = (U^\bot) ^\bot
+	\end{aligned}\]
+\end{quote}
+Because \(U \oplus U^\bot = V\) is a direct sum and equals \(V\).
+
+The actual proof is by double-inclusion.
+\end{document}

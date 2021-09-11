@@ -1,0 +1,207 @@
+% Created 2021-09-11 Sat 16:42
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
+\date{\today}
+\title{Linalg Flow 13}
+\hypersetup{
+ pdfauthor={Exr0n},
+ pdftitle={Linalg Flow 13},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\#flo \#disorganized \#incomplete
+
+\section{Bases}
+\label{sec:org6b6cbb1}
+\begin{itemize}
+\item \#icr \href{KBeRefLinAlgBases.org}{KBeRefLinAlgBases}
+\item (plural of 'basis')
+\item the \emph{standard basis} of
+\(\mathbb{F}^n = (1, 0, 0, \ldots 0), (0, 1, 0, \ldots, 0), \ldots, (0, 0, 0, \ldots, 1)\)
+\end{itemize}
+
+\subsection{Axler2.31}
+\label{sec:orgdbcbf00}
+\begin{itemize}
+\item The first step is a shortcut: the only way the first vector could be
+dependent is if it's zero
+
+\begin{itemize}
+\item but as you go on, you are more and more "likely" to have redundancy
+\end{itemize}
+
+\item How to check the third vector?
+
+\begin{itemize}
+\item Calculate the formula for the plane of the first two (cross product
+to get something orthogonal)
+\item Then, take the dot product to see if the third vector is
+perpendicular to the orthogonal and therefore in the plane.
+
+\begin{itemize}
+\item (the third one is in the plane if the dot product with the
+orthogonal is zero)
+\end{itemize}
+\end{itemize}
+
+\item This is a more "concrete" ? version of the linear dependence lemma
+(see it in \href{KBe20math530flo11.org}{KBe20math530flo11})
+
+\begin{itemize}
+\item The linear dependence lemma starts from the end, where as this
+algorithm starts from the beginning
+\item it basically says "there will be one you can get rid of" while this
+one tells you which:
+
+\begin{itemize}
+\item for the sake of the algorithm, throw away the one that comes
+later.
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\subsection{Axler2.34}
+\label{sec:org5d2fbde}
+\begin{itemize}
+\item You can start with a whole space and knock out of the basis, or a
+subspace and extend the basis
+\item to show that it's a direct sum
+
+\begin{itemize}
+\item show that the sum works
+
+\begin{itemize}
+\item because we expanded to make the list a basis of \(V\), it must
+span \(V\) so all vectors are contained within.
+\end{itemize}
+
+\item show that the intersection works
+
+\begin{itemize}
+\item we know that \(v\) is in both \(U\) and \(W\), so we can subtract
+the equations and get that the sum is zero
+\item and because the list is a basis, it is linearly independent, so
+all the coefficients are zero, so \(v\) must be \(0\)
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\section{Connections of Linear Independence}
+\label{sec:org617fde1}
+\#toexpand \#incomplete \#icr of the recent test \#\# Linear Independence and
+Systems of Equations - A system of equations's coefficients written as
+vectors has one solution if and only if the vectors are linearly
+independent - A worked example: $\backslash$[
+\begin{aligned}
+3x-y+z = 5\\
+x + 2y + z = 0\\
+4x+y+2z = 2
+\end{aligned}
+$\backslash$] becomes $\backslash$[
+\begin{aligned}
+\begin{bmatrix}
+3&-1&1\\
+1&2&1\\
+4&1&1\\
+\end{bmatrix}
+\begin{bmatrix}
+x\\
+y\\
+z\\
+\end{bmatrix}
+= 
+\begin{bmatrix}
+5\\0\\2
+\end{bmatrix}
+\end{aligned}
+$\backslash$]
+
+When the system above is graphed, the third plane is parallel to the
+line of intersection between the first two. This means that the vectors
+(the rows of the components of the vectors in \(\mathbb{R}^3\))are
+linearly dependent?
+
+\begin{itemize}
+\item \textbf{linear combinations of the column vectors}
+\item \textbf{The fact that this system is not uniquely determined is a fact of the
+left side.} It doesn't matter what the numbers on the right of the
+system are. There will be \(\infty\) solutions if the solution column
+is in plane of the column vectors, or in the span of the list.
+\item Column vectors are coplanar if the row vectors are linearly dependent.
+\end{itemize}
+
+\section{A homogeneous system}
+\label{sec:org1721ed3}
+\begin{itemize}
+\item When everything on the right of the systems are zero
+\end{itemize}
+
+\#todo-exr0n move to linalg questions - questions - standard basis of
+polynomials - \(z^0, z^1, z^2, \ldots, z^n\) - system of equations of
+polynomials - less obvious - turn your polynomial space into a more
+standard vector space and then use that?
+
+\subsection{Linear Independence and Direct Sums}
+\label{sec:orgcf4ec66}
+\begin{itemize}
+\item In a direct sum, every vector in that sum can only be represented in
+one way
+\item for linear independence the span of the list is only represented as
+one linear combination of the list (esp. 0, which is the definition of
+linear independence)
+\end{itemize}
+
+\section{Referencing}
+\label{sec:orgc23192f}
+\begin{itemize}
+\item Say either the number or the title, or both.
+
+\begin{itemize}
+\item title is useful, number is specific
+\end{itemize}
+\end{itemize}
+
+\noindent\rule{\textwidth}{0.5pt}
+\end{document}

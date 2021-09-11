@@ -1,0 +1,224 @@
+% Created 2021-09-11 Sat 16:43
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Taproot}
+\date{\today}
+\title{Algebra with Integrals}
+\hypersetup{
+ pdfauthor={Taproot},
+ pdftitle={Algebra with Integrals},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\section{general trends}
+\label{sec:orgbc10f1f}
+\subsection{split fractions}
+\label{sec:org8760605}
+Always consider splitting sums of fractions
+\[\begin{aligned}
+   \int \frac{a+b}{c} dx = \int \frac{a}{c} dx +\int \frac{b}{c} dx
+   \end{aligned}\]
+\subsection{pull out constant factors}
+\label{sec:org4cbda5c}
+
+\[\begin{aligned}
+   \int af(x) dx = a \int f(x) dx
+   \end{aligned}\]
+
+
+\section{additive}
+\label{sec:org15343e1}
+
+\[\begin{aligned}
+  \int f(x) + g(x) dx = \int f(x) dx  + \int g(x) dx
+  \end{aligned}\]
+
+\section{change of lower bound}
+\label{sec:org6adfe0c}
+\[\begin{aligned}
+  \int_{a}^{b} f(x) dx + \int_{b}^{c} f(x) dx = \int_{a}^{c} f(x) dx\\
+  \implies \int_{a}^{x} f(t) dt = \int_{b}^{x} f(t) dt - \int_{a}^{b} f(t) dt
+  \end{aligned}\]
+
+\section{\href{KBrefFundamentalTheoremOfCalculus.org}{fundamental theorem of calculus}}
+\label{sec:orgd49e777}
+
+\[\begin{aligned}
+  \int_{}^{} f'(x) dx = f(x) + C\\
+  \frac{d}{dx} \int_{}^{} f(x) dx = f(x)\\
+  \frac{d}{dx} \int_{a}^{x} f(t) dt = f(x)
+  \end{aligned}\]
+
+(second one doesn't have a \(+C\) because the derivative sends that to zero)
+
+
+\section{net change theorem}
+\label{sec:org7f0660c}
+
+\[\begin{aligned}
+  \int_{a}^{b} f'(x) dx = f(b) - f(a)\\
+  \frac{d}{dx}\int_{a}^{x} f(x) dx = f(x)\\
+  \int_{a}^{x} f'(x) dx = f(x) - f(a)\\
+  \end{aligned}\]
+
+\section{variable bounds}
+\label{sec:org64934c4}
+
+\[\begin{aligned}
+  \frac{d}{dx}\int_{a}^{p(x)} f(x) dx = f(p(x))p'(x)\\
+  \int_{p(x)}^{q(x)} f(t)dt = \int_{0}^{q(x)} f(t)dt - \int_{0}^{p(x)} f(t)dt
+  \end{aligned}\]
+
+An example
+
+\[\begin{aligned}
+  k(x) = \int_{x^2}^{e^x} \sqrt{\sin t} dt = \int_{0}^{e^x} \sqrt{\sin t}dt - \int_{0}^{x^2} \sqrt{\sin t} dt\\
+  k'(x) = \sqrt{\sin e^x}e^x - 2x\sqrt{\sin x^2}
+  \end{aligned}\]
+
+\section{mean value theorem (for integrals)}
+\label{sec:org5dd4da7}
+
+There exists some point \(c\) over an integrable interval \([a, b]\) s.t.
+\[\begin{aligned}
+  f(c) = \frac{1}{b-a}\int_{a}^{b} f(x) dx
+  \end{aligned}\]
+
+
+\section{integration rules}
+\label{sec:orgb420f66}
+
+\subsection{power rule for integrals}
+\label{sec:orgf6f03f6}
+
+\[\begin{aligned}
+   \int x^n dx = \frac{x^{n+1}}{n+1} +C
+   \end{aligned}\]
+
+\subsection{k-angle formulas for sinusoids}
+\label{sec:org0a23efc}
+
+\[\begin{aligned}
+   \int \sin kx dx &= - \frac{\cos kx}{k}\\
+   \int \cos kx dx &= \frac{\sin kx}{k}
+   \end{aligned}\]
+
+\subsubsection{for \(\sin ^2x\) or \(\cos ^2x\),}
+\label{sec:org0c7d5ba}
+Try to get a double angle using the \(\cos 2x\) identities.
+
+\subsubsection{for a product of \(\sin x \cos  x\) or similar,}
+\label{sec:org59bc367}
+Use the double angle identity for \(\sin 2x = 2 \sin x \cos  x\).
+
+\subsubsection{for \(\sec x\) and \(\tan x\),}
+\label{sec:org07a32dc}
+We know their derivatives contain themselves, so we can look for something cyclic.
+
+For example,
+
+\[\begin{aligned}
+    \int \sec x dx &= \int \sec x \frac{\sec  x + \tan  x}{\sec x+\tan x} dx \\
+	&= \int \frac{\sec ^2x + \sec x \tan x}{\sec x+\tan x} dx \\
+	\end{aligned}\]
+
+Let \(u = \sec x+\tan x\), \(du = \sec x\tan x + \sec ^2x\)
+
+\[\begin{aligned}
+    \int \sec x dx &= \int \frac{du}{u} dx \\
+	&= \int \frac{1}{u} du\\
+	&= \ln | u | \\
+	&= \ln | \sec x+\tan x|
+	\end{aligned}\]
+
+\subsection{u-substitution (on products, chain rule)}
+\label{sec:orgc69840f}
+if it happens to work:
+\[\begin{aligned}
+   \int f'(g(x)) g'(x)dx = f(g(x)) + C
+   \end{aligned}\]
+
+an example:
+
+\[\begin{aligned}
+   \int 2x \sin (x^2) dx\\
+   \end{aligned}\]
+Let \(u = x^2\) and \(du = frac{du}{dx} dx = 2x dx\)
+
+\[\begin{aligned}
+   \int \sin x^2 2x dx &= \int \sin u du\\
+   &= -\cos (u) +C\\
+   &= -\cos (x^2) +C
+   \end{aligned}\]
+
+\subsection{integration by parts (on products, product rule)}
+\label{sec:org85244a3}
+
+
+\[\begin{aligned}
+   &\frac{d}{dx}f(x)g(x) &=& f'(x)g(x) + g'(x)f(x)\\
+   &\int \frac{d}{dx}f(x)g(x) dx &=& \int  f'(x)g(x) + g'(x)f(x) dx\\
+   &f(x)g(x)+C &=& \int f'(x)g(x) dx + \int g'(x)f(x) dx\\
+   \implies & \int f'(x)g(x) dx &=& f(x)g(x) - \int g'(x)f(x) dx +C
+   \end{aligned}\]
+
+\subsubsection{tips}
+\label{sec:orgb8fd85b}
+
+\begin{enumerate}
+\item can use \(1\) as the other part of the product
+\label{sec:org1aa3f8b}
+\end{enumerate}
+
+\subsubsection{{\bfseries\sffamily TODO} a graphical representation}
+\label{sec:org5aa1c6b}
+
+Imagine graphing \(f(g(x))\) as a function of \(f(x)\) and \(g(x)\). Then, for some interval on \(g(x)\), the bounding rectangle has area \(fg(x)\), the area under the curve is \(\int TODO dx\)
+
+\subsubsection{tabular technique}
+\label{sec:orgba95348}
+Just syntactic sugar for integral by parts repeatedly (eg. when you have a power function \(x^n\) multiplied by eg. \(a^bx\)). It has to be a case where one of the functions has a derivative that goes to zero (a power function).
+
+Take repeated derivatives on the left (with the power function) and take repeated integrals to the right. Match up the entries in the table, and alternate negatives and positives to expand the integration by parts relatively quickly.
+\end{document}

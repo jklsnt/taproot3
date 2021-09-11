@@ -1,0 +1,106 @@
+% Created 2021-09-11 Sat 16:43
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Taproot}
+\date{\today}
+\title{Assignment 3: arclength}
+\hypersetup{
+ pdfauthor={Taproot},
+ pdftitle={Assignment 3: arclength},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\section{shoestring loop}
+\label{sec:orga6ea991}
+
+\[\begin{aligned}
+  x &= t^2\\
+  y &= t^3-3t\\
+  \frac{dx}{dt} &= 2t\\
+  \frac{dy}{dt} &= 3t^2-3\\
+  \frac{dy}{dx} &= \frac{3t^2-3}{2t}
+  \end{aligned}\]
+\subsection{tangents are horizontal or vertical}
+\label{sec:orgfdc8cba}
+\subsubsection{horizontal}
+\label{sec:orgef89076}
+
+\[\begin{aligned}
+    3t^2-3 &= 0\\
+    3t^2 &= 3\\
+    t^2 &= 1\\
+    t &= \pm 1
+    \end{aligned}\]
+
+\subsubsection{vertical}
+\label{sec:org05fa574}
+
+
+\[\begin{aligned}
+    2t &= 0\\
+    t &= 0\\
+    \end{aligned}\]
+
+\subsection{concave up}
+\label{sec:orge799269}
+
+\[\begin{aligned}
+   \frac{d}{dx} \frac{dy}{dx} = \frac{\dot{x}\ddot{y}-\dot{y}\ddot{x}}{\dot{x}^3} = \frac{2t(6t)-(6t^2-3)(2)}{8t^3}\\
+   = \frac{6t^2-6t^2+3}{4t^3} = \frac{3}{4t^3} > 0\\
+   \therefore \text{concave up for }t > 0
+   \end{aligned}\]
+
+\subsection{concave down}
+\label{sec:org10b2c04}
+
+Using similar logic, the curve is concave down for \(t < 0\).
+
+
+\section{polar curves + converting to cartesian}
+\label{sec:orga814c38}
+
+\href{KBe21math520retAssign3polarSketches.png}{polar sketches}
+
+Also see the \href{https://www.desmos.com/calculator/y6bmz6asfc}{desmos}.
+\end{document}

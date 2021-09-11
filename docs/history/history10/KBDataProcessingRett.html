@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-11 Sat 16:37 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Data Processing Assignment</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="https://taproot3.sanity.gq/sitemap.html"> UP </a>
+ |
+ <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
+</div><div id="content">
+<h1 class="title">Data Processing Assignment</h1>
+<p>
+#ret
+</p>
+
+<hr />
+
+<div id="outline-container-prompt" class="outline-2">
+<h2 id="prompt"><span class="section-number-2">1</span> Prompt:</h2>
+<div class="outline-text-2" id="text-prompt">
+<pre class="example" id="org6562949">
+For each of the scenarios below, answer the following questions. You do not have to explain your answers other than to explain where your targets would come from (Are they in the dataset already? Do you need to create them by hand?) and how you would make any non-numerical inputs numerical, if required by the algorithm you choose.
+
+1. What type of machine learning problem (regression, classification, clustering) do you think this is?
+2. If this is a supervised problem, what will you use as your targets (aka labels) and how will you get them? If this is an unsupervised problem, just write "none".
+3. What processing do you need to do to your input data? (How will you handle non-numerical inputs? Do you plan to do any scaling? etc.)
+4. What type(s) of model(s) would you try? Remember to start with the simplest thing that might work! The types of models we've talked about are linear regression, decision trees, random forest, logistic regression, naive bayes, K-means, DBSCAN, and fully connected neural networks.
+5. What validation metric(s) would you use to decide how well you're doing?
+6. What ethical challenges do the data collection, creation, and/or use of this model create? If you feel there aren’t any, just say “None”.
+
+
+Scenarios:
+
+1. You are playing fantasy football and want to predict how many points each player will score next season. You have their stats, including points scored, from last season, plus their height, weight, and position -- except for players new to the league, for whom you don't have last year's stats, only height, weight, and position.
+2. You have customer reviews, each one of which has a rating from 1 (worst) to 10 (best) and some text. The reviews vary greatly in their length. You would like to use this to write a model that can predict if text is positive, negative, or neutral, along with a probability score (e.g., 68% likely to be positive, 30% neutral, 2% negative).
+3. You have data from a movie streaming service that consists of lists of movies that each user has watched as well as information about each movie: title, names of the stars, genre, and length. You would like to make a model that will help you decide what movies to recommend to users.
+4. You want to predict whether a random stranger owns a cat, a dog, or neither, based on things that they like on Facebook. You decide to train your model on your friends, and write a program to collect all of their public Likes. 
+5. You want a model to predict the number of deer that will be born in a breeding season. You have a large amount of historical data, and each row consists of the following information for the breeding season of a particular area and species:
+        number of fawns born
+        the genus and species
+        number of does sighted during the mating season
+        vegetation quality during the mating season ("low", "average", or "high")
+</pre>
+</div>
+</div>
+
+<div id="outline-container-scenarios" class="outline-2">
+<h2 id="scenarios"><span class="section-number-2">2</span> Scenarios:</h2>
+<div class="outline-text-2" id="text-scenarios">
+<ul class="org-ul">
+<li>Football
+
+<ol class="org-ol">
+<li>Note: Since we only have one season of point values, and hence
+cannot see cross season change in point values, the old season
+players will be used as training data.</li>
+<li>Regression</li>
+<li>Label: Point value</li>
+<li>One Hot Encoding, 0-1 normalization</li>
+<li>Linear Regression or Neural Networks</li>
+<li>RMSE</li>
+<li>None</li>
+</ol></li>
+
+<li>Customer Reviews
+
+<ol class="org-ol">
+<li>Classification</li>
+<li>Positive, Negative, Neutral</li>
+<li>Some form of text processing &#x2013; BOW, TFIDF, word vectors, ect.</li>
+<li>Out of the models we have learned, Naive Bayes.</li>
+<li>F score</li>
+<li>Could misrepresent reviews and allow for automation</li>
+</ol></li>
+
+<li>Movie Recommendations
+
+<ol class="org-ol">
+<li>Classification</li>
+<li>Semi-supervised.</li>
+<li>One Hot Encoding and BOW or TFIDF</li>
+<li>Random forest? NN?</li>
+<li>Click rate or watch time, depending on goal.</li>
+<li>Ethics crumble in the face of capitalism. We gotta get our clients
+the right recommendations!</li>
+</ol></li>
+
+<li>Facebook Pet
+
+<ol class="org-ol">
+<li>Classification</li>
+<li>Supervised: Dog, Cat, Neither</li>
+<li>WPIE type system.</li>
+<li>NN</li>
+<li>F score<br /></li>
+<li>Collection of likes is invasive. Categorizing of people is also
+problematic, as is trying to determine private info.</li>
+</ol></li>
+
+<li>Deer Born
+
+<ol class="org-ol">
+<li>Regression</li>
+<li>Supervised: Number of deer</li>
+<li>One Hot</li>
+<li>Linear regression, NN</li>
+<li>RMSE</li>
+<li>None</li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-comment-response" class="outline-2">
+<h2 id="comment-response"><span class="section-number-2">3</span> Comment Response</h2>
+<div class="outline-text-2" id="text-comment-response">
+<ul class="org-ul">
+<li>2b. How do you convert from the 1-10 rating scale to
+positive/negative/neutral?
+
+<ul class="org-ul">
+<li>You would have to pick ranges that define what is
+positive/negative/neutral</li>
+</ul></li>
+
+<li>2c. Given that the reviews vary greatly in their length, is one of
+these preferred over the other?
+
+<ul class="org-ul">
+<li>BOW doesn't work well when length varies. TFIDF, however, does.</li>
+</ul></li>
+
+<li>2e. Why not accuracy, precision, or recall?
+
+<ul class="org-ul">
+<li>Those would all work as well. I just decided to list one possible
+validation metric as opposed to all of them.</li>
+</ul></li>
+
+<li>3a. This could work, but I think you will find this problem more
+straightforward as a different kind of problem.
+
+<ul class="org-ul">
+<li>I guess this problem could be done as a clustering problem,
+representing each movie as a location in a multidimensional space
+then placing users in the space and clustering.</li>
+</ul></li>
+
+<li>3b. Semi-supervised usually refers to models where we have some
+labels, and we generate additional labels. Where do our labels come
+from? How do we generate the additional ones?
+
+<ul class="org-ul">
+<li>The original labels would most likely be generated. As time
+progresses, we get labels back from the users that are interacting
+with our model's recommendations.</li>
+</ul></li>
+
+<li>3c. Be more specific: which features would you use which techniques
+on? For example, you could use bag of words or OHE on the names of the
+stars, but you'd get pretty different results depending on which one
+you picked.
+
+<ul class="org-ul">
+<li>OHE: name of stars, genre. BOW or TFID: title.</li>
+</ul></li>
+
+<li>3e. A user not watching a recommendation is not necessarily good
+signal on whether it's a good recommendation (i.e. I might really like
+a movie, and just not have time to watch it right now). Conversely, a
+user watching a movie is not necessarily signal that it was a good
+recommendation (maybe I watched it because you recommended it, but I
+hated it).
+
+<ul class="org-ul">
+<li>This depends on the goal of the recommendation. If you get a good
+recommendation and don't watch it, was it really a good
+recommendation? If the goal is simply to increase watch time, and
+thus increase the number of ads viewed, then yes watching or not
+watching is a good metric. Think click-bait. Of course, this has to
+be weighed against the long term effects of the recommendation.</li>
+</ul></li>
+
+<li>3f. I know you are kidding (I hope so, at least!), but the whole point
+of us learning about ethics is precisely so that they do not crumble
+in the face of capitalism!
+
+<ul class="org-ul">
+<li>I think maybe we should shift the goal to rebuilding the already
+crumbled ethics&#x2026;</li>
+</ul></li>
+
+<li>4b. Where do these labels come from?
+
+<ul class="org-ul">
+<li>From the friends you asked.</li>
+</ul></li>
+
+<li>4c/d. Why WPIE/NN? Is there a simpler approach we might try first?
+
+<ul class="org-ul">
+<li>BOW, TFIDF, or word vectors would work, but Facebook's method itself
+would most likely work better. As for the type of model, Decision
+Trees and Random Forests would work.</li>
+</ul></li>
+
+<li>4e. Why not accuracy, precision, or recall?
+
+<ul class="org-ul">
+<li>Again, just decided to list one validation metric. Accuracy,
+precision, and recall would also work.</li>
+</ul></li>
+</ul>
+
+<p>
+<a href="KBdataProsResponses.html">KBdataProsResponses</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="namedate"><p class="subtitle"><span class="author">Huxley</span><span class="date">2021-09-11 Sat 16:34</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+% Created 2021-09-11 Sat 16:43
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\date{\today}
+\title{MVC Day 2}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={MVC Day 2},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+
+\section{Arc length}
+\label{sec:org6eb8331}
+$\backslash$[
+\begin{aligned}
+dr = \sqrt{dx^2 + dy^2} \\
+= \sqrt{dx^2 + dy^2}\cdot \frac{dx}{dx} \\
+= \sqrt{\frac{dx^2 + dy^2}{dx^2}}\cdot dx \\
+= \sqrt{1 + \frac{dy^2}{dx^2}} dx \\
+= \sqrt{(\frac{dy}{dx})^2 + 1} dx \\
+\text{Next, we will integrate to find the arc length as a whole.}
+L(x_0, x_1) = \int_{x_0}^{x_1} dr \\
+= \int_{x_0}^{x_1} \sqrt{(\frac{dy}{dx})^2 + 1} \,dx \\
+\text{Given that the arc length is of function } f\text{:} \\
+= \int_{x_0}^{x_1} \sqrt{f'{x}^2 + 1} \,dx \\
+\text{In the case of the arc length of } f(x) = x^2 \text{ from 5 to 20:} \\
+L(5, 20) &= \int_{5}^{20} \sqrt{4x^2 + 1} \,dx \\
+= [\frac{1}{2}\sqrt{4x^2 + 1}x + \sinh^{-1}{2x}]_{5}^{20} \\
+= 375.346 \\
+\end{aligned}
+$\backslash$]
+\end{document}

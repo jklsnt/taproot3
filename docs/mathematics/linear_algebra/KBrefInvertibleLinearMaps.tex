@@ -1,0 +1,86 @@
+% Created 2021-09-11 Sat 16:42
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
+\date{\today}
+\title{Invertibility of Linear Maps}
+\hypersetup{
+ pdfauthor={Exr0n},
+ pdftitle={Invertibility of Linear Maps},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\section{invertible, inverse\hfill{}\textsc{def}}
+\label{sec:orgc729992}
+\begin{quote}
+\begin{itemize}
+\item A linear map \(T \in \mathcal L(V, W)\) is \emph{invertible} if there exists a linear map \(S\in \mathcal(W, V)\) such that \(ST\) equals the identity map on \(V\) and \(TS\) equals the identity map on \(W\).
+\item A linear map \(S \in \mathcal(W, V)\) satisfying \(ST = I\) and \(TS = I\) is called an \emph{inverse} of \(T\)
+\item If \(T\) is invertable, \(T^{-1}\) denotes the inverse of \(T\)
+\end{itemize}
+\end{quote}
+\subsection{careful}
+\label{sec:org5a980cd}
+\subsubsection{the inverse of a map has to be commutative (\(TS = I\) and \(ST = I\))}
+\label{sec:orgda2f20f}
+\subsubsection{the target identity is in one space on one side and in the other space on the other side}
+\label{sec:orgb78a840}
+\subsection{results}
+\label{sec:org113d95c}
+\subsubsection{unique}
+\label{sec:orgf4ad899}
+any invertible map has exactly one inverse
+\subsubsection{equivalant to injectivity and surjectivity (bijectivity)}
+\label{sec:org1043db8}
+See \href{KBrefBijectiveFunction.org}{bijectivity}. Iff a map is bijective, then it is invertable.
+\subsubsection{Equivalent Condition with eigenvalues}
+\label{sec:orgf2fa67a}
+if a map has zero as an eigenvalue, then it is singular (5.A exercise 21)
+\subsubsection{non-singular matrices are invertible}
+\label{sec:orga8940ff}
+\subsubsection{operators that are injective or surjective are bijective}
+\label{sec:org8ca87ce}
+\subsubsection{matrices with linearly independent columns and rows are bijective}
+\label{sec:org07438b6}
+\end{document}

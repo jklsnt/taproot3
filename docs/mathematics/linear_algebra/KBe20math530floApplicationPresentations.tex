@@ -1,0 +1,128 @@
+% Created 2021-09-11 Sat 16:43
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
+\date{\today}
+\title{Application Presentations}
+\hypersetup{
+ pdfauthor={Exr0n},
+ pdftitle={Application Presentations},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\section{{\bfseries\sffamily DONE} Brian P: Traffic control}
+\label{sec:org4d35042}
+model and predict flow through streets using systems of linear equations
+\subsection{traffic circle example}
+\label{sec:orgb0bdb74}
+\subsubsection{info}
+\label{sec:org4787be5}
+\begin{enumerate}
+\item cars perminute from each direction
+\label{sec:orgbece5e4}
+\item but counters only counted four of the road segments
+\label{sec:org7690e9e}
+\item calculate how many cars went through the other road segments
+\label{sec:org5db3a5a}
+\end{enumerate}
+\subsubsection{calculation}
+\label{sec:org461b483}
+\$\$
+\begin{aligned}
+x_2 + 75 = x_5+92\\
+x_1+x_2 = x_3+56\\
+75 = x_1+x_4\\
+x_3+x_4+23 = 46?\\
+x_5 = 33
+\end{aligned}
+\$\$
+\subsubsection{Take RREF (it happens to not be the identity, which means there isn't enough information to)}
+\label{sec:org23a3b63}
+\begin{enumerate}
+\item pivot columns?
+\label{sec:org8e99aac}
+\item replace the dependent variable (in this case \(x_4\) with \(t\), and try to remember how many cars went on the other roads (create parametric equations)
+\label{sec:orga2825cf}
+\end{enumerate}
+\subsection{Block example}
+\label{sec:org2b4c1a1}
+\subsubsection{goal}
+\label{sec:org423493f}
+Given some flow rates, figure out how many cars should be allowed to go through an area.
+Even though there are multiple solutions, it is possible to see which streets will become bottlenecks.
+\subsection{general steps}
+\label{sec:orge4fa566}
+\subsubsection{assign variables}
+\label{sec:orgcf65324}
+\subsubsection{create system of equations}
+\label{sec:org2f6b94e}
+\subsubsection{create matrix}
+\label{sec:org442a13b}
+\subsubsection{use gaussian elimination to gain information}
+\label{sec:orgd53e12a}
+\subsection{with this information you can}
+\label{sec:org770694e}
+\subsubsection{adjust traffic light timings}
+\label{sec:org5b7c22f}
+\subsection{more complexity}
+\label{sec:orgb2afae1}
+\subsubsection{some examples with 120 variables or more}
+\label{sec:org2596570}
+\subsubsection{done by computers}
+\label{sec:org1a7d994}
+\subsubsection{jamiton lines/envelopes (phantom traffic slowdowns)}
+\label{sec:orgd932a24}
+\subsection{limitations}
+\label{sec:orgcc9ded6}
+\subsubsection{spikes of traffic vary based on time of day or year}
+\label{sec:org882e72e}
+\subsubsection{routes are not considered}
+\label{sec:orgd0cd892}
+\subsubsection{size / type of vehicle}
+\label{sec:org22b822d}
+\subsubsection{speed of vehicles}
+\label{sec:orgb8d49eb}
+\subsubsection{line of sight}
+\label{sec:orgad10cf1}
+\end{document}

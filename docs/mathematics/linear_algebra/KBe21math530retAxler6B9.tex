@@ -1,0 +1,71 @@
+% Created 2021-09-11 Sat 16:43
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
+\date{\today}
+\title{Axler6.B \#9}
+\hypersetup{
+ pdfauthor={Exr0n},
+ pdftitle={Axler6.B \#9},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\section{Problem}
+\label{sec:org8271b98}
+\begin{quote}
+What happens if the Gram–Schmidt Procedure is applied to a list of vectors that is not linearly independent?
+\end{quote}
+\section{Answer}
+\label{sec:org327c4ae}
+Suppose the list \(v_1, \ldots, v_n\) is linearly dependent. Then, there exists some \(v_j\) s.t. \(v_1, \ldots, v_{j-1}\) is linearly independent while \(v_1, \ldots, v_j\) is not. Then, \(v_j \in \text{span}(v_1, \ldots, v_{j-1})\)
+
+Because the Gram-Schmidt procedure preserves prefix spans,
+\[ v_j \in \text{span}(e_1, \ldots, e_{j-1}) \]
+
+Because of how a vector is written as a linear combination of an orthonormal basis, the denominator in the \$j\$-th step of the procedure is equivalent to
+\[
+  \lVert v - v \rVert = \lVert 0 \rVert = 0
+  \]
+and a division by zero occurs. Thus, the Gram-Schmidt procedure cannot be used on a linearly dependent list.
+\end{document}

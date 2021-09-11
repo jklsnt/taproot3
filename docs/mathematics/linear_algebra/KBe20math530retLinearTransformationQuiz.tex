@@ -1,0 +1,152 @@
+% Created 2021-09-11 Sat 16:42
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
+\date{\today}
+\title{LInear Transformation Quiz}
+\hypersetup{
+ pdfauthor={Exr0n},
+ pdftitle={LInear Transformation Quiz},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\section{Definitions}
+\label{sec:org6dd868c}
+\subsection{Linear Map}
+\label{sec:org0384bd7}
+A linear map is a function/map from one vector space to another such that it satisfies the properties of additivity and homogeneity. Notationally, a linear map \(T \in \mathcal L(V, W)\) satisfies \(T(a) + T(b) = T(a+b) : a, b \in V\) and \(\lambda Ta = T(\lambda a) : \lambda \in \mathbb F, a \in V\)
+\subsection{Null Space}
+\label{sec:org62a411e}
+The null space of a linear map is the space of vectors that are sent to 0 by \(T\), aka \(\{v : v \in V \land Tv = 0\}\)
+\subsection{Column Space}
+\label{sec:org311b833}
+The column space of a linear map is the subspace of the codomain that is an output to the map, aka \(\{w : Tv = w, v\in V, w\in W\}\)
+\subsection{Homogeneous system of equations}
+\label{sec:org5196b14}
+A system of equations where all the right hand sides are \(0\).
+\subsection{Injective}
+\label{sec:org0280c09}
+When each element in the column space of a map is mapped to by exactly one element in the domain, aka when \(Tu = Tv \implies u = v\).
+\subsection{Surjective}
+\label{sec:orgff061f9}
+When every element in the codomain is mapped to, aka the column space is the codomain, aka \(W = \{Tv : v \in V\}\).
+\section{Fundamental theorem of linear maps}
+\label{sec:org2f7e1c9}
+In a map \(T \in \mathcal L(U, V)\) where \(U\) is finite dimensional, \(\text{dim }U = \text{dim range }T + \text{dim null }T\). Intuitively, the dimension of the input space is the dimension of everything that gets sent to zero plus everything that doesn't get sent to zero.
+\section{Why is the range also called the "column space"?}
+\label{sec:org8b2ffe6}
+When a linear map is thought of as a matrix, (which Jana promises is always possible), everything that can be mapped to is a linear combination of the columns. Why columns instead of rows? The convention we use is to multiply operation matrices on the left, and the way matrix multiplication works means that when a \(n \times 1\) matrix is multiplied each element ends up as the coefficient for a column in a linear combination. Thus, all possible \(n \times 1\) matrices when taken as input to the operation matrix will create the span of the columns.
+\section{Prove that for (presumably a linear map) \(T \in \mathcal L(V, W)\) the null space is a subspace of \(V\).}
+\label{sec:orgeab77b0}
+\subsection{Contains Zero}
+\label{sec:org916ce29}
+Let \(v = T0\).
+$$
+   T0 = T(0+0) = T0 + T0 = v + v \implies v = 0
+   $$
+thus linear maps send zero to zero. Thus zero is in the null space.
+
+\subsection{Additivity}
+\label{sec:org5ee2ec2}
+For vectors \(a, b \in \text{null }T\) if \(Ta = 0\) and \(Tb = 0\), then
+$$Ta + Tb = 0 + 0 = 0 \text{ and } Ta+Tb = T(a+b) = 0$$
+thus \(a+b\) is in the null space and the null space is closed under addition.
+
+\subsection{Homogeneity}
+\label{sec:org73c5b2d}
+If \(a \in \text{null }T\) (aka \(Ta = 0\)) and \(\lambda \in \mathbb F\), then
+$$\lambda Ta = \lambda 0 = 0 \text{ and } \lambda Ta = T(\lambda a)$$
+thus \(\lambda a\) is in the null space and the null space is closed under scalar multiplication.
+
+Thus the null space is a vector space and a subspace of \(V\).
+
+\section{Prove that \(T \in \mathcal L(V, W)\) is injective iff \(\text{null}(T) = 0\)}
+\label{sec:org6e70e92}
+
+\subsection{In the forwards direction}
+\label{sec:org8f3a8d4}
+\(T\) being injective means \(Tu = Tv \implies u = v\), so only one vector \(v \in V\) satisfies \(Tv = 0\).
+Because linear maps take zero to zero (result 4.1 in the previous proof), that vector \(v\) must be zero. Thus, \(\text{null }T = 0\).
+
+\subsection{In the reverse direction}
+\label{sec:orgf3a58f2}
+Intuitively: if any information is lost, then some of it must be lost to zero because zero is an element in every vector space and information should be lost "linearly" meaning "evenly".
+
+Given that \(\text{null }T = 0\), suppose we have \(u, v \in V\) s.t. \(Tu = Tv\). Then
+$$0 = Tu - Tv = T(u-v)$$
+\$\$
+\begin{aligned}
+\therefore& u-v \in \text{null }T\\
+\therefore& u-v = 0\\
+\therefore& u = v
+\end{aligned}
+\$\$
+Thus \(Tu = Tv \implies u = v\) aka \(T\) is injective.
+
+\section{Prove that for any \(T \in \mathcal L(V, W)\), there is a subspace \(U\) of \(V\) such that \(U \bigoplus \text{null }T = V\)}
+\label{sec:orgd5fc7e5}
+This is not a complete proof because I ran out of time. I sketched out the high level framework for how I was planning on proving this.
+
+\subsection{Proposed Set}
+\label{sec:org62cab0e}
+A the sum of two subspaces being a direct sub is equivalent to their intersection = 0. Let
+$$U = \{v : v \in V, Tv \neq 0\} \cup 0$$. Notice that this is a subset of \(V\) and intersects \(\text{null }T\) at \(0\) exactly. Now, we show that it is a subspace of \(V\), then that the direct sum is equal to \(V\) with double containment.
+
+\subsection{Subspace \(\therefore\) direct sum}
+\label{sec:org3efe29a}
+
+\subsubsection{Contains zero}
+\label{sec:org9ec798e}
+\(U\) contains zero by definition.
+
+\subsubsection{Closed under addition}
+\label{sec:orga2825fe}
+
+\subsubsection{Closed under scalar multiplication}
+\label{sec:org48509fb}
+
+\subsection{Direct sum is equal to \(V\)}
+\label{sec:orgaa3abc7}
+Either dimension stuff or double containment: all vectors \(v \in V\) have either \(Tv = 0\) or \(Tv \neq 0\) so the sum contains \(V\), and \(V\) contains the sum because both summands were subspaces.
+\end{document}

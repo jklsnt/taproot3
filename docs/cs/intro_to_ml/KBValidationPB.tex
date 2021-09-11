@@ -1,0 +1,188 @@
+% Created 2021-09-11 Sat 16:41
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Huxley}
+\date{\today}
+\title{Validation Part B}
+\hypersetup{
+ pdfauthor={Huxley},
+ pdftitle={Validation Part B},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\noindent\rule{\textwidth}{0.5pt}
+
+\section{Part A}
+\label{sec:orgc9b3a03}
+\begin{itemize}
+\item What are the best and worst possible scores it could get?
+
+\begin{itemize}
+\item When using f1 score, the best possible score would be 1, and the
+worst would be 0.
+\end{itemize}
+
+\item Why do you think the model is getting the score you're seeing?
+
+\begin{itemize}
+\item The score I'm seeing is 1. This is expected, as I am testing a
+decision tree on the iris data it was trained on.
+\end{itemize}
+
+\item How do the scores between the training and testing sets compare?
+
+\begin{itemize}
+\item I would assume that the testing set score would have a lower f1
+score than the training set, as the model is specifically fitted for
+the training data.
+\end{itemize}
+\end{itemize}
+
+\section{Part B}
+\label{sec:orgd2d705c}
+Please answer the following questions and briefly explain your answer:
+
+\begin{itemize}
+\item Thinking about the R\textsuperscript{2} metric used for evaluating regression, answer
+the following questions:
+
+\begin{itemize}
+\item What is the best highest possible score you could get?
+
+\begin{itemize}
+\item The highest possible score is 1, representing a perfect fit. In
+order to achieve an R\textsuperscript{2} of 1, the error must be 0.
+\end{itemize}
+
+\item If your model simply predicted the average value of the training set
+no matter what the input was, what score would you get on a test set
+whose average matched that of the training set?
+
+\begin{itemize}
+\item The score would be 0, as the denominator and numerator would be
+equal. This would result in the equation 1-1, which equals 0.
+\end{itemize}
+
+\item What is the lowest score that you can get?
+
+\begin{itemize}
+\item Negative infinity.
+\end{itemize}
+\end{itemize}
+
+\item When using accuracy to measure your model's performance on a
+classification problem:
+
+\begin{itemize}
+\item What is the best possible score you could get?
+
+\begin{itemize}
+\item \begin{enumerate}
+\item In a scenario with x samples, an entirely correct
+classification would lead to x/x, which is 1.
+\end{enumerate}
+\end{itemize}
+
+\item If your model always predicted the same class no matter what the
+input, what score would you get on a test set where 85\% of the items
+were in that class?
+
+\begin{itemize}
+\item 85\%
+\end{itemize}
+\end{itemize}
+
+\item What is the worst possible score you can get on a dataset that only
+has two classes?
+
+\begin{itemize}
+\item \begin{enumerate}
+\item Every sample could be sorted incorrectly as long as there is more
+than one class.
+\end{enumerate}
+\end{itemize}
+
+\item A model gets a recall score of 0 for class A on a test set with
+classes A, B, and C. If you take one of the test items that is in
+class A and have this model predict what class it is, what will it
+predict?
+
+\begin{itemize}
+\item A recall score of 0 for class A means that every item in class A was
+labeled incorrectly. When given another sample in class A, the model
+will predict either class B or class C.
+\end{itemize}
+
+\item A model gets a precision score of 1 for class A on a test set with
+classes A, B, and C. If you take one of the test items that is in
+class A and have your model predict what class it is, what will it
+predict?
+
+\begin{itemize}
+\item The model could predict any of the three classes. A precision value
+is only effected by true positive and false positive rate, meaning
+that when given a sample in class A, predicting C or B would not
+lower class A's precision.
+\end{itemize}
+
+\item If a model with classes A and B has an AUC score of 1 and you give it
+an item from the test set that is in class A, what class will it
+predict and what probability will it give for that class?
+
+\begin{itemize}
+\item It will predict class A, and give a probability of 100\%. This is
+because an AUC score of 1 represents a perfect model.
+\end{itemize}
+
+\item If a model with classes A and B has an AUC score of 0 and you give it
+an item from the test set that is in class A, what class will it
+predict and what probability will it give for that class?
+
+\begin{itemize}
+\item This means that the model is always perfectly incorrect. If you were
+to give it a sample from class B, it will always pick class A, and
+vise versa. The model would still give a probability of 100\%.
+\end{itemize}
+\end{itemize}
+\end{document}

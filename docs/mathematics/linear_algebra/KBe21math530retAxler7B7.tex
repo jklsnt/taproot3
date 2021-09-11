@@ -1,0 +1,82 @@
+% Created 2021-09-11 Sat 16:43
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Taproot}
+\date{\today}
+\title{Axler 7.B exercise 7}
+\hypersetup{
+ pdfauthor={Taproot},
+ pdftitle={Axler 7.B exercise 7},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\begin{quote}
+Suppose \(V\) is a complex inner product space and \(T \in  \mathcal{L}(V)\) is a normal operator such that \(T^9 = T^8\). Prove that \(T\) is self-adjoint and \(T^2 = T\).
+\end{quote}
+
+If \(T = 0\), then \(0^2 = 0\) and \(0\) is self-adjoint. Thus, let \(T \neq  0\).
+
+In 7.1, Axler asserts that \(V\) is finite-dimensional.
+
+By the complex spectral theorem, \(T\) has a diagonal matrix w.r.t. an orthonormal basis of \(V\).
+
+Let these entries equal \(d_1, \ldots, d_n\). \(T^k\) will have on it's diagonal \(d_1^k, \ldots, d_n^k\). For each \(d_i\), \(d_i^8 = d_i^9\). The only values in \(\mathbb{F}\) that satisfy this are zero and one; thus every \(d_i\) must be a zero or a one.
+
+Thus, \(T = T^2\) and \(T\) is self-adjoint.
+
+\section{:noexport:}
+\label{sec:org6cda9c4}
+
+\[\begin{aligned}
+T T^* = T^* T
+\end{aligned}\]
+
+First, we will show that \(T^2 = T\). Suppose \(T\) is invertible. Then,
+\[\begin{aligned}
+T^9 &= T^8 \\
+T^9 T^{-7}  &= T^8 T^{-7}\\
+T^2 &= T
+\end{aligned}\]
+Suppose \(T\) is not invertible and not equal to zero. Then, \(T\) has some zero entries on it's diagonal and some non-zero entries on it's diagonal.
+\end{document}

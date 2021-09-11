@@ -1,0 +1,99 @@
+% Created 2021-09-11 Sat 16:43
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Exr0n}
+\date{\today}
+\title{Matrices as systems of equations}
+\hypersetup{
+ pdfauthor={Exr0n},
+ pdftitle={Matrices as systems of equations},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+Linear combination aka elimination method
+
+\begin{align}
+2x &+ 3y &= 5 \\
+ x &+  y &= 1
+\end{align}
+
+is equivalent to
+
+\[
+\left[\begin{matrix}
+2 &3 \\
+1 &1
+\end{matrix}\right]
+\left[\begin{matrix}x\\y\end{matrix}\right]
+=
+\left[\begin{matrix}5\\1\end{matrix}\right]
+\].
+
+We want to multiply the bottom equation by \(-2\) when solving with the
+elimination method normally, so we might expect to multiply by the
+identity matrix but with the "bottom row selector" modified:
+
+\(\left[\begin{matrix}1&0\\0&-2\end{matrix}\right]\).
+
+\[
+\left[\begin{matrix} 1 &0 \\ 0 &-2\end{matrix}\right]
+\left[\begin{matrix} 2 &3 \\ 1 &1 \end{matrix}\right]
+\left[\begin{matrix} x \\ y \end{matrix}\right]
+\]
+
+=
+
+\[
+\left[\begin{matrix} 1 &0 \\ 0 &-2\end{matrix}\right]
+\left[\begin{matrix} 5 \\ 1\end{matrix}\right]
+\]
+
+And then, to add the bottom to the top we can use
+\(\left[\begin{matrix}1&1\\0&1\end{matrix}\right]\).
+
+\href{KBe2020math530srcMatriciesAsEquationsIntro.png.org}{KBe2020math530srcMatriciesAsEquationsIntro.png}
+\href{KBe2020math530floMatrixMultiplyToSolve.png.org}{KBe2020math530floMatrixMultiplyToSolve.png}
+
+\noindent\rule{\textwidth}{0.5pt}
+\end{document}

@@ -1,0 +1,319 @@
+% Created 2021-09-11 Sat 16:41
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Albert H}
+\date{\today}
+\title{Story of Science: Computational Complexity Theory}
+\hypersetup{
+ pdfauthor={Albert H},
+ pdftitle={Story of Science: Computational Complexity Theory},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\section{sources}
+\label{sec:org6105938}
+\subsection{gentle introductions}
+\label{sec:org94adbc7}
+\subsubsection{\url{https://en.wikipedia.org/wiki/Computational\_complexity\_theory}}
+\label{sec:orgae7c7bf}
+\subsubsection{\url{https://complexityzoo.net/Petting\_Zoo}}
+\label{sec:orgb955b36}
+\subsubsection{\url{https://www.simonsfoundation.org/2013/12/13/richard-karp/}}
+\label{sec:orgf526152}
+\section{overview}
+\label{sec:org6513ec1}
+\subsection{computational complexity theory studies how "difficult" a problem is}
+\label{sec:org564c244}
+\subsubsection{importantly, not how "good" an algorithm is\ldots{} this field deals with all algorithms that solve a given problem}
+\label{sec:org9b66b11}
+\subsection{key concepts}
+\label{sec:orgae8b621}
+\subsubsection{types of problems}
+\label{sec:orgdefaa8f}
+\subsubsection{Turing machines}
+\label{sec:orgafff4e7}
+\subsubsection{reducibility}
+\label{sec:orgb27045d}
+\subsubsection{complexity classes}
+\label{sec:orgf05d6cc}
+\subsubsection{hierarchy}
+\label{sec:orgc7c7998}
+\subsection{key problems}
+\label{sec:orgce36535}
+\subsubsection{P vs NP}
+\label{sec:org0ec1687}
+\section{richard karp (the actual assignment)}
+\label{sec:orgf23197f}
+\subsection{overview}
+\label{sec:org1d40ec2}
+\subsubsection{basically, see \url{https://www.simonsfoundation.org/2013/12/13/richard-karp/}}
+\label{sec:org1932f24}
+\subsection{{\bfseries\sffamily TODO} storyboard richard karp life}
+\label{sec:orgec8441d}
+\section{vocab and definitions\hfill{}\textsc{def}}
+\label{sec:org5893522}
+\subsection{DTM, deterministic Turing machine}
+\label{sec:orgf9ef377}
+A Turing machine with one infinite tape and a state function that has exactly one output for each (tape value, machine state) input. (Not a formal definition).
+\section{complexity classes}
+\label{sec:org4731364}
+\subsection{P}
+\label{sec:org7be338d}
+Problems that can be solved in polynomial time using a deterministic Turing machine (DTM). These problems are generally considered "tractable" by the Cobham-Edmonds thesis.
+
+In practice, problems with large-degree solutions usually have smaller-degree solutions discovered later, so the division between P and other problems 'has turned out to be somewhat "natural"'.
+
+Examples: \{ graph reachability (whether two nodes are in the same component), 2SAT (SCC :)), matrix multiplication \}
+\subsection{NP}
+\label{sec:orgf86cf90}
+Problems that can be checked "yes" in polynomial time. For example, graph isomorphism.
+\subsubsection{whats up with coNP? checkin "no"??\hfill{}\textsc{toexpand}}
+\label{sec:org72e46dc}
+\subsection{NP-complete}
+\label{sec:orgdd400a5}
+Problems that are complete for NP, aka. problems in NP that all other NP problems can be reduced to in polynomial time. One example is CircuitSAT: any NP problem can be reduced to CircuitSAT and any problem that CircuitSAT can be reduced to is also NP-complete. Showing that CircuitSAT or any other NP-complete problem can be solved in polynomial time implies that P = NP.
+
+Examples: TSP, SAT
+\subsection{PH (polynomial hierarchy?)\hfill{}\textsc{toexpand}}
+\label{sec:orgf201e03}
+Defined as the union of a set of recursively defined classes\ldots{} something? Something about P and NP and oracles about NP and coNP. This is the thing that would collapse, I guess. Eg, why people don't think Graph Isomorphism is NP-complete.
+\subsection{PSPACE}
+\label{sec:org76180c5}
+Restricts space instead of time. This class is very large, and includes the entirety of NP (brute force check all possible proofs) and also PP and P\textsuperscript{\#P}, apparently.
+
+Notable PSPACE-complete examples: QBF (or QSAT), deciding the winner of eg. Go.
+\subsection{EXP}
+\label{sec:org19d202a}
+run-time bounded by \(2^{p(n)}\) where \(p\) is a polynomial (ig). EXP is generally big enough: it contains PSPACE, the polynomial hierarchy (PH), and 'most problems we ever hope to attack'. Of course, there are bigger ones.
+\subsection{AC\textsuperscript{0}, NC\textsuperscript{0}, NC}
+\label{sec:orge7c40a8}
+small classes that have to do with circuit complexity.. generally the represent problems that can be solved quickly with massive parallelism.
+\subsection{L}
+\label{sec:org44af61a}
+Logarithmic space (logarithmic spaces on the Turing machine tape). This is nice because space is usually limited. L is contained within P because something about deterministic Turing machines?.
+\subsection{P/poly}
+\label{sec:org34bee98}
+polynomial time algorithms that solve a problem given an advice string which is at most polynomial in length and a function only of the input size. P/exp would make all problems trivial (provide a lookup table), but P/poly is actually interesting, ig. P/poly contains P, so \(NP \notin P/poly\) would imply \(P \neq NP\).
+\subsection{BPP}
+\label{sec:org73371f6}
+Randomized algorithms where the error rate is 'bounded by a constant'. Error rate could be improved by running the algorithm more times and taking a majority vote.
+
+AKS primality test made a previously randomized algorithm deterministic, which was a 'key example of derandomization'. People apparently think that P = BPP (and this is an important open problem).
+\section{flows}
+\label{sec:orgd61c869}
+\subsection{Wikipedia computational complexity theory}
+\label{sec:orgd18daa1}
+\subsubsection{computational problems}
+\label{sec:org47d8e99}
+\begin{enumerate}
+\item problem instances
+\label{sec:org5a98be0}
+A problem describes the problem. the actual "numbers" that describe a specific problem is called a problem instance. sorting a list is a problem, sorting \emph{this} list is a problem instance.
+\item representing problem instances
+\label{sec:orgcb09064}
+formally strings of characters from alphabets. The input size is the length of the string. Different representations can be chosen but it should be trivial (fast) to convert from one to the other.
+\item decision problems (most basic type)
+\label{sec:orgf073e19}
+Generally, given an input, the output is either yes (accept) or no (reject). For example, deciding whether a graph is connected or not.
+\begin{enumerate}
+\item it can be thought of as a "formal language"\hfill{}\textsc{toexpand}
+\label{sec:orgc635c08}
+\end{enumerate}
+\item function problems
+\label{sec:org717f670}
+Very general: a function problem 'is a computational problem where a single output (of a total function) is expected for every input, but the output is more complex than that of a decision problem'. Basically calculate a non-binary function.
+
+Examples: traveling salesman, integer factorization.
+
+However, all function problems can be modeled as decision problems: For some function \(f(*args) \to ans\), it can be modeled as the decision problem of whether \((*args, ans)\) is a valid output.
+\begin{enumerate}
+\item but does this really work? how can a decision TM be used to compute the function output efficiently?\hfill{}\textsc{toexpand}
+\label{sec:org44da5af}
+\end{enumerate}
+\item size of an instance
+\label{sec:orgebce6b6}
+Size is usually the length of the input. The complexity is a function of the input size, usually representing the worst case time or space (or any other complexity measure) required for any input size.
+\end{enumerate}
+\subsubsection{machine models and complexity measures}
+\label{sec:org9d51b4b}
+\begin{enumerate}
+\item Turing machine
+\label{sec:orge36848e}
+standard Turing machine stuff. its very general. Many types of turing machines (probabilistic, non-deterministic, quantum, etc) are used to define different complexity classes.
+\item other machine models\hfill{}\textsc{toexpand}
+\label{sec:org4c500b2}
+Other non-standard Turing machines are used, but the idea is that they aren't actually any better, somehow?
+\item Complexity Measures
+\label{sec:org416e158}
+Usually time or space, but any complexity measure that satisfies Blum's complexity axioms can be used. Examples include: communication complexity, circuit complexity.
+
+Also constant factors don't really matter. And its usually the worst case.
+
+Importantly, complexity measures are also a function of the type of Turing machine used, since some Turing machines are better in some scenarios.
+\begin{enumerate}
+\item blums complexity axioms\hfill{}\textsc{toexpand}
+\label{sec:org0b5b995}
+\end{enumerate}
+\item best/worst/average case
+\label{sec:org56b9407}
+We generally talk about worst case complexity, but some algorithms have good average-case which is good enough (eg. quicksort). Generally, best-case < average-case < amortized analysis < worst-case.
+\item upper and lower bounds for problems
+\label{sec:org9b6c14b}
+Importantly, this is \textbf{not an upper or lower bound for an algorithm}. Instead, for problems in general, it's relatively easy to decide an upper bound (which is just the worst case complexity of any correct algorithm), but a lower bound is difficult (since it must involve algorithms that haven't been discovered yet).
+\end{enumerate}
+\subsubsection{complexity classes}
+\label{sec:org94f75a7}
+\begin{enumerate}
+\item dependencies
+\label{sec:orga1881bf}
+Complexity classes are a function of the following factors
+\begin{enumerate}
+\item problem type
+\label{sec:org1c093e8}
+\{ decision, function, counting, optimization, promise, etc \}
+\item computation model
+\label{sec:org373d4ea}
+\{ deterministic Turing machine, non-deterministic, Boolean circuits, quantum TM, monotone circuits, etc \}
+\item bounded resources
+\label{sec:org6a8ff23}
+\{ polynomial time, logarithmic space, constant depth \}
+\end{enumerate}
+\item an example definition
+\label{sec:org28fc578}
+\begin{quote}
+The set of decision problems solvable by a deterministic Turing machine within time f(n). (This complexity class is known as DTIME(f(n)).)
+\end{quote}
+
+However, using a concrete function \(f(n)\) is often computational-model-dependent, but the Cobham-Edmonds thesis states that 'the time complexities in any two reasonable general models of computation are polynomial related.'
+
+This suggests that all if we want to be machine-independent, all polynomial problems are roughly the same and belong in the same class: P (for decision problems) and FP (for function problems).
+\begin{enumerate}
+\item why are there different classes if decision and function problems are the same-ish? dunno\hfill{}\textsc{toexpand}
+\label{sec:orgb8432c4}
+\end{enumerate}
+\item important complexity classes
+\label{sec:org13904c9}
+A nice list here but the complexity petting zoo is more friendly.
+\item Hierarchy theorems\hfill{}\textsc{toexpand}
+\label{sec:orgc7fcac7}
+We would like to establish a strict containment hierarchy within classes (but between different eg. polynomial functions). This does that, apparently?
+\item Reduction
+\label{sec:org91c813a}
+Many problems can be turned into other problems in their class, which provides an upper bound on the difficulty of the problem.
+
+There are many types of reductions, but the most common type is the polynomial-time reduction which means the reduction takes polynomial time. If you take a non-polynomial reduction to turn a problem into a polynomial problem, then you haven't proven anything.
+\begin{enumerate}
+\item hardness and completeness
+\label{sec:org0ea1241}
+A problem \(X\) is hard for a class \(C\) if every problem in \(C\) can be reduced to \(X\). A problem \(X\) is complete for \(C\) if it is hard for \(C\) it is in \(C\). NP-complete problems are the "most difficult problems in NP" because other problems can be reduced to them.
+
+Being able to reduce a hard problem to another problem shows that that other problem is just as hard, by contradiction. Similarly, being able to reduce a hard problem to a known easy one collapses the hierarchy.
+\end{enumerate}
+\end{enumerate}
+\subsubsection{important open problems}
+\label{sec:org7886a69}
+\begin{enumerate}
+\item P vs NP
+\label{sec:org0cdd10d}
+If any NP-complete problem can be reduced (polynomially) to a P problem, then many NP problems would be solvable in polynomial time. There are many NP problems that we would like to solve efficiently, so this would be a big deal.
+
+In fact, many of the other 'important open problems' are important because they would show that \(P \neq  NP\).
+\item NP-indeterminate problems (in NP but not in P nor NP-complete)\hfill{}\textsc{toexpand}
+\label{sec:orgd870433}
+some theorem shows that if P neq NP then there are NP-indeterminate problems. If we show that there are none, then that proves P = NP. Some unclassified problems (graph isomorphism problem, integer factorization problem) being NP-complete would 'collapse the polynomial hierarchy.' ?????
+\item separations between other complexity classes
+\label{sec:org0664d8a}
+There are many classes that are improper subsets of each other. If any of those relations can be shown to be a proper subset, then classes on either side would be unequal. For example, many such relations exist between P and NP and showing that one of those relations is a proper subset relation would prove that P != NP. Or, proving that two classes (eg. P, PSPACE) are equal would squish all classes in between into one (in this case, showing that P = NP).
+\end{enumerate}
+\subsubsection{Intractability}
+\label{sec:orgab1b286}
+Meaning "not handleable". The Cobham-Edmonds thesis suggests that all polynomial problems are tractable. However, in the real world, specific numbers matter (\(N^{15}\) is much worse than \(0.0001^N\))
+\subsubsection{continuous complexity theory\hfill{}\textsc{toexpand}}
+\label{sec:orgcb8f76f}
+Something about continuous functions or analog logic.
+\subsubsection{History}
+\label{sec:org90331c8}
+\begin{enumerate}
+\item Many foundations laid, eg. Turing machine in 1936 which allowed for analysis of various algorithms.
+\label{sec:org1abf70c}
+\item First systematic study attributed to Juris Hartmanis and Richard E. Stearns in "On the Computational Complexity of Algorithms" (1965)
+\label{sec:org895e6f4}
+\item Edmonds (Cobham-Edmonds thesis) suggests polynomial problems are "good" (1965)
+\label{sec:orgc3fc775}
+\item other studies of problems with bounded resources in the previous few years
+\label{sec:org177f1dd}
+\item Blum axioms for complexity measures (1967), and the "speed-up theorem"
+\label{sec:org8f37107}
+\item 1971 Stephen Cook and Leonid Levin proved existance of practically relevant NP-complete problems
+\label{sec:org798f698}
+\item Richard Karp (1972) showed 21 relevant and NP-complete problems (op)
+\label{sec:org4d369fe}
+\begin{enumerate}
+\item oldest of four children, born to jewish family in Dorchester, Boston
+\label{sec:org7781344}
+\item mother got harvard degree at age 57 and father wanted to go on to medschool after Harvard but became a math teacher bc he couldn't afford med school
+\label{sec:orgfbac11b}
+\item went to harvard, some career jumps, mostly CS professor at UC Berkeley
+\label{sec:orgf80cf96}
+\item leads a number of societies and organizations, including International Computer Science Institute, Simons Institute for the Theory of Computing
+\label{sec:org5f38a62}
+\item and also got a bunch of prizes for his work on NP-complete problems
+\label{sec:orgbca9d96}
+\item Edmonds-Karp algorithm for max flow with Jack Edmonds 1971
+\label{sec:org02e64ae}
+\item landmark NP-completeness paper in 1972
+\label{sec:orgb554d1b}
+\begin{enumerate}
+\item showed 21 problems that SAT can be reduced to
+\label{sec:org206d342}
+\item a nice tree of reducibility + some previous work mentioned in the paper
+\label{sec:org6631532}
+\end{enumerate}
+\item 1973 Hopcroft-karp algorithm with john hopcroft for bipartite graph max matchings
+\label{sec:org2b67ca4}
+\item some other work later on
+\label{sec:org34885e1}
+\end{enumerate}
+\end{enumerate}
+\end{document}

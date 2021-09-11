@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-11 Sat 16:37 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>flo - hallmarks of cancer (2011) reading</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Exr0n" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="https://taproot3.sanity.gq/sitemap.html"> UP </a>
+ |
+ <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
+</div><div id="content">
+<h1 class="title">flo - hallmarks of cancer (2011) reading</h1>
+<div id="outline-container-org43f8e13" class="outline-2">
+<h2 id="org43f8e13"><span class="section-number-2">1</span> sources&#xa0;&#xa0;&#xa0;<span class="tag"><span class="source">source</span></span></h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org8a68a57" class="outline-3">
+<h3 id="org8a68a57"><span class="section-number-3">1.1</span> assignment: <a href="https://nuevaschool.instructure.com/courses/3087/assignments/56036">https://nuevaschool.instructure.com/courses/3087/assignments/56036</a></h3>
+</div>
+<div id="outline-container-org52fd8ca" class="outline-3">
+<h3 id="org52fd8ca"><span class="section-number-3">1.2</span> reading: <a href="KBsrcHallmarksOfCancer2011Reading.pdf">Hallmarks of Cancer PDF</a></h3>
+</div>
+</div>
+<div id="outline-container-org876a619" class="outline-2">
+<h2 id="org876a619"><span class="section-number-2">2</span> Flow</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orge4044dc" class="outline-3">
+<h3 id="orge4044dc"><span class="section-number-3">2.1</span> Abstract</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org3450030" class="outline-4">
+<h4 id="org3450030"><span class="section-number-4">2.1.1</span> hallmarks include</h4>
+<div class="outline-text-4" id="text-2-1-1">
+</div>
+<ol class="org-ol">
+<li><a id="org9adcee3"></a>sustaining proliferative signaling<br /></li>
+<li><a id="org4109767"></a>evading growth suppressors<br /></li>
+<li><a id="orgb3d78fa"></a>resisting cell death<br /></li>
+<li><a id="orgaf7d490"></a>enabling replicative immortality<br /></li>
+<li><a id="org85660c9"></a>inducing ingiogenesis<br /></li>
+<li><a id="org7f67c11"></a>activating invasion and metastasis<br /></li>
+</ol>
+</div>
+<div id="outline-container-org717768b" class="outline-4">
+<h4 id="org717768b"><span class="section-number-4">2.1.2</span> theese hallmarks are newer</h4>
+<div class="outline-text-4" id="text-2-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="orge8ad06f"></a>reprogramming of energy metabolism<br /></li>
+<li><a id="orgb92573d"></a>evading immune destruction<br /></li>
+</ol>
+</div>
+<div id="outline-container-org187e469" class="outline-4">
+<h4 id="org187e469"><span class="section-number-4">2.1.3</span> underlying</h4>
+<div class="outline-text-4" id="text-2-1-3">
+</div>
+<ol class="org-ol">
+<li><a id="orgf2754b4"></a>genome instability<br />
+<ol class="org-ol">
+<li><a id="org6501ba8"></a>genetic diversity that expedites acquisition of hallmarks<br /></li>
+</ol>
+</li>
+<li><a id="org7819e2d"></a>inflammation<br />
+<ol class="org-ol">
+<li><a id="orgbe43676"></a>"fosters multiple hallmark functions"<br /></li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgc17ac86" class="outline-3">
+<h3 id="orgc17ac86"><span class="section-number-3">2.2</span> Introduction</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-org739c406" class="outline-4">
+<h4 id="org739c406"><span class="section-number-4">2.2.1</span> Cancer cells evolve into cancer cells because they need to be cancer cells??</h4>
+<div class="outline-text-4" id="text-2-2-1">
+</div>
+<ol class="org-ol">
+<li><a id="org8fd5ad0"></a><span class="todo TODO">TODO</span> why do tumors have "the need &#x2026; to acquire the traints that enable them to become tumorigenic and ultimately malignant"?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="question">question</span></span><br /></li>
+</ol>
+</div>
+<div id="outline-container-org93f4e35" class="outline-4">
+<h4 id="org93f4e35"><span class="section-number-4">2.2.2</span> tumors are not simple / idle 'insular masses of proliferating cancer cells'</h4>
+</div>
+<div id="outline-container-org8f8ed70" class="outline-4">
+<h4 id="org8f8ed70"><span class="section-number-4">2.2.3</span> "recruited" normal cells (or 'stromal cells') are active parts of the tumor</h4>
+</div>
+<div id="outline-container-org3fd1752" class="outline-4">
+<h4 id="org3fd1752"><span class="section-number-4">2.2.4</span> 'the biology of tumors can no longer be understood simply by enumerating the traits of the cancer cells but instead must encompass the contributions of the "tumor microenvironment" to tumorigenesis.'</h4>
+</div>
+<div id="outline-container-org3a25a69" class="outline-4">
+<h4 id="org3a25a69"><span class="section-number-4">2.2.5</span> purpose is to consider new hallmarks that have been found or note that old ones weren't as general as we thought</h4>
+</div>
+</div>
+<div id="outline-container-org22fa062" class="outline-3">
+<h3 id="org22fa062"><span class="section-number-3">2.3</span> section: 'An Emerging Hallmark: Evading Immune Destruction'</h3>
+<div class="outline-text-3" id="text-2-3">
+</div>
+<div id="outline-container-org2c10840" class="outline-4">
+<h4 id="org2c10840"><span class="section-number-4">2.3.1</span> the immune system usually eradicates the 'formation and progression of incipient neoplasias, late-stage tumors, and micrometastases', so why not in these cancers?</h4>
+</div>
+<div id="outline-container-org5a2e041" class="outline-4">
+<h4 id="org5a2e041"><span class="section-number-4">2.3.2</span> 'long standing theory of immune surveillance' -&gt; something went interesting</h4>
+<div class="outline-text-4" id="text-2-3-2">
+</div>
+<ol class="org-ol">
+<li><a id="orgc0498b9"></a>'cells and tissues are constantly monitored'<br /></li>
+<li><a id="org485f9ec"></a>surveillance should elim cancer cells before they grow into tumors<br /></li>
+<li><a id="orgeb8a5bf"></a>thus, grown tumors have either hid from surveillance or limited the 'extent of immunological killing'<br /></li>
+</ol>
+</div>
+<div id="outline-container-orgb6002cf" class="outline-4">
+<h4 id="orgb6002cf"><span class="section-number-4">2.3.3</span> more cancer in immunocompromised individuals</h4>
+<div class="outline-text-4" id="text-2-3-3">
+</div>
+<ol class="org-ol">
+<li><a id="orgc6ef026"></a>but these are virus-induced cancers<br />
+<ol class="org-ol">
+<li><a id="orge5d9f35"></a>so helping these people = reducing viral infilltration<br /></li>
+</ol>
+</li>
+<li><a id="org0761d83"></a>other cancers still evade the immune system<br /></li>
+</ol>
+</div>
+<div id="outline-container-org7ae8b22" class="outline-4">
+<h4 id="org7ae8b22"><span class="section-number-4">2.3.4</span> 'genetically engineered mice and clinical epidemeology suggest that the immune system' actually hurts cancer</h4>
+<div class="outline-text-4" id="text-2-3-4">
+</div>
+<ol class="org-ol">
+<li><a id="org9878d6d"></a>mice that are engineered to lack some immune parts got cancer faster/stronger/more<br />
+<ol class="org-ol">
+<li><a id="org25177f5"></a>these guys are important in fighting cancer<br />
+<ol class="org-ol">
+<li><a id="org4d58914"></a>CD8^+ cytotoxic T lymphocytes (CTLs)<br /></li>
+<li><a id="orga39c71c"></a>CD4^+ T<sub>h1</sub> helper T cells<br /></li>
+<li><a id="org69c45ef"></a>natural killer (NK) cells<br /></li>
+</ol>
+</li>
+<li><a id="orgc3b5104"></a>'demonstrable increase in tumor incidence'<br /></li>
+<li><a id="org538df6c"></a>lacking multiple -&gt; 'more susceptible to cancer development'<br /></li>
+<li><a id="org1b6535b"></a>'both the innate and adaptive cellular arms of the immune system are able to contribute significantly to immune surveillance and thus tumor eradication'&#xa0;&#xa0;&#xa0;<span class="tag"><span class="conclusion">conclusion</span></span><br /></li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-org4804479" class="outline-4">
+<h4 id="org4804479"><span class="section-number-4">2.3.5</span> transplantation experiments</h4>
+<div class="outline-text-4" id="text-2-3-5">
+</div>
+<ol class="org-ol">
+<li><a id="org6ada981"></a>cancer cells from immunodeficient mice have a bad time in normal mice<br /></li>
+<li><a id="orgaa43e78"></a>cancer cells from normal mice can initiate tumors in both types of hosts<br /></li>
+<li><a id="orge18f62b"></a>maybe some cancer cells are more easily detected and those would normally die in normal hosts but live in comprimised hosts, but when transplanted they meet a competent immune system and die&#xa0;&#xa0;&#xa0;<span class="tag"><span class="conclusion">conclusion</span></span><br /></li>
+<li><a id="org3b43419"></a>Open question: do some carcinogens tend to induce more/less immunogenic cancer cells?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="nextstep">nextstep</span></span><br /></li>
+</ol>
+</div>
+<div id="outline-container-orgc16a074" class="outline-4">
+<h4 id="orgc16a074"><span class="section-number-4">2.3.6</span> the immune system probably includes antitumoral responses</h4>
+<div class="outline-text-4" id="text-2-3-6">
+</div>
+<ol class="org-ol">
+<li><a id="orgbd7db9c"></a>patients with colon and ovarian tumors who have lots of CTLs and NK cells have better prognosis<br />
+<ol class="org-ol">
+<li><a id="org4721224"></a>evidence is not as strong for other cancers&#xa0;&#xa0;&#xa0;<span class="tag"><span class="nextstep">nextstep</span></span><br /></li>
+</ol>
+</li>
+<li><a id="org684a7e7"></a>immunosupressed organ recievers got cancer from the donor<br />
+<ol class="org-ol">
+<li><a id="org7f93d59"></a>suggests doner had immune system which held cancer down until organ was transplanted<br /></li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-org9b4f065" class="outline-4">
+<h4 id="org9b4f065"><span class="section-number-4">2.3.7</span> <span class="todo TODO">TODO</span> 'still, the epidemiology of chronically immunosupressed patients does not indicate significantly increased incidences of the major forms of nonviral human cancer'</h4>
+</div>
+<div id="outline-container-orgf4802ad" class="outline-4">
+<h4 id="orgf4802ad"><span class="section-number-4">2.3.8</span> <span class="todo TODO">TODO</span> something about HIV patients who lack T and B cells and how they should still be able to fight cancer with NK cells and CTLs</h4>
+</div>
+<div id="outline-container-org28937dd" class="outline-4">
+<h4 id="org28937dd"><span class="section-number-4">2.3.9</span> that was oversimplified as the tumor might also be actively supressing immune responses</h4>
+<div class="outline-text-4" id="text-2-3-9">
+</div>
+<ol class="org-ol">
+<li><a id="org0056f52"></a>may 'paralyze infiltrating CTLs and NK cells by secreting TGF-&beta; or other immunosuppressive factors'<br /></li>
+<li><a id="org42014aa"></a>'more subtle mechinisms .. recruitment of inflamatory cells that are actively immunosuppressive'<br />
+<ol class="org-ol">
+<li><a id="org12a42b6"></a>'regulatory T cells (Tregs) and myeloid-derived suppressor cells (MDSCs)'<br /></li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-org1b8b4be" class="outline-4">
+<h4 id="org1b8b4be"><span class="section-number-4">2.3.10</span> it is so far unclear whether the immune system plays a large enough role to be considered a hallmark of cancer</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfd3977d" class="outline-2">
+<h2 id="orgfd3977d"><span class="section-number-2">3</span> Vocab</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org0c096b3" class="outline-3">
+<h3 id="org0c096b3"><span class="section-number-3">3.1</span> neoplastic disease</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-org0845862" class="outline-4">
+<h4 id="org0845862"><span class="section-number-4">3.1.1</span> anything that causes tumor growth (malignant or benign)</h4>
+</div>
+</div>
+<div id="outline-container-orgc14877e" class="outline-3">
+<h3 id="orgc14877e"><span class="section-number-3">3.2</span> ostensibly</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-orgd9a1326" class="outline-4">
+<h4 id="orgd9a1326"><span class="section-number-4">3.2.1</span> maybe 'technically'?'</h4>
+</div>
+</div>
+<div id="outline-container-org0a1c37d" class="outline-3">
+<h3 id="org0a1c37d"><span class="section-number-3">3.3</span> tumor microenvironment</h3>
+<div class="outline-text-3" id="text-3-3">
+</div>
+<div id="outline-container-org7e0e02e" class="outline-4">
+<h4 id="org7e0e02e"><span class="section-number-4">3.3.1</span> presumably inflammation, recruited normal cells, and other stuff that helps the tumor grow</h4>
+</div>
+</div>
+<div id="outline-container-orgbed9248" class="outline-3">
+<h3 id="orgbed9248"><span class="section-number-3">3.4</span> pathogenisis</h3>
+<div class="outline-text-3" id="text-3-4">
+</div>
+<div id="outline-container-orgdf66f5b" class="outline-4">
+<h4 id="orgdf66f5b"><span class="section-number-4">3.4.1</span> evolution of 'pathogen' (cancer)</h4>
+</div>
+</div>
+<div id="outline-container-org95cd28c" class="outline-3">
+<h3 id="org95cd28c"><span class="section-number-3">3.5</span> ancillary proposition</h3>
+<div class="outline-text-3" id="text-3-5">
+</div>
+<div id="outline-container-org1917ad7" class="outline-4">
+<h4 id="org1917ad7"><span class="section-number-4">3.5.1</span> maybe the starting / base proposition</h4>
+</div>
+</div>
+<div id="outline-container-org3106c3f" class="outline-3">
+<h3 id="org3106c3f"><span class="section-number-3">3.6</span> insular masses</h3>
+<div class="outline-text-3" id="text-3-6">
+</div>
+<div id="outline-container-orge7a4e8b" class="outline-4">
+<h4 id="orge7a4e8b"><span class="section-number-4">3.6.1</span> stagnant or something, simple</h4>
+</div>
+</div>
+<div id="outline-container-orgbe5fe0a" class="outline-3">
+<h3 id="orgbe5fe0a"><span class="section-number-3">3.7</span> heterotypic interactions</h3>
+<div class="outline-text-3" id="text-3-7">
+</div>
+<div id="outline-container-orgd02a459" class="outline-4">
+<h4 id="orgd02a459"><span class="section-number-4">3.7.1</span> many types of interactions</h4>
+</div>
+</div>
+<div id="outline-container-org8389151" class="outline-3">
+<h3 id="org8389151"><span class="section-number-3">3.8</span> tumorigenisis</h3>
+<div class="outline-text-3" id="text-3-8">
+</div>
+<div id="outline-container-orge1acf10" class="outline-4">
+<h4 id="orge1acf10"><span class="section-number-4">3.8.1</span> the growth / development of a tumor?</h4>
+</div>
+</div>
+<div id="outline-container-orgf500bf0" class="outline-3">
+<h3 id="orgf500bf0"><span class="section-number-3">3.9</span> neoplasias</h3>
+<div class="outline-text-3" id="text-3-9">
+</div>
+<div id="outline-container-orgf510e83" class="outline-4">
+<h4 id="orgf510e83"><span class="section-number-4">3.9.1</span> new uncontrolled growth of cells</h4>
+</div>
+</div>
+<div id="outline-container-orgb126310" class="outline-3">
+<h3 id="orgb126310"><span class="section-number-3">3.10</span> micrometastases</h3>
+<div class="outline-text-3" id="text-3-10">
+</div>
+<div id="outline-container-org01337c7" class="outline-4">
+<h4 id="org01337c7"><span class="section-number-4">3.10.1</span> clumps of cancer cells that spread around the body</h4>
+</div>
+</div>
+<div id="outline-container-org66bfdc0" class="outline-3">
+<h3 id="org66bfdc0"><span class="section-number-3">3.11</span> etiology</h3>
+<div class="outline-text-3" id="text-3-11">
+</div>
+<div id="outline-container-org3a372e4" class="outline-4">
+<h4 id="org3a372e4"><span class="section-number-4">3.11.1</span> study of cancer?</h4>
+</div>
+</div>
+<div id="outline-container-orgfc29edf" class="outline-3">
+<h3 id="orgfc29edf"><span class="section-number-3">3.12</span> immunogenic</h3>
+<div class="outline-text-3" id="text-3-12">
+</div>
+<div id="outline-container-org04b0cc9" class="outline-4">
+<h4 id="org04b0cc9"><span class="section-number-4">3.12.1</span> easily detected by the immune system</h4>
+</div>
+</div>
+<div id="outline-container-org279a0bc" class="outline-3">
+<h3 id="org279a0bc"><span class="section-number-3">3.13</span> immunoediting</h3>
+<div class="outline-text-3" id="text-3-13">
+</div>
+<div id="outline-container-org972c602" class="outline-4">
+<h4 id="org972c602"><span class="section-number-4">3.13.1</span> "natural selection" by the immune system</h4>
+</div>
+</div>
+<div id="outline-container-orgbebd0b6" class="outline-3">
+<h3 id="orgbebd0b6"><span class="section-number-3">3.14</span> prognosis</h3>
+<div class="outline-text-3" id="text-3-14">
+</div>
+<div id="outline-container-orgbdee530" class="outline-4">
+<h4 id="orgbdee530"><span class="section-number-4">3.14.1</span> a prediction of the outcome of a cancer (or disease in general, apparently)</h4>
+<div class="outline-text-4" id="text-3-14-1">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="namedate"><p class="subtitle"><span class="author">Exr0n</span><span class="date">2021-09-11 Sat 16:34</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+</div>
+</body>
+</html>

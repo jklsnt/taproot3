@@ -1,0 +1,95 @@
+% Created 2021-09-11 Sat 16:41
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Huxley}
+\date{\today}
+\title{Validation}
+\hypersetup{
+ pdfauthor={Huxley},
+ pdftitle={Validation},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\noindent\rule{\textwidth}{0.5pt}
+
+\section{Validation}
+\label{sec:org9e75e41}
+We have visualized out models and used human judgment to, well, judge
+them. We have \emph{not} done this algorithmically or mathematically.
+
+\subsection{Why?}
+\label{sec:org666d9de}
+Some things are blind to the human eye. Eg. underfitting and
+overfitting.
+
+Not enough data, the algorithm was buggy (can't we see these though?
+maybe just not as easily?)
+
+\subsubsection{Underfitting}
+\label{sec:orga7362d9}
+Wrong algorithm, buggy, or the data just sucks / there isn't actually a
+correlation.
+
+\subsubsection{Overfitting}
+\label{sec:org88fe326}
+Training \emph{to well} to our dateset, making it not applicable to the real
+world / other data.
+
+\subsection{Bias-Variance Tradeoff}
+\label{sec:orgb6e9f05}
+Bias - off Variance - inconsistent
+
+We want low bias low variance (doih).
+
+\subsection{Holdout? nah, let's cross validate!}
+\label{sec:org6b926b5}
+Like holdout, but you do it multiple times with different chunks of data
+'held out'
+
+\subsection{Validation?}
+\label{sec:orgd1721c2}
+What do? - Accuracy - Easy, but not super effective / informative. -
+Precision, Recall, F-measure - True positive, false negative, and all
+the permutations. - Precision = \(\frac{TP}{TP+FP}\) - Recall
+\end{document}
