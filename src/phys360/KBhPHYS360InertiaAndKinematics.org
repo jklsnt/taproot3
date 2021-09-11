@@ -167,7 +167,7 @@ As such, if the signage were flipped, terms of the kinematics equation would the
 
 * Proving the Third Equation for $V^2$
 \begin{equation}
-    v^2(t) \stackrel{?}{=} {v_0}^2 + 2a_0(y(t)-r_0)
+    v^2(t) \stackrel{?}{=} {v_0}^2 + 2a_0(y(t)-y_0)
 \end{equation}
 
 We begin by deriving an equation of $a(y)$ --- acceleration as a function of position.
@@ -182,24 +182,20 @@ With apply the chain rule, we derive the following:
 
 \begin{align}
     a(t) =& \frac{dv}{dt} \\
-    \Rightarrow a(t) =& \frac{dv}{dy}\frac{dy}{dt} \\
-    \Rightarrow a(t) =& \frac{dv}{dy}v(t) \\
-    \Rightarrow \frac{a(t)}{v(t)} =& a(y)
+    \Rightarrow \frac{dv}{dt} =& \frac{dv}{dy}\frac{dy}{dt} \\
 \end{align}
 
 Integrating both sides w.r.t. position...
 
 \begin{align}
-    \frac{a(t)}{v(t)} =& a(y) \\
-    \Rightarrow \int \frac{a(t)}{v(t)}\ dy =& \int a(y)\ dy \\
-    \Rightarrow \int \frac{dv}{dt}\frac{dy}{dt}\ dy =& \int a(y)\ dy
+    \frac{dv}{dt} =& \frac{dv}{dy}\frac{dy}{dt} \\
+    \Rightarrow \int \frac{dv}{dt}\ dy =& \int \frac{dv}{dy}\frac{dy}{dt}\ dy\\
 \end{align}
-
 
 The right integral now requires some additional movement to solve.
 
 \begin{align}
-     \int \frac{dv}{dy}v\ dy =& v^2 - \int \frac{dv}{dy} v\ dy \\
+     \int \frac{dv}{dt}v\ dy =& v^2 - \int \frac{dv}{dy} v\ dy \\
      \Rightarrow 2\int \frac{dv}{dy}v\ dy =& v^2 + C \\
      \Rightarrow \int \frac{dv}{dy}v\ dy =& \frac{v^2}{2} + C
 \end{align}
@@ -207,5 +203,15 @@ The right integral now requires some additional movement to solve.
 Substituting the right statement back into the original expression, and continuing to solve.
 
 \begin{align}
-    \Rightarrow ay =& \frac{v^2}{2} + C \\
+    & \int \frac{dv}{dt}\ dy = \frac{v^2}{2} + C \\
+    & \Rightarrow \int \frac{dv}{dt}\ dy = \frac{v^2}{2} + C\\
+    & \Rightarrow 2ay + C = v^2 
 \end{align}
+
+Because of the fact that this expression is a value of $v^2$, and that the constant is an offset of the value (as per calculated by $2ay$), we set $C = {v_0}^2$. Additionally, $y$ is an statement that represents the offset of $y$ position, we set $y = y(t)-y_0$ to represent the actual offset.
+
+Hence:
+
+\begin{equation}
+    v^2 = 2a(y(t)-y_0) + {v_0}^2
+\end{equation}

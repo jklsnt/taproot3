@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-11 Sat 15:00 -->
+<!-- 2021-09-11 Sat 15:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rotational Inertia and Kinematics</title>
@@ -500,7 +500,7 @@ As such, if the signage were flipped, terms of the kinematics equation would the
 <h2 id="orgce0822e"><span class="section-number-2">4</span> Proving the Third Equation for \(V^2\)</h2>
 <div class="outline-text-2" id="text-4">
 \begin{equation}
-    v^2(t) \stackrel{?}{=} {v_0}^2 + 2a_0(y(t)-r_0)
+    v^2(t) \stackrel{?}{=} {v_0}^2 + 2a_0(y(t)-y_0)
 \end{equation}
 
 <p>
@@ -521,9 +521,7 @@ With apply the chain rule, we derive the following:
 
 \begin{align}
     a(t) =& \frac{dv}{dt} \\
-    \Rightarrow a(t) =& \frac{dv}{dy}\frac{dy}{dt} \\
-    \Rightarrow a(t) =& \frac{dv}{dy}v(t) \\
-    \Rightarrow \frac{a(t)}{v(t)} =& a(y)
+    \Rightarrow \frac{dv}{dt} =& \frac{dv}{dy}\frac{dy}{dt} \\
 \end{align}
 
 <p>
@@ -531,18 +529,16 @@ Integrating both sides w.r.t. position&#x2026;
 </p>
 
 \begin{align}
-    \frac{a(t)}{v(t)} =& a(y) \\
-    \Rightarrow \int \frac{a(t)}{v(t)}\ dy =& \int a(y)\ dy \\
-    \Rightarrow \int \frac{dv}{dt}\frac{dy}{dt}\ dy =& \int a(y)\ dy
+    \frac{dv}{dt} =& \frac{dv}{dy}\frac{dy}{dt} \\
+    \Rightarrow \int \frac{dv}{dt}\ dy =& \int \frac{dv}{dy}\frac{dy}{dt}\ dy\\
 \end{align}
-
 
 <p>
 The right integral now requires some additional movement to solve.
 </p>
 
 \begin{align}
-     \int \frac{dv}{dy}v\ dy =& v^2 - \int \frac{dv}{dy} v\ dy \\
+     \int \frac{dv}{dt}v\ dy =& v^2 - \int \frac{dv}{dy} v\ dy \\
      \Rightarrow 2\int \frac{dv}{dy}v\ dy =& v^2 + C \\
      \Rightarrow \int \frac{dv}{dy}v\ dy =& \frac{v^2}{2} + C
 \end{align}
@@ -552,13 +548,33 @@ Substituting the right statement back into the original expression, and continui
 </p>
 
 \begin{align}
-    \Rightarrow ay =& \frac{v^2}{2} + C \\
+    & \int \frac{dv}{dt}\ dy = \frac{v^2}{2} + C \\
+    & \Rightarrow \int \frac{dv}{dt}\ dy = \frac{v^2}{2} + C\\
+    & \Rightarrow 2ay + C = v^2 
 \end{align}
+
+<p>
+Because of the fact that this expression is a value of \(v^2\), and that the constant is an offset of the value (as per calculated by \(2ay\)), we set \(C = {v_0}^2\). Additionally, \(y\) is an statement that represents the offset of \(y\) position, we set \(y = y(t)-y_0\) to represent the actual offset.
+</p>
+
+<p>
+Hence:
+</p>
+
+\begin{equation}
+    v^2 = 2a(y(t)-y_0) + {v_0}^2
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orgde841aa" class="outline-2">
+<h2 id="orgde841aa"><span class="section-number-2">5</span> Kinematics with Air Drag</h2>
+<div class="outline-text-2" id="text-5">
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Houjun Liu</span><span class="date">2021-09-11 Sat 14:59</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+<div class="namedate"><p class="subtitle"><span class="author">Houjun Liu</span><span class="date">2021-09-11 Sat 15:20</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>
