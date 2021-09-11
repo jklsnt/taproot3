@@ -1,4 +1,4 @@
-% Created 2021-09-11 Sat 11:46
+% Created 2021-09-11 Sat 12:01
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -156,16 +156,16 @@ We start at the statement for \(v(t)\), squaring it, and substituting the necess
 
 \begin{align}
     v(t) =& a_0t+v_0 \\
-    \Rightarrow v^2(t) =& a_0^2 t^2 + 2a_0v_0t + v_0^2 \\
-    v^2(t) =& v_0^2 + 2a_0 (\frac{1}{2} a_0 t^2 + v_0t) \\
-    v^2(t) =& v_0^2 + 2a_0 (\frac{1}{2} a_0 t^2 + v_0t + y_0 - y_0) \\
-    v^2(t) =& v_0^2 + 2a_0 (y(t) - y_0) 
+    \Rightarrow v^2(t) =& {a_0}^2 t^2 + 2a_0v_0t + v_0^2 \\
+    v^2(t) =& {v_0}^2 + 2a_0 (\frac{1}{2} a_0 t^2 + v_0t) \\
+    v^2(t) =& {v_0}^2 + 2a_0 (\frac{1}{2} a_0 t^2 + v_0t + y_0 - y_0) \\
+    v^2(t) =& {v_0}^2 + 2a_0 (y(t) - y_0) 
 \end{align}
 
 It is therefore shown that:
 
 \begin{equation}
-    v^2(t) = v_0^2 + 2a_0 (y(t) - y_0) 
+    v^2(t) = {v_0}^2 + 2a_0 (y(t) - y_0) 
 \end{equation}
 
 \subsection{Proving \(\Delta y = \frac{v(t_1)+v(t_2)}{2}\Delta t\)}
@@ -176,7 +176,18 @@ Showing \(\Delta y = \frac{v(t_1)+v(t_2)}{2}\Delta t\), defining \(\Delta y=y(t_
     \Delta y &= \frac{v(t_1)+v(t_2)}{2}\Delta t \\
     y(t_2)-y(t_1) &= \frac{v(t_1)+v(t_2)}{2} t_2 - t_1 \\
     y(t_2)-y(t_1) &= \frac{((a_0t_1+v_0)+(a_0t_2+v_0))}{2} t_2 - t_1 \\
-    y(t_2)-y(t_1) &= \frac{((a_0t_1t_2+v_0t_2)-(a_0t_1^2+v_0t_1)+(a_0t_2^2+v_0t_2)-(a_0t_1t_2+v_0t_1))}{2} \\
-    y(t_2)-y(t_1) &= \frac{((a_0t_1t_2+v_0t_2)-(a_0t_1^2+v_0t_1)+(a_0t_2^2+v_0t_2)-(a_0t_1t_2+v_0t_1))}{2} \\
+    y(t_2)-y(t_1) &= \frac{((a_0t_1t_2+v_0t_2)-(a_0{t_1}^2+v_0t_1)+(a_0{t_2}^2+v_0t_2)-(a_0t_1t_2+v_0t_1))}{2} \\
+    y(t_2)-y(t_1) &= \frac{(a_0{t_2}^2+2v_0t_2)-(a_0{t_1}^2+2v_0t_1)}{2} \\
+    y(t_2)-y(t_1) &= \frac{(a_0{t_2}^2+2v_0t_2+2y_0)-(a_0{t_1}^2+2v_0t_1+2y_0)}{2} \\
+    y(t_2)-y(t_1) &= \frac{1}{2} a_0{t_2}^2+v_0t_2+y_0 - \frac{1}{2} a_0{t_1}^2+v_0t_1+y_0 \\
+    y(t_2)-y(t_1) &= y(t_2) - y(t_1) \\
 \end{align}
+Hence, it is demonstrated that: 
+
+\begin{equation}
+    \Delta y = \frac{v(t_1)+v(t_2)}{2}\Delta t
+\end{equation}
+
+\section{Question regarding signage of the equations demonstrated above.}
+\label{sec:org36125e8}
 \end{document}
