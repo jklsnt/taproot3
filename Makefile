@@ -41,7 +41,7 @@ src/%.org: src/%.rst
 gen/%.org: src/%.org
 	mkdir -p $$(dirname "$@")
 	cp "$<" "$@"
-	echo "#+SETUPFILE: ../../templates/setup.org" >> "$@"
+	cat ./templates/setup.org >> "$@"
 	cat "$@" | sed "s/%20/ /g" > "$@"
 
 gen: $(ORG_GEN)
