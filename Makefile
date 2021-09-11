@@ -45,7 +45,7 @@ gen/%.org: src/%.org
 	cat "$@" | sed "s/%20/ /g" > "$@"
 
 gen: $(ORG_GEN)
-	cp -r static/ src/
+	cp -r static/ gen/
 
 
 

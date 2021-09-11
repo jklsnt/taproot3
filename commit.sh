@@ -11,7 +11,7 @@ do
     git add static
     # Ship it!
     GIT_MERGE_AUTOEDIT=no git pull origin master
-    git commit -a -m "Taproot3 Autocommit $(date "+%Y-%m-%d %H:%M:%S")"
+    git commit -a -m "taproot3 autocommit $(date "+%Y-%m-%d %H:%M:%S")"
     git push
 done
 
