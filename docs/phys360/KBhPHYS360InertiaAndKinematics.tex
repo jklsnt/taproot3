@@ -1,4 +1,4 @@
-% Created 2021-09-11 Sat 09:55
+% Created 2021-09-11 Sat 10:07
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -52,4 +52,43 @@
 
 \maketitle
 \index{PHYS360!Derivations!Rotational Inertia and Kinematics}
+
+\section{Deriving Rotational KE and Inertia}
+\label{sec:org0019b9a}
+Given \(m_i\), mass, \(\vec{r_i}'\), location of the center of mass, \(l_i\), \(\omega\), the angular velocity, figure a \(KE_{tot,rot}\). 
+
+Because of the fact that the value \(\omega\) is in units \(\frac{d\theta}{dt}\), the rate of radians change, and we know of a radius of the spin \(l_i\), we could figure the velocity at which it is moving by simply scaling the change in radians up to a circle of radius \(l_i\), that is:
+
+\begin{equation}
+    V_i' = l_i \omega 
+\end{equation}
+
+(note that, to understand this, radians \(\frac{arc length}{radius}\))
+
+And so, substituting into the statement of \(\sum^N_{i=1} \frac{1}{2}m_i\vec{v_i}'^2\)
+
+\begin{align}
+    KE_{rot} =& \sum^N_{i=1} \frac{1}{2}m_i\vec{v_i}'^2 \\
+    =& \sum^N_{i=1} \frac{1}{2}m_i(l_i \omega)^2 \\
+    =& \sum^N_{i=1} \frac{1}{2}m_i l_i^2 \omega^2 \\
+    =& \frac{1}{2}\omega^2 \sum^N_{i=1} (m_i l_i^2)
+\end{align}
+
+\subsection{Rotational Inertia}
+\label{sec:orgafb735c}
+The right sum --- the mass times the distance away from maxis of rotation (\(\sum^N_{i=1} (m_i l_i^2)\)) --- is defined as the rotational (moment) of inertia (spinny mass). That is,
+
+\begin{equation}
+    I = \sum^N_{i=1} (m_i l_i^2)
+\end{equation}
+
+Replacing that value in the prior statement, the statement of \(KE_{rot}\) is defined as:
+
+\begin{equation}
+    KE_{rot} = \frac{1}{2}\omega^2I
+\end{equation}
+
+
+\subsection{Rotational Inertia for a Ring}
+\label{sec:orgeba5487}
 \end{document}

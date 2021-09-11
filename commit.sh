@@ -3,7 +3,7 @@
 while :
 do 
     # Make it!
-    #make all
+    make all
 
     # Add it! 
     git add src
