@@ -23,3 +23,7 @@ It's time for... American lit!
 ## Essay
 - [[KBhThereThereEssayPrep]] 
 - [[KBxThereThereEssayPlanning]]
+
+## Motifs & Close Reading 
+
+- [[KBxThereThereMotif]]
