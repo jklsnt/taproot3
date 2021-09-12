@@ -67,7 +67,7 @@ source: KBe2020math530floIndex
 	- in $\mathbb{R}^3$, $\begin{bmatrix}x\\y\\0\end{bmatrix}$ and $\begin{bmatrix}x\\x\\0\end{bmatrix}$
 		- Two ways to write $0$:
 			- $\begin{bmatrix}0\\0\\0\end{bmatrix} + \begin{bmatrix}0\\0\\0\\\end{bmatrix} = \begin{bmatrix}0\\0\\0\end{bmatrix} = \begin{bmatrix}1\\1\\0\end{bmatrix} + \begin{bmatrix}-1\\-1\\0\end{bmatrix}$
-### $\mathbb{F}^\infty$
+## $\mathbb{F}^\infty$
 - Functions from naturals to your field, (assign an element to each natural)
 	- that would be the same as ordering the elements in your field?
 	- Tons of functions, any one is an infinite vector??
