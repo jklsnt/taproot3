@@ -55,4 +55,14 @@ source: #index
 
 # Misc 
 * [[KBxPhysSelvEval2020]]
- 
+
+
+#flo  #uncompiled
+
+## Day 1
+- Dylan: [[KBdPHYS250Day1]]
+
+[[KBxInsulators]]
+
+
+## Day 2
