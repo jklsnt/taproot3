@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-11 Sat 16:37 -->
+<!-- 2021-09-11 Sat 18:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Threat Modeling Assignment</title>
@@ -228,8 +228,8 @@
 The assignment is centered around <a href="https://www.condution.com/">Condution</a>, an open-source task management platform. Data processing and querying is done on-device, but raw user tables and data is stored in a remote PosgreSQL server that's either officially hosted and supported or optionally on-prem hosted by the user.
 </p>
 
-<div id="outline-container-orga69713e" class="outline-2">
-<h2 id="orga69713e"><span class="section-number-2">1</span> What are we protecting?</h2>
+<div id="outline-container-org58a34ac" class="outline-2">
+<h2 id="org58a34ac"><span class="section-number-2">1</span> What are we protecting?</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Because of the open-source nature of Condution, and the fact that all data processing code is done with the client application, the most important asset to actually protect is any user's data (tasks, perspectives, due dates, etc.).
@@ -245,12 +245,12 @@ The scope of Condution is has too narrow scope to protect anyone but direct Cond
 </div>
 </div>
 
-<div id="outline-container-org0d7c13c" class="outline-2">
-<h2 id="org0d7c13c"><span class="section-number-2">2</span> Who are we protecting it from, and what are their motivations?</h2>
+<div id="outline-container-orgd78db6f" class="outline-2">
+<h2 id="orgd78db6f"><span class="section-number-2">2</span> Who are we protecting it from, and what are their motivations?</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org05aeb4a" class="outline-3">
-<h3 id="org05aeb4a"><span class="section-number-3">2.1</span> Protecting from&#x2026;</h3>
+<div id="outline-container-orgcd9b646" class="outline-3">
+<h3 id="orgcd9b646"><span class="section-number-3">2.1</span> Protecting from&#x2026;</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Advertisers who may want to advertise based on notes of users</li>
@@ -261,8 +261,8 @@ The scope of Condution is has too narrow scope to protect anyone but direct Cond
 </div>
 </div>
 
-<div id="outline-container-org187a82e" class="outline-3">
-<h3 id="org187a82e"><span class="section-number-3">2.2</span> Not Protecting from&#x2026;</h3>
+<div id="outline-container-org7718a9b" class="outline-3">
+<h3 id="org7718a9b"><span class="section-number-3">2.2</span> Not Protecting from&#x2026;</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Organized, state-supported exploits</li>
@@ -282,12 +282,12 @@ Also, user data is also locally backed up. Hence, it is possible to restore serv
 </div>
 </div>
 
-<div id="outline-container-org1e7167b" class="outline-2">
-<h2 id="org1e7167b"><span class="section-number-2">3</span> What methods of attacks do we prevent?</h2>
+<div id="outline-container-orgd38c9d0" class="outline-2">
+<h2 id="orgd38c9d0"><span class="section-number-2">3</span> What methods of attacks do we prevent?</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org4de7bc4" class="outline-3">
-<h3 id="org4de7bc4"><span class="section-number-3">3.1</span> Software Attacks</h3>
+<div id="outline-container-orgefc824b" class="outline-3">
+<h3 id="orgefc824b"><span class="section-number-3">3.1</span> Software Attacks</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Software attacks mostly center around attacking the user-facing (both server and client) software and exposing its vulnerabilities.
@@ -303,8 +303,8 @@ Software attacks mostly center around attacking the user-facing (both server and
 </div>
 </div>
 
-<div id="outline-container-org632e3ba" class="outline-3">
-<h3 id="org632e3ba"><span class="section-number-3">3.2</span> Pipeline Attacks</h3>
+<div id="outline-container-org460d0e0" class="outline-3">
+<h3 id="org460d0e0"><span class="section-number-3">3.2</span> Pipeline Attacks</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Pipeline attacks mostly interfere with our DevOps pipeline to gain unauthorized access.
@@ -319,8 +319,8 @@ Pipeline attacks mostly interfere with our DevOps pipeline to gain unauthorized 
 </div>
 </div>
 
-<div id="outline-container-org8faf60a" class="outline-3">
-<h3 id="org8faf60a"><span class="section-number-3">3.3</span> Social Attacks</h3>
+<div id="outline-container-org949557d" class="outline-3">
+<h3 id="org949557d"><span class="section-number-3">3.3</span> Social Attacks</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Social attacks work on hijacking user's information by exposing social vulnerabilities of the user.
@@ -335,8 +335,8 @@ Social attacks work on hijacking user's information by exposing social vulnerabi
 </div>
 </div>
 
-<div id="outline-container-org921ba66" class="outline-2">
-<h2 id="org921ba66"><span class="section-number-2">4</span> What are the possible effects of these attacks</h2>
+<div id="outline-container-org605550e" class="outline-2">
+<h2 id="org605550e"><span class="section-number-2">4</span> What are the possible effects of these attacks</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li>Digital or physical harm to users via leaking of privileged information</li>
@@ -347,8 +347,8 @@ Social attacks work on hijacking user's information by exposing social vulnerabi
 </div>
 </div>
 
-<div id="outline-container-org5bc6e34" class="outline-2">
-<h2 id="org5bc6e34"><span class="section-number-2">5</span> What are the resources of the attackers</h2>
+<div id="outline-container-org1baa9b5" class="outline-2">
+<h2 id="org1baa9b5"><span class="section-number-2">5</span> What are the resources of the attackers</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The attacker's resources are primarily limited.
@@ -367,8 +367,8 @@ Because of the fact that we are limiting our scope to non-organisational non-nat
 </div>
 </div>
 
-<div id="outline-container-orge1543bf" class="outline-2">
-<h2 id="orge1543bf"><span class="section-number-2">6</span> What are our resources?</h2>
+<div id="outline-container-orgaa9f7cf" class="outline-2">
+<h2 id="orgaa9f7cf"><span class="section-number-2">6</span> What are our resources?</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Directly accessible resources are reasonably limited: have 8 engineers on all departments, limited cybersecurity experience, and only freely or cheaply available commercial tools for PAM, authentication, or security.
@@ -380,8 +380,8 @@ However, it is possible &#x2014; in cases with pipeline leaks and database secur
 </div>
 </div>
 
-<div id="outline-container-org3457a5d" class="outline-2">
-<h2 id="org3457a5d"><span class="section-number-2">7</span> What should we do?</h2>
+<div id="outline-container-orgbd5b7b6" class="outline-2">
+<h2 id="orgbd5b7b6"><span class="section-number-2">7</span> What should we do?</h2>
 <div class="outline-text-2" id="text-7">
 <ol class="org-ol">
 <li>Align and protect resources and partnerships with hosting services to allow emergency triage</li>
