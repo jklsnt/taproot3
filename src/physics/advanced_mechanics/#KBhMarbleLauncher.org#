@@ -1,0 +1,159 @@
+#+TITLE: Ball Launcher
+#+AUTHOR: Houjun Liu
+
+#+DOWNLOADED: screenshot @ 2021-09-19 17:29:09
+#+ATTR_ORG: :width 400
+[[file:2021-09-19_17-29-09_screenshot.png]]
+
+* Setup
+The ball launcher problem involves an energetic optimization to figure, given the situation as shown in the above image, the parameters $h_0$ and $\theta_0$ that would best create a maximum launch distance $x_f$.
+
+In this problem, we will define the axis such that the "lower-left" corner of the wood block (corner sharing $x$ value of the starting position of the marble, but on the "ground") as $(-w,0)$, where $w$ is the width of the wooden block. Therefore, we derive the x-value of the location of the launch of the projectile as $x=0$. We define the direction towards with the marble is launching as positive-x, so as the marble rolls, its position's $x$ value increases. We will define the location of the marble before starting as positive $y$, and as the marble decreases in height, its position's $y$ value decreases.
+
+We define the start of the experiment as time $t_0$, the moment the marble leaves the track and travels as a projectile as $t_1$, and the end --- in the moment when the marble hits the ground --- as $t_f$. We will call the marble $m_0$.
+
+* Figuring the Velocity at $t_1$
+In order to expedite the process of derivation, we will leverage an energetic argument instead of that of kinematics for figuring the velocity at launch. The change-in-height that $m_0$ experiences before $t_1$ is $\Delta h = H-h_0$. Therefore, the potential energy expenditure is $\Delta PE_{grav} = mg\Delta h = m_0 g (H - h_0)$. Assuming that the marble starts out with 0 kinetic energy, we deduct that, at the moment of it finishing its descent, it will possess kinetic energy $KE = 0+m_0 g (H - h_0) = m_0 g (H - h_0)$.
+
+For this derivation, for now, we ignore $KE_{rotational}$, hence, we could roughly deduct the statement that $KE_{translational} \approx m_0 g (H - h_0)$.
+
+Creating this statement, we could deduct a statement that we could leverage to solve for the velocity at $t_1$ named $\vec{v_0}$.
+
+\begin{align}
+    m_0g(H-h_0) =& \frac{1}{2}m_0\vec{v_0}^2 \\
+    g(H-h_0) =& \frac{1}{2}\vec{v_0}^2 \\
+    2g(H-h_0) =& \vec{v_0}^2 \\
+    \vec{v_0} =& \sqrt{2g(H-h_0)}
+\end{align}
+
+This velocity vector could be easily split into its two constituent parts. Namely:
+
+\begin{equation}
+    \begin{cases}
+        \vec{v_0_x} = \sqrt{2g(H-h_0)}cos(\theta_0)\\
+        \vec{v_0_y} = \sqrt{2g(H-h_0)}sin(\theta_0)\\
+    \end{cases}
+\end{equation}
+
+* Figuring the Maximum Possible Travel Distance
+Here, we devise an function for $x_f$ w.r.t. $\vec{v_0_y}$, $\vec{v_0_x}$, $h_0$, $m_0$.
+
+** Setup for Kinematics
+We first will leverage the parametric equations for position in kinematics in order to ultimately result in a function for $x_f$.
+
+\begin{equation}
+    \begin{cases}
+        x(t) = \frac{1}{2}a_0_xt^2 + v_0_xt + x_0 \\
+        y(t) = \frac{1}{2}a_0_yt^2 + v_0_yt + y_0 \\
+    \end{cases}
+\end{equation}
+
+Given the situation of our problem, we could modify the pair as follows:
+
+\begin{equation}
+    \begin{cases}
+        x(t) = v_0_xt \\
+        y(t) = \frac{-1}{2}gt^2 + v_0_yt + h_0 \\
+    \end{cases}
+\end{equation}
+
+as...
+
+- there are no acceleration in the x-direction at the point of launch
+- the only acceleration in the y-direction is that due to gravity
+- the start x-position of the marble at launch is, as defined above, $x=0$
+- the start y-position of the marble at launch is, as defined above, $y=h_0$
+
+** Solving for $x_f$
+The position equations above could be leveraged to figure a value for $x_f$. We first create a set of equations modeling the location of the marble at $t_f$.
+
+\begin{equation}
+    \begin{cases}
+        x(t_f) = x_f = v_0_xt_f = t_f\sqrt{2g(H-h_0)}cos(\theta_0)\\
+        y(t_f) = 0 = \frac{-1}{2}g{t_f}^2 + v_0_y t_f + h_0 = \frac{1}{2}g{t_f}^2 +  t_f\sqrt{2g(H-h_0)}sin(\theta_0) + h_0
+    \end{cases}
+\end{equation}
+
+
+To simplify calculations initially, we set $\sqrt{2g(H-h_0)}$  back as $\vec{v_0}$ for the ease of initial simplification.
+
+\begin{equation}
+    \begin{cases}
+        x(t_f) = x_f = v_0_xt_f = t_f\vec{v_0}cos(\theta_0)\\
+        y(t_f) = 0 = \frac{-1}{2}g{t_f}^2 + v_0_y t_f + h_0 = \frac{1}{2}g{t_f}^2 +  t_f\vec{v_0}sin(\theta_0) + h_0
+    \end{cases}
+\end{equation}
+
+We first solve for $t_f$, and supply it to the second equation.
+
+\begin{equation}
+    t_f = \frac{-\vec{v_0}sin(\theta_0) \pm \sqrt{(\vec{v_0}sin(\theta_0))^2 + 2gh_0}}{g}
+\end{equation}
+
+Given that we know that time is positive in this setup, and subtracting a term will make it even more negative, we could safely ignore the $-$ term in the $\pm$ operator.
+
+
+And, performing variable substitution upon the first equation...
+
+\begin{align}
+    x_f =& \frac{-\vec{v_0}sin(\theta_0)\vec{v_0}cos(\theta_0) + \vec{v_0}cos(\theta_0)\sqrt{(\vec{v_0}sin(\theta_0))^2 + 2gh_0}}{g}\\
+    =&  \frac{\frac{-1}{2} \vec{v_0}^2 sin(2\theta_0) + \vec{v_0}cos(\theta_0)\sqrt{(\vec{v_0}sin(\theta_0))^2 + 2gh_0}}{g}\\
+    =&  \frac{-\vec{v_0}^2 sin(2\theta_0)}{2g} +  \frac{\vec{v_0}cos(\theta_0)\sqrt{\vec{v_0}^2sin^2(\theta_0) + 2gh_0}}{g}\\
+    =&  \frac{\vec{v_0}cos(\theta_0)\sqrt{\vec{v_0}^2sin^2(\theta_0) + 2gh_0}}{g} - \frac{\vec{v_0}^2 sin(2\theta_0)}{2g} \\
+\end{align}
+And finally, substituting back the $\vec{v_0}$ terms...
+
+\begin{align}
+    x_f =& \frac{\sqrt{2g(H-h_0)}cos(\theta_0)\sqrt{{2g(H-h_0)}sin^2(\theta_0) + 2gh_0}}{g} - \frac{{2g(H-h_0)} sin(2\theta_0)}{2g}  \\
+    =& 2(\sqrt{(H-h_0)}cos(\theta_0)\sqrt{{(H-h_0)}sin^2(\theta_0) + h_0}) - {(H-h_0)} sin(2\theta_0) 
+\end{align}
+
+
+optmize this function for the 
+
+
+
+# To combine the two expressions, we perform variable substitution upon $\sqrt{2g(H-h_0)}$.
+
+# We first prepare the first expression to achieve this:
+
+# \begin{align}
+#     x_f =& t_f \sqrt{2g(H-h_0)}cos(\theta_0) \\
+# \Rightarrow x_f =& t_f \sqrt{2g(H-h_0)}cos(\theta_0) \\
+# \Rightarrow \sqrt{2g(H-h_0)} =& \frac{x_f}{t_f cos(\theta_0)} \\
+# \end{align}
+# With this statement, we perform the actual substitution.
+
+# \begin{align}
+#     0 =& \frac{1}{2}g{t_f}^2 + t_f\sqrt{2g(H-h_0)}sin(\theta_0) + h_0 \\
+# \Rightarrow 0 =& \frac{1}{2}g{t_f}^2 + t_f\sqrt{2g(H-h_0)}sin(\theta_0) + h_0 \\
+# \Rightarrow 0 =& \frac{1}{2}g{t_f}^2 + t_f\frac{x_f}{t_f cos(\theta_0)} sin(\theta_0) + h_0 \\
+# \Rightarrow 0 =& \frac{1}{2}g{t_f}^2 + x_ftan(\theta_0) + h_0 \\
+# \end{align}
+
+# And finally, we solve for $x_f$ within this expression.
+
+# \begin{align}
+#     0 =& \frac{1}{2}g{t_f}^2 + x_ftan(\theta_0) + h_0 \\
+#     \Rightarrow -\frac{1}{2}g{t_f}^2 - h_0 =& x_ftan(\theta_0) \\
+#     \Rightarrow x_f =& \frac{-(\frac{1}{2}g{t_f}^2 + h_0)}{tan(\theta_0)} 
+# \end{align}
+
+# We then proceed to isolate $t_f$ from the first expression and performing substitution again.
+
+# \begin{align}
+#     x_f = t_f\sqrt{2g(H-h_0)}cos(\theta_0)\\
+#     t_f = \frac{x_f}{\sqrt{2g(H-h_0)}cos(\theta_0)}\\
+# \end{align}
+# We then perform the final substitution
+
+# \begin{align}
+#     x_f =& \frac{-(\frac{1}{2}g{\frac{x_f}{\sqrt{2g(H-h_0)}cos(\theta_0)}}^2 + h_0)}{tan(\theta_0)} \\
+#     =& \frac{-(\frac{1}{2}g{\frac{{x_f}^2}{2g(H-h_0)cos^2(\theta_0)}} + h_0)}{tan(\theta_0)} \\
+#     =& \frac{-({\frac{{x_f}^2}{4(H-h_0)cos^2(\theta_0)}} + h_0)}{tan(\theta_0)} \\
+#     =& \frac{{\frac{{x_f}^2}{4(H-h_0)cos^2(\theta_0)}} - h_0}{tan(\theta_0)} \\
+#     x_f tan(\theta_0) =& \frac{{x_f}^2}{4(H-h_0)cos^2(\theta_0)} - h_0 \\
+# \end{align}
+
+
+$x_f = 2\sqrt{h_0(H-h_0)}$
