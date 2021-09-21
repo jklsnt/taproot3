@@ -20,6 +20,8 @@
         'inlineMath': [ ['$','$'], ['\\\\(','\\\\)'] ],
         'processEscapes': true
         },
+  loader: {load: ['[tex]/cases']},
+  tex: {packages: {'[+]': ['cases']}},
         'HTML-CSS': { scale: 100,
                         linebreaks: { automatic: 'false' },
                         webFont: 'TeX'
