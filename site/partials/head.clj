@@ -21,6 +21,7 @@
         'processEscapes': true
         },
   tex: {
+packages: {'[-]': ['require', 'autoload']},
     autoload: {
       cases: [[], ['numcases', 'subnumcases']]
     }
