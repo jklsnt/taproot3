@@ -1,355 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<!-- 2021-09-11 Sat 18:31 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Pastiche Planning</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="Huxley" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
-</style>
-<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
-</head>
-<body>
-<div id="org-div-home-and-up">
- <a accesskey="h" href="https://taproot3.sanity.gq/sitemap.html"> UP </a>
- |
- <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
-</div><div id="content">
-<h1 class="title">Pastiche Planning</h1>
-<p>
-#ref #ret
-</p>
-
-<hr />
-
-<div id="outline-container-prompt" class="outline-2">
-<h2 id="prompt"><span class="section-number-2">1</span> Prompt</h2>
-<div class="outline-text-2" id="text-prompt">
-<pre class="example" id="orge32218a">
-Assignment guidelines
-
-After reading and analyzing Kincaid’s book, you have a better understanding of rhetorical purpose and techniques. Using Kincaid as inspiration, and using at least three of her techniques (parentheses, tone, anaphora, personal pronouns, labyrinthine sentence, em-dashes, etc.), write a rhetorical pastiche on one of the prompts below. 
-
-In addition to your pastiche, please provide a short reflection. You should explain your rhetorical purpose as well as the techniques and elements of style you are trying to imitate (this means you will need to reflect a bit on Kincaid’s techniques, so that you can explain what aspects of her writing you’ve been inspired by). Your reflection is a chance to explain what you want to accomplish, in case it doesn’t fully come through in your piece, as well as to demonstrate your understanding of rhetorical techniques.
-
-Prompts
-
-Conflicts in identity and place: In A Small Place Kincaid describes a conflicted relationship with identity, place, and the past, at times nostalgic, at times combative. Write about some aspect of your life—a part of your identity, a favorite place, your spoken/written languages, a relationship—that evokes contradiction and conflict for you. You may employ an implicit argument in your essay (like Kincaid’s), but you *must* have an explicit argument to articulate in your reflection. 
-
-Responsible travel: Kincaid begins her text with a mockery of “you,” an assumed pasty-faced (read: white), European tourist visiting Antigua. Reflect on your position as a sometimes-tourist, privileged at least to some extent. Possible intended audiences include American friends and family unaware of the complicated power dynamics of traveling in non-Western and/or post-colonial countries, or the “locals” of said country: Antiguans, Peruvians, Costa Ricans, or others.
-
-3. Solutions for issues based in poverty: Critiques of philanthropy often suggest it is motivated by a colonial mindset (“white savior complex,” “white volunteerism”). Yet the fact remains that poverty proliferates and many aid organizations work to alleviate illness, destitution, and inequity. Use the Poverty Action Lab site (https://www.povertyactionlab.org/ (Links to an external site.)) to suggest a solution for some *manageable* issue based in poverty. Note about navigating the site: You may find it useful to start using either “Regions” or “Sectors”; “evaluations” and “publications” motivate issues and provide solutions (policy proposals).
-</pre>
-</div>
-
-<div id="outline-container-pt-1" class="outline-3">
-<h3 id="pt-1"><span class="section-number-3">1.1</span> pt 1</h3>
-<div class="outline-text-3" id="text-pt-1">
-<pre class="example" id="orgc5af373">
-Provide details about the following:
-
-1) What prompt have you selected? (There are three options) 
-
-2) What rhetorical devices or stylistic choices are you drawn to from Kincaid's A Small Place? (you need to use three in your pastiche) 
-    - Parentheses
-    - 1st and 2nd person 
-    - Criticism 
-    - Sarcasm/Irony 
-    - Repetition 
-    - Contrast / Juxtaposition 
-    - Long sentences (multiple clauses) 
-    - Guilt/Shame 
-    - Rhetorical Questions
-
-3) To whom will you address your pastiche? 
-</pre>
-</div>
-</div>
-
-<div id="outline-container-out.-lining." class="outline-3">
-<h3 id="out.-lining."><span class="section-number-3">1.2</span> Out. Lining.</h3>
-<div class="outline-text-3" id="text-out.-lining.">
-<p>
-<code>const I = 'I'</code>
-</p>
-
-<p>
-Main idea: address to Canadian immigration office
-</p>
-
-<p>
-Identify crisis in that hate America but love America?
-</p>
-
-<p>
-Crap on America, while saying "But it's my homeee :( (wwoe is me)"
-</p>
-
-<ul class="org-ul">
-<li>the bad.
-
-<ul class="org-ul">
-<li></li>
-</ul></li>
-
-<li>the good?</li>
-
-<li>formal immigration document
-
-<ul class="org-ul">
-<li>start with "imagine you move to America," second person
-
-<ul class="org-ul">
-<li>talk about how truth gets destroyed due to fake news and such</li>
-<li>talk about the obesity rates, and ect.</li>
-<li>talk about the land of dreams</li>
-<li>talk about the innovation, and how to be successful this is the
-best place to do it.</li>
-</ul></li>
-
-<li>now imagine you are me, and see that nothing's changed.</li>
-<li>maybe: talk about how in modern times, I can escape the bad and
-still have access to the good?</li>
-</ul></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-righting-thyme." class="outline-3">
-<h3 id="righting-thyme."><span class="section-number-3">1.3</span> Righting Thyme.</h3>
-<div class="outline-text-3" id="text-righting-thyme.">
-<p>
-(unedited)
-</p>
-
-<p>
-Imagine you lived in America. Where the sun always shines (except when
+<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Taproot Authors" name="author" /><meta content="A collection of academic and project notes" name="description" /><title>Taproot</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        'displayAlign': 'center',
+        'displayIndent': '0em',
+        'extensions': ['tex2jax.js'],
+        'tex2jax': {
+        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
+        'processEscapes': true
+        },
+        'HTML-CSS': { scale: 100,
+                        linebreaks: { automatic: 'false' },
+                        webFont: 'TeX'
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: 'false' },
+              font: 'TeX'},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: 'AMS'},
+               MultLineWidth: '85%',
+               TagSide: 'right',
+               TagIndent: '.8em'
+             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Pastiche Planning</h1></div><div class="metamble"><span><span>Written by </span><span>Huxley</span></span></div><div class="notebody"><div><section><p><span>#ref #ret</span></p><hr /></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="prompt"><span class="firn-headline-text"><span>Prompt</span></span></h1><section></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="pt-1"><span class="firn-headline-text"><span>pt 1</span></span></h2><section></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="out-lining"><span class="firn-headline-text"><span>Out. Lining.</span></span></h2><section><p><code>const I = 'I'</code></p><p><span>Main idea: address to Canadian immigration office</span></p><p><span>Identify crisis in that hate America but love America?</span></p><p><span>Crap on America, while saying "But it's my homeee :( (wwoe is me)"</span></p><ul><li><p><span>the bad.</span></p><ul><li></li></ul></li><li><p><span>the good?</span></p></li><li><p><span>formal immigration document</span></p><ul><li><p><span>start with "imagine you move to America," second person</span></p><ul><li><p><span>talk about how truth gets destroyed due to fake news and such</span></p></li><li><p><span>talk about the obesity rates, and ect.</span></p></li><li><p><span>talk about the land of dreams</span></p></li><li><p><span>talk about the innovation, and how to be successful this is the
+      best place to do it.</span></p></li></ul></li><li><p><span>now imagine you are me, and see that nothing's changed.</span></p></li><li><p><span>maybe: talk about how in modern times, I can escape the bad and
+    still have access to the good?</span></p></li></ul></li></ul></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="righting-thyme"><span class="firn-headline-text"><span>Righting Thyme.</span></span></h2><section><p><span>(unedited)</span></p><p><span>Imagine you lived in America. Where the sun always shines (except when
 it doesn't, but that doesn't matter), where the rain is always
 refreshing, and where all dreams can come true. You look around and see
-America, the land of dreams! &#x2014; Of freedom, of innovation, of equality,
+America, the land of dreams! --- Of freedom, of innovation, of equality,
 ect. You notice the air is filled with hope (it's almost sickly sweet,
 or maybe just sickly), and the eyes are filled with phones. You move on,
 not thinking too much about it, because how could some phones ruin
 (shatter your conception of) the magnificent, great, elitist land of
-America? The land of success, where all the tech giants reside &#x2014;
-Apple, Amazon, Google &#x2014; and you reside here to! You can't pass that up
+America? The land of success, where all the tech giants reside ---
+Apple, Amazon, Google --- and you reside here to! You can't pass that up
 for anything if you want to be successful like them. You watch the
-entertainment &#x2014; the entertainment here is great! you think to
+entertainment --- the entertainment here is great! you think to
 yourself; the entertainment is reality. Or maybe it isn't. Doesn't
 matter. You talk with others in your gated bubble of a community
 (inescapable) about the latest crazy thing that someone, somethem, did,
 all the while patting yourself on the back for being an intellectual,
 for being an informed citizen, for exercising your rights in this
 wonderful functioning (functioning?) democracy (not disagreeing, of
-course &#x2014; that would be horrendous &#x2014; only affirming beliefs here. But
+course --- that would be horrendous --- only affirming beliefs here. But
 are they beliefs?). You become united, defined, under your shared
 "beliefs" with those in your bubble, (which you give a name, because the
 beliefs themselves are irrelevant), then find connection, maybe tribal
@@ -374,13 +63,13 @@ it with others in your bubble, then, when the novelty fades, you go back
 to the news. What did you miss? Nothing; everything (doesn't matter, no
 one else was talking about it anyways). You distract from your own
 problems (or your own empty) by sending disgust, not hate (but hate),
-towards those with a different name to their ideology &#x2014; you are
+towards those with a different name to their ideology --- you are
 helping the world! Now you can keep wasting time and still feel
 fulfilled. Maybe water the plant too, that will get you a bit
 fulfillment, a bit more time you can waste without crumbling in your own
 un-impactfulness. Sometimes, rarely, you 'converse' with another human
 who disagrees with you (you aren't used to this; you don't like this;
-this doesn't make you feel good, or included, or right) &#x2014; you leave,
+this doesn't make you feel good, or included, or right) --- you leave,
 writing them off as one of the evil disgusting, not hated (hated) them.
 You are so much better! you think to (assure) yourself. You water the
 plant again, grab some more popcorn, and open up your preffered media
@@ -388,16 +77,8 @@ that aligns itself with your ideology (or one that doesnt, if you want
 to get some laughs / feel (project your) sad (ness)). Now imagine you're
 me. The America I grew up in is making me a shell, and I won't have it
 anymore. That is why I want to, why I must, move to a place of sanity, a
-place where others share my idelogy.
-</p>
-</div>
-
-<div id="outline-container-reflection" class="outline-4">
-<h4 id="reflection"><span class="section-number-4">1.3.1</span> Reflection!</h4>
-<div class="outline-text-4" id="text-reflection">
-<p>
-In my pastiche, I tried to replicate the style of the first section in
-Jamaica Kincaid's <i>A Small Place</i>. Stylistically, the primary way this
+place where others share my idelogy.</span></p></section><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="reflection!"><span class="firn-headline-text"><span>Reflection!</span></span></h3><section><p><span>In my pastiche, I tried to replicate the style of the first section in
+Jamaica Kincaid's </span><em><span>A Small Place</span></em><span>. Stylistically, the primary way this
 section differs from the rest of the book is through Kincaid's
 overwhelming use of accusatory second person point of view. This
 technique serves as a sort of transport mechanism for Kincaid's true
@@ -406,22 +87,11 @@ parenthesis. I focused on this combination of techniques heavily in my
 pastiche. Like Kincaid, I chose to write long and winding sentences to
 force the readers to consider the text more deeply, and truly spend time
 unpacking the meaning within it. These winding sentences also contribute
-to a sense of immersion; while reading <i>A Small Place</i>, I felt less as
+to a sense of immersion; while reading </span><em><span>A Small Place</span></em><span>, I felt less as
 if I was reading a text as an outsider and analyzing. Along with winding
 sentences, I tried to achieve this immersion with my lack of paragraph
 breaks and constant flow of text. I also filled my pastiche with
 criticizing rhetorical questions, and ironic contradictions and
 contrast. I didn't struggle with incorporating these last few techniques
 as it seemed to flow naturally with the rest of Kincaid's stylistic
-choices.
-</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Huxley</span><span class="date">2021-09-11 Sat 16:35</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
-</div>
-</body>
-</html>
+choices.</span></p></section></div></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#prompt">Prompt</a><ol><li><a href="#pt-1">pt 1</a></li><li><a href="#out-lining">Out. Lining.</a></li><li><a href="#righting-thyme">Righting Thyme.</a><ol><li><a href="#reflection!">Reflection!</a></li></ol></li></ol></li></ol><div class="metalabel">Backlinks</div><ul class="firn-backlinks"><li class="firn-backlink"><a href="/english/english10/KBEnglishMasterIndex">English Master Index</a></li><li class="firn-backlink"><a href="/english/english10/index">English Master Index</a></li></ul></div></main></body></html>

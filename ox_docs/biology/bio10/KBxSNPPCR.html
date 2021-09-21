@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-20 Mon 07:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SNP PCR research</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div>SNP PCR research  Huxley 2021-09-12 Sun 14:15</div>
+</div>
+<div id="content">
+<h1 class="title">SNP PCR research</h1>
+<p>
+#ret
+</p>
+
+<hr />
+
+<p>
+%%## General
+</p>
+
+<div id="outline-container-snips" class="outline-3">
+<h3 id="snips"><span class="section-number-3">0.1</span> SNiPs</h3>
+<div class="outline-text-3" id="text-snips">
+<ul class="org-ul">
+<li>rs4680
+
+<ul class="org-ul">
+<li>pain tolerance, worrier/warrior</li>
+<li><a href="https://www.snpedia.com/index.php/Rs4680">https://www.snpedia.com/index.php/Rs4680</a></li>
+</ul></li>
+
+<li>CYP1A2 gene
+
+<ul class="org-ul">
+<li>specifically, rs2069514
+
+<ul class="org-ul">
+<li>encodes for the 1C variant,</li>
+<li>which encodes for slow caffeine metabolism</li>
+</ul></li>
+</ul></li>
+
+<li>rs6902875
+
+<ul class="org-ul">
+<li>episodic memory</li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/25317765/">https://pubmed.ncbi.nlm.nih.gov/25317765/</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-write-up" class="outline-2">
+<h2 id="write-up"><span class="section-number-2">1</span> Write-up</h2>
+<div class="outline-text-2" id="text-write-up">
+<p>
+%%
+</p>
+</div>
+
+<div id="outline-container-a-rs4680" class="outline-3">
+<h3 id="a-rs4680"><span class="section-number-3">1.1</span> A : : <code>rs4680</code></h3>
+<div class="outline-text-3" id="text-a-rs4680">
+<p>
+Also known as Val158Me, rs4680 is an extensively studied SNP located in
+the COMT gene. The COMT enzyme, encoded by the COMT gene, is responsible
+for breaking down dopamine in the brain's prefrontal cortex
+(<a href="https://www.snpedia.com/index.php/Rs4680">cite</a>). rs4680 causes the
+enzyme to function roughly 25% as efficiently as the wild type. The
+result of wild-type versus rs4680 is commonly referred to as the warrior
+versus worrier hypothesis
+(<a href="https://pubmed.ncbi.nlm.nih.gov/17008817/">cite</a>). A worrier, one
+with the rs4680 SNP, has higher dopamine levels. Thus, supposedly, they
+should have lower pain tolerance, be more prone to stress as well as
+more exploratory, and more efficient at information processing.
+Conversely, the wild-type warriors should have higher pain tolerance, be
+less prone to stress, less exploratory, and less efficient at cognition
+in most conditions
+(<a href="https://www.huffpost.com/entry/stress-management_b_2671591">cite</a>).
+</p>
+</div>
+</div>
+
+<div id="outline-container-b-rs2069514" class="outline-3">
+<h3 id="b-rs2069514"><span class="section-number-3">1.2</span> B : : <code>rs2069514</code></h3>
+<div class="outline-text-3" id="text-b-rs2069514">
+<p>
+rs2069514 is a 1C type allele of the CYP1A2 gene
+(<a href="https://www.snpedia.com/index.php/CYP1A2">cite</a>). CYP1A2 encodes one
+of the cytochrome P450 mixed function oxidase enzymes, all of which are
+vital in the metabolism of xenobiotics
+(<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4309856/">cite</a>). One
+such xenobiotic is caffeine, the processing of which is affected by 1C
+and 1F type mutations on the CYP1A2 gene. Humans with 1F type mutations
+are known as 'fast' caffeine metabolizers, whereas 1C type mutations
+lead to 'slow' caffeine metabolism. Those who carry at least one 1C type
+mutation will be slower at processing caffeine, and thus, will be more
+affected by it. rs2069514 is one such 1C mutation, leading to decreased
+activity by the CYP1A2 enzyme (cite
+<a href="https://www.snpedia.com/index.php/Rs2069514">a</a>,
+<a href="https://www.snpedia.com/index.php/CYP1A2">b</a>).
+</p>
+</div>
+</div>
+
+<div id="outline-container-c-rs6902875" class="outline-3">
+<h3 id="c-rs6902875"><span class="section-number-3">1.3</span> C : : <code>rs6902875</code></h3>
+<div class="outline-text-3" id="text-c-rs6902875">
+<p>
+Much less is known about rs6902875, except that it is related to
+significantly better episodic memory. This was tested specifically in
+seniors (<a href="https://www.snpedia.com/index.php/Rs6902875">cite</a>). After
+genome-wide linkage analysis on 467 LLFS (Long Life Family Study)
+participants, a significant link between the 6q24 region and exceptional
+episodic memory was found. More specifically, rs9321334 and rs6902875
+were both nominally significantly associated
+(<a href="https://www.jwatch.org/na36191/2014/11/12/exceptional-memory-performance-elders-linked-candidate">cite</a>).
+The region harboring rs6902875 &#x2014; MOXD1 &#x2014; is required for the
+synthesis of norepinephrine, a neurotransmitter involved with cognition.
+When participants with the APOE E4 allele were removed, rs6902875 became
+much more statistically significant than rs9321334
+(<a href="https://pubmed.ncbi.nlm.nih.gov/25317765/">cite</a>).
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

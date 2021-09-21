@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-20 Mon 00:06 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Handout 19 responses: fundamental theorem of calculus</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Taproot" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div>Handout 19 responses: fundamental theorem of calculus  Taproot 2021-09-11 Sat 16:34</div>
+</div>
+<div id="content">
+<h1 class="title">Handout 19 responses: fundamental theorem of calculus</h1>
+<div id="outline-container-org7cdbdb4" class="outline-2">
+<h2 id="org7cdbdb4"><span class="section-number-2">1</span> Let \(F(x) = \int_{0}^{x} f(t) dt\)</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org7aaa282" class="outline-3">
+<h3 id="org7aaa282"><span class="section-number-3">1.1</span> complete the table</h3>
+<div class="outline-text-3" id="text-1-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">x</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">F(x)</td>
+<td class="org-right">\(0\)</td>
+<td class="org-right">\(\frac{4}{3}\)</td>
+<td class="org-right">\(\frac{8}{3}\)</td>
+<td class="org-right">\(\frac{4}{3}\)</td>
+<td class="org-right">\(0\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orga65912a" class="outline-3">
+<h3 id="orga65912a"><span class="section-number-3">1.2</span> sketch the function</h3>
+<div class="outline-text-3" id="text-1-2">
+
+<div id="org2a34c38" class="figure">
+<p><img src="KBe21math401ret19src1b.png" alt="KBe21math401ret19src1b.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc990a9b" class="outline-2">
+<h2 id="orgc990a9b"><span class="section-number-2">2</span> \(G(x) = \int_{2}^{x} f(t) dt\)</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgfebf984" class="outline-3">
+<h3 id="orgfebf984"><span class="section-number-3">2.1</span> complete the table</h3>
+<div class="outline-text-3" id="text-2-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">x</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">G(x)</td>
+<td class="org-right">\(-\frac{8}{3}\)</td>
+<td class="org-right">\(-\frac{4}{3}\)</td>
+<td class="org-right">\(0\)</td>
+<td class="org-right">-\(\frac{4}{3}\)</td>
+<td class="org-right">\(-\frac{8}{3}\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org2e39458" class="outline-3">
+<h3 id="org2e39458"><span class="section-number-3">2.2</span> sketch the function</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<div id="orgd4f6bcc" class="figure">
+<p><img src="KBe21math401ret19src2b.png" alt="KBe21math401ret19src2b.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfe6b14b" class="outline-2">
+<h2 id="orgfe6b14b"><span class="section-number-2">3</span> \(H(x) = \int_4^x f(t) dt\)</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgd1905da" class="outline-3">
+<h3 id="orgd1905da"><span class="section-number-3">3.1</span> complete the table</h3>
+<div class="outline-text-3" id="text-3-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">x</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">H(x)</td>
+<td class="org-right">\(0\)</td>
+<td class="org-right">\(\frac{4}{3}\)</td>
+<td class="org-right">\(\frac{8}{3}\)</td>
+<td class="org-right">\(\frac{4}{3}\)</td>
+<td class="org-right">\(0\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org0c50882" class="outline-3">
+<h3 id="org0c50882"><span class="section-number-3">3.2</span> sketch the function</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+same as 1b
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgffcc8d2" class="outline-2">
+<h2 id="orgffcc8d2"><span class="section-number-2">4</span> complete the table</h2>
+<div class="outline-text-2" id="text-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">\(F(x)\)</td>
+<td class="org-left">\(G(x)\)</td>
+<td class="org-left">\(H(x)\)</td>
+</tr>
+
+<tr>
+<td class="org-left">maximum</td>
+<td class="org-left">4n+2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">minimum</td>
+<td class="org-left">4n</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">increases</td>
+<td class="org-left">\[4n, 4n+2\]</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">decreases</td>
+<td class="org-left">\[4n-2, 4n\]</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+<p>
+The other columns are the same, because \(H(x) = F(x)\) and \(G(x) = H(x)-\frac{8}{3}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7fed3cc" class="outline-2">
+<h2 id="org7fed3cc"><span class="section-number-2">5</span> why does it work over the entire domain?</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+The argument for each cell is the same: it should work across the domain because those are the points where the derivative of \(F(x)\) (which is \(f(x)\)) is zero and function is periodic.
+</p>
+
+<p>
+\(F(x)\) increases when \(f(x)\) is positive.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga182627" class="outline-2">
+<h2 id="orga182627"><span class="section-number-2">6</span> family of functions</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Changing the 'zero point' of the derivative just shifts the graph up and down, by up to the range of the function.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7a59867" class="outline-2">
+<h2 id="org7a59867"><span class="section-number-2">7</span> sketching more functions</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-orgb77914b" class="outline-3">
+<h3 id="orgb77914b"><span class="section-number-3">7.1</span> \(F_1(x) = \int_{x}^{0} f(t) dt\)</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+\(F(x)\) but reflected across the x-axis (negated)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1f5a5a5" class="outline-3">
+<h3 id="org1f5a5a5"><span class="section-number-3">7.2</span> \(F_2(x) = \int_{0}^{x} f(-t) dt\)</h3>
+<div class="outline-text-3" id="text-7-2">
+<p>
+\(f\) is an odd function so \(f(-t) = -f(t)\) so \(F_2 = F_1\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org04a7352" class="outline-3">
+<h3 id="org04a7352"><span class="section-number-3">7.3</span> \(F_3(x) = \int_{0}^{2x} f(t) dt\)</h3>
+<div class="outline-text-3" id="text-7-3">
+<p>
+\(F_3(x) = F(2x)\) which is a parent function transformation which compresses the graph along the x-axis.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org247d255" class="outline-3">
+<h3 id="org247d255"><span class="section-number-3">7.4</span> \(F_4(x) = \int_{0}^{x} f(|t|) dt\)</h3>
+<div class="outline-text-3" id="text-7-4">
+<p>
+For \(x \ge 0\), \(F_4(x) = F(x)\). However, for \(x < 0\), the function will be the negative of the \(x\geq 0\) case because the integral is from right to left.
+</p>
+
+
+<div id="org71b4a16" class="figure">
+<p><img src="KBe21math401ret19src7d.png" alt="KBe21math401ret19src7d.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org55c3f80" class="outline-3">
+<h3 id="org55c3f80"><span class="section-number-3">7.5</span> \(F_5(x) = \int_{0}^{x} |f(t)| dt\)</h3>
+<div class="outline-text-3" id="text-7-5">
+<p>
+Instead of being a periodic function, this function will be even (all the decreasing parts of \(F(x)\) become increasing with the same shape)
+</p>
+
+
+<div id="orgdb852bc" class="figure">
+<p><img src="KBe21math401ret19src7e.png" alt="KBe21math401ret19src7e.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org69f2829" class="outline-2">
+<h2 id="org69f2829"><span class="section-number-2">8</span> derivatives of integral functions</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-orgeceb1d1" class="outline-3">
+<h3 id="orgeceb1d1"><span class="section-number-3">8.1</span> \(F(x) = \int_{-1}^{x^2} \sin(t^3-1) dt\)</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+\[\begin{aligned}
+   f(x) &= \int_{-1}^{x} \sin(t^3-1) dt\\
+   F(x) &= f(x^2)\\
+   \frac{d}{dx}F(x) &= \frac{d}{dx}f(x^2)\\
+   &= f'(x^2)(2x)\\
+   &= 2x \sin (x^{2^3}-1)
+   \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9c65747" class="outline-3">
+<h3 id="org9c65747"><span class="section-number-3">8.2</span> \(F(x) = \int_{0}^{2x} \ln(t-3) dt\)</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+\[\begin{aligned}
+   \frac{d}{dx}\left( \int_{0}^{2x} \ln(t-3) dt\right) &= 2 \frac{d}{dx}\int_{0}^{2x} \ln(t-3)dt\\
+   &= 2 \ln(2x-3)
+   \end{aligned}\]
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

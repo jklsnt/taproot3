@@ -4,14 +4,30 @@ course: HIST301
 source: #index 
 ---
 
-# HIST 301 Master Index
-
-## Day 1
-
-### HW
+# Day 1, day 2
 - Dylan: [[KBdHIST301HWIndigenousPeoplesHistory]]
 - Huxley: [[KBxIndigenousPeoplesHistoftheUS]]
-
-## Day 2
 - Dylan: [[KBdHIST301Day2]]
 - Huxley: [[KBxNotesonHannahJones]]
+
+# Indigenous History
+- [[KBhHIST301IndianPersp]] 
+- [[KBhHIST301ColonialAmerica]] 
+
+# Intersections Essay
+- [[KBhIntersectionsEssayPrep]]
+- [[KBxOriginNarrativesForFheUnitedStates]]
+
+# Colonies
+- [[KBxAmericanColonies]]
+- [[KBxMiddlekauff]]
+
+
+
+
+
+
+
+
+
+

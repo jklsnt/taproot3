@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-20 Mon 07:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Data Analysis Exercise</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div>Data Analysis Exercise  Huxley 2021-09-11 Sat 16:34</div>
+</div>
+<div id="content">
+<h1 class="title">Data Analysis Exercise</h1>
+<p>
+#ref #ret
+</p>
+
+<hr />
+
+<p>
+%%For <b>each</b> of the four scenarios below, answer the following
+questions. Please explain where your targets/rewards would come from
+(#2), how you would make your inputs numerical (#3), and a bit of your
+reasoning on ethical issues (#6). Other questions do not need
+explanation.
+</p>
+
+<ol class="org-ol">
+<li>What type of machine learning problem (regression, classification,
+clustering, generation, reinforcement learning) do you think this is?</li>
+<li>If this is a supervised problem, what will you use as your targets
+(aka labels)? If it is reinforcement learning, what will you use as
+your rewards? If it is unsupervised, just say "unsupervised".</li>
+<li>What processing do you need to do to your input data?</li>
+<li>What type(s) of model(s) would you try? You may need to combine
+models. Remember to start with the simplest thing that might work!
+Types of models we've talked about are linear regression, decision
+trees, random forest, logistic regression, naive bayes, support
+vector machines, K-means, DBSCAN, hierarchical clustering, fully
+connected neural networks, convolutional neural networks, recurrent
+neural networks, generative adversarial networks, deep Q learning,
+and evolutionary methods.</li>
+<li>What validation metric(s) would you use to decide how well you're
+doing?</li>
+<li>What ethical challenges do the data collection, creation, and/or use
+of this model create? If you feel there aren't any, just say
+"None".%%</li>
+</ol>
+
+<div id="outline-container-scenarios" class="outline-2">
+<h2 id="scenarios"><span class="section-number-2">1</span> Scenarios:</h2>
+<div class="outline-text-2" id="text-scenarios">
+<ol class="org-ol">
+<li><b>You want your model to learn to play
+<a href="https://en.wikipedia.org/wiki/Frogger">Frogger</a>.</b>
+
+<ol class="org-ol">
+<li>Reinforcement learning</li>
+<li>Points, as given by the game.</li>
+<li>The agent would be passed some input vector with a grid
+representing the game, perhaps in addition to some extra
+normalized variables like time left and goals filled.</li>
+<li>Perhaps deep Q learning with an RNN to be able to process
+different obstacle speeds.</li>
+<li>Regret</li>
+<li>Botting in video games, when the same techniques are applied to
+multiplayer?</li>
+</ol></li>
+
+<li><b>You would like a model to write tweets in the style of a particular
+author.</b>
+
+<ol class="org-ol">
+<li>Generation</li>
+<li>Unsupervised</li>
+<li>Padding, byte pair encoding, tokenization, ect.</li>
+<li>GAN, RNN / LSTM for generator, RNN for discriminator</li>
+<li>Human evaluation</li>
+<li>Could be used to fake tweets or impersonate people which has many
+larger implications. Data harvesting might also be a problem.</li>
+</ol></li>
+
+<li>*A company would like to be able to predict the next months' sales
+for each of its products. You have a dataset that the company has
+collected for many years, with data for a particular product on a
+particular month in each row. Each row contains the number of sales
+for the month, the number of sales from the previous month, the
+average rating (1-5) of the product in the previous month, the number
+of reviews in the previous month, the product type (e.g. "toaster",
+"coffee maker", "rice cooker"), its price the previous month, and its
+price for the current month.*
+
+<ol class="org-ol">
+<li>Regression</li>
+<li>The number of sales for the month in the collected dataset</li>
+<li>Normalize average rating, OHE product type</li>
+<li>FNN</li>
+<li>R<sup>2</sup></li>
+<li>None</li>
+</ol></li>
+
+<li>*You would like to predict the presence of a certain disease using
+chest x-ray data. You have a lot of x-ray images, a small amount of
+which have been labeled as having the disease or not having the
+disease. The rest of the images are unknown as to whether or not the
+person has the disease.*
+
+<ol class="org-ol">
+<li>Classification</li>
+<li>Semi-supervised, using the provided labels as well as generated
+pseudo-labels</li>
+<li>Down-sampling, grayscale?</li>
+<li>CNN</li>
+<li>F-score</li>
+<li>Model explainability challenges, covered in our ethics
+presentation last semester in ML.</li>
+</ol></li>
+</ol>
+
+<p>
+%%### Example:
+</p>
+
+<p>
+Here is an example answer, taken from
+<a href="http://archive.ics.uci.edu/ml/datasets/Abalone">http://archive.ics.uci.edu/ml/datasets/Abalone</a>:
+</p>
+
+<p>
+Scenario: You want to predict the age of an abalone (a type of
+shellfish). You have a dataset that includes the age of the abalone, the
+sex ('M', 'F', and 'I'), the length, the diameter, the height, and the
+weight.
+</p>
+
+<ol class="org-ol">
+<li>regression</li>
+<li>age (included in dataset)</li>
+<li>Length, diameter, height, and weight are numeric. I will scale them.
+For the sex feature, make it one-hot-encoded.</li>
+<li>linear regression. maybe a fully connected neural network later</li>
+<li>R<sup>2</sup>%%</li>
+</ol>
+</div>
+</div>
+</div>
+</body>
+</html>

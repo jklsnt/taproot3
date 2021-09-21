@@ -8,3 +8,6 @@ course: PHYS210
 
 # Physics Research Master Index
 Day 1: [[KBhPHYS210Day1]]
+
+# 9/16
+- 9/16 Small Bead Experiments [[KbhPHYS210JarSmallBead]] 

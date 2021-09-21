@@ -1,0 +1,86 @@
+.obsidian-orthography-highlight {
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 0, 0, 1);
+  cursor: pointer;
+}
+
+.obsidian-orthography-tooltip {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 3;
+  border-radius: 3px;
+  box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.4);
+  background-color: #202020;
+  color: #fff;
+  opacity: 0;
+  height: 0;
+}
+
+.obsidian-orthography-tooltip--visible {
+  opacity: 1;
+  height: auto;
+  animation: bounce 0.2s ease;
+}
+
+.obsidian-orthography-tooltip--visible button {
+  margin: 2px 0;
+}
+
+.obsidian-orthography-runner {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  font-size: 22px;
+  border-radius: 100%;
+  box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  transition: all 0.1s ease;
+}
+
+.obsidian-orthography-runner--clear {
+  font-size: 25px;
+}
+
+.obsidian-orthography-runner--hidden {
+  display: none !important;
+}
+
+.obsidian-orthography-runner:active {
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.4);
+  transform: translateY(1px);
+}
+
+.obsidian-orthography-runner--active {
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.4);
+  transform: translateY(1px);
+}
+
+.obsidian-orthography-runner--active span {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

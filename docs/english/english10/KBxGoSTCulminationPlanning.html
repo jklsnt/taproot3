@@ -1,311 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<!-- 2021-09-11 Sat 18:31 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GoST Culmination Assignment Planning</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="Huxley" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
-</style>
-<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
-</head>
-<body>
-<div id="org-div-home-and-up">
- <a accesskey="h" href="https://taproot3.sanity.gq/sitemap.html"> UP </a>
- |
- <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
-</div><div id="content">
-<h1 class="title">GoST Culmination Assignment Planning</h1>
-<p>
-#flo #ret #disorganized #incomplete
-</p>
-
-<hr />
-
-<pre class="example" id="org9378e4a">
-Instructions: 
-
-For this assignment, you will be producing a project that shows your understanding and close reading of a thematic aspect of Roy’s _The God of Small Things_. As always, close reading can involve tracking a repetition of some type in the text, including but not limited to repetitions in diction, structure, syntax, or characters’ behaviors. You might also think about tracking a change of some kind in the novel. This project is focused on your close reading skills, but you will likely be applying them in a way that is different from a traditional analytical essay. For this project, “Writer’s Voice” will be assessed and will be loosely defined as either a) creative writing or b) the way you use visual elements to connect to your audience.
-
- Using any medium (suggestions below), create a piece of art or an artistic representation that captures one of the central themes of the novel. You are being given two weeks to complete this project, so the end result should reflect this extended period of time. This is not a project that you can pull off the night before it is due and receive an exemplary assessment. Plan accordingly. Some ideas: 
--   Make a TV news story on an aspect of the book with which you also hand in a script.
--   Create a copy of the Ayemenem local newspaper for a) a notable day from the story or b) a mundane day-in-the-life of Ayemenem’s inhabitants.
--   Prepare a funeral for a character who dies that (perhaps) doubles as a social justice call to action. These funeral logistics should include a written eulogy component.
--   Create a video in which you act out/interpret a scene in _The God of Small Things_ (this option lends itself to collaboration with peers).
--   Make a day-in-the-life of Rahel film.
--   Create a Spotify playlist as a soundtrack for the text and include explanations (liner notes) for songs that incorporate close reading.
--   Create a visual art option with written component that includes close reading.
--   Write a pastiche of _The God of Small Things_ and include written explanation/analysis.
--   Write a long poem out of fragments of the book (this is a kind of pastiche)--describe how you used pieces of the book to illustrate the important themes and how those influence the novel.
--   You may also suggest your own creative project
--   You may also write a traditional close reading or literary essay.
-
-With the creative options above, you must include an expository writing piece of two pages (double-spaced) that includes close readings of textual evidence from the book. You may think of this exposition in two pieces: 1) deeper engagement with textual evidence and a thematic scope from _The God of Small Things_, and 2) connecting your creative work to this thematic scope. In short, show us how your creative work engages with a theme in the novel_._ How does your creative work derive from and represent your own (close) reading of the novel? While you are allowed to collaborate on any of the above projects (with prior approval from your teacher), each student will be required to turn in their own unique reflection.
-
-**Timeline:**
-
-By 2/11: Receive project prompt
-
-February Break: No homework, but you are welcomed to start brainstorming project ideas
-
-Week of 2/22: In-class work periods for project
-
-Week of 3/1: Project due
-
-**Goals**:
-
-It is your job to make sure you demonstrate the following template items, no matter the
-
-format you choose for the assignment:
-[](https://archive.org/stream/in.ernet.dli.2015.201707/2015.201707.The-God_djvu.txt)
-1.  Understanding Literature
-2.  Close Reading
-3.  Structure &amp; Mechanics
-4.  Writer’s Voice
-5.  Responsibility
-</pre>
-
-<p>
-close reading on wrist watch? model wrist watch in blender?
-</p>
-
-<div id="outline-container-apearence" class="outline-2">
-<h2 id="apearence"><span class="section-number-2">1</span> apearence:</h2>
-<div class="outline-text-2" id="text-apearence">
-<p>
-cheap plastic, ten to two. under grass buried in the ground.
-</p>
-</div>
-</div>
-
-<div id="outline-container-qoute-bin" class="outline-2">
-<h2 id="qoute-bin"><span class="section-number-2">2</span> qoute bin:</h2>
-<div class="outline-text-2" id="text-qoute-bin">
-<p>
-"The Waiting filled Rahel until she was ready to burst. She looked at
+<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Taproot Authors" name="author" /><meta content="A collection of academic and project notes" name="description" /><title>Taproot</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        'displayAlign': 'center',
+        'displayIndent': '0em',
+        'extensions': ['tex2jax.js'],
+        'tex2jax': {
+        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
+        'processEscapes': true
+        },
+        'HTML-CSS': { scale: 100,
+                        linebreaks: { automatic: 'false' },
+                        webFont: 'TeX'
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: 'false' },
+              font: 'TeX'},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: 'AMS'},
+               MultLineWidth: '85%',
+               TagSide: 'right',
+               TagIndent: '.8em'
+             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">GoST Culmination Assignment Planning</h1></div><div class="metamble"><span><span>Written by </span><span>Huxley</span></span></div><div class="notebody"><div><section><p><span>#flo #ret #disorganized #incomplete</span></p><hr /><p><span>close reading on wrist watch? model wrist watch in blender?</span></p></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="apearence:"><span class="firn-headline-text"><span>apearence:</span></span></h2><section><p><span>cheap plastic, ten to two. under grass buried in the ground.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="qoute-bin:"><span class="firn-headline-text"><span>qoute bin:</span></span></h2><section><p><span>"The Waiting filled Rahel until she was ready to burst. She looked at
 her watch. It was ten to two. She thought of Julie Andrews and
 Christopher Plummer kissing each other sideways so that their noses
 didn't collide. She wondered whether people always kissed each other
-sideways. She tried to think of whom to ask."
-</p>
-
-<p>
-"Rahel's toy wristwatch had the time painted on it. Ten to two. One of
+sideways. She tried to think of whom to ask."</span></p><p><span>"Rahel's toy wristwatch had the time painted on it. Ten to two. One of
 her ambitions was to own a watch on which she could change the time
 whenever she wanted to (which according to her was what Time was meant
-for in the first place)."
-</p>
-
-<p>
-"From the way Ammu held her head, Rahel could tell that she was still
+for in the first place)."</span></p><p><span>"From the way Ammu held her head, Rahel could tell that she was still
 angry. Rahel looked at her watch. Ten to two. Still no train. She put
 her chin on the window sill. She could feel the grey gristle of the felt
 that cushioned the window glass pressing into her chinskin. She took off
@@ -313,255 +33,28 @@ her sunglasses to get a better look at the dead frog squashed on the
 road. It was so dead and squashed so flat that it looked more like a
 frog-shaped stain on the road than a frog. Rahel wondered if Miss Mitten
 had been squashed into a Miss Mitten-shaped stain by the milk truck that
-killed her."
-</p>
-
-<p>
-"Rahel liked all this. Holding the handbag. Everyone pissing in front of
+killed her."</span></p><p><span>"Rahel liked all this. Holding the handbag. Everyone pissing in front of
 everyone. Like friends. She knew nothing then, of how precious a feeling
 this was. Like Jriends. They would never be together like this again.
 Ammu, Baby Kochamma and she. When Baby Kochamma finished, Rahel looked
 at her watch. 'So long you took, Baby Kochamma,' she said. 'It's ten to
-two.'"
-</p>
-
-<p>
-“The back verandah of the History House (where a posse of Touchable
+two.'"</span></p><p><span>“The back verandah of the History House (where a posse of Touchable
 policemen converged, where an inflatable goose was burst) had been
-enclosed and converted into the air&gt;^ hotel kitchen. Nothing worse than
+enclosed and converted into the air>^ hotel kitchen. Nothing worse than
 kebabs and caramel custard hap- pened there now. The Terror was past.
 Overcome by the smell of food. Silenced by the humming of cooks. The
 cheerful chop- chop-chopping of ginger and garlic. The disembowelling of
-lesser mammals ~ pigs, goats. The dicing of meat. The scaling of fish.
-</p>
-
-<p>
-Something lay buried in the ground. Under grass. Under twenty- three
-years of June rain.
-</p>
-
-<p>
-A small forgotten thing.
-</p>
-
-<p>
-Nothing that the world would miss.
-</p>
-
-<p>
-A child's plastic wristwatch with the time painted on it.
-</p>
-
-<p>
-Ten to two it said.”
-</p>
-
-<p>
-“The Q<sup>ntas</sup> koala they took for their children.
-</p>
-
-<p>
-And the pens and socks Police children with multi-coloured toes
-</p>
-
-<p>
-They burst the goose with a cigarette Bang. And buncd the rubber scraps
-</p>
-
-<p>
-Yooseless goose Too recognizable
-</p>
-
-<p>
-The gasses one of them wore. The others laughed so he kept them on for a
+lesser mammals ~ pigs, goats. The dicing of meat. The scaling of fish.</span></p><p><span>Something lay buried in the ground. Under grass. Under twenty- three
+years of June rain.</span></p><p><span>A small forgotten thing.</span></p><p><span>Nothing that the world would miss.</span></p><p><span>A child's plastic wristwatch with the time painted on it.</span></p><p><span>Ten to two it said.”</span></p><p><span>“The Q^ntas koala they took for their children.</span></p><p><span>And the pens and socks Police children with multi-coloured toes</span></p><p><span>They burst the goose with a cigarette Bang. And buncd the rubber scraps</span></p><p><span>Yooseless goose Too recognizable</span></p><p><span>The gasses one of them wore. The others laughed so he kept them on for a
 while. The watch they all forgot It stayed behind in the History House.
-In the back verandah A faulty record of the time. Ten to two.
-</p>
-
-<p>
-They left
-</p>
-
-<p>
-Six princes, their pockets stuffed with toys
-</p>
-
-<p>
-A pair of two-egg twins.
-</p>
-
-<p>
-And the God of Loss.
-</p>
-
-<p>
-He couldn't walk. So they dragged him
-</p>
-
-<p>
-Nobody saw them.
-</p>
-
-<p>
-Bats, of course, are blind”
-</p>
-
-<p>
-"The Past Isn't Dead. It Isn't Even Past" - william falkner
-</p>
-</div>
-</div>
-
-<div id="outline-container-analysis" class="outline-2">
-<h2 id="analysis"><span class="section-number-2">3</span> analysis:</h2>
-<div class="outline-text-2" id="text-analysis">
-<p>
-about frozen time?
-</p>
-
-<p>
-twins are stuck in time?
-</p>
-
-<p>
-book plays with time.
-</p>
-
-<p>
-rahel talks about being able to change the time whenever she wants, roy
-does just that
-</p>
-
-<p>
-time is representation
-</p>
-
-<p>
-time, like frog, is dead? does not move, according to watch.
-</p>
-
-<p>
-the book is frozen in time, in the sense that it doesnt progress
-centered around where the watch it left
-</p>
-
-<p>
-frozen time -&gt; oxymoron
-</p>
-
-<p>
-people are frozen, stuck in the past.
-</p>
-
-<p>
-passage of time means nothing?
-</p>
-
-<p>
-two interpretations
-</p>
-
-<p>
-time does not pass, and past stays with us.
-</p>
-
-<p>
-the past vs past, time vs Time
-</p>
-
-<p>
-grass has grown, time has passed.
-</p>
-
-<p>
-ten too two, could be ten two two when time is frozen, it becomes
-meaningless.
-</p>
-
-<p>
-she only mentions it in the point when she is waiting! what does that
-mean
-</p>
-
-<p>
-waiting is the only place where we are aware of time?
-</p>
-
-<p>
-second definition, aware of time, but still unable to move past.
-</p>
-</div>
-</div>
-
-<div id="outline-container-here-we-are-outlining." class="outline-2">
-<h2 id="here-we-are-outlining."><span class="section-number-2">4</span> here we are, outlining.</h2>
-<div class="outline-text-2" id="text-here-we-are-outlining.">
-<p>
-rahels watch has drawn on hands.
-</p>
-
-<p>
-time is frozen.
-</p>
-
-<p>
-frozen can be two ways:
-</p>
-
-<p>
-unable to be changed, and unable to escape the past.
-</p>
-
-<p>
-unable to be changed. represented by the unchanging discarded watch.
-</p>
-
-<p>
-caste system, not escaped even in communist ranks.
-</p>
-
-<p>
-baby kochamma and her love
-</p>
-
-<p>
-always leaking pickle jars
-</p>
-
-<p>
-"the past insnt dead. it isnt even past." faulker
-</p>
-
-<p>
-represented by the grass growing.
-</p>
-
-<p>
-the past traps us. estha cannot move on. everyones lives are forever
-changed.
-</p>
-
-<p>
-the watch is only mentioned when rahel is waiting, which is when we are
-aware of time. time is still passing, but the past is never gone.
-</p>
-
-<p>
-it's at the history house, history all about the pasts effect on the
-future.
-</p>
-</div>
-</div>
-
-<div id="outline-container-batman-begins." class="outline-2">
-<h2 id="batman-begins."><span class="section-number-2">5</span> batman begins.</h2>
-<div class="outline-text-2" id="text-batman-begins.">
-<p>
-Link!
-</p>
-
-<p>
-For my creative project, I chose to create a rendition of Rahel's watch.
+In the back verandah A faulty record of the time. Ten to two.</span></p><p><span>They left</span></p><p><span>Six princes, their pockets stuffed with toys</span></p><p><span>A pair of two-egg twins.</span></p><p><span>And the God of Loss.</span></p><p><span>He couldn't walk. So they dragged him</span></p><p><span>Nobody saw them.</span></p><p><span>Bats, of course, are blind”</span></p><p><span>"The Past Isn't Dead. It Isn't Even Past" - william falkner</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="analysis:"><span class="firn-headline-text"><span>analysis:</span></span></h2><section><p><span>about frozen time?</span></p><p><span>twins are stuck in time?</span></p><p><span>book plays with time.</span></p><p><span>rahel talks about being able to change the time whenever she wants, roy
+does just that</span></p><p><span>time is representation</span></p><p><span>time, like frog, is dead? does not move, according to watch.</span></p><p><span>the book is frozen in time, in the sense that it doesnt progress
+centered around where the watch it left</span></p><p><span>frozen time -> oxymoron</span></p><p><span>people are frozen, stuck in the past.</span></p><p><span>passage of time means nothing?</span></p><p><span>two interpretations</span></p><p><span>time does not pass, and past stays with us.</span></p><p><span>the past vs past, time vs Time</span></p><p><span>grass has grown, time has passed.</span></p><p><span>ten too two, could be ten two two when time is frozen, it becomes
+meaningless.</span></p><p><span>she only mentions it in the point when she is waiting! what does that
+mean</span></p><p><span>waiting is the only place where we are aware of time?</span></p><p><span>second definition, aware of time, but still unable to move past.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="here-we-are,-outlining"><span class="firn-headline-text"><span>here we are, outlining.</span></span></h2><section><p><span>rahels watch has drawn on hands.</span></p><p><span>time is frozen.</span></p><p><span>frozen can be two ways:</span></p><p><span>unable to be changed, and unable to escape the past.</span></p><p><span>unable to be changed. represented by the unchanging discarded watch.</span></p><p><span>caste system, not escaped even in communist ranks.</span></p><p><span>baby kochamma and her love</span></p><p><span>always leaking pickle jars</span></p><p><span>"the past insnt dead. it isnt even past." faulker</span></p><p><span>represented by the grass growing.</span></p><p><span>the past traps us. estha cannot move on. everyones lives are forever
+changed.</span></p><p><span>the watch is only mentioned when rahel is waiting, which is when we are
+aware of time. time is still passing, but the past is never gone.</span></p><p><span>it's at the history house, history all about the pasts effect on the
+future.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="batman-begins"><span class="firn-headline-text"><span>batman begins.</span></span></h2><section><p><span>Link!</span></p><p><span>For my creative project, I chose to create a rendition of Rahel's watch.
 I made my model as close as possible to how Rahel's watch is described
 in the novel, from the toy-like shoddy manufacturing to the painted on
 hands. These hands are placed at ten to two, a phrased frequently
@@ -582,16 +75,12 @@ become meaningless. Furthermore, the book reads "it was," asserting that
 the watch is correct about the time, which of course, it isn't. Time has
 become frozen, and thus, in the classical sense of the word, becomes
 meaningless, arbitrary, and changeable. But this begs the question, what
-does frozen time mean?
-</p>
-
-<p>
-Frozen time can take primarily two meanings, both of which appear in the
+does frozen time mean?</span></p><p><span>Frozen time can take primarily two meanings, both of which appear in the
 book. The first meaning is that time simply does not pass, or in
 practice, does not create change. I represented this with the unchanging
 watch in the center of the frame, where even "under twenty-three years
 of June rain," Rahel's "plastic wristwatch with the time painted on it
-[&#x2026;] stays buried. [&#x2026;] Ten to two it said." (citation). The passage
+[...] stays buried. [...] Ten to two it said." (citation). The passage
 of time fails to change the positions of the hands, just as it fails to
 change much else in the book. Immutable or unchanging things are, in a
 sense, frozen in time. This theme of immutability appears often
@@ -606,11 +95,7 @@ the entries in Baby Kochamma's diary," all declaring her love
 (citation). The theme even sneaks into smaller instances, such as
 Mammachi's inability to stop her pickle jars from leaking leaves her
 wondering "whether she would ever master the art of perfect
-preservation" for her entire life (citation).
-</p>
-
-<p>
-The second way time can be frozen is best demonstrated by a quote from
+preservation" for her entire life (citation).</span></p><p><span>The second way time can be frozen is best demonstrated by a quote from
 William Faulkner: "The past is never dead. It's not even past." The past
 stays with us in the sense that we can never escape its effects. I chose
 to represent this with the grass growing. The world is not frozen, time
@@ -627,25 +112,4 @@ ones we can never escape. Estha becomes mute because of his trauma,
 unable to escape the past. Chacko cannot escape his marriage, still
 trapped in a unofficial one sided relationship. Margaret Kochamma cannot
 escape Sophie Mol's death. After all, things can change forever in a
-day.
-</p>
-
-<p>
-Once the quietness arrived, it stayed and spread in
-</p>
-
-<p>
-Estha.
-</p>
-
-<p>
-Wether it's waiting for a train,
-</p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Huxley</span><span class="date">2021-09-11 Sat 16:35</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
-</div>
-</body>
-</html>
+day.</span></p><p><span>Once the quietness arrived, it stayed and spread in</span></p><p><span>Estha.</span></p><p><span>Wether it's waiting for a train,</span></p></section></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#apearence:">apearence:</a></li><li><a href="#qoute-bin:">qoute bin:</a></li><li><a href="#analysis:">analysis:</a></li><li><a href="#here-we-are,-outlining">here we are, outlining.</a></li><li><a href="#batman-begins">batman begins.</a></li></ol><div class="metalabel">Backlinks</div><ul class="firn-backlinks"><li class="firn-backlink"><a href="/english/english10/KBEnglishMasterIndex">English Master Index</a></li><li class="firn-backlink"><a href="/english/english10/index">English Master Index</a></li></ul></div></main></body></html>

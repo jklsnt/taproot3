@@ -1,463 +1,143 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<!-- 2021-09-11 Sat 18:31 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>There There Essay Planning</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="Huxley Marvit" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
-</style>
-<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
-</head>
-<body>
-<div id="org-div-home-and-up">
- <a accesskey="h" href="https://taproot3.sanity.gq/sitemap.html"> UP </a>
- |
- <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
-</div><div id="content">
-<h1 class="title">There There Essay Planning</h1>
-<p>
-#ret
-</p>
-
-<hr />
-
-<div id="outline-container-ready-go." class="outline-2">
-<h2 id="ready-go."><span class="section-number-2">1</span> Ready? Go.</h2>
-<div class="outline-text-2" id="text-ready-go.">
-<pre class="example" id="org44f6a3b">
-1.  **Prompt**: In his Prologue, Orange claims that “we are the memories we don’t remember, which live in us, which we feel” (10). Choose one character from the novel, and explain how he/she embodies, revises, or refutes this claim. Be sure to explain/define the quotation and how it connects to the character you are discussing.
-</pre>
-
-<p>
-rough thinking:
-<a href="KBxThereTherePromptsAndQuestions.html">KBxThereTherePromptsAndQuestions</a>
-</p>
-</div>
-
-<div id="outline-container-idea" class="outline-4">
-<h4 id="idea"><span class="section-number-4">1.0.1</span> Idea</h4>
-<div class="outline-text-4" id="text-idea">
-<ul class="org-ul">
-<li>rough: we are not the memories we don't remember, we live in the
-memories we don't remember
-
-<ul class="org-ul">
-<li>seems pedantic, but this small nuance has much broader implications
-
-<ul class="org-ul">
-<li>you can reject reality (denial)
-
-<ul class="org-ul">
-<li>even if you don't know how it got there, you know what it is and
-can avoid it</li>
-</ul></li>
-
-<li>you can change it (hope)</li>
-<li>also, what was done to the ancestors (breadth)
-
-<ul class="org-ul">
-<li>not just "we are what our ancestors did," you are what was done
-to your ancestors</li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-
-<p>
-? "the sense that everything didnt come out"
-</p>
-</div>
-
-<div id="outline-container-mapping" class="outline-5">
-<h5 id="mapping"><span class="section-number-5">1.0.1.1</span> mapping</h5>
-<div class="outline-text-5" id="text-mapping">
-<p>
-edwin: - denial - internet obsession - second life - ? bill is both self
+<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Taproot Authors" name="author" /><meta content="A collection of academic and project notes" name="description" /><title>Taproot</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        'displayAlign': 'center',
+        'displayIndent': '0em',
+        'extensions': ['tex2jax.js'],
+        'tex2jax': {
+        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
+        'processEscapes': true
+        },
+        'HTML-CSS': { scale: 100,
+                        linebreaks: { automatic: 'false' },
+                        webFont: 'TeX'
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: 'false' },
+              font: 'TeX'},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: 'AMS'},
+               MultLineWidth: '85%',
+               TagSide: 'right',
+               TagIndent: '.8em'
+             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">There There Essay Planning</h1></div><div class="metamble"><span><span>Written by </span><span>Huxley Marvit</span></span></div><div class="notebody"><div><section><p><span>#ret</span></p><hr /></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="ready?-go"><span class="firn-headline-text"><span>Ready? Go.</span></span></h1><section><p><span>rough thinking:</span><a class="firn-internal" href="/english/english11/KBxThereTherePromptsAndQuestions">KBxThereTherePromptsAndQuestions</a></p></section><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="idea"><span class="firn-headline-text"><span>Idea</span></span></h3><section><ul><li><p><span>rough: we are not the memories we don't remember, we live in the
+  memories we don't remember</span></p><ul><li><p><span>seems pedantic, but this small nuance has much broader implications</span></p><ul><li><p><span>you can reject reality (denial)</span></p><ul><li><p><span>even if you don't know how it got there, you know what it is and
+        can avoid it</span></p></li></ul></li><li><p><span>you can change it (hope)</span></p></li><li><p><span>also, what was done to the ancestors (breadth)</span></p><ul><li><p><span>not just "we are what our ancestors did," you are what was done
+        to your ancestors</span></p></li></ul></li></ul></li></ul></li></ul><p><span>? "the sense that everything didnt come out"</span></p></section><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="mapping"><span class="firn-headline-text"><span>mapping</span></span></h4><section><p><span>edwin: - denial - internet obsession - second life - ? bill is both self
 aware and in denial - constipation represents how when in denial, he is
-stuck? cannot move forward?
-</p>
-
-<ul class="org-ul">
-<li>hope
-
-<ul class="org-ul">
-<li>getting better, working on the powwow</li>
-</ul></li>
-
-<li>breadth
-
-<ul class="org-ul">
-<li>shooting? reflects the past, points out that it's now about just
-about what you do, it's about what is done to you.</li>
-</ul></li>
-</ul>
-
-<p>
-edwins arc maps to the revised point: "We live in the memories we don't
-remember"
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-qoute-bin" class="outline-4">
-<h4 id="qoute-bin"><span class="section-number-4">1.0.2</span> qoute bin</h4>
-<div class="outline-text-4" id="text-qoute-bin">
-<ul class="org-ul">
-<li><b>main</b>
-
-<ul class="org-ul">
-<li>"But what we are is what our ancestors did. How they survived. We
-are the memories we don't remember, which live in us, which we feel,
-which make us sing and dance and pray the way we do, feelings from
-memories that flare and bloom unexpectedly in our lives like blood
-through a blanket from a wound made by a bullet fired by a man
-shooting us in the back for our hair, for our hair, for our heads,
-for a bounty, or just to get rid of us."</li>
-</ul></li>
-
-<li><b>denial</b>
-
-<ul class="org-ul">
-<li>"but I dream of the internet"</li>
-<li>"I was really into <i>Second Life</i> for a while. I think I logged two
-whole years there. And as I was growing, getting fatter in real
-life, the Edwin Black I had in there, on there, I made him thinner,
-and as I did less, he did more."</li>
-<li>"The Edwin Black in there had a job and a girlfriend and his mom had
-died tragically during childbirth. That Edwin Black was rained on
-the reservation with his dad. The Edwin Black of my <i>Second Life</i>
-was proud. He had hope."</li>
-<li>"When I moved back in with my mom, the door to my old room. to my
-old life in that room, it opened up like a mouth and swallowed me."</li>
-<li>"I read a lot and come away with nothing. This is how time skips."</li>
-<li>"Remembering itself is becoming old-fashioned"</li>
-<li>"And it reminds me how removed I am because of her."</li>
-<li>"'Well, that's a pretty convenient theory for someone who spends
-twenty hours a day leaning into their computer like ther're waiting
-for a kiss,'"</li>
-<li></li>
-</ul></li>
-
-<li><b>hope</b>
-
-<ul class="org-ul">
-<li>"The trouble with believing is you have to believe that believing
-will work, you have to believe in belief."</li>
-<li>"I have to give up."</li>
-<li>"I feel something not unlike hope"
-
-<ul class="org-ul">
-<li>C: after connecting with dad, thinking about internship, life
-starts moving.</li>
-</ul></li>
-
-<li>"'At least he's got a job now. He's working. Every day. That's a
-lot. For him. Please. I don't want to discourage him.'"</li>
-<li>"Today means everything for them. The countless hours they out in.
-All the different drum groups and vendors and dancers they had to
-call and convince to come, that there was prize money to be had,
-money to be made."</li>
-<li>"But this means more than a job for Edwin at this point. This is a
-new life."</li>
-</ul></li>
-
-<li><b>breadth</b>
-
-<ul class="org-ul">
-<li>"'Whatever bro, my record keepers have it going down differently'"</li>
-<li>"'That's their culture'"</li>
-<li>"There's a gravity to it. A weight pulling him closer to Octavio,
-who's now pointing his gun at Edwin and Blue. He's pointing at the
-sage with the gun. He's calm about it. Calvin has his hand on his
-gun through his shirt. Edwin crouches down to open the sage."</li>
-<li>Shooting descriptors..</li>
-<li>"When Blue pulls into Highland, Edwin is passed out. She'd been
-telling him, yelling at him, screaming at him to stay awake. There
-was probably a closer hospital, but she knew Highland. She keeps her
-hand on the horn, to try to wake Edwin up and to get someone to come
-out to help. She reaches her hand over and slaps Edwin a few times
-on the cheek. Edwin shakes his head a little. “You gotta wake up,
-Ed," Blue says. "We're here." He doesn't respond.”</li>
-</ul></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-outline" class="outline-4">
-<h4 id="outline"><span class="section-number-4">1.0.3</span> Outline</h4>
-<div class="outline-text-4" id="text-outline">
-</div>
-<div id="outline-container-intro" class="outline-6">
-<h6 id="intro"><span class="section-number-6">1.0.3.0.1</span> Intro:</h6>
-<div class="outline-text-6" id="text-intro">
-<p>
-Not, we are the memories we don't remember, but we live in the memories
-we don't remember. Ancestors -&gt; ancestor experiences -&gt; ancestor actions
--&gt; shape world -&gt; shape us ancestor experiences &amp; actions = memories we
+stuck? cannot move forward?</span></p><ul><li><p><span>hope</span></p><ul><li><p><span>getting better, working on the powwow</span></p></li></ul></li><li><p><span>breadth</span></p><ul><li><p><span>shooting? reflects the past, points out that it's now about just
+    about what you do, it's about what is done to you.</span></p></li></ul></li></ul><p><span>edwins arc maps to the revised point: "We live in the memories we don't
+remember"</span></p></section></div></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="qoute-bin"><span class="firn-headline-text"><span>qoute bin</span></span></h3><section><ul><li><p><strong><span>main</span></strong></p><ul><li><p><span>"But what we are is what our ancestors did. How they survived. We
+    are the memories we don't remember, which live in us, which we feel,
+    which make us sing and dance and pray the way we do, feelings from
+    memories that flare and bloom unexpectedly in our lives like blood
+    through a blanket from a wound made by a bullet fired by a man
+    shooting us in the back for our hair, for our hair, for our heads,
+    for a bounty, or just to get rid of us."</span></p></li></ul></li><li><p><strong><span>denial</span></strong></p><ul><li><p><span>"but I dream of the internet"</span></p></li><li><p><span>"I was really into </span><em><span>Second Life</span></em><span> for a while. I think I logged two
+    whole years there. And as I was growing, getting fatter in real
+    life, the Edwin Black I had in there, on there, I made him thinner,
+    and as I did less, he did more."</span></p></li><li><p><span>"The Edwin Black in there had a job and a girlfriend and his mom had
+    died tragically during childbirth. That Edwin Black was rained on
+    the reservation with his dad. The Edwin Black of my </span><em><span>Second Life</span></em><span>
+    was proud. He had hope."</span></p></li><li><p><span>"When I moved back in with my mom, the door to my old room. to my
+    old life in that room, it opened up like a mouth and swallowed me."</span></p></li><li><p><span>"I read a lot and come away with nothing. This is how time skips."</span></p></li><li><p><span>"Remembering itself is becoming old-fashioned"</span></p></li><li><p><span>"And it reminds me how removed I am because of her."</span></p></li><li><p><span>"'Well, that's a pretty convenient theory for someone who spends
+    twenty hours a day leaning into their computer like ther're waiting
+    for a kiss,'"</span></p></li><li></li></ul></li><li><p><strong><span>hope</span></strong></p><ul><li><p><span>"The trouble with believing is you have to believe that believing
+    will work, you have to believe in belief."</span></p></li><li><p><span>"I have to give up."</span></p></li><li><p><span>"I feel something not unlike hope"</span></p><ul><li><p><span>C: after connecting with dad, thinking about internship, life
+      starts moving.</span></p></li></ul></li><li><p><span>"'At least he's got a job now. He's working. Every day. That's a
+    lot. For him. Please. I don't want to discourage him.'"</span></p></li><li><p><span>"Today means everything for them. The countless hours they out in.
+    All the different drum groups and vendors and dancers they had to
+    call and convince to come, that there was prize money to be had,
+    money to be made."</span></p></li><li><p><span>"But this means more than a job for Edwin at this point. This is a
+    new life."</span></p></li></ul></li><li><p><strong><span>breadth</span></strong></p><ul><li><p><span>"'Whatever bro, my record keepers have it going down differently'"</span></p></li><li><p><span>"'That's their culture'"</span></p></li><li><p><span>"There's a gravity to it. A weight pulling him closer to Octavio,
+    who's now pointing his gun at Edwin and Blue. He's pointing at the
+    sage with the gun. He's calm about it. Calvin has his hand on his
+    gun through his shirt. Edwin crouches down to open the sage."</span></p></li><li><p><span>Shooting descriptors..</span></p></li><li><p><span>"When Blue pulls into Highland, Edwin is passed out. She'd been
+    telling him, yelling at him, screaming at him to stay awake. There
+    was probably a closer hospital, but she knew Highland. She keeps her
+    hand on the horn, to try to wake Edwin up and to get someone to come
+    out to help. She reaches her hand over and slaps Edwin a few times
+    on the cheek. Edwin shakes his head a little. “You gotta wake up,
+    Ed," Blue says. "We're here." He doesn't respond.”</span></p></li></ul></li></ul></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="outline"><span class="firn-headline-text"><span>Outline</span></span></h3><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="intro:"><span class="firn-headline-text"><span>Intro:</span></span></h5><section><p><span>Not, we are the memories we don't remember, but we live in the memories
+we don't remember. Ancestors -> ancestor experiences -> ancestor actions
+-> shape world -> shape us ancestor experiences & actions = memories we
 don't remember in my model While it sounds pedantic, it has much broader
-implications.
-</p>
-</div>
-</div>
-
-<div id="outline-container-denial" class="outline-6">
-<h6 id="denial"><span class="section-number-6">1.0.3.0.2</span> Denial</h6>
-<div class="outline-text-6" id="text-denial">
-<p>
-One cannot know what part of them stems from the memories we don't
+implications.</span></p></section></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="denial"><span class="firn-headline-text"><span>Denial</span></span></h5><section><p><span>One cannot know what part of them stems from the memories we don't
 remember. Orange talks about these parts being the culture, but that can
 be rejected. One can't deny the memories because they are intangible,
-but one can deny reality. Updated model allows for choice.
-</p>
-</div>
-</div>
-
-<div id="outline-container-hope" class="outline-6">
-<h6 id="hope"><span class="section-number-6">1.0.3.0.3</span> Hope</h6>
-<div class="outline-text-6" id="text-hope">
-<p>
-One can't change what happened in the past. But, one can change the
-world, can change where they live. We are not <i>just</i> the memories we
-don't remember. We are also the memories we do remember!
-</p>
-</div>
-</div>
-
-<div id="outline-container-breadth" class="outline-6">
-<h6 id="breadth"><span class="section-number-6">1.0.3.0.4</span> Breadth</h6>
-<div class="outline-text-6" id="text-breadth">
-<p>
-Orange refers specifically to "what our ancestors did," but it's more
-than that &#x2013; it's what was done to the ancestors. Everyone's memories
+but one can deny reality. Updated model allows for choice.</span></p></section></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="hope"><span class="firn-headline-text"><span>Hope</span></span></h5><section><p><span>One can't change what happened in the past. But, one can change the
+world, can change where they live. We are not </span><em><span>just</span></em><span> the memories we
+don't remember. We are also the memories we do remember!</span></p></section></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="breadth"><span class="firn-headline-text"><span>Breadth</span></span></h5><section><p><span>Orange refers specifically to "what our ancestors did," but it's more
+than that -- it's what was done to the ancestors. Everyone's memories
 shaped the present. We can't forget or ignore the atrocities and their
-impacts.
-</p>
-</div>
-</div>
-
-<div id="outline-container-conclusion" class="outline-6">
-<h6 id="conclusion"><span class="section-number-6">1.0.3.0.5</span> Conclusion</h6>
-<div class="outline-text-6" id="text-conclusion">
-<p>
-more powerful model? allows for choice? #review
-</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Huxley Marvit</span><span class="date">2021-09-11 Sat 16:35</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
-</div>
-</body>
-</html>
+impacts.</span></p></section></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="conclusion"><span class="firn-headline-text"><span>Conclusion</span></span></h5><section><p><span>more powerful model? allows for choice? #review</span></p><p><span>In his Prologue, Orange claims that "we are the memories we don't
+remember, which live in us, which we feel" (10). ## Begin.</span></p><p><span>In the Prologue of </span><em><span>There There</span></em><span> Tommy Orange writes "we are the
+memories we don't remember" (10). He connects the past to the present by
+claiming that what defines our identities are our ancestors' lived
+experiences -- the "memories we don't remember." While these memories
+are not ours, they are still the ones "which live in us, which we feel."
+Our ancestors, and their experiences, live on in us just as they define
+us. While Orange's claim is very insightful, a minor and seemingly
+pedantic revision gives it {much more power} as is illustrated by Edwin
+Black. The memories we don't remember do not directly shape us; instead,
+they shape the world, which in turn shapes us. The state of the world is
+the conduit through which our ancestors' experiences flow into our
+identities. Instead of "we are the memories we don't remember," "we live
+in the memories we don't remember." %%While this may seem {like} a
+pedantic deconstruction, highlighting this difference %%</span></p><p><span>As demonstrated by Edwin Black, the updated claim allows for denial
+while Orange's claim does not. The effect of our ancestors experiences
+on us, while "we feel" them, are ineffable. We cannot describe or even
+know what parts of us stem from the memories we don't remember, and
+therefore we cannot deny them. And yet, Edwin does. At the start of his
+arc he lives on the internet, he "dreams[s] of the internet" (cite). He
+describes his time playing </span><em><span>Second Life</span></em><span>, highlighting the disparity
+between a false reality and the one he chooses to deny: "as I was
+growing, getting fatter in real life, the Edwin Black I had in there, on
+there, I made him thinner, and as I did less, he did more" (cite). Edwin
+switches from "in there" to "on there" to represent the control his
+character has over the false reality, something he believes he lacks in
+the true one. He goes on to describe the hope that the false Edwin has,
+the job and girlfriend and dad and proudness he has (cite). Edwin is
+able to deny his ineffable identity by denying his effable reality, not
+even getting to his ancestors memories. He chooses not to live in the
+memories we don't remember and thus deny his identity, something not
+possible within the bounds of Orange's original claim.</span></p><p><span>The past is set in stone -- unable to be changed -- but reality is not;
+from the ability to mold reality and ourselves we get hope. Edwin begins
+his story talking about belief. He explains that in order for believing
+to work, "you have to believe in belief" itself (cite). One can't change
+the past, but one can change the world, can change where they live. If
+we are the past, "the memories we don't remember," then how can we
+believe? Edwin starts off his story not believing: "I have to give up"
+he narrates (cite). But once the reality Edwin lives in starts to
+change, so does his belief. He connects with his dad, he gets work, and
+he moves into the second phase of his arc. His life starts moving. He
+ends his first chapter declaring "I feel something not unlike hope"
+(cite). Orange's original claim doesn't allow us to believe in belief,
+as we are the past. But we are not only the memories we don't remember,
+we are also the memories we do remember. Edwin's reality changes, and he
+changes his reality, just like his ancestors. That's why we can believe.
+Because we live in the memories we don't remember instead of being the
+memories we don't remember, we can have hope for something better by
+being able to change reality instead of having to change the past.</span></p><p><span>The third and final phase of Edwin's arc demonstrates the third limit of
+Orange's original claim: breadth. Edwin's job helping with the powwow
+has moved him out of denial and into hope. The work is described as
+meaning "more than a job for Edwin at this point. This is a new life"
+(cite). Edwin is now changing the place he lives in -- and changing
+himself -- creating a new life. He is exerting his control over the
+world and trying his best to make the powwow go well, but of course, it
+doesn't. Instead, Octavio points "his gun at Edwin and Blue" and Edwin
+gets "shot--in the stomach" (cite). Directly prior to his claim about
+memories, Orange refers specifically to Native Americans and writes
+"what we are is what our ancestors did" (cite). But Orange ignores what
+was done to them. Edwin's experience at the powwow mirrors the
+experiences of the Native Americans suffering from the genocidal
+atrocities committed by the early colonists -- culture and hope being
+shattered by violence. When Edwin gets shot, it is not solely Edwin's
+actions which shape his identity, but his shooters. We cannot forget or
+ignore the atrocities committed by the colonists or their impacts. We
+are not shaped by our ancestors, we are shaped by everyone's ancestors,
+as we all live in one world.</span></p><p><span>By revising "we are the memories we don't remember" to "we live in the
+memories we don't remember," we can accommodate denial, hope, and
+breadth as is demonstrated by Edwin's arc throughout the novel. He
+starts off denying his reality, primarily living in </span><em><span>Second Life</span></em><span>, then
+moves to being hopeful by shaping the world around him for the powwow,
+and finally to being robbed and shot illustrating the breadth of what
+effects him.</span></p></section></div></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="final-version"><span class="firn-headline-text"><span>final version</span></span></h2><section><p><span>https://docs.google.com/document/d/1S-htkZDhHdHZh8CRe50VdCajlTc1U1b_mHx6hasAlGs/edit</span></p></section></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#ready?-go">Ready? Go.</a><ol><li><a href="#idea">Idea</a><ol><li><a href="#mapping">mapping</a></li></ol></li><li><a href="#qoute-bin">qoute bin</a></li><li><a href="#outline">Outline</a><ol><li><a href="#intro:">Intro:</a></li><li><a href="#denial">Denial</a></li><li><a href="#hope">Hope</a></li><li><a href="#breadth">Breadth</a></li><li><a href="#conclusion">Conclusion</a></li></ol></li></ol></li></ol><div class="metalabel">Backlinks</div><ul class="firn-backlinks"><li class="firn-backlink"><a href="/english/english11/index">English 11 Master Index</a></li><li class="firn-backlink"><a href="/english/english11/KBMasterIndexEng301">English 11 Master Index</a></li></ul></div></main></body></html>

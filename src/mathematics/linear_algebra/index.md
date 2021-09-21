@@ -16,3 +16,5 @@ source:  #index
 [[KBxChapter1B]]
 [[KBxSolvingSystems]]
 [[KBxChessMovesandMoreReading]]
+[[KBxSyllogismsandtheContrapositiveHW]]
+[[KBxSyllogismsandtheContrapositiveInclass]]

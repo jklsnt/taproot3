@@ -3,24 +3,22 @@
 while :
 do 
     # Make it!
-    make all
+    make -j12 all
 
     # Add it! 
     git add src
     git add docs
     git add templates
     git add static
+    git add site
+    git add .
 
-    NUMCHANGED=$(git diff --cached --numstat | wc -l)
 
-    if (( NUMCHANGED < 10 )); then
-        sleep 20
-        continue
-    fi
 
     # Ship it!
-    GIT_MERGE_AUTOEDIT=no git pull origin master
     git commit -a -m "taproot3 autocommit $(date "+%Y-%m-%d %H:%M:%S")"
+    GIT_MERGE_AUTOEDIT=no git pull origin master
+
     git push
 done
 

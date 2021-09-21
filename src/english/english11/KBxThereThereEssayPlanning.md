@@ -105,6 +105,55 @@ more powerful model? allows for choice? #review
 
 
 
+In his Prologue, Orange claims that “we are the memories we don’t remember, which live in us, which we feel” (10).
+## Begin.
+
+In the Prologue of *There There* Tommy Orange writes "we are the memories we don't remember" (10). He connects the past to the present by claiming that what defines our identities are our ancestors' lived experiences -- the "memories we don't remember." While these memories are not ours, they are still the ones "which live in us, which we feel." Our ancestors, and their experiences, live on in us just as they define us. While Orange's claim is very insightful, a minor and seemingly pedantic revision gives it {much more power} as is illustrated by Edwin Black. The memories we don't remember do not directly shape us; instead, they shape the world, which in turn shapes us. The state of the world is the conduit through which our ancestors' experiences flow into our identities. Instead of "we are the memories we don't remember," "we live in the memories we don't remember."
+%%While this may seem {like} a pedantic deconstruction, highlighting this difference %%
+
+
+As demonstrated by Edwin Black, the updated claim allows for denial while Orange's claim does not. The effect of our ancestors experiences on us, while "we feel" them, are ineffable. We cannot describe or even know what parts of us stem from the memories we don't remember, and therefore we cannot deny them. And yet, Edwin does. At the start of his arc he lives on the internet, he "dreams[s] of the internet" (cite). He describes his time playing *Second Life*, highlighting the disparity between a false reality and the one he chooses to deny: "as I was growing, getting fatter in real life, the Edwin Black I had in there, on there, I made him thinner, and as I did less, he did more" (cite). Edwin switches from "in there" to "on there" to represent the control his character has over the false reality, something he believes he lacks in the true one. He goes on to describe the hope that the false Edwin has, the job and girlfriend and dad and proudness he has (cite). Edwin is able to deny his ineffable identity by denying his effable reality, not even getting to his ancestors memories. He chooses not to live in the memories we don't remember and thus deny his identity, something not possible within the bounds of Orange's original claim.
+
+
+The past is set in stone -- unable to be changed -- but reality is not; from the ability to mold reality and ourselves we get hope. Edwin begins his story talking about belief. He explains that in order for believing to work, "you have to believe in belief" itself (cite). One can't change the past, but one can change the world, can change where they live. If we are the past, "the memories we don't remember," then how can we believe? Edwin starts off his story not believing: "I have to give up" he narrates (cite). But once the reality Edwin lives in starts to change, so does his belief. He connects with his dad, he gets work, and he moves into the second phase of his arc. His life starts moving. He ends his first chapter declaring "I feel something not unlike hope" (cite). Orange's original claim doesn't allow us to believe in belief, as we are the past. But we are not only the memories we don't remember, we are also the memories we do remember. Edwin's reality changes, and he changes his reality, just like his ancestors. That's why we can believe. Because we live in the memories we don't remember instead of being the memories we don't remember, we can have hope for something better by being able to change reality instead of having to change the past.
+
+
+The third and final phase of Edwin's arc demonstrates the third limit of Orange's original claim: breadth. Edwin's job helping with the powwow has moved him out of denial and into hope. The work is described as meaning "more than a job for Edwin at this point. This is a new life" (cite). Edwin is now changing the place he lives in -- and changing himself -- creating a new life. He is exerting his control over the world and trying his best to make the powwow go well, but of course, it doesn't. Instead, Octavio points "his gun at Edwin and Blue" and Edwin gets "shot--in the stomach" (cite). Directly prior to his claim about memories, Orange refers specifically to Native Americans and writes "what we are is what our ancestors did" (cite). But Orange ignores what was done to them. Edwin's experience at the powwow mirrors the experiences of the Native Americans suffering from the genocidal atrocities committed by the early colonists -- culture and hope being shattered by violence. When Edwin gets shot, it is not solely Edwin's actions which shape his identity, but his shooters. We cannot forget or ignore the atrocities committed by the colonists or their impacts. We are not shaped by our ancestors, we are shaped by everyone's ancestors, as we all live in one world.
+
+
+By revising "we are the memories we don't remember" to "we live in the memories we don't remember," we can accommodate denial, hope, and breadth as is demonstrated by Edwin's arc throughout the novel. He starts off denying his reality, primarily living in *Second Life*, then moves to being hopeful by shaping the world around him for the powwow, and finally to being robbed and shot illustrating the breadth of what effects him.
+
+## final version
+https://docs.google.com/document/d/1S-htkZDhHdHZh8CRe50VdCajlTc1U1b_mHx6hasAlGs/edit 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,104 @@
+% Created 2021-09-16 Thu 23:01
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Taproot}
+\date{\today}
+\title{Assignment 4 - arc length}
+\hypersetup{
+ pdfauthor={Taproot},
+ pdftitle={Assignment 4 - arc length},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\setcounter{section}{5}
+\section{Deriving arclength forumlas}
+\label{sec:orgefe80bf}
+
+\[\begin{aligned}
+  S &=  \int_{C}^{}  ds = \lim_{n \to  \infty}  \sum_{i=1}^{n} \sqrt{\Delta x_i^2 + \Delta y_i^2} 
+  \end{aligned}\]
+
+\subsection{if \(y = f(x)\)}
+\label{sec:orgdd914ac}
+
+\[\begin{aligned}
+    \int_{C}^{}  ds &= \lim_{n\to \infty}  \sum_{i=1}^{n} \sqrt{\left(\frac{\Delta x^2}{\Delta x^2} + \frac{\Delta y^2}{\Delta x^2}\right)\Delta x^2}\\
+    &= \lim_{n\to \infty}  \sum_{i=1}^{n} \sqrt{1 + \left(\frac{\Delta y}{\Delta x}\right)^2} \Delta x\\
+    &= \int \sqrt{1 + \left(\frac{dy}{dx}\right)^2} dx 
+   \end{aligned}\]
+
+
+\subsection{if \(y = y(t)\) and \(x = x(t)\)}
+\label{sec:orgcc35597}
+
+
+
+\[\begin{aligned}
+  S &= \lim_{n \to  \infty}  \sum_{i=1}^{n} \sqrt{\Delta x_i^2 + \Delta y_i^2} \\
+  &= \lim_{n \to  \infty}  \sum_{i=1}^{n} \sqrt{\left(\frac{\Delta x_i^2}{\Delta t_i^2} + \frac{\Delta y_i^2}{\Delta t_i^2}\right)\Delta t_i^2} \\
+  &= \int \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2} dt \\
+   \end{aligned}\]
+
+\section{applying arclength formulas}
+\label{sec:org8064bd3}
+
+Lets use the curve from problem four (see \href{KBe21math520retAssign3.org}{assignment 3}).
+
+
+\[\begin{aligned}
+  r &= 1 + 2 \cos  \theta 
+  \frac{dr}{d\theta } &= - 2 \sin  \theta 
+  \end{aligned}\]
+
+Then, applying the arclength formula for polar equations:
+
+\[\begin{aligned}
+  S &= \int \sqrt{r^2 + \left( \frac{dr}{d\theta } \right)  ^2} d\theta \\
+  &=  \int \sqrt{r^2 + \left( -2 \sin  \theta  \right)  ^2} d\theta \\
+  &=  \int \sqrt{r^2 + 4 \sin^2 \theta } d\theta \\
+  \end{aligned}\]
+
+Check out the \href{https://www.desmos.com/calculator/gfaoi1he0p}{desmos}.
+\end{document}

@@ -1,0 +1,47 @@
+#+TITLE: Assignment 4 - arc length
+
+\setcounter{section}{5}
+* Deriving arclength forumlas 
+  
+  \[\begin{aligned}
+  S &=  \int_{C}^{}  ds = \lim_{n \to  \infty}  \sum_{i=1}^{n} \sqrt{\Delta x_i^2 + \Delta y_i^2} 
+  \end{aligned}\]
+
+** if $y = f(x)$
+   
+   \[\begin{aligned}
+    \int_{C}^{}  ds &= \lim_{n\to \infty}  \sum_{i=1}^{n} \sqrt{\left(\frac{\Delta x^2}{\Delta x^2} + \frac{\Delta y^2}{\Delta x^2}\right)\Delta x^2}\\
+    &= \lim_{n\to \infty}  \sum_{i=1}^{n} \sqrt{1 + \left(\frac{\Delta y}{\Delta x}\right)^2} \Delta x\\
+    &= \int \sqrt{1 + \left(\frac{dy}{dx}\right)^2} dx 
+   \end{aligned}\]
+
+   
+** if $y = y(t)$ and $x = x(t)$ 
+
+   
+   
+   \[\begin{aligned}
+  S &= \lim_{n \to  \infty}  \sum_{i=1}^{n} \sqrt{\Delta x_i^2 + \Delta y_i^2} \\
+  &= \lim_{n \to  \infty}  \sum_{i=1}^{n} \sqrt{\left(\frac{\Delta x_i^2}{\Delta t_i^2} + \frac{\Delta y_i^2}{\Delta t_i^2}\right)\Delta t_i^2} \\
+  &= \int \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2} dt \\
+   \end{aligned}\]
+
+* applying arclength formulas
+  
+  Lets use the curve from problem four (see [[file:KBe21math520retAssign3.org][assignment 3]]).
+
+  
+  \[\begin{aligned}
+  r &= 1 + 2 \cos  \theta 
+  \frac{dr}{d\theta } &= - 2 \sin  \theta 
+  \end{aligned}\]
+
+  Then, applying the arclength formula for polar equations:
+  
+  \[\begin{aligned}
+  S &= \int \sqrt{r^2 + \left( \frac{dr}{d\theta } \right)  ^2} d\theta \\
+  &=  \int \sqrt{r^2 + \left( -2 \sin  \theta  \right)  ^2} d\theta \\
+  &=  \int \sqrt{r^2 + 4 \sin^2 \theta } d\theta \\
+  \end{aligned}\]
+
+  Check out the [[https://www.desmos.com/calculator/gfaoi1he0p][desmos]].

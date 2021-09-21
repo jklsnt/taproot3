@@ -1,0 +1,171 @@
+
+#+TITLE: Trajectories
+#+AUTHOR: David Freifeld
+#+COURSE: PHYS360
+   
+* Problem 1
+
+We can start by modeling the mass through the following parameterized equations:
+
+\begin{cases}
+x(t) = x_0 + v_0\cos\theta t + \frac{1}{2}0t^2 \\
+y(t) = y_0 + v_0\sin\theta t - \frac{1}{2}gt^2 \\
+\end{cases}
+
+We are interested in calculating $R$ which is equal to $x(t_f)$ where $t_f$ is the time when the projectile hits the ground. We can then use our parametric equations to get $R$ alongside the knowledge that $y(t_f) = 0$ (as the projectile has hit the floor). Additionally, we can set the origin in our coordinate system to be $(x_0, y_0)$ and so the $x_0$ and $y_0$ are therefore redefined to be 0.
+
+\begin{cases}
+x(t_f) = R = v_0\cos\theta t_f \\
+y(t_f) = 0 =  v_0\sin\theta t_f - \frac{1}{2}gt_f^2 \\
+\end{cases}
+
+
+We can then use the equation for $x(t_f)$ to solve for $t_f$.
+
+$\frac{R}{v_0 \cos\theta} =  t_f$
+
+
+This can then be plugged into the equation for $y(t_f)$ and then solved for R.
+\begin{align*}
+0 = v_0\sin\theta \frac{R }{v_0 \cos\theta}- \frac{1}{2}g\left(\frac{R}{v_0\cos\theta}\right)^2 \\
+0 = v_0\sin\theta \frac{R }{v_0 \cos\theta} - \frac{1}{2}g\left(\frac{R}{v_0\cos\theta}\right)^2\\
+0 = \tan \theta R - \frac{1}{2}g\left(\frac{R}{v_0\cos\theta}\right)^2\\
+0 = R \left( \tan \theta - \frac{1}{2}g\frac{R}{v_0^2\cos^2\theta}\right)\\
+\end{align*}
+
+From there we can split this into another system of equations:
+
+\begin{cases}
+0 = R \\
+0 =  \tan \theta - \frac{1}{2}g\frac{R}{v_0^2\cos^2\theta}
+\end{cases}
+
+
+We can then solve one of the equations in our system to get our answer:
+\begin{align*}
+0 =  \tan \theta - \frac{1}{2}g\frac{R}{v_0^2\cos^2\theta} \\
+\frac{1}{2}g\frac{R}{v_0^2\cos^2\theta} =  \tan \theta \\
+\frac{1}{2}gR =  \tan \theta {v_0^2\cos^2\theta} \\
+R =  \frac{2\tan \theta {v_0^2\cos^2\theta}}{g} \\
+R =  \frac{v_0^2 2\sin \theta \cos\theta}{g} \\
+\boxed{R =  \frac{v_0^2 \sin(2\theta)}{g}} \\
+\end{align*}
+
+** Subproblem A
+The maximum of the sine function is $\sin(90^\circ) = 1$ and since the numerator of the range equation has the term $\sin(2\theta)$ the angle yielding the maximum range is $45^\circ$.
+
+** Subproblem B
+We can differentiate the range equation with respect to theta to get the critical points of the function, then use the second derivative test to show that the critical point is a maximum.
+
+\begin{align*}
+\frac{d}{d\theta} \frac{v_0^2}{g} \sin(2\theta) \\
+\frac{v_0^2}{g} \frac{d}{d\theta} \sin(2\theta) \\
+\frac{v_0^2}{g} ( 2 \cos(2\theta))  \\
+\frac{2v_0^2}{g} \cos(2\theta)  \\
+\end{align*}
+
+To get the critical points we find the where this expression is equal to 0.
+
+\begin{align*}
+0 = \frac{2v_0^2}{g} \cos(2\theta)  \\
+\end{align*}
+
+By limiting the domain to $0 \leq \theta \leq 2\pi$ we can find a critical point at $\theta = \frac{\pi}{4}$.
+
+We can then differentiate once more to determine if the critical point is a maximum.
+
+\begin{align*}
+\frac{d}{d\theta}  \frac{2v_0^2}{g} \cos(2\theta) = -\frac{4v_0^2}{g} \sin(2\theta) \\
+-\frac{4v_0^2}{g} \sin(\frac{\pi}{2}) < 0\text{, therefore the point is a local maximum.}
+\end{align*}
+
+* Problem 2
+
+To begin, we can define the origin to be the location of the cannon (a.k.a. $m_1$'s initial position). The mass being fired out of the cannon, $m_1$, can then be modeled by the following equations:
+
+\begin{cases}
+x(t) = v_0\cos\theta t\\
+y(t) = v_0\sin\theta t - \frac{1}{2}gt^2 \\
+\end{cases}
+
+We are interested in these equations at $t_f$, the time of the collision. Additionally, from the problem we know that $y(t_f) = h$ and $x(t_f) = x_0$.
+
+\begin{cases}
+x(t_f) = x_0 = v_0\cos\theta t_f \\
+y(t_f) = h = v_0\sin\theta t_f - \frac{1}{2}gt_f^2 \\
+\end{cases}
+
+We can then model the falling target, the mass $m_2$, through the following equations and similarly evaluate them at time of collision $t_f$:
+
+\begin{cases}
+x(t) = x_0 \\
+y(t) = h_0 - \frac{1}{2}gt^2 \\
+\end{cases}
+
+\begin{cases}
+x(t_f) = x_0 \\
+y(t_f) = h = h_0 - \frac{1}{2}gt_f^2 \\
+\end{cases}
+
+Knowing that these masses collide at the time of collision, we can then set both sets of equations equal to one another.
+
+\begin{cases}
+x_0 = v_0\cos\theta t_f  \\
+h_0 - \frac{1}{2}gt_f^2 = v_0 \sin \theta t_f - \frac{1}{2}gt_f^2
+\end{cases}
+
+We can then replace $\theta$ with $\tan^{-1}( \frac{h_0}{x_0})$ since the cannon is aimed directly at the target.
+
+\begin{cases}
+x_0 = v_0\cos(\tan^{-1}( \frac{h_0}{x_0})) t_f  \\
+h_0 - \frac{1}{2}gt_f^2 = v_0 \sin(\tan^{-1}( \frac{h_0}{x_0})) t_f - \frac{1}{2}gt_f^2
+\end{cases}
+
+\begin{cases}
+x_0 = v_0\cos(\tan^{-1}( \frac{h_0}{x_0})) t_f  \\
+h_0  = v_0 \sin(\tan^{-1}( \frac{h_0}{x_0})) t_f
+\end{cases}
+
+One can then solve the system of equations:
+
+\begin{align*}
+\frac{x_0}{\cos(\tan^{-1}( \frac{h_0}{x_0})) t_f} = v_0  \\
+h_0  = \frac{x_0  \sin(\tan^{-1}( \frac{h_0}{x_0})) t_f }{\cos(\tan^{-1}( \frac{h_0}{x_0})) t_f} \\
+h_0  = x_0  \tan(\tan^{-1}( \frac{h_0}{x_0}))\\
+h_0  = x_0 \frac{h_0}{x_0}\\
+h_0 = h_0 \\ 
+\end{align*}
+
+Because we get an identity, we know that the two systems of equations for the masses at time $t_f$ are in fact equal and they the masses will always collide.
+
+** Expression for Height
+
+We can use the already determined systems for $m_1$ and $m_2$  as well as the value of $\theta$ to determine $h$.
+
+\begin{cases}
+x(t_f) = x_0 = v_0\cos\tan^{-1}( \frac{h_0}{x_0}) t_f \\
+y(t_f) = h = v_0\sin\tan^{-1}( \frac{h_0}{x_0}) t_f - \frac{1}{2}gt_f^2 \\
+\end{cases}
+
+\begin{cases}
+x(t_f) = x_0 \\
+y(t_f) = h = h_0 - \frac{1}{2}gt_f^2 \\
+\end{cases}
+
+We can begin by solving for $t_f$ through the first system:
+
+\begin{align*}
+x_0 = v_0\cos\tan^{-1}( \frac{h_0}{x_0}) t_f \\
+\frac{x_0}{v_0\cos(\tan^{-1}( \frac{h_0}{x_0}))} = t_f \\
+\end{align*}
+
+We can then plug this into the second to get $h$.
+
+\begin{align*}
+h = h_0 - \frac{1}{2}gt^2_f \\
+h = h_0 - \frac{1}{2}g\left(\frac{x_0}{v_0\cos(\tan^{-1}( \frac{h_0}{x_0}))}\right)^2
+\end{align*}
+
+* Problem 3
+
+Testing.

@@ -1,4 +1,4 @@
-% Created 2021-09-11 Sat 16:42
+% Created 2021-09-12 Sun 22:49
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -46,21 +46,21 @@
  pdftitle={Collaborative Matrix Equations and RREF},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdfcreator={Emacs 28.0.50 (Org mode 9.4.4)}, 
  pdflang={English}}
 \begin{document}
 
 \maketitle
 
 \section{When is it possible to transform the coefficient matrix into the identity matrix?}
-\label{sec:org279d83f}
+\label{sec:orgd67a2a5}
 When the matrix is square and has an inverse.
 
 \section{What should RREF be?}
-\label{sec:org34fba9f}
+\label{sec:orgad833fb}
 If we are trying to get "as close as possible" to the identity, then we should prioritize the top left corner. So, for a non-square matrix RREF is the matrix where the top or left square is the identity matrix and everything else is zero, or failing the zeros everything else is as many zeros as possible, or failing that just anything. If the top/left square cannot be the identity matrix, then fill in as large an identity matrix as possible. Here are some examples in order of best to worst.
 \subsection{Largest square identity intact:}
-\label{sec:org994fdf4}
+\label{sec:org9911da8}
 $$
    \begin{pmatrix}1&0&0&0\\0&1&0&0\\0&0&1&0\end{pmatrix} >
    \begin{pmatrix}1&0&0&0\\0&1&0&0\\0&0&1&1\end{pmatrix} >
@@ -69,7 +69,7 @@ $$
    \begin{pmatrix}1&0&0&1\\0&1&0&1\\0&0&1&1\end{pmatrix} >
    $$
 \subsection{Maximize identity square:}
-\label{sec:orgca28ff3}
+\label{sec:orge059edc}
 \$\$
 \begin{pmatrix}1&0&0&0\\0&1&0&0\\0&0&2&0\end{pmatrix} >
 \begin{pmatrix}1&0&0&0\\0&1&0&0\\0&1&1&0\end{pmatrix} >
@@ -77,19 +77,19 @@ $$
 \begin{pmatrix}0&1&0&0\\0&1&0&0\\0&0&1&0\end{pmatrix}
 \$\$
 \section{Find the column space and null space of the matrices?}
-\label{sec:org1f4fb64}
+\label{sec:orgb680353}
 \subsection{\(\begin{pmatrix}1&2&1\\2&0&1\\1&-2&0\end{pmatrix}\)}
-\label{sec:org57e5ab6}
+\label{sec:org693bfa3}
 RREF: \(\begin{pmatrix}1&0&\frac{1}{2}\\0&1&\frac{1}{4}\\0&0&0\end{pmatrix}\)
 Column space: vectors of the form \((x, y, 0) : x, y \in \mathbb F\).
 Null space: vectors of the form \((4x, 2x, -x)\).
 \subsection{\(\begin{pmatrix}1&-1\\0&3\\1&1\end{pmatrix}\)}
-\label{sec:orga6307ab}
+\label{sec:org04e25f7}
 RREF: \(\begin{pmatrix}1&0\\0&1\\0&0\end{pmatrix}\)
 Column space: vectors of the form \((x, y, 0)\).
 Null space: 0.
 \subsection{\(\begin{pmatrix}1&0&2&4\\2&-1&0&1\end{pmatrix}\)}
-\label{sec:org5c3946f}
+\label{sec:orge38ebdf}
 RREF: \(\begin{pmatrix}1&0&2&4\\0&1&4&7\end{pmatrix}\)
 Column space: vectors of the form \((x, y)\).
 Null space: \((w, x, y, z)\) where \(x = -2y - 4 z\) and \(y = -4y -7z\).

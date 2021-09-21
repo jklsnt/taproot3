@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-19 Sun 23:57 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Trajectories</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="David Freifeld" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div>Trajectories  David Freifeld 2021-09-17 Fri 13:10</div>
+</div>
+<div id="content">
+<h1 class="title">Trajectories</h1>
+
+<div id="outline-container-orgec1abc2" class="outline-2">
+<h2 id="orgec1abc2"><span class="section-number-2">1</span> Problem 1</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+We can start by modeling the mass through the following parameterized equations:
+</p>
+
+\begin{cases}
+x(t) = x_0 + v_0\cos\theta t + \frac{1}{2}0t^2 \\
+y(t) = y_0 + v_0\sin\theta t - \frac{1}{2}gt^2 \\
+\end{cases}
+
+<p>
+We are interested in calculating \(R\) which is equal to \(x(t_f)\) where \(t_f\) is the time when the projectile hits the ground. We can then use our parametric equations to get \(R\) alongside the knowledge that \(y(t_f) = 0\) (as the projectile has hit the floor). Additionally, we can set the origin in our coordinate system to be \((x_0, y_0)\) and so the \(x_0\) and \(y_0\) are therefore redefined to be 0.
+</p>
+
+\begin{cases}
+x(t_f) = R = v_0\cos\theta t_f \\
+y(t_f) = 0 =  v_0\sin\theta t_f - \frac{1}{2}gt_f^2 \\
+\end{cases}
+
+
+<p>
+We can then use the equation for \(x(t_f)\) to solve for \(t_f\).
+</p>
+
+<p>
+\(\frac{R}{v_0 \cos\theta} =  t_f\)
+</p>
+
+
+<p>
+This can then be plugged into the equation for \(y(t_f)\) and then solved for R.
+</p>
+\begin{align*}
+0 = v_0\sin\theta \frac{R }{v_0 \cos\theta}- \frac{1}{2}g\left(\frac{R}{v_0\cos\theta}\right)^2 \\
+0 = v_0\sin\theta \frac{R }{v_0 \cos\theta} - \frac{1}{2}g\left(\frac{R}{v_0\cos\theta}\right)^2\\
+0 = \tan \theta R - \frac{1}{2}g\left(\frac{R}{v_0\cos\theta}\right)^2\\
+0 = R \left( \tan \theta - \frac{1}{2}g\frac{R}{v_0^2\cos^2\theta}\right)\\
+\end{align*}
+
+<p>
+From there we can split this into another system of equations:
+</p>
+
+\begin{cases}
+0 = R \\
+0 =  \tan \theta - \frac{1}{2}g\frac{R}{v_0^2\cos^2\theta}
+\end{cases}
+
+
+<p>
+We can then solve one of the equations in our system to get our answer:
+</p>
+\begin{align*}
+0 =  \tan \theta - \frac{1}{2}g\frac{R}{v_0^2\cos^2\theta} \\
+\frac{1}{2}g\frac{R}{v_0^2\cos^2\theta} =  \tan \theta \\
+\frac{1}{2}gR =  \tan \theta {v_0^2\cos^2\theta} \\
+R =  \frac{2\tan \theta {v_0^2\cos^2\theta}}{g} \\
+R =  \frac{v_0^2 2\sin \theta \cos\theta}{g} \\
+\boxed{R =  \frac{v_0^2 \sin(2\theta)}{g}} \\
+\end{align*}
+</div>
+
+<div id="outline-container-org8ae7bdb" class="outline-3">
+<h3 id="org8ae7bdb"><span class="section-number-3">1.1</span> Subproblem A</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+The maximum of the sine function is \(\sin(90^\circ) = 1\) and since the numerator of the range equation has the term \(\sin(2\theta)\) the angle yielding the maximum range is \(45^\circ\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5c8fdd3" class="outline-3">
+<h3 id="org5c8fdd3"><span class="section-number-3">1.2</span> Subproblem B</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+We can differentiate the range equation with respect to theta to get the critical points of the function, then use the second derivative test to show that the critical point is a maximum.
+</p>
+
+\begin{align*}
+\frac{d}{d\theta} \frac{v_0^2}{g} \sin(2\theta) \\
+\frac{v_0^2}{g} \frac{d}{d\theta} \sin(2\theta) \\
+\frac{v_0^2}{g} ( 2 \cos(2\theta))  \\
+\frac{2v_0^2}{g} \cos(2\theta)  \\
+\end{align*}
+
+<p>
+To get the critical points we find the where this expression is equal to 0.
+</p>
+
+\begin{align*}
+0 = \frac{2v_0^2}{g} \cos(2\theta)  \\
+\end{align*}
+
+<p>
+By limiting the domain to \(0 \leq \theta \leq 2\pi\) we can find a critical point at \(\theta = \frac{\pi}{4}\).
+</p>
+
+<p>
+We can then differentiate once more to determine if the critical point is a maximum.
+</p>
+
+\begin{align*}
+\frac{d}{d\theta}  \frac{2v_0^2}{g} \cos(2\theta) = -\frac{4v_0^2}{g} \sin(2\theta) \\
+-\frac{4v_0^2}{g} \sin(\frac{\pi}{2}) < 0\text{, therefore the point is a local maximum.}
+\end{align*}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9ec2251" class="outline-2">
+<h2 id="org9ec2251"><span class="section-number-2">2</span> Problem 2</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+To begin, we can define the origin to be the location of the cannon (a.k.a. \(m_1\)'s initial position). The mass being fired out of the cannon, \(m_1\), can then be modeled by the following equations:
+</p>
+
+\begin{cases}
+x(t) = v_0\cos\theta t\\
+y(t) = v_0\sin\theta t - \frac{1}{2}gt^2 \\
+\end{cases}
+
+<p>
+We are interested in these equations at \(t_f\), the time of the collision. Additionally, from the problem we know that \(y(t_f) = h\) and \(x(t_f) = x_0\).
+</p>
+
+\begin{cases}
+x(t_f) = x_0 = v_0\cos\theta t_f \\
+y(t_f) = h = v_0\sin\theta t_f - \frac{1}{2}gt_f^2 \\
+\end{cases}
+
+<p>
+We can then model the falling target, the mass \(m_2\), through the following equations and similarly evaluate them at time of collision \(t_f\):
+</p>
+
+\begin{cases}
+x(t) = x_0 \\
+y(t) = h_0 - \frac{1}{2}gt^2 \\
+\end{cases}
+
+\begin{cases}
+x(t_f) = x_0 \\
+y(t_f) = h = h_0 - \frac{1}{2}gt_f^2 \\
+\end{cases}
+
+<p>
+Knowing that these masses collide at the time of collision, we can then set both sets of equations equal to one another.
+</p>
+
+\begin{cases}
+x_0 = v_0\cos\theta t_f  \\
+h_0 - \frac{1}{2}gt_f^2 = v_0 \sin \theta t_f - \frac{1}{2}gt_f^2
+\end{cases}
+
+<p>
+We can then replace \(\theta\) with \(\tan^{-1}( \frac{h_0}{x_0})\) since the cannon is aimed directly at the target.
+</p>
+
+\begin{cases}
+x_0 = v_0\cos(\tan^{-1}( \frac{h_0}{x_0})) t_f  \\
+h_0 - \frac{1}{2}gt_f^2 = v_0 \sin(\tan^{-1}( \frac{h_0}{x_0})) t_f - \frac{1}{2}gt_f^2
+\end{cases}
+
+\begin{cases}
+x_0 = v_0\cos(\tan^{-1}( \frac{h_0}{x_0})) t_f  \\
+h_0  = v_0 \sin(\tan^{-1}( \frac{h_0}{x_0})) t_f
+\end{cases}
+
+<p>
+One can then solve the system of equations:
+</p>
+
+\begin{align*}
+\frac{x_0}{\cos(\tan^{-1}( \frac{h_0}{x_0})) t_f} = v_0  \\
+h_0  = \frac{x_0  \sin(\tan^{-1}( \frac{h_0}{x_0})) t_f }{\cos(\tan^{-1}( \frac{h_0}{x_0})) t_f} \\
+h_0  = x_0  \tan(\tan^{-1}( \frac{h_0}{x_0}))\\
+h_0  = x_0 \frac{h_0}{x_0}\\
+h_0 = h_0 \\ 
+\end{align*}
+
+<p>
+Because we get an identity, we know that the two systems of equations for the masses at time \(t_f\) are in fact equal and they the masses will always collide.
+</p>
+</div>
+
+<div id="outline-container-org1090a79" class="outline-3">
+<h3 id="org1090a79"><span class="section-number-3">2.1</span> Expression for Height</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+We can use the already determined systems for \(m_1\) and \(m_2\)  as well as the value of \(\theta\) to determine \(h\).
+</p>
+
+\begin{cases}
+x(t_f) = x_0 = v_0\cos\tan^{-1}( \frac{h_0}{x_0}) t_f \\
+y(t_f) = h = v_0\sin\tan^{-1}( \frac{h_0}{x_0}) t_f - \frac{1}{2}gt_f^2 \\
+\end{cases}
+
+\begin{cases}
+x(t_f) = x_0 \\
+y(t_f) = h = h_0 - \frac{1}{2}gt_f^2 \\
+\end{cases}
+
+<p>
+We can begin by solving for \(t_f\) through the first system:
+</p>
+
+\begin{align*}
+x_0 = v_0\cos\tan^{-1}( \frac{h_0}{x_0}) t_f \\
+\frac{x_0}{v_0\cos(\tan^{-1}( \frac{h_0}{x_0}))} = t_f \\
+\end{align*}
+
+<p>
+We can then plug this into the second to get \(h\).
+</p>
+
+\begin{align*}
+h = h_0 - \frac{1}{2}gt^2_f \\
+h = h_0 - \frac{1}{2}g\left(\frac{x_0}{v_0\cos(\tan^{-1}( \frac{h_0}{x_0}))}\right)^2
+\end{align*}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8c88804" class="outline-2">
+<h2 id="org8c88804"><span class="section-number-2">3</span> Problem 3</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Testing.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

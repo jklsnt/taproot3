@@ -65,8 +65,48 @@ context: cs240
 
 
 
+#### Feedback 
+
+Excellent work reflecting on the ethical choices in the Morris worm and Silk Road stories. A few comments for your consideration:
+
+> Those who convicted Morris had to do the same ethical classification
+
+**I like this perspective! Do you think that a justice system should, in general, consider whether actions were ethical in addition to legal? Does ours?**
+Ours -- originally -- was meant to, at least according to FIJA (Fully Informed Jury Association). That's why Jury Nullification exists. I think this is part of the whole built in distrust of rulers in the American legal system.
+What the justice system should consider is a much harder question. One could argue that the laws should be made in such a way where considering the ethics woudn't change anything substantial, and thus considering ethics in the justice system is fixing the symptoms rather than the problem.
+
+> Morris's goals are quite unclear to me, besides just sheer curiosity about howhis worm would fare in the real world.
+
+**That sounds about right to me.**
+
+> Satisfying this curiosity without releasingthe worm into the real world is not an easy task.
+
+**What about a closed network?**
+Yes, you could get close to an answer, but to get a true answer, releasing it into the world would be essentially the only way. 
+
+> Changing those 400 hours to having Morris help prevent future attacks
+
+**I agree; this seems both more reasonable and more useful. This seems like a place where a restorative justice framework offers helpful perspective.**
+What about when restoration is not possible? 
+
+> Almost all the choices surrounding the Silk Road are thus ethical choices
+
+**What about the clearly illegal choices made to sustain and protect Silk Road, such as having someone killed?**
+Ah, my bad. I meant 'ethical choices' in the sense that the choices operated within the realm of ethics, not 'ethical choices' as in the choice was positive. My point was that many of the choices made around the Silk Road were motivated by ethics, or had ethical considerations, but operated in vastly different ethical frameworks. As for the choices positivity, operating from a ethics-as-emergent-property-of-community perspective, I concluded that the maintainers choices were negative because they didn't follow the social contract.
+
+> Without knowing, I can't classify DPR's actions from a utilitarian perspective.
+
+**I think we can make some pretty good guesses, based on how the government reacted and what actually happened, right? Like, maybe Silk Road could have been the catalyst for a more open and free market, but would the US government (or any government, really) have let that happen without a fight? I’m guessing no, and that many lives would be ruined in the process (see: War on Drugs).**
+
+Not necessarily a catalyst, but a start -- I don't believe the effects of the Silk Road are anywhere near completed. We can't make guesses based on what happened because most things haven't happened yet. I'm sure the Silk Road had a massive impact on crypto, which is looking like it will lead us over the brink of some massive changes. Just look at El Salvador.
+
+And yes, radical change often ruins lives and causes pain, but that does not mean radical change is bad or that we shound't cause it. We just need to hope and do our best to make sure that the good from the change outweighs the bad.
 
 
+> Don't trust people on the internet, they could be cops out to get you.
+
+**Or worse.**
+Uhoh
 
 
 

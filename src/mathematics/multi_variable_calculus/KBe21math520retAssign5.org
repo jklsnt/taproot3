@@ -1,0 +1,162 @@
+
+#+TITLE: Assignment 5: conic sections
+* the parabola
+  A parabola (defined by a focus point and a directrix line) is the set of points 
+  \[\begin{aligned}
+  \{ P : |FP| = \text{ distance from } P \text{ to } L\}
+  \end{aligned}\]
+
+** polar equation that describes the parabola
+   
+   \[\begin{aligned}
+   r &= r(\theta) \\
+   &= d - r \cos  \theta\\
+   r + r \cos  \theta  &= d\\
+   r (1+\cos  \theta ) &= d\\
+   r &= \frac{d}{1+\cos  \theta}
+   \end{aligned}\]
+
+   
+** show that cartesian version matches what we expect
+
+   
+   Checked using [[https://www.desmos.com/calculator/mewrfgpybq][desmos]].
+
+   \[\begin{aligned}
+   r &= \frac{d}{1 + \cos  \theta }\\
+   x &= \left( \frac{d}{1+ \cos  \theta } \right) \cos  \theta  \\ 
+   &= \frac{d \cos  \theta }{1 + \cos  \theta}\\
+   y &= \left( \frac{d}{ 1 + \cos  \theta } \right)  \sin  \theta \\
+   &= \frac{d \sin  \theta }{1+ \cos  \theta }\\
+   x^2 + y^2 &= \frac{d^2}{(1+\cos  \theta )^2}\\
+   x^2 + y^2 &= \frac{d^2}{\left(1+\frac{x}{\sqrt{x^2+y^2}}\right)^2}\\
+    \left( x^2 + y^2 \right) \left(1+\frac{x}{\sqrt{x^2+y^2}}\right)^2 &= d^2\\
+    \left( x^2 + y^2 \right) \left( \frac{x^2}{x^2+y^2} + \frac{2x}{\sqrt{x^2+y^2}} + 1\right) &= d^2\\
+    \left( x^2 + y^2 \right) \left( \frac{x^2}{x^2+y^2} + \frac{2x \sqrt{x^2+y^2}}{x^2+y^2} + 1\right) &= d^2\\
+    x^2 + 2x \sqrt{x^2+y^2} + \frac{1}{x^2+y^2} &= d^2\\
+   \end{aligned}\]
+   
+   ugh. too hard.
+
+   
+   \[\begin{aligned}
+   r &= d - r \cos  \theta \\
+   &= d - x\\
+   \sqrt{x^2+y^2} &= d - x\\
+   x^2 + y^2 &= d^2 + x^2 - 2 dx\\
+   y^2 &= d^2 - 2dx\\
+   y^2-d^2 &= - 2dx\\
+   \frac{d^2-y^2}{2d} &= x\\
+   x &= -\frac{y^2}{2d} + \frac{d}{2}
+   \end{aligned}\]
+
+
+   more scratch work below:
+   
+   \[\begin{aligned}
+   \frac{d \sin  \theta}{1+ \cos  \theta } &= \frac{d \cos  \theta }{1+\cos \theta}\\
+   (d \sin  \theta) (1+ \cos  \theta ) &= (d \cos  \theta)(1+\cos \theta)\\
+   (d \sin  \theta)&=(d \cos  \theta)\\
+   \frac{d}{1+ \cos  \theta } &= \sqrt{\frac{d^2 \cos ^2\theta + d^2 \sin  ^2 \theta }{(1+\cos  \theta )^2}}\\
+   d &= \sqrt{d^2 \cos ^2\theta + d^2 \sin  ^2 \theta }
+   \end{aligned}\]
+
+** vertex
+   
+   \[\begin{aligned}
+    \left( \frac{d}{2}, 0 \right)  
+   \end{aligned}\]
+
+
+   
+* general form 
+
+
+** re-derivation
+  
+  \[\begin{aligned}
+   e &= \frac{r}{d-r\cos \theta}\\
+   r &= r(\theta) \\
+   &= e(d - r \cos  \theta)\\
+   &= de - er \cos  \theta\\
+   r + er \cos  \theta  &= de\\
+   r (1+e\cos  \theta ) &= de\\
+   r &= \frac{de}{1+e\cos  \theta}
+  \end{aligned}\]
+
+  Link to the [[https://www.desmos.com/calculator/iuf2gvsuvg][desmos]].
+
+  
+** elipse when $0 < e < 1$
+   
+   \[\begin{aligned}
+   r &= e(d - r \cos  \theta )\\
+   &= e(d - x)\\
+   \sqrt{x^2+y^2} &= e(d-x)\\
+   x^2+y^2 &= (e(d-x))^2\\
+   x^2+y^2 &= e^2 \left( d^2+x^2 -2dx \right)\\
+   x^2+y^2 &= d^2e^2+e^2x^2 -2de^2x\\
+   -e^2x^2 +2de^2x + x^2+y^2 &= d^2e^2\\
+   \left( 1-e^2 \right)x^2 + 2de^2 x +y^2 &= d^2e^2\\
+   \left( 1-e^2 \right) \left( x^2 + \frac{2de^2}{1-e^2} x \right)  +y^2 &= d^2e^2\\
+   \left( x^2 + \frac{2de^2}{1-e^2} x \right)  +\frac{y^2}{\left( 1-e^2 \right) } &= \frac{d^2e^2}{\left( 1-e^2 \right) }\\
+   \left( x^2 + \frac{2de^2}{1-e^2} x \right)  +\frac{y^2}{\left( 1-e^2 \right) } &= \frac{d^2e^2}{\left( 1-e^2 \right) }\\
+   \left( \left( \frac{de^2}{1-e^2} \right)  ^2 + x^2 + \frac{2de^2}{1-e^2} x \right)  +\frac{y^2}{\left( 1-e^2 \right) } &= \frac{d^2e^2}{\left( 1-e^2 \right) } +  \left( \frac{de^2}{1-e^2} \right)  ^2\\
+   \left( x + \left( \frac{de^2}{1-e^2} \right) \right)^2 +\frac{y^2}{\left( 1-e^2 \right) } &= \frac{d^2e^2 (1-e^2) + d^2e^4}{\left( 1-e^2 \right)^2 }\\
+   \left( x + \left( \frac{de^2}{1-e^2} \right) \right)^2 +\frac{y^2}{\left( 1-e^2 \right) } &= \frac{d^2e^2 \cancel{- d^2e^4}\cancel{ + d^2e^4}}{\left( 1-e^2 \right)^2 }\\
+   \left( x + \left( \frac{de^2}{1-e^2} \right) \right)^2 +\frac{y^2}{\left( 1-e^2 \right) } &= \frac{d^2e^2}{\left( 1-e^2 \right)^2 }\\
+   \frac{(1-e^2)^2\left( x + \left( \frac{de^2}{1-e^2} \right) \right)^2}{d^2e^2} +\frac{(1-e^2)y^2}{d^2e^2} &= 1\\
+   \frac{\left( (1-e^2)x + de^2 \right)^2}{d^2e^2} +\frac{(1-e^2)y^2}{d^2e^2} &= 1\\
+   \end{aligned}\]
+
+   \[\begin{aligned}
+   x_0 &= -\frac{de^2}{1-e^2}\\
+   y_0 &= 0\\
+   a &= \frac{de}{1-e^2}\\
+   b &= \frac{de}{\sqrt{1-e^2}}
+   \end{aligned}\]
+
+   for $e <  1$.
+
+   The [[https://www.desmos.com/calculator/fur8omxljg][desmos]].
+   
+** hyperbola
+   Going back to one of the preivous equations
+   
+   \[\begin{aligned}
+   \frac{(1-e^2)^2\left( x + \left( \frac{de^2}{1-e^2} \right) \right)^2}{d^2e^2} +\frac{(1-e^2)y^2}{d^2e^2} &= 1\\
+   \frac{(1-e^2)^2\left( x + \left( \frac{de^2}{1-e^2} \right) \right)^2}{d^2e^2} -\frac{(e^2-1)y^2}{d^2e^2} &= 1\\
+   \end{aligned}\]
+
+
+   That makes
+   
+   
+   \[\begin{aligned}
+   x_0 &= -\frac{de^2}{1-e^2}\\
+   y_0 &= 0\\
+   a &= \frac{de}{1-e^2}\\
+   b &= \frac{de}{\sqrt{e^2-1}}
+   \end{aligned}\]
+
+   $b$ will be complex unless $e > 1$.
+
+   
+** degenerate ellipse 
+
+   It is a circle when $a^2 = b^2$, aka
+   
+   \[\begin{aligned}
+   \frac{d^2e^2}{\left(1-e^2\right)^2} &= \frac{d^2e^2}{1-e^2}\\
+    \left( 1-e^2 \right)  ^2 &= 1-e^2\\
+   1-e^2 &= 1\\
+   e^2 &= 0\\
+   e &= 0\\
+   \end{aligned}\]
+
+   
+   You have to take the limit. You get 
+   \[\begin{aligned}
+   x^2y^2 &= d^2e^2 &= r^2
+   \end{aligned}\]
+   What could $d$ possibly be for $\lim\limits_{e \to 0} de \neq  0$?

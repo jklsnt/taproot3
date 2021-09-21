@@ -1,616 +1,110 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<!-- 2021-09-11 Sat 18:31 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Special Relativity</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="Houjun Liu" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
-</style>
-<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
+<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Taproot Authors" name="author" /><meta content="A collection of academic and project notes" name="description" /><title>Taproot</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        'displayAlign': 'center',
+        'displayIndent': '0em',
+        'extensions': ['tex2jax.js'],
+        'tex2jax': {
+        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
+        'processEscapes': true
+        },
+        'HTML-CSS': { scale: 100,
+                        linebreaks: { automatic: 'false' },
+                        webFont: 'TeX'
                        },
         SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
+              linebreaks: { automatic: 'false' },
+              font: 'TeX'},
         NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
-</head>
-<body>
-<div id="org-div-home-and-up">
- <a accesskey="h" href="https://taproot3.sanity.gq/sitemap.html"> UP </a>
- |
- <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
-</div><div id="content">
-<h1 class="title">Special Relativity</h1>
-
-
-<div id="outline-container-special-relativity" class="outline-2">
-<h2 id="special-relativity"><span class="section-number-2">1</span> Special Relativity</h2>
-<div class="outline-text-2" id="text-special-relativity">
-<ul class="org-ul">
-<li>If events are apart for observers to see, two observers have to record
-the time and compare notes</li>
-<li>It will take time (sound/light) from an event to get from the event to
-the observer; the travel time needs to be taken into account, and if
-the objects are moving, calculating time travel would be extremely
-tricky</li>
-<li>Human senses also have certanty</li>
-</ul>
-</div>
-
-<div id="outline-container-space-and-time" class="outline-3">
-<h3 id="space-and-time"><span class="section-number-3">1.1</span> Space and Time</h3>
-<div class="outline-text-3" id="text-space-and-time">
-<ul class="org-ul">
-<li>Because it is impossible to observe a result independent of a
-refrenece point, each observe would idealy want a clock of identical
-construction</li>
-<li>Laws of inertia (newton's first law) is not true for every coordinate
-system, i.e&#x2026;.
-
-<ul class="org-ul">
-<li>The rotationon of the Earth, if we set the coornate 0,0 at the
-center of Earth, causes everything around earth to seem to be
-rapidly rotating around earth</li>
-<li>Hence, it would seem like a force would be wildly acting upon all
-objects around Earth for their velocity to accelerate rapidly</li>
-</ul></li>
-
-<li>If an object is translating through one coordinate system, it would be
-uniformly translating to another coordinate system of the same type
-that itself is uniformly translated uniformly</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-the-principle-of-relativity" class="outline-3">
-<h3 id="the-principle-of-relativity"><span class="section-number-3">1.2</span> The Principle of Relativity</h3>
-<div class="outline-text-3" id="text-the-principle-of-relativity">
-<p>
-<b>Note: this is not the theory of relativity</b>
-</p>
-
-<p>
-<i>Laws of Physics should be the same in all inertial refrence frame.</i>
-</p>
-
-<ul class="org-ul">
-<li>Classical mechanics =&gt; does apply</li>
-<li>Electromagnatism =&gt; not sure</li>
-</ul>
-
-<p>
-There is no true rest frame of the universe; because if so, the theories
+        TeX: { equationNumbers: {autoNumber: 'AMS'},
+               MultLineWidth: '85%',
+               TagSide: 'right',
+               TagIndent: '.8em'
+             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Special Relativity</h1></div><div class="metamble"><span><span>Written by </span><span>Houjun Liu</span></span></div><div class="notebody"><div><section></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="special-relativity"><span class="firn-headline-text"><span>Special Relativity</span></span></h1><section><ul><li><p><span>If events are apart for observers to see, two observers have to record
+  the time and compare notes</span></p></li><li><p><span>It will take time (sound/light) from an event to get from the event to
+  the observer; the travel time needs to be taken into account, and if
+  the objects are moving, calculating time travel would be extremely
+  tricky</span></p></li><li><p><span>Human senses also have certanty</span></p></li></ul></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="space-and-time"><span class="firn-headline-text"><span>Space and Time</span></span></h2><section><ul><li><p><span>Because it is impossible to observe a result independent of a
+  refrenece point, each observe would idealy want a clock of identical
+  construction</span></p></li><li><p><span>Laws of inertia (newton's first law) is not true for every coordinate
+  system, i.e....</span></p><ul><li><p><span>The rotationon of the Earth, if we set the coornate 0,0 at the
+    center of Earth, causes everything around earth to seem to be
+    rapidly rotating around earth</span></p></li><li><p><span>Hence, it would seem like a force would be wildly acting upon all
+    objects around Earth for their velocity to accelerate rapidly</span></p></li></ul></li><li><p><span>If an object is translating through one coordinate system, it would be
+  uniformly translating to another coordinate system of the same type
+  that itself is uniformly translated uniformly</span></p></li></ul></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="the-principle-of-relativity"><span class="firn-headline-text"><span>The Principle of Relativity</span></span></h2><section><p><strong><span>Note: this is not the theory of relativity</span></strong></p><p><em><span>Laws of Physics should be the same in all inertial refrence frame.</span></em></p><ul><li><p><span>Classical mechanics => does apply</span></p></li><li><p><span>Electromagnatism => not sure</span></p></li></ul><p><span>There is no true rest frame of the universe; because if so, the theories
 of mechanics would be "wrong" in all other systems other than the rest
 frame and will need adjustment. Furthermore, if there is a rest frame,
 the "physics" on the moving frame would need to account for the velocity
-of the moving frame.
-</p>
-
-<p>
-However, measuring the motions of dfferent celestial bodies, it seems
+of the moving frame.</span></p><p><span>However, measuring the motions of dfferent celestial bodies, it seems
 like the motion w.r.t. any frame is governed by the same law. i.e. if
 you are on earth, your velocity flips (you go around the sun) every half
 a year. But, w.r.t. earth's frame at any time of the year, physics is no
-different. So&#x2026;
-</p>
-
-<p>
-<a href="Pasted image 20210208105746.png.html">Pasted image
-20210208105746.png</a>
-</p>
-</div>
-
-<div id="outline-container-but-light" class="outline-4">
-<h4 id="but-light"><span class="section-number-4">1.2.1</span> But Light</h4>
-<div class="outline-text-4" id="text-but-light">
-<p>
-Maxwell's equations of electromanitism. Speed of a <del>wave</del> light:
-\(\frac{1}{\sqrt{\epsilon_0 \mu_0}} = ~300,000km/s\)
-</p>
-
-<p>
-But&#x2026; relative to what? It seems like this is a ground truth relative
+different. So...</span></p><p><a class="firn-internal" href="/physics/modern_physics/Pasted image 20210208105746.png">Pasted image
+20210208105746.png</a></p></section><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="but-light"><span class="firn-headline-text"><span>But Light</span></span></h3><section><p><span>Maxwell's equations of electromanitism. Speed of a </span><span> light:
+\(\frac{1}{\sqrt{\epsilon_0 \mu_0}} = ~300,000km/s\)</span></p><p><span>But... relative to what? It seems like this is a ground truth relative
 to some mysterious \(K_0\), which, shoulden't exist. Meaning, the speed
 of light should be inconsistent based on which set of rules you are
-observing. But it isn't.
-</p>
-
-<p>
-So how do we reconcile Relativistic principles and the theory of light?
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-the-theory-of-relativity" class="outline-3">
-<h3 id="the-theory-of-relativity"><span class="section-number-3">1.3</span> The Theory of Relativity</h3>
-<div class="outline-text-3" id="text-the-theory-of-relativity">
-</div>
-<div id="outline-container-when-does-the-same-time-happen" class="outline-4">
-<h4 id="when-does-the-same-time-happen"><span class="section-number-4">1.3.1</span> When does the same time happen?</h4>
-<div class="outline-text-4" id="text-when-does-the-same-time-happen">
-<p>
-Put a guy at the midpoint of two things, put up some mirrors, and
-observe if two things happen at once.
-</p>
-
-<p>
-However, how do we know that light travels at the same speed from two
+observing. But it isn't.</span></p><p><span>So how do we reconcile Relativistic principles and the theory of light?</span></p></section></div></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="the-theory-of-relativity"><span class="firn-headline-text"><span>The Theory of Relativity</span></span></h2><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="when-does-the-same-time-happen?"><span class="firn-headline-text"><span>When does the same time happen?</span></span></h3><section><p><span>Put a guy at the midpoint of two things, put up some mirrors, and
+observe if two things happen at once.</span></p><p><span>However, how do we know that light travels at the same speed from two
 directions? Well, because Relativity Depends on this, we choose that
-this is true.
-</p>
-
-<p>
-Furthermore, if two events are simutaneous to one axis M, they cannot be
+this is true.</span></p><p><span>Furthermore, if two events are simutaneous to one axis M, they cannot be
 simutaneous on another axis M' that is moving w.r.t. M. Becauese.. THINK
-&#x2014; if you are on a train, and moving towards a point, the light coming
+--- if you are on a train, and moving towards a point, the light coming
 from both ends equal for M would, in the case of M', come quicker from
-the B side because you are moving towards it.
-</p>
-
-<hr />
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-eisteins-train" class="outline-2">
-<h2 id="eisteins-train"><span class="section-number-2">2</span> Eistein's train</h2>
-<div class="outline-text-2" id="text-eisteins-train">
-<p>
-Obserber M stands in the non-moving moment, and looks at two lights
+the B side because you are moving towards it.</span></p><hr /></section></div></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="eistein&apos;s-train"><span class="firn-headline-text"><span>Eistein's train</span></span></h1><section><p><span>Obserber M stands in the non-moving moment, and looks at two lights
 shining at A and B. If they are simultaneous, the obserber M would see
-both events D/c seconds after they happened, where D =&gt; distance between
-A&amp;B, and c=&gt;speed of light.
-</p>
-
-<p>
-Obserber M', on the train, would instead see the left light at c-V, the
-rgiht c+V, for M' is moving at a speed of V towards B
-</p>
-
-<p>
-<a href="Screen Shot 2021-02-08 at 5.12.23 PM.png.html">Screen Shot
-2021-02-08 at 5.12.23 PM.png</a>
-</p>
-
-<p>
-For the A observer, he would think that the light arrived at d/(c-V),
+both events D/c seconds after they happened, where D => distance between
+A&B, and c=>speed of light.</span></p><p><span>Obserber M', on the train, would instead see the left light at c-V, the
+rgiht c+V, for M' is moving at a speed of V towards B</span></p><p><a class="firn-internal" href="/physics/modern_physics/Screen Shot 2021-02-08 at 5.12.23 PM.png">Screen Shot
+2021-02-08 at 5.12.23 PM.png</a></p><p><span>For the A observer, he would think that the light arrived at d/(c-V),
 and the B observer, d/(c+V). The smaller denominator one (A) would have
-a greater time &#x2014; and that makes sense: you are moving away from it.
-</p>
-
-<p>
-However, we can't just add c-V ond c+V to the speed of light when you
+a greater time --- and that makes sense: you are moving away from it.</span></p><p><span>However, we can't just add c-V ond c+V to the speed of light when you
 are moving! That's stupid. The speed of light should stay constant for
-every observer &#x2014; whether M or M'.
-</p>
-
-<p>
-The only way of reconcilling this problem, is that, through moving
-though space-time, M' actually <i>time traveled</i> &#x2014; that' from M''s
+every observer --- whether M or M'.</span></p><p><span>The only way of reconcilling this problem, is that, through moving
+though space-time, M' actually </span><em><span>time traveled</span></em><span> --- that' from M''s
 vantage point, A and B did not happen at the same time. In fact, B is
 more recent than A for M'. In this way, M' could still move, see light
-at the same speed, but see them at different instants &#x2014; <b>simutinaety
-is relative to the vantage point</b>.
-</p>
-</div>
-</div>
-
-<div id="outline-container-time-dialation" class="outline-2">
-<h2 id="time-dialation"><span class="section-number-2">3</span> Time Dialation</h2>
-<div class="outline-text-2" id="text-time-dialation">
-<p>
-The process by which, when
-</p>
-
-<p>
-Let's say you (obs. M') are standing inside a mirror, and light traves
-from you + bounces back.
-</p>
-
-<p>
-<a href="Pasted image 20210210094000.png.html">Pasted image
-20210210094000.png</a>
-</p>
-
-<p>
-However, what if even A actually takes place on a moving surface
+at the same speed, but see them at different instants --- </span><strong><span>simutinaety
+is relative to the vantage point</span></strong><span>.</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="time-dialation"><span class="firn-headline-text"><span>Time Dialation</span></span></h1><section><p><span>The process by which, when</span></p><p><span>Let's say you (obs. M') are standing inside a mirror, and light traves
+from you + bounces back.</span></p><p><a class="firn-internal" href="/physics/modern_physics/Pasted image 20210210094000.png">Pasted image
+20210210094000.png</a></p><p><span>However, what if even A actually takes place on a moving surface
 traveling to the right at a speed V w.r.t. another "stationary w.r.t.
-ground" obserber M?
-</p>
-
-<p>
-<a href="Pasted image 20210210094151.png.html">Pasted image
-20210210094151.png</a>
-</p>
-
-<p>
-First of all, note that distance L did not change &#x2014; *distances could
+ground" obserber M?</span></p><p><a class="firn-internal" href="/physics/modern_physics/Pasted image 20210210094151.png">Pasted image
+20210210094151.png</a></p><p><span>First of all, note that distance L did not change --- *distances could
 only be affected by the direction of lght travel, not perpandicular to
-it.*
-</p>
-
-<p>
-<a href="Pasted image 20210210094431.png.html">Pasted image
-20210210094431.png</a>
-</p>
-
-<p>
-To figure out the distance between event A and the mirror, it is simply
+it.*</span></p><p><a class="firn-internal" href="/physics/modern_physics/Pasted image 20210210094431.png">Pasted image
+20210210094431.png</a></p><p><span>To figure out the distance between event A and the mirror, it is simply
 \(\frac{\delta t}{2} \times V\) (speed of prime travel times half the
-distance between A and B).
-</p>
-
-<p>
-And lastly, to figure out how much light travels, it is simply the
-hipotenuse between L and \(\frac{\delta t}{2} \times V\).
-</p>
-
-<p>
-<a href="Pasted image 20210210094759.png.html">Pasted image
-20210210094759.png</a>
-</p>
-
-<p>
-Notice! With this roundabout way, we have an equation with \(\delta t\)
+distance between A and B).</span></p><p><span>And lastly, to figure out how much light travels, it is simply the
+hipotenuse between L and \(\frac{\delta t}{2} \times V\).</span></p><p><a class="firn-internal" href="/physics/modern_physics/Pasted image 20210210094759.png">Pasted image
+20210210094759.png</a></p><p><span>Notice! With this roundabout way, we have an equation with \(\delta t\)
 on both sides: becaues we could figure out the distance of light travel
 to mirror, doubling that divided by speed of light will result in
-\(\delta t\) again!
-</p>
-
-<p>
-Doing some algebra to seperate the \(\delta t\), we shall get that:
-</p>
-
-<p>
-<a href="Pasted image 20210210095050.png.html">Pasted image
-20210210095050.png</a>
-</p>
-
-<p>
-But notice! We could divide the top and bottom by \(c\)
-</p>
-
-<p>
-<a href="Pasted image 20210210095115.png.html">Pasted image
-20210210095115.png</a>
-</p>
-
-<p>
-Why is \(2L/c = \delta t'\)? Think! look at the primed (moving) frame.
+\(\delta t\) again!</span></p><p><span>Doing some algebra to seperate the \(\delta t\), we shall get that:</span></p><p><a class="firn-internal" href="/physics/modern_physics/Pasted image 20210210095050.png">Pasted image
+20210210095050.png</a></p><p><span>But notice! We could divide the top and bottom by \(c\)</span></p><p><a class="firn-internal" href="/physics/modern_physics/Pasted image 20210210095115.png">Pasted image
+20210210095115.png</a></p><p><span>Why is \(2L/c = \delta t'\)? Think! look at the primed (moving) frame.
 W.r.t. the moving object, the light is traveling exactly perpendicular
 up and down. So, the change in time in that case is just twice the
-vertical distance divided by the speed of light.
-</p>
-
-<p>
-Physicsts tend to define a \(\gamma\) and write the same equation as
-follows:
-</p>
-
-<p>
-<a href="Pasted image 20210210095218.png.html">Pasted image
-20210210095218.png</a>
-</p>
-
-<p>
-Now&#x2026;. Notice! If \(v\) is small, \(\gamma=1\) and hence
-\(\delta t = \delta t'\)
-</p>
-
-<p>
-As \(v \to c\), \(\gamma\) increases and hence, to M, M' will be
-traveling quickly foward to time
-</p>
-
-<p>
-<a href="Pasted image 20210210100247.png.html">Pasted image
-20210210100247.png</a>
-</p>
-
-<p>
-So. Knowledges: \(\gamma(v) = \frac{1}{\sqrt{1-(v^2/c^2)**2}}\). which
+vertical distance divided by the speed of light.</span></p><p><span>Physicsts tend to define a \(\gamma\) and write the same equation as
+follows:</span></p><p><a class="firn-internal" href="/physics/modern_physics/Pasted image 20210210095218.png">Pasted image
+20210210095218.png</a></p><p><span>Now.... Notice! If \(v\) is small, \(\gamma=1\) and hence
+\(\delta t = \delta t'\)</span></p><p><span>As \(v \to c\), \(\gamma\) increases and hence, to M, M' will be
+traveling quickly foward to time</span></p><p><a class="firn-internal" href="/physics/modern_physics/Pasted image 20210210100247.png">Pasted image
+20210210100247.png</a></p><p><span>So. Knowledges: \(\gamma(v) = \frac{1}{\sqrt{1-(v^2/c^2)**2}}\). which
 means, for speeds at %c, \(\gamma(pc) = \frac{1}{\sqrt{1-pc^2}}\). And
 finally, for stationary observer \(x\) and moving observer \(x'\),
-\(\delta t = \delta t' \gamma\).
-</p>
-
-<p>
-What's even cooler? this principle applies to the length of the moving
-frame as well &#x2014; but backwards. That, at a moving frame,
+\(\delta t = \delta t' \gamma\).</span></p><p><span>What's even cooler? this principle applies to the length of the moving
+frame as well --- but backwards. That, at a moving frame,
 \(D' = D \gamma\), where \(D\) is size of the moving frame ("length of
 the spaceship") when it is not moving to the non-moving frame, and
 \(D'\) the size of the moving frame when it is moving to the non-moving
-frame.
-</p>
-
-<p>
-Of course, beware of thinking this as the "length of the ship", though.
+frame.</span></p><p><span>Of course, beware of thinking this as the "length of the ship", though.
 For instance, if your stationary frame is the spaceship, the "length of
-the spaceship" would then be the distance between the planets.
-</p>
-
-<p>
-Remember: two objects will need to be parallel to each other and one
+the spaceship" would then be the distance between the planets.</span></p><p><span>Remember: two objects will need to be parallel to each other and one
 traveling in a linear motion while the other stationary for this to
-work!
-</p>
-
-<p>
-<b>Displacement equales velocity multiplied by the time interval</b> (and
-gamma.)
-</p>
-</div>
-</div>
-
-<div id="outline-container-knowledges-that-importance" class="outline-2">
-<h2 id="knowledges-that-importance"><span class="section-number-2">4</span> Knowledges That Importance</h2>
-<div class="outline-text-2" id="text-knowledges-that-importance">
-<p>
-\(\gamma(v) = \frac{1}{\sqrt{1-(v^2/c^2)**2}}\). which means, for speeds
-at %c, \(\gamma(pc) = \frac{1}{\sqrt{1-pc^2}}\)
-</p>
-</div>
-
-<div id="outline-container-time-dilation" class="outline-3">
-<h3 id="time-dilation"><span class="section-number-3">4.1</span> Time Dilation</h3>
-<div class="outline-text-3" id="text-time-dilation">
-<p>
-Should Ted be moving at a velocity \(V\) according to the refrence frame
-of Sally. Time \(t\) for Ted would be \(\gamma \times t\) for sally.
-</p>
-</div>
-</div>
-
-<div id="outline-container-length-contraction" class="outline-3">
-<h3 id="length-contraction"><span class="section-number-3">4.2</span> Length Contraction</h3>
-<div class="outline-text-3" id="text-length-contraction">
-<p>
-Should Ted be moving at a velocity \(V\) according to the refrence frame
+work!</span></p><p><strong><span>Displacement equales velocity multiplied by the time interval</span></strong><span> (and
+gamma.)</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="knowledges-that-importance"><span class="firn-headline-text"><span>Knowledges That Importance</span></span></h1><section><p><span>\(\gamma(v) = \frac{1}{\sqrt{1-(v^2/c^2)**2}}\). which means, for speeds
+at %c, \(\gamma(pc) = \frac{1}{\sqrt{1-pc^2}}\)</span></p></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="time-dilation"><span class="firn-headline-text"><span>Time Dilation</span></span></h2><section><p><span>Should Ted be moving at a velocity \(V\) according to the refrence frame
+of Sally. Time \(t\) for Ted would be \(\gamma \times t\) for sally.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="length-contraction"><span class="firn-headline-text"><span>Length Contraction</span></span></h2><section><p><span>Should Ted be moving at a velocity \(V\) according to the refrence frame
 of Sally. Distance \(D\) away from Sally and Ted's shared \(D_0\) for
-Ted would be \(\frac{D}{\gamma}\) for sally.
-</p>
-
-<p>
-<a href="Pasted image 20210224111827.png.html">Pasted image
-20210224111827.png</a>
-</p>
-
-<p>
-=&gt; "Finding the distance to origin, and multiply by gamma"
-</p>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Houjun Liu</span><span class="date">2021-09-11 Sat 16:35</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
-</div>
-</body>
-</html>
+Ted would be \(\frac{D}{\gamma}\) for sally.</span></p><p><a class="firn-internal" href="/physics/modern_physics/Pasted image 20210224111827.png">Pasted image
+20210224111827.png</a></p><p><span>=> "Finding the distance to origin, and multiply by gamma"</span></p></section></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#special-relativity">Special Relativity</a><ol><li><a href="#space-and-time">Space and Time</a></li><li><a href="#the-principle-of-relativity">The Principle of Relativity</a><ol><li><a href="#but-light">But Light</a></li></ol></li><li><a href="#the-theory-of-relativity">The Theory of Relativity</a><ol><li><a href="#when-does-the-same-time-happen?">When does the same time happen?</a></li></ol></li></ol></li><li><a href="#eistein&apos;s-train">Eistein's train</a></li><li><a href="#time-dialation">Time Dialation</a></li><li><a href="#knowledges-that-importance">Knowledges That Importance</a><ol><li><a href="#time-dilation">Time Dilation</a></li><li><a href="#length-contraction">Length Contraction</a></li></ol></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>

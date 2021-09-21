@@ -1,0 +1,224 @@
+% Created 2021-09-20 Mon 15:07
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Houjun Liu}
+\date{\today}
+\title{User Input Validation Assignment}
+\hypersetup{
+ pdfauthor={Houjun Liu},
+ pdftitle={User Input Validation Assignment},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{Clojure, in brief\ldots{}}
+\label{sec:org8d3cdde}
+The programming language \href{https://clojure.org/}{Clojure}, a variant of Lisp built atop the Java Virtual Machine, is known to be a safe language to low level attacks such as buffer overflow due to the insulation of its execution space.
+
+To preserve the functionality of being a Lisp, however, the Clojure preserves most of the powerful syntax-manipulation tools like unquote slicing and compile-time macros.
+
+Before we could introduce the vulnerabilities that could come with the misuse of these tools, it is important to introduce these tools first.
+
+\subsection{Unquote slicing}
+\label{sec:org2bf7cde}
+"Unquoting" is a facility to introduce \texttt{code-mode} elements into \texttt{data-mode} lists. Here, for instance, is a regular data mode list that evaluates to value \texttt{(1 2 3 4)}:
+
+\begin{verbatim}
+'(1 2 3 4)
+\end{verbatim}
+
+Leveraging "unquoting", we could instead execute a \emph{statement} that returns, for instance, \texttt{4} in place of the number \texttt{4} in the list instead of supplying the r-value \texttt{4} itself: therefore resulting in the same list but introducing live code during its parsing.
+
+The syntax of unquoting is like so:
+
+\begin{verbatim}
+`(1 2 3 ~(* 2 2)) ; notice the ` instead of ' to denote a unquotable list
+\end{verbatim}
+
+As you could see, the result is still \texttt{(1 2 3 4)}, yet the latter case leveraged \texttt{(* 2 2); => 4} to \emph{unquote} the value \texttt{4} into the list using live code.
+
+\subsection{Macros}
+\label{sec:orga81a3f3}
+Marcos are a powerful way of manipulating the syntax of code. Essentially, they are compile-time unraveled directives that take arguments as \texttt{data-mode} lists and return a sliced \texttt{data-mode} expression.
+
+Here's a basic example of the functionality of Macros. Take, for instance, the following expression adding two numbers:
+
+\begin{verbatim}
+(+ 1 2)
+\end{verbatim}
+
+We will now write a macro whose behavior is to reverse the order of the first two expressions before evaluating, like so:
+
+\begin{verbatim}
+(defmacro rev-arg [a b c]
+    `(~b ~a ~c))
+\end{verbatim}
+
+Now, leveraging this macro, we could write the addition statement in an now admittedly weird manner:
+
+\begin{verbatim}
+(rev-arg 1 + 2)
+\end{verbatim}
+
+As you could see, this macro did not \emph{evaluate} its arguments, but instead took them as \texttt{data-mode} items and swapped their order. The return value of the macro is yet another \texttt{data-mode} list representing the unwrapped expression (now with the order corrected), which is finally evaluated on runtime.
+
+\section{Dangers of Macro Arguments}
+\label{sec:org2275644}
+Macros do not evaluate nor --- by default --- make any attempts to parse the contents of it arguments. Therefore, if an argument is unquoted wholesale into the result unwrapped expression, it is functionally equivalent to calling \texttt{eval} upon the statement is it will not be parsed at \emph{compile-time} but instead on \emph{run-time}.
+
+Especially dangerous an action is if the argument of macros come from user input, as --- with functions --- the argument would either be passed consciously as fully data or evaluated with \texttt{eval} but is potentially sliced into the source tree and evaluated automatically on run-time for macros.
+
+Here's the simplest example of runtime evaluation caused by a macro:
+
+\begin{verbatim}
+(defmacro secreteval [a]
+    `(do
+	(println "one")
+	~a))
+\end{verbatim}
+
+And now, we call this macro to demonstrate the run-time eval.
+
+\begin{verbatim}
+(secreteval (println "two"))
+\end{verbatim}
+
+The \texttt{stdout} result is printed in order of \texttt{one} \texttt{two}, meaning that, indeed, the execution of the argument \texttt{(println "two")} not only took place but took place \emph{after} the execution of the first part of the macro.
+
+Compare this to the following functionally almost-similar \emph{function}:
+
+\begin{verbatim}
+(defn nosecreteval [a]
+  (do
+    (println "one")
+    a))
+\end{verbatim}
+
+And calling it with the same input\ldots{}
+
+\begin{verbatim}
+(nosecreteval (println "two"))
+\end{verbatim}
+
+As you could see, the argument is evaluated and passed evaluated \emph{before} the execution of the macro (likely compiled away by the JVM) and, should user data be passed this was as \emph{data}, will not be evaluated at all due to its persistent as a list.
+
+\section{Preventing Macro Argument Evaluation}
+\label{sec:orgf7c0bdb}
+The simplest mechanism by which this type of evaluation could be prevented is via the use of assert statements or even list manipulation to establish basic assumptions regarding the argument.
+
+\subsection{Nonexample}
+\label{sec:org99fbeff}
+For instance, we write the following macro create a list of two elements.
+
+\begin{verbatim}
+(defmacro bad-concat [a]
+    `(list 1 ~a))
+\end{verbatim}
+
+Calling it with some "normal" elements will act as you'd expect.
+
+\begin{verbatim}
+(bad-concat 12)
+\end{verbatim}
+
+However, you could introduce code execution by, for instance, passing an expression that produces a side effect.
+
+\begin{verbatim}
+(bad-concat (println "Code execution!"))
+\end{verbatim}
+
+As you could see, the statement \texttt{code execution} is \emph{printed}, instead of all of \texttt{(println "aoenust")} being concatenated to the list to \texttt{1}, as the author of the program presumably desired.
+
+\subsection{\texttt{assert} based solution}
+\label{sec:org6f2a97a}
+One way to solve this is by asserting that the argument \texttt{a} is an \texttt{atom} --- meaning it does not contain \texttt{s-expressions} that could be accidentally evaluated. This would be implemented as follows:
+
+\begin{verbatim}
+(defmacro better-concat [a]
+    (assert (not (list? a)))
+    `(list 1 ~a))
+\end{verbatim}
+
+The first example returns what one would expect:
+
+\begin{verbatim}
+(better-concat 12)
+\end{verbatim}
+
+And the statement with side-effects would, on \emph{compile-time} throw an \texttt{AssertError}.
+
+\begin{verbatim}
+(better-concat (println "Code execution!"))
+\end{verbatim}
+
+\subsection{More ergonomic solution}
+\label{sec:orgd0284ec}
+There is an even more ergonomic solution to this problem. Instead of validating input, we could coerce the input to \texttt{data-mode} using the quote-expression, essentially sanitizing it. Hence, we could create an even more ergonomic concat like so:
+
+\begin{verbatim}
+(defmacro ergo-concat [a]
+    `(list 1 '~a))
+\end{verbatim}
+
+The first example still remains the same:
+
+\begin{verbatim}
+(ergo-concat 12)
+\end{verbatim}
+
+and the side-effect statement will perform more ergonomically: 
+
+\begin{verbatim}
+(ergo-concat (println "Code execution!"))
+\end{verbatim}
+
+As you could see, the list is actually, properly sliced in instead of triggering executing code.
+
+\section{Legal/Ethical Concerns}
+\label{sec:orgc1b20f5}
+The problem that exist with Clojure macro evaluation is that it is very easily (and perhaps commonly) created by even seasoned Clojurists. Acc
+\end{document}

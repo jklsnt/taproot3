@@ -1,0 +1,73 @@
+#+TITLE: Small Bead Experiment
+#+AUTHOR: Houjun Liu
+
+#+PROPERTY: header-args :tangle :results verbatim :session smallbead
+
+* Setup
+#+begin_src R
+library(tidyverse)
+library(TSA)
+#+end_src
+
+* Data Sourcing 
+We first grab the data.
+
+#+begin_src R
+dataset_raw <- read.csv("./09162021_3rd_fl_jar_small_bead.csv")
+dataset_tibble <- tibble(dataset_raw)
+
+# rename tibble titles
+dataset_tibble <- dataset_tibble %>% rename(time = Time..sec., max_height_x=Max.Height.X, max_height_y=Max.Height.Y)
+#+end_src
+
+* Basic plotting
+
+** Time vs. Max Height
+Plot time against max height.
+
+#+begin_src R :results output graphics :file smallbead_time_vs_height.png
+g <- dataset_tibble %>% ggplot()
+g <- g + geom_line(aes(x=time, y=max_height_y))
+g
+#+end_src
+
+[[file:smallbead_time_vs_height.png]]
+
+
+We should probably chop off the end bit, because that's just the chain flinging itself off.
+
+#+begin_src R
+dataset_sliced <- dataset_tibble %>% slice_head(n=which(dataset_tibble$max_height_y == max(dataset_tibble$max_height_y)))
+#+end_src
+
+And plotting again...
+
+#+begin_src R :results output graphics :file smallbead_time_vs_height_sliced.png
+g <- dataset_sliced %>% ggplot()
+g <- g + geom_line(aes(x=time, y=max_height_y))
+g
+#+end_src
+
+[[file:smallbead_time_vs_height_sliced.png]]
+
+
+We will do the same thing
+
+** Time vs. X-Value at Max Height
+We will plot and slice the same bit too, but for the x-value.
+
+#+begin_src R :results output graphics :file smallbead_time_vs_x_at_max_sliced.png
+g <- dataset_sliced %>% ggplot()
+g <- g + geom_line(aes(x=time, y=max_height_x))
+g
+#+end_src
+
+[[file:smallbead_time_vs_x_at_max_sliced.png]]
+
+The wave could be ran through an fft.
+
+#+begin_src R :results output graphics :file smallbead_time_vs_x_at_max_sliced_FFT.png
+dataset_sliced$max_height_x %>% periodogram()
+#+end_src
+
+[[file:smallbead_time_vs_x_at_max_sliced_FFT.png]]

@@ -1,396 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<!-- 2021-09-11 Sat 18:31 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Gender and Biology ISOS Reading</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="Huxley" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
-</style>
-<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
+<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Taproot Authors" name="author" /><meta content="A collection of academic and project notes" name="description" /><title>Taproot</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        'displayAlign': 'center',
+        'displayIndent': '0em',
+        'extensions': ['tex2jax.js'],
+        'tex2jax': {
+        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
+        'processEscapes': true
+        },
+        'HTML-CSS': { scale: 100,
+                        linebreaks: { automatic: 'false' },
+                        webFont: 'TeX'
                        },
         SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
+              linebreaks: { automatic: 'false' },
+              font: 'TeX'},
         NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
-</head>
-<body>
-<div id="org-div-home-and-up">
- <a accesskey="h" href="https://taproot3.sanity.gq/sitemap.html"> UP </a>
- |
- <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
-</div><div id="content">
-<h1 class="title">Gender and Biology ISOS Reading</h1>
-<p>
-#flo
-</p>
-
-<div id="outline-container-gender-and-the-biological-sciences" class="outline-2">
-<h2 id="gender-and-the-biological-sciences"><span class="section-number-2">1</span> \[Gender\ and\ the\ Biological\ Sciences\]</h2>
-<div class="outline-text-2" id="text-gender-and-the-biological-sciences">
-<pre class="example" id="org0d2c03a">
-
-</pre>
-
-<blockquote>
-<p>
-Feminist critiques of science provide fertile ground for any
-investigation of the ways in which social influences may shape the
-content of science.
-</p>
-</blockquote>
-
-<p>
-Oh jeez, this is gonna be a fun discussion
-</p>
-
-<p>
-Argue that sexist bio is an excuse for the suppression of women.
-</p>
-
-<p>
-<b>Kathleen's Hierarchy of sciences:</b> Physics -&gt; Biology -&gt; Social
-sciences (or reversed, it's unclear)
-</p>
-
-<p>
-Argues that feminist critiques of "the social sciences are dismissed out
+        TeX: { equationNumbers: {autoNumber: 'AMS'},
+               MultLineWidth: '85%',
+               TagSide: 'right',
+               TagIndent: '.8em'
+             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Gender and Biology ISOS Reading</h1></div><div class="metamble"><span><span>Written by </span><span>Huxley</span></span></div><div class="notebody"><div><section><p><span>#flo</span></p></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="\[gender\-and\-the\-biological\-sciences\]"><span class="firn-headline-text"><span>\[Gender\ and\ the\ Biological\ Sciences\]</span></span></h1><section><blockquote><p><span>  Feminist critiques of science provide fertile ground for any
+  investigation of the ways in which social influences may shape the
+  content of science.</span></p></blockquote><p><span>Oh jeez, this is gonna be a fun discussion</span></p><p><span>Argue that sexist bio is an excuse for the suppression of women.</span></p><p><strong><span>Kathleen's Hierarchy of sciences:</span></strong><span> Physics -> Biology -> Social
+sciences (or reversed, it's unclear)</span></p><p><span>Argues that feminist critiques of "the social sciences are dismissed out
 of hand by philosophers of science on the ground that the social
 sciences arn't science anyways," then says: "it is, however, not quite
-so easy to dismiss biology as pseudo science." Despite the fact that she
-<i>just drew a distinction between biology and social sciences.</i>
-</p>
-
-<p>
-Calls case study of outdated model of fertilization process &#x2013; says that
+so easy to dismiss biology as pseudo science." Despite the fact that she</span><em><span>just drew a distinction between biology and social sciences.</span></em></p><p><span>Calls case study of outdated model of fertilization process -- says that
 sexism has blinded scientists to the truth, the previous model being the
-"Sleeping Beauty/Prince Charming" model. &gt; The egg waits patiently [&#x2026;]
-the sperm heroically battles [&#x2026;] (yatta yatta)
-</p>
-
-<p>
-this model "appeared as early as 1795." In 1895, electron microscopy on
-sea urchins revealed that the egg grows “finger like projections
-<a href="....html">&#x2026;</a> but this has been largely ignored until recently.
-</p>
-
-<p>
-The original model appeared 100 years earlier, of course it was widely
+"Sleeping Beauty/Prince Charming" model. > The egg waits patiently [...]
+the sperm heroically battles [...] (yatta yatta)</span></p><p><span>this model "appeared as early as 1795." In 1895, electron microscopy on
+sea urchins revealed that the egg grows “finger like projections</span><a class="firn-internal" href="/isos/intro_to_isos/...">...</a><span> but this has been largely ignored until recently.</span></p><p><span>The original model appeared 100 years earlier, of course it was widely
 know in 1895. The new model barely changed the previous model. What does
 "largely ignored" even mean? To my knowledge, this isn't a very hotly
-debated or discussed topic. Is that what she means by ignoring it?
-</p>
-
-<p>
-She goes on to say that the new theory is still controversial, and they
-don't know if it's entirely correct!
-</p>
-
-<p>
-Of course people stuck with teaching the old model then! And the
+debated or discussed topic. Is that what she means by ignoring it?</span></p><p><span>She goes on to say that the new theory is still controversial, and they
+don't know if it's entirely correct!</span></p><p><span>Of course people stuck with teaching the old model then! And the
 electron microscope was invented in 1931! She claims this was discovered
-using electron microscopy in 1895!
-</p>
-</div>
-
-<div id="outline-container-wtaf-is-this-reading" class="outline-7">
-<h7 id="wtaf-is-this-reading"><span class="section-number-7">1.0.0.0.0.1</span> wtaf is this reading?</h7>
-<div class="outline-text-7" id="text-wtaf-is-this-reading">
-<p>
-Gives examples of clearly incorrect biological explanations of why men
+using electron microscopy in 1895!</span></p></section><div class="firn-headline-section firn-headline-section-6"><h6 class="firn-headline firn-headline-6" id="wtaf-is-this-reading?"><span class="firn-headline-text"><span>wtaf is this reading?</span></span></h6><section><p><span>Gives examples of clearly incorrect biological explanations of why men
 are more intelligent that women form specific scientists, and uses them
-to generalize all of male biologists. <i>Nice.</i>
-</p>
-
-<p>
-Drawings that updated skeletons to be gender specific were "favored for
+to generalize all of male biologists. </span><em><span>Nice.</span></em></p><p><span>Drawings that updated skeletons to be gender specific were "favored for
 just that (the fact that they reflected cultural ideals of masculinity)
-over drawings that were in some sense more accurate."
-</p>
-
-<p>
-What exactly does "in some sense more accurate" mean?
-</p>
-
-<blockquote>
-<p>
-A science based upon women would be an improvement over the current
-science, according to standpoint epistemology.
-</p>
-</blockquote>
-
-<p>
-Essentially argues that between two choices, scientific theory cannot
-guarantee that one is true. Yeah, that's the point.
-</p>
-
-<p>
-Argues that since theories are based upon one another, and since
+over drawings that were in some sense more accurate."</span></p><p><span>What exactly does "in some sense more accurate" mean?</span></p><blockquote><p><span>  A science based upon women would be an improvement over the current
+  science, according to standpoint epistemology.</span></p></blockquote><p><span>Essentially argues that between two choices, scientific theory cannot
+guarantee that one is true. Yeah, that's the point.</span></p><p><span>Argues that since theories are based upon one another, and since
 original theories were created in deeply sexist times, the sexist
-theories persevere regardless of the current state of cultural sexism.
-</p>
-
-<p>
-This is reasonable, but we scientists do backtrack significantly when
+theories persevere regardless of the current state of cultural sexism.</span></p><p><span>This is reasonable, but we scientists do backtrack significantly when
 new evidence is presented. It's not as if these sexists theories have
-tainted modern theories forever.
-</p>
-</div>
-</div>
-
-<div id="outline-container-reflection" class="outline-3">
-<h3 id="reflection"><span class="section-number-3">1.1</span> Reflection</h3>
-<div class="outline-text-3" id="text-reflection">
-<p>
-Well, that was certainly interesting.
-</p>
-</div>
-
-<div id="outline-container-discussion-point" class="outline-4">
-<h4 id="discussion-point"><span class="section-number-4">1.1.1</span> Discussion Point:</h4>
-<div class="outline-text-4" id="text-discussion-point">
-<p>
-I wonder what the author means by "in some sense more accurate" when
-referring to the conflicting skeletal models on page 198.
-</p>
-
-<hr />
-
-<p>
-All I have to say about this reading. Holy hell.
-</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Huxley</span><span class="date">2021-09-11 Sat 16:35</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
-</div>
-</body>
-</html>
+tainted modern theories forever.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="reflection"><span class="firn-headline-text"><span>Reflection</span></span></h2><section><p><span>Well, that was certainly interesting.</span></p></section><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="discussion-point:"><span class="firn-headline-text"><span>Discussion Point:</span></span></h3><section><p><span>I wonder what the author means by "in some sense more accurate" when
+referring to the conflicting skeletal models on page 198.</span></p><hr /><p><span>All I have to say about this reading. Holy hell.</span></p></section></div></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#\[gender\-and\-the\-biological\-sciences\]">\[Gender\ and\ the\ Biological\ Sciences\]</a><ol><li><a href="#wtaf-is-this-reading?">wtaf is this reading?</a></li></ol></li></ol><div class="metalabel">Backlinks</div><ul class="firn-backlinks"><li class="firn-backlink"><a href="/isos/intro_to_isos/KBdGenderAndBio">Gender and Biology Reading</a></li><li class="firn-backlink"><a href="/isos/intro_to_isos/KBISOSMasterIndex">ISOS Master Index</a></li></ul></div></main></body></html>

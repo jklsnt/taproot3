@@ -1,6 +1,5 @@
 #+TITLE: Rotational Inertia and Kinematics
 #+AUTHOR: Houjun Liu
-#+INDEX: PHYS360!Derivations!Rotational Inertia and Kinematics
 
 * Deriving Rotational KE and Inertia
 Given $m_i$, mass, $\vec{r_i}'$, location of the center of mass, $l_i$, $\omega$, the angular velocity, figure a $KE_{tot,rot}$. 
@@ -64,6 +63,52 @@ I believe that the rotational inertia of $I_{sphere}$ to be less than $I_{disk}$
 
 Mathematically, as $M$ is staying at the same value, in the disk case has more mass closer to the axis of rotation --- meaning that the $m_iR^2$ term would be smaller in more of the point masses than that of an object at a lower dimension. Hence, the sphere would have more points with lower $m_iR^2$ terms than that of disk; hence, $I_{sphere}$ would be less than $I_{disk}$.
 
+There is, also, an actual integral solution to this.
+
+*** Actual Integral Solution
+
+**** Rings
+Here is a ring, which we know:
+
+\begin{equation}
+    I= MR^2
+\end{equation}
+
+A disk is bunch of small rings squisheified together, so the total $I_{disk}$ is therefore:
+
+\begin{equation}
+    I_{disk} = \int^R_0 R^2 dm
+\end{equation}
+
+$dm = 2\pi \sigma dr$: radius changes times the each of the radius times surface density ($\sigma$).
+
+And so, substituting...
+
+\begin{align}
+    I_{disk} =& \int^R_0 r^2 dm \\
+    =& \int^R_0 r^3 2 \pi \sigma dr \\
+    =& 2r\pi\sigma \int^R_0 r^3 dr \\
+    =& \frac{1}{2}\pi\sigma r^4
+\end{align}
+
+Replacing $\pi \sigma r^2 = M$, because :why: exactly?
+
+\begin{equation}
+    I_{disk} = \frac{1}{2}Mr^2
+\end{equation}
+
+**** Spheres
+I didn't follow quick enough to get this to be written down. But here's a pretty picture.
+
+
+#+DOWNLOADED: screenshot @ 2021-09-14 14:18:55
+#+attr_html: :width 600px
+#+attr_latex: :width 600px
+[[file:2021-09-14_14-18-55_screenshot.png]]
+
+The gist is essentially to add up the tiny tiny disks that exist in a sphere to result in the moment of rotational inertia for a sphere.
+
+
 * Kinematics Equations 
 We begin by defining a coordinate system such that positive values are pointed "downwards". That is, as values increase in the positive direction, their corresponding vectors are pointed further towards the "down" direction.
 
@@ -95,6 +140,14 @@ Again, substituting $C = y_0$ by the same logic above --- $y(0) = C = y_0$, we d
     y(t) = \frac{1}{2}a_0t^2 + v_0t + y_0
 \end{equation}
 
+But what if we want to do this in multiple dimensions? They will be vectors, for one.
+
+\begin{align}
+    \vec{a}(t) =& \vec{a_0} \\
+    \int\vec{a}(t)dt =& \int\vec{a_0} dt
+\end{align}
+
+and so on. The reason why we could do this is simply because $\vec{a_0} = a_0_x \hat{i} + a_0_y\hat{j} + a_0_z\hat{k}$, and, perhaps unsurprisingly, integrals and derivatives and commutative and distributive across addition.
 
 ** Proving $v^2(t) = v_0^2 + 2a_0(y(t)-y_0)$
 We start at the statement for $v(t)$, squaring it, and substituting the necessary statements.
@@ -118,8 +171,8 @@ Showing $\Delta y = \frac{v(t_1)+v(t_2)}{2}\Delta t$, defining $\Delta y=y(t_2)-
 
 \begin{align}
     \Delta y &= \frac{v(t_1)+v(t_2)}{2}\Delta t \\
-    y(t_2)-y(t_1) &= \frac{v(t_1)+v(t_2)}{2} t_2 - t_1 \\
-    y(t_2)-y(t_1) &= \frac{((a_0t_1+v_0)+(a_0t_2+v_0))}{2} t_2 - t_1 \\
+    y(t_2)-y(t_1) &= \frac{v(t_1)+v(t_2)}{2} (t_2 - t_1) \\
+    y(t_2)-y(t_1) &= \frac{((a_0t_1+v_0)+(a_0t_2+v_0))}{2} (t_2 - t_1) \\
     y(t_2)-y(t_1) &= \frac{((a_0t_1t_2+v_0t_2)-(a_0{t_1}^2+v_0t_1)+(a_0{t_2}^2+v_0t_2)-(a_0t_1t_2+v_0t_1))}{2} \\
     y(t_2)-y(t_1) &= \frac{(a_0{t_2}^2+2v_0t_2)-(a_0{t_1}^2+2v_0t_1)}{2} \\
     y(t_2)-y(t_1) &= \frac{(a_0{t_2}^2+2v_0t_2+2y_0)-(a_0{t_1}^2+2v_0t_1+2y_0)}{2} \\
@@ -159,11 +212,25 @@ Continuing with integration:
 
 Again, substituting $C = -y_0$ by the same logic above --- $y(0) = C = -y_0$, we derive the statement for the position equation.
 
-\begin{equation}
-    y(t) = \frac{-1}{2}a_0t^2 - v_0t - y_0
-\end{equation}
+\begin{align}
+    y(t) =& \frac{-1}{2}a_0t^2 - v_0t - y_0 \\
+    y(t) =& -(\frac{1}{2}a_0t^2 + v_0t + y_0)
+\end{align}
 
-As such, if the signage were flipped, terms of the kinematics equation would therefore be flipped.
+As such, if the signage were flipped, terms of the kinematics equation would therefore be the negative of the original --- that $y'(t) = -y(t)$ if $y'$ contains uses a flipped coordinate system. Leveraging the same property, therefore, we could derive quickly the other two statements with a flipped coordinate system:
+
+\begin{align}
+    \Delta y' =& \frac{-v(t_1)-v(t_2)}{2}\Delta t \\
+    =& -\frac{v(t_1)+v(t_2)}{2}\Delta t
+\end{align}
+
+and
+
+\begin{align}
+    v^2(t) =& {-v_0}^2 + 2a_0 (-y(t) - (-y_0)) \\
+    =& {v_0}^2 + 2a_0 (y_0 - y(t)) 
+\end{align}
+
 
 * Proving the Third Equation for $V^2$
 \begin{equation}

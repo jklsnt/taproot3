@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-20 Mon 00:04 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>lin alg flo 20</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Exr0n" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div>lin alg flo 20  Exr0n 2021-09-11 Sat 16:34</div>
+</div>
+<div id="content">
+<h1 class="title">lin alg flo 20</h1>
+<div id="outline-container-org520f401" class="outline-2">
+<h2 id="org520f401"><span class="section-number-2">1</span> new schedule today :/</h2>
+</div>
+<div id="outline-container-orgf829de7" class="outline-2">
+<h2 id="orgf829de7"><span class="section-number-2">2</span> Systems of equations, matrix equations, and vectors</h2>
+</div>
+
+<div id="outline-container-org9d68f81" class="outline-2">
+<h2 id="org9d68f81"><span class="section-number-2">3</span> in class work! See <a href="./KBe20math530srcNull_space_and_column_space_intro.pdf">./KBe20math530srcNull_space_and_column_space_intro.pdf</a></h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgac30563" class="outline-3">
+<h3 id="orgac30563"><span class="section-number-3">3.1</span> \(A=\begin{pmatrix}1&0\\0&1\end{pmatrix}\)</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-orgeef22dc" class="outline-4">
+<h4 id="orgeef22dc"><span class="section-number-4">3.1.1</span> How many solutions \(x\) satisfy \(Ax=0\)?</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+The only solution is x=0, because \(Ax = x\).
+</p>
+</div>
+</div>
+<div id="outline-container-org01eb946" class="outline-4">
+<h4 id="org01eb946"><span class="section-number-4">3.1.2</span> When the answer is "infinitely many" what tools might we have to describe the size of that set?</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+N/A
+</p>
+</div>
+</div>
+<div id="outline-container-org71f6e75" class="outline-4">
+<h4 id="org71f6e75"><span class="section-number-4">3.1.3</span> How many possible outcomes \(b\) are there for the equation \(Ax=b\) for any \(x\).</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+There can be infintely many vaules of \(b\)..? The vector space is dim 2
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge5ca1e9" class="outline-3">
+<h3 id="orge5ca1e9"><span class="section-number-3">3.2</span> \(A=\begin{pmatrix}1&0&0\\0&1&0\end{pmatrix}\)</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-org6682c0d" class="outline-4">
+<h4 id="org6682c0d"><span class="section-number-4">3.2.1</span> How many solutions \(x\) satisfy \(Ax=0\)?</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+Infinitely many (anything of the form \(\begin{pmatrix}0\\0\\x\end{pmatrix}\))
+</p>
+</div>
+</div>
+<div id="outline-container-org49f4f05" class="outline-4">
+<h4 id="org49f4f05"><span class="section-number-4">3.2.2</span> When the answer is "infinitely many" what tools might we have to describe the size of that set?</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+A column in the matrix is zero? Maybe the columns are linearly dependent. Input is dim 1
+</p>
+</div>
+</div>
+<div id="outline-container-orgf536060" class="outline-4">
+<h4 id="orgf536060"><span class="section-number-4">3.2.3</span> How many possible outcomes \(b\) are there for the equation \(Ax=b\) for any \(x\).</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<p>
+Infinite with \(\text{dim} 2\)?
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org8c015ab" class="outline-3">
+<h3 id="org8c015ab"><span class="section-number-3">3.3</span> \(A = \begin{pmatrix}1&0\\0&1\\0&0\end{pmatrix}\)</h3>
+<div class="outline-text-3" id="text-3-3">
+</div>
+<div id="outline-container-orgb8eb3aa" class="outline-4">
+<h4 id="orgb8eb3aa"><span class="section-number-4">3.3.1</span> How many solutions \(x\) satisfy \(Ax=0\)?</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+Only one value of \(x\) makes the product zero.
+</p>
+</div>
+</div>
+<div id="outline-container-org75aa540" class="outline-4">
+<h4 id="org75aa540"><span class="section-number-4">3.3.2</span> When the answer is "infinitely many" what tools might we have to describe the size of that set?</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<p>
+n/a
+</p>
+</div>
+</div>
+<div id="outline-container-orgb52a4a2" class="outline-4">
+<h4 id="orgb52a4a2"><span class="section-number-4">3.3.3</span> How many possible outcomes \(b\) are there for the equation \(Ax=b\) for any \(x\).</h4>
+<div class="outline-text-4" id="text-3-3-3">
+<p>
+column vector has dimension 3, but the vector space has dim 2
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org47074a7" class="outline-3">
+<h3 id="org47074a7"><span class="section-number-3">3.4</span> \(A = \begin{pmatrix}1&0&0\\0&1&0\\0&0&0\end{pmatrix}\)</h3>
+<div class="outline-text-3" id="text-3-4">
+</div>
+<div id="outline-container-orgcd643ef" class="outline-4">
+<h4 id="orgcd643ef"><span class="section-number-4">3.4.1</span> How many solutions \(x\) satisfy \(Ax=0\)?</h4>
+<div class="outline-text-4" id="text-3-4-1">
+<p>
+infinite, same vectors as subproblem 2
+</p>
+</div>
+</div>
+<div id="outline-container-org838b6d4" class="outline-4">
+<h4 id="org838b6d4"><span class="section-number-4">3.4.2</span> When the answer is "infinitely many" what tools might we have to describe the size of that set?</h4>
+<div class="outline-text-4" id="text-3-4-2">
+<p>
+dimension 2? column vectors in the matrix are linearly dependent.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf48c53f" class="outline-4">
+<h4 id="orgf48c53f"><span class="section-number-4">3.4.3</span> How many possible outcomes \(b\) are there for the equation \(Ax=b\) for any \(x\).</h4>
+<div class="outline-text-4" id="text-3-4-3">
+<p>
+infinite, dim 2 (but each vector is dim 3)
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org78cc11a" class="outline-3">
+<h3 id="org78cc11a"><span class="section-number-3">3.5</span> \(A = \begin{pmatrix}1&0&0\\0&1&0\\0&1&0\end{pmatrix}\)</h3>
+<div class="outline-text-3" id="text-3-5">
+</div>
+<div id="outline-container-org14ea0a1" class="outline-4">
+<h4 id="org14ea0a1"><span class="section-number-4">3.5.1</span> How many solutions \(x\) satisfy \(Ax=0\)?</h4>
+<div class="outline-text-4" id="text-3-5-1">
+<p>
+infinite, vectors of the form \(\begin{pmatrix}0\\a\\-a\end{pmatrix}\) (columns linearly dependent)
+</p>
+</div>
+</div>
+<div id="outline-container-orgfce5f30" class="outline-4">
+<h4 id="orgfce5f30"><span class="section-number-4">3.5.2</span> When the answer is "infinitely many" what tools might we have to describe the size of that set?</h4>
+<div class="outline-text-4" id="text-3-5-2">
+<p>
+dimension 2 subspace of \(\mathbb F^3\)
+</p>
+</div>
+</div>
+<div id="outline-container-org27115d2" class="outline-4">
+<h4 id="org27115d2"><span class="section-number-4">3.5.3</span> How many possible outcomes \(b\) are there for the equation \(Ax=b\) for any \(x\).</h4>
+<div class="outline-text-4" id="text-3-5-3">
+<p>
+infinite, dim2 subspace of \(\mathbb F^3\)
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge435fe5" class="outline-3">
+<h3 id="orge435fe5"><span class="section-number-3">3.6</span> \(A = \begin{pmatrix}0&0&0\\0&0&3\\0&0&0\end{pmatrix}\)</h3>
+<div class="outline-text-3" id="text-3-6">
+</div>
+<div id="outline-container-org77d180f" class="outline-4">
+<h4 id="org77d180f"><span class="section-number-4">3.6.1</span> How many solutions \(x\) satisfy \(Ax=0\)?</h4>
+<div class="outline-text-4" id="text-3-6-1">
+<p>
+infinite, vectors of the form \(\begin{pmatrix}a\\b\\0\end{pmatrix}\) (columns linearly dependent)
+</p>
+</div>
+</div>
+<div id="outline-container-org7615aec" class="outline-4">
+<h4 id="org7615aec"><span class="section-number-4">3.6.2</span> When the answer is "infinitely many" what tools might we have to describe the size of that set?</h4>
+<div class="outline-text-4" id="text-3-6-2">
+<p>
+dim 2 subspace of \(\mathbb F^3\)
+</p>
+</div>
+</div>
+<div id="outline-container-org5108f40" class="outline-4">
+<h4 id="org5108f40"><span class="section-number-4">3.6.3</span> How many possible outcomes \(b\) are there for the equation \(Ax=b\) for any \(x\).</h4>
+<div class="outline-text-4" id="text-3-6-3">
+<p>
+output has dim 1
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd00b150" class="outline-3">
+<h3 id="orgd00b150"><span class="section-number-3">3.7</span> \(A = \begin{pmatrix}1&2&-1\\1&-1&0\\3&3&-2\end{pmatrix}\)</h3>
+<div class="outline-text-3" id="text-3-7">
+</div>
+<div id="outline-container-org7c135a8" class="outline-4">
+<h4 id="org7c135a8"><span class="section-number-4">3.7.1</span> How many solutions \(x\) satisfy \(Ax=0\)?</h4>
+<div class="outline-text-4" id="text-3-7-1">
+<p>
+Seems like the rows are linearly independent, so it should be just 1 solution \(x=0\)?
+infinite, vectors of the form \(\begin{pmatrix}a\\b\\0\end{pmatrix}\) (columns linearly dependent)
+</p>
+</div>
+</div>
+<div id="outline-container-org1bef06f" class="outline-4">
+<h4 id="org1bef06f"><span class="section-number-4">3.7.2</span> When the answer is "infinitely many" what tools might we have to describe the size of that set?</h4>
+<div class="outline-text-4" id="text-3-7-2">
+<p>
+dim 0
+</p>
+</div>
+</div>
+<div id="outline-container-org7d35d94" class="outline-4">
+<h4 id="org7d35d94"><span class="section-number-4">3.7.3</span> How many possible outcomes \(b\) are there for the equation \(Ax=b\) for any \(x\).</h4>
+<div class="outline-text-4" id="text-3-7-3">
+<p>
+output should be dim 3
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org44f39d9" class="outline-2">
+<h2 id="org44f39d9"><span class="section-number-2">4</span> Then we talked about some stuff</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgbaf426e" class="outline-3">
+<h3 id="orgbaf426e"><span class="section-number-3">4.1</span> see <a href="./KBrefHomogeneousEquations.html">./KBrefHomogeneousEquations.html</a> and <a href="./KBrefColumnSpace.html">./KBrefColumnSpace.html</a></h3>
+</div>
+
+<div id="outline-container-org2f65d63" class="outline-3">
+<h3 id="org2f65d63"><span class="section-number-3">4.2</span> The null space is the stuff that gets sent to zero (responses to subpart 1)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="definition">definition</span>&#xa0;<span class="toexpand">toexpand</span></span></h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+See <a href="KBrefNullSpace.html">Null Spaces</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

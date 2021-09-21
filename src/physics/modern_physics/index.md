@@ -26,6 +26,10 @@ source: #index
 - [[KBhPHYS201Capacitors]] 
 * [[KBhPHYS201CircuitsIndex]] Circuits!
 
+### Resistors
+- [[KBxResistorsFlow]]
+
+
 ### Capacitors
 - [[KBhPHYS201Capacitors]]
 - [[KBe20phys250retCapacitenceResistanceQuestion]]

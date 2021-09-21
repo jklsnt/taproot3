@@ -5,7 +5,7 @@ source: KBMUS150INDEX
 course: MUS150
 ---
 
-# Arrangemnet
+# Arrangement
 
 #disorganized
 

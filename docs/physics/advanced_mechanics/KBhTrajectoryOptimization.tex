@@ -1,0 +1,86 @@
+% Created 2021-09-14 Tue 18:57
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Houjun Liu}
+\date{\today}
+\title{Optimizing the Trajectory of a Bead Shooter}
+\hypersetup{
+ pdfauthor={Houjun Liu},
+ pdftitle={Optimizing the Trajectory of a Bead Shooter},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+We begin by defining a system
+
+\(\theta\) is the angle by which the shooter is aimed, the shooter shoots at \(v_0\), the projectile travels a distance of \(R\).
+
+So, define a function \(R(\theta) = R\).
+
+Hence, the goal of this project is to find local mix, min points (critical points that arn't inflection points), which means --- at a minimum\ldots{}
+
+vs
+
+\begin{equation}
+    \frac{dR}{d\theta} = 0
+\end{equation}
+
+which would therefore indicate a \(\theta\) such that the distance would be the longest.
+
+Hence, to get the longest distance, solve.
+
+There was apparently \href{https://www.notion.so/shabangsystems/Projectiles-Trajectories-d9d491162e6844f9aefd2cc6dda8d334}{my old notes} on this. But not sure if its helpful.
+
+
+\begin{align}
+    &y(t), y_0=0, y_f=0 \\
+&x(t), x_0=0, y_f=R \\
+y(t) =& \frac{-1}{2} gt^2 + V_0_y t + y_0, V_0_y =  V_0 \sin\theta \\
+y(t) =& \frac{-1}{2} gt^2 + V_0 \sin\theta t + y_0\\
+x(t) =& 0 (g=0) + V_0_x t + x_0, V_0_x = V_0 \cos\theta  \\
+x(f) =& 0 (g=0) + V_0 \cos\theta t + x_0 \\
+0\ (end\ up\ on\ ground) = y_f = y(t_f) =& -\frac{1}{2}g t_f^2 + (v_0\sin\theta)t_f \\
+R\ (want\ to\ travel\ R) = x_f = x(t_f) =& (v_0\cos\theta)t_f \\
+\end{align}
+\end{document}
