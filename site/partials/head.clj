@@ -20,6 +20,11 @@
         'inlineMath': [ ['$','$'], ['\\\\(','\\\\)'] ],
         'processEscapes': true
         },
+  tex: {
+    autoload: {
+      cases: [[], ['numcases', 'subnumcases']]
+    }
+  },
         'HTML-CSS': { scale: 100,
                         linebreaks: { automatic: 'false' },
                         webFont: 'TeX'
