@@ -31,9 +31,5 @@
         TeX: { equationNumbers: {autoNumber: 'AMS'},
                MultLineWidth: '85%',
                TagSide: 'right',
-               TagIndent: '.8em'}
-tex: {
-autoload: {
-                cases: [[], ['numcases', 'subnumcases']]
-        }
-}})")]])
+               TagIndent: '.8em'
+             }})")]])
