@@ -32,6 +32,8 @@
                MultLineWidth: '85%',
                TagSide: 'right',
                TagIndent: '.8em',
-                autoload: {
+tex: {
+autoload: {
                 cases: [[], ['numcases', 'subnumcases']]
-        }}})")]])
+        }
+}}})")]])
