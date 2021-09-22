@@ -67,7 +67,7 @@ but don't you get out a single vector at the end..? because you add them? #quest
 - lineary dependant 
 	- opposite, can get to 0 with non-zero scalars
 
-
+#review the end here
 
 
 
