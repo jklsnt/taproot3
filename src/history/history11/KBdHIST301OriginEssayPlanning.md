@@ -63,7 +63,7 @@ Facing East - ''
 
 1. Intro thing - present thesis
 2. Early North American Pre-independence History and Facing East
-   - Facing East effectively captures the dynamics between Europeans and Native Americans because it analyzes the ways economic and social factors influenced each other.
+   - Social and Economic factors are able to be separated, but viewing the events through either lens will not give the full picture
    - Example: Native American–European Trading
 	 - Fur Trading
 		 - Some Native American tribes prospered because of their geography and environment, whereas others were left broke. This created power balances. (economic impacts social)
@@ -72,8 +72,10 @@ Facing East - ''
 	 - Guns
 		 - Very powerful in inter-tribe warfare, were highly sought after (both economic impacts social and social impacts economic)
 3. Later North American Pre-independence History and American Paradox
-   - Example: Master-Servant Dynamic
-   - 
+   - Social and Economic factors cannot be separated; they are so intertwined that it is impossible to categorize events as being purely economic or social
+   - Example: Master-Servant Dynamic + Slaves
+	 - Civil unrest due to unemployment in Britain leads to import of workers (acting as servants) to America
+	 - Fear of similar unrest in America from large worker immigration leads to slave imports and reliance, as well as more rights for former servants
 
 # Essay (1st Draft)
 
