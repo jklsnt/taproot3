@@ -62,8 +62,8 @@ Facing East - ''
 
 
 1. Intro thing - present thesis
-2. Early North American Pre-independence History
-   - Primarily Facing East
+2. Early North American Pre-independence History and Facing East
+   - Facing East effectively captures the dynamics between Europeans and Native Americans because it analyzes the ways economic and social factors influenced each other.
    - Example: Native American–European Trading
 	 - Fur Trading
 		 - Some Native American tribes prospered because of their geography and environment, whereas others were left broke. This created power balances. (economic impacts social)
