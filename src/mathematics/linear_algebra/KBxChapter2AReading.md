@@ -13,8 +13,9 @@ date: 2021-09-21
 # Finite-Dimensional Vector Spaces
 
 ```ad-tip
-title:
-jsfs
+title: Review
+F denotes R or C
+V denotes a vector space over F
 ```
 
 
