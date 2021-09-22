@@ -45,6 +45,8 @@ title: learning objectives for the chapter
 	
 - *span*
 	- the set of all linear combos of a list of vectors
+		- denoted: span(v1,...,vm)
+	- 
 
 
 
