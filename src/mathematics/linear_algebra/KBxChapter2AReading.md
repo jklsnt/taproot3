@@ -38,7 +38,7 @@ title: learning objectives for the chapter
 		- n-tuples without surrounding parens
 		
 - linear combination
-	- 
+	- a linear combination of _x_ and _y_ would be any expression of the form _ax_ + _by_, where _a_ and _b_ are constants ~ wiki
 
 
 
