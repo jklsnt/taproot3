@@ -19,7 +19,8 @@ V denotes a [[KBe20math530refVectorSpace]] over F
 ```
 
 
-
+- lin alg does not focus on arbitrary vector spaces
+- it focuses on finite-dimensional vector spaces!
 
 
 
