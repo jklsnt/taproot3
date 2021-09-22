@@ -15,8 +15,7 @@ date: 2021-09-21
 ```ad-tip
 title: Review
 F denotes R or C
-V denotes a vector space over F
-[[KBe20math530refVectorSpace]]
+V denotes a [[KBe20math530refVectorSpace]] over F 
 ```
 
 
