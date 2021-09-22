@@ -48,7 +48,10 @@ title: learning objectives for the chapter
 		- denoted: span(v1,...,vm)
 	- span of empty list is {0}
 	- aka. linear span
-- 
+
+```ad-tip
+the span of a list of vectors is the smallest subspace of V containing the all vectors in the list
+```
 
 
 
