@@ -68,7 +68,7 @@ but don't you get out a single vector at the end..? because you add them? #quest
 	- opposite, can get to 0 with non-zero scalars
 
 #review the end here
-
+#todo some exercises
 
 
 
