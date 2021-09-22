@@ -64,7 +64,8 @@ but don't you get out a single vector at the end..? because you add them? #quest
 - linear independence
 	- a list of vecors in V where the only choise of a1 ... am in F that makes a1v1 + ... + amvm = 0 is a1 = ... = am = 0
 	- uniqe way to get 0?
-- 
+- lineary dependant 
+	- opposite, can get to 0 with non-zero scalars
 
 
 
