@@ -5,8 +5,57 @@ author:  Huxley Marvit
 date: 2021-09-21
 ---
 
-#flo #ret #ref
-#disorganized #incomplete
-#inclass 
+#flo #hw
 
 ***
+
+
+# Finite-Dimensional Vector Spaces
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
