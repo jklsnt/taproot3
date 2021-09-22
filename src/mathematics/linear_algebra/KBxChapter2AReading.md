@@ -56,7 +56,8 @@ the span of a list of vectors in V is the smallest subspace of V containing all 
 but don't you get out a single vector at the end..? because you add them? #question no! because it's the *set* of all linear combos
 ```
 
-
+- *finite-dimensional vector space
+	- a vector space is called  finite-dimensional-
 
 
 
