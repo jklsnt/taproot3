@@ -2,6 +2,10 @@ title: sort
 
 ---
 
+lemma sort is cool!
+
+---
+
 convecto, name for smt
 means gather in latin
 
