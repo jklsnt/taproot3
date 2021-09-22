@@ -36,7 +36,9 @@ title: learning objectives for the chapter
 		- (2,1,4),(3,2,5)
 			- list len 2 of vectors in R^3
 		- n-tuples without surrounding parens
-- 
+		
+- linear combination
+	- 
 
 
 
