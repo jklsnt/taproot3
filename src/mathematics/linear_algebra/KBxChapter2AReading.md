@@ -44,7 +44,7 @@ title: learning objectives for the chapter
 	- any relation between the element scalar and what's being multiplied? can the scalars repeat?  #question
 	
 - *span*
-	- 
+	- the set of all linear combos of a list of vectors
 
 
 
