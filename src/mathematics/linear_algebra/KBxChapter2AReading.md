@@ -31,7 +31,10 @@ title: learning objectives for the chapter
 
 ```
 
-
+- **notation**:
+	- lists of vectors:
+		- (2,1,4),(3,2,5)
+		- n-tuples without sourounding parens
 
 
 
