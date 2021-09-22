@@ -40,7 +40,8 @@ title: learning objectives for the chapter
 - linear combination
 	- a linear combination of _x_ and _y_ would be any expression of the form _ax_ + _by_, where _a_ and _b_ are constants ~wiki
 	- multiply each element in a list of vectors by an element in F
-	- any relation between the element scalar and what's being multiplied? can the scalars repeat? 
+	- and then add them up!
+	- any relation between the element scalar and what's being multiplied? can the scalars repeat?  #question
 	- 
 
 
