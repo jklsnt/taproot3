@@ -18,3 +18,4 @@ source:  #index
 [[KBxChessMovesandMoreReading]]
 [[KBxSyllogismsandtheContrapositiveHW]]
 [[KBxSyllogismsandtheContrapositiveInclass]]
+[[KBxChapter2AReading]]
