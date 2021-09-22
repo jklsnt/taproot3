@@ -71,9 +71,9 @@ Facing East - ''
 		 - Very valuable to Native Americans due to their improved durability in comparison to Native American tools, and allowed for more efficient work (economic impacts social)
 	 - Guns
 		 - Very powerful in inter-tribe warfare, were highly sought after (both economic impacts social and social impacts economic)
-3. Later North American Pre-independence History
-   - Primarily American Paradox
-   - Example: 
+3. Later North American Pre-independence History and American Paradox
+   - Example: Master-Servant Dynamic
+   - 
 
 # Essay (1st Draft)
 
