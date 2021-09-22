@@ -81,3 +81,4 @@ Facing East - ''
 # Essay (1st Draft)
 
 	The socio-economic lens is effective for the analysis of early American hsitory because the cylical relationship between a society's economics and social forces sheds light on the causes of the many events. (TEMP)
+	Utilizing the socioeconomic lens is effective for analyzing early North American pre-industrial history.
