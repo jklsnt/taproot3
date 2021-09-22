@@ -47,6 +47,7 @@ title: learning objectives for the chapter
 	- the set of all linear combos of a list of vectors
 		- denoted: span(v1,...,vm)
 	- span of empty list is {0}
+	- aka. linear span
 - 
 
 
