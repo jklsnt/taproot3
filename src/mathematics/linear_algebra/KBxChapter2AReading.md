@@ -51,6 +51,8 @@ title: learning objectives for the chapter
 
 ```ad-tip
 the span of a list of vectors in V is the smallest subspace of V containing all the vectors in the list
+```ad-question
+but don't you get out a single vector at the end..?
 ```
 
 
