@@ -34,7 +34,9 @@ title: learning objectives for the chapter
 - **notation**:
 	- lists of vectors:
 		- (2,1,4),(3,2,5)
-		- n-tuples without sourounding parens
+			- list len 2 of vectors in R^3
+		- n-tuples without surrounding parens
+- 
 
 
 
