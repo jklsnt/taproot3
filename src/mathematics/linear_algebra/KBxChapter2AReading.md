@@ -58,6 +58,8 @@ but don't you get out a single vector at the end..? because you add them? #quest
 
 - *finite-dimensional vector space
 	- a vector space is called finite-dimensional if some list of vectors in it spaces the space
+		- ??
+	- 
 
 
 
