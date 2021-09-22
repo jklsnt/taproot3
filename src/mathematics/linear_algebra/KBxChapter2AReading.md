@@ -56,11 +56,9 @@ the span of a list of vectors in V is the smallest subspace of V containing all 
 but don't you get out a single vector at the end..? because you add them? #question 
 ```
 
-```
 
 
-
-
+uhhhhhhhhhh, ok?
 
 
 
