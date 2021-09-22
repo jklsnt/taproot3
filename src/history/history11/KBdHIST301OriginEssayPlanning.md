@@ -76,7 +76,8 @@ Facing East - ''
    - Example: Master-Servant Dynamic + Slaves
 	 - Civil unrest due to unemployment in Britain leads to import of workers (acting as servants) to America
 	 - Fear of similar unrest in America from large worker immigration leads to slave imports and reliance, as well as more rights for former servants
+4. 
 
 # Essay (1st Draft)
 
-	
+	The socio-economic lens is effective for the analysis of early American hsitory because the cylical relationship between a society's economics and social forces sheds light on the causes of the many events. (TEMP)
