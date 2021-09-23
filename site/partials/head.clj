@@ -1,11 +1,11 @@
 (defn head
-  [{:keys [build-url site-title site-author site-desc]}]
+  [{:keys [build-url site-title site-author site-desc title meta]}]
   [:head
    [:meta {:charset "utf-8"}]
    [:meta {:name "viewport" :content "width=device-width, initial-scale=1.0"}]
-   [:meta {:name "author" :content site-author}]
-   [:meta {:name "description" :content site-desc}]
-   [:title site-title]
+   [:meta {:name "author" :content (-> meta :keywords :author)}]
+   [:meta {:name "description" :content "A note on Taproot, a connected notes system."}]
+   [:title title]
    [:link {:rel "stylesheet" :href "/static/css/firn_base.css"}]
    [:link {:rel "stylesheet" :href "/static/css/prism.css"}]
    [:link {:rel "stylesheet" :href "/static/css/global.css"}]

@@ -12,3 +12,4 @@ source:  #index
 - [[KBxDayOneMathMod55]]
 - [[KBxTheElevatorProblem]]
 - [[KBxLakeProb]]
+- [[KBxSupertangrams]]

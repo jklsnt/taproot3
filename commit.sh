@@ -13,7 +13,11 @@ do
     git add site
     git add .
 
+    NUMCHANGED=$(git diff --cached --numstat | wc -l)
 
+    if (( NUMCHANGED < 4 )); then
+        continue
+    fi
 
     # Ship it!
     git commit -a -m "taproot3 autocommit $(date "+%Y-%m-%d %H:%M:%S")"

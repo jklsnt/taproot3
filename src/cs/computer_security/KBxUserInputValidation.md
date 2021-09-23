@@ -84,13 +84,54 @@ Breaks:
 
 ## Buffer overflow
 
+Try to give a password that is not the correct one but does grant you access.
+
+```c
+// from http://stackoverflow.com/questions/34247068/buffer-overflow-does-not-work-on-mac-osx-el-capitan
+#include "stdio.h"
+#include "string.h"
+
+int check_authentication(char *password) {
+    int auth_flag = 0;
+	char password_buffer[20]; // vulnerability
 
 
+    strcpy(password_buffer, password);
 
+    if (strcmp(password_buffer, "password") == 0) { // correct password: password
+        auth_flag = 1;
+    }
 
+    return auth_flag;
+}
 
+int main(int argc, char* argv[]) {
+    if (argc < 2) {
+        printf("Usage: %s <password>\n", argv[0]);
+    }
 
+    if (check_authentication(argv[1])) {
+        printf("Access Granted.\n");
+    } else {
+        printf("Access Denied.\n");
+    }
+}
+```
 
+```ad-tip
+compile with  `gcc -fno-stack-protector -D_FORTIFY_SOURCE=0 buffer_overflow.c` !
+```
+
+```zsh
+> ./a.out 123456789abcdefghijkl 
+Access Granted.
+```
+```py
+> ipython
+In [1]: x = "123456789abcdefghijkl"
+In [2]: len(x) # overflow with len > 20
+Out[2]: 21
+```
 
 
 

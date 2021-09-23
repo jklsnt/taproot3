@@ -24,8 +24,8 @@ V denotes a [[KBe20math530refVectorSpace]] over F
 
 ```ad-abstract
 title: learning objectives for the chapter
-- span
-- linear independence 
+- span //covered in section
+- linear independence //covered in section
 - bases 
 - dimension
 
@@ -48,6 +48,7 @@ title: learning objectives for the chapter
 		- denoted: span(v1,...,vm)
 	- span of empty list is {0}
 	- aka. linear span
+- [[KBxSpansLinAlg]]
 
 ```ad-tip
 the span of a list of vectors in V is the smallest subspace of V containing all the vectors in the list
@@ -58,7 +59,8 @@ but don't you get out a single vector at the end..? because you add them? #quest
 
 - *finite-dimensional vector space
 	- a vector space is called finite-dimensional if some list of vectors in it spaces the space
-		- ??
+		- spans the space..?
+		- ????
 
 
 - linear independence
@@ -66,6 +68,7 @@ but don't you get out a single vector at the end..? because you add them? #quest
 	- uniqe way to get 0?
 - lineary dependant 
 	- opposite, can get to 0 with non-zero scalars
+- [[KBxLinearIndependence]]
 
 #review the end here
 #todo some exercises

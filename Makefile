@@ -97,6 +97,11 @@ src/%.pdf: docs/%.pdf
 	-cp "$<" "$@"
 
 redux: $(PDF_REDUX)
+	find . -d -name "_*.md" -exec rm -f {} \;
+	find . -d -name "*_.gen" -exec rm -f {} \;
+	find . -d -name "*~" -exec rm -f {} \;
+	find . -d -name "*sync-conflict*" -exec rm -f {} \;
+
 	find . -d -name "*~" -exec rm -f {} \;
 
 
@@ -104,11 +109,11 @@ redux: $(PDF_REDUX)
 # Aftercare
 clean: 
 	find . -d -name "*.latex" -exec rm -f {} \;
-	find . -d -name "_*.md" -exec rm -f {} \;
-	find . -d -name "*_.gen" -exec rm -f {} \;
 	find . -d -name "*.html" -exec rm -f {} \;
 	find . -d -name "*.pdf" -exec rm -f {} \;
 	find . -d -name "*.tex" -exec rm -f {} \;
+	find . -d -name "_*.md" -exec rm -f {} \;
+	find . -d -name "*_.gen" -exec rm -f {} \;
 	find . -d -name "*~" -exec rm -f {} \;
 	find . -d -name "*sync-conflict*" -exec rm -f {} \;
 	rm -f $(CONV_ALL)

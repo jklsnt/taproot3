@@ -9,6 +9,9 @@ source:  #index
 
 ---
 
+## Linear Algebra Master Index
+
+####  Chapter 1
 [[KBxLInAlgDayTwo]]
 [[KBxGroupAndMatricesIntro]]
 [[KBxChapter1aReview]]
@@ -18,4 +21,12 @@ source:  #index
 [[KBxChessMovesandMoreReading]]
 [[KBxSyllogismsandtheContrapositiveHW]]
 [[KBxSyllogismsandtheContrapositiveInclass]]
-[[KBxChapter2AReading]]
+
+#### Chapter 2
+- [[KBxChapter2AReading]]
+	- [[KB20math530refLinearIndependence]]
+	- [[KBxLinearIndependence]]
+	- [[KBxSpansLinAlg]]
+[[KBxLinAlgLongNotTheoretical]]
+[[KBxBestFitLinesViaMatrixEquations]]
+

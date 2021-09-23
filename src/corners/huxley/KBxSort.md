@@ -2,6 +2,10 @@ title: sort
 
 ---
 
+https://jasonwarta.github.io/latex-matrix/ is very useful
+
+---
+
 lemma sort is cool!
 
 ---
