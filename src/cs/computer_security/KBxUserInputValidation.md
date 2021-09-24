@@ -64,9 +64,11 @@ Breaks:
 
 Write a comment that will cause some JavaScript to run. 
 
-```js
-<img src="!exist" onerror="alert('XSS')"> // alerts XSS
+```html
+<img src="!exist" onerror="alert('XSS')">; // alerts XSS
 ```
+
+
 
 Updated site:
 
@@ -132,10 +134,6 @@ In [1]: x = "123456789abcdefghijkl"
 In [2]: len(x) # overflow with len > 20
 Out[2]: 21
 ```
-
-
-
-
 
 
 

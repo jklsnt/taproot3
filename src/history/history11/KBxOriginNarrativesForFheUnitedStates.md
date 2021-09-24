@@ -7,7 +7,7 @@ source:  #21hist301/KBHIST301MasterIndex
 
 #ret #disorganized #incomplete
 
----
+***
 
 # history? essay.
 
@@ -35,6 +35,72 @@ we shoudnt have a narrative?
 narrative should be ever changing to solve societal problems?
 
 
+
+### more planning
+
+can;t have one simple narrative
+
+
+narratives: events filtered by framework, turned into a story
+
+
+
+value strucutrs, project narratives onto them
+america good: america ended slavery, we should be the heroes!
+vs.
+america bad: america was built on slavery and sin
+
+
+**the narravisation process:**
+
+values
+narrative strucutre
+events
+
+filter events on values
+fit into narrative structure
+
+narrative absorbed into populace
+changes/creates -- perpuates --  populaces values
+
+
+
+there is no complete narrative -- 
+what should the narrative be? one of many.
+
+narratives are true but not complete
+
+narratives do not need to be complete to be true
+to have truth?
+
+
+narratives incomplete 
+incomplete truths revealed
+narrvitization process 
+
+
+rough outline:
+
+- narravisation process
+	- values filter events
+		- distortive!
+	- events fit into narrative structure
+		- distoritve!
+	- narrative creates values 
+		- creates disorted/incomplete values!
+	- big point:
+		- narratives are inherently distorted/incomplete
+
+- narrativisation
+- america good
+- america bad
+- both have truth
+	- we should look to multiple narratives
+		- embrace the truth in each even when they conflict
+- conclusion
+	- we have to live with multiple narratives in conflict 
+
+thesis: narratives are inherently distorting, and thus we must not operate under a singular narrative
 
 
 

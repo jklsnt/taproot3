@@ -41,7 +41,10 @@ but, if they are all zero, then it's just 0 = 0!
 
 
 ### checking independence
-check the requirement to see if it is linearly independant
+check the requirement to see if it is linearly independant.
+or, see if they are co-liniear (lie on the same vector?)
+
+
 look for a set of non-zero scalars that makes the linear combination of the set equal to 0
 if one exists, then it is linearly dependent. if one doesn't then it is linearly independant.
 

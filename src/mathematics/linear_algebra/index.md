@@ -27,6 +27,8 @@ source:  #index
 	- [[KB20math530refLinearIndependence]]
 	- [[KBxLinearIndependence]]
 	- [[KBxSpansLinAlg]]
+	- [[KBxChapter2AReview]]
 [[KBxLinAlgLongNotTheoretical]]
 [[KBxBestFitLinesViaMatrixEquations]]
+[[KBx2AQuestionsHW]]
 

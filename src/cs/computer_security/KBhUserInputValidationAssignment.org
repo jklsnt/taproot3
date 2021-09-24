@@ -215,4 +215,17 @@ and the side-effect statement will perform more ergonomically:
 As you could see, the list is actually, properly sliced in instead of triggering executing code.
 
 * Legal/Ethical Concerns
-The problem that exist with Clojure macro evaluation is that it is very easily (and perhaps commonly) created by even seasoned Clojurists. Acc
+The problem that exist with Clojure macro evaluation issues is that it is very easily (and perhaps commonly) created by even seasoned Clojurists.
+
+Exploitation of these issues could take a variety of forms, but the main and easiest form of these payloads probably are introduced through programs that take Clojurescript/Clojure as extension languages, which is becoming more common as it leverages the extensibility of these languages.
+
+One possible attacker may create an extension or a string on a fileserver fetched by the extension that is used and evaluated as an argument of a badly-written macro. This may subsequently access APIs (or, in worse cases where the plugin passes a macro exposed by server-side Clojure code, even perform server-side modifications.)
+
+Such action would, therefore, create modifications and unlawful access to systems that may not even have been a member of the base system that was exploited (for instance, inserting =slurp("../../../test.txt")= to read a random file a few directories up.)
+
+This would, of course, be under the purview of =18USC§1030.a1=, which defines "knowingly accessed a computer without authorization" as something punishable under =18USC§1030.c=. Furthermore, it would likely be an unethical use of both the plug in and the target system as it is directly creating the possibility and channels for completely unauthorized access.
+
+Due to the proliferation of such code, however, and the fact that extensions are knowingly accessible from the public, it is also likely that the individual attacking may not know this loophole at all and proceeded to accidentally invoke a macro as a function: for instance, passing =slurp= to a symbol expecting to slurp local files but due to it actually being a macro results in access of server files.
+
+As long as the unknowing "attacker" stops and notifies the owner of the system after realizing this, I don't believe it would be ethically challenging.
+

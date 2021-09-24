@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-20 Mon 15:07 -->
+<!-- 2021-09-23 Thu 13:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>User Input Validation Assignment</title>
@@ -219,13 +219,13 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div>User Input Validation Assignment  Houjun Liu 2021-09-20 Mon 15:07</div>
+<div>User Input Validation Assignment  Houjun Liu 2021-09-23 Thu 13:46</div>
 </div>
 <div id="content">
 <h1 class="title">User Input Validation Assignment</h1>
 
-<div id="outline-container-orgc1d3957" class="outline-2">
-<h2 id="orgc1d3957"><span class="section-number-2">1</span> Clojure, in brief&#x2026;</h2>
+<div id="outline-container-orgd9629a4" class="outline-2">
+<h2 id="orgd9629a4"><span class="section-number-2">1</span> Clojure, in brief&#x2026;</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The programming language <a href="https://clojure.org/">Clojure</a>, a variant of Lisp built atop the Java Virtual Machine, is known to be a safe language to low level attacks such as buffer overflow due to the insulation of its execution space.
@@ -240,8 +240,8 @@ Before we could introduce the vulnerabilities that could come with the misuse of
 </p>
 </div>
 
-<div id="outline-container-orga04bda9" class="outline-3">
-<h3 id="orga04bda9"><span class="section-number-3">1.1</span> Unquote slicing</h3>
+<div id="outline-container-org1c3d253" class="outline-3">
+<h3 id="org1c3d253"><span class="section-number-3">1.1</span> Unquote slicing</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 "Unquoting" is a facility to introduce <code>code-mode</code> elements into <code>data-mode</code> lists. Here, for instance, is a regular data mode list that evaluates to value <code>(1 2 3 4)</code>:
@@ -271,8 +271,8 @@ As you could see, the result is still <code>(1 2 3 4)</code>, yet the latter cas
 </div>
 </div>
 
-<div id="outline-container-org0937148" class="outline-3">
-<h3 id="org0937148"><span class="section-number-3">1.2</span> Macros</h3>
+<div id="outline-container-org356a7ff" class="outline-3">
+<h3 id="org356a7ff"><span class="section-number-3">1.2</span> Macros</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Marcos are a powerful way of manipulating the syntax of code. Essentially, they are compile-time unraveled directives that take arguments as <code>data-mode</code> lists and return a sliced <code>data-mode</code> expression.
@@ -313,8 +313,8 @@ As you could see, this macro did not <i>evaluate</i> its arguments, but instead 
 </div>
 </div>
 
-<div id="outline-container-org586e715" class="outline-2">
-<h2 id="org586e715"><span class="section-number-2">2</span> Dangers of Macro Arguments</h2>
+<div id="outline-container-org968e7dc" class="outline-2">
+<h2 id="org968e7dc"><span class="section-number-2">2</span> Dangers of Macro Arguments</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Macros do not evaluate nor &#x2014; by default &#x2014; make any attempts to parse the contents of it arguments. Therefore, if an argument is unquoted wholesale into the result unwrapped expression, it is functionally equivalent to calling <code>eval</code> upon the statement is it will not be parsed at <i>compile-time</i> but instead on <i>run-time</i>.
@@ -376,16 +376,16 @@ As you could see, the argument is evaluated and passed evaluated <i>before</i> t
 </div>
 </div>
 
-<div id="outline-container-orgcb2a8d6" class="outline-2">
-<h2 id="orgcb2a8d6"><span class="section-number-2">3</span> Preventing Macro Argument Evaluation</h2>
+<div id="outline-container-orgf301c7a" class="outline-2">
+<h2 id="orgf301c7a"><span class="section-number-2">3</span> Preventing Macro Argument Evaluation</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The simplest mechanism by which this type of evaluation could be prevented is via the use of assert statements or even list manipulation to establish basic assumptions regarding the argument.
 </p>
 </div>
 
-<div id="outline-container-org7fc3cec" class="outline-3">
-<h3 id="org7fc3cec"><span class="section-number-3">3.1</span> Nonexample</h3>
+<div id="outline-container-org35a4ccc" class="outline-3">
+<h3 id="org35a4ccc"><span class="section-number-3">3.1</span> Nonexample</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 For instance, we write the following macro create a list of two elements.
@@ -421,8 +421,8 @@ As you could see, the statement <code>code execution</code> is <i>printed</i>, i
 </div>
 </div>
 
-<div id="outline-container-orge17626f" class="outline-3">
-<h3 id="orge17626f"><span class="section-number-3">3.2</span> <code>assert</code> based solution</h3>
+<div id="outline-container-org6f9d401" class="outline-3">
+<h3 id="org6f9d401"><span class="section-number-3">3.2</span> <code>assert</code> based solution</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 One way to solve this is by asserting that the argument <code>a</code> is an <code>atom</code> &#x2014; meaning it does not contain <code>s-expressions</code> that could be accidentally evaluated. This would be implemented as follows:
@@ -455,8 +455,8 @@ And the statement with side-effects would, on <i>compile-time</i> throw an <code
 </div>
 </div>
 
-<div id="outline-container-org18b9af3" class="outline-3">
-<h3 id="org18b9af3"><span class="section-number-3">3.3</span> More ergonomic solution</h3>
+<div id="outline-container-orge5e2a42" class="outline-3">
+<h3 id="orge5e2a42"><span class="section-number-3">3.3</span> More ergonomic solution</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 There is an even more ergonomic solution to this problem. Instead of validating input, we could coerce the input to <code>data-mode</code> using the quote-expression, essentially sanitizing it. Hence, we could create an even more ergonomic concat like so:
@@ -493,11 +493,35 @@ As you could see, the list is actually, properly sliced in instead of triggering
 </div>
 </div>
 
-<div id="outline-container-orga749841" class="outline-2">
-<h2 id="orga749841"><span class="section-number-2">4</span> Legal/Ethical Concerns</h2>
+<div id="outline-container-org80138c9" class="outline-2">
+<h2 id="org80138c9"><span class="section-number-2">4</span> Legal/Ethical Concerns</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-The problem that exist with Clojure macro evaluation is that it is very easily (and perhaps commonly) created by even seasoned Clojurists. Acc
+The problem that exist with Clojure macro evaluation issues is that it is very easily (and perhaps commonly) created by even seasoned Clojurists.
+</p>
+
+<p>
+Exploitation of these issues could take a variety of forms, but the main and easiest form of these payloads probably are introduced through programs that take Clojurescript/Clojure as extension languages, which is becoming more common as it leverages the extensibility of these languages.
+</p>
+
+<p>
+One possible attacker may create an extension or a string on a fileserver fetched by the extension that is used and evaluated as an argument of a badly-written macro. This may subsequently access APIs (or, in worse cases where the plugin passes a macro exposed by server-side Clojure code, even perform server-side modifications.)
+</p>
+
+<p>
+Such action would, therefore, create modifications and unlawful access to systems that may not even have been a member of the base system that was exploited (for instance, inserting <code>slurp("../../../test.txt")</code> to read a random file a few directories up.)
+</p>
+
+<p>
+This would, of course, be under the purview of <code>18USC§1030.a1</code>, which defines "knowingly accessed a computer without authorization" as something punishable under <code>18USC§1030.c</code>. Furthermore, it would likely be an unethical use of both the plug in and the target system as it is directly creating the possibility and channels for completely unauthorized access.
+</p>
+
+<p>
+Due to the proliferation of such code, however, and the fact that extensions are knowingly accessible from the public, it is also likely that the individual attacking may not know this loophole at all and proceeded to accidentally invoke a macro as a function: for instance, passing <code>slurp</code> to a symbol expecting to slurp local files but due to it actually being a macro results in access of server files.
+</p>
+
+<p>
+As long as the unknowing "attacker" stops and notifies the owner of the system after realizing this, I don't believe it would be ethically challenging.
 </p>
 </div>
 </div>

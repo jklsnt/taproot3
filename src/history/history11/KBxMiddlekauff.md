@@ -40,23 +40,15 @@ coudnt really get rid of em, they didnt listen to the authority at all
 	- draws parreles about possesion 
 - ?????? this reading is all over the place
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Sugar
+- colonists: needs to be able to trade without intense tax to be able to grow econ
+- new prime minister: good, gets rid of all corrupt officials
+- smuggling: colonies are smuggling goods to trade with people other than britain because its more profitable
+- smuggling charges were being pursucuted in colonial courts 
+- judges sympathetic to colonists
+- custom officials captured a ship
+- yatta yatta
+- british were getting salty cus colonists were roudy
 
 
 
