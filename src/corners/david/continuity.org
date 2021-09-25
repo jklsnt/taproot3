@@ -1,0 +1,44 @@
+#+TITLE: Continuity
+#+STARTUP: indent showstars latexpreview
+
+* Continuity
+*DEFINITION* $f$ is _continuous_ at $x_0$ means $\lim_{x \rightarrow x_0} f(x) = f(x_0)$
+  The left side of the equation is evaluated independently here, and $x$ $\neq$ $x_0$ is always true.
+Continuous at $x_0$ means that the general limit exists from left or right, and $f(x_0)$ is defined. Left and right hand limits are the same.
+
+* Discontinuity
+** *DEFINITION* A "jump discontinuity" is when the limit from the left and right exist but are not equal.
+*EXAMPLE* The left and right hand limits of $f(x) = |x|$.
+  Discontinuity, while appearing technical in some regards, is important in many applications (such as modelling stock prices). Some applications have left as the 'past' and right as the 'future', making these concepts of direction more relevant.
+** *DEFINITION* A "removable discontinuity" is when the limit from the left and right are equal.
+*EXAMPLE* Any function with a hole in it.
+*EXAMPLE* $g(x) = \frac{sin(x)}{x}$ as $g(0) = \text{ ??}$
+However, this does in fact have a removable discontinuity as the $\lim_{x \rightarrow x_0} g(x) = 1$
+*EXAMPLE* $h(x) = \frac{1-cos(x)}{x}$ as $h(0) =\text{ ??}$
+This too has a removable discontinuity as the $\lim_{x \rightarrow x_0} h(x) = 0$
+  This is called "removable" because a redefinition of the function that lacked this hole would be continuous.
+** *DEFINITION* A "infinite discontinuity" is where both sides of the functions go towards an infinite value (such as a function with many asymptotes).
+*EXAMPLE* $y=\frac{1}{x}$
+The asymptotes allow left and right hand limits to be rather different.
+$\lim_{x \rightarrow 0^+} f(x) = \infty$
+$\lim_{x \rightarrow 0^-} f(x) = - \infty$
+  Expressions like $\lim_{x \rightarrow x_0} \frac{1}{x} = \infty$ are incorrect as this only takes into account the right side. Avoid generalizations like this!
+  Derivatives do not need to look like the original function.
+A good example is how $\frac{1}{x}$ looks different than it's derivative $\frac{1}{x^2}$.
+** /SIDENOTE/ There are plenty of other types of discontinuities.
+*EXAMPLE* $y = sin \frac{1}{x}$, where there is no left or right limit.
+*EXAMPLE* Many other oscillating functions behave this way as well.
+Derivatives do not need to look like the original function.
+*EXAMPLE* $\frac{1}{x}$ looks different than it's derivative $\frac{1}{x^2}$
+** /THEOREM/ If $f$ is differentiable at $x_0$, then $f$ is continuous at $x_0$
+*PROOF*
+This is equivalent to proving $\lim_{x \rightarrow x_0} f(x) - f(x_0) = 0$.
+  This is because the definition of continuity is that $\lim_{x \rightarrow x_0} f(x) = f(x_0)$
+The above expression is equivalent to $\lim_{x\rightarrow0} \frac{f(x) - f(x_0)}{x-x_0} (x-x_0)$.
+Evaluating this limit gives us 0, and therefore the theorem is true.
+$\lim_{x\rightarrow0} \frac{f(x) - f(x_0)}{x-x_0} (x-x_0) = f'(x_0) * 0 = 0$
+While it may appear that this proof divides by zero and this invalidates it, remember that $x \neq x_0$ at all times. Operations like divisions are legal because $x$ will get very small but will always remain nonzero. This property is central to the usefulness of limits.
+
+* Links
+
+Further reference can be found at [[file:limits-continuity-problems.org][Limits and Continuity Practice]].

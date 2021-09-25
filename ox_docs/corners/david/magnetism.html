@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-24 Fri 14:10 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Magnetism</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Taproot" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autolinker/prism-autolinker.min.js" integrity="sha512-PaneznVpkV74O5FWaHuGG2Pa9aVgbrnDwLFbcebZikYcFVPUYimvlZUAX6AElPKDJsSDTBl7aN6V1WxFDi24aw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://raw.githubusercontent.com/PrismJS/prism-themes/master/themes/prism-atom-dark.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div>Magnetism  Taproot 2021-09-24 Fri 13:59</div>
+</div>
+<div id="content">
+<h1 class="title">Magnetism</h1>
+
+<div id="outline-container-org5ab964e" class="outline-2">
+<h2 id="org5ab964e"><span class="section-number-2">1</span> Intro Magnetism</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+There is no such thing as a monopole, as splitting up a magnet into two pieces just gives you two smaller magnets.
+</p>
+</div>
+
+<div id="outline-container-orgf5b71ae" class="outline-3">
+<h3 id="orgf5b71ae"><span class="section-number-3">1.1</span> Fields</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Magnetic field lines point to the direction of magnetic north at each point.
+</p>
+
+<p>
+Magnetic fields are created by moving charges (like a current in a wire), and in the case of a straight current-carrying wire the magnetic field is a series of circles with increasing radius wrapping around it (encircling it). Because of this, magnetic fields are inherently
+three-dimensional in their representation.
+</p>
+
+<p>
+The convention for depicting three-dimensional fields is as follows:
+</p>
+<ul class="org-ul">
+<li>\(\bigodot\) for arrows going out of the page (tip of the arrow facing you)</li>
+<li>\(\bigotimes\) for arrows going into the page (tail of the arrow facing you)</li>
+</ul>
+
+<p>
+A current-carrying loop of wire produces the same series of circles for each point (imagine twisting the straight wire), all of which have the largest radius as the approach the center of the loop and the field line becomes nearly straight.
+</p>
+
+
+<p>
+Charge moving through a magnetic field feels a force that is the cross product of its velocity and the field lines (perpendicular to both forming a right angle): its direction can be decided by Right Hand Rule 2.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org57fc2bb" class="outline-3">
+<h3 id="org57fc2bb"><span class="section-number-3">1.2</span> Cross Product Notes</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Right hand rule 2 only for positive charges</li>
+<li>Perpendicular force causes circular motion
+<ul class="org-ul">
+<li>In a field pointed into the page and a particle travelling right, there is a force exerted downward. As the particle moves because of its velocity, the force's direction and magnitude change to continue to be perpendicular to it. A consistent perpendicular force inwards is circular motion (as we know from PHYS101)</li>
+</ul></li>
+<li>When direction of velocity equals direction of magnetic field there's no force (intuitive reason: there's no way to do that with the right hand rule)</li>
+<li>Cross product is used to calculate force</li>
+<li>\(F = q\mathbf{V} \times \mathbf{B}\)
+<ul class="org-ul">
+<li>This means direction is determined through right hand rule</li>
+<li>Magnitude is just \(F = qVB\sin{\theta}\)</li>
+</ul></li>
+<li>Earth has a magnetic field
+<ul class="org-ul">
+<li>Charged particles enter earths field and make circles around field lines (as lines converge the spiral becomes tighter).</li>
+</ul></li>
+</ul>
+
+<p>
+Electron is travelling at 2km/s to the right in a 50µT field which is directed upwards. Magnitude of the force = \(-1.602 * 10^{-19} * 2000 * 50 * 10^{-6} * \sin{90\degrees}\)
+</p>
+
+
+<ul class="org-ul">
+<li>For a wire we need to consider the amount of the wire inside the field to get force (we need length \(L\)).
+<ul class="org-ul">
+<li>A wire is just a tube of electrons so \(F=Q_{\text{total}} B V\). \(Q_{\text{total}}=nALq\)</li>
+<li>this cancels to \(Q_{\text{total}}=ILB\) since multiplying density of charge times area times the velocity yields current (since current is a measure of how much charge is flowing past a certain point per second).</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgc302857" class="outline-2">
+<h2 id="orgc302857"><span class="section-number-2">2</span> Right Hand Rules</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org1e4128e" class="outline-3">
+<h3 id="org1e4128e"><span class="section-number-3">2.1</span> Right Hand Rule 1</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Hold your right hand out in a thumbs up motion, where the thumb points in the direction of current. Your curled up fingers follow the direction of the magnetic field encircling the wire.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org39c4a27" class="outline-3">
+<h3 id="org39c4a27"><span class="section-number-3">2.2</span> Right Hand Rule 1.5</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Thumbs up motion, where the curled up fingers follow the direction of the wire's current. Your thumb points in the direction of the magnetic field lines going outwards (do not that there are loops of field lines that close up farther from the center too).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdd500eb" class="outline-3">
+<h3 id="orgdd500eb"><span class="section-number-3">2.3</span> Right Hand Rule 2</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Thumb is current, fingers are a magnetic field and the palm is the force experienced. AKA cross product.
+Coil:
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge1f5a1f" class="outline-2">
+<h2 id="orge1f5a1f"><span class="section-number-2">3</span> Field Equations</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Note that \(\mu_0 = 4\pi * 10^7\). N refers to number of loops throughout.
+</p>
+
+<ul class="org-ul">
+<li>Straight portion of wire: \(B = \frac{\mu_0 I}{2\pi r} N\) where r is dist from wire</li>
+<li>Loops: \(B = \frac{\mu_0 I R^2}{2(d^2 + R^2)^{3/2}}N\) where R is radius of loop and d is dist from loop center</li>
+<li>Long solenoid approximation (idealized, only use when length is much more than loop radus): \(B\approx \mu_0 \frac{N}{L} I\) where L is length of solenoid.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbfdecc6" class="outline-2">
+<h2 id="orgbfdecc6"><span class="section-number-2">4</span> Motors</h2>
+</div>
+
+<div id="outline-container-org178242c" class="outline-2">
+<h2 id="org178242c"><span class="section-number-2">5</span> Circular Motion</h2>
+</div>
+
+<div id="outline-container-org6938d73" class="outline-2">
+<h2 id="org6938d73"><span class="section-number-2">6</span> Induction</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+It's all just RHR 2: do consider that mechanical movement is movement of charge and therefore acts as current.
+</p>
+
+<p>
+Ex 1: current flowing through a loop induces movement by RHR 2 because
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7e2f56f" class="outline-2">
+<h2 id="org7e2f56f"><span class="section-number-2">7</span> Flux and EMF</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Flux through a surface is \(BA\), aka field times area. If there are loops, multiply this by \(N\). If the surface is tilted relative to the field lines the equation \(BA\cos{\theta}\) applies.
+</p>
+
+<p>
+EMF is given by rate of change in flux (\(-\frac{d\Phi}{dt}\)), aka Flux per second. Since Flux is in units of Volt-seconds this means that EMF is just Volts.
+</p>
+
+
+<ol class="org-ol">
+<li>As flux is \(BA\), flux increases.</li>
+<li>The corresponding EMF is in the opposite direction (\(-\frac{d\Phi}{dt}\))</li>
+<li>EMF is electromotive force, so true to its name it creates current in the opposite direction</li>
+<li>This current induces a downward pointing field opposing the flux change</li>
+</ol>
+</div>
+</div>
+</div>
+</body>
+</html>

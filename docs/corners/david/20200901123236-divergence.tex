@@ -1,0 +1,67 @@
+% Created 2021-09-24 Fri 14:01
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Taproot}
+\date{\today}
+\title{Divergence}
+\hypersetup{
+ pdfauthor={Taproot},
+ pdftitle={Divergence},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{Motivation}
+\label{sec:org2bf8bfc}
+Fluids can be represented by a \href{20200831153854-vector\_field.org}{vector field} (each vector represents the movement of the particle at that instant). The movement of these particles would correspond with some change in their density, and we can ask the question of how we would calculate the change in density as particles move along vectors defined by a vector-valued function.
+
+Divergence, like \href{20200830000157-gradients.org}{a gradient}, is represented by the symbol \(\nabla\) and is a "vector" of partial derivative operators. For a vector-valued function \(\vec{\mathbf{v}}(x,y,...)\), the process for calculating the divergence is as follows:
+
+\(\nabla \cdot \vec{\mathbf{v}} = \left[\begin{matrix} \frac{\partial}{\partial x_1} \\ \frac{\partial}{\partial x_2} \\ \frac{\partial}{\partial x_3} \\ \ldots \end{matrix}\right] \cdot \left[\begin{matrix} v_1(x_1, x_2, x_3, \ldots) \\ v_2(x_1, x_2, x_3, \ldots) \\ v_3(x_1, x_2, x_3, \ldots) \\ \ldots\end{matrix}\right] = \frac{\partial v_1}{\partial x_1} + \frac{\partial v_2}{\partial x_2} + \frac{\partial v_3}{\partial x_3} \ldots\)
+
+Another way of considering this is realizing that this is equivalent to taking the \href{20200830000754-jacobian.org}{Jacobian} of \(\vec{\mathbf{v}}\) and summing the diagonal.
+\end{document}

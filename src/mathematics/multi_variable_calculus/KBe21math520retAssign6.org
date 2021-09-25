@@ -1,0 +1,101 @@
+#+TITLE: Assignment 6: Area of Polar Curves
+* shaded area problems
+  [[https://nuevaschool.instructure.com/courses/3837/files/434017/preview][choices]].
+  Lets do sea shell:
+  
+  \[\begin{aligned}
+  r &= \sqrt{\theta }\\
+  A &= \int_{0}^{2\pi } \frac{1}{2} \sqrt{\theta } d\theta \\
+  &= \frac{1}{2} \int_{0}^{2\pi } \theta^{\frac{1}{2}} d\theta \\
+  &= \cancel{\frac{1}{2} 2}\theta^{\frac{3}{2}} \\
+  &= \boxed{ \theta^{\frac{3}{2}}}
+  \end{aligned}\]
+
+  Okay, now for the petal: OH WAIT I FORGOT TO DO THE one-half r-squared
+  
+  \[\begin{aligned}
+  r &= \sin  2\theta \\
+  A &= \int_{0}^{\frac{\pi}{2}} \sin  2\theta  d\theta \\
+  A &= 2 \int_{0}^{\frac{\pi}{2}} \sin \theta \cos  \theta  d\theta \\
+  A &= 2 \int_{0}^{\frac{\pi}{2}} \sin \theta \cos  \theta  d\theta \\
+  A &= 2  \left( \sin ^2 \theta - \int_{0}^{\frac{\pi}{2}} \cos \theta \sin  \theta  d\theta  \right) &&\quad\text{Integration by parts} \\
+  2 \int_{0}^{\frac{\pi}{2}} \sin \theta \cos  \theta  d\theta &= 2  \left( \sin ^2 \theta - \int_{0}^{\frac{\pi}{2}} \cos \theta \sin  \theta  d\theta  \right)  \\
+  2 \int_{0}^{\frac{\pi}{2}} \sin \theta \cos  \theta  d\theta &= \sin ^2 \theta\\ 
+  \end{aligned}\]
+
+  ???? i don't know how to integrate by parts
+
+  Anyway, Wolfram Alpha says that the area is $-\frac{1}{2} \cos  2\theta$
+* intersection of two circles
+  
+  \[\begin{aligned}
+  r &= 1\\
+  r &= 2 \cos  \theta \\
+  \end{aligned}\]
+
+  The intersection
+  
+  \[\begin{aligned}
+  1 &= 2 \cos  \theta \\
+  \frac{1}{2} &= \cos  \theta \\
+  \theta  &= \frac{\pi}{3}, -\frac{\pi}{3}
+  \end{aligned}\]
+
+  So, lets take the integral between those, then subtract the isocelese triangle:
+  
+  \[\begin{aligned}
+   \int_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \frac{1}{2}1^2 d\theta &= \frac{1}{2}\frac{\pi}{3}- -\frac{1}{2}\frac{\pi}{3} &= \frac{\pi}{3}
+  \end{aligned}\]
+
+  Now, lets find the area of the triangle to subtract:
+  
+  the base:
+  \[\begin{aligned}
+  y_1 &= \sin \frac{\pi}{3} &= \frac{\sqrt{3}}{2}\\
+  y_2 &= - \frac{\sqrt{3}}{2}\\
+  b &= \sqrt{3}
+  \end{aligned}\]
+
+  the height of the triangle:
+  
+  \[\begin{aligned}
+  h &= \cos  \frac{\pi}{3} &= \frac{1}{2}
+  \end{aligned}\]
+
+  So the area of the triangle is $\frac{1}{2} bh = \frac{\sqrt{3}}{4}$
+
+  and thus,
+  
+  \[\begin{aligned}
+  A &= 2\left(\frac{\pi}{3} - \frac{\sqrt{3}}{4}\right) &= \frac{2\pi}{3} - \frac{\sqrt{3}}{2}
+  \end{aligned}\]
+* overlap between $r=1$ and $1+2\cos 2\theta$
+  The plan: do the part outside the circle, then subtract it from the full big petal. Add the inner petal, and multiply by two.
+  
+** the bounds
+   
+   Lets start with finding the points where things cross the origin
+   \[\begin{aligned}
+   1 + 2 \cos  2 \theta &= 0\\
+   2 \cos  2 \theta &= -1\\
+   \cos  2 \theta &= -\frac{1}{2}\\
+   2 \theta &= 2\frac{\pi}{3}, -2\frac{\pi}{3}\\
+   \theta &= \frac{\pi}{3}, -\frac{\pi}{3}
+   \end{aligned}\]
+   The bounds for the outer portion of the big petal is
+   
+   \[\begin{aligned}
+   1 + 2 \cos  2 \theta &= 1 \\
+   \cos  2 \theta &= 0\\
+   2\theta &= \frac{\pi}{2}, -\frac{\pi}{2}\\
+   \theta &= \frac{\pi}{4}, -\frac{\pi}{4}
+   \end{aligned}\]
+
+   
+** outer petal area
+   
+   \[\begin{aligned}
+   \int_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \frac{1}{2} (1 + 2 \cos  2 \theta )^2 d\theta 
+   \end{aligned}\]
+
+

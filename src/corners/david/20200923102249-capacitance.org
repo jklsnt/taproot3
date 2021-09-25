@@ -1,0 +1,50 @@
+#+TITLE: Capacitance
+#+LATEX_HEADER: \usepackage{geometry}
+#+OPTIONS: toc:nil
+#+filetags: low_quality
+
+* Capacitors
+- Batteries try to push electrons in a direction.
+  - Zooming in on each end, would one see some charge since the electrons within the positive terminal would leave
+    - Yes, but tiny (this is tiny capacitance)
+- Capacitors are designed to store amounts of charge in compact volumes
+  - Two conducting plates that connect to batteries and the high surface area allows significant amount of charge (one negative plate, one pos)
+  - Net charge of a capacitor is zero due to cancellation. Charge usually refers to positive plate in this context.
+- No [[file:20200909105807-current.org][current]] flows across a capacitor as there is a gap of air/plastic (insulator called dieletric) between them. 
+  - This insulator is to prevent loss of all charge as they would cancel when given the opportunity to touch
+- Capacitors have no cap when it comes to storing things (think water balloon vs bucket) and it varies related to voltage.
+- At same voltage, capacitors can vary in stored charge because of differences in area and distance between plates (and quality of dieletric)
+
+$C = \frac{Q}{V}$ in units of $\frac{\text{Coloumbs}}{\text{Volts}}$ or $\frac{\text{Couloumbs}^2}{\text{Joules}}$
+
+$C = k\epsilon_0 \frac{A}{d}$ where A is plate area and d plate separation.
+$\epsilon_0$ shows up in [[file:phys250-electricalforce.org][Coloumb's Law]] as well.
+
+- Dieletric will polarize due to attempted transfer of electrons
+- Capacitors are one-way (sort of like LEDs), and the shorter end is negative
+
+* Batteries vs. Capacitors
+Batteries convert stored chemical potential energy into electrical energy.
+Capacitors store electrical potential energy and converting it to electrical energy,
+
+Batteries maintain constant voltages as charge flow out (until it exhausts chemicals).
+Capacitors decrease linearly in voltage as charge flows out (charge remaining is capacitance times voltage).
+
+Energy stored in capacitors can be calculated through looking at the units.
+$E = \frac{V_c \cdot Q}{2}$
+$Joules = \frac{Joules}{Coulomb} \cdot Coulomb$
+1/2 comes from the average voltage (also can be thought of integral of voltage over charge flowed out)
+$E = \frac{V_c \cdot Q}{2} = \frac{CV^2}{2}$ is energy stored on a charged capacitor (second equation derived from use of $Q = CV$)
+
+** Water analogy
+ Capacitors are like a flexible membrane stretched across a pipe. Applying pressure will have it flex and eventually this will hit a maximum and stop (pressures reach equilibrium). The volume of water in the membrane is proportional to the pressure, much like how $Q \propto V$. Bigger capacitors are larger more flexible membranes, and vice versa.
+
+* Charging Time
+Experimental evidence suggests $\tau = RC$. 
+/Unit check!/ $R = \frac{Volts \cdot Seconds}{Coulombs}$ and $C = \frac{Coulombs}{Volt}$ so $RC = Seconds$
+
+* Derivations
+Assume battery of voltage $V_b$, resistor of resistance $R$, and capacitor of capacitance $C$. Assume measurement of current $I$ is possible (note that there is a switch in the circuit). $I$ will be a function of /time/.
+
+$I(t) = \frac{V_b}{R} e^{\frac{-t}{RC}}$
+$V_c(t) = V_b (1 - e^{\frac{-t}{RC}}$

@@ -1,0 +1,122 @@
+% Created 2021-09-24 Fri 14:02
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Taproot}
+\date{\today}
+\title{Rotation}
+\hypersetup{
+ pdfauthor={Taproot},
+ pdftitle={Rotation},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+Kinetic energy is decomposable into two components:
+
+\(\text{KE}_{\text{total}} = \text{KE}_{\text{translational}} + \text{KE}_{\text{rotational}}\)
+
+\(\text{KE}_T  = \frac{1}{2} mv^2\)
+
+\begin{aside}
+\(\text{KE}_R = \frac{1}{2} I\omega^2\) where \(I\) is the "moment of inertia around the axis of rotation" and \(\omega\) the angular velocity.
+
+We won't actually cover this until second semester
+\end{aside}
+
+\begin{defn}
+A line through the center of the mass such that the all the rest of the masses are going in circular motion around the axis. Direction of rotation allows us to asign a vector to rotation.
+\end{defn}
+
+\section{Derivation}
+\label{sec:orgd7e64a1}
+
+\begin{align*}
+\text{KE}_\text{total} = \sum_{i=1}^N \frac{1}{2} m_i (v_i \cdot v_i) \\
+\text{KE}_\text{total} =  \sum_{i=1}^N \frac{1}{2} m_i (\vec{V}_\text{CM} + \vec{v}_i^{\text{ }\prime})^2 \\
+\text{KE}_\text{total} =  \sum_{i=1}^N \frac{1}{2} m_i (\vec{V}_\text{CM}^2 + 2\vec{V}_\text{CM}{v}_i^{\text{ }\prime} + (\vec{v}_i^{\text{ }\prime})^2) \\
+\text{KE}_\text{total} =  \sum_{i=1}^N \left( \frac{1}{2} m_i \vec{V}_\text{CM}^2 + m_i \vec{V}_\text{CM}\vec{v}_i^{\text{ }\prime} + \frac{1}{2} m_i (\vec{v}_i^{\text{ }\prime})^2 \right) \\
+\text{KE}_\text{total} =  \sum_{i=1}^N \frac{1}{2} m_i \vec{V}_\text{CM}^2 +  \sum_{i=1}^N  m_i \vec{V}_\text{CM}\vec{v}_i^{\text{ }\prime} + \sum_{i=1}^N \frac{1}{2} m_i  (\vec{v}_i^{\text{ }\prime})^2 \\
+\text{KE}_\text{total} =  \frac{1}{2} \vec{V}_\text{CM}^2 \sum_{i=1}^N m_i  + \vec{V}_{\text{CM}} \sum_{i=1}^N  m_i \vec{v}_i^{\text{ }\prime}  + \sum_{i=1}^N \frac{1}{2} m_i  (\vec{v}_i^{\text{ }\prime})^2 \\
+\text{Define $M = \sum_{i=1}^N  m_i$.} \\
+\vec{r}_\text{CM}^{\text{ }\prime} = \frac{1}{M} \sum_i m_i \vec{r}_i \\
+\text{$\vec{r}_\text{CM}^{\text{ }\prime} = 0$ by definition (it is relative to itself).} \\
+0 = \frac{1}{M} \sum_i m_i \vec{r}_i \\
+\text{Differentiate with respect to time.} \\
+0 = \frac{1}{M} \sum_i m_i \vec{v}_i \\
+0 = \sum_i m_i \vec{v}_i \\
+\text{Eliminate the middle term $ \vec{V}_{\text{CM}} \sum_{i=1}^N  m_i \vec{v}_i^{\text{ }\prime}$ as it is equal to 0.} \\
+\text{KE}_\text{total} =  \frac{1}{2} \vec{V}_\text{CM}^2 \sum_{i=1}^N m_i  + \sum_{i=1}^N \frac{1}{2} m_i  (\vec{v}_i^{\text{ }\prime})^2 \\
+\boxed{\text{KE}_\text{total} =  \frac{1}{2} M \vec{V}_\text{CM}^2  + \sum_{i=1}^N \frac{1}{2} m_i  (\vec{v}_i^{\text{ }\prime})^2} \\
+\end{align*} 
+
+
+
+\subsection{Consequences}
+\label{sec:org709bb0d}
+\(\frac{1}{M} \sum m_i \vec{r}_i^{\text{ }\prime} = 0\)
+
+\(\frac{1}{M} \sum m_i \vec{v}_i^{\text{ }\prime} = 0\)
+
+\(\frac{1}{M} \sum m_i \vec{a}_i^{\text{ }\prime} = 0\)
+
+
+\section{Rotational energy derivation}
+\label{sec:org993f416}
+
+Give a distance from axis \(l_i\), mass \(m_i\), relative position \(\vec{r}_i^{\text{ }\prime}\) and angular velocity \(\omega\), you can get rotational KE via \(\frac{1}{2} \sum m_i ( l_i \omega)\), since \(l_i \theta\) would give arclength, so time derivative \(l_i \omega\) would give velocity. Additionally, in terms of dimensional analysis, radians are dimensionless so it's 1/s times m to get m/s.
+
+To go a bit farther,
+
+\begin{align*}
+KE_r =& \frac{1}{2} \sum m_i (v_i^{\text{ }\prime}) \\
+=&  \frac{1}{2} \sum m_i (l_i \omega) \\
+=&  \frac{1}{2} \sum m_i l_i^2 \omega^2 \\
+=&  \frac{1}{2} \omega^2 \underbrace{ \sum m_i l_i^2}_{I} \\
+=& \frac{1}{2} I \omega^2
+\end{align*}
+
+\(I\) here is \href{20210910132702-moment\_of\_inertia.org}{moment of inertia}. 
+\end{document}

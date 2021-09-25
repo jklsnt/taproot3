@@ -1,0 +1,63 @@
+#+TITLE: Limits Test Prep
+#+SUBTITLE: Or David's Sleep-Deprived Guide on How Not to Fail an Exam
+#+filetags: review
+
+* Basic Concepts
+** Limit Definition
+[[file:limits.org][Limits]] have not been rigorously defined in this class so the explanation that $\lim\limits_{x\rightarrow y}$ is the value of $f(x)$ when $x$ "tends toward" or gets infinitely close to $y$.
+** Two-sided Limits
+Left and right-hand limits are denoted with a + or - superscript in the limit, like $\lim\limits_{x\rightarrow y^+}$ and indicate that x gets infinitely close to y from a specific direction. This is useful for functions that are discontinous or have a removable discontinuity. 
+** Discontinuity
+Several types of dis[[file:continuity.org][continuity]] exist:
+- Jump discontinuity where lim from left and right exist but are unequal
+- Removable discontinuity where lim from left and right are the same but the point itself is not defined.
+** Squeeze Theorem
+See [[file:20200911131823-squeeze.org][Squeeze Theorem]] definition
+* Calculating Limits
+** Graphically
+Look at the graph to tell where the function is going around the limit.
+** Numerically
+Evaluate the function at values very close to where the limit is tending to (like 0.001, -0.001, etc)
+** Algebraically
+Plug in. 
+EX: $\lim\limits_{x\rightarrow 0} \frac{x}{2} = \frac{0}{2}$
+
+*What if it isn't defined at that point?*
+Begin trying to simplify until it is. 
+
+Usually means factorization until you find like terms to cancel out.
+
+*What if there's a radical at the top?*
+Multiply by the conjugate - example: $\lim\limits_{x\rightarrow 9} \frac{\sqrt{x} - 3}{x - 9} = \lim\limits_{x\rightarrow 9} \frac{\sqrt{x} - 3}{x - 9} \cdot \frac{\sqrt{x} + 3}{\sqrt{x} + 3} = \lim\limits_{x\rightarrow 9} \frac{x - 9}{(x - 9)(\sqrt{x} + 3)} = \lim\limits_{x\rightarrow 9} \frac{1}{\sqrt{x} + 3} = \frac{1}{6}$
+
+*What if it's not straightforward to factor, like $x^3-1$?*
+Use fancy algebraic identities like $a^3 - b^3 = (a^3 - b^3)(a^2 + ab + b^2)$
+
+*What if I'm dying and it just won't factor?*
+The limit probably doesn't exist. example: $\lim\limits_{x\rightarrow -5} \frac{x^2+25}{x+5}$
+
+** Trigonometric Limits
+Use trigonometric identities combined with the fact that $\lim\limits_{x\rightarrow 0} \frac{\sin{x}}{x} = 1$ to get answers.
+The mosmt useful trig identities in this context are the double-angle identities and the pythagorean identities. Look for applications of them!
+
+Beware the evil $\lim\limits_{x\rightarrow 0} \frac{\sin{Ax}}{\sin{Bx}}$ where A and B are constants > 2 (otherwise just use double angle). The trick here is to nicely use fractions to your advantage: 
+$\lim\limits_{x\rightarrow 0} \frac{\sin{Ax}}{\sin{Bx}} = \frac{\sin{Ax}}{1} \frac{1}{\sin{Bx}} = \frac{\sin{Ax}}{1} \frac{A}{A} \frac{1}{\sin{Bx}} \frac{B}{B} = \frac{\sin{Ax}}{A} \frac{1}{A} \frac{B}{\sin{Bx}} \frac{B}{1} = \frac{B}{A} \frac{\sin{Ax}}{A} \frac{B}{\sin{Bx}} = \frac{B}{A}$ as we know $\lim\limits_{x\rightarrow 0} \frac{\sin{x}}{x} = 1$ and $1^{-1} = 1$
+
+Remember that $\sin^2{2x} = \sin{2x} \cdot \sin{2x}$ and don't make silly mistakes.
+
+** Applying Squeeze Theorem
+Look for obvious functions that have the same limit yet are always smaller/larger than f(x).
+Remember that this gets a whole lot easier when it tends towards zero. 
+$\lim\limits_{x\rightarrow 0} \frac{\sin{x}}{x} = 1$ is your friend.
+Limit laws may help as well.
+
+* Things To Remember
+** Vocab
+/Does not exist/ describes double-sided limits when the limits from both sides are different
+/Not defined/ describes f(x) where x is not in the domain of f as well as points of the graph f(x) outside of its range. Holes are /not defined/.
+/Undefined/ describes invalid operations like 27/0
+** Standard stuff
+Double triple quadruple check everything, it's a take-home test so you may as well ensure you got it correct.
+Write out all of your steps in an organized fashion so you don't get mixed up and teacher gets what you're doing.
+DO NOT RUSH THE AVG CHANGE QUESTION(S?). A BUG IN CODE OR A SIMPLE MISTAKE WILL GET THE WHOLE PROBLEM WRONG AND IT'S EASY SO YOU WILL HAVE NOBODY TO BLAME BUT YOURSELF.
+

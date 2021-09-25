@@ -1,0 +1,125 @@
+#+TITLE: Types of Proofs
+
+* Types of Proofs
+
+- Proof by Example/Counterexample
+- Proof by Cases
+- Proof by Contradiction
+-   Proof by Induction
+
+-   Proof by Strong Induction
+
+**Proof: The number of primes is infinite.**
+
+- This will be an example of proof by contradiction.
+
+Assume for the purposes of contradiction that the number of primes is
+finite.
+
+Then we can list them:
+
+- {P~1~, P~2~, ...}
+
+Consider the number S = P~1~ x P~2~ x P~3~ x ... + 1
+
+Case 1: S is prime
+
+-   Contradiction as S is not in the set.
+
+Case 2: S is not prime
+
+-   If S is not prime it must be divisible by at least two prime
+    > numbers.
+
+-   However, all primes are in that list, so if S is divided by any
+    > number in the list the remainder will be one.
+
+-   Contradiction!
+
+All cases have contradictions so our assumptions must be false.
+
+Q.E.D.
+
+***Proof by induction***
+
+-   Prove something is true for a smaller number and show that doing so
+    > implies it is true for larger numbers.
+
+-   There are 5 steps.
+
+    -   Declare proof by induction
+
+    -   Declare inductive hypothesis
+
+        -   Inductive hypothesis is typically whatever you are trying to
+            > prove.
+
+    -   Prove the base case
+
+        -   Like dominos where a proof of one number leads to the proof
+            > of the next number
+
+    -   Show that P(n) → P(n+1)
+
+    -   Invoke induction.
+
+**Proof: 1+2+3...+n = n(n+1)/2**
+
+-   Proof is by induction.
+
+P(n) is the hypothesis that 1+2+3...+n = n(n+1)/2
+
+P(1):
+
+1 = 1(1+1)/2
+
+1 = 2/2
+
+1 = 1
+
+P(n+1):
+
+We need to show 1+2+3+4...+n+n+1 = ((n+1)(n+2))/2
+
+Assume that P(n) is true.
+
+Left side simplifies to (n(n+1)/2) + (n+1)
+
+Algebraic manipulation leaves you with ((n+2)(n+1))/2
+
+If P(n) is true then P(n+1) is true and P(1) is true therefore P(n) is
+true for all numbers.
+
+**Proof by Strong Induction**
+
+-   Use P(1), P(2) .... P(n) to prove P(n+1)
+
+-   Same list but instead of proving P(n) → P(n+1) it will be P(1),
+    > P(2)\... P(n) → P(n+1)
+
+Proof: Any group of students ≥ 12 can be divided into some combination
+of groups of 4 and groups of 5.
+
+-   This will be a proof by strong induction.
+
+P(12) = 4+4+4
+
+P(13) = 4+4+5
+
+P(14) = 4+5+5
+
+P(15) = 5+5+5
+
+P(n) → P(n+4)
+
+If P(n-3) is true, then there exists a combination of groups of 4 and 5
+to make up (n-3) students. Add a group of 4 and that gives us out
+combination for (n+1) students.
+
+P(n-3) → P(n+1)
+
+By induction this is true for all n ≥ 12
+
+* Links
+
+See [[file:cs223-induction.org][Induction]] for more examples.

@@ -1,0 +1,36 @@
+#+TITLE: Center of Mass
+
+* Intro
+Hard to define center of mass: for this class we will define it as the part of the object that obeys Newton's 2nd law. This means that $\vec{F}_{\text{net system}}  = M\vec{a}_{\text{CM}}$ (where $\vec{a}_{\text{CM}$ is the acceleration of the defined "center of mass") and $M$ is the total mass of the system. 
+
+#+begin_aside Aside: Newton's Laws
+1. Law of Inertia: object that is at rest stays at rest and object in motion stays in motion unless acted on by a force
+2. $F=ma$
+3. $\vec{F}_{A\rightarrow B} = -\vec{F}_{B\rightarrow A}$
+#+end_aside
+
+** Equation
+$\text{CM} = \frac{1}{M} \sum m_i \vec{r}_i$
+
+* Derivation
+ $\vec{F}_{\text{net system}}  = M\vec{a}_{\text{CM}}$  can also be expressed as $\sum_{i=1}^{n} \vec{F}_{net,i} = \left(\sum_{i=1}^{n} m_i \right) \ddot{\vec{r}}_{CM}$ where $\vec{F}_{net,i}$ is the net force on mass $m_i$, and $\vec{r}_{CM}$ is the position vector of the CM of the system
+
+ \begin{align*}
+\text{Define } M =  \left(\sum_{i=1}^{n} m_i \right) \\
+\sum_{i=1}^{n} \vec{F}_{net,i} = M \ddot{\vec{r}}_{CM} \\
+\sum_{i=1}^{n} m_i\ddot{\vec{r}}_i  = M \ddot{\vec{r}}_{CM} \\
+\int \left(\sum_{i=1}^{n} m_i\ddot{\vec{r}}_i\right) dt  = \int \left( M \ddot{\vec{r}}_{CM}\right) dt \\
+\sum_{i=1}^{n} m_i\dot{\vec{r}}_i + C_t = M \dot{\vec{r}}_{CM}  + C_t \\
+\int \left(\sum_{i=1}^{n} m_i\dot{\vec{r}}_i\right) dt  = \int \left( M \dot{\vec{r}}_{CM}\right) dt \\
+\sum_{i=1}^{n} m_i\vec{r}_i + C_t = M \vec{r}_{CM}  + C_t \\
+\sum_{i=1}^{n} m_i\vec{r}_i = M \vec{r}_{CM} \\
+\frac{1}{M} \sum_{i=1}^{n} m_i\vec{r}_i = \vec{r}_{CM}  \\
+ \end{align*}
+
+* 3
+Internal forces cannot do work on a system due to Newton's Third Law: forces within a system will cancel each other out, meaning that the position of the system itself will not move due to internal forces. Since CM is defined to be $\frac{1}{M} \sum_{i=1}^{n} m_i\vec{r}_i = \vec{r}_{CM}$  and any movement in a given $\vec{r}_i$  due to an internal force is counteracted because of Newton's Third Law, the CM cannot change. Because of this, only external forces could change the CM, and therefore $\sum_{j=1}^m \vec{F}_{ext,j} = M\ddot{\vec{r}}_{CM}$ is a valid simplification.
+
+* Plot
+
+#+ATTR_ORG: :width 400
+[[./images/cm.png]]

@@ -1,0 +1,86 @@
+% Created 2021-09-24 Fri 14:01
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Taproot}
+\date{\today}
+\title{Directional Derivative}
+\hypersetup{
+ pdfauthor={Taproot},
+ pdftitle={Directional Derivative},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{Concept}
+\label{sec:org367760d}
+For a function \(f(x,y)\) and a vector in its input space \(\vec{\textbf{v}}\), the directional derivative of \(f\) along \(\vec{\mathbf{v}}\) is the rate at which \(f\) changes as input moves along the vector. 
+
+While it is represented by a number of symbols, \(\nabla_{\vec{\textbf{v}}}\) will be used to denote a directional derivative along \(\vec{\textbf{v}}\) for these notes.
+
+They can be thought of as generalized \href{partial-derivatives.org}{partial derivatives} - as a partial derivative w/ respect to \(x\) tells us the amount a change in the input parallel to the \(x\) axis affects the output of the function, while this directional derivative describes how a change in any direction (as opposed to parallel to an axis) affects the change in the output in the function. 
+
+\begin{note}
+A partial derivative w/ respect to \(y\) can be thought of as a directional derivative along \(\vec{\mathbf{v}} = \widehat{\mathbf{j}}\) (so \(\frac{\partial f}{\partial y} = \nabla_{\widehat{\mathbf{j}}}\)).
+\end{note}
+
+\section{Computation}
+\label{sec:org8089a8e}
+
+Computing a directional derivative based on what we know so far is relatively simple. 
+
+Take the example vector \(\vec{\mathbf{v}} = \left[\begin{matrix}2 \\ 3 \\ -1 \end{matrix}\right]\).
+
+\(\nabla_{\vec{\textbf{v}}} f = 2\frac{\partial f}{\partial x} + 3\frac{\partial f}{\partial y} + (-1)\frac{\partial f}{\partial z}\)
+
+This makes sense as \(\frac{\partial f}{\partial x}\) is the amount a change in the output of the function with a small change in \(x\), so a combination of each of the partial derivatives gives you change in the function for an arbitratry vector.
+
+This also means that it can be computed via the \href{20200830000157-gradients.org}{gradient}: \(\nabla f \cdot \vec{\textbf{v}}\) as \(\nabla f\) is a vector of each of the partial derivatives and \(\vec{\textbf{v}}\) is a vector.
+
+\section{Sources}
+\label{sec:org2b42483}
+\href{https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives/partial-derivative-and-gradient-articles/a/directional-derivative-introduction}{This} describes basic directional derivatives nicely.
+\end{document}

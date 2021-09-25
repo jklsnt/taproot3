@@ -1,0 +1,160 @@
+
+
+#+TITLE: Problem Set 1
+#+AUTHOR: David Freifeld
+#+LATEX_HEADER: \usepackage{delarray}
+#+LATEX_HEADER: \setlength{\parindent}{0pt}
+#+LATEX_HEADER: \DeclareMathOperator{\spn}{span}
+#+LATEX_HEADER: \usepackage{geometry}
+#+OPTIONS: \n:t
+
+* Problem 1
+
+Use Gauss-Jordan elimination:
+\begin{align*}
+\begin{array}({@{}ccc|ccc@{}})
+     -1 & 1 & 0  & 1 & 0 & 0\\
+     0 & -1 & 1 & 0 & 1 & 0 \\
+     0 & 0 & -1 & 0 & 0 & 1 \\
+\end{array} \\
+\begin{array}({@{}ccc|ccc@{}})
+     -1 & 0 & 1  & 1 & 1 & 0\\
+     0 & -1 & 1 & 0 & 1 & 0 \\
+     0 & 0 & -1 & 0 & 0 & 1 \\
+\end{array} \\
+\begin{array}({@{}ccc|ccc@{}})
+     -1 & 0 & 0  & 1 & 1 & 1\\
+     0 & -1 & 1 & 0 & 1 & 0 \\
+     0 & 0 & -1 & 0 & 0 & 1 \\
+\end{array} \\
+\begin{array}({@{}ccc|ccc@{}})
+     -1 & 0 & 0  & 1 & 1 & 1\\
+     0 & -1 & 0 & 0 & 1 & 1 \\
+     0 & 0 & -1 & 0 & 0 & 1 \\
+\end{array} \\
+\begin{array}({@{}ccc|ccc@{}})
+     1 & 0 & 0  & -1 & -1 & -1\\
+     0 & 1 & 0 & 0 & -1 & -1 \\
+     0 & 0 & 1 & 0 & 0 & -1 \\
+\end{array} \\
+\Delta^{-1} = \begin{array}({@{}ccc@{}})
+     -1 & -1 & -1\\
+     0 & -1 & -1 \\
+     0 & 0 & -1 \\
+\end{array} \\
+\end{align*}
+
+
+The /forward difference/ matrix is called that because multiplying it by a vector results in a vector that's a forward difference of each element.
+\begin{align*}
+\begin{array}({@{}ccc@{}})
+     -1 & 1 & 0 \\
+     0 & -1 & 1 \\
+     0 & 0 & -1 \\
+\end{array} \cdot \begin{array}(c)
+z_1  \\ z_2 \\ z_3 \end{array}
+= \begin{array}(c)
+z_2 - z_1 \\
+z_3 - z_2 \\
+-z_3 \\
+\end{array} = b
+\end{align*}
+
+Intuitively, $\Delta^{-1}$ times the product $b$ gives the original $z$ matrix and one could also find $\Delta^{-1}$ by looking at $b$ and figuring out how to isolate $z_1$, $z_2$, and  $z_3$ via multiples of the other rows!
+\begin{align*}
+\begin{array}({@{}ccc@{}})
+     -1 & -1 & -1\\
+     0 & -1 & -1 \\
+     0 & 0 & -1 \\
+\end{array} \cdot \begin{array}(c)
+z_2 - z_1  \\ z_3-z_2 \\ -z_3 \end{array}
+= \begin{array}(c)
+z_1 - z_2 + z_2 - z_3 + z_3 \\
+z_2 - z_3 + z_3 \\
+z_3 \\
+\end{array}
+= \begin{array}(c)
+z_1 \\
+z_2 \\
+z_3 \\
+\end{array}
+\end{align*} 
+  
+* TODO Problem 4 
+
+The smallest length of $||\mathbf{v}-\mathbf{w}||$ is when $\mathbf{v}$ and $\mathbf{w}$ are oriented in the same direction and so $||\mathbf{v}-\mathbf{w}|| = 2$, and the largest is when the vectors face oppposite directions and $||\mathbf{v}-\mathbf{w}|| = 8$ .
+# TODO add geometric intuition (distance between head of vectors)
+
+Largest dot product is 25, not sure for intuition. Smallest is 0.
+
+* Problem 8
+** /Show that $S+T$ is a vector space/.
+We can first show that $S+T$ is closed under addition. Given two vectors $X = (s_1 + t_1)$ and $Y = (s_2 + t_2)$  in the $S+T$ subspace such that $t_1, t_2$ are arbitrary elements of $T$ and $s_1, s_2$ are arbitrary elements of $S$ we can simplify the following expression:
+\begin{align*}
+X + Y \\
+(s_1 + t_1) + (s_2 + t_2) \\
+(t_1 + t_2) + (s_1 + s_2) \\
+\end{align*}
+
+Since $T$ and $S$ are both closed under addition, $(t_1+t_2)$ and $(s_1 + s_2)$ are both elements of $t$ and $s$ respectively, and therefore the sum of $x+y$ can be expressed as a possible sum between vectors in $s$ and $t$. since $s+t$ is the set of all possible sums in elements in these spaces, this means $x+y$ must be in $s+t$ and therefore the space is closed under addition.
+
+We can then show that $S+T$ is closed under scalar multiplication. Given a scalar multiple $\lambda$ and a vector $X=(s_1 + t_1)$ in $S+T$ where once again $s_1$ and $t_1$ represent arbitrary vectors in $S$ and $T$ respectively, we can simplify the following expression:
+\begin{align*}
+\lambda X \\
+\lambda (s_1 +  t_1) \\
+\lambda s_1 + \lambda  t_1
+\end{align*}
+
+Since $S$ and $T$ are both closed under scalar multiplication, this means $\lambda s_1$ and $\lambda t_1$ are elements of $S$ and $T$ respectivey. As a result, this means $\lambda X$ can be expressed as a sum of elements in $S$ and $T$ (a.k.a. an element of  $S+T$)  and therefore $S+T$ is closed under scalar multiplication.
+
+Since $S+T$ is both closed under addition and scalar multiplication and is defined as the the sum of two other vector spaces, the other properties of a vector space (commutativity, associativity, additive/multiplicative identites, additive inverse, and distributive properties) follow. As a result, since $S+T$ is closed under addition and scalar multiplication and has the other required properties of a vector space, $S+T$ is a vector space. 
+
+**  /Is $S+T$ the same as $S \cup T$ or not?/
+/No/, $S+T \neq S \cup T$.
+
+Proof by counter example:
+$S = \{(x, 0, 0) \in \mathbf{F}^3 : x \in \mathbf{F}\}$
+$T = \{(0,y, 0) \in \mathbf{F}^3 : y \in \mathbf{F}\}$
+
+$S+T = \{(x,y,0) : x,y \in \mathbf{F}\}$ while $S \cup T = \{(x,0,0) \lor (0,y,0) : x,y \in \mathbf{F}\}$
+# TODO Ask about notation w/ OR 
+
+More specifically, adding the subspaces allows for a subspace containing vectors of the form $(x,y,0)$ because this is a valid vector addition of $(x,0,0)$ and $(0,y,0)$. A vector of the form $(x,y,0)$ cannot exist within the union of $S$ and $T$ because neither set contains vectors with more than one nonzero component. Since vectors of the form $(x,y,0)$ only exist in $S+T$, $S+T \neq S \cup T$.
+
+** /If $S$ is the column space of a matrix $A$ and $T$ is the column space of a matrix $B$, then $S + T$ is the column space of which matrix?/
+
+We can show that $\spn(A + B) = \spn(A \cup B)$:
+\begin{align*}
+\spn(A+B) = \{c_1(a_1 + b_1) + c_2(a_2 + b_2) + \dots c_n(a_n + b_n) : c_1 \dots  c_n \in \mathbf{F}\} \\
+\spn(A \cup B) = \{c_1a_1 + c_1b_1 + c_2a_2 + c_2b_2 + \dots c_na_n + c_nb_n : c_1 \dots c_n \in \mathbf{F}\} \\
+\spn(A+B) = \spn(A \cup B) \\
+\end{align*}
+As a result, this means a matrix within the set
+\begin{equation*}
+M = \{\begin{pmatrix}m_1 & m_2 & \ldots & m_n \end{pmatrix} : \{m_1 \dots m_n\}  = A \cup B \}
+\end{equation*}
+
+would have a column space equal to $S+T$. A matrix cannot be defined solely by its column space (as the ordering of the columns cannot be determined) so any matrix in the set $M$ would have a column space of $S+T$.
+
+* Problem 14
+
+From the vector spaces $V$ and $W$ we can construct an "ambient" vector space $\mathbf{F}^{\max (dim(V), dim(W))+1$ that contains both $V$ and $W$.
+
+Given that:
+\begin{align*}
+V = \{(x_1, x_2, \dots x_n) : x_1, \dots,  x_n \in \mathbf{F}\} \\
+W = \{(y_1, y_2, \dots y_n) : y_1, \dots,  y_m \in \mathbf{F}\} \\
+\end{align*}
+
+We then define that "extending" a vector space to a dimension denotes adding additional zero-valued components to the bases of a vector space until they are of a certain dimension. For example, to extend the field $\{(x, y) : x,y \in \mathbf{F}\}$ to four dimensions would result in $\{(x, y, 0, 0) : x,y \in \mathbf{F}\}$. We can then define adding two vector spaces of different dimensions as extending the smaller dimensional one to match the dimension of the larger dimensional one and summing the two spaces regularly. 
+
+We can then construct an "ambient" vector space containing both $V$ and $W$ by extending both spaces to $\max (dim(V), dim(W)) + 1$ where they will be subspaces of $\mathbf{F}^{\max (dim(V), dim(W)) + 1}$.
+
+Once we know that $V$ and $W$ are both subspaces of another vector space, we can use existing knowledge to show that this equation is an identity and therefore true.
+\begin{align*}
+dim(V) + dim(W) = dim(V \cap W) + dim(V+W) \\
+\text{We know that  $dim(V + W) = dim (V) + dim(W) - dim(V \cap W)$} \\
+dim(V) + dim(W) = dim(V \cap W) + dim (V) + dim(W) - dim(V \cap W) \\
+dim(V) + dim(W) =  dim (V) + dim(W)  \\
+\end{align*}
+

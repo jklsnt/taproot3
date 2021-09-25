@@ -1,0 +1,112 @@
+
+#+TITLE: Rotational Inertia and Deriving Kinematics
+#+SUBTITLE: PHYS360
+#+AUTHOR: David Freifeld
+
+* Problem 1
+** KE
+Given a distance from axis $l_i$, mass $m_i$, relative position $\vec{r}_i^{\text{ }\prime}$ and angular velocity $\omega$, you can get rotational KE via $\frac{1}{2} \sum m_i ( l_i \omega)$.  $l_i \theta$ would give arclength of the path of the mass, its so time derivative $l_i \omega$ would give its velocity. Additionally, this checks out in terms of dimensional analysis: radians are dimensionless so it's 1/s times meters to get m/s.
+
+\begin{align*}
+KE_r =& \frac{1}{2} \sum m_i (v_i^{\text{ }\prime}) \\
+=&  \frac{1}{2} \sum m_i (l_i \omega) \\
+=&  \frac{1}{2} \sum m_i l_i^2 \omega^2 \\
+=&  \frac{1}{2} \omega^2 \underbrace{ \sum m_i l_i^2}_{I} \\
+=& \frac{1}{2} I \omega^2
+\end{align*}
+
+** Rotational Inertia of Ring
+
+\begin{align*}
+I = \sum m_i l_i^2 \\
+\text{$l_i$ is constant on a ring and equal to $R$.} \\
+I = \sum m_i R^2 \\
+I = R^2 \sum m_I \\
+\text{$\sum m_i$ is defined to be M in previous problems.} \\
+I = MR^2 \\
+\end{align*}
+
+** Rotational Inertia of Sphere
+
+*I would expect it to be less than $I_\text{disk}$* because more of the mass is spread out across the volume of the sphere, and more of it has a smaller $l_i$, meaning that $\sum m_i l_i^2$ will be smaller and therefore $I_\text{sphere}$ is smaller.
+
+* Problem 2
+
+** $v(t)$ and $y(t)$
+
+\begin{align*}
+a(t) = a_0 \\
+\int a(t) dt = \int a_0 \\
+v(t) = a_0t + C \\
+\text{We know that $v(0) = v_0 = C$} \\
+\boxed{v(t) = a_0t + v_0} \\
+\end{align*}
+
+\begin{align*}
+v(t) = a_0t + v_0 \\
+\int v(t) dt = \int a_0t + v_0 dt \\
+y(t) = \frac{a_0}{2}t^2 + v_0t + C\\
+\text{We know that $y(0) = y_0 = C$} \\
+\boxed{y(t) = \frac{a_0}{2}t^2 + v_0t + y_0}\\
+\end{align*}
+
+** Equation for $v^2(t)$
+\begin{align*}
+v(t) = a_0t + v_0 \\
+v^2(t) = (a_0t + v_0)^2 \\
+v^2(t) = a_0^2t^2 + 2a_0tv_0 + v_0^2 \\
+v^2(t) = v_0^2 + 2a_0(\frac{1}{2}a_0t^2 + v_0t) \\
+v^2(t) = v_0^2 + 2a_0(\frac{1}{2}a_0t^2 + v_0t + y_0 - y_0) \\
+\text{We know from the previous problem that $\frac{1}{2}a_0t^2 + v_0t + y_0$ is equal to $y(t)$.} \\
+\boxed{v^2(t) = v_0^2 + 2a_0(y(t) - y_0)} \\
+\end{align*}
+
+** Equation for $\Delta y$
+
+\begin{align*}
+v(t) = a_0t + v_0 \\
+\int_{t_1}^{t_2} v(t) = \int_{t_1}^{t_2} a_0t + v_0 \\
+y(t_2) - y(t_1) = \left(\frac{a_0}{2}t_2^2 + v_0t_2\right)-\left(\frac{a_0}{2}t_1^2 + v_0t_1\right) \\
+\Delta y = \frac{(a_0t_2^2 + 2v_0t_2)-(a_0t_1^2 + 2v_0t_1)}{2} \\
+\Delta y = \frac{(a_0t_2 + v_0)+(a_0t_1 + v_0)}{2} (t_2-t_1)\\
+\text{We know from earlier that $v(t) = a_0t + v_0$.} \\
+\Delta y = \frac{v(t_2)-v(t_1)}{2} (t_2-t_1)\\
+\boxed{\Delta y = \frac{v(t_2)-v(t_1)}{2} \Delta t}\\
+\end{align*} 
+
+* Problem 3
+
+
+The constants that are flipped are $a_0$, $v_0$, and $y_0$.
+The equations for v(t) and y(t) become flipped as a result:
+
+\begin{align*}
+a(t) = -a_0 \\
+\int a(t) dt = \int -a_0 \\
+v(t) = -a_0t + C \\
+\text{We know that $v(0) = -v_0 = C$} \\
+\boxed{v(t) = -a_0t - v_0} \\
+\end{align*}
+
+\begin{align*}
+v(t) = -a_0t - v_0 \\
+\int v(t) dt = \int -a_0t + -v_0 dt \\
+y(t) = -\frac{a_0}{2}t^2 + -v_0t + C\\
+\text{We know that $y(0) = -y_0 = C$} \\
+\boxed{y(t) = -\frac{a_0}{2}t^2 - v_0t - y_0}\\
+\end{align*}
+
+
+The sign change initially doesn't matter during the $v^2(t)$ derivation due to the square, but the substitution with $y(x)$ is flipped (see above) so part of the answer is flipped.
+\begin{align*}
+v(t) = -a_0t - v_0 \\
+v^2(t) = (-a_0t - v_0)^2 \\
+v^2(t) = a_0^2t^2 + 2a_0tv_0 + v_0^2 \\
+v^2(t) = v_0^2 + 2a_0(\frac{1}{2}a_0t^2 + v_0t) \\
+v^2(t) = v_0^2 + 2a_0(\frac{1}{2}a_0t^2 + v_0t + y_0 - y_0) \\
+\text{We know from the previous problem that $-\frac{1}{2}a_0t^2 - v_0t - y_0$ is equal to $y(t)$.} \\
+\boxed{v^2(t) = v_0^2 + 2a_0(-y(t) - y_0)} \\
+\end{align*}
+
+
+Finally, the final equation in problem 2 would stay the same because it is for the /change/ in position and addition is commutative.

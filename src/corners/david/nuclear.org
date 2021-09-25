@@ -1,0 +1,95 @@
+#+TITLE: Nuclear Physics
+#+SUBTITLE: uhoh
+
+* Geiger Counters
+Inside a geiger counter is a tube containing an anode surrounded by low-pressure gas. When ionizing radiation goes through said gas, it ionizes the atoms within it, and the free electrons create a temporary path that allows current to flow through a circuit. This ionized path is then dissipated (this takes time, and therefore some events are lost).
+
+Geiger counters have an upper limit to their count rate, and to account for this the equation $T = \frac{M}{1-\frac{M}{L}}$, where $M$ is measured rate, $T$ true rate, and $L$ geiger counter limit (usually 3500 for Vernier sensors).
+
+* Rays & Decay
+** Alpha
+Alpha particles are just helium nuclei, so they're positively charged and massive. Alpha decay just releases one of these particles (aka He nuclei) so the daughter product has two less neutrons and two less protons (so atomic number is decreased by 4).
+
+Example:
+$‎^{226}_{88}Ra \rightarrow ‎^{222}_{86}Rn + ‎^{4}_{2}He$ (aka $‎^{226}_{88}Ra \rightarrow ‎^{222}_{86}Rn + ‎\alpha$)
+
+** Beta
+Beta particles are just fast electrons (or positrons) , so they're negatively charged (or positive?) and light. Unfortunately, beta decay is not as simple as alpha decay: besides the increased number of moving parts there's also two types of it.
+
+*** Beta-Minus Decay
+Beta-minus decay decreases the number of neutrons by one, increases protons by one, and spits out separately an antineutrino and beta particle. Neutrons can go to a proton + electron + antineutrino inside a nucleus - just don't worry about it. This also means the atomic mass stays the same.
+
+Example:
+$‎^{14}_{6}C \rightarrow ‎^{14}_{7}N + \bar{v} + e^{-}$
+
+*** Beta-Plus Decay
+It does the opposite - nucleus proton decays into a neutron and separately a neutrino + positron. Mass still says the same.
+
+Example:
+$‎^{14}_{6}C \rightarrow ‎^{14}_{5}N + v + e^{+}$
+
+*** Electron Capture
+Surprise! There's a third type. The nucleus captures an electron from its surroundings (either from the lowermost electron ring or the nucleus itself). It then goes through the same process as beta decay (decaying a proton into a neutron + neutrino + positron), except the positron annihilates the electron.
+
+Example:
+$‎^{14}_{6}C + e^{-} \rightarrow ‎^{14}_{5}N + v$
+
+Positron capture is also possible but extremely unlikely due to the presence of electrons within the atom (any positron would be annihilated before it had the chance to be captured).
+
+/Wait wait wait wait. This doesn't emit radiation!?/
+Not exactly. It's actually kinda complicated. After positron is annihilated, the gap in the innermost shell caused by electron capture causes the atom to be excited. An electron in second closest shell drops down to fill the gap, releasing its extra energy in the form of X-ray radiation. The shell above that can also release more radiation trying to fill the new hole created by this (this energy can be transferred to an electron which will get ejected as an Auger electron).
+
+
+** Gamma
+Gamma particles are just photons with a very short wavelength (and therefore very high energy). Gamma decay involves an atom at an excited energy level releasing its energy in the form of a proton. Excited state is indicated by *.
+
+Example:
+$‎^{125}_{33}I^{*}^{} \rightarrow ‎^{125}_{33}I + \gamma$
+
+* Absorption and Half-life
+Intensity versus absorber thickness is modeled by the relation $I = 0.5^{\frac{t}{T}}$, where t is the current thickness and T the /half-thickness/ (thickness required to cancel half of radiation).
+
+Intensity versus time is modeled by the same relation, but t now is time and T half life.
+* Fission
+** Net energy
+If total energy of products aka (MeV/nucleon product 1 * product 1 nucleons) + (MeV/nucleon product 2 * product 2 nucleons) is higher than energy of original (MeV/nucleon original * nucleons original) then it produces energy.
+
+* Reactors
+See [[file:nuclear2.org][Nuclear Screencast 2]] notes for more detail.
+
+* Radiation & Safety
+Also see [[file:nuclear2.org][Nuclear Screencast 2]] notes for more detail.
+
+* Sample Q
+A nucleus of U-238 emits an alpha particle.
+
+a) What is the daughter nucleus?
+
+b) What is the binding energy of the original U-238 nucleus? (Question is asking for the total binding energy, not per nucleon.)
+
+c) What is the binding energy of the alpha plus the binding energy of the daughter? To calculate BE of the daughter, relative to the original U-238, assume that the BE curve shown in your handouts is linear in this region (and be careful in counting the number of nucleons).
+
+d) Explain why the total nuclear potential energy is lower after the alpha decay.
+
+e) Assume all of the released potential energy becomes kinetic energy of the alpha. What is the speed of the alpha?
+
+f) Explain why it is reasonable to assume that the released potential energy will be in the form of KE of the alpha, rather than KE of the daughter nucleus.
+
+----------
+----------
+
+a) U-238 has 238 nucleons of which 92 are protons; the daughter has 234 nucleons of which 90 are protons so that's Th-234.
+
+b) Using the graph of Binding Energy (BE) per nucleon in the nuclear slides, I see that U-238 has a value of about 7.6 MeV/nucleon. Multiply by 238 nucleons, total binding energy of nucleus is 1808.8 MeV. You'll see in a minute why I am keeping so many sig figs.
+
+c) BE of He-4 (the alpha particle) is 4 nucleons x 7.1 MeV/nucleon (which I read from the graph) = 28.4 MeV.  BE of the remainder is 234 nucleons x Something. If you try just reading the graph, it's almost impossible to see a difference in the BE/nucleon between Th-234 and U-238. The problem text says we should assume the BE/nucleon graph is linear in this region. I drew a straight line through the data; a straight line looks like a good fit between about nucleon number 120 and 250. The slope of that line is about -0.0080 MeV/(nucleon^2).  If I multiply that slope by a change of -4 nucleons, and add it to the original BE/nucleon for U-238, I get 7.632 MeV/nucleon. That's the Something. Now multiply that by 234 nucleons, resulting that the BE of Th-234 is 1785.89 MeV.
+
+So the Th-234 and the He-4 have a combined BE of 1814.29 MeV.
+
+d) The combined BE of the products is about 4.5 MeV greater than the BE of the parent. Remember, BE means how much energy it would take to break apart each nucleus into its constituent nucleons. So it would take more energy to break apart the (daughter and alpha particle) than it would to break apart the parent. When BE increases, that means that the nuclear potential energy has decreased. Here, 4.5 MeV of energy was released in this alpha decay.
+
+e) If all that energy becomes KE of the alpha particle: First convert 4.5 MeV to Joules. That gives about 7.2 x 10-13 J. Set that equal to 1/2 mv2, and mass is that of the He-4. Mass of He-4 is 4 x mass of proton or neutron = 6.7 x 10-27 kg. I find that the speed v is equal to 1.5 x 107 m/s. This is "only" about 5% of the speed of light. At that speed, we don't need to worry that we didn't use a relativistic expression for KE. But it is fast in an absolute sense of course.
+
+f) Assume the parent is at rest (momentum = 0). The daughter and alpha must also have combined total momentum = 0. But they cannot be at rest; there is kinetic energy to be carried away. Instead, we must have malpha*valpha + mdaughter*vdaughter = 0, where the velocities are vectors. Here, this means they two must travel directly away from each other (180 degrees). But the kinetic energy of each is 1/2mv^2, which doesn't depend on whether we assigned a velocity a negative value. The important thing is that if (mv) is the same in magnitude for both, and the alpha has much less mass, the alpha must have much more speed. And since speed gets squared in calculating KE, it's the low-mass particle that has almost all the KE, even though both have the same (magnitude) of momentum.
+
+Ancillary question to ask: What if we had wrongly assumed that the BE/nucleon of Th-234 was the same as for U-238, ignoring the gentle slope of the graph?  We would have found that the total BE after the decay was 28.4 MeV (the alpha) + 234 nucleons x 7.6 MeV/nucleon= 1806.8 MeV.  That is slightly less than the BE of the original U-238. This would mean that an alpha decay of U-238 would not release any nuclear potential energy at all;  you would actually have to add a little energy to make the reaction occur. This would not be a spontaneous process. So we would say Whoa, we must have done something wrong. Because, look at the U-238 decay chain on page 5 of the nuclear slides. The very first step is an alpha decay! So it must happen spontaneously, even if you have to stare at a nucleus around for 4.5 billion years in order to have a 50% chance of seeing it happen. Coincidentally, that's exactly how long you would have to stare at James to have a 50% chance of seeing him come up with a correct answer to a physics question.

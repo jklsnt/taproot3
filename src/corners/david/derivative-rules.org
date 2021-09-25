@@ -1,0 +1,92 @@
+#+TITLE: Differentiation Rules
+#+STARTUP: showall showstars latexpreview indent
+#+SETUPFILE: ~/Dropbox/setupfile.org
+
+* Differentiation Rules :unit1::derivatives:
+** Review
+- $\frac{d}{dx} cu = c \frac{d}{dx} u$
+- $\frac{d}{dx} u + v = \frac{d}{dx} u + \frac{d}{dx} v$
+** Product Rule
+Differentiating a product of functions: rule is $(uv)' = u'v + uv'$
+
+*PROOF*
+
+$\Delta(uv) = u(x+\Delta x)v(x+\Delta x) - u(x)v(x)$
+
+$= (u(x+\Delta x) - u(x))v(x + \Delta x) + u(x)v(x+\Delta x) - u(x)$
+
+$= (\Delta u)(v(x+\Delta x) + u(x)\Delta v$
+
+$\frac{\Delta(uv)}{\Delta x} = \frac{\Delta(u)}{\Delta x} v(x+\Delta x) + u \frac{\Delta v}{\Delta x}$
+
+Take limit to get $\frac{d(uv)}{d x} = \frac{du}{dx} v + u \frac{dv}{dx}$
+
+** Quotient Rule
+
+Differentiating a quotient of functions: rule is $\big(\frac{u}{v}\big)' = \frac{u'v - uv'}{v^2}$
+
+*PROOF*
+
+TIMESTAMP: ~15:00 Lecture 4
+/Type me out later!/
+
+Shows us that Power Rule works for negative powers!
+
+** Chain Rule / Composition Rule
+
+*EXAMPLE* $y = sin(x)^{10}$
+
+Solution is to add intermediate variable names.
+
+*EXAMPLE* $u = sin(x)$, $y = u^{10}$
+
+*PROOF*
+
+
+$\frac{\Delta y}{\Delta x} = \frac{\Delta y}{\Delta u}\frac{\Delta u}{\Delta x}$
+
+The $\Delta u$ cancels!
+
+As $\Delta x$ goes to 0: 
+
+$\frac{dy}{dx} = \frac{dy}{du}\frac{du}{dx}$
+
+Differentiation of a composition is a product.
+
+*EXAMPLE*
+$y = sin(x)^{10}$
+Introduce intermediate variable:
+$u = sin(x)$, $y = u^{10}$
+$\frac{dy}{du} = cos(x)$
+$\frac{du}{dy} = 10x^9$
+Multiply to get:
+$\frac{dy}{dx} = 10u^9 cos(x)$
+Substitute $u$ to end up with:
+$\frac{dy}{dx} = 10(sin(x))^9 cos(x)$
+
+WARN: Variable names are confusing...
+
+You can skip the intermediate calculations when trying to to calculate it quickly.
+
+** Higher Derivatives
+
+Rinse and repeat.
+
+$u = u(x)$
+$u'$ is a new function which can be differentiated again to get $u''$
+#+BEGIN_LATEX
+\begin{example}{Trigonometric Derivatives}{trigderiv}
+$u = \sin(x)$, $u' = \cos(x)$, $u'' = -\sin(x)$, $u''' = -\cos(x)$...
+\end{example}
+#+END_LATEX
+Sometimes notation is $u^{(4)} instead of $u''''$.
+
+The other notation, specifically l$\frac{d}{dx}$, has an "operator" $d$ which is applied to a function to get another function (that is the derivative). This can be just $D$ instead of a fraction sometimes.
+
+Lots of notation.
+$u'' = \frac{d}{dx} \frac{du}{dx} = \frac{d}{dx} \frac{d}{dx} u = \big(\frac{d}{dx}\big)^2 u = \frac{d^2}{(dx)^2} u = \frac{d^2u}{dx^2}$
+
+* Links
+
+More complex differentiation is covered in [[file:implicit-diff.org][Implicit Differentiation]].
+Further review can be found in [[file:calc-mit-exam-review.org][MIT SVC Exam Review (Unit 1)]].

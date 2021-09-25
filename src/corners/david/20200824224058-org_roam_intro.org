@@ -1,0 +1,37 @@
+:ROAM_REFS: https://quantumish.github.io
+#+TITLE: Org Roam
+
+
+* TODO Philosophy
+* Templates
+Org Roam capture supports templates (although they are an abuse of the capture system).
+
+Example config:
+#+BEGIN_SRC elisp
+("d" "default" plain (function org-roam--capture-get-point)
+     "%?"
+     :file-name "%<%Y%m%d%H%M%S>-${slug}"
+     :head "#+title: ${title}\n"
+     :unnarrowed t)
+#+END_SRC
+Note that "d" ("default") is the default org roam will select, and parameters like =:file-name=, =:head= and =:unnarrowed= control the respective properties of the file.
+
+More detailed config info can be found [[https://www.orgroam.com/manual/Org_002droam-Template-Expansion.html#Org_002droam-Template-Expansion][here]].
+
+* References
+Org Roam notes can contain references to websites or papers (via [[https://github.com/jkitchin/org-ref][org-ref]]).
+The methods to reference either type of source are shown below.
+#+BEGIN_SRC
+#+title: Google
+#+roam_key: https://www.google.com/
+#+END_SRC
+#+BEGIN_SRC
+#+title: Neural Ordinary Differential Equations
+#+roam_key: cite:chen18_neural_ordin_differ_equat
+#+END_SRC
+
+* Misc Variables
+The variable =org-roam-index-file= can be customized to allow proper usage of the =org-roam-jump-to-index= command.
+
+* More Config
+=(require 'org-roam-protocol)= is useful!

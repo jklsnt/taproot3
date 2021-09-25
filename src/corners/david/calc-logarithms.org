@@ -1,0 +1,70 @@
+#+TITLE: Exponentials and Logarithms
+
+* Exponentials and Logarithms                            :unit1::derivatives:
+
+** Exponential Functions
+
+Goal: Calculate $\frac{d}{dx} a^x$
+
+-$\lim\limits_{\Delta x\rightarrow0} \frac{a^{x+\Delta x} - a^x}{\Delta x}$
+
+As $a^{x + \Delta x} = a^xa^{\Delta x}$, $\lim\limits_{\Delta x\rightarrow0} a^x \frac{a^{\Delta x} - 1}{\Delta x}$
+
+$a^x$ is a constant so $a^x \lim\limits_{\Delta x\rightarrow0} \frac{a^{\Delta x} - 1}{\Delta x}$
+
+#+begin_defn $M(a)$
+$M(a) := \lim\limits_{\Delta x\rightarrow0} \frac{a^{\Delta x} - 1}{\Delta x}$
+#+end_defn
+
+With new definition $\frac{d}{dx} a^x = M(a)a^x$.
+Plug in $x=0$ to get $\frac{d}{dx} a^0 = M(a)$, showing $M(a)$ is the slope at 0.
+
+_What is M(a)?_
+- Define base $e$ as the unique number such that $M(e) = 1$
+- If this is the case $\frac{d}{dx} e^x = e^x$ (as $\frac{d}{dx} a^x = M(a)a^x$).
+
+_Why does e exist?_
+
+- Take example $f(x) = 2$, $f'(0) = M(2)$ and stretch by constant $k$.
+$f(kx) = 2^{kx} = (2^k)^x = b^x$, where $b = 2^k$.
+- As $k$ is increased the slope of the function gets steeper. $\frac{d}{dx} b^x = kf'(kx)$
+  - At 0, $\frac{d}{dx} b^x = kf'(kx) = kf'(0) = kM(2)$ so $b=e$ when $k = \frac{1}{M(2)}$
+
+** The Natural Log
+
+Recall that $\ln{x_1 x_2} = \ln{x_1} + \ln{x_2}$ and $\ln{1} = 0$ and $\ln{e} = 1$.
+
+Differentiate $w = \ln{x}$ implicitly in the form $e^w = x$:
+
+- $\frac{d}{dx} e^w = \frac{d}{dx} x = 1$
+ 
+- $\frac{d}{dw} e^w \frac{dw}{dx} = 1$ or $e^w \frac{dw}{dx} = 1$
+- Algebra yields $\frac{dw}{dx} = \frac{1}{e^w} = \frac{1}{x}$
+
+** Back to The Exponential
+
+_Method 1_
+Use base $e$ = $(e^{\ln{a}})^x = e^{x\ln{a}}$.
+
+Just as the derivative of $e^{3x}$ is $3e^{3x}$ by chain rule, $\frac{d}{dx} e^{x\ln{a}} = (\ln{a}) e^{x\ln{a}}}$. So, $\frac{d}{dx} a^x = (\ln{a})a^x$.
+
+NOTE: No matter what our base (2 or 10 or something else) the derivative is still $(\ln{a})a^x$ and that's one reason why it's the "natural" log  as it comes up naturally.
+
+_Method 2_
+
+*HEY I NEED REVISITING REWATCH THE LAST 15 MIN OF [[https://ia800203.us.archive.org/8/items/MIT18.01JF07/ocw-18.01-f07-lec06_300k.mp4][THIS]]*
+
+Logarithmic differentiation. Chain rule + differentiation of logarithm.
+$(\ln{u})' = \frac{u'}{u}$
+
+*EXAMPLE*
+
+$v = x^x$
+$\ln{v} = x\ln{x}$
+$(\ln{v})' = \ln{x} + x \frac{1}{x}$
+$\frac{v'}{v} = 1 + \ln{x}$
+$v' = v(1+\ln{x})$
+$\frac{d}{dx} x^x = x^x(1+\ln{x})$ 
+
+* Links
+Further review can be found in [[file:calc-mit-exam-review.org][MIT SVC Exam Review (Unit 1)]].

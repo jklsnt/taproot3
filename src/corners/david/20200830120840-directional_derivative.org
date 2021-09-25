@@ -1,0 +1,28 @@
+#+TITLE: Directional Derivative
+#+filetags: fledgling
+
+* Concept
+For a function $f(x,y)$ and a vector in its input space $\vec{\textbf{v}}$, the directional derivative of $f$ along $\vec{\mathbf{v}}$ is the rate at which $f$ changes as input moves along the vector. 
+
+While it is represented by a number of symbols, $\nabla_{\vec{\textbf{v}}}$ will be used to denote a directional derivative along $\vec{\textbf{v}}$ for these notes.
+
+They can be thought of as generalized [[file:partial-derivatives.org][partial derivatives]] - as a partial derivative w/ respect to $x$ tells us the amount a change in the input parallel to the $x$ axis affects the output of the function, while this directional derivative describes how a change in any direction (as opposed to parallel to an axis) affects the change in the output in the function. 
+
+#+begin_note Singular Axis Directional Derivatives
+A partial derivative w/ respect to $y$ can be thought of as a directional derivative along $\vec{\mathbf{v}} = \widehat{\mathbf{j}}$ (so $\frac{\partial f}{\partial y} = \nabla_{\widehat{\mathbf{j}}}$).
+#+end_note
+
+* Computation
+
+Computing a directional derivative based on what we know so far is relatively simple. 
+
+Take the example vector $\vec{\mathbf{v}} = \left[\begin{matrix}2 \\ 3 \\ -1 \end{matrix}\right]$.
+
+$\nabla_{\vec{\textbf{v}}} f = 2\frac{\partial f}{\partial x} + 3\frac{\partial f}{\partial y} + (-1)\frac{\partial f}{\partial z}$
+
+This makes sense as $\frac{\partial f}{\partial x}$ is the amount a change in the output of the function with a small change in $x$, so a combination of each of the partial derivatives gives you change in the function for an arbitratry vector.
+
+This also means that it can be computed via the [[file:20200830000157-gradients.org][gradient]]: $\nabla f \cdot \vec{\textbf{v}}$ as $\nabla f$ is a vector of each of the partial derivatives and $\vec{\textbf{v}}$ is a vector.
+
+* Sources
+[[https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives/partial-derivative-and-gradient-articles/a/directional-derivative-introduction][This]] describes basic directional derivatives nicely.

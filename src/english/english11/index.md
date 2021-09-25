@@ -27,3 +27,24 @@ It's time for... American lit!
 ## Motifs & Close Reading 
 
 - [[KBxThereThereMotif]]
+
+
+## The Crucible
+
+- [[KBxCrucibleActOneInClass]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

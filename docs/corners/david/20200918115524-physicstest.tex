@@ -1,0 +1,155 @@
+% Created 2021-09-24 Fri 14:01
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Taproot}
+\date{\today}
+\title{Electrostatics/Circuits Test Prep\\\medskip
+\large Or David's Constant Physics Anxiety}
+\hypersetup{
+ pdfauthor={Taproot},
+ pdftitle={Electrostatics/Circuits Test Prep},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{Electrostatics}
+\label{sec:org3997420}
+\subsection{Concepts}
+\label{sec:org118b94a}
+\subsubsection{\href{phys250-electrostatics.org}{Conductors/Insulators}}
+\label{sec:orgd9c55ef}
+\subsubsection{\href{phys250-fields.org}{Fields}}
+\label{sec:orgf0d3e42}
+\section{\href{circuits.org}{Circuits}}
+\label{sec:orgac35b44}
+\subsection{Concepts}
+\label{sec:org2731db8}
+\subsubsection{Circuits and Fields}
+\label{sec:org5de0a90}
+\subsubsection{\href{20200909105807-current.org}{Current}/Resistance}
+\label{sec:org155f07f}
+\subsection{Calculating Basic Properties}
+\label{sec:org831f8df}
+\subsection{Multi-Battery Circuits}
+\label{sec:orgd35b82c}
+\section{Types of Problems}
+\label{sec:orge59de72}
+\subsection{Problems related to \href{phys250-electricalforce.org}{Electrical Force} and \href{phys250-fields.org}{Fields}}
+\label{sec:org53b0fcc}
+Apply the equation \(F = k\frac{q_1q_2}{r^2}\) for most problems.
+
+\begin{itemize}
+\item Remember that dividing by 10\textsuperscript{6} to account for the microcoloumbs is just flat out incorrect.
+\item Remember that you can apply other equations like \(\vec{F}=ma\).
+\item To calculate field strength, use the equation \$k\frac{Q}\{r
+\end{itemize}
+\^{}2\}\$, where \(Q\) is the charge creating the field.
+\begin{itemize}
+\item For questions that supply the strength of the field at the point of the second charge, just multiply the second charge by the strength to get force magnitude.
+\item For scarier multiple field questions, break it down into net force and use sin(x) and cos(x).
+\end{itemize}
+
+\subsection{Interacting with Field Visualizations}
+\label{sec:org5aac84d}
+Remember that density of lines in the field line view represents magnitude and that a test charge would move tangent to the field lines.
+
+\subsection{Resistance}
+\label{sec:org357db00}
+Use resistance formula \(R = \rho\frac{L}{A}\).
+
+\subsection{DC Circuits}
+\label{sec:org13eebec}
+Remember \(I = \frac{\Delta V}{R}\) and \(P = IV\) for filling in table values.
+Remember Kirchoff's Laws:
+\begin{enumerate}
+\item Net voltage change throughout any closed loop in a circuit must be zero (think like GPE and a rollercoaster ride).
+\item Current coming into a node is equal to current coming out of a node.
+\end{enumerate}
+
+There are two options when it comes to dealing with complex circuits
+\begin{enumerate}
+\item Combining all of the resistors into one resistor using the parallel resistor formula (\frac{1}{R} = \frac{1}{R_1} \frac{1}{R_2}) and some addition for the resistors in series. Use this to calculate the original current. Then, isolate the resistors that are not part of something complicated and calculate their voltage drops so that you can be sure of how much the voltage needs to drop within the complicated portions. Then, choose random paths within the complicated parts knowing that no matter what the voltage needs to drop by the amount you just calculated. If you need to know the current coming into a parallel portion of a complicated part, just combine the resistors and use the voltage drop you know is necessary to calculate current at beginning.
+\item Be a masochist and use Kirchoff's laws to manually solve a large system of equations.
+\end{enumerate}
+
+\subsection{DC Circuits (Multiple Batteries)}
+\label{sec:org6a71425}
+
+Guess current flow, illustrate how currents combine to help with Kirchoff's Laws, then apply Kirchoff's first law to get systems of equations you can solve.
+
+Assign random directions for each branch with a battery. It doesn't matter and will just be negative if you're wrong. Use Kirchoff's second law to get a simple equation for a junction.
+
+Note that if you go through a battery in direction it emits electrons, you gain voltage and vice verca? (minus to plus is gain, plus to minus is drop)
+
+For the loops just choose a direction to go in and subtract the resistors times whatever current you may encounter, whilst subtracting/adding voltages from batteries you encounter. IT DOESN'T MATTER AND WORKS ITSELF OUT.
+
+See following images:
+\begin{center}
+\includegraphics[width=.9\linewidth]{./images/phys-batt-fig.png}
+\end{center}
+\begin{center}
+\includegraphics[width=.9\linewidth]{./images/phys-bat-eq.png}
+\end{center}
+
+\section{Questions about Circuits}
+\label{sec:org977bd02}
+\subsection{Why does current have to stay the same through a node?}
+\label{sec:orgbe4a012}
+If it didn't the current coming in would not be equal to the current coming out and there would be some sort of pileup within the node and that's not ok.
+\subsection{Why is voltage 0 at the end of a battery?}
+\label{sec:org1e7794e}
+Refer to Fields exploration for why voltage zero-points are arbitrary and set as convention. Think how origins on a graph are just a tool, and could be anywhere.
+\subsection{Why isn't voltage continous?}
+\label{sec:org43da5c7}
+Voltage is continous within resistors but not outside of it because in theory wires are basically nothing (they have no resistance whatsoever so electron flow is instantaneous) so voltage does not drop continously within them.
+\subsection{Why does voltage need to drop?}
+\label{sec:orgf278373}
+We define voltage differently than the standard definition with fields and because of this voltage drops naturally because zero is defined to be that way and you are getting closer to zero. Again, think of it like an origin that you're getting closer to.
+\subsection{Why do larger resistors have larger drops?}
+\label{sec:orgab4378c}
+Since voltage drops continously within resistors, a larger resistor/more resistive resistor has more continous change and therefore larger voltage drop. (The wire between them may just be a little slit in which you can measure voltage in one larger resistor).
+\end{document}

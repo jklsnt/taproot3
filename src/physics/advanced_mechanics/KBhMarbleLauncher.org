@@ -1,36 +1,6 @@
 #+TITLE: Marble Launcher
 #+AUTHOR: Houjun Liu
 
-# \begin{equation}
-#     t_f = \frac{-\vec{v_0}sin(\theta_0) \pm \sqrt{(\vec{v_0}sin(\theta_0))^2 + 2gh_0}}{-g}
-# \end{equation}
-
-# Given that we know that time is positive in this setup, and subtracting a term will make it even more negative, we could safely ignore the $+$ term in the $\pm$ operator.
-
-
-# And, performing variable substitution upon the first equation...
-
-# \begin{align}
-#     x_f =& \frac{-\vec{v_0}sin(\theta_0)\vec{v_0}cos(\theta_0) - \vec{v_0}cos(\theta_0)\sqrt{(\vec{v_0}sin(\theta_0))^2 + 2gh_0}}{-g}\\
-#     =&  \frac{\frac{-1}{2} \vec{v_0}^2 sin(2\theta_0) - \vec{v_0}cos(\theta_0)\sqrt{(\vec{v_0}sin(\theta_0))^2 + 2gh_0}}{-g}\\
-#     =&  \frac{-\vec{v_0}^2 sin(2\theta_0)}{-2g} -  \frac{\vec{v_0}cos(\theta_0)\sqrt{\vec{v_0}^2sin^2(\theta_0) + 2gh_0}}{-g}\\
-#     =&  \frac{-\vec{v_0}cos(\theta_0)\sqrt{\vec{v_0}^2sin^2(\theta_0) + 2gh_0}}{-g} - \frac{\vec{v_0}^2 sin(2\theta_0)}{-2g} \\
-#     =&  \frac{\vec{v_0}cos(\theta_0)\sqrt{\vec{v_0}^2sin^2(\theta_0) + 2gh_0}}{g} + \frac{\vec{v_0}^2 sin(2\theta_0)}{2g} \\
-# \end{align}
-
-# And finally, substituting back the $\vec{v_0}$ terms...
-
-# \begin{align}
-#     x_f =& \frac{\sqrt{2g(H-h_0)}cos(\theta_0)\sqrt{{2g(H-h_0)}sin^2(\theta_0) + 2gh_0}}{g} + \frac{{2g(H-h_0)} sin(2\theta_0)}{2g}  \\
-#     =& 2(\sqrt{H-h_0}cos(\theta_0)\sqrt{(H-h_0)sin^2(\theta_0) + h_0}) + {(H-h_0)} sin(2\theta_0) \\
-#     =& 2(cos(\theta_0)\sqrt{(H-h_0)^2sin^2(\theta_0) + (H-h_0)h_0}) + {(H-h_0)} sin(2\theta_0)  \\
-#     =& 2(cos(\theta_0)\sqrt{H^2sin^2(\theta_0)-2Hh_0sin^2(\theta_0)+{h_0}^2sin^2(\theta_0) + H h_0-{h_0}^2}) + (Hsin(2\theta_0) -h_0sin(2\theta_0))
-# \end{align}
-
-# ** Optimizing for $x_f$
-# This would /technically/ be a multivariable calculus question. However, we elect to do the following: holding $h_0$ as constant, and optimizing for $\theta_0$, and finally substituting the optimized result and derivation again.
-
-
 * Setup
 The ball launcher problem involves an energetic optimization to figure, given the situation as shown in the above image, the parameters $h_0$ and $\theta_0$ that would best create a maximum launch distance $x_f$.
 
@@ -84,10 +54,7 @@ as...
 - the start x-position of the marble at launch is, as defined above, $x=0$
 - the start y-position of the marble at launch is, as defined above, $y=h_0$
 
-** Solving and optimizing for $\frac{dx_f}{d\theta_0}$
-We need to maximize $\frac{dx_f}{d\theta_0}$ as one out of two components to optimize for. Once we figure that value, we then supply the corresponding maximum value then optimize again for $\frac{h_0}{d\theta_0}$. The position equations above could be leveraged to figure a value for $x_f$. 
-
-*** Setup for Solution
+** Setup for Solution
 We first create a set of equations modeling the location of the marble at $t_f$.
 
 \begin{cases}
@@ -110,84 +77,149 @@ Finally, we substitute the definition of $t_f$ into $y(t_f)$.
 We will now proceed to simplify the expression further
 
 \begin{align}
-    0 =& \frac{-1}{4} \frac{-{x_f}^2}{(H-h_0) cos^2(\theta_0)} + x_f tan(\theta_0) + h_0 \\
-    =& \frac{-1}{4} \frac{-{x_f}^2}{(H-h_0)}cos^{-2}(\theta_0) + x_f tan(\theta_0) + h_0 \\
-    =& \frac{-1}{4} \frac{-1}{(H-h_0)}{x_f}^2cos^{-2}(\theta_0) + x_f tan(\theta_0) + h_0 
+    0 =& \frac{-1}{4} \frac{{x_f}^2}{(H-h_0) cos^2(\theta_0)} + x_f tan(\theta_0) + h_0 \\
+    =& \frac{-1}{4} \frac{{x_f}^2}{(H-h_0)}cos^{-2}(\theta_0) + x_f tan(\theta_0) + h_0 \\
+    =& \frac{-1}{4} \frac{1}{(H-h_0)}{x_f}^2cos^{-2}(\theta_0) + x_f tan(\theta_0) + h_0 
 \end{align}
 
-*** Finding $\frac{dx_f}{d\theta_0}$
+** Solution at $\theta_0 = 0$
+We begin by first solving for the expression for ${x_f}^2$ at $\theta_0 = 0$.
+
+\begin{align}
+    0 =& \frac{-1}{4} \frac{1}{(H-h_0)}{x_f}^2cos^{-2}(\theta_0) + x_f tan(\theta_0) + h_0 \\
+    0 =& \frac{-1}{4} \frac{1}{(H-h_0)}{x_f}^2 + h_0 \\
+    -h_0 =& \frac{-1}{4} \frac{1}{(H-h_0)}{x_f}^2\\
+    4h_0 =& \frac{1}{(H-h_0)}{x_f}^2\\
+    {x_f}^2 =& 4h_0(H-H_0)
+\end{align}
+
+*** Finding $\frac{d{x_f}^2}{dh_0}$
+Remember, given the setup of the problem, $x_f$ is optimized when ${x_f}^2$ is optimized. This is due to the fact that $x_f$ could not be negative, and it is representing a maximum travel distance. Hence, we will optimized ${x_f}^2$ for ease of calculation.
+
+\begin{align}
+    {x_f}^2 =& 4h_0(H-H_0) \\
+    \frac{d{x_f}^2}{dh_0} =& \frac{d}{dh_0} 4h_0(H-h_0) \\
+    =& 4\frac{d}{dh_0} h_0(H-h_0) \\
+    =& 4 ((H-h_0) - h_0)  \\
+    =& 4H-4h_0 - 4h_0  \\
+    =& 4H-8h_0
+\end{align}
+
+*** Optimizing $\frac{d{x_f}^2}{dh_0}$
+The optimization of this statement is fairly simple. We set $\frac{d{x_f}^2}{dh_0}=0$, and solve for $h_0$.
+
+\begin{align}
+    {x_f}^2 =& 4H-8h_0 \\
+    \Rightarrow 0 =& 4H-8h_0 \\
+    \Rightarrow 8h_0 =& 4H \\
+    \Rightarrow h_0 =& \frac{1}{2}H 
+\end{align}
+
+Hence, the most optimal height at which to launch the marble launcher, given a horizontal launch, is half of the initial height.
+
+** Solution at arbitrary $\theta_0$
+
+*** Solving and optimizing for $\frac{dx_f}{d\theta_0}$
+We need to maximize $\frac{dx_f}{d\theta_0}$ as one out of two components to optimize for. Once we figure that value, we then supply the corresponding maximum value then optimize again for $\frac{h_0}{d\theta_0}$. The position equations above could be leveraged to figure a value for $x_f$. 
+
+**** Finding $\frac{dx_f}{d\theta_0}$
 We leverage implicit differentiation to figure a value for $\frac{dx_f}{d\theta_0}$. We set $x_f$ as a differentiable function, and $h_0$ and $H$ as both constants.
 
 \begin{align}
-    0 =& \frac{-1}{4} \frac{-1}{(H-h_0)}{x_f}^2cos^{-2}(\theta_0) + x_f tan(\theta_0) + h_0 \\
-\Rightarrow \frac{d}{d\theta_0} 0 =& \frac{d}{d\theta_0} (\frac{1}{4} \frac{1}{(H-h_0)}{x_f}^2cos^{-2}(\theta_0) + x_f tan(\theta_0) + h_0) \\
-\Rightarrow 0 =& \frac{1}{4} \frac{1}{(H-h_0)}\frac{d}{d\theta_0} {x_f}^2cos^{-2}(\theta_0) + \frac{d}{d\theta_0} x_f tan(\theta_0) + \frac{d}{d\theta_0} h_0 \\
-\Rightarrow 0 =& \frac{1}{4} \frac{1}{(H-h_0)} ((\frac{d}{d\theta_0} {x_f}^2) cos^{-2}(\theta_0) + {x_f}^2 (\frac{d}{d\theta_0} cos^{-2}(\theta_0))) + \\&  ((\frac{d}{d\theta_0} x_f) tan(\theta_0) +  (\frac{d}{d\theta_0} tan(\theta_0)) x_f) + 0 \\
-\Rightarrow 0 =& \frac{1}{4(H-h_0)} ((2{x_f} \frac{dx_f}{d\theta_0}) cos^{-2}(\theta_0) + {x_f}^2 (2cos^{-3}(\theta_0) sin(\theta_0))) + \\& (\frac{dx_f}{d\theta_0} tan(\theta_0) + sec^2(\theta_0) x_f)\\
-\Rightarrow 0 =& \frac{1}{4(H-h_0)} (2{x_f} \frac{dx_f}{d\theta_0}) cos^{-2}(\theta_0) +  \frac{1}{4(H-h_0)} {x_f}^2 (2cos^{-3}(\theta_0) sin(\theta_0)) + \\& \frac{dx_f}{d\theta_0} tan(\theta_0) + sec^2(\theta_0) x_f\\
-\Rightarrow & - \frac{1}{4(H-h_0)} {x_f}^2 (2cos^{-3}(\theta_0) sin(\theta_0)) - sec^2(\theta_0) x_f \\& = \frac{1}{4(H-h_0)} (2{x_f} \frac{dx_f}{d\theta_0}) cos^{-2}(\theta_0) +  \frac{dx_f}{d\theta_0} tan(\theta_0)\\
-\Rightarrow & - \frac{1}{4(H-h_0)} {x_f}^2 (2cos^{-3}(\theta_0) sin(\theta_0)) - sec^2(\theta_0) x_f \\& = \frac{dx_f}{d\theta_0} \frac{1}{2(H-h_0)} {x_f} cos^{-2}(\theta_0) +  \frac{dx_f}{d\theta_0} tan(\theta_0)\\
-\Rightarrow & - \frac{1}{4(H-h_0)} {x_f}^2 (2cos^{-3}(\theta_0) sin(\theta_0)) - sec^2(\theta_0) x_f \\& = \frac{dx_f}{d\theta_0} (\frac{1}{2(H-h_0)} {x_f} cos^{-2}(\theta_0) + tan(\theta_0))\\
-\Rightarrow & \frac{dx_f}{d\theta_0}  = \frac{- \frac{(cos^{-3}(\theta_0) sin(\theta_0))}{2(H-h_0)} {x_f}^2  - sec^2(\theta_0) x_f }{(\frac{1}{2(H-h_0)} {x_f} cos^{-2}(\theta_0) + tan(\theta_0))}
+    0 =& \frac{-1}{4} \frac{1}{(H-h_0)}{x_f}^2cos^{-2}(\theta_0) + x_f tan(\theta_0) + h_0 \\
+\Rightarrow \frac{d}{d\theta_0} 0 =& \frac{d}{d\theta_0} (\frac{-1}{4} \frac{1}{(H-h_0)}{x_f}^2cos^{-2}(\theta_0) + x_f tan(\theta_0) + h_0) \\
+\Rightarrow 0 =& \frac{-1}{4} \frac{1}{(H-h_0)}\frac{d}{d\theta_0} {x_f}^2cos^{-2}(\theta_0) + \frac{d}{d\theta_0} x_f tan(\theta_0) + \frac{d}{d\theta_0} h_0 \\
+\Rightarrow 0 =& \frac{-1}{4} \frac{1}{(H-h_0)} ((\frac{d}{d\theta_0} {x_f}^2) cos^{-2}(\theta_0) + {x_f}^2 (\frac{d}{d\theta_0} cos^{-2}(\theta_0))) + \\&  ((\frac{d}{d\theta_0} x_f) tan(\theta_0) +  (\frac{d}{d\theta_0} tan(\theta_0)) x_f) + 0 \\
+\Rightarrow 0 =& \frac{-1}{4(H-h_0)} ((2{x_f} \frac{dx_f}{d\theta_0}) cos^{-2}(\theta_0) + {x_f}^2 (2cos^{-3}(\theta_0) sin(\theta_0))) + \\& (\frac{dx_f}{d\theta_0} tan(\theta_0) + sec^2(\theta_0) x_f)\\
+\Rightarrow 0 =& \frac{-1}{4(H-h_0)} (2{x_f} \frac{dx_f}{d\theta_0}) cos^{-2}(\theta_0) +  \frac{-1}{4(H-h_0)} {x_f}^2 (2cos^{-3}(\theta_0) sin(\theta_0)) + \\& \frac{dx_f}{d\theta_0} tan(\theta_0) + sec^2(\theta_0) x_f\\
+\Rightarrow & \frac{1}{4(H-h_0)} {x_f}^2 (2cos^{-3}(\theta_0) sin(\theta_0)) - sec^2(\theta_0) x_f \\& = \frac{-1}{4(H-h_0)} (2{x_f} \frac{dx_f}{d\theta_0}) cos^{-2}(\theta_0) +  \frac{dx_f}{d\theta_0} tan(\theta_0)\\
+\Rightarrow & \frac{1}{4(H-h_0)} {x_f}^2 (2cos^{-3}(\theta_0) sin(\theta_0)) - sec^2(\theta_0) x_f \\& = \frac{dx_f}{d\theta_0} \frac{-1}{2(H-h_0)} {x_f} cos^{-2}(\theta_0) +  \frac{dx_f}{d\theta_0} tan(\theta_0)\\
+\Rightarrow & \frac{1}{4(H-h_0)} {x_f}^2 (2cos^{-3}(\theta_0) sin(\theta_0)) - sec^2(\theta_0) x_f \\& = \frac{dx_f}{d\theta_0} (\frac{-1}{2(H-h_0)} {x_f} cos^{-2}(\theta_0) + tan(\theta_0))\\
+\Rightarrow & \frac{dx_f}{d\theta_0}  = \frac{\frac{(cos^{-3}(\theta_0) sin(\theta_0))}{2(H-h_0)} {x_f}^2  - sec^2(\theta_0) x_f }{(\frac{-1}{2(H-h_0)} {x_f} cos^{-2}(\theta_0) + tan(\theta_0))}
 \end{align}
 
-*** Optimizing for $x_f$ for $\theta_0$ via $\frac{dx_f}{d\theta_0}$
+**** Optimizing for $x_f$ for $\theta_0$ via $\frac{dx_f}{d\theta_0}$
 We now set $\frac{dx_f}{d\theta_0}=0$ in order to figure critical points for the value of $x_f$.
 
-\begin{align}
-\frac{dx_f}{d\theta_0} =& \frac{- \frac{(cos^{-3}(\theta_0) sin(\theta_0))}{2(H-h_0)} {x_f}^2  - sec^2(\theta_0) x_f }{(\frac{1}{2(H-h_0)} {x_f} cos^{-2}(\theta_0) + tan(\theta_0))} \\
-\Rightarrow 0 =& \frac{- \frac{(cos^{-3}(\theta_0) sin(\theta_0))}{2(H-h_0)} {x_f}^2  - sec^2(\theta_0) x_f }{(\frac{1}{2(H-h_0)} {x_f} cos^{-2}(\theta_0) + tan(\theta_0))} \\
-\Rightarrow 0 =& - \frac{(cos^{-3}(\theta_0) sin(\theta_0))}{2(H-h_0)} {x_f}^2  - sec^2(\theta_0) x_f \\
-\Rightarrow sec^2(\theta_0) x_f =& - \frac{(cos^{-3}(\theta_0) sin(\theta_0))}{2(H-h_0)} {x_f}^2 \\
-\Rightarrow sec^2(\theta_0) =& - \frac{(cos^{-3}(\theta_0) sin(\theta_0))}{2(H-h_0)} x_f \\
-\Rightarrow 2sec^2(\theta_0)(H-h_0) =& - (cos^{-3}(\theta_0) sin(\theta_0)) x_f \\
-\Rightarrow \frac{-2(H-h_0)}{x_f} =& \frac{(cos^{-3}(\theta_0) sin(\theta_0))}{sec^2(\theta_0)} \\
-\Rightarrow \frac{-2(H-h_0)}{x_f} =& \frac{sin(\theta_0)}{cos^3(\theta_0) sec^2(\theta_0)} \\
-\Rightarrow \frac{-2(H-h_0)}{x_f} =& \frac{sin(\theta_0)}{cos(\theta_0)} \\
-\Rightarrow \frac{-2(H-h_0)}{x_f} =& tan(\theta_0) \\
-\Rightarrow \theta_0 =& arctan(\frac{-2(H-h_0)}{x_f})
+\begin{align}f
+\frac{dx_f}{d\theta_0} =& \frac{\frac{(cos^{-3}(\theta_0) sin(\theta_0))}{2(H-h_0)} {x_f}^2  - sec^2(\theta_0) x_f }{(\frac{-1}{2(H-h_0)} {x_f} cos^{-2}(\theta_0) + tan(\theta_0))} \\
+\Rightarrow 0 =& \frac{\frac{(cos^{-3}(\theta_0) sin(\theta_0))}{2(H-h_0)} {x_f}^2  - sec^2(\theta_0) x_f }{(\frac{-1}{2(H-h_0)} {x_f} cos^{-2}(\theta_0) + tan(\theta_0))} \\
+\Rightarrow 0 =& \frac{(cos^{-3}(\theta_0) sin(\theta_0))}{2(H-h_0)} {x_f}^2  - sec^2(\theta_0) x_f \\
+\Rightarrow sec^2(\theta_0) x_f =& \frac{(cos^{-3}(\theta_0) sin(\theta_0))}{2(H-h_0)} {x_f}^2 \\
+\Rightarrow sec^2(\theta_0) =& \frac{(cos^{-3}(\theta_0) sin(\theta_0))}{2(H-h_0)} x_f \\
+\Rightarrow 2sec^2(\theta_0)(H-h_0) =& (cos^{-3}(\theta_0) sin(\theta_0)) x_f \\
+\Rightarrow \frac{2(H-h_0)}{x_f} =& \frac{(cos^{-3}(\theta_0) sin(\theta_0))}{sec^2(\theta_0)} \\
+\Rightarrow \frac{2(H-h_0)}{x_f} =& \frac{sin(\theta_0)}{cos^3(\theta_0) sec^2(\theta_0)} \\
+\Rightarrow \frac{2(H-h_0)}{x_f} =& \frac{sin(\theta_0)}{cos(\theta_0)} \\
+\Rightarrow \frac{2(H-h_0)}{x_f} =& tan(\theta_0) \\
+\Rightarrow \theta_0 =& arctan(\frac{2(H-h_0)}{x_f})
 \end{align}
 
 As there is one critical point per the range, and that there must be at least one maximum point, we determine that the derived expression will maximize $x_f$ for a given solved $x_f$. To figure the actual statement that would optimize for both,
 
-** Solving and optimizing for $x_f$ 
+*** Solving and optimizing for $x_f$ 
 We will now return to our original expression for the final y-position ($=0$) to create an expression for $x_f$.
 
-*** Solving for $x_f$
+**** Solving for $x_f$
 We first take the previous expression for $x_f$ and supply the expression for $\theta_0$.
 
 \begin{align}
-    0 =& \frac{-1}{4} \frac{-1}{(H-h_0)}{x_f}^2cos^{-2}(\theta_0) + x_f tan(\theta_0) + h_0 \\
- \Rightarrow 0 =& \frac{-1}{4} \frac{-1}{(H-h_0)}{x_f}^2cos^{-2}(arctan(\frac{-2(H-h_0)}{x_f})) + x_f tan(arctan(\frac{-2(H-h_0)}{x_f})\\
- \Rightarrow 0 =& \frac{-1}{4} \frac{-1}{(H-h_0)}{x_f}^2cos^{-2}(arctan(\frac{-2(H-h_0)}{x_f})) + x_f \frac{-2(H-h_0)}{x_f} \\
- \Rightarrow 0 =& \frac{-1}{4} \frac{-1}{(H-h_0)}{x_f}^2((\frac{-2(H-h_0)}{x_f})^2+1) + x_f \frac{-2(H-h_0)}{x_f} \\
- \Rightarrow 0 =& \frac{1}{4(H-h_0)}(-2(H-h_0))^2+{x_f}^2) + -2(H-h_0) \\
- \Rightarrow 0 =& \frac{-(H-h_0)}{2}+\frac{{x_f}^2}{4(H-h_0)} + -2(H-h_0) \\
- \Rightarrow \frac{{x_f}^2}{4(H-h_0)} =& \frac{(H-h_0)}{2}+ 2(H-h_0) \\
- \Rightarrow {x_f}^2 =& 2(H-h_0)^2 + 8(H-h_0)^2 \\
- \Rightarrow {x_f}^2 =& 10(H-h_0)^2
+    0 =& \frac{-1}{4} \frac{1}{(H-h_0)}{x_f}^2cos^{-2}(\theta_0) + x_f tan(\theta_0) + h_0  \\
+    0 =& \frac{-1}{4} \frac{1}{(H-h_0)}{x_f}^2sec^{2}(arctan(\frac{2(H-h_0)}{x_f})) + x_f tan(arctan(\frac{2(H-h_0)}{x_f})) + h_0  \\
+    0 =& \frac{-1}{4} \frac{1}{(H-h_0)}{x_f}^2((\frac{2(H-h_0)}{x_f})^2 +1) + x_f (\frac{2(H-h_0)}{x_f}) + h_0  \\
+    0 =& \frac{-1}{4} \frac{1}{(H-h_0)} ((2(H-h_0))^2 + {x_f}^2) + 2(H-h_0) + h_0  \\
+    0 =& \frac{-1}{4} ((4(H-h_0)) + \frac{{x_f}^2}{(H-h_0)}) + 2(H-h_0) + h_0  \\
+    0 =& (-(H-h_0) - \frac{{x_f}^2}{4(H-h_0)}) + 2(H-h_0) + h_0  \\
+    \frac{{x_f}^2}{4(H-h_0)} =& -(H-h_0) + 2(H-h_0) + h_0  \\
+    {x_f}^2 =& -4(H-h_0)(H-h_0) + {4(H-h_0)}2(H-h_0) + {4(H-h_0)}h_0  \\
+    {x_f}^2 =& -4(H-h_0)^2 + 8(H-h_0)^2 + 4h_0(H-h_0)  \\
+    {x_f}^2 =& 4(H-h_0)^2 + 4h_0(H-h_0)  \\
 \end{align}
 
-*** Finding $\frac{d{x_f}^2}{dh_0}$
+**** Finding $\frac{d{x_f}^2}{dh_0}$
 We know that, by optimizing for ${x_f}^2$, $x_f$ is optimized due to the setup of the problem of the behavior of the length of line.
 
 Hence, we take the /first/ derivative, though of ${x_f}^2$ w.r.t. $h_0$ and with $H$ held constant.
 
 \begin{align}
-    {x_f}^2 =& 10(H-h_0)^2 \\
-\Rightarrow \frac{d{x_f}^2}{d h_0} =& \frac{d}{d h_0} 10(H-h_0)^2 \\
-=& 10 \frac{d}{d h_0} (H-h_0)^2 \\
-=& 10 \times -2(H-h_0) \\
-=& -20 (H-h_0) 
+    {x_f}^2 =& 4(H-h_0)^2 + 4h_0(H-h_0) \\
+\Rightarrow \frac{d{x_f}^2}{d h_0} =& \frac{d}{d h_0} (4(H-h_0)^2 + 4h_0(H-h_0)) \\
+=& 4\frac{d}{d h_0} (H-h_0)^2 + 4\frac{d}{d h_0} h_0(H-h_0) \\
+=& 4\frac{d}{d h_0} (H-h_0)^2 + 4((H-h_0) \frac{d}{d h_0} h_0 + h_0 \frac{d}{d h_0} (H-h_0) ) \\
+=& 4\frac{d}{d h_0} (H-h_0)^2 + 4((H-h_0) - h_0) \\
+=& -8(H-h_0) + 4(H-h_0) - 4h_0\\
+=& -4(H-h_0) - 4h_0\\
+=& -4H + 4h_0 - 4h_0\\
+=& -4H
 \end{align}
 
-*** Optimizing for ${x_f}^2$ via $h_0$ via $\frac{d{x_f}^2}{dh_0}$
-We again set the value of $\frac{d{x_f}^2}{dh_0}=0$ and solve for critical points.
+**** Optimizing for $x_f$
+The optimization of $x_f$ requires a little bit more thinking of the scenario of the problem. $H$ must be a positive number, and the expression for ${x_f}^2$ appears to be a straight line with slope $-4H$.
+
+Given $H>0$, $-4H<0$, and the slope of ${x_f}^2$ is negative --- as $h_0$ increases, ${x_f}^2$ decreases. Given $h_0$ must be positive, then, $h_0_{optim} = 0$.
+
+*** Solving for the Actual Optimum of $\theta_0$
+We return to following statement:
+
+\begin{equation}
+    \theta_0 =& arctan(\frac{2(H-h_0)}{x_f})
+\end{equation}
+
+The expression we derived above for $x_f$ under optimal conditions is, per the previous statement:
 
 \begin{align}
-    {x_f}^2 =& -20(H-h_0) \\
-    \Rightarrow 0 =& -20(H-h_0) \\
-    =& 20h_0-20H
-wait what?
+    {x_f}^2 =& 4(H-h_0)^2 + 4h_0(H-h_0) \\
+    \Rightarrow {x_f} =& \sqrt{4(H-h_0)^2 + 4h_0(H-h_0)} 
 \end{align}
 
+And substituting the statement for $x_f$ back into the expression above, in addition to the optimal value $h_0 = 0$ derived earlier, we derive that
+
+\begin{align}
+    \theta_0 =& arctan(\frac{2(H-h_0)}{x_f}) \\
+\Rightarrow \theta_0 =& arctan(\frac{2(H-h_0)}{\sqrt{4(H-h_0)^2 + 4h_0(H-h_0)}}) \\
+=& arctan(\frac{2(H)}{\sqrt{4(H)^2}}) \\
+=& arctan(1) \\
+=& 45^{\circ}
+\end{align}
+
+And hence, given an arbitrary angle and an arbitrary height to launch, the most optimal scenario is to make the launch point fully on the floor at an $45^{\circ}$ angle from the plane of the floor.

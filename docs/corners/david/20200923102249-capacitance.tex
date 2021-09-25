@@ -1,0 +1,121 @@
+% Created 2021-09-24 Fri 14:02
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{geometry}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Taproot}
+\date{\today}
+\title{Capacitance}
+\hypersetup{
+ pdfauthor={Taproot},
+ pdftitle={Capacitance},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{Capacitors}
+\label{sec:org5d591e4}
+\begin{itemize}
+\item Batteries try to push electrons in a direction.
+\begin{itemize}
+\item Zooming in on each end, would one see some charge since the electrons within the positive terminal would leave
+\begin{itemize}
+\item Yes, but tiny (this is tiny capacitance)
+\end{itemize}
+\end{itemize}
+\item Capacitors are designed to store amounts of charge in compact volumes
+\begin{itemize}
+\item Two conducting plates that connect to batteries and the high surface area allows significant amount of charge (one negative plate, one pos)
+\item Net charge of a capacitor is zero due to cancellation. Charge usually refers to positive plate in this context.
+\end{itemize}
+\item No \href{20200909105807-current.org}{current} flows across a capacitor as there is a gap of air/plastic (insulator called dieletric) between them. 
+\begin{itemize}
+\item This insulator is to prevent loss of all charge as they would cancel when given the opportunity to touch
+\end{itemize}
+\item Capacitors have no cap when it comes to storing things (think water balloon vs bucket) and it varies related to voltage.
+\item At same voltage, capacitors can vary in stored charge because of differences in area and distance between plates (and quality of dieletric)
+\end{itemize}
+
+\(C = \frac{Q}{V}\) in units of \(\frac{\text{Coloumbs}}{\text{Volts}}\) or \(\frac{\text{Couloumbs}^2}{\text{Joules}}\)
+
+\(C = k\epsilon_0 \frac{A}{d}\) where A is plate area and d plate separation.
+\(\epsilon_0\) shows up in \href{phys250-electricalforce.org}{Coloumb's Law} as well.
+
+\begin{itemize}
+\item Dieletric will polarize due to attempted transfer of electrons
+\item Capacitors are one-way (sort of like LEDs), and the shorter end is negative
+\end{itemize}
+
+\section{Batteries vs. Capacitors}
+\label{sec:org5d53a64}
+Batteries convert stored chemical potential energy into electrical energy.
+Capacitors store electrical potential energy and converting it to electrical energy,
+
+Batteries maintain constant voltages as charge flow out (until it exhausts chemicals).
+Capacitors decrease linearly in voltage as charge flows out (charge remaining is capacitance times voltage).
+
+Energy stored in capacitors can be calculated through looking at the units.
+\(E = \frac{V_c \cdot Q}{2}\)
+\(Joules = \frac{Joules}{Coulomb} \cdot Coulomb\)
+1/2 comes from the average voltage (also can be thought of integral of voltage over charge flowed out)
+\(E = \frac{V_c \cdot Q}{2} = \frac{CV^2}{2}\) is energy stored on a charged capacitor (second equation derived from use of \(Q = CV\))
+
+\subsection{Water analogy}
+\label{sec:org6d95d71}
+Capacitors are like a flexible membrane stretched across a pipe. Applying pressure will have it flex and eventually this will hit a maximum and stop (pressures reach equilibrium). The volume of water in the membrane is proportional to the pressure, much like how \(Q \propto V\). Bigger capacitors are larger more flexible membranes, and vice versa.
+
+\section{Charging Time}
+\label{sec:org43b0804}
+Experimental evidence suggests \(\tau = RC\). 
+\emph{Unit check!} \(R = \frac{Volts \cdot Seconds}{Coulombs}\) and \(C = \frac{Coulombs}{Volt}\) so \(RC = Seconds\)
+
+\section{Derivations}
+\label{sec:org78c43c5}
+Assume battery of voltage \(V_b\), resistor of resistance \(R\), and capacitor of capacitance \(C\). Assume measurement of current \(I\) is possible (note that there is a switch in the circuit). \(I\) will be a function of \emph{time}.
+
+\(I(t) = \frac{V_b}{R} e^{\frac{-t}{RC}}\)
+\(V_c(t) = V_b (1 - e^{\frac{-t}{RC}}\)
+\end{document}

@@ -1,6 +1,6 @@
 # Source lists
-MARKDOWN_SRC := $(shell find . -name "*.md" -not -path "./gen/*" -not -path "./src/.stversions/*" -not -path "./src/Template/*" -not -path '*/\.*')
-RST_SRC := $(shell find . -name "*.rst" -not -path "./gen/*" -not -path "./src/.stversions/*" -not -path "./src/Template/*" -not -path '*/\.*')
+MARKDOWN_SRC := $(shell find . -name "*.md" -not -path "./firn/*"  -not -path "./gen/*" -not -path "./src/.stversions/*" -not -path "./src/Template/*" -not -path '*/\.*')
+RST_SRC := $(shell find . -name "*.rst" -not -path "./firn/*" -not -path "./gen/*" -not -path "./src/.stversions/*" -not -path "./src/Template/*" -not -path '*/\.*')
 
 # Conversion lists
 MARKDOWN_CONV := $(MARKDOWN_SRC:.md=.org)
@@ -9,7 +9,7 @@ RST_CONV := $(TEX_SRC:.rst=.org)
 CONV_ALL := $(MARKDOWN_CONV) $(RST_CONV)
 
 # Raw org
-ORG_SRC := $(filter-out $(CONV_ALL), $(shell find . -name "*.org" -not -path "./gen/*" -not -path "./templates/*" -not -path "./README.org" -not -path "./src/.stversions/*" -not -path "./src/Template/*" -not -path '*/\.*')) 
+ORG_SRC := $(filter-out $(CONV_ALL), $(shell find . -name "*.org" -not -path "./firn/*" -not -path "./gen/*" -not -path "./templates/*" -not -path "./README.org" -not -path "./src/.stversions/*" -not -path "./src/Template/*" -not -path '*/\.*')) 
 
 # Target lists
 ORG_TARGET := $(ORG_SRC) $(CONV_ALL) 
@@ -71,12 +71,14 @@ ox_docs/%.html: gen/%.org
 
 transpile: gen
 	mkdir -p docs
+	./cache_ids.el
 	rsync -am --include='*.'{jpg,jpeg,png,gif,svg} --include='*/' --exclude='*' ./src/* ./docs
 	rsync -am --include='*.html' --include='*/' --exclude='*' ./gen/_firn/_site/* ./docs
 	find ./src/ -regex '.*\(jpg\|jpeg\|png\|gif\|svg\)' -not -path "*ltximg*" -exec cp "{}" docs \;
 	mkdir -p gen/_firn
 	cp -r site/* gen/_firn
 	cp -r gen/_firn/static docs
+	 #cd firn/clojure && lein run build -d ../../gen
 	cd gen && firn build
 	find . -d -name "*~" -exec rm -f {} \;
 	find . -d -name "*.texe" -exec rm -f {} \;

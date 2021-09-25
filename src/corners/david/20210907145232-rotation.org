@@ -1,0 +1,66 @@
+
+#+title: Rotation
+
+Kinetic energy is decomposable into two components:
+
+$\text{KE}_{\text{total}} = \text{KE}_{\text{translational}} + \text{KE}_{\text{rotational}}$
+
+$\text{KE}_T  = \frac{1}{2} mv^2$
+
+#+begin_aside Aside: Formula for Rotational Energy
+$\text{KE}_R = \frac{1}{2} I\omega^2$ where $I$ is the "moment of inertia around the axis of rotation" and $\omega$ the angular velocity.
+
+We won't actually cover this until second semester
+#+end_aside
+
+#+begin_defn Axis of Rotation
+A line through the center of the mass such that the all the rest of the masses are going in circular motion around the axis. Direction of rotation allows us to asign a vector to rotation.
+#+end_defn
+
+* Derivation
+
+\begin{align*}
+\text{KE}_\text{total} = \sum_{i=1}^N \frac{1}{2} m_i (v_i \cdot v_i) \\
+\text{KE}_\text{total} =  \sum_{i=1}^N \frac{1}{2} m_i (\vec{V}_\text{CM} + \vec{v}_i^{\text{ }\prime})^2 \\
+\text{KE}_\text{total} =  \sum_{i=1}^N \frac{1}{2} m_i (\vec{V}_\text{CM}^2 + 2\vec{V}_\text{CM}{v}_i^{\text{ }\prime} + (\vec{v}_i^{\text{ }\prime})^2) \\
+\text{KE}_\text{total} =  \sum_{i=1}^N \left( \frac{1}{2} m_i \vec{V}_\text{CM}^2 + m_i \vec{V}_\text{CM}\vec{v}_i^{\text{ }\prime} + \frac{1}{2} m_i (\vec{v}_i^{\text{ }\prime})^2 \right) \\
+\text{KE}_\text{total} =  \sum_{i=1}^N \frac{1}{2} m_i \vec{V}_\text{CM}^2 +  \sum_{i=1}^N  m_i \vec{V}_\text{CM}\vec{v}_i^{\text{ }\prime} + \sum_{i=1}^N \frac{1}{2} m_i  (\vec{v}_i^{\text{ }\prime})^2 \\
+\text{KE}_\text{total} =  \frac{1}{2} \vec{V}_\text{CM}^2 \sum_{i=1}^N m_i  + \vec{V}_{\text{CM}} \sum_{i=1}^N  m_i \vec{v}_i^{\text{ }\prime}  + \sum_{i=1}^N \frac{1}{2} m_i  (\vec{v}_i^{\text{ }\prime})^2 \\
+\text{Define $M = \sum_{i=1}^N  m_i$.} \\
+\vec{r}_\text{CM}^{\text{ }\prime} = \frac{1}{M} \sum_i m_i \vec{r}_i \\
+\text{$\vec{r}_\text{CM}^{\text{ }\prime} = 0$ by definition (it is relative to itself).} \\
+0 = \frac{1}{M} \sum_i m_i \vec{r}_i \\
+\text{Differentiate with respect to time.} \\
+0 = \frac{1}{M} \sum_i m_i \vec{v}_i \\
+0 = \sum_i m_i \vec{v}_i \\
+\text{Eliminate the middle term $ \vec{V}_{\text{CM}} \sum_{i=1}^N  m_i \vec{v}_i^{\text{ }\prime}$ as it is equal to 0.} \\
+\text{KE}_\text{total} =  \frac{1}{2} \vec{V}_\text{CM}^2 \sum_{i=1}^N m_i  + \sum_{i=1}^N \frac{1}{2} m_i  (\vec{v}_i^{\text{ }\prime})^2 \\
+\boxed{\text{KE}_\text{total} =  \frac{1}{2} M \vec{V}_\text{CM}^2  + \sum_{i=1}^N \frac{1}{2} m_i  (\vec{v}_i^{\text{ }\prime})^2} \\
+\end{align*} 
+
+
+
+** Consequences
+$\frac{1}{M} \sum m_i \vec{r}_i^{\text{ }\prime} = 0$
+
+$\frac{1}{M} \sum m_i \vec{v}_i^{\text{ }\prime} = 0$
+
+$\frac{1}{M} \sum m_i \vec{a}_i^{\text{ }\prime} = 0$
+
+
+* Rotational energy derivation
+
+Give a distance from axis $l_i$, mass $m_i$, relative position $\vec{r}_i^{\text{ }\prime}$ and angular velocity $\omega$, you can get rotational KE via $\frac{1}{2} \sum m_i ( l_i \omega)$, since $l_i \theta$ would give arclength, so time derivative $l_i \omega$ would give velocity. Additionally, in terms of dimensional analysis, radians are dimensionless so it's 1/s times m to get m/s.
+
+To go a bit farther,
+
+\begin{align*}
+KE_r =& \frac{1}{2} \sum m_i (v_i^{\text{ }\prime}) \\
+=&  \frac{1}{2} \sum m_i (l_i \omega) \\
+=&  \frac{1}{2} \sum m_i l_i^2 \omega^2 \\
+=&  \frac{1}{2} \omega^2 \underbrace{ \sum m_i l_i^2}_{I} \\
+=& \frac{1}{2} I \omega^2
+\end{align*}
+
+$I$ here is [[file:20210910132702-moment_of_inertia.org][moment of inertia]]. 
+

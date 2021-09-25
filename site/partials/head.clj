@@ -9,6 +9,7 @@
    [:link {:rel "stylesheet" :href "/static/css/firn_base.css"}]
    [:link {:rel "stylesheet" :href "/static/css/prism.css"}]
    [:link {:rel "stylesheet" :href "/static/css/global.css"}]
+   [:link {:rel "stylesheet" :href "/static/css/admonition.css"}]
    [:script {:type "text/javascript" :async "async" :src "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"}]
    [:script {:type "text/javascript" :src "https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"}]
    [:script {:type "text/x-mathjax-config"}

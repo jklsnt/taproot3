@@ -1,0 +1,85 @@
+#+TITLE:Implicit Differentiation
+#+STARTUP: showall showstars latexpreview indent
+
+* Implicit Differentiation                               :unit1::derivatives:
+** David's Summary
+
+This is how I understand implicit differentiation.
+
+Say you want to take a derivative of an implicit function like $x^2 + y^2 = 3$.
+
+1. Take the derivative of everything with respect to $x$:
+   $\frac{d}{dx} x^2 + \frac{d}{dx} y^2 = \frac{d}{dx} 3$
+   With a little simplification this is just $2x + \frac{d}{dx} y^2 = 0$.
+
+2. Cleverly apply the chain rule to get $\frac{d}{dx} y^2$.
+   Chain rule states that $\frac{d}{du}\frac{du}{dx} = \frac{d}{dx}$.
+   Define $u = y^2$.
+   By chain rule $\frac{du}{dy}\frac{dy}{dx}$ = $\frac{du}{dx}$.
+
+3. Our formula is now $2x + (2y)\frac{dy}{dx} = 0$. Time for some algebra!
+   $\frac{dy}{dx} = \frac{-2x}{2y} = \frac{-x}{y}$
+
+** Initial Example
+
+Technique based on the Chain Rule that allows diffrentiation of more functions.
+
+*EXAMPLE* $\frac{d}{dx} x^a = ax^{a-1}$
+This holds true for $a=0, \pm 1, \pm 2$...
+What about fractional powers? Take $a = \frac{m}{n}$
+
+$y = x^{\frac{m}{n}}$ or $y^n = x^m$
+We can apply derivative to equation 2 because the methods of diffrentiating the fractional exponent is unknown to us.
+
+$\frac{d}{dx} y^n = \frac{d}{dx} x^m$
+
+$\big(\frac{d}{dy} y^n\big) \frac{dy}{dx}= \frac{d}{dx} x^m$
+or...
+$ny^{n-1} \frac{dy}{dx}= mx^{m-1}$
+
+$\frac{dy}{dx} =
+
+** Another Example
+
+$x^2 + y^2 = 1$ is an implicit function, explicitly it is $y = \pm \sqrt{1-x}$ (for convienience limit to positives for now).
+
+Solving it explicitly:
+$y' = \frac{1}{2}()^{-1/2} (-2x)$
+NOTE: $\frac{1}{2}()^{-1/2}$ = $\frac{d}{d()}()^{-1/2}$
+
+Or implicitly:
+
+- Diffrentiate function in the form $x^2 + y^2 = 1$.
+- $\frac{d}{dx} (x^2 + y^2 = 1)$ or $2x + 2yy' = 0$
+- Solve for y' which is $\frac{-2x}{2y} = \frac{-x}{y}$ (solve algebraically).
+
+Compare $\frac{-x}{y}$ to explicit solution $\frac{1}{2}(1-x^2)^{-1/2} (-2x) = \frac{-x}{\sqrt{1-x^2}}$ and find they are the same as $y = \sqrt{1-x^2}$.
+
+** A Trickier Example
+
+$y^4 + xy^2 -2 = 0$
+
+- One can solve it explicitly by using the quadratic equation.
+- Implicitly one can apply the product rule and the previous examples to diffrentiate this function.
+- Writeup is left as an exercise for the reader.
+** Derivatives of Inverse Functions
+
+*EXAMPLE* $y=\sqrt{x}, x > 0, y^2 = x$
+$f(x) = \sqrt{x}, g(y) = x, g(y) = y^2$
+NOTE: If $y = f(x)$ and $g(y)=x$, $g(f(x)) = x$
+
+/STATEMENT/ Implicit differentiation allows computing derivatives of any inverse function provided we know the derivative of the function.
+
+*EXAMPLE* $y = \tan^{-1}{x}$ and we'll use the equation $\tan{y} = x$
+- Note that inverse functions are the function reflected over the line $x=y$. 
+- Recall that derivative of tangent is $\frac{d}{dy} \frac{\sin{y}}{\cos{y}} = \frac{1}{\cos^2{y}} = \sec^2{y}$.
+- $\frac{d}{dy} \tan{y} = 1$ or $\sec^2{y} * y' = 1$.
+- $y' = \cos^2{y}$ which leads to $\frac{d}{dx} \tan^{-1}{x} = \cos^2(\tan^{-1}{x})$.
+  - Too complicated!
+- Modelling as a right triangle and simplifying more yields $\frac{d}{dx} \tan^{-1}{x} = \frac{1}{1+x^2}$.
+  
+
+* Links
+  
+Other techniques for differentiation as well as the topic of logarithms are covered in [[file:calc-logarithms.org][Exponentials and Logarithms]].
+Further review can be found in [[file:calc-mit-exam-review.org][MIT SVC Exam Review (Unit 1)]].

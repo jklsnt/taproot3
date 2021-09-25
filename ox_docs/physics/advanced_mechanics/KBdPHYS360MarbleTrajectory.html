@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-23 Thu 22:48 -->
+<!-- 2021-09-24 Fri 13:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -194,6 +194,10 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autolinker/prism-autolinker.min.js" integrity="sha512-PaneznVpkV74O5FWaHuGG2Pa9aVgbrnDwLFbcebZikYcFVPUYimvlZUAX6AElPKDJsSDTBl7aN6V1WxFDi24aw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://raw.githubusercontent.com/PrismJS/prism-themes/master/themes/prism-atom-dark.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -241,18 +245,18 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div>  Taproot 2021-09-23 Thu 22:47</div>
+<div>  Taproot 2021-09-24 Fri 13:22</div>
 </div>
 <div id="content">
-<div id="outline-container-orgd7bd2ad" class="outline-2">
-<h2 id="orgd7bd2ad"><span class="section-number-2">1</span> Thing</h2>
+<div id="outline-container-org4f7f779" class="outline-2">
+<h2 id="org4f7f779"><span class="section-number-2">1</span> Thing</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 First, we will define equations for the distance as a function of \(t\). (Note that both \(h_{0}\) and \(\theta\) are parameters but aren't shown as arguments to the function.)
 </p>
 
 \begin{cases}
-x(t) &= v_{0} \cos{(\theta)} t + h_{0} \\
+x(t) &= v_{0} \cos{(\theta)} t \\
 y(t) &= -\frac{1}{2}gt^2 + v_{0} \sin{(\theta)} t + h_{0} \\
 \end{cases}
 
@@ -269,56 +273,52 @@ We can rewrite \(x(t)\) and \(y(t)\):
 </p>
 
 \begin{cases}
-x(t) &= \sqrt{2g(H-h_{0})} \cos{(\theta)}t + h_{0}\\
+x(t) &= \sqrt{2g(H-h_{0})} \cos{(\theta)}t \\
 y(t) &= -\frac{1}{2}gt^2 + \sqrt{2g(H-h_{0})} \sin{\theta}t + h_0 \\
 \end{cases}
 
 <p>
-We can set \(y(t)\) equal to 0 and use the quadratic equation to solve for \(t\):
+We can get \(t_f\) in terms of \(x\):
 </p>
 
 \begin{aligned}
-0 &= -\frac{1}{2}gt^2 + v_{0} \sin{(\theta)} t + h_{0} \\
-t &= \frac{(v_{0}) \sin{(\theta)} \pm \sqrt{(v_{0} \sin{(\theta)})^2 + 2gh_{0}}}{g} \\
+t_f &= \frac{x_f}{\sqrt{2g(H-h_0)}\cos{(\theta)}} \\
+&= \frac{x_f}{v_0 \cos{(\theta)}} \\
 \end{aligned}
 
 <p>
-In this case \(t\) is positive (because we are going forwards in time) so we will use the following equation for \(t\):
+We can now get \(y_f\) in terms of \(x_f\):
 </p>
 
 \begin{aligned}
-t = \frac{(v_{0})\sin{(\theta)} + \sqrt{(v_{0}\sin{(\theta)})^2 + 2gh_{0}}}{g} \\
+y_f &= -\frac{1}{2}g(\frac{x_f}{v_0\cos{(\theta)}})^2 + v_0 \sin{(\theta)}\frac{x_f}{v_0 \cos{(\theta)}} + h_0 \\
+&= -\frac{gx_{f}^2}{2v_{0}^2 \cos^2{(\theta)}} + x_f \tan{(\theta)} + h_0
 \end{aligned}
 
 <p>
-We can insert this into \(x(t)\) to obtain
+We set \(y_f\) to equal 0 and differentiate both sides:
 </p>
+
 \begin{aligned}
-x_{f} &= v_0 \cos{(\theta)}\frac{(v_{0})\sin{(\theta)} + \sqrt{(v_{0}\sin{(\theta)})^2 + 2gh_{0}}}{g} + h_{0} \\
+\frac{d}{d\theta}[0] &= \frac{d}{d\theta}[-\frac{gx_{f}^2}{2v_0^{2} \cos^2{(\theta)}}] + \frac{d}{d\theta}[x_f \tan{(\theta)}] + \frac{d}{d\theta}[h_0] \\
+0 &= -\frac{g}{2v_0}(\frac{2\cos^2{(\theta)} x'_f x_f + 2x^2_f \cos{(\theta)}\sin{(\theta)}}{\cos^4{(\theta)}}) + x'_f \tan{(\theta)} + x_f \sec^2{(\theta)}\\
 \end{aligned}
 
 <p>
-For Launch Condition 1, \(\theta\) is equal to 0. We will use this for \(x_{f_1}\):
+We can simplify this further:
 </p>
 
 \begin{aligned}
-x_{f_{1}} &= v_0 \frac{\sqrt{2gh_{0}}}{g} + h_{0} \\
-x_{f_{1}}^2 &= \frac{(v_0 \sqrt{gh_0} + gh_0)^2}{g^2}
+0 &= -\frac{gx'_f x_f}{v_0 \cos^2{(\theta)}} - \frac{gx^2_f \tan{(\theta)}}{v_0\cos^2{(\theta)}} + x'_f \tan{(\theta)} + \frac{x_f}{\cos^2{(\theta)}} \\
 \end{aligned}
 
 <p>
-\(v_0\), \(g\), and \(h_0\) are all positive:
+Solving for \(\tan{(\theta)}\):
 </p>
 
 \begin{aligned}
-x_{f_1}^2 &= (v_0 \sqrt{\frac{h_0}{g}} + h_0)^2 \\
-\end{aligned}
-<p>
-We take the derivative:
-</p>
-\begin{aligned}
-\frac{d}{dx}[x_{f_1}^2] &= 2(\frac{v_0}{2g\sqrt{\frac{h_0}{g}}} + 1)(v_0\sqrt{\frac{h_0}{g} + h_0}) \\
-&= 2(\frac{\sqrt{2g(H-h_{0})}}{2g\sqrt{\frac{h_0}{g}}} + 1)\sqrt{2g(H-h_{0})}\sqrt{\frac{h_0}{g} + h_0}
+\tan{(\theta)} (x'_f - \frac{gx^2_f}{v_0 \cos^2{(\theta)}}) &= \frac{gx'_fx_f - v_0x_f}{v_0 \cos^2{(\theta)}} \\
+\tan{(\theta)} (\frac{v_0 x'_f \cos^2{(\theta)} - gx^2_f}{v_0 \cos^2{(\theta)}}) &= \frac{gx'_fx_f - v_0x_f}{v_0 \cos^2{(\theta)}}
 \end{aligned}
 </div>
 </div>

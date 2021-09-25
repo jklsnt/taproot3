@@ -1,0 +1,112 @@
+% Created 2021-09-24 Fri 14:01
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Taproot}
+\date{\today}
+\title{LinApprox + Differentials Quiz\\\medskip
+\large Let's do this.}
+\hypersetup{
+ pdfauthor={Taproot},
+ pdftitle={LinApprox + Differentials Quiz},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{Implicit Differentiation}
+\label{sec:org17f0382}
+The usual process:
+\begin{enumerate}
+\item Differentiate everything with respect to x
+\item Apply the chain rule to functions left in the mix: since \((f(g(x)))' = g'(x) f'(g(x))\), \(\frac{d}{dx}y^2 =  \frac{dy}{dx}y^2\).
+\item Apply algebra to get \(\frac{dy}{dx}\) on one side.
+\item OPTIONAL(?): Convert back to explicit form by plugging in value of \(y\).
+\end{enumerate}
+
+\subsection{Common Problems and their Respective Approaches}
+\label{sec:org11cfbfc}
+\subsubsection{Find the equation of the tangent/normal at (A,B)}
+\label{sec:orgd61ed91}
+Remember that \(L(a) = f(a) + f'(a)(x-a)\), and that'll give you tangent.
+Normal line is just perpendicular of tangent, so \(\frac{-1}{L(a)}\).
+\subsubsection{Find location of curve where tangent is \emph{vertical}}
+\label{sec:org25c37ed}
+Simply find what values of x and y make the tangent go to infinity.
+System of equations with the derivative and the original implicit equation itself. You can make this faster with fractions by only using denom/numerator.
+\subsubsection{Find location of curve where tangent is \emph{horizontal}}
+\label{sec:org5ffcd6c}
+Same as above but solve for what makes tangent go to zero.
+\subsection{Misc Tips}
+\label{sec:orgcb2bcd5}
+\subsubsection{Pay attention to the original equations!}
+\label{sec:org7f36a20}
+They're very useful in algebra!
+
+\section{Derivatives of Inverse Functions}
+\label{sec:org55b064a}
+Formula for this is \((f^{-1}(x))' = \frac{1}{f'(f^{-1}(x))}\). 
+
+\section{Derivatives of Inv. Trig Functions}
+\label{sec:orgcc24408}
+Remember the derivs
+
+\subsection{{\bfseries\sffamily TODO} Explicitly deriving}
+\label{sec:org4731400}
+
+\section{Linear Approximations}
+\label{sec:org8b50f52}
+\(L(a) = f(a) + f'(a)(x-a)\)
+Plug in for appropriate a, and manually check for over/underestimation if problem asks.
+
+\subsection{{\bfseries\sffamily TODO} Algebraically getting set accuracy bounds}
+\label{sec:org4dfb027}
+
+\section{Differentials}
+\label{sec:org5ec2d27}
+\(dy = f'(x)dx\)
+
+\(-dx < dy < dx\)
+\end{document}

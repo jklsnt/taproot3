@@ -1,0 +1,187 @@
+% Created 2021-09-24 Fri 14:01
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Taproot}
+\date{\today}
+\title{MIT SVC Exam Review (Unit 1)}
+\hypersetup{
+ pdfauthor={Taproot},
+ pdftitle={MIT SVC Exam Review (Unit 1)},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{Exam Review\hfill{}\textsc{unit1}}
+\label{sec:org6bad54a}
+
+\subsection{Exponents (Continued)}
+\label{sec:orgc6398e2}
+
+\(\lim\limits_{k\rightarrow\infty} a_k = (1+\frac{1}{k})^k\) as definition of \(e\).
+
+\uline{Why?}
+\emph{PREVIOUSLY} We found that \(\lim\limits_{k\rightarrow\infty} \ln{a_k} = 1\).
+
+As a result the limit of \(e^{\ln{a_k}}\) will be \(e^\).
+\(e^{\ln{a_k}} = a_k\) by properties of logs/exponents so \(a_k = e\).
+
+\(e\) is approximated with this expression (by plugging in large values of \(k\)).
+
+\subsection{Derivative of The Powers}
+\label{sec:orgd468f42}
+
+Validate that the Power Rule is true for all real numbers.
+
+\uline{Method 1}
+
+\begin{itemize}
+\item \(x^2 = (e^{\ln{x}})^r = e^{r\ln{x}}\)
+\end{itemize}
+-\(\frac{d}{dx} x^r = (e^{r\ln{x}})' = e^{r\ln{x}} (r \ln{x})'\) by chain rule.
+\(= x^r * \frac{r}{x}\) by both exponent rules and the fact that \(r\) is a constant and the derivative of the log is \(\frac{1}{x}\)
+\(= rx^{r-1}\) and so Power Rule is correct.
+
+\uline{Method 2}
+
+Logarithmic diffrentiation!
+
+\begin{itemize}
+\item -\(u = x^r\) and take log: \(\ln{u} = r \ln{x}\).
+\item \(\frac{u'}{u} = (\ln{u})' = \frac{r}{x}\)
+\item \(u' = u * \frac{r}{x} = x^r * \frac{r}{x} = rx^{r-1}\)
+\end{itemize}
+
+\textbf{NOTE:} The notation here is incredibly confusing! Note that the \(\frac{y'}{y}\) is really implicit diffrentiation in disguise! Logarithmic differentiation diffrentiates the equation with respect to \(x\) and so the same chain rule trickery applies. It is in fact \(\frac{u}{dy}\frac{dy}{dx}\) where \(u = \ln{y}\) but because the derivative of log is \(\frac{1}{x}\) and we're using prime notation it looks like \(\frac{y'}{y}\). but with Read up more thourough overview of the steps \href{implicit-diff.org}{here}.
+
+\subsection{The Natural Log}
+\label{sec:org2a1f5c1}
+
+The natural log is natural.
+Example: economics is a field where only ratios matter ("my stock went up by a dollar" depends on context). If FTSE went down by 27.9 today we'd only care about \(\frac{\Delta p}{p} = \frac{27.9}{6432} = .43%\). However infinitesmal changes matter in this context as well as small timeframes can be important and so \(\frac{p'}{p} = (\ln{p})'\) is used to model prices! Natural log is natural.
+
+\subsection{Unit 1 Formula Review}
+\label{sec:org089292d}
+
+\textbf{\emph{/} !! FILL ME IN !! \emph{/}}
+
+\subsubsection{General Formulas}
+\label{sec:orgb7a09cc}
+\begin{itemize}
+\item \((u+v)'\) = \(u' + v'\)
+\item \((cu)'\) = \(cu'\)
+\item \((uv)'\) = \(u'v + v'u\)
+\item \((u/v)'\) = \(\frac{u'v - uv'}{v^2}\)
+\item \((u(v(x))'\) = \(v'(x) u'(v(x))\) (more generally \(\frac{dx}{du}\frac{du}{dy} = \frac{dx}{dy}\))
+\item Implicit differentiation
+
+Implicit differentiation is a method of computing derivatives implicitly. Implicit equations are where the equation is not explicitly in the form y = \ldots{} but in a different form like \(y^2 + x^2 = 1\). One can usually express the equation in an explicit form to avoid implicit differentiation but this process can be significantly simpler sometimes.
+
+First, one attempts to differentiate the entire equation with respect to x: \(\frac{d}{dx} y^2 + 2x = 0\). This is all well and good but how is the derivative of the y term determined? A clever application of the chain rule: \(\frac{du}{dy}\frac{dy}{dx} = \frac{du}{dx}\) and by declaring \(u = y^2\) we get \(2y\frac{dy}{dx} = \frac{du}{dx}\). Finally, solve for \(\frac{dy}{dx}\) algebraically in the larger formula to get \(\frac{-2x}{2y}\) or \(\frac{-x}{y}\) and as \(y = \sqrt{1-x}\) our final answer is \(\frac{-1}{\sqrt{1-x}}\).
+
+\begin{itemize}
+\item Inverses
+
+Simply structure the inverse as a implicit function.
+
+Example: \(y = \sin^{-1}{x}\) is equivalent to \(\sin{y} = x\).
+\(\frac{d}{dx} \sin{y} = 1 \rightarrow \cos{y}\frac{dy}{dx} = 1 \rightarrow \frac{dy}{dx} = \frac{1}{\cos{y}} \rightarrow \frac{dy}{dx} = \frac{1}{\cos{(\sin^{-1}{x})}}\)
+Finally, through trig identities, it can be reduced to \(\frac{1}{\sqrt{1-x^2}}\)
+
+\item Logarithmic diffrentiation
+
+Another, albeit more confusing, application of implicit differentiation is logarithmic differentiation.
+
+Example: \(y = x^x\) can be rephrased as \(\ln{y} = x \ln{x}\) (Note that properties of logs help here)
+\(\frac{d}{dx}\ln{y} = \ln{x} + 1\) (product rule), so \(\frac{d}{dx}\ln{y} = \ln{x}\). \(\frac{1}{y}\frac{dy}{dx} = \ln{x} \rightarrow \frac{dy}{dx} = y \ln{x}\) so \(x^x (\ln{x} + 1)\)
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Specific Formulas}
+\label{sec:org6fc7d87}
+\begin{itemize}
+\item \((x^r)'\) = \(rx^{r-1}\)
+\item \((\sin{x})'\) = \(\cos{x}\)
+\item \((\cos{x})'\) = \(-\sin{x}\)
+\item \((\tan{x})'\) = \(\sec^2{x}\)
+\item \((\sec{x})'\) = \(\sec{x}\tan{x}\)
+NOTE: See lecture for sec formula.
+\item \((e^x)'\) = \(e^x\)
+\item \((\ln{x})'\) = \(\frac{1}{x}\)
+\item \((\sin^{-1}{x})'\) = \(\frac{1}{\sqrt{1-x^2}}\)
+\item \((\tan^{-1}{x})'\) = \(\frac{1}{x^2+1}\)
+\item \textbf{REMEMBER}: You can easily derive many of these trig formulas through either implicit differentiation or the quotient rule.
+\end{itemize}
+
+\subsection{Chain Rule Tangent}
+\label{sec:org0ff3bb4}
+
+Intuitive demo:
+\(y = 10x + b\), \(y' = 10\) with respect to x.
+\(x = 5t + a\), \(x' = 5\) with respect to t.
+\(y = 10(5t + a)+b = 50t + 10a + b\), \(y' = 50\) with respect to t.
+
+Also note that the quotient rule can be avoided with chain rule and product rule.
+
+\subsection{Unit 1 Misc. Concept Review}
+\label{sec:org17b85eb}
+
+\begin{itemize}
+\item Defined derivative as \(f'(x) = \lim\limits_{\Delta x\rightarrow0} \frac{f(x+\Delta x) - f(x)}{\Delta x}\)
+\begin{itemize}
+\item Reviewed lots of functions like \(\frac{1}{x}\), \(x^n\), \(\sin{x}\), \(\cos{x}\), \(a^x\). Note that the arguments for trig functions were done with case \(x=0\).
+\end{itemize}
+\item Read Formula Backwards
+
+\(\lim_{x\rightarrow0} \frac{f(x_0+\Delta x) - f(x_0)}{x-x_0} = f'(x)\)
+
+See lecture for more details, essentially how the x=0 case works.
+
+\item[{$\boxtimes$}] You should be able to derive formulas for \((\sin^{-1}{x})'\) and \((\ln{x})'\) by implicit differentiation (as \(y=\sin^{-1}{x}\) is the same as \(\sin{y} = x\)).
+\item You will be expected to compute tangent lines as well as graph derivatives.
+\item You will be expected to recognize differentiable functions by check if left/right tangents are equal.
+\end{itemize}
+\end{document}

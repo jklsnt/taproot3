@@ -22,12 +22,6 @@ source: #index
 - [[KBxAmericanColonies]]
 - [[KBxMiddlekauff]]
 
-
-
-
-
-
-
-
-
-
+# French and Indian War
+- [[KBdHIST301FrenchIndianWar]] 
+- [[KBhFrenchAndIndian]] 

@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-24 Fri 10:24
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -54,5 +57,23 @@
 
 \noindent\rule{\textwidth}{0.5pt}
 
-middle is deeper than outside
+\section{the lake problem}
+\label{sec:orgebb21fe}
+\textbf{150 word description of the mathematical technique you used to
+approximate the lake bed.}
+
+After looking at quite a few bathymetries of real lakes, we realized
+that when the geometry of the lake's edge changed substantially, there
+would often be a raised ridge in the intersection. Each of these
+distinct regions would have a deep spot, then be surrounded either by
+the lake edge or a ridge. Our goal with our point placement was to
+locate these deep spots, then use our remaining points to locate the
+ridges and to see the change in slope at the same time. After receiving
+our points, we inputted them into the 3D modeling software Blender, and
+used a marching cubes algorithm to create a mesh which we then converted
+to a .stl and 3D printed. We also created a programmatic solution which
+involved looping through every point and taking the weighted average of
+the nearby known point's heights. We weighted exponentially based upon
+the distance of the source points to our target points, hoping to
+produce some nice curves.
 \end{document}

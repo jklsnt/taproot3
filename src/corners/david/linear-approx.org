@@ -1,0 +1,79 @@
+#+TITLE:Linear and Quadratic Approximations
+#+STARTUP: showall showstars latexpreview indent
+
+More applications of [[file:calculating-derivatives.org][Calculating Derivatives]].
+
+* Linear and Quadratic Approximations
+** Linear Approximations
+
+$f(x) \approx f(x_0) + f'(x_0)(x-x_0)$
+
+Tangent line is near the function curve at values close to $x_0$ so it serves as an approximation there. Think back to $\lim_{x\rightarrow0} \frac{f(x_0+\Delta x) - f(x_0)}{x-x_0}$ and realize that the approximation $\frac{\Delta f}{\Delta x} \approx f'(x_0)$ arises. This is the same relationship as the first equation!
+
+_Why?_
+
+- Manipulate second approximation to yield the relation $\Delta f \approx f'(x_0)\Delta x$.
+- Substitute to get $f(x)-f(x_0) \approx f'(x_0)(x-x_0)$.
+- Put constant on the other side to get the original equation.
+  $f(x) \approx f(x_0) + f'(x_0)(x-x_0)$
+
+** Useful Examples
+
+To simplify, base point ($x_0$) will be 0.
+Formula becomes $f(x) \approx f(0) + f'(0)x$ with $x_0 = 0$.
+
+NOTE: This formula and the examples based off of it only approximate for values of $x$ near 0.
+
+For $x\approx 0$:
+- $\sin{x}$: $f(x) \approx f(0) + f'(0)x$ so $\sin{x} \approx x$
+- $\cos{x}$: $f(x) \approx f(0) + f'(0)x$ so $\cos{x} \approx 1$
+- $e^{x}$: $f(x) \approx f(0) + f'(0)x$ so $e^{x} \approx 1+x$
+- $\ln{(1+x)}$: $f(x) \approx f(0) + f'(0)x$ so $\ln{(x+1)} \approx x$
+- $(1+x)^{r}$: $f(x) \approx f(0) + f'(0)x$ so $(1+x)^{r} \approx 1+rx$
+
+Linear approximations greatly simplify what can sometimes be more complicated functions (i.e. logarithms which would require a calculator, while 1+x is much simpler).
+
+_Example 3_ /For $x\approx0$, find a linear approximation of $\frac{e^{-3x}}{\sqrt{1+x}}$./
+
+- Remember the earlier approximations of $e^x$ and $(1+x)^r$.
+- Rewrite as product: $e^{-3x}(1+x)^{-1/2} \approx (1-3x)(1-\frac{1}{2}x)$.
+- Expand: $e^{-3x}(1+x)^{-1/2} \approx 1-3x-\frac{1}{2}x+\frac{3}{2}x^2$.
+- Goal is a linear approximation so loosely approximate to $e^{-3x}(1+x)^{-1/2} \approx 1-\frac{7}{2}x$ (sum up coefficients).
+  - Drop the $x^2$ and higher terms as they get small as $x$ is near zero.
+
+** Quadratic Approximations
+
+Serves as an /extension/ of the linear approximation formula.
+
+$f(x) \approx f(x_0) + f'(x_0)(x-x_0) + \frac{f''(x_0)}{2}(x-x_0)^2$
+
+/Where does that last term come from?/
+Here's one way to sort of be more comfortable with it: since it's a quadratic approximation it must be able to perfectly recreate a quadratic function. With $f(x) = a + bx + cx^2$, $f'(x) = b + 2cx$ and $f''(x) = 2c$. Plugging that in for a value like 0, we get $f(0) = a$, $f'(0) = b$, and $f''(0) = 2c$. In order to recover all necessary terms, we need to halve the second derivative. There's no other way it could be true.
+
+_Example 2_ /Compute $\ln{1.1}$ with a quadratic approximation./
+
+- Algebra yields $\ln{1+x} \approx x-\frac{x^2}{2}$.
+- Plug in: $\ln(1.1) \approx \frac{1}{10} - \frac{1}{2}\big(\frac{1}{10}\big)^2$ or 0.95
+
+Quadratic is not always more helpful, as in approximations like that of $\sin{x}$, quadratic term vanishes.
+
+Here's an example of where it /is/ helpful: cos(x).
+#+BEGIN_SRC python :session :results file
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
+import math
+x = np.arange(-math.pi/2, math.pi/2, 0.1);
+fig=plt.figure(figsize=(3,2))
+plt.plot(x,np.cos(x),label="cos(x)")
+plt.plot(x, [1 for i in x],label="1") # lin approx
+plt.plot(x, [1 - i**2 / 2 for i in x], label="1-(x^2)/2") # quad approx
+fig.tight_layout()
+plt.legend()
+fname = 'images/myfig.png'
+plt.savefig(fname)
+fname # return this to org-mode
+#+END_SRC
+
+#+RESULTS:
+[[file:images/myfig.png]]

@@ -1,0 +1,50 @@
+#+TITLE: Limits
+#+STARTUP: indent showstars latexpreview
+
+* A Problem
+Normal or "easy" limits are rather simple, as examples like $\lim_{x\rightarrow4} \frac{x+3}{x^2 + 1}$ just need some plugging in.
+Derivatives are usually harder as $\lim_{x\rightarrow0} \frac{f(x_0+\Delta x) - f(x_0)}{x-x_0}$ always evaluates to $\frac{0}{0}$, and needs some cancellation.
+
+* Some Notation
+*DEFINITION* Right hand limit or $lim_{x\rightarrow x_0^+} f(x)$ indicates that $x$ is greater than $x_0$ (or that $x$ begins on the right side of the number line).
+
+*DEFINITION* Left hand limit or $lim_{x\rightarrow x_0^-} f(x)$ indicates that $x$ is less than $x_0$ (or that $x$ begins on the left side of the number line).
+These notations will make dealing with limits of these functions more convienient.
+
+*EXAMPLE*
+Take the following example of a conditional function:
+
+if $x > 0$, $f(x) = x+1$
+
+if $x < 0$, $f(x) = -x+2$
+
+
+$lim_{x\rightarrow x_0^+} f(x) = lim_{x\rightarrow x_0} x+1 = 1$
+
+$lim_{x\rightarrow x_0^-} f(x) = lim_{x\rightarrow x_0} -x+2 = 2$
+
+We did not need a $x=0$ value to compute these limits!
+
+* Nested Limits
+A checklist for what to do before dealing with nested limits.
+
+*EXAMPLE*: $\sin{\sqrt{x}}$
+
+- [ ] Check domain + range of inner function (in this case $[0, \infty)$, $[0, \infty)$).
+- [ ] Check domain + range of outer function as well as what it takes in. (takes in $[0, \infty)$, range is $[-1, 1]$)
+- [ ] Restrict domain based on requirements of inner + outer functions
+
+*EXAMPLE*: $\ln{\sin{x}}$
+
+- [X] Domain of $\sin{x}$ is $(-\infty, \infty), range is $[-1, 1]$.
+- [X] Domain of $\ln{x}$ is $[0, \infty)$, range is $(-\infty, \infty)$.
+- [X] As $\ln{x}$ takes only positive values, the restricted domain for the composite function is $[0, \pi]$, $[2\pi, 3\pi]$, etc. The range of the composite function would be $(-\infty, 0]$.
+- 
+
+* Links
+
+Adjacent to this: [[file:continuity.org][Continuity]]
+
+Building upon this: [[file:calculating-derivatives.org][Calculating Derivatives]]
+
+Further reference can be found at [[file:limits-continuity-problems.org][Limits and Continuity Practice]].

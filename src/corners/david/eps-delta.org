@@ -1,0 +1,63 @@
+#+TITLE: Upcoming Math Death
+#+SUBTITLE: Pet toad? Major depressive episode.
+#+STARTUP: indent showstars
+
+* Epsilon Deltas
+** Background
+
+Epsilon delta proofs are rooted in the formal definition of a limit.
+
+Algebraically/formally, this is expressed as follows:
+$\lim\limits_{x \rightarrow a} f(x) = L$ means that for all $\epsilon > 0$ there exists a $\delta > 0$ such that if $0<|x-a|<\delta$ then $|f(x) - L| < \epsilon$.
+
+Several specifications can be made here:
+-  $|f(x) - L| < \epsilon$ means that the distance between L and f(x) is at most epsilon.
+-  $0<|x-a|<\delta$ means that distance between a and x is less than delta, and is not zero (they are not equal)
+
+The formal definition of a limit states that for a given epsilon (or distance from L) greater than zero, a sufficient delta (or distance from a) above zero exists fulfilling the following condition. If x is within delta of of a (but not equal to it), f(x) is within epsilon of L. This being true for all epsilons means that as epsilon goes to zero, there will be a sufficient delta such that for all x's within delta of a, f(x) will be within epsilon of L and therefore the function will approach L.
+
+[[./images/epsdelta.jpeg]]
+
+** Problems
+*** Process
+1. We start with our definition:   $\lim\limits_{x \rightarrow a} f(x) = L$ means that for all $\epsilon > 0$ there exists a $\delta > 0$ such that if $0<|x-a|<\delta$ then $|f(x) - L| < \epsilon$.
+2. We then manipulate $|f(x) - L| < \epsilon$ such that it has $|x-a|$ on one side.
+3. Using the fact that $0<|x-a|<\delta$ we can relate both variables.
+4. Pick an arbitrary delta, use that to get a range of x's, and then using the relation from step 2, get a second possible value for delta in terms of epsilon. Delta is the min of the two values
+5. 
+
+*** Misc Tips
+$|f(x)-L|<\epsilon = L-\epsilon < f(x) < L+\epsilon$
+$0<|x-a|<\delta$ is equal to $a-\delta < x < a+\delta$ where $x \neq a$
+
+Standard algebraic rules apply for simplification: cross-multiplication for fractions, multiplication by conjugate for fractions with radicals, and difference of squares or cubes for quadratics and cubics respectively.
+
+* Continuity
+See [[file:continuity.org][Continuity]] for types.
+
+f is continous at a if the limit as x goes to a of f(x) exists, f(a) exists, and the limit is equal to f(a)
+
+Making a function a function continuous everywhere is mainly ensuring that these terms apply. Look for transition points then write out how the answer satisfies them. You'll want to use systems of equations:
+
+if the function is 
+
+x>2  f(x)
+x<=2 g(x)
+
+then frame it as f(2) = g(2)
+
+Continuity laws can be justified with limit laws + arithmetic.
+
+Composition works as follows: lim(f(g(x)) = f(lim(g(x))
+Also note that "If g is continuous at a and f is continuous at g(a), then f ◦ g as [f ◦ g](x) = f(g(x)) is continuous at a."
+
+* Limit Definition of e
+
+(1+1/x)^x as it goes to inf
+(1+x)^1/x as it goes to 0
+Substitution!
+Exponent rules! (A^xb) = (A^x)^b
+
+* IVT
+Let f be continous between a and b, and N be a number within f(a) and f(b). There exists a c within a and b such that f(c) = N.
+This has implications for root finding: set N to zero and extrapolate. 

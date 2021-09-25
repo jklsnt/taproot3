@@ -1,0 +1,19 @@
+#+TITLE: AlphaFold
+#+filetags: fledgling
+
+https://www.nature.com/articles/s41586-019-1923-7.epdf?author_access_token=Z_KaZKDqtKzbE7Wd5HtwI9RgN0jAjWel9jnR3ZoTv0MCcgAwHMgRx9mvLjNQdB2TlQQaa7l420UCtGo8vYQ39gg8lFWR9mAZtvsN_1PrccXfIbc6e-tGSgazNL_XdtQzn1PHfy21qdcxV7Pw-k3htw%3D%3D
+
+AlphaFold is Google DeepMind's protein structure prediction software that uses deep learning to minimize energy potential by modifying torsion angles. 
+
+AlphaFold's primary component is a CNN trained off of protein samples to predict distances between atoms within pairs of residues of a protein. Given an amino acid sequence, it produces a discrete  probability distribution for every residue pair within a 64 by 64 area in the distance matrix. These local predictions can be combined to create a full set of predictions and a distance histogram (a matrix view of the distances between any two residues). 
+/SIDENOTE: Network also outputs confidence for each prediction/
+
+Proteins were parameterized via torsion angles of each residue the coordinates for structure were generated via "differential models of protein geometry".
+
+* Hyperparameters/Details
+- [[file:20200830155543-dropout.org][Dropout]] (keep prob 0.85)
+- [[file:20200830155521-parallelized_sgd.org][Parallelized SGD]] (batch sz 4)
+- Activation function: ELU
+- Learning rate: 0.06
+- Learning rate decay (halved at 150000, 200000, 250000, 350000 steps)
+- 5 days training time

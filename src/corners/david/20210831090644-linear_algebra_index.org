@@ -1,0 +1,118 @@
+:ROAM_REFS: https://docs.google.com/presentation/d/1rpqDXysh8GJJodXCTbWCj4MmIx87mT_ksyMqHoq-hkk/edit
+#+TITLE: Linear Algebra Index
+#+FILETAGS: index
+
+https://docs.google.com/presentation/d/1rpqDXysh8GJJodXCTbWCj4MmIx87mT_ksyMqHoq-hkk/edit
+
+* Lecture 1 :flow:
+- A vector space is an algebraic structure like a /group/ or /field/.
+- $\mathbb{R}$ is the field of real numbers.
+- A group is a set and an operation (a two-to-one mapping) where the inputs and outputs are within the set
+#+begin_collapsible Aside: Representing functions as matrices
+You can represent a function with inputs/outputs by using the rows as the number of outputs and the columns as the number of inputs. Here, that would mean a 2x1 matrix.
+#+end_collapsible
+- Groups do not need to be commutative.
+- With a second operation, the notion of being /distributive/ is introduced.
+- Rings are groups with a second operation, but the second operation doesn't have all that the first one does.
+  - Integers are an example: group under addition, and then they have multiplication which has identities but not inverses
+- Fields are sets that are groups with respect to both operations (i.e. $\mathbb{R}$)
+- Field extensions: i.e. $\mathbb{R}[\sqrt{-1}]$, which is real numbers and real numbers as coefficients of $i$ (complex numbers).
+  - Vectors can technically be thought of as field extension - since complex numbers are it means you can represent numbers in $\mathbb{R}^2$. This is one possible interpretation of vector multiplication: it's just like multiplying complex numbers.
+
+\begin{align*}
+\left[\begin{matrix}
+a \\
+b \\
+\end{matrix}\right]
+\left[\begin{matrix}
+c\\
+d \\
+\end{matrix}\right] =
+\left[\begin{matrix}
+ac - bd \\
+ad - bc \\
+\end{matrix}\right] \\
+(a+b\sqrt{-1})(c+d\sqrt{-1}) = (ac-bd)+(ad-bc)\sqrt{1}
+\end{align*}
+    
+- All of this niceness is only really true for 2 dimensions, although it'll work for 4, 8, and 16 (although without zero divisors) as well.
+- Even though this is great, it isn't generalizable, and this was the motivation for vector spaces.
+- 
+  w:
+* Lecture 2 :flow:
+** Linear Combinations
+Linear combinations are part of why we call it /linear/ algebra.
+
+#+begin_defn Linear Combination
+A linear combination of a list $v_1, ..., v_n$ of vectors in a vector space $V$ is a vector of the form:
+\begin{equation}
+a_1v_1 + ... + a_nv_n
+\end{equation}
+where $a_1, ..., a_n \in \mathbf{F}$.
+#+end_defn
+
+** Spans
+#+begin_defn Span
+The set of all linear combinations of a list of vectors $v_1, ..., v_n$ in $V$ is called the /span/ of $v_1, ..., v_n$. Usually denoted is $\text{span}(v_1, ..., v_n)$. 
+\begin{equation}
+\text{span}(v_1, ..., v_n) = \{a_1v_1 + ... + a_nv_n : a_1 ... a_n \in \mathbf{F}\}
+\end{equation}
+Altenratively, the span is the smallest subspace that contains the vectors $v_1, ..., v_n$. 
+#+end_defn
+
+One common question associated with spans is what is /in/ a span. Solving equations like following can be challenging:
+\begin{equation}
+(13, -1, 6) = a_1 (2,1,-1) + a_2 (1,-2,4) 
+\end{equation}
+What would happen if we added a third vector? It'd be like having three equations and three unknowns, and while intuition makes it seem like its always solvable there are special cases where it isn't. 
+
+#+begin_aside Is guessing and checking the only way to do this?
+This can be solved in a easier fashion than guessing and checking through computational methods, but we're focusing on abstract understanding for now.
+#+end_aside
+
+** Linear Independence
+
+#+begin_defn Linear Independence
+A list $v_1, ..., v_n$ of vectors in $V$ is /linearly independent/ if the only choice of coefficients to make $a_1v_1 + ... + a_nv_n$ equal 0 is $a_1 = ... = a_n = 0$. Alternatively. this means that there is no way for these vectors to cancel each other out.
+#+end_defn
+n
+#+begin_defn Linear Dependence
+A list  $v_1, ..., v_n$ of vectors in $V$ is /linearly dependent/ if they are not linearly independent: a.k.a. there is a unique (i.e not everything is 0) choice of $a_1,..,.a_n$ such that $a_1v_1 + ... + a_nv_n = 0$. Alternatively, this means there is a way for these vectors to cancel each other out.
+#+end_defn
+
+#+begin_defn Linear Dependence Lemma
+Suppose $v_1, ..., v_n$ is a linearly dependent list in $V$. There exists a list $j \in \{1,2,...,m\}$ such that the following hold:
+- $v_j \in \text{span}(v_1, ..., v_{j-1}$
+- if the $j^\text{th}$ term is removed from the list , the span of the remaining list equals the span of $v_1, ..., v_n$ 
+
+Essentially, if an element of the list is a linear combination of other elements in a list you can remove it (since it doesn't contribute to the span). 
+#+end_defn
+
+#+begin_problem 
+Suppose $v_1, v_2, v_3, v_4$ is linearly independent in $V$. Prove that the list
+\begin{equation*}
+v_1 - v_2, v_2 - v_3, v_3- v_4, v_4
+\end{equation*}
+is also linearly independent.
+
+\begin{align*}
+a_1v_1 + a_2v_2 + a_3v_3 + a_4v_4 = 0 \text{ only when } a_1=a_2=a_3=a_4=0 \\
+\text{Suppose } b_1(v_1-v_2) + b_2(v_2-v_3) + b_3(v_3-v_4) + b_4(v_4) = 0\\
+b_1v_1-b_1v_2 + b_2v_2-b_2v_3 + b_3v_3-b_3v_4 + b_4v_4) = 0\\
+b_1v_1- (b_1-b_2)v_2 - (b_2-b_3)v_3 - (b_3-b_4)v_4 = 0 \\
+\text{One of $(b_1-b_2), (b_2-b_3), (b_3-b_4) \neq 0$} \\
+\text{so $v_1,v_2,v_3,v_4$ is linearly dependent.}
+\end{align*}
+#+end_problem
+
+** Bases
+#+begin_defn $\mathcal{P}_n(\mathbf{F})$
+Set of polynomials with coefficients in $\mathbf{F}$ and degree of most $n$.
+#+end_defn
+
+#+begin_defn Basis
+A /basis/ of $V$ is a set of vectors in $V$ that are linearly independent and spans $V$. Bases are useful because they give a unique representation of a vector as a linear combination of bases.
+
+Example: $(0,0,1), (0,1,0), (1,0,0)$ is a basis of $\mathbf{F}^3$.
+Example: The list $(1-1,0), (1,0,-1)$ is a basis of $\{(x,y,z) \in \mathbf{F}^3 : x + y + z = 0\}$ (sidenote: this is actually a valid subspace because it forms a plane $z=-x-y$).
+#+end_defn
