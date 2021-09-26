@@ -149,6 +149,20 @@ thesis: narratives are inherently distorting, and thus we must not operate under
 
 
 
+---
+
+
+
+- good
+	- dunbar pointing at people
+	- better 
+
+
+
+
+
+
+
 
 
 
