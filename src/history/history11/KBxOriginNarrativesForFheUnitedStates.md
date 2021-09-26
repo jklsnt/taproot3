@@ -94,12 +94,12 @@ rough outline:
 - narrativisation
 	- process,
 	- leads to incomplete/distorted narrative
-- america good
+- america good: give example of narritivation process
 	- given the 'america good' set of values, the narrative becomes...
 		- "america is unquestionably good?"
-- america bad
+- america bad: give another example of narritivation process
 	- the flipside
-- both have truth
+- both have truth: give example of truths we can learn from both?
 	- we should look to multiple narratives
 		- embrace the truth in each even when they conflict
 - conclusion
