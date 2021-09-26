@@ -5,7 +5,7 @@ source: KBhHIST201HomogenosceneLN
 ---
 
 # The Little Ice Age
-Global climate changes **between the 1550s-1750s** causes increased temperatures in the Northern Hemisphere. Historians call this "The Little Ice Age"
+Global climate changes **between the 1550s-1750s** causes increased temperatures in the Northern Hemisphere. Historians call this "The Little Ice Age".
 
 ## Theories of Causes
 See [[KBhHIST201TheoriesOfLittleIceAge]]

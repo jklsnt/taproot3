@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-20 Mon 07:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mason Chapter Five</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div>Mason Chapter Five  Huxley 2021-09-11 Sat 16:34</div>
+</div>
+<div id="content">
+<h1 class="title">Mason Chapter Five</h1>
+<p>
+#flo #disorganized #incomplete
+</p>
+
+<hr />
+
+<div id="outline-container-marks" class="outline-2">
+<h2 id="marks"><span class="section-number-2">1</span> Marks?</h2>
+<div class="outline-text-2" id="text-marks">
+<p>
+no it's Marx.
+</p>
+
+<ul class="org-ul">
+<li>1848, communist maanifesto time</li>
+<li>led to the soviet union</li>
+</ul>
+</div>
+
+<div id="outline-container-carl-marks" class="outline-3">
+<h3 id="carl-marks"><span class="section-number-3">1.1</span> Carl Marks</h3>
+<div class="outline-text-3" id="text-carl-marks">
+<ul class="org-ul">
+<li>Father advocated for constitutionalism</li>
+<li>moved around a bunch</li>
+<li>see pg 22 for summary</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-the-manifesto." class="outline-3">
+<h3 id="the-manifesto."><span class="section-number-3">1.2</span> The manifesto.</h3>
+<div class="outline-text-3" id="text-the-manifesto.">
+<ul class="org-ul">
+<li>Joins a secret society for communism</li>
+<li>in the manifesto:
+
+<ul class="org-ul">
+<li><blockquote>
+<p>
+Marx and Engels argued that history should not be un- derstood as
+a story of great individuals or of conflict among states but of
+social classes and their struggles with each other.
+</p>
+</blockquote></li>
+
+<li>ends with
+
+<ul class="org-ul">
+<li><blockquote>
+<p>
+"Let the ruling classes tremble at a communist revolu- tion. The
+proletarians have nothing to lose but their chains. They have a
+world to win. Proletarians of all countries, unite!"
+</p>
+</blockquote></li>
+</ul></li>
+</ul></li>
+
+<li>Marx was super poor</li>
+<li>Engels:
+
+<ul class="org-ul">
+<li><blockquote>
+<p>
+<b>*</b> "Philosophers have so far explained the world in various ways:
+the point, however, is to change it."
+</p>
+<p>
+:CUSTOM<sub>ID</sub>: philosophers-have-so-far-explained-the-world-in-various-ways-the-point-however-is-to-change-it.
+</p>
+</blockquote></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-the-theory" class="outline-3">
+<h3 id="the-theory"><span class="section-number-3">1.3</span> the theory</h3>
+<div class="outline-text-3" id="text-the-theory">
+<ul class="org-ul">
+<li>atempted to create a scientific theory of hist and econ</li>
+
+<li>about means of production</li>
+
+<li>those who control the means of production control the society</li>
+
+<li>religion is
+
+<ul class="org-ul">
+<li><blockquote>
+<p>
+is simply a tool of the dominant class to keep the lower classes
+in their place in this world, with the expectation of a better
+existence in the hereafter. Religion, in the words of Engels, is
+the “opiate of the masses.
+</p>
+</blockquote></li>
+</ul></li>
+
+<li>Marx was very deterministic?</li>
+
+<li>all historty is about and driven by class struggles</li>
+
+<li><blockquote>
+<p>
+All societies begin in the primitive-communal stage, move through a
+system of slavery (the dominant class being the slave owners), then
+feudalism, then capitalism, and eventually communism, at which point
+classes would no longer exist.
+</p>
+</blockquote></li>
+
+<li><p>
+** Believed that this was inevitable in every society
+</p>
+<p>
+:CUSTOM<sub>ID</sub>: believed-that-this-was-inevitable-in-every-society
+</p></li>
+
+<li>says that capatilism sows the seads of its own destruction
+
+<ul class="org-ul">
+<li>workers only get paid a fraction of the value they produce</li>
+<li>thus, they cant afford what they produce</li>
+<li>leads to accumulation of goods that people cannot buy</li>
+<li>which leads to peridoc crisis</li>
+<li>and forces entrepaneus to scale back and lay off workers</li>
+<li>which leads to increasingly bad econonic crises and the
+"immerseration" of the workers</li>
+<li>eventually the workers will just revolt &#x2014;</li>
+<li>is this true? woudnt the market just adjust?</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-the-idea-weird-flow-man" class="outline-3">
+<h3 id="the-idea-weird-flow-man"><span class="section-number-3">1.4</span> the idea? weird flow man</h3>
+<div class="outline-text-3" id="text-the-idea-weird-flow-man">
+<ul class="org-ul">
+<li><blockquote>
+<p>
+when the workers own the means of pro- duction, the entire economic
+substructure will collapse and re-form, as will the superstructure
+of society.
+</p>
+</blockquote></li>
+
+<li>adam smith talks about private vice creating public virute</li>
+
+<li>marx says that the communist enviroment will foster people who dont
+engage in this private vice</li>
+
+<li>and thus, the communal aspect works</li>
+
+<li>communism fosters the creation of a "new man", which will build a "new
+society"</li>
+
+<li><blockquote>
+<p>
+When social classes disappear, so too will poverty, exploitation,
+re- sentment, greed, and crime, so that there will be no need for a
+police force. Indeed, because government simply perpetuates the
+supremacy of the dominant class, without social classes there will
+be no need for government at all. The state, according to Engels,
+will simply "wither away."
+</p>
+</blockquote></li>
+
+<li>along with the states will be natinal boundries, and then the whole
+planet will all start hugging eachother</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-the-idea-but-later" class="outline-3">
+<h3 id="the-idea-but-later"><span class="section-number-3">1.5</span> the idea, but later</h3>
+<div class="outline-text-3" id="text-the-idea-but-later">
+<ul class="org-ul">
+<li>product of enlightenment and such</li>
+<li>idea of economic determinism is still largely present today</li>
+<li>bunch people adopted it</li>
+<li>to see this, see pg 33</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-actual-manifesto" class="outline-3">
+<h3 id="actual-manifesto"><span class="section-number-3">1.6</span> Actual manifesto</h3>
+<div class="outline-text-3" id="text-actual-manifesto">
+<ul class="org-ul">
+<li><blockquote>
+<p>
+class conflict&#x2014;the idea that the social order is divided into
+classes based on conflicting economic interests.
+</p>
+</blockquote></li>
+
+<li>i dont have time to annotate whoooops</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"># Chapter 7, begin.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">## Nationalism?</td>
+</tr>
+
+<tr>
+<td class="org-left">- dates and things, nationalist ideals begin. see pg 32 - the concept of a nation was new, as it was derived from the enlightenment - about shared 'things' &#x2013; political goals, idealogy, race, ect. - &gt; A people has to feel these common ties to be a nation. - nationalism is a form of seperatism, therefore the states dont like it - &gt; Often, this nationalism took a very different form, called irredentism, which is the demand for territory belonging to another state. This top-down nationalism, used by national leaders making irredentist claims, fostered the creation of unified states in Germany and Italy.</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li><blockquote>
+<p>
+PRELUDE TO UNIFICATION: THE CRIMEAN WAR
+</p>
+</blockquote></li>
+
+<li><i>foreshadowing the first world war</i></li>
+
+<li>and then, unity!(?)</li>
+
+<li>revolutionry nationlism vs controlled nationalism (liberal, with a
+constitutional monarchy)</li>
+
+<li><blockquote>
+<p>
+led his thousand "Redshirts" in a seizure of power
+</p>
+</blockquote></li>
+
+<li>oh boy</li>
+
+<li>welp, lotta dates.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

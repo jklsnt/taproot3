@@ -51,6 +51,7 @@ gen/%.org: src/%.org
 
 gen: $(ORG_GEN)
 	cp -r static/* docs/
+	cp -r static/* ox_docs/
 
 
 
@@ -91,6 +92,7 @@ docs/%.pdf: docs/%.tex
 	-(cd $$(dirname "$@") && xelatex --shell-escape -interaction nonstopmode $$(basename "$<") $$(basename "$@"))
 
 compile: transpile $(PDF_BUILD) $(HTML_OX_BUILD)
+	for FILE in $$(find ox_docs -regex ".*html"); do ./generate_backlinks.sh $$FILE; done
 
 
 

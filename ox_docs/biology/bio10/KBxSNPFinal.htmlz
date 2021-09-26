@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-20 Mon 07:16 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SNP Final Project</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div>SNP Final Project  Huxley 2021-09-12 Sun 14:15</div>
+</div>
+<div id="content">
+<h1 class="title">SNP Final Project</h1>
+<p>
+#ret #ref
+</p>
+
+<hr />
+
+<div id="outline-container-snp-project-write-up" class="outline-2">
+<h2 id="snp-project-write-up"><span class="section-number-2">1</span> SNP Project Write-up</h2>
+<div class="outline-text-2" id="text-snp-project-write-up">
+<p>
+%% Resources: <a href="KBxSNPPCR.html">KBxSNPPCR</a>
+<a href="https://docs.google.com/document/d/1SRQSvppoSJYlOfJvIKg3INx79Yzv5MmXcFcNG1-nIwE/edit">Instructions</a>
+</p>
+</div>
+
+<div id="outline-container-init-planning" class="outline-4">
+<h4 id="init-planning"><span class="section-number-4">1.0.1</span> Init Planning</h4>
+<div class="outline-text-4" id="text-init-planning">
+</div>
+<ol class="org-ol">
+<li><a id="outline"></a>Outline<br />
+<div class="outline-text-7" id="text-outline">
+<ul class="org-ul">
+<li>basics</li>
+<li>function and regulation</li>
+<li>SNP effect</li>
+</ul>
+</div>
+</li>
+
+<li><a id="writing"></a>Writing!<br />
+<div class="outline-text-7" id="text-writing">
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-part-one-org" class="outline-4">
+<h4 id="part-one-org"><span class="section-number-4">1.0.2</span> Part One! org</h4>
+<div class="outline-text-4" id="text-part-one-org">
+<p>
+The <i>COMT</i> gene, or catechol-O-methyltransferase, encodes the <i>COMT</i>
+enzyme which is responsible for breaking down neurotransmitters the
+brain's prefrontal cortex. More specifically, it acts as a catalyst for
+the transfer of a methyl group from S-adenosylmethionine to dopamine,
+epinephrine, and norepinephrine. This process, called O-methylation,
+leads to the degradation of the aforementioned neurotransmitters. The
+<i>COMT</i> enzyme also effects the metabolism of exogenous substances, but
+that is irrelevant for the mutation at hand
+<a href="https://www.ncbi.nlm.nih.gov/gene/1312">citation</a>. The <i>COMT</i> gene
+itself is 27.22kb long and located on chromosome 22q11.2
+<a href="https://pubmed.ncbi.nlm.nih.gov/1572656/">citation</a>. It has
+ubiquitous expression in 27 tissues, including the placenta, the
+adrenal, and the lung
+<a href="https://www.ncbi.nlm.nih.gov/gene/1312#gene-expression">citation</a>.
+Val158Met, also known as rs4680, is a common missense mutation swapping
+a guanine for an adenine. It has the frequency G=0.510915, and thus,
+A=0.489085. Val158Met causes the <i>COMT</i> enzyme to be roughly 25% as
+effective compared to the wild type. Expression levels in mRNA, despite
+its reduced protein abundance, are not effected by Val158Met
+<a href="https://www.hindawi.com/journals/dm/2020/8850859/">citation</a> &amp;
+<a href="https://www.cell.com/ajhg/fulltext/S0002-9297(07)63786-0">citation</a>.
+Thus, Val158Met must be located in a protein-coding region causing the
+<i>COMT</i> enzyme to have lower protein integrity, explaining the
+discrepancy between mRNA expression and protein expression. This lower
+protein integrity is most likely manifested as diminished
+thermostability of the enzyme
+<a href="https://pubmed.ncbi.nlm.nih.gov/7703232/">citation</a>. The higher level
+effect of this reduced enzyme efficacy is greatly debated, and linked to
+many different phenotypes. At a broad level, lower <i>COMT</i> activity leads
+to higher levels of catecholamines in the prefrontal cortex. The actual
+effect of these increased levels are not well understood. One proposed
+theory is the Warrior versus Worrier hypothesis, which outlines two
+groups of personality traits based upon the Val158Met mutation
+<a href="https://pubmed.ncbi.nlm.nih.gov/17008817/">citation</a>. The "Warrior"
+group, defined as the wild type group with lower levels of
+catecholamines like dopamine, are said to have an advantage in
+processing aversive stimuli. They are also said to have higher pain
+tolerance, be less prone to stress, less exploratory, and ect. However,
+many of these claims are not well defined and bordering on pseudoscience
+<a href="https://selfdecode.com/snp/rs4680/">citation</a>. The "Worrier" group,
+those with the mutation, are said to have an advantage in memory and
+attention tasks <a href="https://pubmed.ncbi.nlm.nih.gov/17008817/">citation</a>.
+The Val158Met mutation has also been linked to schizophrenia, but this
+claim is debated
+<a href="https://pubmed.ncbi.nlm.nih.gov/32931693/">citation</a>.
+</p>
+
+<hr />
+</div>
+
+<ol class="org-ol">
+<li><a id="citations"></a>Citations:<br />
+<div class="outline-text-5" id="text-citations">
+<p>
+<i>(order of appearance)</i>
+</p>
+
+<ul class="org-ul">
+<li><a href="https://www.ncbi.nlm.nih.gov/gene/1312">NCBI COMT
+catechol-O-methyltransferase [ <i>Homo sapiens</i> (human) </a>] -
+<a href="https://pubmed.ncbi.nlm.nih.gov/1572656/">Chromosomal mapping of the
+human catechol-O-methyltransferase gene to 22q11.1-&#x2014;q11.2</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/gene/1312#gene-expression">Gene
+Expression &#x2013; NCBI COMT catechol-O-methyltransferase [ <i>Homo sapiens</i>
+(human) </a>]</li>
+<li><a href="https://www.hindawi.com/journals/dm/2020/8850859/">Lack of
+Association between rs4680 Polymorphism in
+Catechol-O-Methyltransferase Gene and Alcohol Use Disorder: A
+Meta-Analysis</a></li>
+<li><a href="https://www.cell.com/ajhg/fulltext/S0002-9297(07)63786-0">Functional
+Analysis of Genetic Variation in Catechol-O-Methyltransferase (COMT):
+Effects on mRNA, Protein, and Enzyme Activity in Postmortem Human
+Brain</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/7703232/">Kinetics of human soluble
+and membrane-bound catechol O-methyltransferase: a revised mechanism
+and description of the thermolabile variant of the enzyme</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/17008817/">Warriors versus worriers:
+the role of COMT gene variants</a></li>
+<li><a href="https://selfdecode.com/snp/rs4680/">Self Decode rs4680</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/32931693/">The effect of rs1076560
+(DRD2) and rs4680 (COMT) on tardive dyskinesia and cognition in
+schizophrenia subjects</a></li>
+</ul>
+
+<p>
+%%
+</p>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-part-one" class="outline-4">
+<h4 id="part-one"><span class="section-number-4">1.0.3</span> Part One!</h4>
+<div class="outline-text-4" id="text-part-one">
+<p>
+%% ### Feedback and revisions
+</p>
+
+<pre class="example" id="org7d6e846">
+This is looking good so far. It is based in solid research and you're clear about what's still unknown or uncertain. I'm noticing that you don't discuss any known regulators of COMT expression (transcription factors, environmental signals, etc). Try to work that in. If there are none reported, you can mention that in the write-up. I also think you can add a bit more clarity in the portion where you're discussing the integrity/stability of the mutant protein. You've said it leads to lower abundance. Is the decreased enzyme activity related direction to enzyme function or based on lower total abundance?
+</pre>
+
+<p>
+%% The <i>COMT</i> gene, or catechol-O-methyltransferase, encodes the <i>COMT</i>
+enzyme which is responsible for breaking down neurotransmitters the
+brain's prefrontal cortex. More specifically, it acts as a catalyst for
+the transfer of a methyl group from S-adenosylmethionine to dopamine,
+epinephrine, and norepinephrine. This process, called O-methylation,
+leads to the degradation of the aforementioned neurotransmitters. The
+<i>COMT</i> enzyme also effects the metabolism of exogenous substances, but
+that is irrelevant for the mutation at hand
+<a href="https://www.ncbi.nlm.nih.gov/gene/1312">citation</a>. The <i>COMT</i> gene
+itself is 27.22kb long and located on chromosome 22q11.2
+<a href="https://pubmed.ncbi.nlm.nih.gov/1572656/">citation</a>. It has
+ubiquitous expression in 27 tissues, including the placenta, the
+adrenal, and the lung
+<a href="https://www.ncbi.nlm.nih.gov/gene/1312#gene-expression">citation</a>.
+This expression is dynamically regulated during brain development and
+due to environmental stimuli. Despite much research into COMT
+regulation, the actual processes are still mostly unknown
+<a href="https://pubmed.ncbi.nlm.nih.gov/21095457/">citation</a>. COMT has two
+promoters &#x2014; P2 functions constitutively, whereas P1 has tissue
+dependent regulation. This tissue specific regulation is most likely
+done by C/EBPalpha.
+<a href="https://pubmed.ncbi.nlm.nih.gov/8672242/">citation</a>. Val158Met, also
+known as rs4680, is a common missense mutation swapping a guanine for an
+adenine. It has the frequency G=0.510915, and thus, A=0.489085.
+Val158Met causes the <i>COMT</i> enzyme to be roughly 25% as effective
+compared to the wild type. Expression levels in mRNA, despite its
+reduced protein abundance, are not effected by Val158Met
+<a href="https://www.hindawi.com/journals/dm/2020/8850859/">citation</a> &amp;
+<a href="https://www.cell.com/ajhg/fulltext/S0002-9297(07)63786-0">citation</a>.
+Thus, Val158Met must be located in a protein-coding region causing the
+<i>COMT</i> enzyme to have lower protein integrity, explaining the
+discrepancy between mRNA expression and protein expression. This lower
+protein integrity is most likely manifested as diminished
+thermostability of the enzyme, in turn leading to its reduced
+effectiveness <a href="https://pubmed.ncbi.nlm.nih.gov/7703232/">citation</a>.
+The higher level effect of this reduced enzyme efficacy is greatly
+debated, and linked to many different phenotypes. At a broad level,
+lower <i>COMT</i> activity leads to higher levels of catecholamines in the
+prefrontal cortex. The actual effect of these increased levels are not
+well understood. One proposed theory is the Warrior versus Worrier
+hypothesis, which outlines two groups of personality traits based upon
+the Val158Met mutation
+<a href="https://pubmed.ncbi.nlm.nih.gov/17008817/">citation</a>. The "Warrior"
+group, defined as the wild type group with lower levels of
+catecholamines like dopamine, are said to have an advantage in
+processing aversive stimuli. They are also said to have higher pain
+tolerance, be less prone to stress, less exploratory, and ect. However,
+many of these claims are not well defined and bordering on pseudoscience
+<a href="https://selfdecode.com/snp/rs4680/">citation</a>. The "Worrier" group,
+those with the mutation, are said to have an advantage in memory and
+attention tasks <a href="https://pubmed.ncbi.nlm.nih.gov/17008817/">citation</a>.
+The Val158Met mutation has also been linked to schizophrenia, but this
+claim is debated
+<a href="https://pubmed.ncbi.nlm.nih.gov/32931693/">citation</a>.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="citations-1"></a>Citations:<br />
+<div class="outline-text-6" id="text-citations-1">
+<p>
+<i>(order of appearance)</i>
+</p>
+
+<ul class="org-ul">
+<li><a href="https://www.ncbi.nlm.nih.gov/gene/1312">NCBI COMT
+catechol-O-methyltransferase [ <i>Homo sapiens</i> (human) </a>]</li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/1572656/">Chromosomal mapping of the
+human catechol-O-methyltransferase gene to 22q11.1-&#x2014;q11.2</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/gene/1312#gene-expression">Gene
+Expression &#x2013; NCBI COMT catechol-O-methyltransferase [ <i>Homo sapiens</i>
+(human) </a>]</li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/21095457/">The
+Catechol-<i>O</i>-Methyltransferase Gene: Its Regulation and
+Polymorphisms</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/8672242/">Characterization of the
+rat catechol-O-methyltransferase gene proximal promoter:
+identification of a nuclear protein-DNA interaction that contributes
+to the tissue-specific regulation</a></li>
+<li><a href="https://www.hindawi.com/journals/dm/2020/8850859/">Lack of
+Association between rs4680 Polymorphism in
+Catechol-O-Methyltransferase Gene and Alcohol Use Disorder: A
+Meta-Analysis</a></li>
+<li><a href="https://www.cell.com/ajhg/fulltext/S0002-9297(07)63786-0">Functional
+Analysis of Genetic Variation in Catechol-O-Methyltransferase (COMT):
+Effects on mRNA, Protein, and Enzyme Activity in Postmortem Human
+Brain</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/7703232/">Kinetics of human soluble
+and membrane-bound catechol O-methyltransferase: a revised mechanism
+and description of the thermolabile variant of the enzyme</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/17008817/">Warriors versus worriers:
+the role of COMT gene variants</a></li>
+<li><a href="https://selfdecode.com/snp/rs4680/">Self Decode rs4680</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/32931693/">The effect of rs1076560
+(DRD2) and rs4680 (COMT) on tardive dyskinesia and cognition in
+schizophrenia subjects</a></li>
+</ul>
+
+<hr />
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-part-two" class="outline-4">
+<h4 id="part-two"><span class="section-number-4">1.0.4</span> Part Two</h4>
+<div class="outline-text-4" id="text-part-two">
+<p>
+%% <i>infographic time.</i>
+</p>
+
+<ul class="org-ul">
+<li>*Create an infographic that diagrams the various connections between
+the gene/SNP genotypic variants and the known phenotypic associations.
+This graphic should visually show the biological effects of the
+gene/protein and studied genotypes on human traits/phenotypes. It is
+also important to highlight the ways in which the environment affects
+gene expression, protein function and/or phenotype (see the example
+infographic for APOE below, which makes connections to diet and
+traumatic brain injury). You can choose to visually organize and/or
+lay out your graphic in a variety of formats, but make sure that the
+following information is included:*</li>
+
+<li>info to include
+
+<ul class="org-ul">
+<li><b>gene basics</b>
+
+<ul class="org-ul">
+<li>Gene info (gene size, location of SNP, SNP variants, SNP
+frequency)</li>
+<li>Protein info (protein size, protein variants if known)</li>
+<li>reg
+
+<ul class="org-ul">
+<li>estrogen?</li>
+<li>brain develpoment</li>
+<li>eviromental</li>
+<li>P2:
+
+<ul class="org-ul">
+<li>constitutively</li>
+</ul></li>
+
+<li>P1:
+
+<ul class="org-ul">
+<li>tissue dependent, C/EBPalpha, ect.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+
+<li><b>SNP variants to human phenotype relationships</b>
+
+<ul class="org-ul">
+<li>reduced COMT enzyme activity</li>
+<li>warrior worrier stuff</li>
+</ul></li>
+
+<li><b>Gene-environment Interactions</b>
+
+<ul class="org-ul">
+<li>above -&gt; situations that better suite?</li>
+<li>gene / enviroment stuff?
+<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3447184/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3447184/</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>
+%% Submitted in a separate file. You can also check it out linked
+<a href="https://www.figma.com/file/CADCiIWAFlqyFZu0Qayj62/COMT?node-id=0%3A1">here</a>.
+%%<a href="Letter - 1 (1).jpg.html">Letter - 1 (1).jpg</a>%%
+%%<a href="COMTVal158Metpt2it1.pdf.html">COMTVal158Metpt2it1.pdf</a>%%
+</p>
+
+<hr />
+</div>
+</div>
+
+<div id="outline-container-part-three" class="outline-4">
+<h4 id="part-three"><span class="section-number-4">1.0.5</span> Part Three</h4>
+<div class="outline-text-4" id="text-part-three">
+<p>
+%% #### outlinin: prompt: In this section, you should try to provide
+some evolutionary insight on the SNP alleles that we see for your gene
+in the human population. You may focus on one particular allele if you
+see that it is better-researched. Using actual research into the
+evolution of the allele(s) and/or research about gene and gene variant
+functions, explain why/how the SNP allele(s) you studied were maintained
+in the human population (in over 1% of people studied). At some point
+the allele first appeared as a mutation but it subsequently spread into
+a relatively large proportion of people; why might that have been? -
+Although this section should be based on gene/SNP research and your
+understanding of evolution, your explanations may be somewhat
+speculative due to the difficulty in obtaining evidence for certain
+evolutionary predictions/hypotheses (because environmental pressures,
+migrations, and random events that influenced evolution likely happened
+long ago). That is okay; just show us that you're using research-backed
+reasoning about your allele(s) and that you have an understanding of
+evolutionary mechanisms. - In terms of evolutionary mechanisms, you
+should be thinking about possible selective pressures that may have
+maintained certain alleles in the human population (and disfavored
+others). Note that evolution typically operates over long timescales, so
+the selective pressures that are most likely to have played a role were
+operating before civilizations, agriculture, etc (with some exceptions
+that may have evolved more "recently", like lactase persistence,
+high-altitude adaptation, and disease resistances). - It's also
+important to remember the possible contributions of mechanisms like gene
+flow and genetic drift in getting to the allele frequencies that we see
+today. It would be harder to detect whether/when these happened without
+complex analyses of sequences, but you can still acknowledge their
+possible impact and explain how these mechanisms operate.
+</p>
+
+<p>
+allele: g -&gt; a
+</p>
+
+<p>
+selection factors:
+</p>
+
+<p>
+population makes it's own selection factors need for warrior / worrier
+</p>
+
+<p>
+organism, gene, population
+</p>
+
+<p>
+greedy epsilon, worrier as epsilon
+</p>
+
+<p>
+evolution on multiple levels like genetic, epigenetic, symbolic,
+cultural, ect
+</p>
+
+<p>
+fitness landscapes of organisms but also of tech
+</p>
+
+<p>
+worriers are better for jumping out of local minima warriors are better
+for carrying out the best strategy
+</p>
+
+<p>
+perhaps a collection of personality-ish traits that are all being
+balanced
+</p>
+
+<p>
+research:
+</p>
+
+<blockquote>
+<p>
+A comparison of human and mouse COMT confirms that the amino acid at
+the Val/Met locus is important for COMT activity and suggests that
+COMT activity has decreased during the course of evolution.
+<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1182110/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1182110/</a>
+</p>
+</blockquote>
+
+<p>
+derived allele uniqe to humans
+</p>
+
+<p>
+<a href="https://www.jstage.jst.go.jp/article/ase/121/3/121_130731/_html/-char/en">https://www.jstage.jst.go.jp/article/ase/121/3/121_130731/_html/-char/en</a>
+</p>
+
+<p>
+%%
+</p>
+
+<p>
+Not much is known about the evolution of the COMT*L allele. In the sea
+of speculation, only two facts emerge: COMT activity has decreased
+during the course of recent evolution, and COMT*L is a derived allele
+unique to humans
+<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1182110/">citation</a> &amp;
+<a href="https://www.jstage.jst.go.jp/article/ase/121/3/121_130731/_html/-char/en">citation</a>.
+For the following speculation, the phenotypes said to arise from
+different variations of the COMT gene will be assumed true. Speculating
+about evolution on the organism level is relatively straightforward:
+this organism evolved a patch of photosensitive skin so it could tell
+which way was up. However, this level of analysis breaks down when
+trying to explain altruism, and thus comes speculation on the gene
+level: these organisms evolved so they would "lay down [their] life for
+two brothers or eight cousins" - <i>J.B.S. Haldane</i>. The evolution of
+COMT*L is not explained solely by either of these levels &#x2014; instead,
+its evolution operates on the population level.
+</p>
+
+<p>
+It can be assumed that given a constant environment without changing
+selection factors, there is an optimal mix of so called Warriors and
+Worriers. On top of the hypothetically constant selection pressures from
+the environment, the population itself creates its own selection
+pressures based upon the ratio of Warriors to Worriers. If there are too
+many Warriors, then a selection pressure favoring Worriers would arise,
+and vice versa, leading the population towards the optimal ratio of
+Warriors and Worriers. With heavy speculation, one could suggest that
+there exists a whole set of personality traits that are constantly being
+balanced across the population. Of course, these selection pressures
+would on top of the environmental selection pressures; a Worrier is more
+likely to do better in a famine where new ways to get resources need to
+created. A Worrier would be more likely to advocate for saving some
+grain for the future despite the fact that people are hungry now. A
+Warrior would do better in situations like getting chased by a predator,
+where they need to act well under stress and have high resilience.
+</p>
+
+<p>
+Of course, environmental selection pressures are not constant. Hence,
+the question becomes, what type of environment shifts the optimal ratio
+of Warriors to Worriers? To answer this question, one must think of
+evolution in terms of a fitness landscape. An organism can be stuck in a
+local minima and require some large mutation to jump out of it.
+Disregarding genetic drift, the only other mutations that would persist
+would be ones leading the species to the bottom of the local minima. In
+recent years, the theory of evolution has been extended into axes beyond
+just the organism itself. A good book on the topic is
+<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1265888/">Evolution in
+four dimensions: <i>Genetic, epigenetic, behavioral, and symbolic
+variation in the history of life</i></a>. Each of these axes have their own
+fitness landscape associated with them. We can imagine an axis called,
+for lack of a better term, technological. This axis could include, of
+course, technology, but also human action and innovation. For example,
+traveling to this location through this new path, or hunting in this
+different patch of land instead of the old patch would be grouped into
+this axis.
+</p>
+
+<p>
+In the fitness landscape associated with this new technological axis,
+which co-evolves with the biological evolution of humans, Warriors would
+be better at carrying out the current best strategy, whereas the
+Worriers would be best at jumping out of the local minima and finding
+new strategies. This setup of Warriors and Worriers is much like
+Epsilon-Greedy algorithms in the world of computer science. A Greedy
+algorithm is an algorithm which simply does the best action for itself
+in the current situation, disregarding the future. These algorithms
+sometimes work for very complex problems. An Epsilon-Greedy algorithm is
+often used when dealing with unknown probability distributions, like
+trying to navigate an unknown fitness landscape. It acts just like a
+normal Greedy algorithm, except for some epsilon amount of time where it
+explores instead of carrying out the current best action. Figuring out
+the optimal value of this epsilon is a massive problem in computer
+science. In this case, Warriors would be the ones best suited for
+carrying out the normal Greedy function, and the Worriers would be the
+epsilon. Thus, when the population is still catching up to the limits of
+the current strategy &#x2014; when times are good &#x2014; Warriors will do
+better. When a new strategy is needed, Worriers will be needed.
+</p>
+
+<p>
+However, the fact that COMT activity has been decreasing over time is
+still not explained. I would propose that this decrease is due to the
+expansion of the adjacent possible. If one imagines the realm of all
+that is currently possible as a circle, a ring outside of that circle is
+the adjacent possible &#x2014; that which is almost achievable. As the
+possible grows, the adjacent possible grows faster. As the possible
+expands, the adjacent possible becomes much larger. As the adjacent
+possible becomes larger, there becomes more local minima to jump out of,
+and thus, the optimal ratio of Warriors and Worriers shifts to more
+Worriers. Of course, this is all speculation, but until the circle of
+possible grows larger, that is all we can do.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="citations-2"></a>Citations<br />
+<div class="outline-text-6" id="text-citations-2">
+<ul class="org-ul">
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1182110/">Functional
+Analysis of Genetic Variation in Catechol-O-Methyltransferase
+(<i>COMT</i>): Effects on mRNA, Protein, and Enzyme Activity in Postmortem
+Human Brain</a></li>
+<li><a href="https://www.jstage.jst.go.jp/article/ase/121/3/121_130731/_html/-char/en">Correlation
+of the COMT Val158Met polymorphism with latitude and a hunter-gather
+lifestyle suggests culture&#x2013;gene coevolution and selective pressure on
+cognition genes due to climate</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1265888/">Evolution in
+four dimensions: <i>Genetic, epigenetic, behavioral, and symbolic
+variation in the history of life</i></a></li>
+</ul>
+
+<hr />
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-part-four-combined-citations" class="outline-4">
+<h4 id="part-four-combined-citations"><span class="section-number-4">1.0.6</span> Part Four: Combined Citations</h4>
+<div class="outline-text-4" id="text-part-four-combined-citations">
+<p>
+<i>(order of appearance)</i>
+</p>
+
+<ul class="org-ul">
+<li><a href="https://www.ncbi.nlm.nih.gov/gene/1312">NCBI COMT
+catechol-O-methyltransferase [ <i>Homo sapiens</i> (human) </a>]</li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/1572656/">Chromosomal mapping of the
+human catechol-O-methyltransferase gene to 22q11.1-&#x2014;q11.2</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/gene/1312#gene-expression">Gene
+Expression &#x2013; NCBI COMT catechol-O-methyltransferase [ <i>Homo sapiens</i>
+(human) </a>]</li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/21095457/">The
+Catechol-<i>O</i>-Methyltransferase Gene: Its Regulation and
+Polymorphisms</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/8672242/">Characterization of the
+rat catechol-O-methyltransferase gene proximal promoter:
+identification of a nuclear protein-DNA interaction that contributes
+to the tissue-specific regulation</a></li>
+<li><a href="https://www.hindawi.com/journals/dm/2020/8850859/">Lack of
+Association between rs4680 Polymorphism in
+Catechol-O-Methyltransferase Gene and Alcohol Use Disorder: A
+Meta-Analysis</a></li>
+<li><a href="https://www.cell.com/ajhg/fulltext/S0002-9297(07)63786-0">Functional
+Analysis of Genetic Variation in Catechol-O-Methyltransferase (COMT):
+Effects on mRNA, Protein, and Enzyme Activity in Postmortem Human
+Brain</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/7703232/">Kinetics of human soluble
+and membrane-bound catechol O-methyltransferase: a revised mechanism
+and description of the thermolabile variant of the enzyme</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/17008817/">Warriors versus worriers:
+the role of COMT gene variants</a></li>
+<li><a href="https://selfdecode.com/snp/rs4680/">Self Decode rs4680</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/32931693/">The effect of rs1076560
+(DRD2) and rs4680 (COMT) on tardive dyskinesia and cognition in
+schizophrenia subjects</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1182110/">Functional
+Analysis of Genetic Variation in Catechol-O-Methyltransferase
+(<i>COMT</i>): Effects on mRNA, Protein, and Enzyme Activity in Postmortem
+Human Brain</a></li>
+<li><a href="https://www.jstage.jst.go.jp/article/ase/121/3/121_130731/_html/-char/en">Correlation
+of the COMT Val158Met polymorphism with latitude and a hunter-gather
+lifestyle suggests culture&#x2013;gene coevolution and selective pressure on
+cognition genes due to climate</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1265888/">Evolution in
+four dimensions: <i>Genetic, epigenetic, behavioral, and symbolic
+variation in the history of life</i></a></li>
+</ul>
+
+<p>
+%% ### More Feedback
+</p>
+
+<blockquote>
+<p>
+Huxley, Sorry, I should have been a bit more clear. I was asking you
+to revise the second paragraph of Part 3 to fully explain your
+reasoning there. If that's what you were trying to do in this comment,
+then yes I do think you can clarify further before incorporating it
+into the write-up: 1) Are you still using epsilon in the sense of the
+epsilon-greedy algorithm that you described, essentially "exploratory"
+behavior (in contrast to "exploitative" behavior)? If you're going to
+introduce this epsilon concept earlier in this Part (i.e. the second
+paragraph), you'd obviously need to define your terms. Or you could
+probably get your point across here without the analogy to the
+algorithm. 2) It sounds like you might be proposing that there is
+group selection at work in maintaining both alleles in the population.
+It also sounds a bit like you're invoking the idea of balancing
+selection. If you are indeed thinking along these lines, can you
+ground your explanations in relation to those concepts? If you're not
+familiar with those and this is a separate line of speculation, then
+the areas in your reasoning that could use more explanation are: -why
+it can be assumed that there is some optimal mix of "warriors" and
+"worriers." How does that relate to both individual and group fitness
+and how do you expect those to interact? -how the balancing mechanism
+that you're proposing at the population level would actually work,
+i.e. what is the selection pressure that would tip the scales toward
+one phenotype and then back to the other based on changing ratios.
+</p>
+</blockquote>
+
+<p>
+%%
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

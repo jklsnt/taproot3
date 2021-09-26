@@ -92,8 +92,13 @@ rough outline:
 		- narratives are inherently distorted/incomplete
 
 - narrativisation
+	- process,
+	- leads to incomplete/distorted narrative
 - america good
+	- given the 'america good' set of values, the narrative becomes...
+		- "america is unquestionably good?"
 - america bad
+	- the flipside
 - both have truth
 	- we should look to multiple narratives
 		- embrace the truth in each even when they conflict
@@ -103,16 +108,42 @@ rough outline:
 thesis: narratives are inherently distorting, and thus we must not operate under a singular narrative
 
 
+### evidencing
+
+- narrativization
+	- "i have lived with this book for six years, starting over a dozen times before i settled on a narrative thread" p6 ortiz
+		- as expereinced by natives
+		- consuisnly or unconsesly have a set narrative
 
 
+- broader
+	-  "this would replace my country right or wrong" cowie
+	-   "Voters are in search of a place of vision for average Americans, a place of idealism in an age of cynicism, a place of unity in a time of fracture and a place where policy can be embedded in something greater than technocracy." cowie
 
 
+- america bad
+	- anti-statis, cowie
+	- "Yet when the American left abandons any vision of social patriotism because of the racist ugliness it has come to symbolize, it concedes the American story to the voices of exclusion and avarice." cowie
+	- everything in US hist is about land: dunbar, pg 9
+	- the hist of the US is a hist of settler colonialism! dunabr, pg 10
+	- those who seek hist with an upbeat ending will not get it: dunbar, pg 10
+	- dunbar calls the consensus narrative wrong in it's essence! pg 10
+	- says that his narrative is acknologing reality: dunbar pg 10
+	- "'hope for everyone to be speaking the same language and goverened by the same laws": dunbar jefferson 11
+	- calls the consensus narrative a myth: dunbar, 12
+	- according to the origin narrative, the united states was born of rebellion against opression, calls this a fallacy! dunbar 20
+
+- america good
+	- etho-state? nationalism? cowie
+	- unconsuins manifest destiny: dunbar 10
+	- colonizer and colonized had a diolouge: dunbar 13
+	- prestigous book with native making carpet with stars and stripes: dunbar 14
+	- according to the origin narrative, the united states was born of rebellion against opression: dunbar 20
+	- civil war was the second rev which ended slavery: dunbar 20
 
 
-
-
-
-
+- ending
+	- "As we approach midterm elections, we urgently need to hear these messages in good faith and rise to their challenge."
 
 
 

@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-20 Mon 07:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Biomolecules RAW</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div>Biomolecules RAW  Houjun Liu 2021-09-12 Sun 14:15</div>
+</div>
+<div id="content">
+<h1 class="title">Biomolecules RAW</h1>
+
+
+<div id="outline-container-biomolecules-quiz-review-raw" class="outline-2">
+<h2 id="biomolecules-quiz-review-raw"><span class="section-number-2">1</span> Biomolecules quiz review, raw</h2>
+<div class="outline-text-2" id="text-biomolecules-quiz-review-raw">
+</div>
+<div id="outline-container-carbohydrates" class="outline-3">
+<h3 id="carbohydrates"><span class="section-number-3">1.1</span> Carbohydrates</h3>
+<div class="outline-text-3" id="text-carbohydrates">
+<ul class="org-ul">
+<li>Set 1, carbs. See Luke De's video +
+<a href="KBhBIO101Carbs.html">KBhBIO101Carbs</a>
+
+<ul class="org-ul">
+<li><i>Glucose vs. fructose</i> &#x2014; both monosacharrides, one is a 6-carbon
+ring and one is a 5-carbon ring</li>
+<li><i>Mono vs. di. vs. polysaccharide</i> &#x2014; carbohydrates made out of a
+single, double, and multiple monomer (single-unit) carbohydrates</li>
+<li><i>Starch vs. glycogen vs. cellulose</i> &#x2014; lots of alpha glucose in
+less branches, lots of alpha glucose in more branches, lots of beta
+glucose in organized lattice respectively.
+
+<ul class="org-ul">
+<li>Starch &#x2014; plant food reserve</li>
+<li>Glycogen &#x2014; animal energy reserve</li>
+<li>Cellulose &#x2014; cell wall in plants</li>
+</ul></li>
+</ul></li>
+
+<li>Set 2, lipids. See Luke De's video +
+<a href="KBhBIO101Lipids.html">KBhBIO101Lipids</a>
+
+<ul class="org-ul">
+<li><i>Triglyceride vs. fatty acid vs. phosophilid</i> see
+<a href="KBhBIO101StructuresofCarbs.html">KBhBIO101StructuresofCarbs</a>
+
+<ul class="org-ul">
+<li>Glycerol =&gt; a fatty acid</li>
+<li>Triglyceride =&gt; three of 'em above</li>
+<li>Phospholipid =&gt; two fatty acid + phosphate head</li>
+</ul></li>
+
+<li><i>Saturated vs unsaturated fatty acids</i> see also
+<a href="KBhBIO101StructuresofCarbs.html">KBhBIO101StructuresofCarbs</a>
+
+<ul class="org-ul">
+<li>Saturated Fats =&gt; no double bonds in the carbon chain of fatty
+acids &#x2014; think! butter</li>
+<li>Unsaturated Fats =&gt; double bonds in the carbon chain of fatty
+acids &#x2014; think! olive oil</li>
+</ul></li>
+</ul></li>
+
+<li>Identify functional groups
+
+<ul class="org-ul">
+<li>Amino acid groups &#x2014; see
+<a href="KBhBIO101AminoAcids.html">KBhBIO101AminoAcids</a>
+
+<ul class="org-ul">
+<li>carboxyl/carboxylic acid &#x2014; H-O-C=O (left side of backbone)
+<a href="Screen Shot 2020-10-12 at 2.29.28 PM.html">Screen Shot
+2020-10-12 at 2.29.28 PM</a></li>
+<li>carbonyl &#x2014; C=O &#x2014; part of carboxyl</li>
+<li>amide &#x2014; RC(=O)NR′R″ (frequently shown in side chains of amino
+acids &#x2014; see
+<a href="https://en.wikipedia.org/wiki/Amide#/media/File:Amide-general.png">Amine</a>)</li>
+<li>amino/amine &#x2014; H3N+ (right side of backbone)</li>
+<li>hydroxyl &#x2014; OH group. Need I say more?</li>
+<li>ester &#x2014; take a carboxylic acid and replace the hydrogen with
+anything else #ASK. =&gt; What join fatty acid chains with the
+glycerol to make trigrcyeride</li>
+<li>ether &#x2014; R-O-R structure. =&gt; glycocidic bonds are formed by ether
+bonds</li>
+<li>alcohol group (H-O-R) as part of the carboxyl</li>
+</ul></li>
+</ul></li>
+
+<li>Monomers vs Polymers
+<a href="KBhBIO101StructuresofCarbs.html">KBhBIO101StructuresofCarbs</a>
+
+<ul class="org-ul">
+<li>Monomer &#x2014; single molecule (such as a monosacchride) that could be
+chained together to make polymers</li>
+<li>Polymers &#x2014; complex molecues built from monomers</li>
+<li>Building polymers &#x2014; dehydration reaction &#x2014; taking out water
+molecules</li>
+<li>Destructing polymers &#x2014; hydration reaction &#x2014; adding in water
+molecules</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-cell-structures" class="outline-3">
+<h3 id="cell-structures"><span class="section-number-3">1.2</span> Cell Structures</h3>
+<div class="outline-text-3" id="text-cell-structures">
+<ul class="org-ul">
+<li>Prokaryotic vs. Eukaryotic
+
+<ul class="org-ul">
+<li>Prokaryotic cells &#x2014; often in single-cellular cells, has a cell
+wall, and contained in capsules</li>
+<li>Eukaryotic cells &#x2014; in multicellular cell elements, contains a
+plasma membranes and nucleus</li>
+</ul></li>
+
+<li>Compare and contrast a typical animal cell with a typical plant cell.
+Be able to label diagrams of each. (See&#x2026; problem set 1)
+
+<ul class="org-ul">
+<li>Animal Cell
+
+<ul class="org-ul">
+<li>No cell wall</li>
+<li>No chloroplast</li>
+<li>Has Cytoplasm</li>
+<li>Has Ribosomes</li>
+<li>Has Mitochondria</li>
+<li>No plastids &#x2014; organelle pigments</li>
+<li>Has Cilla &#x2014; Hair-like items on the outer surface</li>
+</ul></li>
+
+<li>Plant Cell
+
+<ul class="org-ul">
+<li>Has cell wall</li>
+<li>Has chloroplast &#x2014; photosynthesis</li>
+<li>Has cytoplasm</li>
+<li>Has Ribosomes</li>
+<li>Has Mitochondria</li>
+<li>Has plastics &#x2014; organelle pigments</li>
+<li>Mostly has no Cilla</li>
+</ul></li>
+</ul></li>
+
+<li>Endosymbiotic theory
+
+<ul class="org-ul">
+<li>Endosymbiotic theory states that organelles within our current
+eukaryotic cells &#x2014; the mitochondria and chloroplasts &#x2014; are
+originally prokaryotic cells in their own right. This is because
+they divide independently through binary fission, and also contains
+circular DNA that is independent of the main cell itself.</li>
+</ul></li>
+
+<li>Organizing organelles based on membranes #ASK
+
+<ul class="org-ul">
+<li>Used as a gauge to sort the evolutional history of cells</li>
+<li>Membranous organelles &#x2014; possess own plasma =&gt; regulates own
+macromolecure consumption, hormones, etc. Perhaps original
+prokarotic cells
+
+<ul class="org-ul">
+<li>Double membranes, evolved later
+
+<ul class="org-ul">
+<li>Endoplasmic reticulum =&gt; forms the network of transferring
+proteins and other elements</li>
+<li>Golgi body/Gioli apparatus =&gt; packs, sorts, and modifies
+proteins and other elements throughout the cell</li>
+</ul></li>
+
+<li>Double membranes, prokarotic orginially
+
+<ul class="org-ul">
+<li>Mitochrondria =&gt; store ATP and extract energy from ATP</li>
+<li>Chloroplasts =&gt; Does photosynthesis</li>
+</ul></li>
+
+<li>Single membranes =&gt; probably originally fragments of prokaryotic
+cells
+
+<ul class="org-ul">
+<li>Vesticles</li>
+<li>Lysomoes =&gt; breaking stuff down and garbage dumps</li>
+<li>Vacuoles =&gt; storing water, nutrients, waste</li>
+</ul></li>
+</ul></li>
+
+<li>Non-membranous organelles &#x2014; does not posess own plasma =&gt; mostly
+part of the cytoskeleton of a cell
+
+<ul class="org-ul">
+<li>Ribosomes =&gt; protein synthesizer in the cell</li>
+<li>Centrosome =&gt; forms flangella, cilla, and handles cells divisions</li>
+<li>Plastids =&gt; creates colours displayed in the chromoplasts</li>
+</ul></li>
+</ul></li>
+
+<li>Cell Components. Basicall all of these exist only in Eukareotic cells
+
+<ul class="org-ul">
+<li>chloroplast and mitochondria
+
+<ul class="org-ul">
+<li>Chloroplast &#x2014; found in plants + does photosynthesis</li>
+<li>Mitochondria &#x2014; found in animals + store ATP and extract energy
+from ATP</li>
+</ul></li>
+
+<li>cell wall and plasma membrane
+
+<ul class="org-ul">
+<li>Cell Wall &#x2014; found in plants =&gt; surround the cell: hard</li>
+<li>Plasma membrane &#x2014; found in animals =&gt; surround the cell: soft
+<a href="KBhBIO101Lipids.html">KBhBIO101Lipids</a></li>
+</ul></li>
+
+<li>rough endoplasmic reticulum (ER) and smooth ER
+
+<ul class="org-ul">
+<li>Rough ER &#x2014; covered by ribosomes and folds
+<a href="KBhBIO101Proteins.html">KBhBIO101Proteins</a></li>
+<li>Smooth ER &#x2014; not covered by ribosomes and makes
+<a href="KBhBIO101Lipids.html">KBhBIO101Lipids</a></li>
+</ul></li>
+
+<li>cytosol, cytoplasm and cytoskeleton
+
+<ul class="org-ul">
+<li>Cytosol =&gt; liquid found inside cells; the "cytoplasm" floats
+within it</li>
+<li>Cytoplasm =&gt; all the stuff within the cell</li>
+<li>Cytoskeleton =&gt; complex network of proteins + fibres that organize
+the rest of the cell</li>
+</ul></li>
+
+<li>nucleus and nucleolus
+
+<ul class="org-ul">
+<li>nucleus =&gt; centre of the cell, stores DNA</li>
+<li>nucleolus =&gt; largest part of the nucleous that makes ribosomes</li>
+</ul></li>
+
+<li>lysosomes and food vacuoles
+
+<ul class="org-ul">
+<li>Lysosomes =&gt; vesticles that contains enzymes that breaks down
+biomolecules</li>
+<li>Food Vacoules =&gt; vesticels that stores food and other resources</li>
+</ul></li>
+
+<li>cytoskeleton and microtubules
+
+<ul class="org-ul">
+<li>Cytoskeleton =&gt; complex network of proteins + fibres that organize
+the rest of the cell</li>
+<li>Microtubulues =&gt; Polymers of tubulin protein that provides the
+main structure of eukarotic cells</li>
+</ul></li>
+
+<li>flagella and cilia
+
+<ul class="org-ul">
+<li>Flagella =&gt; a bacteria's tail &#x2014; allow them to move and also act
+as an sensory organ. longer than a cilla, and moves in sinosoidial
+pattern.</li>
+<li>Cilium =&gt; a cell's "hair" &#x2014; provides sensory and communications
+functions. Motil cilla could move about to "grab" things, and
+non-motile cilla can't move. more abundant that the flagella, and
+moves in circular pattern if they do move, and moves in circular
+pattern if they do move</li>
+</ul></li>
+
+<li>Ribosomes and Golgi apparatus
+
+<ul class="org-ul">
+<li>Ribosomes =&gt; synthesizes proteins</li>
+<li>Golgi apparatus =&gt; packs, modifying, and moving proteins</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-plasma-membrane-structure-transport" class="outline-3">
+<h3 id="plasma-membrane-structure-transport"><span class="section-number-3">1.3</span> Plasma Membrane Structure + transport</h3>
+<div class="outline-text-3" id="text-plasma-membrane-structure-transport">
+<ul class="org-ul">
+<li>Lipid structure and substructures:
+<a href="KBhBIO101Lipids.html">KBhBIO101Lipids</a></li>
+<li>Functions of cell membrane
+
+<ul class="org-ul">
+<li>Phosophilid structures
+<a href="KBhBIO101StructuresOfLipids.html">KBhBIO101StructuresOfLipids</a></li>
+<li>Transmembrane proteins
+<a href="KbhBIO101CellTransport.html">KbhBIO101CellTransport</a></li>
+<li>Hydrophobic + hydrophillic parts of a phosophilid
+<a href="KBhBIO101StructuresOfLipids.html">KBhBIO101StructuresOfLipids</a>
+<ul class="org-ul">
+<li><a href="KBhBIO101FluidMosaic.html">KBhBIO101FluidMosaic</a></li>
+</ul></li>
+</ul></li>
+
+<li>Passive + active transport
+<a href="KbhBIO101CellTransport.html">KbhBIO101CellTransport</a></li>
+<li>Cell transport process
+
+<ul class="org-ul">
+<li>Simple diffusion =&gt; things just spread out from high concentration
+to low concentrations</li>
+<li>Passive diffusion =&gt; non-polar molecules needed "fall in" through
+the phosolipid bi-layer</li>
+<li>Facilitated diffusion =&gt; specific polar molecules go along the
+gradient to get into the cell through transporter proteins. Osmosis
+is the facilitated diffusion, just of water + auquaporin.</li>
+<li>Phagocytosis =&gt; take a piece of the membrane with you to form a
+vesticle to introduce large solid elements, recycling the membrane
+after done &#x2014; "cell eating"</li>
+<li>Pinocytosis =&gt; take a piece of the membrane with you to form a
+vesticle to introduce large area of the "outside" in &#x2014; fluid and
+solid and all, recycling the membrane after done &#x2014; "cell drinking"</li>
+<li>Endocytosis =&gt; Phagocytosis + Pinocytosis</li>
+<li>Extocytosis =&gt; opposite of endocytosis</li>
+</ul></li>
+
+<li>Defining&#x2026;
+
+<ul class="org-ul">
+<li>Isotonic =&gt; inside and outside have the same level of "osmolarity":
+probablility for osmosis to happen through a semipermiable membrane</li>
+<li>Hypertonic =&gt; inside has less osmolarity than the outside:
+water/other elems will flow out of the cell</li>
+<li>Hypotonic =&gt; outside has less osmolarity than the inside:
+water/other elems will flow into the cell</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-proteins-structures-and-function" class="outline-3">
+<h3 id="proteins-structures-and-function"><span class="section-number-3">1.4</span> Proteins Structures and Function</h3>
+<div class="outline-text-3" id="text-proteins-structures-and-function">
+<ul class="org-ul">
+<li>Overall structure, monomers/building blocks, functions, and examples
+of proteins =&gt; <a href="KBhBIO101Proteins.html">KBhBIO101Proteins</a></li>
+<li>"peptide" =&gt; a chain of amino-acids</li>
+<li>Polymerization via dehydration
+
+<ul class="org-ul">
+<li>Take two amino acids, take the H-O out of the alcahol, take the H
+out of the Amine. Fill the hole with the other one</li>
+</ul></li>
+
+<li>Protein structure
+
+<ul class="org-ul">
+<li>Primary structure, secondary structure =&gt;
+<a href="KBhBIO101Proteins.html">KBhBIO101Proteins</a></li>
+<li>Amino acids, N &amp; C terminus =&gt;
+<a href="KBhBIO101AminoAcids.html">KBhBIO101AminoAcids</a>. N terminus
+(Amine), C terminus (Carbolixic.)</li>
+<li>Secondary structure &#x2014; H bonds between H-O, H-N</li>
+<li>Tertiary structure =&gt; see the
+<a href="KBhBIO101Proteins.html">KBhBIO101Proteins</a> articles</li>
+</ul></li>
+
+<li>The functions of proteins are varied because the primary sequence can
+be varied, effectively building any shape protein to do its specific
+function</li>
+<li>Form = function is the idea that the shape or form a protein takes
+through the combination of primary, secondary, tertiary, or quaternary
+structure determines how it will then function. Any changes to the
+structure will have some impact on its function and the more the
+structure is affected the more the function is likely to impacted</li>
+<li>Functions =&gt; defense, movement, structure, transport, cell to cell
+signaling, etc.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-cell-structure" class="outline-3">
+<h3 id="cell-structure"><span class="section-number-3">1.5</span> Cell Structure</h3>
+<div class="outline-text-3" id="text-cell-structure">
+<ul class="org-ul">
+<li>Enzymes? <a href="KBhBIO101Enzymes.html">KBhBIO101Enzymes</a></li>
+</ul>
+
+<p>
+OK, so. Apparently Paul just answered the rest of his questions.
+</p>
+
+<p>
+And I quote
+</p>
+
+<p>
+““”
+</p>
+
+<p>
+*Enzymes are catalysts. They speed reaction rates but do not affect the
+change in free energy of the reaction (the difference in potential
+energy between reactants and products).*
+</p>
+
+<ul class="org-ul">
+<li>Activation energy is the amount of kinetic energy required to reach
+the transition state of a reaction.</li>
+
+<li>Enzymes speed up a reaction by lowering the activation energy, often
+with the help of cofactors or coenzymes.</li>
+
+<li><b>Enzymes lower the activation energy by some combination of&#x2026;</b>
+
+<ul class="org-ul">
+<li>Orienting the reactions substrate(s) to promote more effective
+collisions (and therefore reactions</li>
+<li>Stressing or straining bonds to temporarily and/or slightly lower
+the strength of attraction to allow the bond to break more easily</li>
+<li>Involving amino acid R-groups or sidechains in creating the
+transition state between reactants and products</li>
+</ul></li>
+</ul>
+
+<p>
+Enzymes have active sites that bring substrates together and may change
+shape to stabilize the transition state; known as Induced Fit upon
+binding active site and slight change in enzyme shape.
+</p>
+
+<p>
+Most enzymes are proteins, and thus their activity can be directly
+influenced by modifications or environmental factors, such as
+temperature and pH, that alter their three-dimensional structure.
+</p>
+
+<p>
+Enzyme activity may be regulated/inhibited by molecules that compete
+with substrates to occupy the active site (competitive inhibitor) or
+alter enzyme shape so that substrates become unable to enter the active
+site (non-competitive inhibitor).
+</p>
+
+<p>
+““”
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

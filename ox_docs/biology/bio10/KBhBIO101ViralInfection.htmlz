@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-20 Mon 07:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Virus Infections and Lifecycle</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div>Virus Infections and Lifecycle  Houjun Liu 2021-09-12 Sun 14:15</div>
+</div>
+<div id="content">
+<h1 class="title">Virus Infections and Lifecycle</h1>
+
+
+<div id="outline-container-virus-infections-and-lifecycle" class="outline-2">
+<h2 id="virus-infections-and-lifecycle"><span class="section-number-2">1</span> Virus Infections and Lifecycle</h2>
+<div class="outline-text-2" id="text-virus-infections-and-lifecycle">
+</div>
+<div id="outline-container-viral-life-cycle-an-overview" class="outline-3">
+<h3 id="viral-life-cycle-an-overview"><span class="section-number-3">1.1</span> Viral Life Cycle, an Overview</h3>
+<div class="outline-text-3" id="text-viral-life-cycle-an-overview">
+<ol class="org-ol">
+<li><b>Attachment</b> =&gt; protein contact between virus and host</li>
+<li><b>Viral entry</b> =&gt; entering the cell</li>
+<li><b>Uncoating</b> =&gt; shedding the protein layer</li>
+<li><b>Biosynthesis</b> =&gt; make baby viruses
+
+<ol class="org-ol">
+<li>Genome Replication: transcribe DNA/RNA</li>
+<li>Genome Expression: read DNA/RNA to make proteins</li>
+</ol></li>
+
+<li><b>Genome integration</b> =&gt; retrovirus only &#x2014; put the viral gene into
+the genetic sequence of the actual cell</li>
+<li><b>Assembly</b> =&gt; put it all together</li>
+<li><b>Viral Exit</b> =&gt; mature virons leave</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-viral-attachment" class="outline-3">
+<h3 id="viral-attachment"><span class="section-number-3">1.2</span> Viral attachment</h3>
+<div class="outline-text-3" id="text-viral-attachment">
+<p>
+To be able to enter a cell, viruses have to do something to stick to it.
+B/c otherwise they would just be stuck in the bloodstream and be very
+sad.
+</p>
+
+<p>
+See <a href="KBhBIO101ViralAttachment.html">KBhBIO101ViralAttachment</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-viral-entry" class="outline-3">
+<h3 id="viral-entry"><span class="section-number-3">1.3</span> Viral Entry</h3>
+<div class="outline-text-3" id="text-viral-entry">
+<p>
+In this step, the sticky virus on the surface of the cell gets into the
+cell. There are three different types of mechanisms by which this is
+achieved.
+</p>
+
+<p>
+See <a href="KBhBIO101ViralEntry.html">KBhBIO101ViralEntry</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-uncoating" class="outline-3">
+<h3 id="uncoating"><span class="section-number-3">1.4</span> Uncoating</h3>
+<div class="outline-text-3" id="text-uncoating">
+<p>
+After the virus enters the cell, the lipid/protein shell on the outside
+must be shred to be able to release the additional DNA inside.
+</p>
+
+<p>
+See <a href="KBhBIO101ViralUncoating.html">KBhBIO101ViralUncoating</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-viral-replication" class="outline-3">
+<h3 id="viral-replication"><span class="section-number-3">1.5</span> Viral Replication</h3>
+<div class="outline-text-3" id="text-viral-replication">
+<p>
+Now, with the viruses's DNA out on full display inside the cell, how do
+we make another virus? There are two key questions that must be asked to
+answer this:
+</p>
+
+<ul class="org-ul">
+<li><b>How are viral mRNAs produced from the viral genome?</b> =&gt; virus will
+hijack the ribosomes in the host cells. So, it is more important to
+ask how the mRNAs are produced to tell ribosomes what to do</li>
+<li><b>What serves as the template for viral genome replication</b> =&gt;
+replication will need a polymeraese; but the source and mechanism is
+dependent on viral genome structure/composition</li>
+</ul>
+
+
+<div id="org7ff5a22" class="figure">
+<p><img src="Screen Shot 2020-10-12 at 11.04.53 PM.png" alt="Screen Shot 2020-10-12 at 11.04.53 PM.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Screen Shot 2020-10-12 at 11.04.53 PM.png</p>
+</div>
+
+<p>
+See <a href="KBhBIO101ViralReplication.html">KBhBIO101ViralReplication</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-packaging" class="outline-3">
+<h3 id="packaging"><span class="section-number-3">1.6</span> Packaging</h3>
+<div class="outline-text-3" id="text-packaging">
+<p>
+"Viral self-assembly" &#x2014; make the protein, and, without ATP, just seal
+the newly-formed virus DNA in.
+</p>
+</div>
+</div>
+
+<div id="outline-container-viral-exit" class="outline-3">
+<h3 id="viral-exit"><span class="section-number-3">1.7</span> Viral Exit</h3>
+<div class="outline-text-3" id="text-viral-exit">
+<p>
+This is the process by which mature viron exit the host cell. See
+<a href="KBhBIO101ViralExit.html">KBhBIO101ViralExit</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
