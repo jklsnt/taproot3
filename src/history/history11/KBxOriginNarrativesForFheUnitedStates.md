@@ -155,7 +155,14 @@ thesis: narratives are inherently distorting, and thus we must not operate under
 
 - good
 	- dunbar pointing at people
-	- better 
+	- better anti-racism
+	- reclaiming patriotism
+	- pilgrims and puritians?
+		- talking about exceptionlism
+		
+- bad
+	- dunbar
+	- 
 
 
 
