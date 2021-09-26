@@ -133,6 +133,7 @@ thesis: narratives are inherently distorting, and thus we must not operate under
 	- calls the consensus narrative a myth: dunbar, 12
 	- according to the origin narrative, the united states was born of rebellion against opression, calls this a fallacy! dunbar 20
 	- calles normal narrative chauvunistic/provincialism: dunbar 21
+	- dunbar calls american hist v bad: end of 22
 
 - america good
 	- etho-state? nationalism? cowie
