@@ -132,6 +132,7 @@ thesis: narratives are inherently distorting, and thus we must not operate under
 	- "'hope for everyone to be speaking the same language and goverened by the same laws": dunbar jefferson 11
 	- calls the consensus narrative a myth: dunbar, 12
 	- according to the origin narrative, the united states was born of rebellion against opression, calls this a fallacy! dunbar 20
+	- calles normal narrative chauvunistic/provincialism: dunbar 21
 
 - america good
 	- etho-state? nationalism? cowie
