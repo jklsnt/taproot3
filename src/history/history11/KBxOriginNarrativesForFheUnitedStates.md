@@ -160,7 +160,7 @@ thesis: narratives are inherently distorting, and thus we must not operate under
 	- pilgrims and puritians?
 		- talking about exceptionlism
 	- american paradox
-		- american ideals of goodness were developed
+		- american ideals were developed
 		
 - bad
 	- dunbar
