@@ -159,6 +159,8 @@ thesis: narratives are inherently distorting, and thus we must not operate under
 	- reclaiming patriotism
 	- pilgrims and puritians?
 		- talking about exceptionlism
+	- american paradox
+		- american ideals of goodness were developed
 		
 - bad
 	- dunbar
