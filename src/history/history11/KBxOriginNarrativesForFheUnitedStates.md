@@ -257,6 +257,7 @@ Though narratives are inherently distortive and untrue when used as proxies for 
 
 
 
+final essay: https://docs.google.com/document/d/13kjHipLoFWtNgC34VILjlxv3iTuqMZCfSYCbdqJdtt4/edit
 
 
 
