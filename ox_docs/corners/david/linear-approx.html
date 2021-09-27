@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-24 Fri 14:10 -->
+<!-- 2021-09-26 Sun 09:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linear and Quadratic Approximations</title>
@@ -245,7 +245,7 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div>Linear and Quadratic Approximations  Taproot 2021-09-24 Fri 13:59</div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Linear and Quadratic Approximations</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-24 Fri 13:59</date></div>
 </div>
 <div id="content">
 <h1 class="title">Linear and Quadratic Approximations</h1>
@@ -253,12 +253,12 @@
 More applications of <a href="calculating-derivatives.html">Calculating Derivatives</a>.
 </p>
 
-<div id="outline-container-org890ee11" class="outline-2">
-<h2 id="org890ee11"><span class="section-number-2">1</span> Linear and Quadratic Approximations</h2>
+<div id="outline-container-orgd23a0de" class="outline-2">
+<h2 id="orgd23a0de"><span class="section-number-2">1</span> Linear and Quadratic Approximations</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org73e598b" class="outline-3">
-<h3 id="org73e598b"><span class="section-number-3">1.1</span> Linear Approximations</h3>
+<div id="outline-container-org5aefbf9" class="outline-3">
+<h3 id="org5aefbf9"><span class="section-number-3">1.1</span> Linear Approximations</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 \(f(x) \approx f(x_0) + f'(x_0)(x-x_0)\)
@@ -281,8 +281,8 @@ Tangent line is near the function curve at values close to \(x_0\) so it serves 
 </div>
 </div>
 
-<div id="outline-container-org6cab8a6" class="outline-3">
-<h3 id="org6cab8a6"><span class="section-number-3">1.2</span> Useful Examples</h3>
+<div id="outline-container-org37eb5ff" class="outline-3">
+<h3 id="org37eb5ff"><span class="section-number-3">1.2</span> Useful Examples</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 To simplify, base point (\(x_0\)) will be 0.
@@ -324,8 +324,8 @@ Linear approximations greatly simplify what can sometimes be more complicated fu
 </div>
 </div>
 
-<div id="outline-container-org63f46ed" class="outline-3">
-<h3 id="org63f46ed"><span class="section-number-3">1.3</span> Quadratic Approximations</h3>
+<div id="outline-container-org1fc9cd4" class="outline-3">
+<h3 id="org1fc9cd4"><span class="section-number-3">1.3</span> Quadratic Approximations</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Serves as an <i>extension</i> of the linear approximation formula.
@@ -357,20 +357,20 @@ Quadratic is not always more helpful, as in approximations like that of \(\sin{x
 Here's an example of where it <i>is</i> helpful: cos(x).
 </p>
 <div class="org-src-container">
-<pre class="src src-python">import matplotlib
-import matplotlib.pyplot as plt
-import numpy as np
-import math
-x = np.arange(-math.pi/2, math.pi/2, 0.1);
-fig=plt.figure(figsize=(3,2))
-plt.plot(x,np.cos(x),label="cos(x)")
-plt.plot(x, [1 for i in x],label="1") # lin approx
-plt.plot(x, [1 - i**2 / 2 for i in x], label="1-(x^2)/2") # quad approx
+<pre class="src src-python"><span class="org-keyword">import</span> matplotlib
+<span class="org-keyword">import</span> matplotlib.pyplot <span class="org-keyword">as</span> plt
+<span class="org-keyword">import</span> numpy <span class="org-keyword">as</span> np
+<span class="org-keyword">import</span> math
+<span class="org-variable-name">x</span> = np.arange(-math.pi/2, math.pi/2, 0.1);
+<span class="org-variable-name">fig</span>=plt.figure(figsize=(3,2))
+plt.plot(x,np.cos(x),label=<span class="org-string">"cos(x)"</span>)
+plt.plot(x, [1 <span class="org-keyword">for</span> i <span class="org-keyword">in</span> x],label=<span class="org-string">"1"</span>) <span class="org-comment-delimiter"># </span><span class="org-comment">lin approx</span>
+plt.plot(x, [1 - i**2 / 2 <span class="org-keyword">for</span> i <span class="org-keyword">in</span> x], label=<span class="org-string">"1-(x^2)/2"</span>) <span class="org-comment-delimiter"># </span><span class="org-comment">quad approx</span>
 fig.tight_layout()
 plt.legend()
-fname = 'images/myfig.png'
+fname = <span class="org-string">'images/myfig.png'</span>
 plt.savefig(fname)
-fname # return this to org-mode
+fname <span class="org-comment-delimiter"># </span><span class="org-comment">return this to org-mode</span>
 </pre>
 </div>
 </div>

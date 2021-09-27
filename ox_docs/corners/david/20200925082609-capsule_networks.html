@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-24 Fri 14:10 -->
+<!-- 2021-09-26 Sun 09:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Capsule Networks</title>
@@ -245,13 +245,13 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div>Capsule Networks  Taproot 2021-09-24 Fri 13:59</div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Capsule Networks</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-24 Fri 13:59</date></div>
 </div>
 <div id="content">
 <h1 class="title">Capsule Networks</h1>
 
-<div id="outline-container-org86651be" class="outline-2">
-<h2 id="org86651be"><span class="section-number-2">1</span> Motivation</h2>
+<div id="outline-container-orgea7635e" class="outline-2">
+<h2 id="orgea7635e"><span class="section-number-2">1</span> Motivation</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The logic behind CNNs is questionable. This is evident mostly in the presence of the pooling layer, which serves to add an element of invariance (i.e. if you wiggle the image around a bit, the prediction should be the same). However this does not actually address the problem of pose and perspective.
@@ -263,8 +263,8 @@ Capsule Networks are a solution to this that are modelled more similarly to the 
 </div>
 </div>
 
-<div id="outline-container-orgdf4e2d5" class="outline-2">
-<h2 id="orgdf4e2d5"><span class="section-number-2">2</span> Capsules</h2>
+<div id="outline-container-orgae50141" class="outline-2">
+<h2 id="orgae50141"><span class="section-number-2">2</span> Capsules</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Capsule are organized in a surprisingly hierarchical manner. Capsules are clumps of neurons that have "children" and "parents", with another main difference being their output form. Capsules output vector representations of the activation as opposed to a single scalar. The magnitude of a capsule output represents the likelihood of a prediction, while the direction of it signifies properties of the input.
@@ -280,8 +280,8 @@ The main idea of the vector output is to avoid the problem with pooling and CNNs
 </div>
 </div>
 
-<div id="outline-container-orgaf56a27" class="outline-2">
-<h2 id="orgaf56a27"><span class="section-number-2">3</span> The Math</h2>
+<div id="outline-container-org7eb8a73" class="outline-2">
+<h2 id="org7eb8a73"><span class="section-number-2">3</span> The Math</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 A capsule takes in a vector from its child capsule and runs an affine transform on it: \(\widehat{\mathbf{u}}_{j|i} = \mathbf{W}_{ij}\mathbf{u}_i\). This is then brought into the traditional part of a layer (normally the \(w_i x_i + b\) part) \(\mathbf{s}_j = \sum_{i}c_{ij}\widehat{\mathbf{u}}_{j|i}\). Finally, they apply the nonlinearity squashing function \(\frac{||\mathbf{s}_j||^2}{1+||\mathbf{s}_j||^2}\frac{\mathbf{s}_j}{||\mathbf{s}||_j}\).
@@ -289,8 +289,8 @@ A capsule takes in a vector from its child capsule and runs an affine transform 
 </div>
 </div>
 
-<div id="outline-container-orgdb00afe" class="outline-2">
-<h2 id="orgdb00afe"><span class="section-number-2">4</span> Structure</h2>
+<div id="outline-container-org9ac3345" class="outline-2">
+<h2 id="org9ac3345"><span class="section-number-2">4</span> Structure</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 A capsule network begins with normal convolutional layers that feed into the capsules. 

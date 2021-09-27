@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-24 Fri 14:10 -->
+<!-- 2021-09-26 Sun 09:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Threat Modeling</title>
@@ -223,21 +223,21 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div>Threat Modeling  David Freifeld 2021-09-24 Fri 13:59</div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Threat Modeling</h1> <h2 class="subtitle"></h2> <span class="author">David Freifeld</span> <span class="date">2021-09-24 Fri 13:59</date></div>
 </div>
 <div id="content">
 <h1 class="title">Threat Modeling</h1>
 
-<div id="outline-container-orgd63224a" class="outline-2">
-<h2 id="orgd63224a"><span class="section-number-2">1</span> What are we protecting?</h2>
+<div id="outline-container-org41b443e" class="outline-2">
+<h2 id="org41b443e"><span class="section-number-2">1</span> What are we protecting?</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The Intel Management Engine (also abbreviated to Intel ME or even just IME) is an embedded microcontroller located on the Platform Controller Hub of modern Intel CPUs that runs a modified version of MINIX. It is outside the scope of the operating system, is always on while the computer is connected to power (even if the computer is turned off). It has more complete access to the system and all hardware than even the kernel itself and as a result is an appealing target.
 </p>
 </div>
 
-<div id="outline-container-org5903eee" class="outline-3">
-<h3 id="org5903eee"><span class="section-number-3">1.1</span> Sources</h3>
+<div id="outline-container-org75c7328" class="outline-3">
+<h3 id="org75c7328"><span class="section-number-3">1.1</span> Sources</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 See <a href="https://www.intel.com/content/www/us/en/support/articles/000008927/software/chipset-software.html">here</a> and <a href="https://www.intel.com/content/www/us/en/products/docs/chipsets/9-series-chipset-pch-datasheet.html">here</a>.
@@ -246,8 +246,8 @@ See <a href="https://www.intel.com/content/www/us/en/support/articles/000008927/
 </div>
 </div>
 
-<div id="outline-container-orgcf4e3ed" class="outline-2">
-<h2 id="orgcf4e3ed"><span class="section-number-2">2</span> Who are we protecting it from, and what are their motivations?</h2>
+<div id="outline-container-org864557e" class="outline-2">
+<h2 id="org864557e"><span class="section-number-2">2</span> Who are we protecting it from, and what are their motivations?</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Because of its notable status, hackers trying to find exploits as a challenge or for acclaim</li>
@@ -265,12 +265,12 @@ See <a href="https://www.intel.com/content/www/us/en/support/articles/000008927/
 </div>
 </div>
 
-<div id="outline-container-orga0bf66b" class="outline-2">
-<h2 id="orga0bf66b"><span class="section-number-2">3</span> What methods of attacks do we prevent?</h2>
+<div id="outline-container-orge667b3f" class="outline-2">
+<h2 id="orge667b3f"><span class="section-number-2">3</span> What methods of attacks do we prevent?</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org6d4b38e" class="outline-3">
-<h3 id="org6d4b38e"><span class="section-number-3">3.1</span> Potential Attack Vectors</h3>
+<div id="outline-container-org873d4af" class="outline-3">
+<h3 id="org873d4af"><span class="section-number-3">3.1</span> Potential Attack Vectors</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Rogue Intel engineer pushes a malicious firmware update</li>
@@ -283,8 +283,8 @@ See <a href="https://www.intel.com/content/www/us/en/support/articles/000008927/
 </ul>
 </div>
 </div>
-<div id="outline-container-org7413220" class="outline-3">
-<h3 id="org7413220"><span class="section-number-3">3.2</span> Preventative Measures</h3>
+<div id="outline-container-orgda39ae1" class="outline-3">
+<h3 id="orgda39ae1"><span class="section-number-3">3.2</span> Preventative Measures</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Security by Obscurity
@@ -312,8 +312,8 @@ See <a href="https://www.intel.com/content/www/us/en/support/articles/000008927/
 </div>
 </div>
 
-<div id="outline-container-org07d0815" class="outline-3">
-<h3 id="org07d0815"><span class="section-number-3">3.3</span> External Preventative Measures</h3>
+<div id="outline-container-orgc590464" class="outline-3">
+<h3 id="orgc590464"><span class="section-number-3">3.3</span> External Preventative Measures</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>Third party tools for disabling ME
@@ -325,8 +325,8 @@ See <a href="https://www.intel.com/content/www/us/en/support/articles/000008927/
 </div>
 </div>
 
-<div id="outline-container-org389c8f7" class="outline-2">
-<h2 id="org389c8f7"><span class="section-number-2">4</span> What are the possible effects of these attacks?</h2>
+<div id="outline-container-org8116890" class="outline-2">
+<h2 id="org8116890"><span class="section-number-2">4</span> What are the possible effects of these attacks?</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Most major desktop computers would be vulnerable to a very hard to remove rootkit not visible to the OS</li>
@@ -353,12 +353,12 @@ See <a href="https://www.intel.com/content/www/us/en/support/articles/000008927/
 </div>
 </div>
 
-<div id="outline-container-org0d6ca57" class="outline-2">
-<h2 id="org0d6ca57"><span class="section-number-2">5</span> What are their resources?</h2>
+<div id="outline-container-org2183a00" class="outline-2">
+<h2 id="org2183a00"><span class="section-number-2">5</span> What are their resources?</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org7758ac5" class="outline-3">
-<h3 id="org7758ac5"><span class="section-number-3">5.1</span> Foreign powers</h3>
+<div id="outline-container-org520e6b9" class="outline-3">
+<h3 id="org520e6b9"><span class="section-number-3">5.1</span> Foreign powers</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Large amounts of money and time</li>
@@ -366,8 +366,8 @@ See <a href="https://www.intel.com/content/www/us/en/support/articles/000008927/
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc27cbd2" class="outline-3">
-<h3 id="orgc27cbd2"><span class="section-number-3">5.2</span> Researchers</h3>
+<div id="outline-container-orgc202e11" class="outline-3">
+<h3 id="orgc202e11"><span class="section-number-3">5.2</span> Researchers</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>Little funding</li>
@@ -375,8 +375,8 @@ See <a href="https://www.intel.com/content/www/us/en/support/articles/000008927/
 </ul>
 </div>
 </div>
-<div id="outline-container-org6bd225b" class="outline-3">
-<h3 id="org6bd225b"><span class="section-number-3">5.3</span> Rogue Intel engineer</h3>
+<div id="outline-container-orga379526" class="outline-3">
+<h3 id="orga379526"><span class="section-number-3">5.3</span> Rogue Intel engineer</h3>
 <div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li>Access to proprietary information
@@ -387,8 +387,8 @@ See <a href="https://www.intel.com/content/www/us/en/support/articles/000008927/
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc6a571f" class="outline-3">
-<h3 id="orgc6a571f"><span class="section-number-3">5.4</span> Profiteers</h3>
+<div id="outline-container-org29e3888" class="outline-3">
+<h3 id="org29e3888"><span class="section-number-3">5.4</span> Profiteers</h3>
 <div class="outline-text-3" id="text-5-4">
 <ul class="org-ul">
 <li>Potentially money?</li>
@@ -396,16 +396,16 @@ See <a href="https://www.intel.com/content/www/us/en/support/articles/000008927/
 </ul>
 </div>
 </div>
-<div id="outline-container-org135c843" class="outline-3">
-<h3 id="org135c843"><span class="section-number-3">5.5</span> Individual people</h3>
+<div id="outline-container-org078e08d" class="outline-3">
+<h3 id="org078e08d"><span class="section-number-3">5.5</span> Individual people</h3>
 <div class="outline-text-3" id="text-5-5">
 <ul class="org-ul">
 <li>Time</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2ce9e60" class="outline-3">
-<h3 id="org2ce9e60"><span class="section-number-3">5.6</span> Corporations</h3>
+<div id="outline-container-org5f98007" class="outline-3">
+<h3 id="org5f98007"><span class="section-number-3">5.6</span> Corporations</h3>
 <div class="outline-text-3" id="text-5-6">
 <ul class="org-ul">
 <li>Large amounts of funding</li>
@@ -413,8 +413,8 @@ See <a href="https://www.intel.com/content/www/us/en/support/articles/000008927/
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd068807" class="outline-3">
-<h3 id="orgd068807"><span class="section-number-3">5.7</span> Government</h3>
+<div id="outline-container-orge9a5b6c" class="outline-3">
+<h3 id="orge9a5b6c"><span class="section-number-3">5.7</span> Government</h3>
 <div class="outline-text-3" id="text-5-7">
 <ul class="org-ul">
 <li>Legal pressure</li>
@@ -422,8 +422,8 @@ See <a href="https://www.intel.com/content/www/us/en/support/articles/000008927/
 </ul>
 </div>
 </div>
-<div id="outline-container-org4778311" class="outline-3">
-<h3 id="org4778311"><span class="section-number-3">5.8</span> Malware engineers</h3>
+<div id="outline-container-orga63a65f" class="outline-3">
+<h3 id="orga63a65f"><span class="section-number-3">5.8</span> Malware engineers</h3>
 <div class="outline-text-3" id="text-5-8">
 <ul class="org-ul">
 <li>Little to no resources</li>
@@ -432,8 +432,8 @@ See <a href="https://www.intel.com/content/www/us/en/support/articles/000008927/
 </div>
 </div>
 
-<div id="outline-container-orgb90525b" class="outline-2">
-<h2 id="orgb90525b"><span class="section-number-2">6</span> What are our resources?</h2>
+<div id="outline-container-org532c9b4" class="outline-2">
+<h2 id="org532c9b4"><span class="section-number-2">6</span> What are our resources?</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Large company with lots of funding</li>
@@ -442,8 +442,8 @@ See <a href="https://www.intel.com/content/www/us/en/support/articles/000008927/
 </ul>
 </div>
 </div>
-<div id="outline-container-org5ffdf4c" class="outline-2">
-<h2 id="org5ffdf4c"><span class="section-number-2">7</span> What should we do?</h2>
+<div id="outline-container-org0bbf4d2" class="outline-2">
+<h2 id="org0bbf4d2"><span class="section-number-2">7</span> What should we do?</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Reduce the featureset of the Intel ME so as to remove attack vectors</li>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-24 Fri 14:10 -->
+<!-- 2021-09-26 Sun 09:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Transformers</title>
@@ -223,13 +223,13 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div>Transformers  Taproot 2021-09-24 Fri 13:59</div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Transformers</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-24 Fri 13:59</date></div>
 </div>
 <div id="content">
 <h1 class="title">Transformers</h1>
 
-<div id="outline-container-orgcb83af5" class="outline-2">
-<h2 id="orgcb83af5"><span class="section-number-2">1</span> Overview</h2>
+<div id="outline-container-org62bfb7b" class="outline-2">
+<h2 id="org62bfb7b"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Transformers are an architecture for sequence to sequence translation which lends itself most intuitively to language translation.
@@ -241,8 +241,8 @@ They are composed of an encoder and decoder, each of which itself is actually a 
 </div>
 </div>
 
-<div id="outline-container-orgbf89af7" class="outline-2">
-<h2 id="orgbf89af7"><span class="section-number-2">2</span> Encoders</h2>
+<div id="outline-container-org4ff0cc9" class="outline-2">
+<h2 id="org4ff0cc9"><span class="section-number-2">2</span> Encoders</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The raw input in the context of language translation would be a vector embedding of each word. Each of these embeddings would be inputted to the layer "on its own path", separate from the rest of the sentence. The attention layer would output intermediate vectors used as input for the neural network, and the vector output of the network would be used as the input for the next encoder in the stack.
@@ -254,8 +254,8 @@ There is a layer normalization step after each sublayer (attention, ANN) inside 
 </div>
 </div>
 
-<div id="outline-container-orgdf035b1" class="outline-2">
-<h2 id="orgdf035b1"><span class="section-number-2">3</span> Decoders</h2>
+<div id="outline-container-org9cb4420" class="outline-2">
+<h2 id="org9cb4420"><span class="section-number-2">3</span> Decoders</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Decoders act similarly but have encoder-decoder attention sublayers. There is also a final layer after the decoder stack that translates the vector of floats into words (by having a predetermined dictionary and using the floats as probability for each one).

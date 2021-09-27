@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-24 Fri 14:10 -->
+<!-- 2021-09-26 Sun 09:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Data-Oriented Design and C++</title>
@@ -223,13 +223,13 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div>Data-Oriented Design and C++  Taproot 2021-09-24 Fri 13:59</div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Data-Oriented Design and C++</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-24 Fri 13:59</date></div>
 </div>
 <div id="content">
 <h1 class="title">Data-Oriented Design and C++</h1>
 
-<div id="outline-container-orgd1937be" class="outline-2">
-<h2 id="orgd1937be"><span class="section-number-2">1</span> What is Data-Oriented Design?</h2>
+<div id="outline-container-orgc902e01" class="outline-2">
+<h2 id="orgc902e01"><span class="section-number-2">1</span> What is Data-Oriented Design?</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <i>The purpose of all programs is to transform data.</i> 
@@ -244,28 +244,28 @@
 <li>Reason must prevail - pragmatism over theory.</li>
 </ul>
 </div>
-<div id="outline-container-org697dbe9" class="outline-3">
-<h3 id="org697dbe9"><span class="section-number-3">1.1</span> Three Big Lies</h3>
+<div id="outline-container-org18096f7" class="outline-3">
+<h3 id="org18096f7"><span class="section-number-3">1.1</span> Three Big Lies</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orgc9696d4" class="outline-4">
-<h4 id="orgc9696d4"><span class="section-number-4">1.1.1</span> Software is a platform.</h4>
+<div id="outline-container-orgab7ed87" class="outline-4">
+<h4 id="orgab7ed87"><span class="section-number-4">1.1.1</span> Software is a platform.</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 Obviously hardware is the platform, and solutions are different for different sets of hardware. x86 vs ARM is different due to varying constraints (and therefore you need to consider <a href="lowlevel.html">low-level</a> things). Reality is not something you're forced to deal with but the actual problem itself (pragmatism &gt; theory).
 </p>
 </div>
 </div>
-<div id="outline-container-orga6cfdda" class="outline-4">
-<h4 id="orga6cfdda"><span class="section-number-4">1.1.2</span> Code should be designed around your mental model of the world.</h4>
+<div id="outline-container-org29380e8" class="outline-4">
+<h4 id="org29380e8"><span class="section-number-4">1.1.2</span> Code should be designed around your mental model of the world.</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 This ends up hiding data - and that's bad since trading maintenance for understanding of the data makes the problem harder to solve. Classes are similar in real life but not in code so you end up with strange monolithic and unrelated data structures. Too abstract of a solution and divorced from reality.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc630dbd" class="outline-4">
-<h4 id="orgc630dbd"><span class="section-number-4">1.1.3</span> Code is more important than data.</h4>
+<div id="outline-container-org402a347" class="outline-4">
+<h4 id="org402a347"><span class="section-number-4">1.1.3</span> Code is more important than data.</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <p>
 Code is only for transforming data. Programmers are responsible for solving data transformation problems, not just writing code. And in order to do solve these problems you need to understand the data, and idealized abstract solutions don't work since they ignore the <b>actual</b> data you're working with.
@@ -273,8 +273,8 @@ Code is only for transforming data. Programmers are responsible for solving data
 </div>
 </div>
 </div>
-<div id="outline-container-orgb236ae4" class="outline-3">
-<h3 id="orgb236ae4"><span class="section-number-3">1.2</span> Results of TBL</h3>
+<div id="outline-container-orga873fd1" class="outline-3">
+<h3 id="orga873fd1"><span class="section-number-3">1.2</span> Results of TBL</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Poor performance</li>
@@ -286,12 +286,12 @@ Code is only for transforming data. Programmers are responsible for solving data
 </div>
 </div>
 </div>
-<div id="outline-container-org9d3ef99" class="outline-2">
-<h2 id="org9d3ef99"><span class="section-number-2">2</span> Example: Dictionary Lookup</h2>
+<div id="outline-container-org2853041" class="outline-2">
+<h2 id="org2853041"><span class="section-number-2">2</span> Example: Dictionary Lookup</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org9561474" class="outline-3">
-<h3 id="org9561474"><span class="section-number-3">2.1</span> Code-First design</h3>
+<div id="outline-container-org2f87b8c" class="outline-3">
+<h3 id="org2f87b8c"><span class="section-number-3">2.1</span> Code-First design</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Something like this in memory, since we view these as being associated with each other:
@@ -327,8 +327,8 @@ This isn't actually the case. Most of the time it's only the keys that matter si
 </p>
 </div>
 </div>
-<div id="outline-container-org589bbb2" class="outline-3">
-<h3 id="org589bbb2"><span class="section-number-3">2.2</span> Data-First design</h3>
+<div id="outline-container-org40bc315" class="outline-3">
+<h3 id="org40bc315"><span class="section-number-3">2.2</span> Data-First design</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Have them separate, and only the keys will be in cache (yes the value will be a cold lookup that causes a cache miss, but the statistical chance is low). <i>Always solve for the common case first.</i>
@@ -336,8 +336,8 @@ Have them separate, and only the keys will be in cache (yes the value will be a 
 </div>
 </div>
 </div>
-<div id="outline-container-orga9a9961" class="outline-2">
-<h2 id="orga9a9961"><span class="section-number-2">3</span> Cache Times</h2>
+<div id="outline-container-org566fd04" class="outline-2">
+<h2 id="org566fd04"><span class="section-number-2">3</span> Cache Times</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The most expensive operations are transcendentals at ~100 cycles and square roots at ~25 cycles. In comparison, L1 lookups take 3, L2 take 20+, and RAM 300+ cycles. L1 is great, L2 is decent, and RAM is painfully slow. Because of this, this means L2 cache misses are the most important events when it comes to understanding performance. 
@@ -348,8 +348,8 @@ The compiler spends its time optimizing everything besides the waiting times for
 </p>
 </div>
 </div>
-<div id="outline-container-org9f1c1e0" class="outline-2">
-<h2 id="org9f1c1e0"><span class="section-number-2">4</span> Improvements</h2>
+<div id="outline-container-org640dd3b" class="outline-2">
+<h2 id="org640dd3b"><span class="section-number-2">4</span> Improvements</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 :collapsed: true
@@ -370,8 +370,8 @@ Want to see information density of bools? Just dump value and compress it.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd8ff6b7" class="outline-2">
-<h2 id="orgd8ff6b7"><span class="section-number-2">5</span> Questions</h2>
+<div id="outline-container-org684c601" class="outline-2">
+<h2 id="org684c601"><span class="section-number-2">5</span> Questions</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>How do you avoid code duplication without STL/templates?

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-23 Thu 22:34 -->
+<!-- 2021-09-26 Sun 09:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>User Input Validation</title>
@@ -219,7 +219,7 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div>User Input Validation  Huxley Marvit 2021-09-23 Thu 22:34</div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">User Input Validation</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-09-23 Thu 22:34</date></div>
 </div>
 <div id="content">
 <h1 class="title">User Input Validation</h1>
@@ -232,7 +232,7 @@
 <div id="outline-container-user-input-validation" class="outline-2">
 <h2 id="user-input-validation"><span class="section-number-2">1</span> User Input Validation</h2>
 <div class="outline-text-2" id="text-user-input-validation">
-<pre class="example" id="org3608f77">
+<pre class="example" id="org42e5abd">
 title: Assignment
 
 For this assignment, show your understanding of at least one of these techniques by submitting:
@@ -251,9 +251,9 @@ computer:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"># original script
-favorite = input('What is your favorite number? ') # vulnerability in input
-print 'I like the number {}, too!'.format(favorite)
+<pre class="src src-python"><span class="org-comment-delimiter"># </span><span class="org-comment">original script</span>
+<span class="org-variable-name">favorite</span> = <span class="org-builtin">input</span>(<span class="org-string">'What is your favorite number? '</span>) <span class="org-comment-delimiter"># </span><span class="org-comment">vulnerability in input</span>
+<span class="org-keyword">print</span> <span class="org-string">'I like the number {}, too!'</span>.<span class="org-builtin">format</span>(favorite)
 </pre>
 </div>
 
@@ -264,7 +264,7 @@ user had access to (e.g. the contents of a file on their machine).
 
 <div class="org-src-container">
 <pre class="src src-shell">&gt; python2 bad_input.py
-What is your favorite number? open("/Users/huxmarv/super_secret_secrets.txt").read() 
+What is your favorite number? open(<span class="org-string">"/Users/huxmarv/super_secret_secrets.txt"</span>).read() 
 I like the number password123, too!
 </pre>
 </div>
@@ -274,16 +274,16 @@ Updated script:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"># secure script
-favorite = raw_input('What is your favorite number? ') # change input to raw input
-print 'I like the number {}, too!'.format(favorite)
+<pre class="src src-python"><span class="org-comment-delimiter"># </span><span class="org-comment">secure script</span>
+<span class="org-variable-name">favorite</span> = <span class="org-builtin">raw_input</span>(<span class="org-string">'What is your favorite number? '</span>) <span class="org-comment-delimiter"># </span><span class="org-comment">change input to raw input</span>
+<span class="org-keyword">print</span> <span class="org-string">'I like the number {}, too!'</span>.<span class="org-builtin">format</span>(favorite)
 </pre>
 </div>
 
 <div class="org-src-container">
 <pre class="src src-shell">&gt; python2 better_input.py
-What is your favorite number? open("/Users/huxmarv/super_secret_secrets.txt").read() 
-I like the number open("/Users/huxmarv/super_secret_secrets.txt").read(), too!
+What is your favorite number? open(<span class="org-string">"/Users/huxmarv/super_secret_secrets.txt"</span>).read() 
+I like the number open(<span class="org-string">"/Users/huxmarv/super_secret_secrets.txt"</span>).read(), too!
 </pre>
 </div>
 
@@ -310,7 +310,7 @@ site</a>
 Write a comment that will cause some JavaScript to run.
 </p>
 
-<pre class="example" id="org51f4046">
+<pre class="example" id="orgc69e4bc">
 &lt;img src="!exist" onerror="alert('XSS')"&gt;; // alerts XSS
 </pre>
 
@@ -319,9 +319,9 @@ Updated site:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js">var textDiv = document.createElement('div');
-//textDiv.innerHTML = document.getElementById('commentText').value;
-textDiv.innerText = document.getElementById('commentText').value; // change innerHTML to innerText
+<pre class="src src-js"><span class="org-keyword">var</span> <span class="org-variable-name">textDiv</span> = document.createElement(<span class="org-string">'div'</span>);
+<span class="org-comment-delimiter">//</span><span class="org-comment">textDiv.innerHTML = document.getElementById('commentText').value;</span>
+textDiv.innerText = document.getElementById(<span class="org-string">'commentText'</span>).value; <span class="org-comment-delimiter">// </span><span class="org-comment">change innerHTML to innerText</span>
 newDiv.appendChild(textDiv);
 </pre>
 </div>
@@ -346,48 +346,48 @@ access.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-C">// from http://stackoverflow.com/questions/34247068/buffer-overflow-does-not-work-on-mac-osx-el-capitan
-#include "stdio.h"
-#include "string.h"
+<pre class="src src-C"><span class="org-comment-delimiter">// </span><span class="org-comment">from http://stackoverflow.com/questions/34247068/buffer-overflow-does-not-work-on-mac-osx-el-capitan</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">"stdio.h"</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">"string.h"</span>
 
-int check_authentication(char *password) {
-    int auth_flag = 0;
-    char password_buffer[20]; // vulnerability
+<span class="org-type">int</span> <span class="org-function-name">check_authentication</span>(<span class="org-type">char</span> *<span class="org-variable-name">password</span>) {
+    <span class="org-type">int</span> <span class="org-variable-name">auth_flag</span> = 0;
+    <span class="org-type">char</span> <span class="org-variable-name">password_buffer</span>[20]; <span class="org-comment-delimiter">// </span><span class="org-comment">vulnerability</span>
 
 
     strcpy(password_buffer, password);
 
-    if (strcmp(password_buffer, "password") == 0) { // correct password: password
-	auth_flag = 1;
+    <span class="org-keyword">if</span> (strcmp(password_buffer, <span class="org-string">"password"</span>) == 0) { <span class="org-comment-delimiter">// </span><span class="org-comment">correct password: password</span>
+        auth_flag = 1;
     }
 
-    return auth_flag;
+    <span class="org-keyword">return</span> auth_flag;
 }
 
-int main(int argc, char* argv[]) {
-    if (argc &lt; 2) {
-	printf("Usage: %s &lt;password&gt;\n", argv[0]);
+<span class="org-type">int</span> <span class="org-function-name">main</span>(<span class="org-type">int</span> <span class="org-variable-name">argc</span>, <span class="org-type">char</span>* <span class="org-variable-name">argv</span>[]) {
+    <span class="org-keyword">if</span> (argc &lt; 2) {
+        printf(<span class="org-string">"Usage: %s &lt;password&gt;\n"</span>, argv[0]);
     }
 
-    if (check_authentication(argv[1])) {
-	printf("Access Granted.\n");
-    } else {
-	printf("Access Denied.\n");
+    <span class="org-keyword">if</span> (check_authentication(argv[1])) {
+        printf(<span class="org-string">"Access Granted.\n"</span>);
+    } <span class="org-keyword">else</span> {
+        printf(<span class="org-string">"Access Denied.\n"</span>);
     }
 }
 </pre>
 </div>
 
-<pre class="example" id="org915a301">
+<pre class="example" id="org88e3850">
 compile with  `gcc -fno-stack-protector -D_FORTIFY_SOURCE=0 buffer_overflow.c` !
 </pre>
 
-<pre class="example" id="orgeaed735">
+<pre class="example" id="orgb8bbc71">
 &gt; ./a.out 123456789abcdefghijkl 
 Access Granted.
 </pre>
 
-<pre class="example" id="orgd1ce24d">
+<pre class="example" id="org6f030ae">
 &gt; ipython
 In [1]: x = "123456789abcdefghijkl"
 In [2]: len(x) # overflow with len &gt; 20
