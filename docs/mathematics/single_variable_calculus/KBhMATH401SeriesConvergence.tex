@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:50
+% Created 2021-09-27 Mon 12:03
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,13 +54,14 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 
 
 \section{Series Convergence}
-\label{sec:org0801755}
+\label{sec:org818f316}
 \subsection{Geometric Series}
-\label{sec:orgd9c8069}
+\label{sec:orgcca4916}
 In \(\sum_{k=0}^\infty a(r^k)\), where \(|r|<1\), the series converges
 to \(\sum_{k=0}^\infty a(r^k) = \frac{a}{1-r}\)
 
@@ -64,19 +69,19 @@ In \(\sum_{k=0}^n a(r^k)\),
 \(\sum_{k=0}^n a(r^k) = \frac{a-ar^{n+1}}{1-r}\)
 
 \subsection{nth term divergence test}
-\label{sec:org1c2cbd2}
+\label{sec:org20e2b3a}
 If \(\lim_{n \to \infty} a_n\) is not zero, the series \textbf{will} diverge.
 The inverse is not necessarily true; that is, if this fails, use another
 test to test convergence.
 
 \subsection{Intergral Test}
-\label{sec:org8ab88ab}
+\label{sec:orgc4a7036}
 If the intergral to infinity is convergent, the sequence is convergent
 as long as the sequence is continuous, positive, and decreasing. The
 inverse applies, too.
 
 \subsection{Power Series}
-\label{sec:orga270074}
+\label{sec:orga0005a9}
 \(\sum^{\infty}_{n=1} \frac{1}{n^p}\)
 
 If a p-series has a p > 1, the p-series will converge
@@ -84,7 +89,7 @@ If a p-series has a p > 1, the p-series will converge
 If a p-series has a p <= 1, the p-series will diverge
 
 \subsection{Comparison Test}
-\label{sec:org61e8da6}
+\label{sec:orge73da4c}
 Both provided that \(a_n,b_n \geq 0\ \&\ a_n \leq b_n\)
 
 \href{Pasted image 20210308082352.png.org}{Pasted image
@@ -98,12 +103,12 @@ two series will either both converge or both diverge. So you only need
 to test one.
 
 \subsection{Alternating Series Test}
-\label{sec:orgb6261ea}
+\label{sec:org0947423}
 \href{Pasted image 20210309081249.png.org}{Pasted image
 20210309081249.png}
 
 \subsection{Ratio Test}
-\label{sec:org3190f5c}
+\label{sec:org51a7764}
 In a geometric series, the common ratio is simply
 \(r = \frac{r^{n+1}}{r^n}\).
 
@@ -136,7 +141,7 @@ Conditional Convergence => series who converge and whose absolute value
 does not converge
 
 \subsection{So what is the error of a talor series? (Lagrange Error)}
-\label{sec:org72dfdd0}
+\label{sec:org144663a}
 The error at point \(x\) of a \(n\)th degree talor polynomial centered
 at \(a\) modeling a function with an absolute maximum value of \(M\) in
 its \(n+1\)th dervitave between a bound containing \(x\) and \(a\):
@@ -144,7 +149,7 @@ its \(n+1\)th dervitave between a bound containing \(x\) and \(a\):
 \(|E(x)| \leq \frac{M(x-a)^{n+1}}{(n+1)!}\)
 
 \subsection{Power Series}
-\label{sec:orgba3d191}
+\label{sec:org84332e4}
 \(f(x) = \sum_{n=0}^{\infty} a_n(x-c)^n= a_n(x-c)^0 + a_n(x-c)^1 ...\)
 
 For instance, a geometric series is a special power series\ldots{}

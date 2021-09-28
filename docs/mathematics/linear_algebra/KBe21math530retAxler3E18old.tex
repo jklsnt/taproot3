@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 11:52
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,16 +54,17 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{Problem: Axler 3.E exercise 18}
-\label{sec:orgffe0148}
+\label{sec:orgd72b57b}
 \begin{quote}
 Suppose \(T \in \mathcal L(V, W)\) and \(U\) is a subspace of \(V\). Let \(\pi\) denote the quotient map from \(V\) onto \(V/U\). Prove that there exists \(S \in \mathcal L(V/U, W)\) such that \(T = S \circ \pi\) if and only if \(U \subseteq \text{null }T\).
 \end{quote}
 Intuitively, if we mod out part of the \(\text{null }T\), then we should still be able to have a map that does what \(T\) would do. If we are able to do what \(T\) would do, then when modding out \(U\) we only removed part of \(\text{null }T\) and lost no information.
 
 \section{Forward Direction}
-\label{sec:org217f959}
+\label{sec:org5a10d6a}
 
 Intuitively, we can treat \(S \circ \pi\) as a single map and take a basis of \(V\) to the same place that \(T\) would, and the maps would be equal.
 
@@ -103,22 +108,22 @@ S(U+u) + S(U+v) = Tu + Tv = T(u+v) = S(U+u + U+v) = S(U+(u+v))
 Thus, \(S\) is linear, and \(S \circ \pi = T\) if \(U \subseteq \text{null }T\).
 
 \subsection{define S(U + v) = T v}
-\label{sec:org221bb84}
+\label{sec:orgcbf03b7}
 
 \subsubsection{check that it is well defined}
-\label{sec:org2622e1d}
+\label{sec:org0f1b70a}
 
 \begin{enumerate}
 \item every element is sent to exactly one place
-\label{sec:org759469d}
+\label{sec:org2d73eca}
 \end{enumerate}
 
 
 \subsubsection{check that linearity is inhereted from T}
-\label{sec:orgef47020}
+\label{sec:org3c783d9}
 
 \section{Reverse Direction by Contrapositive}
-\label{sec:org9a93f16}
+\label{sec:org2546c42}
 Intuitively, if we lost information, then we can't reconstruct what \(T\) would do.
 
 Assume \(U \nsubseteq \text{null }T\). There exists \(v \in U\) s.t. \(Tv \neq 0\). This is some of the "information" that was "lost". Because \(v \in U\),

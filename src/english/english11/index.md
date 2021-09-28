@@ -25,26 +25,9 @@ It's time for... American lit!
 - [[KBxThereThereEssayPlanning]]
 
 ## Motifs & Close Reading 
-
 - [[KBxThereThereMotif]]
 
 
 ## The Crucible
-
 - [[KBxCrucibleActOneInClass]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [[KBhCrucibleDiscussion]] 

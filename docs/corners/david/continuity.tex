@@ -1,4 +1,4 @@
-% Created 2021-09-24 Fri 14:01
+% Created 2021-09-27 Mon 11:51
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -36,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -53,22 +54,23 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 
 \section{Continuity}
-\label{sec:org674dbd8}
+\label{sec:org7762f10}
 \textbf{DEFINITION} \(f\) is \uline{continuous} at \(x_0\) means \(\lim_{x \rightarrow x_0} f(x) = f(x_0)\)
   The left side of the equation is evaluated independently here, and \(x\) \(\neq\) \(x_0\) is always true.
 Continuous at \(x_0\) means that the general limit exists from left or right, and \(f(x_0)\) is defined. Left and right hand limits are the same.
 
 \section{Discontinuity}
-\label{sec:org6c71b7f}
+\label{sec:org609dca6}
 \subsection{\textbf{DEFINITION} A "jump discontinuity" is when the limit from the left and right exist but are not equal.}
-\label{sec:org93cf963}
+\label{sec:org22fca89}
 \textbf{EXAMPLE} The left and right hand limits of \(f(x) = |x|\).
   Discontinuity, while appearing technical in some regards, is important in many applications (such as modelling stock prices). Some applications have left as the 'past' and right as the 'future', making these concepts of direction more relevant.
 \subsection{\textbf{DEFINITION} A "removable discontinuity" is when the limit from the left and right are equal.}
-\label{sec:org29dbbfc}
+\label{sec:orgb67bce2}
 \textbf{EXAMPLE} Any function with a hole in it.
 \textbf{EXAMPLE} \(g(x) = \frac{sin(x)}{x}\) as \(g(0) = \text{ ??}\)
 However, this does in fact have a removable discontinuity as the \(\lim_{x \rightarrow x_0} g(x) = 1\)
@@ -76,7 +78,7 @@ However, this does in fact have a removable discontinuity as the \(\lim_{x \righ
 This too has a removable discontinuity as the \(\lim_{x \rightarrow x_0} h(x) = 0\)
   This is called "removable" because a redefinition of the function that lacked this hole would be continuous.
 \subsection{\textbf{DEFINITION} A "infinite discontinuity" is where both sides of the functions go towards an infinite value (such as a function with many asymptotes).}
-\label{sec:orgf0f879c}
+\label{sec:org5756719}
 \textbf{EXAMPLE} \(y=\frac{1}{x}\)
 The asymptotes allow left and right hand limits to be rather different.
 \(\lim_{x \rightarrow 0^+} f(x) = \infty\)
@@ -85,13 +87,13 @@ The asymptotes allow left and right hand limits to be rather different.
   Derivatives do not need to look like the original function.
 A good example is how \(\frac{1}{x}\) looks different than it's derivative \(\frac{1}{x^2}\).
 \subsection{\emph{SIDENOTE} There are plenty of other types of discontinuities.}
-\label{sec:orga986451}
+\label{sec:org0b80d2d}
 \textbf{EXAMPLE} \(y = sin \frac{1}{x}\), where there is no left or right limit.
 \textbf{EXAMPLE} Many other oscillating functions behave this way as well.
 Derivatives do not need to look like the original function.
 \textbf{EXAMPLE} \(\frac{1}{x}\) looks different than it's derivative \(\frac{1}{x^2}\)
 \subsection{\emph{THEOREM} If \(f\) is differentiable at \(x_0\), then \(f\) is continuous at \(x_0\)}
-\label{sec:orgd9f9006}
+\label{sec:org248d62a}
 \textbf{PROOF}
 This is equivalent to proving \(\lim_{x \rightarrow x_0} f(x) - f(x_0) = 0\).
   This is because the definition of continuity is that \(\lim_{x \rightarrow x_0} f(x) = f(x_0)\)
@@ -101,7 +103,7 @@ Evaluating this limit gives us 0, and therefore the theorem is true.
 While it may appear that this proof divides by zero and this invalidates it, remember that \(x \neq x_0\) at all times. Operations like divisions are legal because \(x\) will get very small but will always remain nonzero. This property is central to the usefulness of limits.
 
 \section{Links}
-\label{sec:orgcfe0354}
+\label{sec:org2ee21e5}
 
 Further reference can be found at \href{limits-continuity-problems.org}{Limits and Continuity Practice}.
 \end{document}

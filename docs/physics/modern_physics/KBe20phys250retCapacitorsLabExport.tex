@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 12:02
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,11 +54,12 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \#ret
 
 \section{Purpose}
-\label{sec:org3307928}
+\label{sec:org69bf3c9}
 To verify the relation between capacitance, resistance, voltage, and
 charge time of a simple capacitor circuit. The equation that will be
 verified is \[
@@ -77,9 +82,9 @@ Table 1: The meanings of variables in the numerical model
 \end{quote}
 
 \section{Voltage over Time}
-\label{sec:org3fe1370}
+\label{sec:org9f72e68}
 \subsection{Equipment}
-\label{sec:org06da360}
+\label{sec:org160935c}
 \begin{itemize}
 \item Logger Pro probes
 \item Logger Pro
@@ -90,7 +95,7 @@ Table 1: The meanings of variables in the numerical model
 \end{itemize}
 
 \subsection{Procedure}
-\label{sec:orge09bd24}
+\label{sec:org277ff6a}
 A number of circuits were built, with the same structure but differing
 resistances and capacitances. The voltage across the capacitor and the
 current through the circuit were measured over time using a voltage and
@@ -115,7 +120,7 @@ fit and the collected data. The fit heuristic was to visually center the
 dots around the x-axis.
 
 \subsection{Results}
-\label{sec:org1b2a4bf}
+\label{sec:orgb04ef38}
 The results of the fits are summarized below:
 
 data (green). Residuals (red) were multiplied by 30.
@@ -165,7 +170,7 @@ Table 2: Fit and calculated values of \(\tau\).
 \end{quote}
 
 \subsection{Analysis}
-\label{sec:orgf149493}
+\label{sec:orgd5c3bfb}
 The curve fits included a parameter for \(\tau\), and the model predicts
 \(\tau = RC\). Thus, the values and uncertainties for resistance and
 capacitance of each circuit were multiplied and compared to the visual
@@ -195,7 +200,7 @@ sheet} was available: the FOAI CD110 radial capacitor, which had
 capacitance tolerances of \(\pm\) 20\%.
 
 \subsection{Conclusion}
-\label{sec:orge46116f}
+\label{sec:org9a74862}
 Assuming perfect capacitor manufacturing, the curve fit results fell
 within uncertainties of the model predicted \(\tau\) value for all
 circuits except the fit in Figure 1. This is likely due to the high
@@ -211,9 +216,9 @@ analysis for this section can be found
 \textbf{\href{https://docs.google.com/spreadsheets/d/1Hw9ooz0CtAvTP9vtw1VT9pVyfsW39IojwwrQX94VJQY/edit?usp=sharing}{here}}.
 
 \section{Integration of Current}
-\label{sec:org29a1a55}
+\label{sec:org181756f}
 \subsection{Procedure}
-\label{sec:org5a946b0}
+\label{sec:orgb4c0e44}
 Another way to evaluate the model is to compare the amount of
 transferred charge. For this comparison, a modified equation is used:
 
@@ -233,7 +238,7 @@ measurements across the capacitor were used as another proxy to
 calculate the amount of charge on the capacitor.
 
 \subsection{Results}
-\label{sec:orga47baa4}
+\label{sec:orgf0348a5}
 The values of the three theoretically identical methods of calculating
 capacitor charge are shown below:
 
@@ -243,7 +248,7 @@ In addition, the final accumulated charge calculated by the Riemann sum
 was 0.00319C, or the equivalent of 3.19V on the capacitor.
 
 \subsection{Analysis}
-\label{sec:orgef6d770}
+\label{sec:org546e543}
 As the graph shows, both proxies of charge on the capacitor generally
 agree with the model but come up with smaller values of charge. Notably,
 the two experimental proxies don't agree with each other either,
@@ -275,7 +280,7 @@ a similar stepping phenomenon may be occuring in the voltage
 meauserement.
 
 \subsection{Conclusion}
-\label{sec:org75cd030}
+\label{sec:org4ca0a4d}
 The Riemann sums of measured current align with the model and expected
 charge calculated by the voltage on the capacitor and the definition of
 the Farad. Thus, the model accurately predicts experimental behavior,
@@ -292,9 +297,9 @@ Source analysis
 \href{https://docs.google.com/spreadsheets/d/1eDmGRePGh8PVv2aKhVhv-TNJc3\_n8H7HUrAMvxOG1Vs/edit?usp=sharing}{\textbf{here}}.
 
 \section{Time Constant with Various Components}
-\label{sec:orgd7c173d}
+\label{sec:org55d3f73}
 \subsection{Equipment}
-\label{sec:org3c359ee}
+\label{sec:org6953293}
 \begin{itemize}
 \item Breadboard
 \item Capacitors (100\(\mu\)F-1000\(\mu\)F)
@@ -305,7 +310,7 @@ Source analysis
 \end{itemize}
 
 \subsection{Procedure}
-\label{sec:orgfc72f62}
+\label{sec:org8aa8023}
 Most of the analysis for data collected as a class was done on the
 "charge rate constant" (\texttt{time/RC}) of each circuit, defined as:
 
@@ -337,7 +342,7 @@ across the capacitor to reach 2 \(\pm\) 0.01 volts was measured for
 various resistor and capacitor combinations.
 
 \subsection{Results}
-\label{sec:org20a4b26}
+\label{sec:org4a80f4e}
 \texttt{time/RC} is a unitless scalar that represents how quickly it takes to
 charge any capacitor for a given voltage. Voltage data was not collected
 during the experiment, so the voltage is assumed to be constant across
@@ -370,7 +375,7 @@ the model, this value is the product of the previous two trends.
 \url{https://docs.google.com/spreadsheets/d/e/2PACX-1vTdonVC\_CHgEAoezSnGLXLRFZMhR0\_IfTl8anSSMXwEDUR4iNzQbhVJGY8PyUq2e946cMuQbj5TSex\_/pubchart?oid=716778401\&format=image}
 
 \subsection{Analysis}
-\label{sec:orga478beb}
+\label{sec:org4acb183}
 On explanation for the data skew is reaction time: for lower values of
 \(\tau\), the capacitor plateaus faster near 2V and thus the time keeper
 may not react as quickly. Components with smaller ratings also need

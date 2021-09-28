@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,20 +54,21 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{Problem}
-\label{sec:org75260ef}
+\label{sec:org566bac9}
 \begin{quote}
 Suppose \(T \in \mathcal L (V)\). Prove that \(T / (\onull T)\) is injective if and only if \((\onull T) \cap (\orange T) = \{ 0 \}\)
 \end{quote}
 \section{Proof}
-\label{sec:org8e5b7ab}
+\label{sec:org8333316}
 \subsection{Condition Manipulation}
-\label{sec:org22b57d2}
+\label{sec:org45e0cb5}
 First, we will rewrite the problem as logical statements for easier manipulation.
 
 \subsubsection{Left Condition}
-\label{sec:orgc9894e3}
+\label{sec:org017b5a9}
 The left-hand side "\(T / (\onull T)\) is injective" is equivalent to:
 
 \[\begin{aligned}
@@ -75,7 +80,7 @@ The left-hand side "\(T / (\onull T)\) is injective" is equivalent to:
 	\end{aligned}\]
 
 \subsubsection{Right Condition}
-\label{sec:org6b49d62}
+\label{sec:org3997b2a}
 We can also rewrite the right-hand condition for easier manipulation. The intersection of the null space and the range being \(0\) is the same as (assuming \(w \neq 0\)) "if \(w \in \onull T\) then \(w \notin \orange T\)" and "if \(w \in \orange T\) then \(w \notin \onull T\)". Note that these are contrapositives of eachother, so we just need to work with the second statement.
 
 Thus, assuming \(w \neq 0\), these statements are equivalent:
@@ -87,6 +92,6 @@ Thus, assuming \(w \neq 0\), these statements are equivalent:
 	\end{aligned}\]
 
 \subsection{Proof}
-\label{sec:org8ed7024}
+\label{sec:org36c0d15}
 The statements are equivalent. \(\hfill\blacksquare\)
 \end{document}

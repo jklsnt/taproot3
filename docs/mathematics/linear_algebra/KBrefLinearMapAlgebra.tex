@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 11:52
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,61 +54,62 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \#+ TITLE: Algebraic Operations on Linear Maps
 
 \section{Axler3.6 sum (\(S+T\))}
-\label{sec:orgc612d6b}
+\label{sec:org6e358c6}
 If \(S, T \in \mathcal{L}(V, W)\) then the \emph{sum} \(S + T\) is defined by
 $$ (S+T)(v) = Sv + Tv $$
 \((S+T)\) is a linear map.
 
 \section{Axler3.6 scalar product \(\lambda T\)}
-\label{sec:org035aad7}
+\label{sec:org5114b95}
 If \(T \in \mathcal{L}(V, W)\) and \(\lambda \in \mathbb{F}\) then the \emph{product} \((\lambda T)v = \lambda Tv\). \(\lambda T\) is a linear map.
 
 \section{Axler3.8 Product of Linear Maps}
-\label{sec:orgdc510ba}
+\label{sec:org5ed0258}
 It's basically the composition of linear maps. Let \(U, V, W\) be vector spaces over \(\mathbb F\) and \(T, S\) be linear maps s.t. \(T \in \mathcal L(U, V)\) and \(S \in \mathcal L(V, W)\). Then the \emph{product}
 $$ ST \in \mathcal L (U, W) : (ST)(u) = S(Tu) $$
 
 \#aka \(ST = S \circ T\)
 
 \subsection{careful}
-\label{sec:orgae7662d}
+\label{sec:org936f3b3}
 
 \subsubsection{Evaluate backwards}
-\label{sec:orge0805bc}
+\label{sec:org8a8a376}
 Like the composition of functions, remember to evaluate these guys backwards. \((ST)(u) = S(Tu)\) meaning you evaluate \(Tu\) first, then \(S\) of that.
 
 \subsubsection{\(T\) maps into the domain of \(S\)}
-\label{sec:org8c101c8}
+\label{sec:org07361dd}
 Otherwise it's not defined.
 
 \section{Results}
-\label{sec:org197dde2}
+\label{sec:org27d399e}
 
 \subsection{Axler3.7 \(\mathcal{L}(V, W)\) is a vector space over \(\mathbb{F}\)}
-\label{sec:org43ef2d2}
+\label{sec:org1250eeb}
 
 \subsection{Axler3.9 Algebraic properties}
-\label{sec:org84ed76a}
+\label{sec:org68dfbd3}
 
 \subsubsection{associativity}
-\label{sec:org20301a5}
+\label{sec:org3d310a6}
 $$(T_1 T_2) T_3 = T_1 (T_2 T_3)$$ when it makes sense to multiply them.
 
 \begin{enumerate}
 \item {\bfseries\sffamily DONE} \#question what about \((T_1 + T_2) + T_3 \stackrel{?}{=} T_1 + (T_2 + T_3)\)?
-\label{sec:org40ac5de}
+\label{sec:org6420f83}
 Yes, it's inhereted from vector space properties
 \end{enumerate}
 
 \subsubsection{identity}
-\label{sec:org2d86d17}
+\label{sec:org2cea82f}
 $$TI = IT = T$$ where \(T \in \mathcal L(U, V)\) and \(I\) is the identity of \(U\) or \(V\) respectively.
 
 \subsubsection{distributive properties}
-\label{sec:orga71fa47}
+\label{sec:orgde80ab3}
 $$(S_1 + S_2)T = S_1T + S_2T \text{  and  } T(S_1 + S_2) = TS_1 + TS_2$$
 \end{document}

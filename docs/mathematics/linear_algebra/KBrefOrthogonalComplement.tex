@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,9 +54,10 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{Axler6.45 orthogonal complement, \(U^\bot\)\hfill{}\textsc{def}}
-\label{sec:orga29ced7}
+\label{sec:org503d204}
 \begin{quote}
 if \(U\) is a subset of \(V\), then the orthogonal complement of \(U\), denoted \(U^\bot\), is the set of all vectors in \(V\) that are orthogonal to every vector in \(U\):
 
@@ -61,43 +66,43 @@ if \(U\) is a subset of \(V\), then the orthogonal complement of \(U\), denoted 
   \end{aligned}\]
 \end{quote}
 \subsection{results}
-\label{sec:orgbf4251f}
+\label{sec:org513c76a}
 \subsubsection{Axler6.46 basic properties}
-\label{sec:org5638a00}
+\label{sec:org4c9d57b}
 \begin{enumerate}
 \item complement is a subspace: if \(U\) is a subset of \(V\), then \(U^\bot\) is a subspace of \(V\)
-\label{sec:orgf4df0f4}
+\label{sec:orgfea8751}
 \begin{enumerate}
 \item zero is orthogonal to each vector, any vector that is the sum of two fully orthogonal vectors or the scalar multiple of an orthogonal vector will still be fully orthogonal.
-\label{sec:org96bec40}
+\label{sec:org6e1d744}
 \end{enumerate}
 \item \(\{0\}^\bot = V\)
-\label{sec:orgddbbd20}
+\label{sec:orge5a9fbd}
 \begin{enumerate}
 \item zero orthogonal to every vector
-\label{sec:org83462e0}
+\label{sec:org5918977}
 \end{enumerate}
 \item \(V ^\bot = \{0\}\)
-\label{sec:org103b152}
+\label{sec:org226b414}
 \begin{enumerate}
 \item only zero orthogonal to every vector
-\label{sec:org19c1c15}
+\label{sec:org3af582b}
 \end{enumerate}
 \item If \(U\) is a subset of \(V\), then \(U \cap U^\bot\subseteq \{0\}\)
-\label{sec:org60ebc0e}
+\label{sec:org95579e8}
 \begin{enumerate}
 \item only zero is orthogonal to itself
-\label{sec:org5b0557a}
+\label{sec:org84038c3}
 \end{enumerate}
 \item If \(U\) and \(W\) are subsets of \(V\) and \(U\subseteq W\) then \(W^\bot \subseteq U^\bot\)
-\label{sec:org759bfed}
+\label{sec:org40f9118}
 \begin{enumerate}
 \item Everything in \(W^\bot\) is in \(U^\bot\), and more.
-\label{sec:orgadee72e}
+\label{sec:orgc1c6a48}
 \end{enumerate}
 \end{enumerate}
 \subsubsection{Axler6.47 direct sum of a subspace and its orthogonal complement}
-\label{sec:org730de10}
+\label{sec:org3379227}
 \begin{quote}
 Suppose \(U\) is a finite-dimensional subspace of \(V\). Then,
 \[\begin{aligned}
@@ -106,7 +111,7 @@ Suppose \(U\) is a finite-dimensional subspace of \(V\). Then,
 \end{quote}
 This can be shown by seeing that splitting any vector in \(V\) into a \(U\) part and a non-\(U\) part leads to the non-\(U\) being in \(U^\bot\)
 \subsubsection{Axler6.50 dimension of orthogonal complement}
-\label{sec:org0c759de}
+\label{sec:org8ff5c8c}
 \begin{quote}
 Suppose \(V\) is finite-dimensional and \(U\) is a subpsace of \(V\). Then,
 
@@ -117,7 +122,7 @@ Suppose \(V\) is finite-dimensional and \(U\) is a subpsace of \(V\). Then,
 By the dimension of a subspace addition (Axler3.78)
 
 \subsubsection{Axler6.51 orthogonal complement of orthogonal complement is itself}
-\label{sec:org64c3700}
+\label{sec:org723204c}
 \begin{quote}
 Suppose \(U\) is a finite-dimensional subspace of \(V\). Then
 \[\begin{aligned}

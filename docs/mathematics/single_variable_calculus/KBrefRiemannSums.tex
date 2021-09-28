@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:50
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,9 +54,10 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{Slicing into Rectangles}
-\label{sec:orgbe33217}
+\label{sec:orgceee43f}
 The general idea of Riemann sums is to slice a curve into vertical non-overlapping rectangles to approximate the area between the curve and the x-axis. This can be expressed mathematically as a summation given the function \(f(x)\), the range \([a, b]\), and the number of rectangles \(n\):
 
 \[\begin{aligned}
@@ -68,7 +73,7 @@ This can be written more concisely by defining \(\Delta x = \frac{b-a}{n}\) and 
 These estimates all have the right endpoint of the rectangle touching the curve. You could also use the left endpoint, or use the minimum value one and add a triangle to form a trapezoid.
 
 \section{Area Interpretation}
-\label{sec:org8cb8595}
+\label{sec:org371bf5d}
 Areas under curves can be estimated if you recognize the function. For example:
 \[\begin{aligned}
   \int_{0}^{1} \sqrt{1-x^2} dx
@@ -76,10 +81,10 @@ Areas under curves can be estimated if you recognize the function. For example:
 Traces out a quarter of a semicircle, so the area under this curve is \(\frac{\pi}{4}\)
 
 \section{Upper and Lower Bound}
-\label{sec:orgf555b88}
+\label{sec:org410aae1}
 To get an upper and lower bound approximation using a Riemann sum, you cannot always take the left or right edge. Instead, you have to take the minimum or maximum in an interval, usually denoted \(f(x_i^*)\).
 \section{the Definite Integral}
-\label{sec:orgdbdcadd}
+\label{sec:org27b66d6}
 Finally, we can define the definite integral as a limit of Riemann sums.
 
 \[\begin{aligned}

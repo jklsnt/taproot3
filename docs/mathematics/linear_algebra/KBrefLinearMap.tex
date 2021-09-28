@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 11:52
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,80 +54,81 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 
 \section{Definition}
-\label{sec:org3be6d20}
+\label{sec:org472167d}
 \#definition Axler3.2 Linear Map
 \#aka linear transformation
 A \emph{linear map} from \(V\) to \(W\) is a function \(T : V \to W\) with the following properties:
 \subsection{Additivity}
-\label{sec:orgebcf531}
+\label{sec:org539df96}
 $$T(u+v) = Tu + Tv \forall u, v \in V$$
 \subsection{Homogenity}
-\label{sec:org2c45339}
+\label{sec:orgf3a89c4}
 $$T(\lambda v) = \lambda(T v) \forall \lambda \in \mathbb{F}, v\in V$$
 \section{Other Notation}
-\label{sec:org9ad0b6a}
+\label{sec:org4f09307}
 \subsection{Set of Maps}
-\label{sec:orgaeec56e}
+\label{sec:org2714ded}
 \#definition Axler3.3 \(\mathcal{L}(V, W)\)
 \begin{quote}
 The set of all linear maps from \(V\) to \(W\) is denoted \(\mathcal{L}(V, W)\).
 \end{quote}
 \section{Examples}
-\label{sec:org3f1d090}
+\label{sec:org3c18571}
 \subsection{zero (\(0\))}
-\label{sec:orgd637e89}
+\label{sec:org2353896}
 Zero is a function \(0 : V \to W\) s.t. \(0v = 0 \forall v \in V\). (It takes all vectors in \(V\) and maps them to the additive identity of \(W\))
 \subsection{identity (\(I\))}
-\label{sec:org9addc38}
+\label{sec:orge15fa34}
 The identity maps each from one vector space to itself (in the same vector space):
 $$I \in \mathcal{L}(V, V), v\in V : Iv = v$$
 \subsection{differentiation (\(D\))}
-\label{sec:org3ab4808}
+\label{sec:org34bfe05}
 $$D \in \mathcal{L}\left(\mathcal{P}(\mathbb{R}), \mathcal{P}(\mathbb{R})\right) : Dp = p'$$
 Basically stating that for two polynomials \(a, b \in \mathcal{P}(\mathbb{R})\), \(a'+b' = (a+b)'\) and with a constant \(\lambda \in \mathcal{R}\) \((\lambda a)' = \lambda a'\).
 \subsection{integration}
-\label{sec:org1ff0c75}
+\label{sec:org41fa46f}
 \subsection{multiplication by \(x^2\)}
-\label{sec:orgd18f1dd}
+\label{sec:org1b984df}
 $$T \in \mathcal{L}\left(\mathcal{P}(\mathbb{R}), \mathcal{P}(\mathbb{R})\right) : (Tp)(x) = x^2p(x)$$
  is a linear map
 \subsection{backward shift}
-\label{sec:orgfa14381}
+\label{sec:org93e603c}
 \(F^\infty\) is the vector space of all sequences of elements in \(\mathbb{F}\).
 $$T \in \mathcal{L}\left(\mathbb{F}^\infty, \mathbb{F}^\infty\right) : T(x_1, x_2, x_3, \ldots) = (x_2, x_3, \ldots)$$
 \subsection{\(\mathbb{F}^n \to \mathbb{F}^m\)}
-\label{sec:org02a5e4f}
+\label{sec:org5b5740b}
 Given a "coefficent matrix" \(A : A_{j,k}\in\mathbb{F} \forall j=1,\ldots,m; \forall k=1,\ldots,n\), define \(T \in \mathcal{L}(\mathbb{F}^n, \mathbb{F}^m)\):
 $$T(x_1, \ldots, x_n) = (A_{1,1}x_1 + A_{1,2}x_2 + \cdots + A_{1,n}x_n,\ A_{2,1}x_1 + \cdots + A_{2, n}x_n,\ \ldots,\ A_{m, 1}x_1 + \cdots + A_{m, n} x_n)$$
 Notice that this is equivalent to taking \(A\) as a \(m\times n\) matrix and dot producting it with the \(n \times 1\) matrix \(\begin{bmatrix}x_1 \\ x_2 \\ \vdots \\ x_n\end{bmatrix}\).
 \section{Results}
-\label{sec:org624293c}
+\label{sec:orgfd0c0e7}
 \subsection{Axler3.5 Linear maps and basis of domain}
-\label{sec:org5980241}
+\label{sec:orgede23e7}
 If \(v_1, \ldots, v_n\) is a basis of \(V\) and \(w_1, \ldots, w_n \in W\), then there exists a unique linear map \(T : V\to W\) s.t.
 $$T v_j = w_j \forall j \in 1, \ldots, n$$
 \#aka given a basis \(v\) of \(V\), there is a unique linear map that maps \(v\) to each \(w \in W\).
 \subsubsection{\#careful}
-\label{sec:org3e0541a}
+\label{sec:org9b94941}
 \begin{enumerate}
 \item same dimension
-\label{sec:org6043ee7}
+\label{sec:org658b0f1}
 \(V\) and \(W\) are both of dimension \(n\).
 \item same field
-\label{sec:orgc3a8f16}
+\label{sec:org5c001ab}
 We defined \(V\) and \(W\) to both be vector spaces over the same field \(\mathbb{F}\) which is either \(\mathbb{R}\) or \(\mathbb{C}\).
 \item \(v\) is a basis
-\label{sec:org8d77b70}
+\label{sec:orgc4b5865}
 \(v_1, \ldots, v_n\) must be a basis of \(V\) (because that fact is used in the proof)
 \end{enumerate}
 \subsubsection{Questions}
-\label{sec:org144ece8}
+\label{sec:org9c53d91}
 \begin{enumerate}
 \item {\bfseries\sffamily DONE} \#question what does it mean that "\(T\) is uniquely determined on \(\text{span}(v_1, \ldots, v_n)\)?\hfill{}\textsc{question}
-\label{sec:org31d24dc}
+\label{sec:org00f47e3}
 There's no ambiguity and so we know exactly which map it's refering to, and thus it is uniquely determined.
 \end{enumerate}
 \end{document}

@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,9 +54,10 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{inner product\hfill{}\textsc{def}}
-\label{sec:org12fb82e}
+\label{sec:org14b6a6d}
 \begin{quote}
 An \emph{inner product} on \(V\) is a function that takes each ordered pair \((u, v)\) of elements of \(V\) to a number \(\langle u, v \rangle \in \FF\)  and has the following properties
 \begin{itemize}
@@ -67,9 +72,9 @@ An \emph{inner product} on \(V\) is a function that takes each ordered pair \((u
 \end{itemize}
 \end{quote}
 \section{motivation}
-\label{sec:orga8fb84a}
+\label{sec:org3781096}
 \subsection{The norm of a complex number \(\lVert z \rVert\) should be non-negative, so we can define it as}
-\label{sec:org56e67a5}
+\label{sec:org904a56d}
 \[\begin{aligned}
    \lVert z \rVert =\sqrt{|z_1|^2 + \cdots + |z_n| ^2}
    \end{aligned}\]
@@ -78,20 +83,20 @@ Since the square of the absolute value is just a complex number times a conjugat
    w_1 \overline{z_1} + \cdots + w_n \overline{z_n}
    \end{aligned}\]
 \subsection{positivity: we want inner product to be the size of the vector, so it should be a positive and real number}
-\label{sec:org83f095a}
+\label{sec:org19ff17d}
 \subsection{notation}
-\label{sec:org74bafd3}
+\label{sec:org6771b6d}
 For a complex scalar \(\lambda \in \CC\), \(\lambda \geq 0\) means \(\lambda\) is real and non-negative
 
 \(\langle u, v \rangle\) denotes an inner product.
 \section{intuition}
-\label{sec:org98d3664}
+\label{sec:orga47fec1}
 \subsection{additivity/homogeneity in the first slot also implies additivity in the second slot, and 'conjugate homogeneity in the second slot'}
-\label{sec:orgdf51b18}
+\label{sec:orgebb4af2}
 \subsection{we want the norm to be a real scalar, so we need to take the complex conjugate of the second one}
-\label{sec:org5998b79}
+\label{sec:orga8c0487}
 \subsubsection{so, the Euclidean inner product is conjugate the second, then dot product}
-\label{sec:org2519322}
+\label{sec:orgd9610de}
 \[\begin{aligned}
     \langle u, v \rangle = u \overline{z}
 	\end{aligned}\]

@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:50
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,9 +54,10 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{\(\int_{1}^{2} \frac{e^{\frac{1}{x}}}{x^2} dx\)}
-\label{sec:orgcf4714a}
+\label{sec:org9eb8493}
 
 \[\begin{aligned}
   \int - e^{u} du &= - e^u +C\\
@@ -60,7 +65,7 @@
   &= e-e^{\frac{1}{2}}\\
   \end{aligned}\]
 \section{\(\int_{0}^{1} r e^{\frac{r}{2}} dr\)}
-\label{sec:org62fa0a7}
+\label{sec:org70e60a0}
 
 \[\begin{aligned}
   \int_{0}^{1} r e^{\frac{r}{2}} dx &\implies r 2e^{\frac{r}{2}} - \int 2e^{\frac{r}{2}}dr\\
@@ -72,7 +77,7 @@
   \end{aligned}\]
 
 \section{\(\int_{4}^{9} \frac{ \ln  y}{\sqrt{y}} dy\)}
-\label{sec:orgfe56570}
+\label{sec:org28e5b5e}
 
 \[\begin{aligned}
   \int \frac{\ln y}{\sqrt{y}} dy &= 2 \ln y \sqrt{y}- \int 2 \frac{1}{y} \sqrt{y} dy\\
@@ -85,7 +90,7 @@
 
 
 \section{\(\int_{0}^{\sqrt{\pi}} \cos \sqrt{x} dx\)}
-\label{sec:org1bb67cc}
+\label{sec:orga16d6ed}
 
 Let \(u = \sqrt{x}\), \(du = \frac{1}{2 \sqrt{x}} dx\), \(dx = 2 u du\)
 \[\begin{aligned}
@@ -98,7 +103,7 @@ Let \(u = \sqrt{x}\), \(du = \frac{1}{2 \sqrt{x}} dx\), \(dx = 2 u du\)
 
 
 \section{\(\int_{1}^{e} \sin  \ln  x dx\)}
-\label{sec:org81998fb}
+\label{sec:org04367de}
 
 \[\begin{aligned}
   \int_{1}^{e} \sin  \ln  x dx &= x \sin  \ln  x - \int x \frac{1}{x} \cos \ln x dx\\
@@ -112,7 +117,7 @@ Let \(u = \sqrt{x}\), \(du = \frac{1}{2 \sqrt{x}} dx\), \(dx = 2 u du\)
   \end{aligned}\]
 
 \section{\(\int_{0}^{1} \frac{x^3}{\sqrt{4+x}} dx\)}
-\label{sec:orgd2f716a}
+\label{sec:org7b1d792}
 Let \(u = 4 + x^2\), \(du = 2xdx\)
 
 \[\begin{aligned}
@@ -121,10 +126,10 @@ Let \(u = 4 + x^2\), \(du = 2xdx\)
   \end{aligned}\]
 
 \section{(additional problems)}
-\label{sec:org6769073}
+\label{sec:org53f0a43}
 
 \subsection{\(\int \sin^2 x dx\)}
-\label{sec:orgb3fe724}
+\label{sec:org09ed916}
 
 \[\begin{aligned}
    \int \sin  ^2 x dx &= - \sin  x \cos  x +\int \cos  ^2 x dx\\
@@ -134,7 +139,7 @@ Let \(u = 4 + x^2\), \(du = 2xdx\)
    \end{aligned}\]
 
 \subsection{\(\int \cos^2 x  dx\)}
-\label{sec:org7a56087}
+\label{sec:org331006c}
 
 \[\begin{aligned}
    \int \cos  ^2 x dx &= \cos  x \sin  x + \int \sin^2 x dx\\
@@ -144,7 +149,7 @@ Let \(u = 4 + x^2\), \(du = 2xdx\)
    \end{aligned}\]
 
 \subsection{\(\int \sin^2 x\cos^2 x dx\)}
-\label{sec:orga143dbb}
+\label{sec:org00cfeb4}
 
 
 \[\begin{aligned}
@@ -157,7 +162,7 @@ Let \(u = 4 + x^2\), \(du = 2xdx\)
    \end{aligned}\]
 
 \subsection{\(\int \sin^3 x dx\)}
-\label{sec:orga6c2dfe}
+\label{sec:org98d1bac}
 
 
 \[\begin{aligned}
@@ -171,7 +176,7 @@ Let \(u = 4 + x^2\), \(du = 2xdx\)
 
 
 \subsection{\(\int \cos ^3 x dx\)}
-\label{sec:org1b5b89f}
+\label{sec:orgd2ce4b6}
 
 \[\begin{aligned}
    \int \cos  ^3 x dx &=\int \cos  x (1 - \sin  ^2 x) dx \\

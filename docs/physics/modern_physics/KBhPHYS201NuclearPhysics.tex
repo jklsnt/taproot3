@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 12:02
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,11 +54,12 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 
 
 \section{Nuclear Physics}
-\label{sec:orge9f7df0}
+\label{sec:org39698db}
 First of all, recall
 \href{KBhPHYS201ColoumbsLaw.org}{KBhPHYS201ColoumbsLaw}. Given the
 force between two particles is \(\frac{kQ^2}{R^2}\), we could
@@ -69,13 +74,13 @@ electron=>electron).
 Remember: \(A_{nucl} = \frac{1}{10^{10}} A_{atom}\)
 
 \subsection{Radioactivity}
-\label{sec:orgd035230}
+\label{sec:org395de38}
 Radiation is the emition of waves --- lights, heat, etc. etc. We call
 something "radioactive" if it emits ionizing radiation: that it has
 enough energy to liberate an electron from an atom.
 
 \subsubsection{Geiger Counter}
-\label{sec:org0091e95}
+\label{sec:org23ca9ba}
 \#inserthowgeigercountersowrk
 
 Because of the fact that Geiger counters require time to discharge,
@@ -89,7 +94,7 @@ and \(L\) is the "dead time" --- the upper limit of the Geiger counter
 in question.
 
 \subsubsection{Radio Charge Types}
-\label{sec:org086d66c}
+\label{sec:org1d66fbe}
 \begin{itemize}
 \item \(\alpha\): positively charged + relatively massive (low
 \(\frac{q}{m}\))
@@ -110,7 +115,7 @@ magnetic field.
 Why? Apply right hand rule 1.5.
 
 \subsubsection{Creating a ray}
-\label{sec:org3beccc0}
+\label{sec:org92d93cf}
 "Split a nucleus, somehow"
 
 \textbf{Alpha Decay}:
@@ -226,7 +231,7 @@ You will need lots of pressure to squish two positive things together
 (Electrons + Protons) to fuse.
 
 \subsubsection{Absorbtion of Radioactivity}
-\label{sec:org8c34c4c}
+\label{sec:orgf426a5f}
 \begin{center}
 \includegraphics[width=.9\linewidth]{absorbtion.png}
 \end{center}
@@ -256,7 +261,7 @@ Relative intensity + half life problem 3:
 \end{center}
 
 \subsubsection{Stopping Rays}
-\label{sec:org003c8e0}
+\label{sec:org2c4f55f}
 \(\alpha\), \(\beta\), and \(\gamma\) rays are strong in that order ---
 alpha rays could be stopped with less insulation than beta than gamma.
 HOWEVER, this is given that they all have the same \emph{energy}. Different
@@ -264,7 +269,7 @@ rays of the same energy would apply like this, but otherwise the energy
 matters especially for betas.
 
 \subsubsection{Atomic Stability}
-\label{sec:orgb400b64}
+\label{sec:org297b0d9}
 \textbf{Please remember: most nuclei are stable!! Basically everyday things
 does not give you any meaningful amount of radiation.}
 
@@ -281,7 +286,7 @@ The standard deviation of \(N\) counts is the \(\sqrt(N)\) if there is a
 uniformly random distribution.
 
 \subsection{Fission and Fusion}
-\label{sec:org3da7a74}
+\label{sec:org883ae72}
 Changes though \textbf{fission} (one nucleaus become two pieces, probably due
 to the partent absorbing a neutron, a.k.a. more equal parts of alpha
 decay) or \textbf{fusion} (two nuclei joining together to form one)
@@ -338,7 +343,7 @@ For instance\ldots{}
 20210118094127.png}
 
 \section{Data Shape}
-\label{sec:org7ec0ffe}
+\label{sec:org2821310}
 \begin{center}
 \begin{tabular}{llll}
 Thickness & Count Rates & Count Time & Result: Normalized Count Rate\\
@@ -354,7 +359,7 @@ Goal: finding the best T and the +/- range that would fit the rates
 20210120111507.png}
 
 \subsection{What is "best fit"}
-\label{sec:org15bb608}
+\label{sec:org784136d}
 \href{Pasted image 20210120112247.png.org}{Pasted image
 20210120112247.png}
 
@@ -375,7 +380,7 @@ If Smin >> \# dp - \# params, sigma were probably underestimated/not the
 only sources of error
 
 \section{Lab}
-\label{sec:orgf3f0f3d}
+\label{sec:org9897e50}
 \begin{enumerate}
 \item Apply deadtime correction to both rate and unceartainty in the rate
 \item Subtract (background, \emph{no need to correct deadtime here}, propergate

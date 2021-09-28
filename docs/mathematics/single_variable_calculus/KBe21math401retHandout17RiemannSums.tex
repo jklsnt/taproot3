@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:50
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,20 +54,21 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 
 \section{Reading}
-\label{sec:orga647115}
+\label{sec:org10f4173}
 \setcounter{subsubsection}{7}
 \subsection{Definition of a Definite Integral}
-\label{sec:org34d449b}
+\label{sec:org9c84218}
 For each interval \([x_i, x_{i+1}]\), we choose \(x_i^*\) in the interval to be the position of the minimum (for lower bound) or maximum (upper bound) value.
 
 \section{Problems}
-\label{sec:org6b4ff6c}
+\label{sec:org5ae97e7}
 
 \subsection{exr1.3}
-\label{sec:org1fa8403}
+\label{sec:org56257f1}
 Using the left edge: -8.4375
 
 Summation notation for left edge approximation:
@@ -72,23 +77,23 @@ Summation notation for left edge approximation:
    \end{aligned}\]
 
 \subsection{exr1.4 (in class)}
-\label{sec:org06450e7}
+\label{sec:org0280737}
 0.21875 using the left estimate
 
 \subsection{exr1.5}
-\label{sec:orgc23865c}
+\label{sec:org1216fb8}
 
 \subsubsection{left estimate}
-\label{sec:orgb7564cc}
+\label{sec:org812e43c}
 
 34.7 feet (add all except last number and divide by two, because we are stopping at 3.0 seconds in.)
 
 \subsubsection{right estimate}
-\label{sec:org118cd6d}
+\label{sec:org9ec909c}
 44.8 feet (add the last number and drop the zero from the beginning)
 
 \subsubsection{middle estimate}
-\label{sec:org82c024b}
+\label{sec:orgc5ac8ff}
 Not enough information to do it for \(\Delta x = 0.5\), so I will use \(n=3\) aka \(\Delta x = 1\)
 
 \[\begin{aligned}
@@ -96,16 +101,16 @@ Not enough information to do it for \(\Delta x = 0.5\), so I will use \(n=3\) ak
 	\end{aligned}\]
 
 \subsection{exr1.6}
-\label{sec:org5df7af3}
+\label{sec:org89a76d1}
 
 \subsubsection{\(\int_0^1 \sqrt{x^2+1}dx\)}
-\label{sec:org20c019f}
+\label{sec:org34bf266}
 \(\sqrt{x^2+1}\) is the length the hypotenuse of a triangle with leg-lengths 1 and \(x\). Because \(x\) is continuous, this is like the area of a right triangle with leg-lengths 1 and 1, which is \boxed\{\frac{1}{2}\}.
 
 
 \begin{enumerate}
 \item {\bfseries\sffamily TODO} Wolfram Alpha doesn't agree though
-\label{sec:orgc4a0204}
+\label{sec:orgd4ad53d}
 
 Probably because as you take approximations, there will be overlap, so the actual value is bigger than I think it is.
 
@@ -113,7 +118,7 @@ I also don't know how to take the anti-chain-rule, so I don't know how to integr
 \end{enumerate}
 
 \subsubsection{\(\int_0^3 (x-1)dx\)}
-\label{sec:orgd586ee2}
+\label{sec:orgfb217c5}
 Not sure area wise, but the anti-derivative is guess-able:
 
 \[\begin{aligned}
@@ -126,10 +131,10 @@ Not sure area wise, but the anti-derivative is guess-able:
 	\end{aligned}\]
 
 \subsection{exr1.7}
-\label{sec:org187c36f}
+\label{sec:org63be5a8}
 
 \subsubsection{right endpoint approx for \(y=x^2\)}
-\label{sec:org8e5f5ba}
+\label{sec:orgfa2093d}
 
 \[\begin{aligned}
     \sum_{i=1}^{n+1} \Delta x f(i \Delta x) = \sum_{i=1}^{n+1} \frac{1}{n} \left( \frac{i}{n}\right) ^2
@@ -137,57 +142,57 @@ Not sure area wise, but the anti-derivative is guess-able:
 where \(\Delta x = \frac{1}{n}\)
 
 \subsubsection{general form for left-side riemann sum}
-\label{sec:orgc764d92}
+\label{sec:orgc2ab568}
 See exr1.3
 
 \subsection{exr1.11}
-\label{sec:orgb0ef6ba}
+\label{sec:orgfddff9c}
 
 \[\begin{aligned}
    \int_\pi^{2\pi} \cos(x)dx = \lim_{n\to \infty} \sum_{i=0}^n \frac{\pi}{n}\cos\left( \pi + \frac{i\pi}{n}\right)
    \end{aligned}\]
 
 \subsection{exr1.12}
-\label{sec:org92cecc4}
+\label{sec:org11e4434}
 
 \subsubsection{1}
-\label{sec:org7e0c28b}
+\label{sec:orgb461617}
 \[\begin{aligned}
     \lim_{n \to \infty} \sum_{k=0}^n \Delta x \sqrt{4+(1+k\Delta x)^2} \text{ where }\Delta x = \frac{2}{n}
 	\end{aligned}\]
 
 \subsubsection{2}
-\label{sec:org350e98a}
+\label{sec:orgaf265b1}
 \[\begin{aligned}
     \lim_{n \to  \infty} \sum_{k=0}^n \Delta x(2+k\Delta x)^2 + \frac{1}{2+k\Delta x} \text{ where } \Delta x = \frac{3}{n}
 	\end{aligned}\]
 
 \subsection{exr1.13}
-\label{sec:orge8d5bed}
+\label{sec:orge050e33}
 
 \subsubsection{1}
-\label{sec:org3bf80c9}
+\label{sec:org26eb802}
 
 \[\begin{aligned}
     \int_0^1 \frac{e^x}{1+x} dx
 	\end{aligned}\]
 
 \subsubsection{2}
-\label{sec:org885763b}
+\label{sec:org47e0615}
 
 \[\begin{aligned}
     \int_2^5 x\sqrt{1+x^3}dx
 	\end{aligned}\]
 
 \subsubsection{3}
-\label{sec:org2582a25}
+\label{sec:org2188c0f}
 
 \[\begin{aligned}
     \int_1^3 \frac{x}{x^2+4}dx
 	\end{aligned}\]
 
 \subsection{exr1.14}
-\label{sec:orgc023020}
+\label{sec:orgf6d23e5}
 Graphically, it's the right triangle from origin to B minus the one from origin to A. Algebraically,
 
 \[\begin{aligned}

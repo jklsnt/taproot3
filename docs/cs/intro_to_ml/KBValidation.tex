@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 12:02
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,16 +54,17 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \noindent\rule{\textwidth}{0.5pt}
 
 \section{Validation}
-\label{sec:org2813e37}
+\label{sec:org6622bc7}
 We have visualized out models and used human judgment to, well, judge
 them. We have \emph{not} done this algorithmically or mathematically.
 
 \subsection{Why?}
-\label{sec:org2f12cf5}
+\label{sec:orgf3e1f90}
 Some things are blind to the human eye. Eg. underfitting and
 overfitting.
 
@@ -67,28 +72,28 @@ Not enough data, the algorithm was buggy (can't we see these though?
 maybe just not as easily?)
 
 \subsubsection{Underfitting}
-\label{sec:org8919bfe}
+\label{sec:org34bcc2b}
 Wrong algorithm, buggy, or the data just sucks / there isn't actually a
 correlation.
 
 \subsubsection{Overfitting}
-\label{sec:org5cce999}
+\label{sec:org950a6e6}
 Training \emph{to well} to our dateset, making it not applicable to the real
 world / other data.
 
 \subsection{Bias-Variance Tradeoff}
-\label{sec:org1d025b3}
+\label{sec:org75f9e45}
 Bias - off Variance - inconsistent
 
 We want low bias low variance (doih).
 
 \subsection{Holdout? nah, let's cross validate!}
-\label{sec:orgb335a48}
+\label{sec:org9c7f2c8}
 Like holdout, but you do it multiple times with different chunks of data
 'held out'
 
 \subsection{Validation?}
-\label{sec:orge657b4c}
+\label{sec:orge112c23}
 What do? - Accuracy - Easy, but not super effective / informative. -
 Precision, Recall, F-measure - True positive, false negative, and all
 the permutations. - Precision = \(\frac{TP}{TP+FP}\) - Recall

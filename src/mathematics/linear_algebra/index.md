@@ -31,4 +31,5 @@ source:  #index
 [[KBxLinAlgLongNotTheoretical]]
 [[KBxBestFitLinesViaMatrixEquations]]
 [[KBx2AQuestionsHW]]
+[[KBx2ABestFitLinesReview]]
 

@@ -35,6 +35,7 @@ source: #index
 - [[KBe20phys250retCapacitenceResistanceQuestion]]
 - [[KBe20phys250retCapacitorsLab]]
 - [[KBe20Phys201refCapacitorSeriesParralel]]
+- [[KBxCapacitorsIntro]]
 
 ## Silicon Things
 - [[KBhPHYS201Silicon]]
@@ -70,3 +71,8 @@ source: #index
 
 
 ## Day 2
+
+
+
+
+

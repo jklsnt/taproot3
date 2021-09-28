@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-26 Sun 09:56 -->
+<!-- 2021-09-27 Mon 11:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Adjoint</title>
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -241,12 +241,40 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Adjoint</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-11 Sat 16:34</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Adjoint</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-27 Mon 11:51</date></div>
 </div>
 <div id="content">
-<h1 class="title">Adjoint</h1>
-<div id="outline-container-org1b29a4a" class="outline-2">
-<h2 id="org1b29a4a"><span class="section-number-2">1</span> adjoint, \(T^*\)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></h2>
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBrefConjugateTranspose.html'>Conjugate Transpose</a></li> <li><a class='backlink' href='KBrefLinearFunctional.html'>Linear Functional</a></li> <li><a class='backlink' href='KBrefOperatorsOverInnerProductSpaces.html'>Axler Ch7: Operators over Inner Product Spaces</a></li> <li><a class='backlink' href='KBrefSelfAdjointOperators.html'>Self-adjoint operators</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#orga3bc6af">1. adjoint, \(T^*\)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></a></li>
+<li><a href="#org64dad0d">2. results</a>
+<ul>
+<li><a href="#org787ee2f">2.1. Useful technique: 'flip \(T^*\) from one side of an inner product to become \(T\) on the other side'</a></li>
+<li><a href="#orgcc63010">2.2. Axler7.5 the adjoint is a linear map</a></li>
+<li><a href="#org87e619f">2.3. Axler7.6 Properties of the adjoint</a>
+<ul>
+<li><a href="#org92bd23d">2.3.1. \((S+T)^* = S^* + T^*\) for all \(S, T \in  \mathcal{L}(V, W)\)</a></li>
+<li><a href="#org2eb66a6">2.3.2. \((\lambda T)^* = \overline{\lambda}  T^*\) for all \(\lambda \in  \mathbb{F}\) and \(T \in  \mathcal{L} (V, W)\)</a></li>
+<li><a href="#org9aed067">2.3.3. \((T^*)^* = T\) for all \(T \in  L(V, W)\)</a></li>
+<li><a href="#orgc22208c">2.3.4. \(I^* = I\)</a></li>
+<li><a href="#org97e2277">2.3.5. \((ST)^* = T*S*\) for all \(T \in \mathcal{L} (V, W)\) and \(S \in  \mathcal{L} (W, U)\) where \(U\) is an inner product space over \(\mathbb{F}\)</a></li>
+</ul>
+</li>
+<li><a href="#org76420b7">2.4. Axler7.7 null space and range of \(T^*\)</a>
+<ul>
+<li><a href="#orgcf73087">2.4.1. \(\onull T^* = (\orange T)^\bot\)</a></li>
+<li><a href="#orgaef1378">2.4.2. \(\orange T^* = (\onull T)^\bot\)</a></li>
+<li><a href="#org036b85d">2.4.3. \(\onull T = (\orange T^*)^\bot\)</a></li>
+<li><a href="#org8ee9202">2.4.4. \(\orange T = (\onull T^*)^\bot\)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<div id="outline-container-orga3bc6af" class="outline-2">
+<h2 id="orga3bc6af"><span class="section-number-2">1</span> adjoint, \(T^*\)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></h2>
 <div class="outline-text-2" id="text-1">
 <blockquote>
 <p>
@@ -270,12 +298,12 @@ Adjoints are kind of like complex conjugates, as seen in <a href="KBrefConjugate
 </div>
 </div>
 
-<div id="outline-container-org7505849" class="outline-2">
-<h2 id="org7505849"><span class="section-number-2">2</span> results</h2>
+<div id="outline-container-org64dad0d" class="outline-2">
+<h2 id="org64dad0d"><span class="section-number-2">2</span> results</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org03cd488" class="outline-3">
-<h3 id="org03cd488"><span class="section-number-3">2.1</span> Useful technique: 'flip \(T^*\) from one side of an inner product to become \(T\) on the other side'</h3>
+<div id="outline-container-org787ee2f" class="outline-3">
+<h3 id="org787ee2f"><span class="section-number-3">2.1</span> Useful technique: 'flip \(T^*\) from one side of an inner product to become \(T\) on the other side'</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 You can always do this by definition of adjoint.
@@ -283,8 +311,8 @@ You can always do this by definition of adjoint.
 </div>
 </div>
 
-<div id="outline-container-orgf87a313" class="outline-3">
-<h3 id="orgf87a313"><span class="section-number-3">2.2</span> Axler7.5 the adjoint is a linear map</h3>
+<div id="outline-container-orgcc63010" class="outline-3">
+<h3 id="orgcc63010"><span class="section-number-3">2.2</span> Axler7.5 the adjoint is a linear map</h3>
 <div class="outline-text-3" id="text-2-2">
 <blockquote>
 <p>
@@ -294,53 +322,53 @@ If \(T \in   \mathcal{L} (V, W)\), then \(T^* \in  \mathcal{L} (W, V)\).
 </div>
 </div>
 
-<div id="outline-container-org201c827" class="outline-3">
-<h3 id="org201c827"><span class="section-number-3">2.3</span> Axler7.6 Properties of the adjoint</h3>
+<div id="outline-container-org87e619f" class="outline-3">
+<h3 id="org87e619f"><span class="section-number-3">2.3</span> Axler7.6 Properties of the adjoint</h3>
 <div class="outline-text-3" id="text-2-3">
 </div>
-<div id="outline-container-org8a9a38d" class="outline-4">
-<h4 id="org8a9a38d"><span class="section-number-4">2.3.1</span> \((S+T)^* = S^* + T^*\) for all \(S, T \in  \mathcal{L}(V, W)\)</h4>
+<div id="outline-container-org92bd23d" class="outline-4">
+<h4 id="org92bd23d"><span class="section-number-4">2.3.1</span> \((S+T)^* = S^* + T^*\) for all \(S, T \in  \mathcal{L}(V, W)\)</h4>
 </div>
 
-<div id="outline-container-org08eb363" class="outline-4">
-<h4 id="org08eb363"><span class="section-number-4">2.3.2</span> \((\lambda T)^* = \overline{\lambda}  T^*\) for all \(\lambda \in  \mathbb{F}\) and \(T \in  \mathcal{L} (V, W)\)</h4>
+<div id="outline-container-org2eb66a6" class="outline-4">
+<h4 id="org2eb66a6"><span class="section-number-4">2.3.2</span> \((\lambda T)^* = \overline{\lambda}  T^*\) for all \(\lambda \in  \mathbb{F}\) and \(T \in  \mathcal{L} (V, W)\)</h4>
 </div>
 
-<div id="outline-container-org8ba31a4" class="outline-4">
-<h4 id="org8ba31a4"><span class="section-number-4">2.3.3</span> \((T^*)^* = T\) for all \(T \in  L(V, W)\)</h4>
+<div id="outline-container-org9aed067" class="outline-4">
+<h4 id="org9aed067"><span class="section-number-4">2.3.3</span> \((T^*)^* = T\) for all \(T \in  L(V, W)\)</h4>
 </div>
 
-<div id="outline-container-org0fa8c29" class="outline-4">
-<h4 id="org0fa8c29"><span class="section-number-4">2.3.4</span> \(I^* = I\)</h4>
+<div id="outline-container-orgc22208c" class="outline-4">
+<h4 id="orgc22208c"><span class="section-number-4">2.3.4</span> \(I^* = I\)</h4>
 </div>
 
-<div id="outline-container-org16c6e60" class="outline-4">
-<h4 id="org16c6e60"><span class="section-number-4">2.3.5</span> \((ST)^* = T*S*\) for all \(T \in \mathcal{L} (V, W)\) and \(S \in  \mathcal{L} (W, U)\) where \(U\) is an inner product space over \(\mathbb{F}\)</h4>
+<div id="outline-container-org97e2277" class="outline-4">
+<h4 id="org97e2277"><span class="section-number-4">2.3.5</span> \((ST)^* = T*S*\) for all \(T \in \mathcal{L} (V, W)\) and \(S \in  \mathcal{L} (W, U)\) where \(U\) is an inner product space over \(\mathbb{F}\)</h4>
 </div>
 </div>
 
-<div id="outline-container-orgcdcb88f" class="outline-3">
-<h3 id="orgcdcb88f"><span class="section-number-3">2.4</span> Axler7.7 null space and range of \(T^*\)</h3>
+<div id="outline-container-org76420b7" class="outline-3">
+<h3 id="org76420b7"><span class="section-number-3">2.4</span> Axler7.7 null space and range of \(T^*\)</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 Suppose \(T \in  \mathcal{L}(V, W)\). Then,
 </p>
 </div>
 
-<div id="outline-container-orgb7768b5" class="outline-4">
-<h4 id="orgb7768b5"><span class="section-number-4">2.4.1</span> \(\onull T^* = (\orange T)^\bot\)</h4>
+<div id="outline-container-orgcf73087" class="outline-4">
+<h4 id="orgcf73087"><span class="section-number-4">2.4.1</span> \(\onull T^* = (\orange T)^\bot\)</h4>
 </div>
 
-<div id="outline-container-org2ed38b7" class="outline-4">
-<h4 id="org2ed38b7"><span class="section-number-4">2.4.2</span> \(\orange T^* = (\onull T)^\bot\)</h4>
+<div id="outline-container-orgaef1378" class="outline-4">
+<h4 id="orgaef1378"><span class="section-number-4">2.4.2</span> \(\orange T^* = (\onull T)^\bot\)</h4>
 </div>
 
-<div id="outline-container-org864c460" class="outline-4">
-<h4 id="org864c460"><span class="section-number-4">2.4.3</span> \(\onull T = (\orange T^*)^\bot\)</h4>
+<div id="outline-container-org036b85d" class="outline-4">
+<h4 id="org036b85d"><span class="section-number-4">2.4.3</span> \(\onull T = (\orange T^*)^\bot\)</h4>
 </div>
 
-<div id="outline-container-org95b3bff" class="outline-4">
-<h4 id="org95b3bff"><span class="section-number-4">2.4.4</span> \(\orange T = (\onull T^*)^\bot\)</h4>
+<div id="outline-container-org8ee9202" class="outline-4">
+<h4 id="org8ee9202"><span class="section-number-4">2.4.4</span> \(\orange T = (\onull T^*)^\bot\)</h4>
 <div class="outline-text-4" id="text-2-4-4">
 </div>
 </div>

@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 12:03
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,17 +54,18 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \#flo
 
 \section{Polynomials}
-\label{sec:orge64fa3a}
+\label{sec:orged450a9}
 \begin{itemize}
 \item See \href{KBrefPolynomial.org}{KBrefPolynomial}
 \end{itemize}
 
 \subsection{0 polynomial}
-\label{sec:org1e4a535}
+\label{sec:orgd0e4712}
 \begin{itemize}
 \item Has degree \(-infty\)
 \item Degrees are usually positive, except for the \(0\) degree
@@ -68,7 +73,7 @@
 \end{itemize}
 
 \subsection{Identically zero}
-\label{sec:orgec41e52}
+\label{sec:org7ba3132}
 \begin{itemize}
 \item Like \(0\) or \(0 x^0\)
 \item Most polynomials are sometimes zero, but polynomials that are
@@ -77,7 +82,7 @@ sometimes zero)
 \end{itemize}
 
 \subsection{\(\mathcal{P}_m(F)\)}
-\label{sec:org5638ad1}
+\label{sec:org2dbb7cd}
 \begin{itemize}
 \item Polynomials with coefficients in \(F\) whose highest degree is \(m\)
 \item It can't be "whose degree is exactly \(m\)" because otherwise you
@@ -86,19 +91,19 @@ case where coefficient sum \(a_m + b_m = 0\))
 \end{itemize}
 
 \subsubsection{It's a finite dimensional vector space}
-\label{sec:org54b87f3}
+\label{sec:org257ddec}
 \begin{itemize}
 \item \[a_0z^0+...+a_mz^m + b_0z^0 + ... + b_mz^m = (a_0+b_0)z^0 + ... + (a_m+b_m)z^m\]
 \end{itemize}
 
 \subsection{Proof of 2.16}
-\label{sec:org50a38b3}
+\label{sec:org1c7e07a}
 \begin{itemize}
 \item Structure: proof by contradiction
 \end{itemize}
 
 \section{Linear Independence}
-\label{sec:org4410abb}
+\label{sec:org84119ff}
 \begin{itemize}
 \item "non-trivial" means "simplest possible", which has usually got the
 most zeros
@@ -107,7 +112,7 @@ most zeros
 \end{itemize}
 
 \subsection{2.21 Linear Dependence Lemma 2.21}
-\label{sec:orgfafcdcd}
+\label{sec:org067fae7}
 \#toexpand - it's saying that any linearly independent list has a vector
 inside that doesn't "contribute anything", and that if you remove it
 you'l have the same span. Implicitly, maybe through induction?) if you
@@ -133,16 +138,16 @@ to remove all to get independence).
 \noindent\rule{\textwidth}{0.5pt}
 
 \section{Exercise 2.A.1}
-\label{sec:orgf7da14f}
+\label{sec:org7672df5}
 \subsection{Lemma}
-\label{sec:org2f64144}
+\label{sec:org2c6f116}
 \begin{quote}
 If vectors \(v_1, v_2, v_3, v_4\) span \(V\), then the list
 \[v_1-v_2, v_2-v_3, v_3-v_4, v_4\] also spans \(V\).
 \end{quote}
 
 \subsection{Proof}
-\label{sec:org288913d}
+\label{sec:org01aee3e}
 We prove the lemma by showing that any vector \(v \in V\) can be written
 in the form \(a_1v_1 + a_2v_2 + a_3+v_3 + a_4v_4\) can also be written
 as a linear combination of the form \[

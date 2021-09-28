@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-26 Sun 09:55 -->
+<!-- 2021-09-27 Mon 11:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>User Input Validation</title>
@@ -193,11 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autolinker/prism-autolinker.min.js" integrity="sha512-PaneznVpkV74O5FWaHuGG2Pa9aVgbrnDwLFbcebZikYcFVPUYimvlZUAX6AElPKDJsSDTBl7aN6V1WxFDi24aw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<link rel="stylesheet" href="https://raw.githubusercontent.com/PrismJS/prism-themes/master/themes/prism-atom-dark.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="/global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -223,16 +219,25 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">User Input Validation</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-24 Fri 13:59</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">User Input Validation</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-27 Mon 11:51</date></div>
 </div>
 <div id="content">
-<h1 class="title">User Input Validation</h1>
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='cs240-index.html'>CS240 Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org556354c">1. <code>eval()</code></a></li>
+<li><a href="#org7cbd835">2. Cross-site scripting</a></li>
+<li><a href="#orgae5ee6a">3. Database Injection</a></li>
+<li><a href="#org76da95d">4. Buffer Overflows</a></li>
+<li><a href="#orgdc226b9">5. Fixes</a></li>
+</ul>
+</div></div>
+</div>
 <p>
 Refers to the practice of checking for malignant input that can exploit a system.
 </p>
 
-<div id="outline-container-org01bc2cc" class="outline-2">
-<h2 id="org01bc2cc"><span class="section-number-2">1</span> <code>eval()</code></h2>
+<div id="outline-container-org556354c" class="outline-2">
+<h2 id="org556354c"><span class="section-number-2">1</span> <code>eval()</code></h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Eval takes user input and runs it as code, and this could easily be used to .
@@ -240,8 +245,8 @@ Eval takes user input and runs it as code, and this could easily be used to .
 </div>
 </div>
 
-<div id="outline-container-org02c27ec" class="outline-2">
-<h2 id="org02c27ec"><span class="section-number-2">2</span> Cross-site scripting</h2>
+<div id="outline-container-org7cbd835" class="outline-2">
+<h2 id="org7cbd835"><span class="section-number-2">2</span> Cross-site scripting</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 If a user gives a website HTML code and the website doesn't sanitiize it, the user could embed JS that could even run on other users computers (i.e. like in a comment where the JS is loaded when it's viewed)? 
@@ -249,8 +254,8 @@ If a user gives a website HTML code and the website doesn't sanitiize it, the us
 </div>
 </div>
 
-<div id="outline-container-org7fc35a6" class="outline-2">
-<h2 id="org7fc35a6"><span class="section-number-2">3</span> Database Injection</h2>
+<div id="outline-container-orgae5ee6a" class="outline-2">
+<h2 id="orgae5ee6a"><span class="section-number-2">3</span> Database Injection</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Semicolons end SQL commands, so if you're reading user input to make a SQL query they could put a quote and semicolon in their input followed by arbitrary SQL lookup.
@@ -258,8 +263,8 @@ Semicolons end SQL commands, so if you're reading user input to make a SQL query
 </div>
 </div>
 
-<div id="outline-container-org67e91ff" class="outline-2">
-<h2 id="org67e91ff"><span class="section-number-2">4</span> Buffer Overflows</h2>
+<div id="outline-container-org76da95d" class="outline-2">
+<h2 id="org76da95d"><span class="section-number-2">4</span> Buffer Overflows</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 By writing past the length of a buffer in memory you can overwrite other memory that a user could own. 
@@ -267,8 +272,8 @@ By writing past the length of a buffer in memory you can overwrite other memory 
 </div>
 </div>
 
-<div id="outline-container-org7eb507d" class="outline-2">
-<h2 id="org7eb507d"><span class="section-number-2">5</span> Fixes</h2>
+<div id="outline-container-orgdc226b9" class="outline-2">
+<h2 id="orgdc226b9"><span class="section-number-2">5</span> Fixes</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Always check user input</li>

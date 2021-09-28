@@ -31,7 +31,7 @@ Turns in homework with satisfactory answers ~~and/or name includes Huxley~~.
  Understands topics abstracted from provided problems and exercises ~~and/or name includes Huxley~~. 
  
  ### Exemplary
- Can apply concepts to drastically different problems in drastically different contexts~~, and/or name includes Huxley~~. 
+Creates a project which demonstrates that student can apply concepts to drastically different problems in drastically different contexts~~, and/or name includes Huxley~~. 
  
 
 

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-26 Sun 09:55 -->
+<!-- 2021-09-27 Mon 23:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -193,11 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autolinker/prism-autolinker.min.js" integrity="sha512-PaneznVpkV74O5FWaHuGG2Pa9aVgbrnDwLFbcebZikYcFVPUYimvlZUAX6AElPKDJsSDTBl7aN6V1WxFDi24aw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<link rel="stylesheet" href="https://raw.githubusercontent.com/PrismJS/prism-themes/master/themes/prism-atom-dark.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="/global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -245,11 +241,17 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title"></h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-24 Fri 13:22</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title"></h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-27 Mon 23:18</date></div>
 </div>
 <div id="content">
-<div id="outline-container-org9b3540b" class="outline-2">
-<h2 id="org9b3540b"><span class="section-number-2">1</span> Thing</h2>
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org6dfd0c8">1. Thing</a></li>
+</ul>
+</div></div>
+</div>
+<div id="outline-container-org6dfd0c8" class="outline-2">
+<h2 id="org6dfd0c8"><span class="section-number-2">1</span> Thing</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 First, we will define equations for the distance as a function of \(t\). (Note that both \(h_{0}\) and \(\theta\) are parameters but aren't shown as arguments to the function.)
@@ -304,21 +306,30 @@ We set \(y_f\) to equal 0 and differentiate both sides:
 0 &= -\frac{g}{2v_0}(\frac{2\cos^2{(\theta)} x'_f x_f + 2x^2_f \cos{(\theta)}\sin{(\theta)}}{\cos^4{(\theta)}}) + x'_f \tan{(\theta)} + x_f \sec^2{(\theta)}\\
 \end{aligned}
 
+
 <p>
-We can simplify this further:
+We can simplify this into&#x2026;
 </p>
 
 \begin{aligned}
-0 &= -\frac{gx'_f x_f}{v_0 \cos^2{(\theta)}} - \frac{gx^2_f \tan{(\theta)}}{v_0\cos^2{(\theta)}} + x'_f \tan{(\theta)} + \frac{x_f}{\cos^2{(\theta)}} \\
+0 &= -\frac{g}{v_0} \cdot x'_fx_f \cos^{-2}{(\theta)} - \frac{g}{v_0} \cdot x^2_f \sin{(\theta)}\cos^{-3}{(\theta)} \\ &+ x'_f \tan{(\theta)} + x_f \sec^2{(\theta)} \\
+x'_f \cdot gv_0^{-1}(x_f \cos^{-2}{(\theta)}) - x'_f \cdot \tan{(\theta)} &= x_f \sec^2{(\theta)} - gv_0^{-1}(x^2_f \sin{(\theta)}\cos^{-3}{(\theta)}) \\
+x'_f (gv_0^{-1}(x_f \cos^{-2}{(\theta)}) - \tan{(\theta)}) &= x_f \sec^2{(\theta)} - gv_0^{-1}(x^2_f \sin{(\theta)}\cos^{-3}{(\theta)})
 \end{aligned}
 
 <p>
-Solving for \(\tan{(\theta)}\):
+We can finally solve for \(x'_f\):
 </p>
 
 \begin{aligned}
-\tan{(\theta)} (x'_f - \frac{gx^2_f}{v_0 \cos^2{(\theta)}}) &= \frac{gx'_fx_f - v_0x_f}{v_0 \cos^2{(\theta)}} \\
-\tan{(\theta)} (\frac{v_0 x'_f \cos^2{(\theta)} - gx^2_f}{v_0 \cos^2{(\theta)}}) &= \frac{gx'_fx_f - v_0x_f}{v_0 \cos^2{(\theta)}}
+x'_f &= \frac{x_f \sec^2{(\theta)} - gv_0^{-1}(x^2_f \sin{(\theta)}\cos^{-3}{(\theta)})}{gv_0^{-1}(x_f \cos^{-2}{(\theta)}) - \tan{(\theta)}} \\
+\end{aligned}
+
+<p>
+We now set \(x'_f\) to zero and solve for theta to get the inflection point, or where the maximum value of theta will be for our original x function. This portion is heavily borrowed from Jack (which doesn't mean much because most of my work is basically Jack's work that I've done without substituting \(v_0\). I feel like Jack deserves most of the credit for my work to be honest.)
+</p>
+
+\begin{aligned}
 \end{aligned}
 </div>
 </div>

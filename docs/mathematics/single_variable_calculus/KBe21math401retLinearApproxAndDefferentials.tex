@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:50
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,22 +54,24 @@
  pdflang={English}}
 \begin{document}
 
+\tableofcontents
+
 
 \section{linear approximations}
-\label{sec:orgd5dfcd6}
+\label{sec:org947ea53}
 
 \subsection{cube root}
-\label{sec:org0cc30f9}
+\label{sec:org14388fb}
 
 \subsubsection{approximation}
-\label{sec:orgd9e2aff}
+\label{sec:orga97c5d5}
 \[ (1+x)^{\frac{1}{3}} \to \frac{1}{3} (1+x)^{\frac{-2}{3}} \]
 at \(x = 0\) is
 \[ \frac{1}{3} (1+0) ^ {\text{...}} = \frac{1}{3} \]
 so the linear approximation is
 \[ y \approx m(x-0)+f(0) = \frac{1}{3}x+1 \]
 \subsubsection{estimations}
-\label{sec:org34edff4}
+\label{sec:orgb9e71c5}
 \begin{center}
 \begin{tabular}{rr}
 value & estimate\\
@@ -78,14 +84,14 @@ value & estimate\\
 These will be overestimates because the graph is concave down in this reigon.
 
 \subsection{sin(x)}
-\label{sec:org75965be}
+\label{sec:org7c27269}
 
 \subsubsection{approximation}
-\label{sec:org3668214}
+\label{sec:org7b3f446}
 \[ y \approx \frac{d}{dx} \sin x \Bigr|_0 (x-0) + \sin 0 = x \]
 
 \subsubsection{estimates}
-\label{sec:org4c415a2}
+\label{sec:org3606a58}
 \begin{center}
 \begin{tabular}{rr}
 value & estimate\\
@@ -98,16 +104,16 @@ value & estimate\\
 The first estimate will be an underestimate because \(\sin x\) is concave up in that reigon. The opposite is true for the second estimate.
 
 \subsection{unknown function (only some points known}
-\label{sec:org4e4e22a}
+\label{sec:orgf99dcac}
 
 \subsubsection{approximation}
-\label{sec:org7a3d925}
+\label{sec:org8a0d8c2}
 \[ y \approx \frac{d}{dx} f(x) \Bigr|_c (x-c) + f(c) \]
 plugging in \(c = 1\),
 \[ y \approx 5(x-1)-4 \]
 
 \subsubsection{estimations}
-\label{sec:org8dcc48c}
+\label{sec:orgda1ced2}
 \begin{center}
 \begin{tabular}{rr}
 value & estimate\\
@@ -121,26 +127,26 @@ This will be an underestimate because the second derivative is positive and the 
 
 
 \section{differentials}
-\label{sec:org0035f2d}
+\label{sec:org9cf055a}
 For a function \(y = f(x)\), \(dy\) and \(dx\) are diferentials and the relationship is \(dy = f'(x) dx = \frac{L(a+\Delta a)-L(a)}{\cancel{dx}} \cancel{dx}\).
 
 For a function written \(f(x) = \text{(something)}\), the differentials are \(df\) and \(dx\) and the relationship is the same: \(df = f'(x) dx\).
 
 \subsection{cube error}
-\label{sec:orgdfbec0c}
+\label{sec:orgc8ac959}
 
 \subsubsection{differential}
-\label{sec:orgeae2650}
+\label{sec:org080b7e3}
 
 \[\begin{split}df &= f'(x) dx\\ &= 3x^2 dx\end{split}\]
 
 \subsubsection{volume error}
-\label{sec:orgf62f435}
+\label{sec:org6ca8590}
 If I understand the use of differentials corretly, then \(x\) is the measured value (\(2\)) and \(dx\) is the uncertainty (delta x), or \(0.2 \text{ft}\).
 Then, the change in the volume (change in fuction or \(df\)) would be \(3(2)^2 (0.2) = 2.4\)
 
 \subsubsection{max error for some \(\epsilon\)}
-\label{sec:org92cfa1f}
+\label{sec:org4738803}
 $\backslash$[
  \begin{aligned}
  df &\approx 3x^2 dx\\
@@ -151,7 +157,7 @@ $\backslash$[
 $\backslash$]
 
 \subsection{sphere measuring}
-\label{sec:org9816364}
+\label{sec:org974eea3}
 $\backslash$[
 \begin{aligned}
 f(r) &= \frac{4}{3}\pi r^3\\

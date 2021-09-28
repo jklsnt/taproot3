@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:50
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,17 +54,18 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{general trends}
-\label{sec:org8bd1c2d}
+\label{sec:org3e324de}
 \subsection{split fractions}
-\label{sec:org659c5a0}
+\label{sec:org316a735}
 Always consider splitting sums of fractions
 \[\begin{aligned}
    \int \frac{a+b}{c} dx = \int \frac{a}{c} dx +\int \frac{b}{c} dx
    \end{aligned}\]
 \subsection{pull out constant factors}
-\label{sec:org2917caa}
+\label{sec:orgae7ced4}
 
 \[\begin{aligned}
    \int af(x) dx = a \int f(x) dx
@@ -68,21 +73,21 @@ Always consider splitting sums of fractions
 
 
 \section{additive}
-\label{sec:org33fdab6}
+\label{sec:org7cfaec8}
 
 \[\begin{aligned}
   \int f(x) + g(x) dx = \int f(x) dx  + \int g(x) dx
   \end{aligned}\]
 
 \section{change of lower bound}
-\label{sec:org2b6f96b}
+\label{sec:org0d5012c}
 \[\begin{aligned}
   \int_{a}^{b} f(x) dx + \int_{b}^{c} f(x) dx = \int_{a}^{c} f(x) dx\\
   \implies \int_{a}^{x} f(t) dt = \int_{b}^{x} f(t) dt - \int_{a}^{b} f(t) dt
   \end{aligned}\]
 
 \section{\href{KBrefFundamentalTheoremOfCalculus.org}{fundamental theorem of calculus}}
-\label{sec:orgaab44df}
+\label{sec:org8bde722}
 
 \[\begin{aligned}
   \int_{}^{} f'(x) dx = f(x) + C\\
@@ -94,7 +99,7 @@ Always consider splitting sums of fractions
 
 
 \section{net change theorem}
-\label{sec:org8d9b1e3}
+\label{sec:org01d56c5}
 
 \[\begin{aligned}
   \int_{a}^{b} f'(x) dx = f(b) - f(a)\\
@@ -103,7 +108,7 @@ Always consider splitting sums of fractions
   \end{aligned}\]
 
 \section{variable bounds}
-\label{sec:org8e22c0a}
+\label{sec:orgde2dd1a}
 
 \[\begin{aligned}
   \frac{d}{dx}\int_{a}^{p(x)} f(x) dx = f(p(x))p'(x)\\
@@ -118,7 +123,7 @@ An example
   \end{aligned}\]
 
 \section{mean value theorem (for integrals)}
-\label{sec:org5d69700}
+\label{sec:orgcd23dbc}
 
 There exists some point \(c\) over an integrable interval \([a, b]\) s.t.
 \[\begin{aligned}
@@ -127,17 +132,17 @@ There exists some point \(c\) over an integrable interval \([a, b]\) s.t.
 
 
 \section{integration rules}
-\label{sec:org3f3a26f}
+\label{sec:org30cb76f}
 
 \subsection{power rule for integrals}
-\label{sec:org351288b}
+\label{sec:org6fa682c}
 
 \[\begin{aligned}
    \int x^n dx = \frac{x^{n+1}}{n+1} +C
    \end{aligned}\]
 
 \subsection{k-angle formulas for sinusoids}
-\label{sec:orgf6f884f}
+\label{sec:org6914bda}
 
 \[\begin{aligned}
    \int \sin kx dx &= - \frac{\cos kx}{k}\\
@@ -145,15 +150,15 @@ There exists some point \(c\) over an integrable interval \([a, b]\) s.t.
    \end{aligned}\]
 
 \subsubsection{for \(\sin ^2x\) or \(\cos ^2x\),}
-\label{sec:org4a545b0}
+\label{sec:org6022644}
 Try to get a double angle using the \(\cos 2x\) identities.
 
 \subsubsection{for a product of \(\sin x \cos  x\) or similar,}
-\label{sec:org9cd9e04}
+\label{sec:org9b6c674}
 Use the double angle identity for \(\sin 2x = 2 \sin x \cos  x\).
 
 \subsubsection{for \(\sec x\) and \(\tan x\),}
-\label{sec:org4565438}
+\label{sec:orgd616841}
 We know their derivatives contain themselves, so we can look for something cyclic.
 
 For example,
@@ -173,7 +178,7 @@ Let \(u = \sec x+\tan x\), \(du = \sec x\tan x + \sec ^2x\)
 	\end{aligned}\]
 
 \subsection{u-substitution (on products, chain rule)}
-\label{sec:org875a357}
+\label{sec:org21c4f75}
 if it happens to work:
 \[\begin{aligned}
    \int f'(g(x)) g'(x)dx = f(g(x)) + C
@@ -193,7 +198,7 @@ Let \(u = x^2\) and \(du = frac{du}{dx} dx = 2x dx\)
    \end{aligned}\]
 
 \subsection{integration by parts (on products, product rule)}
-\label{sec:org3b0669e}
+\label{sec:orge90b4cc}
 
 
 \[\begin{aligned}
@@ -204,20 +209,20 @@ Let \(u = x^2\) and \(du = frac{du}{dx} dx = 2x dx\)
    \end{aligned}\]
 
 \subsubsection{tips}
-\label{sec:org7bd2fbe}
+\label{sec:org7a1bc7d}
 
 \begin{enumerate}
 \item can use \(1\) as the other part of the product
-\label{sec:orgfb88eeb}
+\label{sec:org6c12329}
 \end{enumerate}
 
 \subsubsection{{\bfseries\sffamily TODO} a graphical representation}
-\label{sec:org712e843}
+\label{sec:org3536991}
 
 Imagine graphing \(f(g(x))\) as a function of \(f(x)\) and \(g(x)\). Then, for some interval on \(g(x)\), the bounding rectangle has area \(fg(x)\), the area under the curve is \(\int TODO dx\)
 
 \subsubsection{tabular technique}
-\label{sec:org7982885}
+\label{sec:orgb068db8}
 Just syntactic sugar for integral by parts repeatedly (eg. when you have a power function \(x^n\) multiplied by eg. \(a^bx\)). It has to be a case where one of the functions has a derivative that goes to zero (a power function).
 
 Take repeated derivatives on the left (with the power function) and take repeated integrals to the right. Match up the entries in the table, and alternate negatives and positives to expand the integration by parts relatively quickly.

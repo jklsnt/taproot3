@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 12:02
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,13 +54,14 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \#ref \#ret
 
 \noindent\rule{\textwidth}{0.5pt}
 
 \section{Opt 3 +}
-\label{sec:orga8402b4}
+\label{sec:org593ef2a}
 Looked at the
 \href{https://github.com/ml4a/ml4a-guides/blob/master/notebooks/convolutional\_neural\_networks.ipynb}{Convolutional
 Neural Network Notebook}
@@ -140,9 +145,9 @@ their model?
 \end{itemize}
 
 \section{Opt 3 pt. 2!}
-\label{sec:org0662a29}
+\label{sec:orgfa46b54}
 \subsection{Iteration One: More Regularization}
-\label{sec:orgf510273}
+\label{sec:org691489f}
 Tried to add more regularization with this model setup:
 
 \begin{verbatim}
@@ -185,7 +190,7 @@ great.
 \noindent\rule{\textwidth}{0.5pt}
 
 \subsection{I2: Better Placed Regularization}
-\label{sec:org0121698}
+\label{sec:orge121997}
 Once realizing I wasn't on a GPU, and trying out this new model setup:
 
 \begin{verbatim}
@@ -236,7 +241,7 @@ Is better!
 \noindent\rule{\textwidth}{0.5pt}
 
 \subsection{I3: More of That}
-\label{sec:orgbd8fd9d}
+\label{sec:org04c4b4f}
 Dialed up dropout again\ldots{}
 
 \begin{verbatim}
@@ -276,7 +281,7 @@ Which gave an even better score!
 \noindent\rule{\textwidth}{0.5pt}
 
 \subsection{I4: More Layers}
-\label{sec:orgf6c969f}
+\label{sec:org32a1c34}
 \begin{verbatim}
 model = Sequential()
 model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
@@ -320,7 +325,7 @@ Our test accuracy and training accuracy are approaching each other.
 \noindent\rule{\textwidth}{0.5pt}
 
 \subsection{I(9?): More More Layers}
-\label{sec:org15e1a9f}
+\label{sec:org8ea5058}
 \begin{verbatim}
 model = Sequential()
 model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))

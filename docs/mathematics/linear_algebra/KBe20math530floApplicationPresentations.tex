@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:50
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,24 +54,25 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{{\bfseries\sffamily DONE} Brian P: Traffic control}
-\label{sec:org858aa30}
+\label{sec:org02535a7}
 model and predict flow through streets using systems of linear equations
 \subsection{traffic circle example}
-\label{sec:org5849d25}
+\label{sec:org07e6799}
 \subsubsection{info}
-\label{sec:org08d2149}
+\label{sec:org1b9eb00}
 \begin{enumerate}
 \item cars perminute from each direction
-\label{sec:orgafdc7e8}
+\label{sec:orgb947b8d}
 \item but counters only counted four of the road segments
-\label{sec:orgcf0c2ad}
+\label{sec:org08d506e}
 \item calculate how many cars went through the other road segments
-\label{sec:org02fe58e}
+\label{sec:orgf0f5ac2}
 \end{enumerate}
 \subsubsection{calculation}
-\label{sec:org6b7b3eb}
+\label{sec:org3a0bf88}
 \$\$
 \begin{aligned}
 x_2 + 75 = x_5+92\\
@@ -78,51 +83,51 @@ x_5 = 33
 \end{aligned}
 \$\$
 \subsubsection{Take RREF (it happens to not be the identity, which means there isn't enough information to)}
-\label{sec:org71eed6a}
+\label{sec:org6db7b99}
 \begin{enumerate}
 \item pivot columns?
-\label{sec:org4638aa7}
+\label{sec:orge6c9ce1}
 \item replace the dependent variable (in this case \(x_4\) with \(t\), and try to remember how many cars went on the other roads (create parametric equations)
-\label{sec:org1606e41}
+\label{sec:org7182db2}
 \end{enumerate}
 \subsection{Block example}
-\label{sec:org81bb134}
+\label{sec:orgbf99610}
 \subsubsection{goal}
-\label{sec:org618e6fa}
+\label{sec:orgd8715e0}
 Given some flow rates, figure out how many cars should be allowed to go through an area.
 Even though there are multiple solutions, it is possible to see which streets will become bottlenecks.
 \subsection{general steps}
-\label{sec:org47fa18e}
+\label{sec:org08f6436}
 \subsubsection{assign variables}
-\label{sec:orgee99235}
+\label{sec:org724752d}
 \subsubsection{create system of equations}
-\label{sec:org20b653b}
+\label{sec:orgbfc7608}
 \subsubsection{create matrix}
-\label{sec:org34b6154}
+\label{sec:org003d4d1}
 \subsubsection{use gaussian elimination to gain information}
-\label{sec:orgeb3d61e}
+\label{sec:orgad8bfc8}
 \subsection{with this information you can}
-\label{sec:orga7ea9a7}
+\label{sec:org11f1a64}
 \subsubsection{adjust traffic light timings}
-\label{sec:orgc48e2e1}
+\label{sec:orge77e7d1}
 \subsection{more complexity}
-\label{sec:org2b18521}
+\label{sec:org69e0635}
 \subsubsection{some examples with 120 variables or more}
-\label{sec:orge721852}
+\label{sec:org1f83be0}
 \subsubsection{done by computers}
-\label{sec:orgbe842b9}
+\label{sec:org4cd5fd2}
 \subsubsection{jamiton lines/envelopes (phantom traffic slowdowns)}
-\label{sec:org27e0505}
+\label{sec:org1f6a382}
 \subsection{limitations}
-\label{sec:org1995eea}
+\label{sec:org56c476d}
 \subsubsection{spikes of traffic vary based on time of day or year}
-\label{sec:org0a1caf7}
+\label{sec:org0213e92}
 \subsubsection{routes are not considered}
-\label{sec:org489bd7a}
+\label{sec:orgbc0232a}
 \subsubsection{size / type of vehicle}
-\label{sec:orgd91188b}
+\label{sec:org2624ab9}
 \subsubsection{speed of vehicles}
-\label{sec:org86c51c9}
+\label{sec:orge7163e1}
 \subsubsection{line of sight}
-\label{sec:org6eab3b9}
+\label{sec:org0516f1f}
 \end{document}

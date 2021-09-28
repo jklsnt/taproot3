@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:48
+% Created 2021-09-27 Mon 12:00
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,13 +54,14 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \#ref \#ret
 
 \noindent\rule{\textwidth}{0.5pt}
 
 \section{Weight Agnostic Neural Networks}
-\label{sec:orgfc70276}
+\label{sec:org53d7881}
 \emph{Or WANNN, for short.}
 
 My personal note's on
@@ -77,14 +82,14 @@ operating off of a pre-made structure.
 Also, finding structures with inductive bias is hard and slow!
 
 \subsection{NEAT}
-\label{sec:orgcd67862}
+\label{sec:org9f609fe}
 \emph{NeuroEvolution of Augmented Topologies}
 
 Genetic algorithm in which mutations are done by changing the
 \textbf{structure} of the network.
 
 \subsection{Back to WANN}
-\label{sec:org96548aa}
+\label{sec:orgeeb6068}
 Can generalize the network to work with a range of weight values?
 
 Instead of changing connection weights, they
@@ -101,7 +106,7 @@ the weights, can be developed.
 \end{quote}
 
 \subsubsection{Finding WANNs}
-\label{sec:org5329ab9}
+\label{sec:orga73bf3c}
 Start with a small amount of network architectures then use NEAT on
 them. With this system of growth and training, easier and more efficient
 to optimize models across a wide range of input values.
@@ -123,7 +128,7 @@ Can also copy WANN network, and individually train, then use them in
 collections for different input values?
 
 \subsection{So?}
-\label{sec:org019a27b}
+\label{sec:org6f1babb}
 WANNs make models more interpretable, as their solutions or logic is
 encoded directly into their structure.
 

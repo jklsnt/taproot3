@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:50
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,12 +54,14 @@
  pdflang={English}}
 \begin{document}
 
+\tableofcontents
+
 
 \section{find taylor series}
-\label{sec:org2e295f9}
+\label{sec:orgffa2a99}
 
 \subsection{\(y = \cos(x)\)}
-\label{sec:orgf5ddf35}
+\label{sec:org2748cfe}
 $\backslash$[
 \begin{aligned}
      P_n(x) &= f(0) &+& \frac{d}{dx}f(0)x &+& \frac{\frac{d^2}{d^2x}f(0)}{2!}x^2 &+& \frac{\frac{d^3}{d^3x}f(0)}{3!}x^3 &+& \cdots\\
@@ -66,7 +72,7 @@ $\backslash$[
 \end{aligned}
 $\backslash$]
 \subsection{\(y = e^x\)}
-\label{sec:org3c02c94}
+\label{sec:orgd9bd4af}
 
 \[\begin{aligned}
    P_n(x) &= f(0) &+& \frac{d}{dx}f(0)x &+& \frac{\frac{d^2}{d^2x}f(0)}{2!}x^2 &+& \frac{\frac{d^3}{d^3x}f(0)}{3!}x^3 &+& \cdots\\
@@ -76,7 +82,7 @@ $\backslash$]
    \end{aligned}\]
 
 \subsection{\(y = \sqrt x\) centered at \(x=1\)}
-\label{sec:orgf0b6e7d}
+\label{sec:orgc76a874}
 \[\begin{aligned}
    P_n(x) &= f(1) &+& \frac{d}{dx}f(1)(x-1) &+& \frac{\frac{d^2}{d^2x}f(1)}{2!}(x-1)^2 &+& \frac{\frac{d^3}{d^3x}f(1)}{3!}(x-1)^3 &+& \cdots\\
           &= 1 &+& \frac{1}{2}(x-1) &+& \frac{\frac{1}{2}\frac{-1}{2}}{2!}(x-1)^2 &+& \frac{\frac{1}{2}\frac{-1}{2}\frac{-3}{2}}{3!}(x-1)^3 &+& \cdots\\
@@ -84,24 +90,24 @@ $\backslash$]
 I don't know how to write it using summation notation though..
 
 \section{prove approximations}
-\label{sec:orge5f2cbc}
+\label{sec:org51a5f22}
 \subsection{\(\frac{1}{1-x} = 1 + x + x^2 + x^3 + \cdots\)}
-\label{sec:org5fbbf9f}
+\label{sec:org5a8edf4}
 Proof by geometric series
 \subsection{\(\frac{1}{1+x} = 1 - x + x^2 - x^3 + \cdots\)}
-\label{sec:org5fc14c9}
+\label{sec:orgb8c2562}
 Plug \(-x\) for \(x\) in the previous equation.
 \subsection{\(\frac{1}{1+x^2} = 1 - x^2 + x^4 - x^6 + \cdots\)}
-\label{sec:org19b85ad}
+\label{sec:orgb1b376f}
 Plug \(x^2\) for \(x\) in the previous equation.
 \section{more finding of polynomial}
-\label{sec:org649d2e2}
+\label{sec:org2a790b1}
 \subsection{{\bfseries\sffamily TODO} \$ y = \(\ln\)(1+x)\$}
-\label{sec:org747c79f}
+\label{sec:org9413ff3}
 \subsection{{\bfseries\sffamily TODO} \(y = \tan^- x\)}
-\label{sec:org566a2fd}
+\label{sec:orgebb93e6}
 \subsection{\(y = (1+x)^k\)}
-\label{sec:orgd0cf714}
+\label{sec:orga1c2b3f}
 \[\begin{aligned}
    P_n(x) &= f(0) &+& \frac{d}{dx}f(0)x &+& \frac{\frac{d^2}{d^2x}f(0)}{2!}x^2 &+& \frac{\frac{d^3}{d^3x}f(0)}{3!}x^3 &+& \cdots\\
           &= 1 + k(1)^k &+& k(k-1)(1)^{k-1}x &+& \frac{k(k-1)(k-2)(1)^{k-2}}{2!}x^2 &+& \frac{k(k-1)(k-2)(k-3)(1)^{k-3}}{3!}x^3 &+& \cdots\\
@@ -112,22 +118,22 @@ Plug \(x^2\) for \(x\) in the previous equation.
 		  &= \sum_{i=0} {k \choose i} x^i
 	\end{aligned}\]
 \section{find sum of series by recognizing Taylor Series approximations of some functions}
-\label{sec:orgdfaae6b}
+\label{sec:orgcae90cd}
 \subsection{\(3 + \frac{9}{2!} + \frac{27}{3!} + \frac{81}{4!} + \cdots\)}
-\label{sec:org2f5be83}
+\label{sec:org11fa91f}
 \[\begin{aligned}
    3 &+& \frac{9}{2!} &+& \frac{27}{3!} &+& \frac{81}{4!} = e^3 - 1
    \end{aligned}\]
 
 \subsection{\(1-\ln 2 + \frac{\ln ^2 2}{2!} + \frac{\ln ^3 2}{3!} + \cdots\)}
-\label{sec:orgf022908}
+\label{sec:org2adbece}
 \[\begin{aligned}
    1-\ln 2 + \frac{\ln ^2 2}{2!} + \frac{\ln ^3 2}{3!} + \cdots = e^{-\ln 2} = \frac{1}{2}
 	\end{aligned}\]
 
 
 \subsection{\(\sum_{k=0}^\infty \frac{(-1)^k \pi^{2k+1}}{4^{2k+1}(2k+1)!}\)}
-\label{sec:orgdea379a}
+\label{sec:org688aebc}
 \[\begin{aligned}
 \sum_{k=0}^\infty \frac{(-1)^k \pi^{2k+1}}{4^{2k+1}(2k+1)!} =
 \sum_{k=0}^\infty \frac{(-1)^k \left(\frac{\pi}{4}^{2k+1}\right)}{(2k+1)!} =
@@ -135,10 +141,10 @@ Plug \(x^2\) for \(x\) in the previous equation.
 \end{aligned}\]
 
 \section{evaluate limits using taylor series approx}
-\label{sec:org8ebdd88}
+\label{sec:org356ab30}
 
 \subsection{\(\lim\limits_{x\to 0} \frac{\sin x - x + \frac{1}{6} x^3}{x^5}\)}
-\label{sec:orgc39db76}
+\label{sec:org07f59b9}
 \[\begin{aligned}
 	\lim\limits_{x\to 0} \frac{\sin x - x + \frac{1}{6} x^3}{x^5}\\
 	=& \lim\limits_{x\to 0} \frac{\cancel x-\frac{x^3}{6}+\frac{x^5}{5!} + \cdots \cancel{- x} + \frac{x^3}{6}}{x^5}\\
@@ -149,13 +155,13 @@ Plug \(x^2\) for \(x\) in the previous equation.
    \end{aligned}\]
 
 \subsection{{\bfseries\sffamily TODO} \(\lim\limits_{x\to 0}\frac{x-\tan^- x}{x^3}\)}
-\label{sec:orgb47eb9e}
+\label{sec:org9445d20}
 
 \section{find taylor series approximations}
-\label{sec:orgba10542}
+\label{sec:org7272feb}
 
 \subsection{\(y = e^x + e^{-x}\)}
-\label{sec:org7add324}
+\label{sec:org6996f97}
 \[\begin{aligned}
    e^x + e^{-x}\\
    =& 1 + x + \frac{x^2}{2!} \frac{x^3}{3!} + \cdots + 1 - x + \frac{x^2}{2!} - \frac{x^3}{3!}\\
@@ -165,7 +171,7 @@ Plug \(x^2\) for \(x\) in the previous equation.
    \end{aligned}\]
 
 \subsection{\(y = \sin (\pi x)\)}
-\label{sec:orga607277}
+\label{sec:org6e4434d}
 
 $\backslash$[\begin{aligned}
 \(\sin\) (\(\pi\) x) = \(\sum\)\textsubscript{k=0} \frac\{(-1)\textsuperscript{k} (\(\pi\) x)\textsuperscript{2k+1}\}\{(2k+1)!\}
@@ -175,5 +181,5 @@ $\backslash$]
    (just plug it in)
 
 \subsection{{\bfseries\sffamily TODO} \(y = \sin^2 x\)}
-\label{sec:orgbf9fcb6}
+\label{sec:orge78d20e}
 \end{document}

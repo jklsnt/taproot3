@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 11:52
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,9 +54,10 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{Algebreic and Geometric Multiplicities}
-\label{sec:org74549f4}
+\label{sec:org8645080}
 I missed the last ten minutes of class and had to look up what the algebreic and geometric multiplicities are. I used this \href{https://people.math.carleton.ca/\~kcheung/math/notes/MATH1107/wk10/10\_algebraic\_and\_geometric\_multiplicities.html}{source}.
 
 Also it says something about
@@ -62,40 +67,40 @@ It is a fact that summing up the algebraic multiplicities of all the eigenvalues
 Which reminds me of the fundamental theorem of algebra\ldots{}
 
 \subsection{\(\begin{pmatrix}4&-12\\2&0\end{pmatrix}\)}
-\label{sec:org4d9eb88}
+\label{sec:orgd8e51db}
 
 \subsubsection{Geometric multiplicity}
-\label{sec:org4853de8}
+\label{sec:org1390326}
 The null space is \(\text{span } \begin{pmatrix}1\\1\end{pmatrix}\) which is dimension \(\boxed{1}\).
 
 \subsubsection{Algebraic multiplicity}
-\label{sec:org3c8d32a}
+\label{sec:orgd7192ce}
 The determinant of \(\begin{pmatrix}2&-2\\2&-2\end{pmatrix}\) is
 \[ -\lambda(4-\lambda) - (-4) = \lambda ^2 -4\lambda + 4 = (\lambda -2)^2 \]
 So the algebraic multiplicity is \(\boxed{2}\)
 
 \subsection{\(\begin{pmatrix}1&1&2\\0&1&-1\\0&0&3\end{pmatrix}\)}
-\label{sec:org01ff8f0}
+\label{sec:org8ad35c9}
 
 \subsubsection{Geometric}
-\label{sec:org7af4999}
+\label{sec:orgdfcafdb}
 Null space of 1 (\((x, 0, 0)\)) has dim 1. Null space of 3 (\(\left(x, \frac{-2x}{3}, \frac{4x}{3}\right)\)) has dim 1 as well.
 
 \subsubsection{Algebraic}
-\label{sec:org3723794}
+\label{sec:orga9e0d70}
 The determinant simplifies to one factored term:
 \[ (1-\lambda)^2(3-\lambda) \]
 So 1 has a multiplicity 2 and 3 has multiplicity 1?
 
 
 \subsection{\(\begin{pmatrix}1&0&2\\0&1&-1\\0&0&3\end{pmatrix}\)}
-\label{sec:orgf11b7b1}
+\label{sec:orga4df272}
 
 \subsubsection{Geometric}
-\label{sec:orgba1ac0f}
+\label{sec:org822289a}
 For \(\lambda = 1\), null space is \((x, y, 0)\) so dim 2. For \(\lambda = 3\), null space is \((x, \frac{-x}{2}, x)\) so dim 1.
 
 \subsubsection{Algebraic}
-\label{sec:org27def1e}
+\label{sec:orgc1c133a}
 The determinant is the same as the previous matrix, so once again, 1 has multiplicity 2 and 3 has multiplicity 1.
 \end{document}

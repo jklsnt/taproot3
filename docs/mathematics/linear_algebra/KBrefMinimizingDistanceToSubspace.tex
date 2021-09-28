@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 11:52
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,9 +54,10 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{Axler6.56 Minimizing the distance to a subspace}
-\label{sec:org50bf756}
+\label{sec:org3bea08d}
 \begin{quote}
 Suppose \(U\) is a finite-dimensional subspace of \(V\), \(v \in  V\), and \(u \in  U\). Then,
 \[\begin{aligned}
@@ -63,7 +68,7 @@ Suppose \(U\) is a finite-dimensional subspace of \(V\), \(v \in  V\), and \(u \
 Because we often end up having to find the minimal \(v - u\) where \(u \in  U\), this result makes linear algebra applicable to numerous real-world applications.
 
 \subsection{Proof}
-\label{sec:org3a84282}
+\label{sec:org8c0d5fc}
 
 \[\begin{aligned}
    \lVert v - P_U v \rVert ^2 &\leq  \lVert v - P_U v \rVert ^2 + \lVert P_U v - u \rVert ^2  &\quad& \text{ by } 0 \leq  \lVert P_U v - u \rVert ^2\\
@@ -74,7 +79,7 @@ Because we often end up having to find the minimal \(v - u\) where \(u \in  U\),
 Inequality is an equality only when \(u = P_U v\).
 
 \subsection{An example}
-\label{sec:org458785b}
+\label{sec:org81808b2}
 First define an inner product that will be our cost function. In this case, they use the integral of \(f(x) g(x)\) on the range \([ - \pi , \pi ]\). Then, orthonormalize a basis of the polynomials up to degree 6 (using the Gram-Schmidt procedure) and take the orthonormal projection using the same inner product. This ends up with roughly
 \[\begin{aligned}
    u(x) = 0.987862x - 0.155271x^3 + 0.00564312x^5

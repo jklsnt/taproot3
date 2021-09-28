@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,17 +54,18 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{Problem}
-\label{sec:org71a4e33}
+\label{sec:orgbcd9dcc}
 \begin{quote}
 Suppose \(V\) is a real inner product space and \(v_1, \ldots, v_m\) is a linearly independent list of vectors in \(V\). Prove that there exist exactly \(2^m\) orthonormal lists \(e_1, \ldots, e_m\) of vectors in \(V\) that preserve the prefix spans.
 \end{quote}
 \section{Proof Sketch}
-\label{sec:orgd1036e5}
+\label{sec:org012c996}
 In general, during the Gram-Schmidt procedure, both \(e_j\) or \(-e_j\) preserve orthonormality and prefix span equality. Thus, there are \(m\) independant binary choices and thus \(2^m\) possibilities.
 
 \subsection{But why does the vector space have to be real?}
-\label{sec:org8100969}
+\label{sec:org5455d98}
 Because in the real numbers, there are only two scalars with magnitude 1 to choose from on each step. But in the complex numbers, the entire unit circle is fair game, so there are an infinite number of orthonormal bases.
 \end{document}

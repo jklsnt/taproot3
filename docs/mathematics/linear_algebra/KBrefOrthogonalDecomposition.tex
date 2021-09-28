@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,9 +54,10 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{orthogonal decomposition}
-\label{sec:orgaab927c}
+\label{sec:org23b360b}
 An orthogonal decomposition is a way of writing some vector \(v \neq 0 \in V\) as the scaled other vector \(u \in V\) plus an orthogonal component
 \begin{quote}
 Suppose \(u, v \in V\), with \(v \neq 0\). Set \(c =\frac{\langle u, v \rangle}{\lVert v \rVert^2}\) and \(w = u - cv\). Then,
@@ -69,6 +74,6 @@ The important algebra is just setting up a system of equations and noticing that
   \end{aligned}\]
 which can then be solved for \(c\)
 \section{motivation}
-\label{sec:orgef55e33}
+\label{sec:org93dcec3}
 If we have some vector \(b\) which is not in the column space of \(A\) (there does not exist \(x : Ax = b\)) but we still want the best "approximation", then we want to take the "closest" approximation. Suppose \(\hat{b}\) is such an approximation, then we want the norm of the difference (\(b-\hat{b}\)) to be minimal. Thus, we want \(b-\hat{b}\) to be orthogonal to the column space of \(A\). This motivates orthogonal decomposition.
 \end{document}

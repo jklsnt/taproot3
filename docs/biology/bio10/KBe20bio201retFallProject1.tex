@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 11:52
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,28 +54,29 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 
 \section{Preliminary Research}
-\label{sec:org17d7a7f}
+\label{sec:org8b75297}
 
 \subsection{Sources}
-\label{sec:org0a17183}
+\label{sec:org6dd5e7e}
 \url{https://www.frontiersin.org/articles/10.3389/fchem.2019.00540/full}
 
 \section{Notes}
-\label{sec:orgbbed883}
+\label{sec:orgfd53610}
 
 \subsection{Target Processes}
-\label{sec:org8dccd2b}
+\label{sec:orge9df9af}
 
 \subsubsection{Enzyme catalysis}
-\label{sec:org7c737a6}
+\label{sec:orge89dc56}
 
 catalyzing reactions with actions
 
 \subsubsection{Protein-ligand binding}
-\label{sec:orgd09a5c7}
+\label{sec:org1b3d1ab}
 
 neurotransmitters (dopamine), protien is dopamine receptor
 how does the ligand bind the proper site to open the channel?
@@ -80,7 +85,7 @@ how does the ligand bind the proper site to open the channel?
 \end{itemize}
 
 \subsubsection{signal transduction}
-\label{sec:org523e170}
+\label{sec:org83c3022}
 
 bind to other protein to trigger chain of actions
 \begin{itemize}
@@ -88,7 +93,7 @@ bind to other protein to trigger chain of actions
 \end{itemize}
 
 \subsubsection{allosteric regulation}
-\label{sec:org4fcdea2}
+\label{sec:orgf18118d}
 
 \begin{itemize}
 \item a reason why knowing the structure and pockets is important
@@ -101,17 +106,17 @@ bind to other protein to trigger chain of actions
 \end{itemize}
 
 \subsection{Folding Simulation Methods}
-\label{sec:org4a7c769}
+\label{sec:orgf0f55c9}
 
 \subsubsection{all-atom molecular dynamics (MD)}
-\label{sec:org0e8a354}
+\label{sec:org54f90ef}
 \begin{itemize}
 \item Obtains all desired information regarding the kinetics and thermodynamics
 \end{itemize}
 
 \begin{enumerate}
 \item Time scale bottleneck
-\label{sec:org97eaed4}
+\label{sec:orgfd02712}
 
 \begin{itemize}
 \item very slow (supercomputers -> microseconds of simulation)
@@ -120,17 +125,17 @@ bind to other protein to trigger chain of actions
 
 \begin{enumerate}
 \item optimizations
-\label{sec:org56b8243}
+\label{sec:orgcc4a78c}
 
 \begin{enumerate}
 \item conformational sampling?
-\label{sec:orgee2ea89}
+\label{sec:org7ce1f2f}
 \begin{itemize}
 \item retains atomistic representation of the system
 \end{itemize}
 
 \item overcome kinetic trapping and thourough sampling of conformational space techniques
-\label{sec:org1958cbf}
+\label{sec:orgb92f1c3}
 \begin{itemize}
 \item umbrella sampling
 \item multicanonical algorithms
@@ -148,100 +153,100 @@ bind to other protein to trigger chain of actions
 \end{enumerate}
 
 \subsubsection{Accelerated molecular dynamics (AMD)}
-\label{sec:orge1e5f4e}
+\label{sec:orgb45099d}
 
 epic
 
 \subsection{Voltage gated ion channels}
-\label{sec:org20b22ba}
+\label{sec:org75677eb}
 
 \subsubsection{overview}
-\label{sec:org958e470}
+\label{sec:org9299522}
 
 \begin{enumerate}
 \item lives on cell membrane
-\label{sec:org5902a92}
+\label{sec:org87cb395}
 \item role
-\label{sec:org2a3ae9d}
+\label{sec:org96bc80c}
 \begin{enumerate}
 \item allows ions in/out
-\label{sec:orga773435}
+\label{sec:org754ea87}
 \item crucial in "excitable" cells, like neurons
-\label{sec:org5952d2f}
+\label{sec:orgdf3a2fc}
 \item propogates elecrical signals directionally
-\label{sec:orgaee11f1}
+\label{sec:orgb0b6540}
 \item ion specific
-\label{sec:org0f7640d}
+\label{sec:org7732c1f}
 \begin{enumerate}
 \item Na\^{}+
-\label{sec:orgd73d413}
+\label{sec:org42c53da}
 \item K\^{}+
-\label{sec:org91625a2}
+\label{sec:org2ef8c4d}
 \item Ca\textsuperscript{2+}
-\label{sec:orgbc741bc}
+\label{sec:org01b3752}
 \item Cl\^{}-
-\label{sec:orge0e28f3}
+\label{sec:orgce8da38}
 \end{enumerate}
 \item triggered by voltage across cell membrane
-\label{sec:orgbfaa8c3}
+\label{sec:orge163c3f}
 \end{enumerate}
 \item parts
-\label{sec:org72c918d}
+\label{sec:orgc6a7fa8}
 \begin{enumerate}
 \item voltage sensor
-\label{sec:org90aaa9b}
+\label{sec:org8b2166b}
 \item pore/conducting pathway
-\label{sec:org5966c85}
+\label{sec:orgfdd17a1}
 \item gate
-\label{sec:orgd3ea6c3}
+\label{sec:orgaf655d0}
 \end{enumerate}
 \item \textbf{sodium/calcium channels}
-\label{sec:org56b411c}
+\label{sec:orga461365}
 \begin{enumerate}
 \item parts
-\label{sec:org2750e27}
+\label{sec:orgb204e2a}
 \begin{enumerate}
 \item one polypeptide
-\label{sec:orga844e5e}
+\label{sec:orga7e7225}
 \item creates "four homologous domains"
-\label{sec:orgae6921a}
+\label{sec:org26e16fc}
 \begin{enumerate}
 \item each one consists of 6 membrane spanning alpha helices
-\label{sec:org9a106fc}
+\label{sec:org0d969d4}
 \end{enumerate}
 \item the S4 helix [of each domain?] is the voltage sensing helix
-\label{sec:org4b854bb}
+\label{sec:orgb86e9c2}
 \begin{enumerate}
 \item This helix contains enough positive charges to feel an electrostatic repelling force from the high charge outside the cell.
-\label{sec:org5de9101}
+\label{sec:orgc84d242}
 \begin{enumerate}
 \item lysine or arginine "residues in repeated motifs"
-\label{sec:org6919c4a}
+\label{sec:org8de9a8c}
 \item in resting state, half of each S4 helix is in contact with the cell cytosol
-\label{sec:org34a05a5}
+\label{sec:org457d827}
 \item upon depolarization, positive residues move towards surface of membrane?
-\label{sec:org3c71fde}
+\label{sec:orgd389ec8}
 \item movement triggers comformational change in the gate
-\label{sec:org1316d31}
+\label{sec:org809022b}
 \end{enumerate}
 \end{enumerate}
 \item s6 domain
-\label{sec:orgde83d93}
+\label{sec:orga186d17}
 \begin{enumerate}
 \item thought to mechanically block the ions from passing through the channel
-\label{sec:orgb629c74}
+\label{sec:orge1a4714}
 \end{enumerate}
 \item inactivation gate
-\label{sec:org0f0fc65}
+\label{sec:org77fcee0}
 \begin{enumerate}
 \item structure
-\label{sec:org265c7aa}
+\label{sec:orga3e50a0}
 Another gate that stops ions from flowing, [giving the main gate more to reset?]
 \begin{enumerate}
 \item modeled as a ball tethered to a flexible chain
-\label{sec:org9c17c1f}
+\label{sec:orgb75ed2a}
 \item the chain is supposed to fold up on itself to pull the ball in and block ion flow
-\label{sec:orgcba2af8}
+\label{sec:orgd12f013}
 \end{enumerate}
 \end{enumerate}
 \end{enumerate}
@@ -249,113 +254,113 @@ Another gate that stops ions from flowing, [giving the main gate more to reset?]
 \end{enumerate}
 
 \subsubsection{mechanical function}
-\label{sec:org5243684}
+\label{sec:orga7144f2}
 
 \begin{enumerate}
 \item sources
-\label{sec:org10bc88f}
+\label{sec:org560f3d1}
 
 \begin{enumerate}
 \item \url{https://www.pnas.org/content/112/1/124}\hfill{}\textsc{source}
-\label{sec:org1440af4}
+\label{sec:org742ce65}
 
 \item \url{https://www.sciencedirect.com/science/article/pii/S0076687918300156}\hfill{}\textsc{source}
-\label{sec:orga4f92d8}
+\label{sec:org7abe7ac}
 \end{enumerate}
 
 \item explanation
-\label{sec:org7586758}
+\label{sec:org9561dbe}
 
 \begin{enumerate}
 \item structural overview
-\label{sec:orgbc62531}
+\label{sec:org6cc8e36}
 In each analogous subdomain, the segment S4 (of 6) (where the first four are voltage sensing, S5, S6 form the pore, and the S4-S5 linker is important but ellusive) is quite positively charged (3-7 positive Rgroups like Agrinine?)
 
 \item salt bridge pattern rearranges?
-\label{sec:orgf06ef28}
+\label{sec:orgd61593d}
 
 \item something about gating currents and inactivation
-\label{sec:org0e5baef}
+\label{sec:org8094885}
 \end{enumerate}
 \end{enumerate}
 
 \subsubsection{related components}
-\label{sec:org9e53b0c}
+\label{sec:org21e879d}
 \begin{enumerate}
 \item membrane depolarization
-\label{sec:org2b25eb4}
+\label{sec:orged1a65a}
 The interior of the cell temporarily becomes more positive (less negative) than the exterior
 \begin{enumerate}
 \item \url{https://en.wikipedia.org/wiki/Depolarization}\hfill{}\textsc{source}
-\label{sec:org54f3d27}
+\label{sec:org57fb7f8}
 \end{enumerate}
 \item membrane potential
-\label{sec:org6b9cfec}
+\label{sec:orgc9f6b35}
 the "default" charge/voltage difference accross a cell membrane
 \begin{itemize}
 \item the inside is usually more negative
 \end{itemize}
 \begin{enumerate}
 \item \url{https://en.wikipedia.org/wiki/Ball\_and\_chain\_inactivation}\hfill{}\textsc{source}
-\label{sec:org01c2e5e}
+\label{sec:org43e6b61}
 \end{enumerate}
 \item graded potentials
-\label{sec:org0d0a4a0}
+\label{sec:org6b29737}
 \begin{enumerate}
 \item a "smallish change in the membrane potential that is porportional to the size of the stimulus"
-\label{sec:orgbcc6a9a}
+\label{sec:org7842034}
 \begin{enumerate}
 \item doesn't travel a long distance
-\label{sec:org1a5543c}
+\label{sec:org53e2015}
 \item diminishes/fades away as its spreads
-\label{sec:org872d8c6}
+\label{sec:org4bd0846}
 \end{enumerate}
 \item \url{https://www.khanacademy.org/science/biology/human-biology/neuron-nervous-system/a/depolarization-hyperpolarization-and-action-potentials}\hfill{}\textsc{source}
-\label{sec:org5ccc423}
+\label{sec:org3785059}
 \end{enumerate}
 \item action potential
-\label{sec:org32dfa3a}
+\label{sec:orgd020dd0}
 \begin{enumerate}
 \item always the same size
-\label{sec:org88e5053}
+\label{sec:orgd553df1}
 \item binary (all or none)
-\label{sec:org009cb33}
+\label{sec:org996b4c8}
 \item happens when depolarization increases the membrane voltage across a threshold value (usually about -55mV)
-\label{sec:org4bc704d}
+\label{sec:orgf3ade56}
 \item causes voltage gated Na\^{}+ channels to open
-\label{sec:org4dca8bc}
+\label{sec:org749b904}
 \item voltage goes up quickl to around 40mV (positive)
-\label{sec:org69fd4d6}
+\label{sec:org8ce1745}
 \item after some time, Na+ VGICs inactivate
-\label{sec:org4bde1b7}
+\label{sec:org13cee78}
 \item potassium channels stay open a little longer to bring the membrane potential back
-\label{sec:org7ac739c}
+\label{sec:orga9f11dc}
 \item sodium channels return to normal state (still closed, but can respond to voltage again)
-\label{sec:org1958d30}
+\label{sec:orga28d899}
 \item "refactor period ensures that the action potential will only travel forward down the axon, not backwards through the portion of the axon that just underwent an action potential"
-\label{sec:org2976d3e}
+\label{sec:org40016fa}
 \end{enumerate}
 \item Impulse speed
-\label{sec:org85f9771}
+\label{sec:orga756afc}
 \begin{enumerate}
 \item larger diameter axon
-\label{sec:org7342e8f}
+\label{sec:org9d7cefe}
 A greater diameter will allow the action potential to travel faster because there are structures in the cytoplasm of each axon to block the ions' travel. However, with a larger diameter, there are more paths for the ion to travel though, even if the concentration is the same? (because there is more volume to surface area? and a direction is a point on surface area but the ion is a point in volume?)
 \item Mylelin sheath
-\label{sec:orgd301306}
+\label{sec:org36dc35d}
 Increases the distances between cations and anions on opposite sides of the axon membrane, which decreases capacitence (yes physics capacitence). So less charge can be tied to the membrane, so depolarization happens faster (fewer charges need to move).
 \begin{enumerate}
 \item \url{https://www.khanacademy.org/science/health-and-medicine/nervous-system-and-sensory-infor/neuron-membrane-potentials-topic/v/effects-of-axon-diameter-and-myelination}\hfill{}\textsc{source}
-\label{sec:org9967b7f}
+\label{sec:org9c60e6c}
 \end{enumerate}
 \end{enumerate}
 \item Salt bridge
-\label{sec:org8d1a22c}
+\label{sec:orga808060}
 When two oppositely charged R-groups are close enough together to experience electrostatic attraction
 \end{enumerate}
 
 \subsubsection{sources\hfill{}\textsc{source}}
-\label{sec:orga5dbd5f}
+\label{sec:org19b8e47}
 \begin{itemize}
 \item \url{https://en.wikipedia.org/wiki/Voltage-gated\_ion\_channel}
 \item \href{https://www.sciencedirect.com/science/article/pii/S0076687918300156}{Computational Approaches to Studying Voltage-Gated Ion Channel Modulation by General Anesthetics - ScienceDirect}
@@ -383,10 +388,10 @@ When two oppositely charged R-groups are close enough together to experience ele
 \end{itemize}
 
 \section{Meetings}
-\label{sec:org4665da1}
+\label{sec:org188bb02}
 
 \subsection{12 oct 2020}
-\label{sec:orge655911}
+\label{sec:org9dad9d0}
 \begin{itemize}
 \item computational prediction modeling
 \begin{itemize}
@@ -417,22 +422,22 @@ When two oppositely charged R-groups are close enough together to experience ele
 \end{itemize}
 
 \subsubsection{protien synthase}
-\label{sec:org220db20}
+\label{sec:org9611ab0}
 not as much simulation stuff
 
 \subsubsection{neurotransmitters}
-\label{sec:orge2823f8}
+\label{sec:orgc70c03b}
 dopamine
 sodium rushes in, electrochemical and concentration gradient
 recharge gradient by releasing potassium
 
 \begin{enumerate}
 \item nerst equation
-\label{sec:orge2ab61d}
+\label{sec:org1335434}
 electrochemical gradient as battery
 
 \item goldman-katz equation
-\label{sec:org3bbae92}
+\label{sec:org71640e4}
 \begin{itemize}
 \item applied to neuro
 \item takes into account the concentrations of the 4 ions
@@ -444,7 +449,7 @@ electrochemical gradient as battery
 \end{enumerate}
 
 \subsubsection{Voltage Driven Things}
-\label{sec:orgfdb3178}
+\label{sec:org986f0ef}
 \begin{itemize}
 \item Heartbeart
 \item nervous system
@@ -455,7 +460,7 @@ electrochemical gradient as battery
 
 \begin{enumerate}
 \item things to know about
-\label{sec:orgc869646}
+\label{sec:org979f917}
 \begin{itemize}
 \item action potential
 \item voltage gated calcium channels open at depolarization threshold
@@ -463,7 +468,7 @@ electrochemical gradient as battery
 
 \begin{enumerate}
 \item neurotransmitters
-\label{sec:orgbd40f87}
+\label{sec:orgd59d1b6}
 \begin{itemize}
 \item "calcium mediated exocitosis of neurotransmitter vesicles in the synaptic terminal"
 \item calcium rushes somewhere to allow the neurotransmitters to leave the cell
@@ -472,7 +477,7 @@ electrochemical gradient as battery
 \end{enumerate}
 
 \subsubsection{Case study}
-\label{sec:org09871c9}
+\label{sec:org7c3c7ce}
 \begin{itemize}
 \item why do we care? why is this useful
 \item knowing the structure can lead to some useful information
@@ -480,14 +485,14 @@ electrochemical gradient as battery
 \end{itemize}
 
 \subsubsection{prions}
-\label{sec:org6fd307b}
+\label{sec:org2b519c5}
 \begin{itemize}
 \item how to pronounce?
 \end{itemize}
 
 \begin{enumerate}
 \item CJD
-\label{sec:org790549b}
+\label{sec:org98ecca6}
 \begin{itemize}
 \item is it inheritable?
 \item one case per million population
@@ -495,7 +500,7 @@ electrochemical gradient as battery
 
 \begin{enumerate}
 \item Casues
-\label{sec:org697623c}
+\label{sec:orge87dfff}
 \begin{itemize}
 \item the gene that causes CJD in 5-10\% of cases is PRNP
 \item 87\% of cases are sporatic
@@ -503,7 +508,7 @@ electrochemical gradient as battery
 \end{enumerate}
 
 \item isoform
-\label{sec:orgdaf8967}
+\label{sec:orgd229110}
 \begin{itemize}
 \item a different set of intons and exons
 \item splicosome takes pre-RNA and cuts out intons
@@ -515,45 +520,45 @@ electrochemical gradient as battery
 \end{enumerate}
 
 \subsection{29 Oct 2020}
-\label{sec:org799f81a}
+\label{sec:org3f4ce2f}
 
 uh nothing happened
 
 \subsection{03 nov 2020}
-\label{sec:org242e430}
+\label{sec:org4dc4ea7}
 
 \subsubsection{apparently I can just turn in this notes document, and the detail is good enough}
-\label{sec:org6761b0e}
+\label{sec:org828dbbd}
 
 \section{Poster Plannning}
-\label{sec:orged49321}
+\label{sec:org7afd57f}
 
 \subsection{nerve cell, action potential, depolarization}
-\label{sec:org7e9f7d5}
+\label{sec:orgd8c8145}
 
 \subsubsection{resources}
-\label{sec:org777801e}
+\label{sec:orgbfe5727}
 \begin{itemize}
 \item \href{https://www.khanacademy.org/science/biology/human-biology/neuron-nervous-system/a/depolarization-hyperpolarization-and-action-potentials}{Khan Academy on Depolarization, hyperpolarization, and action potentials + some epic comments}
 \end{itemize}
 
 \subsubsection{membrane potential graph}
-\label{sec:org31be952}
+\label{sec:orgdfa97be}
 
 \subsection{structure of VGIC + conformational change within subunit}
-\label{sec:orgf95ebea}
+\label{sec:orgaeb2b01}
 
 \subsubsection{resources\hfill{}\textsc{source}}
-\label{sec:org3e99ac4}
+\label{sec:orgd70c052}
 \begin{itemize}
 \item \href{https://www.sciencedirect.com/science/article/pii/S0076687918300156}{Computational Approaches to Studying Voltage-Gated Ion Channel Modulation by General Anesthetics - ScienceDirect}
 \end{itemize}
 
 \subsection{electrostatic interactions of S4}
-\label{sec:org1a30eab}
+\label{sec:org3ed1adc}
 
 \subsubsection{resources\hfill{}\textsc{source}}
-\label{sec:orge6e68b5}
+\label{sec:org376f447}
 \begin{itemize}
 \item \href{https://www.pnas.org/content/112/1/124/tab-figures-data}{Free-energy landscape of ion-channel voltage-sensor–domain activation | PNAS}
 \begin{itemize}
@@ -562,21 +567,21 @@ uh nothing happened
 \end{itemize}
 
 \subsection{bottom diagrams}
-\label{sec:orge854d5a}
+\label{sec:org1d5741c}
 
 \subsubsection{Nav}
-\label{sec:orgf98335c}
+\label{sec:orga6d01ab}
 
 \begin{enumerate}
 \item side view, all alpha domains
-\label{sec:orgefceb7e}
+\label{sec:orge06e7c0}
 
 \item top view, all alpha domains
-\label{sec:org015ca9b}
+\label{sec:orga711120}
 
 \begin{enumerate}
 \item open/close?
-\label{sec:org541a3bd}
+\label{sec:orge099f46}
 \end{enumerate}
 \end{enumerate}
 \end{document}

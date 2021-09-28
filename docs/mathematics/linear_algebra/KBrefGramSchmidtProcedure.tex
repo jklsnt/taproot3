@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 11:52
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,9 +54,10 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{Axler6.31 Gram-Schmidt Procedure}
-\label{sec:org608786a}
+\label{sec:orgd19c245}
 The Gram-Schmidt Procedure is used to turn a list into an orthonormal list with the same span. It's useful for finding \href{KBrefOrthonormalBasis.org}{orthonormal bases}.
 \begin{quote}
 Suppose \(v_1, \ldots, v_m\) is a linearly independent list of vectors in \(V\). Let \(e_1 = v_1 / \lVert v_1 \rVert\). For \(j = 2, \ldots, m\), define \(e_j\) inductively by
@@ -63,20 +68,20 @@ Suppose \(v_1, \ldots, v_m\) is a linearly independent list of vectors in \(V\).
 Then \(e_1, \ldots, e_m\) is an orthonormal list of vectors in \(V\) s.t. each prefix span is the same as in \(v_1, \ldots, v_m\).
 \end{quote}
 \subsection{intuition}
-\label{sec:orgaf77800}
+\label{sec:org99433f0}
 Basically, for each vector, we divide out the components from the previous vectors and then normalize the size to ensure the norm is one.
 
 It's kind of like the orthogonal decomposition.
 \section{results}
-\label{sec:orga1becc8}
+\label{sec:org71a7575}
 \subsection{Axler6.34 orthonormal basis exists in finite dim vec spaces}
-\label{sec:org7479367}
+\label{sec:org38c04fb}
 since every finite dim vec space has a basis that can be Gram-schmidt-ed
 \subsection{Axler6.35 orthonormal lists extend to orthonormal bases}
-\label{sec:org88320ab}
+\label{sec:org43bfcce}
 just extend the orthonormal list into a basis, and then gram-schmidt-ify the vectors you added
 \subsection{Axler6.37 upper-triangular matrix wrt orthonormal basis}
-\label{sec:orgd222026}
+\label{sec:orgdccd963}
 If an upper triangular matrix exists for some operator, then an upper-triangular matrix exists for an orthonormal basis too.
 
 Proof: prefix span invariance is a condition for an upper triangular matrix, so the prefix span equality implies that if it could be upper triangular before, then it still can be with the orthonormal basis.

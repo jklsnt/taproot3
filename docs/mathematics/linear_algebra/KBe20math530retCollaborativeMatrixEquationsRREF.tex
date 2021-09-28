@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,17 +54,18 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 
 \section{When is it possible to transform the coefficient matrix into the identity matrix?}
-\label{sec:orgd67a2a5}
+\label{sec:orgbcf1d0c}
 When the matrix is square and has an inverse.
 
 \section{What should RREF be?}
-\label{sec:orgad833fb}
+\label{sec:org070eb92}
 If we are trying to get "as close as possible" to the identity, then we should prioritize the top left corner. So, for a non-square matrix RREF is the matrix where the top or left square is the identity matrix and everything else is zero, or failing the zeros everything else is as many zeros as possible, or failing that just anything. If the top/left square cannot be the identity matrix, then fill in as large an identity matrix as possible. Here are some examples in order of best to worst.
 \subsection{Largest square identity intact:}
-\label{sec:org9911da8}
+\label{sec:orgb0cbc15}
 $$
    \begin{pmatrix}1&0&0&0\\0&1&0&0\\0&0&1&0\end{pmatrix} >
    \begin{pmatrix}1&0&0&0\\0&1&0&0\\0&0&1&1\end{pmatrix} >
@@ -69,7 +74,7 @@ $$
    \begin{pmatrix}1&0&0&1\\0&1&0&1\\0&0&1&1\end{pmatrix} >
    $$
 \subsection{Maximize identity square:}
-\label{sec:orge059edc}
+\label{sec:org5327fe4}
 \$\$
 \begin{pmatrix}1&0&0&0\\0&1&0&0\\0&0&2&0\end{pmatrix} >
 \begin{pmatrix}1&0&0&0\\0&1&0&0\\0&1&1&0\end{pmatrix} >
@@ -77,19 +82,19 @@ $$
 \begin{pmatrix}0&1&0&0\\0&1&0&0\\0&0&1&0\end{pmatrix}
 \$\$
 \section{Find the column space and null space of the matrices?}
-\label{sec:orgb680353}
+\label{sec:org867f5e8}
 \subsection{\(\begin{pmatrix}1&2&1\\2&0&1\\1&-2&0\end{pmatrix}\)}
-\label{sec:org693bfa3}
+\label{sec:orgc888e2f}
 RREF: \(\begin{pmatrix}1&0&\frac{1}{2}\\0&1&\frac{1}{4}\\0&0&0\end{pmatrix}\)
 Column space: vectors of the form \((x, y, 0) : x, y \in \mathbb F\).
 Null space: vectors of the form \((4x, 2x, -x)\).
 \subsection{\(\begin{pmatrix}1&-1\\0&3\\1&1\end{pmatrix}\)}
-\label{sec:org04e25f7}
+\label{sec:org3d23901}
 RREF: \(\begin{pmatrix}1&0\\0&1\\0&0\end{pmatrix}\)
 Column space: vectors of the form \((x, y, 0)\).
 Null space: 0.
 \subsection{\(\begin{pmatrix}1&0&2&4\\2&-1&0&1\end{pmatrix}\)}
-\label{sec:orge38ebdf}
+\label{sec:org3d49e92}
 RREF: \(\begin{pmatrix}1&0&2&4\\0&1&4&7\end{pmatrix}\)
 Column space: vectors of the form \((x, y)\).
 Null space: \((w, x, y, z)\) where \(x = -2y - 4 z\) and \(y = -4y -7z\).

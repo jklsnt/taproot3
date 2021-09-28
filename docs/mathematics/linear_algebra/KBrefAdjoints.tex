@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,9 +54,10 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{adjoint, \(T^*\)\hfill{}\textsc{def}}
-\label{sec:org06e6fdb}
+\label{sec:orge222f6d}
 \begin{quote}
 Suppose \$T \(\in\) \mathcal L(V, W). The \emph{adjoint} of \(T\) is the function \(T^* : W \to  V\) s.t.
 \[\begin{aligned}
@@ -66,51 +71,51 @@ This definition makes sense because of the \href{KBrefLinearFunctional.org}{Ries
 Adjoints are kind of like complex conjugates, as seen in \href{KBrefConjugateTranspose.org}{Axler 7.10}
 
 \section{results}
-\label{sec:org7333cb1}
+\label{sec:orgba8ab94}
 
 \subsection{Useful technique: 'flip \(T^*\) from one side of an inner product to become \(T\) on the other side'}
-\label{sec:orgfc25d3e}
+\label{sec:org230a553}
 You can always do this by definition of adjoint.
 
 \subsection{Axler7.5 the adjoint is a linear map}
-\label{sec:org9b511b3}
+\label{sec:orga080600}
 
 \begin{quote}
 If \(T \in   \mathcal{L} (V, W)\), then \(T^* \in  \mathcal{L} (W, V)\).
 \end{quote}
 
 \subsection{Axler7.6 Properties of the adjoint}
-\label{sec:org9e92c4d}
+\label{sec:org1dd8a2b}
 
 \subsubsection{\((S+T)^* = S^* + T^*\) for all \(S, T \in  \mathcal{L}(V, W)\)}
-\label{sec:orgdfe125a}
+\label{sec:org0d02586}
 
 \subsubsection{\((\lambda T)^* = \overline{\lambda}  T^*\) for all \(\lambda \in  \mathbb{F}\) and \(T \in  \mathcal{L} (V, W)\)}
-\label{sec:orgb12400f}
+\label{sec:org399d7e6}
 
 \subsubsection{\((T^*)^* = T\) for all \(T \in  L(V, W)\)}
-\label{sec:org8b067ee}
+\label{sec:org9d000ee}
 
 \subsubsection{\(I^* = I\)}
-\label{sec:org0ba84bc}
+\label{sec:org76f0a67}
 
 \subsubsection{\((ST)^* = T*S*\) for all \(T \in \mathcal{L} (V, W)\) and \(S \in  \mathcal{L} (W, U)\) where \(U\) is an inner product space over \(\mathbb{F}\)}
-\label{sec:org1ce3227}
+\label{sec:org9315f54}
 
 \subsection{Axler7.7 null space and range of \(T^*\)}
-\label{sec:org33567c9}
+\label{sec:orgf1cf10d}
 
 Suppose \(T \in  \mathcal{L}(V, W)\). Then,
 
 \subsubsection{\(\onull T^* = (\orange T)^\bot\)}
-\label{sec:org98624f3}
+\label{sec:org48353da}
 
 \subsubsection{\(\orange T^* = (\onull T)^\bot\)}
-\label{sec:orgfd56df7}
+\label{sec:org3f1a838}
 
 \subsubsection{\(\onull T = (\orange T^*)^\bot\)}
-\label{sec:org20ec1e0}
+\label{sec:org2cfde47}
 
 \subsubsection{\(\orange T = (\onull T^*)^\bot\)}
-\label{sec:org0981e21}
+\label{sec:org0c6ded3}
 \end{document}

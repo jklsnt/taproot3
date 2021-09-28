@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 11:52
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,11 +54,12 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 The assignment is centered around \href{https://www.condution.com/}{Condution}, an open-source task management platform. Data processing and querying is done on-device, but raw user tables and data is stored in a remote PosgreSQL server that's either officially hosted and supported or optionally on-prem hosted by the user.
 
 \section{What are we protecting?}
-\label{sec:org2cb868f}
+\label{sec:orgd654587}
 Because of the open-source nature of Condution, and the fact that all data processing code is done with the client application, the most important asset to actually protect is any user's data (tasks, perspectives, due dates, etc.).
 
 This means creating a secure pipeline between our servers and that of the clients, that from self-hosted servers and that of their clients, and finally the clients themselves.
@@ -62,10 +67,10 @@ This means creating a secure pipeline between our servers and that of the client
 The scope of Condution is has too narrow scope to protect anyone but direct Condution user's data, including misuses of the client app or API but not including users of a third-party services with indirect API interfaces to Condution.
 
 \section{Who are we protecting it from, and what are their motivations?}
-\label{sec:orga95f404}
+\label{sec:orgba7bff2}
 
 \subsection{Protecting from\ldots{}}
-\label{sec:org52e9329}
+\label{sec:orgce846ca}
 \begin{itemize}
 \item Advertisers who may want to advertise based on notes of users
 \item Foreign companies and groups who are attempting to access privileged information
@@ -74,7 +79,7 @@ The scope of Condution is has too narrow scope to protect anyone but direct Cond
 \end{itemize}
 
 \subsection{Not Protecting from\ldots{}}
-\label{sec:org822b6d2}
+\label{sec:orga44f7e1}
 \begin{itemize}
 \item Organized, state-supported exploits
 \item Third party authorization and our hosting partners (AWS S3)
@@ -87,10 +92,10 @@ As the on-site hosting and UI is the primary service that Condution is providing
 Also, user data is also locally backed up. Hence, it is possible to restore services by simply hosting another instance and restoring data.
 
 \section{What methods of attacks do we prevent?}
-\label{sec:orge98eb08}
+\label{sec:org925a0df}
 
 \subsection{Software Attacks}
-\label{sec:org32c9670}
+\label{sec:org8136918}
 Software attacks mostly center around attacking the user-facing (both server and client) software and exposing its vulnerabilities.
 
 \begin{itemize}
@@ -102,7 +107,7 @@ Software attacks mostly center around attacking the user-facing (both server and
 \end{itemize}
 
 \subsection{Pipeline Attacks}
-\label{sec:org5b748ad}
+\label{sec:orgba5d578}
 Pipeline attacks mostly interfere with our DevOps pipeline to gain unauthorized access.
 
 \begin{itemize}
@@ -113,7 +118,7 @@ Pipeline attacks mostly interfere with our DevOps pipeline to gain unauthorized 
 \end{itemize}
 
 \subsection{Social Attacks}
-\label{sec:orga838e01}
+\label{sec:orgb7976e9}
 Social attacks work on hijacking user's information by exposing social vulnerabilities of the user.
 
 \begin{itemize}
@@ -123,7 +128,7 @@ Social attacks work on hijacking user's information by exposing social vulnerabi
 \end{itemize}
 
 \section{What are the possible effects of these attacks}
-\label{sec:org0ac1d99}
+\label{sec:org6e7cd62}
 \begin{enumerate}
 \item Digital or physical harm to users via leaking of privileged information
 \item Digital or physical harm to those whom the users interact with (say, lawyers) via the leaking of privileged information
@@ -132,7 +137,7 @@ Social attacks work on hijacking user's information by exposing social vulnerabi
 \end{enumerate}
 
 \section{What are the resources of the attackers}
-\label{sec:org31ac9b6}
+\label{sec:org1a2bdca}
 The attacker's resources are primarily limited.
 
 Because of the fact that we are limiting our scope to non-organisational non-nation-state attacks, and the fact that the net value of user data --- although important --- is very low, the attacks will probably be limited in scope.
@@ -145,13 +150,13 @@ Because of the fact that we are limiting our scope to non-organisational non-nat
 \end{itemize}
 
 \section{What are our resources?}
-\label{sec:org1acb288}
+\label{sec:org2fe6bd5}
 Directly accessible resources are reasonably limited: have 8 engineers on all departments, limited cybersecurity experience, and only freely or cheaply available commercial tools for PAM, authentication, or security.
 
 However, it is possible --- in cases with pipeline leaks and database security breaches --- to request emergency help from AWS and GCP. Due to the fact that our interests generally align with theirs with respect to user data safety, they already have systems in place to perform emergency triage and freeze data to protect security.
 
 \section{What should we do?}
-\label{sec:org4985ebd}
+\label{sec:org09820cb}
 \begin{enumerate}
 \item Align and protect resources and partnerships with hosting services to allow emergency triage
 \item Secure CI/CD pipelines and update services to authorized users, with two-factor PAM authentication

@@ -1,4 +1,4 @@
-% Created 2021-09-14 Tue 14:41
+% Created 2021-09-27 Mon 11:52
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -15,6 +15,8 @@
 \setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -34,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -51,10 +54,11 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 
 \section{Deriving Rotational KE and Inertia}
-\label{sec:orgb9987c1}
+\label{sec:org55d5ea4}
 Given \(m_i\), mass, \(\vec{r_i}'\), location of the center of mass, \(l_i\), \(\omega\), the angular velocity, figure a \(KE_{tot,rot}\). 
 
 Because of the fact that the value \(\omega\) is in units \(\frac{d\theta}{dt}\), the rate of radians change, and we know of a radius of the spin \(l_i\), we could figure the velocity at which it is moving by simply scaling the change in radians up to a circle of radius \(l_i\), that is:
@@ -75,7 +79,7 @@ And so, substituting into the statement of \(\sum^N_{i=1} \frac{1}{2}m_i\vec{v_i
 \end{align}
 
 \subsection{Rotational Inertia}
-\label{sec:orga57c6d7}
+\label{sec:org469b696}
 The right sum --- the mass times the distance away from maxis of rotation (\(\sum^N_{i=1} (m_i l_i^2)\)) --- is defined as the rotational (moment) of inertia (spinny mass). That is,
 
 \begin{equation}
@@ -90,7 +94,7 @@ Replacing that value in the prior statement, the statement of \(KE_{rot}\) is de
 
 
 \subsection{Rotational Inertia for a Ring}
-\label{sec:orgecd5c76}
+\label{sec:orgfcd1570}
 For a ring (that's perfectly circular) rotating on an axis perpendicular to the plane of the ring, the \(l_i\) --- distance from axis of rotation --- is the same value: namely, the radius \(R\) as the radius of a circle is the same for all positions. Meaning,
 
 \begin{equation}
@@ -114,7 +118,7 @@ Substituting \(M\) as the sum of all masses in the ring (\(M=\sum^N_{i=1}m_i\)),
 \end{equation}
 
 \subsection{Rotational Inertia of a Solid Sphere}
-\label{sec:org75d9a85}
+\label{sec:org96654a8}
 I believe that the rotational inertia of \(I_{sphere}\) to be less than \(I_{disk}\). This is because, as the dimension of the object increases, it would be easier to change its velocity (a disk is easier to spin than a ring, etc.). Hence, my intuition states that \(I_{sphere}\) would be lower than \(I_{disk}\).
 
 Mathematically, as \(M\) is staying at the same value, in the disk case has more mass closer to the axis of rotation --- meaning that the \(m_iR^2\) term would be smaller in more of the point masses than that of an object at a lower dimension. Hence, the sphere would have more points with lower \(m_iR^2\) terms than that of disk; hence, \(I_{sphere}\) would be less than \(I_{disk}\).
@@ -122,11 +126,11 @@ Mathematically, as \(M\) is staying at the same value, in the disk case has more
 There is, also, an actual integral solution to this.
 
 \subsubsection{Actual Integral Solution}
-\label{sec:orgc86ef49}
+\label{sec:orgbde6e98}
 
 \begin{enumerate}
 \item Rings
-\label{sec:org10985d0}
+\label{sec:org04f5d1c}
 Here is a ring, which we know:
 
 \begin{equation}
@@ -157,7 +161,7 @@ Replacing \(\pi \sigma r^2 = M\), because :why: exactly?
 \end{equation}
 
 \item Spheres
-\label{sec:org5632285}
+\label{sec:org21d5f8a}
 I didn't follow quick enough to get this to be written down. But here's a pretty picture.
 
 
@@ -170,7 +174,7 @@ The gist is essentially to add up the tiny tiny disks that exist in a sphere to 
 
 
 \section{Kinematics Equations}
-\label{sec:org3c9e371}
+\label{sec:orgd18150a}
 We begin by defining a coordinate system such that positive values are pointed "downwards". That is, as values increase in the positive direction, their corresponding vectors are pointed further towards the "down" direction.
 
 Given \(a=a_0\), initial velocity \(v_0\), and position \(y_0\), we derive the kinematics equations.
@@ -211,7 +215,7 @@ But what if we want to do this in multiple dimensions? They will be vectors, for
 and so on. The reason why we could do this is simply because \(\vec{a_0} = a_0_x \hat{i} + a_0_y\hat{j} + a_0_z\hat{k}\), and, perhaps unsurprisingly, integrals and derivatives and commutative and distributive across addition.
 
 \subsection{Proving \(v^2(t) = v_0^2 + 2a_0(y(t)-y_0)\)}
-\label{sec:org93b5a02}
+\label{sec:orgcaa080a}
 We start at the statement for \(v(t)\), squaring it, and substituting the necessary statements.
 
 \begin{align}
@@ -229,7 +233,7 @@ It is therefore shown that:
 \end{equation}
 
 \subsection{Proving \(\Delta y = \frac{v(t_1)+v(t_2)}{2}\Delta t\)}
-\label{sec:orga3bacba}
+\label{sec:org49c0da9}
 Showing \(\Delta y = \frac{v(t_1)+v(t_2)}{2}\Delta t\), defining \(\Delta y=y(t_2)-y(t_1)\) and \(\Delta t = t_2 - t_1\). Substituting the appropriate values for \(v(t)\), \(\Delta y\), \(\Delta t\) and solving\ldots{}
 
 \begin{align}
@@ -249,8 +253,8 @@ Hence, it is demonstrated that:
 \end{equation}
 
 \section{Question regarding signage}
-\label{sec:orgced5d3c}
-The \hyperref[sec:org3c9e371]{Kinematics Equations derivations} above relied on the fact that the coordinate system was defined as "positive downwards". Were this not to be the case, constants would have to be redefined and the signs of most terms would be flipped:
+\label{sec:org2490c7a}
+The \hyperref[sec:orgd18150a]{Kinematics Equations derivations} above relied on the fact that the coordinate system was defined as "positive downwards". Were this not to be the case, constants would have to be redefined and the signs of most terms would be flipped:
 
 Given \(a=-a_0\), initial velocity \(-v_0\), and position \(-y_0\), we (re)derive the kinematics equations.
 
@@ -297,7 +301,7 @@ and
 
 
 \section{Proving the Third Equation for \(V^2\)}
-\label{sec:org59cfc8a}
+\label{sec:org8c49008}
 \begin{equation}
     v^2(t) \stackrel{?}{=} {v_0}^2 + 2a_0(y(t)-y_0)
 \end{equation}

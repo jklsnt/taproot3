@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-26 Sun 09:55 -->
+<!-- 2021-09-27 Mon 11:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Distributed Algorithms</title>
@@ -193,11 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autolinker/prism-autolinker.min.js" integrity="sha512-PaneznVpkV74O5FWaHuGG2Pa9aVgbrnDwLFbcebZikYcFVPUYimvlZUAX6AElPKDJsSDTBl7aN6V1WxFDi24aw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<link rel="stylesheet" href="https://raw.githubusercontent.com/PrismJS/prism-themes/master/themes/prism-atom-dark.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="/global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -223,13 +219,36 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Distributed Algorithms</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-24 Fri 13:59</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Distributed Algorithms</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-27 Mon 11:51</date></div>
 </div>
 <div id="content">
-<h1 class="title">Distributed Algorithms</h1>
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='cs223-index.html'>CS223 Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org06d3556">1. What are distributed algorithms?</a></li>
+<li><a href="#org5d717f1">2. Simple example of distributed algorithm is addition</a></li>
+<li><a href="#org488c324">3. Modelling</a></li>
+<li><a href="#orga36e245">4. Multiprocessor Models</a></li>
+<li><a href="#orgb89cc97">5. Techniques</a>
+<ul>
+<li><a href="#org3f74951">5.1. Divide and Conquer</a></li>
+</ul>
+</li>
+<li><a href="#org44ea044">6. In-class Lecture</a>
+<ul>
+<li><a href="#org59754fb">6.1. Area 1: Distributing Algorithms</a></li>
+<li><a href="#orge830ee8">6.2. Area 2: Designing Algorithms to be Distributed</a>
+<ul>
+<li><a href="#org1f34725">6.2.1. Map-Reduce</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
 
-<div id="outline-container-orgda539ec" class="outline-2">
-<h2 id="orgda539ec"><span class="section-number-2">1</span> What are distributed algorithms?</h2>
+<div id="outline-container-org06d3556" class="outline-2">
+<h2 id="org06d3556"><span class="section-number-2">1</span> What are distributed algorithms?</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 (<a href="https://stanford.edu/~rezab/dao/">https://stanford.edu/~rezab/dao/</a>)
@@ -244,8 +263,8 @@ systems running TensorFlow
 </div>
 </div>
 
-<div id="outline-container-org860d606" class="outline-2">
-<h2 id="org860d606"><span class="section-number-2">2</span> Simple example of distributed algorithm is addition</h2>
+<div id="outline-container-org5d717f1" class="outline-2">
+<h2 id="org5d717f1"><span class="section-number-2">2</span> Simple example of distributed algorithm is addition</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 • Normally one steps down the list and adds to running total
@@ -256,8 +275,8 @@ list is only one element to calculate the sum in O(log 2) time.
 </div>
 </div>
 
-<div id="outline-container-org2fb1525" class="outline-2">
-<h2 id="org2fb1525"><span class="section-number-2">3</span> Modelling</h2>
+<div id="outline-container-org488c324" class="outline-2">
+<h2 id="org488c324"><span class="section-number-2">3</span> Modelling</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 • Normally the model is of the Random Access Machine, where a processor
@@ -267,8 +286,8 @@ is connected to memory and every operation takes a constant time step.
 </div>
 </div>
 
-<div id="outline-container-org4f0ba75" class="outline-2">
-<h2 id="org4f0ba75"><span class="section-number-2">4</span> Multiprocessor Models</h2>
+<div id="outline-container-orga36e245" class="outline-2">
+<h2 id="orga36e245"><span class="section-number-2">4</span> Multiprocessor Models</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 • Random Access Machine model but with additional processors. 
@@ -283,12 +302,12 @@ realistic
 </div>
 </div>
 
-<div id="outline-container-org2281e5f" class="outline-2">
-<h2 id="org2281e5f"><span class="section-number-2">5</span> Techniques</h2>
+<div id="outline-container-orgb89cc97" class="outline-2">
+<h2 id="orgb89cc97"><span class="section-number-2">5</span> Techniques</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgdbf357f" class="outline-3">
-<h3 id="orgdbf357f"><span class="section-number-3">5.1</span> Divide and Conquer</h3>
+<div id="outline-container-org3f74951" class="outline-3">
+<h3 id="org3f74951"><span class="section-number-3">5.1</span> Divide and Conquer</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 • Divide and Conquer (or splitting the problem into easier subproblems)
@@ -302,8 +321,8 @@ therefore can benefit from being calculated in parallel.
 </div>
 </div>
 
-<div id="outline-container-orga67a8a8" class="outline-2">
-<h2 id="orga67a8a8"><span class="section-number-2">6</span> In-class Lecture</h2>
+<div id="outline-container-org44ea044" class="outline-2">
+<h2 id="org44ea044"><span class="section-number-2">6</span> In-class Lecture</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 • Around for ~25 years but more relevant in last 10
@@ -312,8 +331,8 @@ because many cores has become more of a reality.
 </p>
 </div>
 
-<div id="outline-container-orgb5ed8a0" class="outline-3">
-<h3 id="orgb5ed8a0"><span class="section-number-3">6.1</span> Area 1: Distributing Algorithms</h3>
+<div id="outline-container-org59754fb" class="outline-3">
+<h3 id="org59754fb"><span class="section-number-3">6.1</span> Area 1: Distributing Algorithms</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 • Atomicity &#x2013; Either all operations are run or none of them so as to
@@ -324,12 +343,12 @@ prevent error
 </div>
 </div>
 
-<div id="outline-container-org13c71a2" class="outline-3">
-<h3 id="org13c71a2"><span class="section-number-3">6.2</span> Area 2: Designing Algorithms to be Distributed</h3>
+<div id="outline-container-orge830ee8" class="outline-3">
+<h3 id="orge830ee8"><span class="section-number-3">6.2</span> Area 2: Designing Algorithms to be Distributed</h3>
 <div class="outline-text-3" id="text-6-2">
 </div>
-<div id="outline-container-orge11bbe5" class="outline-4">
-<h4 id="orge11bbe5"><span class="section-number-4">6.2.1</span> Map-Reduce</h4>
+<div id="outline-container-org1f34725" class="outline-4">
+<h4 id="org1f34725"><span class="section-number-4">6.2.1</span> Map-Reduce</h4>
 <div class="outline-text-4" id="text-6-2-1">
 <p>
 • Map: (inkey , invalue ) -&gt; list(outkey, intermediate value ) &#x2013; Write

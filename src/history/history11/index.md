@@ -25,3 +25,28 @@ source: #index
 # French and Indian War
 - [[KBdHIST301FrenchIndianWar]] 
 - [[KBhFrenchAndIndian]] 
+
+
+# Revolution and Causality
+
+the next assignment: historigraphical in nature. synthesithing multiple arguments about causality. small groups, 
+- [[KBxCausalityAndRevolutionsD1]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

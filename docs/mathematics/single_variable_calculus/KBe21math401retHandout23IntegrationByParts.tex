@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:50
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,10 +54,11 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \setcounter{section}{2}
 \section{\(\int \ln x dx\)}
-\label{sec:org5a048c2}
+\label{sec:org19c7e11}
 
 \[\begin{aligned}
   \int \ln  x dx &=\int 1 \ln  x dx \\
@@ -62,7 +67,7 @@
   &= \boxed{x \ln  x - x}
   \end{aligned}\]
 \section{\(\int\tan ^-x dx\)}
-\label{sec:orgda3fd23}
+\label{sec:org69c98d7}
 
 \[\begin{aligned}
   \int\tan ^-x dx &= x \tan^- x -\int x \frac{1}{x^2+1} dx \\
@@ -71,14 +76,14 @@
   &= x\tan ^- x - \frac{1}{2}\ln (x^2+1) +C
   \end{aligned}\]
 \section{\(\int x\sec ^2 x dx\)}
-\label{sec:orga154b8a}
+\label{sec:org6c66036}
 
 \[\begin{aligned}
   \int x\sec ^2 x dx &= x\tan x -\int\tan x dx\\
   &= x\tan x + \ln | \cos  x | + C
   \end{aligned}\]
 \section{\(\int x^2 e^{5x} dx\)}
-\label{sec:orgf48d92b}
+\label{sec:orgdbdcae8}
 
 \[\begin{aligned}
   \int x^2 e^{5x} dx &= x^2 \frac{1}{5}e^{5x} - \int 2x \frac{1}{5}e^{5x} dx\\
@@ -87,14 +92,14 @@
   \end{aligned}\]
 
 \section{\(\int x ^2\cos x  dx = f(x) -\int 2x\sin x dx\)}
-\label{sec:org3199dcb}
+\label{sec:org5229844}
 Find \(f(x)\)
 \[\begin{aligned}
   f(x) = x^2 \sin  x
   \end{aligned}\]
 
 \section{\(\int x\cos x  dx\)}
-\label{sec:orgc1f70ba}
+\label{sec:orge372178}
 
 \[\begin{aligned}
   \int x \cos  x dx &= x \sin  x -\int \sin  x dx \\
@@ -102,7 +107,7 @@ Find \(f(x)\)
   \end{aligned}\]
 
 \section{\(\int x^2\sin x dx\)}
-\label{sec:orga9431c8}
+\label{sec:org7440608}
 
 \[\begin{aligned}
   \int x^2 \sin  x dx &= - x \cos  x -\int - \cos  x dx \\
@@ -111,7 +116,7 @@ Find \(f(x)\)
 
 
 \section{\(\int x^3 e^{x^2} dx\)}
-\label{sec:orgd723b9b}
+\label{sec:org5789caa}
 Let \(u = x^2\)
 
 \[\begin{aligned}
@@ -125,7 +130,7 @@ Let \(u = x^2\)
 
 
 \section{\(\int x^2 \ln x dx\)}
-\label{sec:orge0773e4}
+\label{sec:orga3109a2}
 
 \[\begin{aligned}
   \int x^2 \ln x dx &= \frac{1}{3}x^3 \ln  x -\int \frac{1}{3} x^3 \frac{1}{x} dx\\
@@ -134,7 +139,7 @@ Let \(u = x^2\)
   \end{aligned}\]
 
 \section{\(\int \cos \ln x dx\)}
-\label{sec:org51e935f}
+\label{sec:orgc032a39}
 
 \[\begin{aligned}
   \int 1 \cos  \ln  x dx &= x \cos  \ln  x + \int \sin  \ln  x dx\\
@@ -146,13 +151,13 @@ Let \(u = x^2\)
 Or you could use \(u = \ln  x\), apparently.
 
 \section{multiple parts}
-\label{sec:org2416727}
+\label{sec:org5a8fed4}
 
 \subsection{e}
-\label{sec:orgcbe943e}
+\label{sec:org6db9f51}
 
 \subsection{\(\int e^{2x} \cos 3x dx\)}
-\label{sec:org1a38602}
+\label{sec:org4d8ab25}
 
 \[\begin{aligned}
    \int e^{2x} \cos 3x dx &= \cos 3x \frac{1}{2}e^{2x} +\int 3 \sin 3x \frac{1}{2}e^{2x} dx\\
@@ -165,14 +170,14 @@ Or you could use \(u = \ln  x\), apparently.
 
 
 \subsection{evaluate previous from \([0, \frac{pi}{6}]\)}
-\label{sec:org7f365af}
+\label{sec:org6e59a87}
 
 \[\begin{aligned}
    \frac{3}{13}e^{ \frac{pi}{3} } - \frac{2}{13}
    \end{aligned}\]
 
 \section{\(\int \sec^3 x dx\)}
-\label{sec:orgd155ce3}
+\label{sec:orge78a6bc}
 
 \[\begin{aligned}
   \int \sec ^3 x dx  &=\int\sec x\sec ^2 x dx \\

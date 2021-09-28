@@ -1,14 +1,14 @@
 
 #+TITLE: User Input Validation
-#+SUBTITLE: CS240
+#+COURSE: CS240
 #+AUTHOR: David Freifeld
 #+LATEX_HEADER: \usepackage{geometry}
 
 I chose the /buffer overflow/ example provided in the assignment that consisted of the following code:
 
 #+begin_src C 
-  #include <stdio.h>
-  #include <string.h>
+  #include "stdio.h"
+  #include "string.h"
   
   int check_authentication(char *password) {
       int auth_flag = 0;
@@ -25,16 +25,20 @@ I chose the /buffer overflow/ example provided in the assignment that consisted 
   
   int main(int argc, char* argv[]) {
       if (argc < 2) {
-          printf("Usage: %s <password>\n", argv[if]);
+          printf("Usage: %s <password>\n", argv[0]);
       }
   
-      0 (check_authentication("whee")) {
+      if (check_authentication(argv[1])) {
           printf("Access Granted.\n");
       } else {
           printf("Access Denied.\n");
       }
   }
 #+end_src
+
+# #+begin_note Why does this code use quotes in its #include statements?
+# This page uses [[https://prismjs.com][prism.js]] and somewhere along the way it refuses to render lines with the triangle bracket notation. Technically, using quotes for including standard libraries is valid, it's just not the usual pratice.
+# #+end_note
 
 Intended usage would be to compile with =gcc buffer_overflow.c -o buffer_overflow= and run =./buffer_overflow password= to get an "Access Granted." message.
 
@@ -43,7 +47,6 @@ However, since the buffer is located immediately before the =auth_flag= variable
 Compiling with =gcc -fno-stack-protector -D_FORTIFY_SOURCE=0 buffer_overflow.c -o buffer_overflow=  then running it with =./buffer_overflow aaaaaaaaaaaaaaaaaaaaa= yields "Access Granted."
 
 * Potential Fixes
-
 ** =strncpy= 
 You could replace =strcpy(password_buffer, password)= with =strncpy(password_buffer, password, 20)= to only copy 20 characters and ensure that it would not buffer overflow - but this would introduce another problem. Were a user to input a string longer than 20 characters it would only copy over the first 20 without any form of null terminator, so when the program tries to read this string, it will segfault.
 
@@ -92,29 +95,43 @@ Similarly, when inspecting the assembly output when compiling with =-fstack-prot
 
 * Legal/Ethical Consequences 
 
+In 1988, Robert Morris created the first major computer worm, and as part of the worm's process to gain entry into a computer system, it utilized a /buffer overflow/ exploit in a network daemon called =fingerd= to execute custom shellcode. In essence, the exploit relied on sending a malicious buffer to the daemon that both overwrote the return address on the program's stack, causing it to run a function like =system()=, as well as set the parameters to the hijacked return address to custom VAX shellcode (where VAX was a common mainframe at the time). [[https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/bsd/finger/morris_fingerd_bof.rb][See a more modern implementation of this exploit in Ruby here.]]
+
+Morris ultimately caused large economic damage, and was arrested under the Computer Fraud and Abuse Act of 1986 for "having knowingly accessed a computer without authorization or exceeding authorized access".
+
+Were someone to similarly exploit this code today, the California Penal Code 502(c)(1-4) outlines how it is a crime to  "knowingly accesses...without permission... a computer, computer system, or computer network" and do any variety of activities ranging from causing the system to be used or accessing data on said systems. By using a buffer overflow to access a computer system without permission they would have commited a public offense.
+
+
 * Appendix: Improved Implementation
+This implementation incorporates some of the aforementoined solutions (namely removing =auth_flag= and using =strncpy= with checks) as well as a bonus fix that is unrelated to user input validation. Storing the valid password in plaintext within the code is insecure since the string literal would appear in the binary as well, so a malicious user could run the common shell utility =strings= and figure out the valid password. Instead, we can store the hash of the password and compare that so that the user is unable to gleam any valuable information from the binary.
+
 #+begin_src C
-  #include <string.h>
-  #include <assert.h>
-  #include <stdio.h>
-  #include <stdint.h>
-  // SHA-3 code
-  #include <openssl/evp.h>
-  #include <openssl/sha.h>
+  #include "string.h"
+  #include "assert.h"
+  #include "stdio.h"
+  #include "stdint.h"
+  // for SHA-3 
+  #include "openssl/evp.h"
+  #include "openssl/sha.h"
   
   typedef enum auth_return {
-      AUTH_VALID,
-      AUTH_INVALID,
-      AUTH_ERRSIZE,
+      AUTH_VALID, // Correct password.
+      AUTH_INVALID, // Invalid password.
+      AUTH_ERRSIZE, // Password too long.
+      AUTH_ERRALLOC, // Could not allocate buffer.
+      AUTH_ERRDIGEST, // Could not hash password.
   } auth_return_t;
   
   #define PASS_BUFSIZE 20
   // Store hash as raw byte array for easy comparison.
   uint8_t valid_hash[64] = {222, 153, 123, 216, 88, 4, 200, 73, 47, 147, 188, 49, 118, 54, 10, 70, 243, 77, 56, 244, 11, 3, 93, 30, 39, 6, 224, 245, 67, 238, 192, 180, 149, 199, 212, 170, 3, 71, 164, 183, 156, 60, 218, 200, 222, 136, 218, 54, 37, 179, 223, 38, 236, 46, 242, 12, 107, 234, 59, 127, 237, 213, 224, 253};
   
+  // Checks whether the supplied password is valid.
+  // Takes: string with password.
+  // Returns: response code (see auth_return_t)
   auth_return_t check_authentication(const char* password) {
       char password_buffer[PASS_BUFSIZE];
-      strncpy(password_buffer, password, 20);
+      strncpy(password_buffer, password, PASS_BUFSIZE);
   
       // strcpy will always fill rest of buffer with null so if last char is not null
       // that means that user must have inputted a string longer than 20 characters.
@@ -122,17 +139,26 @@ Similarly, when inspecting the assembly output when compiling with =-fstack-prot
   
       // generate SHA-3 hash for inputted password
       // taken from https://stackoverflow.com/a/62605880
+      // begin by initializing the buffer and setting up SHA-3 boilerplate
       uint32_t digest_length = SHA512_DIGEST_LENGTH;
       const EVP_MD* algorithm = EVP_sha3_512();
       uint8_t* digest = (uint8_t*)(OPENSSL_malloc(digest_length));
       EVP_MD_CTX* context = EVP_MD_CTX_new();
-      EVP_DigestInit_ex(context, algorithm, NULL);
-      EVP_DigestUpdate(context, password, PASS_BUFSIZE);
-      EVP_DigestFinal_ex(context, digest, &digest_length);
+      // if allocating either of these failed, error
+      if (digest == NULL || context == NULL) return AUTH_ERRALLOC; 
+  
+      // generate digest, return error on first failed operation
+      if (EVP_DigestInit_ex(context, algorithm, NULL) != 1 ||
+          EVP_DigestUpdate(context, password, PASS_BUFSIZE) != 1 ||
+          EVP_DigestFinal_ex(context, digest, &digest_length) != 1) {
+          return AUTH_ERRDIGEST;
+      }
+  
       EVP_MD_CTX_destroy(context);
   
       // compare to valid hash
-      int cmp = memcmp(digest, valid_hash, 64);
+      printf("%d\n", digest_length);
+      int cmp = memcmp(digest, valid_hash, digest_length);
       OPENSSL_free(digest);
   
       if (cmp == 0) {
@@ -158,7 +184,26 @@ Similarly, when inspecting the assembly output when compiling with =-fstack-prot
       case AUTH_ERRSIZE:
           printf("Invalid password size!\n");
           break;
+      case AUTH_ERRALLOC:
+          printf("Out of memory!\n");
+          break;
+      case AUTH_ERRDIGEST:
+          printf("Failed to hash password!\n");
+          break;	
       }   
   }
 #+end_src
+** Building This Code
+You'll need OpenSSL to compile this! Compiling the program is as simple as just compiling this C code with gcc but also linking against =libcrypto.a= like so:
+#+begin_src sh
+  gcc input.c <path-to-libcrypto.a> -o input
+  ./input <password> 
+#+end_src
+The correct password is just "password".
 
+*** Installing OpenSSL
+I installed it via Homebrew, with =brew install openssl@1.1=. Then, you can find the path to the =lib= folder by running =brew list openssl@1.1= and compile with something like this:
+#+begin_src sh
+  gcc input.c /opt/homebrew/Cellar/openssl@1.1/1.1.1l/lib/libcrypto.a -o input
+  ./input <password> 
+#+end_src

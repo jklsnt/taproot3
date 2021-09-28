@@ -1,4 +1,4 @@
-% Created 2021-09-23 Thu 13:46
+% Created 2021-09-27 Mon 14:16
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -36,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -53,10 +54,11 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 
 \section{Clojure, in brief\ldots{}}
-\label{sec:orgc573746}
+\label{sec:org3f21e69}
 The programming language \href{https://clojure.org/}{Clojure}, a variant of Lisp built atop the Java Virtual Machine, is known to be a safe language to low level attacks such as buffer overflow due to the insulation of its execution space.
 
 To preserve the functionality of being a Lisp, however, the Clojure preserves most of the powerful syntax-manipulation tools like unquote slicing and compile-time macros.
@@ -64,7 +66,7 @@ To preserve the functionality of being a Lisp, however, the Clojure preserves mo
 Before we could introduce the vulnerabilities that could come with the misuse of these tools, it is important to introduce these tools first.
 
 \subsection{Unquote slicing}
-\label{sec:orgd4f65de}
+\label{sec:org20a9ee2}
 "Unquoting" is a facility to introduce \texttt{code-mode} elements into \texttt{data-mode} lists. Here, for instance, is a regular data mode list that evaluates to value \texttt{(1 2 3 4)}:
 
 \begin{verbatim}
@@ -82,7 +84,7 @@ The syntax of unquoting is like so:
 As you could see, the result is still \texttt{(1 2 3 4)}, yet the latter case leveraged \texttt{(* 2 2); => 4} to \emph{unquote} the value \texttt{4} into the list using live code.
 
 \subsection{Macros}
-\label{sec:org0101a0e}
+\label{sec:orgb3c4cfe}
 Marcos are a powerful way of manipulating the syntax of code. Essentially, they are compile-time unraveled directives that take arguments as \texttt{data-mode} lists and return a sliced \texttt{data-mode} expression.
 
 Here's a basic example of the functionality of Macros. Take, for instance, the following expression adding two numbers:
@@ -107,7 +109,7 @@ Now, leveraging this macro, we could write the addition statement in an now admi
 As you could see, this macro did not \emph{evaluate} its arguments, but instead took them as \texttt{data-mode} items and swapped their order. The return value of the macro is yet another \texttt{data-mode} list representing the unwrapped expression (now with the order corrected), which is finally evaluated on runtime.
 
 \section{Dangers of Macro Arguments}
-\label{sec:orgcedb2f4}
+\label{sec:org72bb320}
 Macros do not evaluate nor --- by default --- make any attempts to parse the contents of it arguments. Therefore, if an argument is unquoted wholesale into the result unwrapped expression, it is functionally equivalent to calling \texttt{eval} upon the statement is it will not be parsed at \emph{compile-time} but instead on \emph{run-time}.
 
 Especially dangerous an action is if the argument of macros come from user input, as --- with functions --- the argument would either be passed consciously as fully data or evaluated with \texttt{eval} but is potentially sliced into the source tree and evaluated automatically on run-time for macros.
@@ -147,11 +149,11 @@ And calling it with the same input\ldots{}
 As you could see, the argument is evaluated and passed evaluated \emph{before} the execution of the macro (likely compiled away by the JVM) and, should user data be passed this was as \emph{data}, will not be evaluated at all due to its persistent as a list.
 
 \section{Preventing Macro Argument Evaluation}
-\label{sec:org6282502}
+\label{sec:org6e23cb2}
 The simplest mechanism by which this type of evaluation could be prevented is via the use of assert statements or even list manipulation to establish basic assumptions regarding the argument.
 
 \subsection{Nonexample}
-\label{sec:orgc311164}
+\label{sec:orgce80709}
 For instance, we write the following macro create a list of two elements.
 
 \begin{verbatim}
@@ -174,7 +176,7 @@ However, you could introduce code execution by, for instance, passing an express
 As you could see, the statement \texttt{code execution} is \emph{printed}, instead of all of \texttt{(println "aoenust")} being concatenated to the list to \texttt{1}, as the author of the program presumably desired.
 
 \subsection{\texttt{assert} based solution}
-\label{sec:orgdf6c76d}
+\label{sec:org94713f6}
 One way to solve this is by asserting that the argument \texttt{a} is an \texttt{atom} --- meaning it does not contain \texttt{s-expressions} that could be accidentally evaluated. This would be implemented as follows:
 
 \begin{verbatim}
@@ -196,7 +198,7 @@ And the statement with side-effects would, on \emph{compile-time} throw an \text
 \end{verbatim}
 
 \subsection{More ergonomic solution}
-\label{sec:org1e83406}
+\label{sec:org37ed587}
 There is an even more ergonomic solution to this problem. Instead of validating input, we could coerce the input to \texttt{data-mode} using the quote-expression, essentially sanitizing it. Hence, we could create an even more ergonomic concat like so:
 
 \begin{verbatim}
@@ -219,7 +221,7 @@ and the side-effect statement will perform more ergonomically:
 As you could see, the list is actually, properly sliced in instead of triggering executing code.
 
 \section{Legal/Ethical Concerns}
-\label{sec:org3d6dafa}
+\label{sec:orgb2b4c06}
 The problem that exist with Clojure macro evaluation issues is that it is very easily (and perhaps commonly) created by even seasoned Clojurists.
 
 Exploitation of these issues could take a variety of forms, but the main and easiest form of these payloads probably are introduced through programs that take Clojurescript/Clojure as extension languages, which is becoming more common as it leverages the extensibility of these languages.

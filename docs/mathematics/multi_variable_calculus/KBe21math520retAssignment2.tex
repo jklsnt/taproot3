@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:50
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,7 +54,8 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \href{https://www.desmos.com/calculator/hhb49omfkj}{Desmos graphs}
 
 \begin{latex}
@@ -58,12 +63,12 @@
 \end{latex}
 
 \section{witch of Maria Agnesi}
-\label{sec:org1c63f6b}
+\label{sec:org625a3f4}
 
 Let \(B\) be the center of the orange circle with radius \(a\), let \(D\) be the closest point to \(C\) on the x-axis, and let \(Q\) be the closest point to \(A\) on the y-axis.
 
 \subsection{\(x(t)\)}
-\label{sec:org7c28408}
+\label{sec:orgf3c852a}
 
 \[\begin{aligned}
     \tan \theta &= \frac{\overline{CD}}{\overline{OD}}\\
@@ -73,7 +78,7 @@ Let \(B\) be the center of the orange circle with radius \(a\), let \(D\) be the
    \end{aligned}\]
 
 \subsection{\(y(t)\)}
-\label{sec:org4ffcb1a}
+\label{sec:org722161b}
 
 
 First, note that the distances
@@ -107,7 +112,7 @@ By going back to the original distance relations, we have
 
 
 \section{parameterization of an elipse}
-\label{sec:org13c0f5c}
+\label{sec:orgbf43b35}
 \url{https://www.desmos.com/calculator/wcu1okhjyz}
 
 \[\begin{aligned}
@@ -116,58 +121,58 @@ By going back to the original distance relations, we have
   \end{aligned}\]
 
 \section{mystery curve}
-\label{sec:org6f1928e}
+\label{sec:org1666d40}
 it's just \((a \cos  t, b \sin  t)\) because of how the right triangle aligns with the axes. 
 \begin{latex}
 \setcounter{section}{7}
 \end{latex}
 
 \section{swallowtail catastrophe curves}
-\label{sec:orgd3f171a}
+\label{sec:org5bf186b}
 Defined by 
 \[\begin{aligned}
   x &= 2ct - 4t^3\\
   y &= -ct^2 + 3 t^4
   \end{aligned}\]
 \subsection{features}
-\label{sec:org76786e3}
+\label{sec:org37841aa}
 \subsubsection{approaches a parabola-like shape above the y-axis}
-\label{sec:org2b23d94}
+\label{sec:org49545d0}
 \subsubsection{approaches a parabola-like shape below the x-axis if \(c > 0\)}
-\label{sec:org1dc3753}
+\label{sec:org1de5dea}
 \subsubsection{has a cross-over in a triangle shape}
-\label{sec:orgbeb4d24}
+\label{sec:orgea30445}
 \begin{enumerate}
 \item gets bigger when \(c\) gets bigger
-\label{sec:org3d1ca9f}
+\label{sec:org61e5b88}
 \end{enumerate}
 \subsubsection{it looks like a dorito that scales with the value of \(c\)}
-\label{sec:orgab9f48e}
+\label{sec:org025a485}
 \begin{enumerate}
 \item as \(c\) approaches zero from the positive direction, the swollowtail gets smaller
-\label{sec:orgd5a396c}
+\label{sec:org49279cc}
 \end{enumerate}
 \section{Lissajous Figures}
-\label{sec:org892ee7e}
+\label{sec:org7b92191}
 Defined by 
 \[\begin{aligned}
   x &= a \sin (nt)\\
   y &= b \cos  t
   \end{aligned}\]
 \subsection{features}
-\label{sec:org368396e}
+\label{sec:org1cc22e0}
 \subsubsection{spring-like coil shape (almost like standing waves) with tighter "loops" at the ends}
-\label{sec:org62062c4}
+\label{sec:org5386bc5}
 \subsubsection{\(a, b\) control the size of the coil (default \(-1 \le x, y \le 1\) because of range of \(\sin, \cos\)}
-\label{sec:org9b79357}
+\label{sec:orgf3ab426}
 \subsubsection{number of y-intercepts is \(n+1\) except in the degenerate cases \(n \le 0\)}
-\label{sec:orgce4a70f}
+\label{sec:orgddd5f62}
 
 \begin{latex}
 \setcounter{section}{10}
 \end{latex}
 \section{cycloid}
-\label{sec:org36e9125}
+\label{sec:org5c14b75}
 Suppose instead that the circle slides along the surface and the point rotates at one radian per radian traveled. Let's start with the radian rotation\ldots{}
 
 \[\begin{aligned}
@@ -182,7 +187,7 @@ Then, we just have to move the origin as well:
   y(t) &= r + r \cos t
   \end{aligned}\]
 \section{first order derivative}
-\label{sec:org370bb6d}
+\label{sec:orgc96003c}
 
 I think I did not come to this conclusion on my own on 30 Aug. because I didn't realize we could assume we had \(y(x)\).
 \[\begin{aligned}
@@ -191,7 +196,7 @@ I think I did not come to this conclusion on my own on 30 Aug. because I didn't 
   \frac{dy}{dx} &= \frac{\frac{dy}{dt}}{\frac{dx}{dt}}
   \end{aligned}\]
 \section{second order derivative}
-\label{sec:org37f35bf}
+\label{sec:orge81cf76}
 
 
 \[\begin{aligned}
@@ -222,7 +227,7 @@ um\ldots{} that seems like it didn't actually do anything. I'm kind of stuck\ldo
 
 why should the \(\dot x\) in the bottom be cubed?
 \subsection{in class review}
-\label{sec:orgc144c6f}
+\label{sec:org3114c80}
 
 \[\begin{aligned}
    \frac{d}{dx} \frac{dy}{dx} = \frac{d}{dx} \left( \frac{\frac{dy}{dt}}{\frac{dx}{dt}} \right) = \frac{d}{dx} u = \frac{\frac{du}{dt}}{\frac{dx}{dt}}\\

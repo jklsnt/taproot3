@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 11:52
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,31 +54,32 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{In the context of Linear Algebra (Axler 3.15)}
-\label{sec:org2ea584d}
+\label{sec:org3a7e52f}
 \subsection{\#definition injective\hfill{}\textsc{def}}
-\label{sec:org0a48a82}
+\label{sec:orgb6b1d5a}
 \begin{quote}
 A function \(T : V \to W\) is called \emph{injective} if \(Tu = Tv\) implies \(u = v\)
 \end{quote}
 \subsection{\#aka one-to-one\hfill{}\textsc{aka}}
-\label{sec:org283a8b4}
+\label{sec:org91e39bd}
 \subsection{Properties}
-\label{sec:orgc2135fa}
+\label{sec:org22faa98}
 \subsubsection{A map is injective iff it's null space equals \(\{0\}\)}
-\label{sec:orgfc2d834}
+\label{sec:org064db90}
 \subsubsection{A map to a smaller dimensional space is not injective (Axler3.23)}
-\label{sec:orge08b1d4}
+\label{sec:org4ac36f6}
 \begin{quote}
 Suppose \(V\) and \(W\) are finite-dimensional vector spaces such that \(\text{dim }V > \text{dim }W\). Then no linear map from \(V\) to \(W\) is injective.
 \end{quote}
 \begin{enumerate}
 \item Intuition
-\label{sec:orge1223aa}
+\label{sec:org9c9f1d1}
 That makes sense, because if the output space has a smaller dimension, then there should be two inputs that go to the same output somewhere. Otherwise all the inputs just don't "fit".
 \end{enumerate}
 \subsection{Intuition}
-\label{sec:org692b7cf}
+\label{sec:org1c6e6cf}
 \(Tu = Tv \implies u = v\) means that if the outputs are the same, then the inputs are the same, aka only one input goes to that one output. That's why it's called "one-to-one": only one input goes to that one output
 \end{document}

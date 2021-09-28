@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:50
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,102 +54,103 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{new schedule today :/}
-\label{sec:org7032063}
+\label{sec:org6f89e27}
 \section{Systems of equations, matrix equations, and vectors}
-\label{sec:org6237afe}
+\label{sec:org24d8308}
 
 \section{in class work! See \begin{center}
 \includegraphics[width=.9\linewidth]{./KBe20math530srcNull_space_and_column_space_intro.pdf}
 \end{center}}
-\label{sec:orgf0e7bf9}
+\label{sec:org8cb43cc}
 \subsection{\(A=\begin{pmatrix}1&0\\0&1\end{pmatrix}\)}
-\label{sec:orgc8e958f}
+\label{sec:org6a919eb}
 \subsubsection{How many solutions \(x\) satisfy \(Ax=0\)?}
-\label{sec:org4f1e45e}
+\label{sec:org82895c3}
 The only solution is x=0, because \(Ax = x\).
 \subsubsection{When the answer is "infinitely many" what tools might we have to describe the size of that set?}
-\label{sec:org2127fed}
+\label{sec:orgeb12cd5}
 N/A
 \subsubsection{How many possible outcomes \(b\) are there for the equation \(Ax=b\) for any \(x\).}
-\label{sec:org848df56}
+\label{sec:orga75a800}
 There can be infintely many vaules of \(b\)..? The vector space is dim 2
 \subsection{\(A=\begin{pmatrix}1&0&0\\0&1&0\end{pmatrix}\)}
-\label{sec:orgc12b11e}
+\label{sec:org27f11dd}
 \subsubsection{How many solutions \(x\) satisfy \(Ax=0\)?}
-\label{sec:org7e23d75}
+\label{sec:org8d81b61}
 Infinitely many (anything of the form \(\begin{pmatrix}0\\0\\x\end{pmatrix}\))
 \subsubsection{When the answer is "infinitely many" what tools might we have to describe the size of that set?}
-\label{sec:org78eb688}
+\label{sec:orgc1bf65b}
 A column in the matrix is zero? Maybe the columns are linearly dependent. Input is dim 1
 \subsubsection{How many possible outcomes \(b\) are there for the equation \(Ax=b\) for any \(x\).}
-\label{sec:orgf63c314}
+\label{sec:orga75acb2}
 Infinite with \(\text{dim} 2\)?
 \subsection{\(A = \begin{pmatrix}1&0\\0&1\\0&0\end{pmatrix}\)}
-\label{sec:org147a40d}
+\label{sec:org116f9f8}
 \subsubsection{How many solutions \(x\) satisfy \(Ax=0\)?}
-\label{sec:org43ef87e}
+\label{sec:orgaeb313c}
 Only one value of \(x\) makes the product zero.
 \subsubsection{When the answer is "infinitely many" what tools might we have to describe the size of that set?}
-\label{sec:org311dddf}
+\label{sec:orga25e718}
 n/a
 \subsubsection{How many possible outcomes \(b\) are there for the equation \(Ax=b\) for any \(x\).}
-\label{sec:orgd468ea3}
+\label{sec:org8295269}
 column vector has dimension 3, but the vector space has dim 2
 \subsection{\(A = \begin{pmatrix}1&0&0\\0&1&0\\0&0&0\end{pmatrix}\)}
-\label{sec:org325da85}
+\label{sec:orgcd21d8e}
 \subsubsection{How many solutions \(x\) satisfy \(Ax=0\)?}
-\label{sec:orgbe27ac7}
+\label{sec:org47338a5}
 infinite, same vectors as subproblem 2
 \subsubsection{When the answer is "infinitely many" what tools might we have to describe the size of that set?}
-\label{sec:org25c327f}
+\label{sec:org4c9fd6a}
 dimension 2? column vectors in the matrix are linearly dependent.
 \subsubsection{How many possible outcomes \(b\) are there for the equation \(Ax=b\) for any \(x\).}
-\label{sec:org41b9458}
+\label{sec:orgb711080}
 infinite, dim 2 (but each vector is dim 3)
 \subsection{\(A = \begin{pmatrix}1&0&0\\0&1&0\\0&1&0\end{pmatrix}\)}
-\label{sec:orga7052cd}
+\label{sec:org93ea837}
 \subsubsection{How many solutions \(x\) satisfy \(Ax=0\)?}
-\label{sec:orgd3ed52f}
+\label{sec:org3df4a24}
 infinite, vectors of the form \(\begin{pmatrix}0\\a\\-a\end{pmatrix}\) (columns linearly dependent)
 \subsubsection{When the answer is "infinitely many" what tools might we have to describe the size of that set?}
-\label{sec:orgc53a57b}
+\label{sec:org0214803}
 dimension 2 subspace of \(\mathbb F^3\)
 \subsubsection{How many possible outcomes \(b\) are there for the equation \(Ax=b\) for any \(x\).}
-\label{sec:orgb1f8595}
+\label{sec:org8529166}
 infinite, dim2 subspace of \(\mathbb F^3\)
 \subsection{\(A = \begin{pmatrix}0&0&0\\0&0&3\\0&0&0\end{pmatrix}\)}
-\label{sec:org6db5e17}
+\label{sec:orge692f95}
 \subsubsection{How many solutions \(x\) satisfy \(Ax=0\)?}
-\label{sec:org914f93f}
+\label{sec:org4573c61}
 infinite, vectors of the form \(\begin{pmatrix}a\\b\\0\end{pmatrix}\) (columns linearly dependent)
 \subsubsection{When the answer is "infinitely many" what tools might we have to describe the size of that set?}
-\label{sec:org5e815f8}
+\label{sec:orgbec0d1a}
 dim 2 subspace of \(\mathbb F^3\)
 \subsubsection{How many possible outcomes \(b\) are there for the equation \(Ax=b\) for any \(x\).}
-\label{sec:org8ff7ffd}
+\label{sec:orgf5991d9}
 output has dim 1
 \subsection{\(A = \begin{pmatrix}1&2&-1\\1&-1&0\\3&3&-2\end{pmatrix}\)}
-\label{sec:org99afb27}
+\label{sec:orgac3b9df}
 \subsubsection{How many solutions \(x\) satisfy \(Ax=0\)?}
-\label{sec:orgb516e10}
+\label{sec:orgc95a8ee}
 Seems like the rows are linearly independent, so it should be just 1 solution \(x=0\)?
 infinite, vectors of the form \(\begin{pmatrix}a\\b\\0\end{pmatrix}\) (columns linearly dependent)
 \subsubsection{When the answer is "infinitely many" what tools might we have to describe the size of that set?}
-\label{sec:org04a9601}
+\label{sec:org66bfd2e}
 dim 0
 \subsubsection{How many possible outcomes \(b\) are there for the equation \(Ax=b\) for any \(x\).}
-\label{sec:orgd6a7743}
+\label{sec:orgfc143e3}
 output should be dim 3
 
 \section{Then we talked about some stuff}
-\label{sec:org7e012e6}
+\label{sec:orgc95909a}
 
 \subsection{see \url{./KBrefHomogeneousEquations.org} and \url{./KBrefColumnSpace.org}}
-\label{sec:org8a948bf}
+\label{sec:org3e6298f}
 
 \subsection{The null space is the stuff that gets sent to zero (responses to subpart 1)\hfill{}\textsc{definition:toexpand}}
-\label{sec:orgb50d228}
+\label{sec:org00994bf}
 See \href{KBrefNullSpace.org}{Null Spaces}
 \end{document}

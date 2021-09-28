@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:49
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,18 +54,19 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{Lemma}
-\label{sec:org90b4001}
+\label{sec:orgdb7400e}
 
 \begin{quote}
 The length of a linearly indpendent list is less than or equal to the length of a spanning list over some vector space \(V\).
 \end{quote}
 
 \section{Intermediate Result: Span of a linearly independent extension of a linearly independent list has more elements than the span of the original list.}
-\label{sec:orgfa7f1ba}
+\label{sec:org04fd6f2}
 \subsection{Lemma}
-\label{sec:org755914b}
+\label{sec:orgc427d50}
   Given a linearly independent list \(v = v_1, \ldots, v_k\) where each vector \(v_1, \ldots, v_k \in V\) and another vector \(v_{k+1}\) which is linearly independent with \(v\), show that
 $$\text{span}\left(v_1, \ldots, v_k, v_{k+1}\right)$$
 contains elements that are not in
@@ -69,14 +74,14 @@ $$\text{span}\left(v_1, \ldots, v_k\right)$$
 TODO: This needs to show that a longer list will have a larger span, not just an extended one.
 
 \subsection{Proof}
-\label{sec:orgf2d0df8}
+\label{sec:orgd0e8680}
    Because \(v_{k+1}\) is linearly independent with \(v\), it cannot be written as a linear combination of elements in \(v\). Thus,
 $$v_{k+1} \notin \text{span}\left(v_1, \ldots, v_k\right)$$
 However, \(v_{k+1}\) must be in the span of the extended list, because we can write \(v_{k+1}\) as
 $$0v_1 + 0v_2 + \ldots + 0v_k + 1v_{k+1}$$
 Thus, the extended list contains atleast one element that the original did not.
 \section{Proof}
-\label{sec:org7d0925e}
+\label{sec:org8776f82}
 Given a spanning list \(u = u_1, \ldots, u_j\) and a linearly independent list \(v = v_1, \ldots, v_k\), show that the \(|u| \ge |v|\). The Linear Dependence Lemma states that while \(u\) is linearly dependent, it is possible to remove some vector \(u_i\) from \(u\) such that the span stays the same. Thus, there exists a linearly independent list \(b\) that has the same span as \(u\), aka that also spans \(V\). Because this list can be obtained by removing elements from \(u\), \(|b| \le |u|\).
 
 The linearly independent list \(v\) must be shorter than or equal to \(b\) in length, because otherwise, \(\text{span }v\) would have more elements than \(\text{span }b\) by the intermediate result. Thus, \(|v| \le |b| \le |u|\).

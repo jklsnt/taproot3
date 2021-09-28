@@ -1,4 +1,4 @@
-% Created 2021-09-12 Sun 22:50
+% Created 2021-09-27 Mon 11:53
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -12,8 +12,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\setlength{\parindent}{0pt}
 \usepackage[margin=1in]{geometry}
 \usepackage{fontspec}
+\usepackage{svg}
+\usepackage{cancel}
 \usepackage{indentfirst}
 \setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
 \newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
@@ -33,6 +36,7 @@
 \lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
 \cfoot{}
 \rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
 \titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
 \titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
 \titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
@@ -50,25 +54,26 @@
  pdflang={English}}
 \begin{document}
 
-\maketitle
+\tableofcontents
+
 \section{diagonal matrix\hfill{}\textsc{def}}
-\label{sec:orgb03087e}
+\label{sec:org87d368b}
 \begin{quote}
 A \emph{diagonal matrix} is a square matrix that is zero everywhere except possibly along the \href{KBrefDiagonalOfAMatrix.org}{diagonal}.
 \end{quote}
 \subsection{results}
-\label{sec:org5d53654}
+\label{sec:orgf8e70e0}
 \subsubsection{every diagonal matrix is upper triangular}
-\label{sec:orgdd949ca}
+\label{sec:org0b7b18d}
 \section{diagonalizable\hfill{}\textsc{def}}
-\label{sec:org787a176}
+\label{sec:org4917b43}
 \begin{quote}
 An operator \(T \in  \mathcal{L} (V)\) is called \emph{diagonalizable} if the operator has a diagonal matrix with respect to some basis of \(V\).
 \end{quote}
 \subsection{results}
-\label{sec:orga57c2b9}
+\label{sec:orga5bac92}
 \subsubsection{Axler5.41 conditions equivalent to diagonalizability}
-\label{sec:orgbdc7870}
+\label{sec:org064e327}
 \begin{quote}
 Suppose \(V\) is finite-dimensional  and \(T \in  \mathcal{L} (V)\). Let \(\lambda_1, \ldots, \lambda_m\) denote the distinct eigenvalues of \(T\). Then the following are equivalent:
 \begin{enumerate}
@@ -85,19 +90,19 @@ Suppose \(V\) is finite-dimensional  and \(T \in  \mathcal{L} (V)\). Let \(\lamb
 \end{enumerate}
 \end{quote}
 \subsubsection{Axler5.44 Enough eigenvalues implies diagonalizability}
-\label{sec:org6ee4668}
+\label{sec:orgfca1f7c}
 \begin{quote}
 If \(T\in \mathcal{L} (V)\) has \(\odim V\) distinct eigenvalues, then \(T\) is diagonalizable.
 \end{quote}
 \begin{enumerate}
 \item intuition
-\label{sec:orgb1e1cb7}
+\label{sec:org41b990b}
 Because distinct eigenvalues correspond to linearly independent eigenvectors, so there will be enough linearly independent eigenvecs to form a basis and thus a diagonal matrix.
 
 In fact, we just need the geometric multiplicities to add up (a result Axler promises in later chapters)
 \end{enumerate}
 \subsubsection{Relationship to non-diagonal matrix (in class 31 March 2021)}
-\label{sec:orga941177}
+\label{sec:orge1f6a43}
 Suppose \(A\) is the original map (not diagonal), and that \(P\) is the matrix where each column is an eigenvector written in terms of the original basis (standard basis, usually). Then
 \[\begin{aligned}
     AP = PD
@@ -105,6 +110,6 @@ Suppose \(A\) is the original map (not diagonal), and that \(P\) is the matrix w
 where \(D\) is the diagonal matrix.
 \begin{enumerate}
 \item this (or a conjugation??) forms a similarity transform, which is a type of equivalence relation
-\label{sec:orgd89a82f}
+\label{sec:orgc8e30fc}
 \end{enumerate}
 \end{document}
