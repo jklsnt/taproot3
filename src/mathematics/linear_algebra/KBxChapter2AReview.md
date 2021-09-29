@@ -11,6 +11,7 @@ date: 2021-09-23
 
 
 # Chapter 2A, In Class
+you most likely want to be at [[KBxChapter2AReading]]
 
 span of one vec, line
 span of 2 vec, plane

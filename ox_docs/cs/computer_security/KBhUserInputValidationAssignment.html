@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 14:16 -->
+<!-- 2021-09-28 Tue 09:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>User Input Validation Assignment</title>
@@ -219,32 +219,32 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">User Input Validation Assignment</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-09-27 Mon 14:16</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">User Input Validation Assignment</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-09-28 Tue 09:33</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>CS240 Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org9a2ac85">1. Clojure, in brief&#x2026;</a>
+<li><a href="#org481d4cf">1. Clojure, in brief&#x2026;</a>
 <ul>
-<li><a href="#org4d87c2a">1.1. Unquote slicing</a></li>
-<li><a href="#orgb77cd45">1.2. Macros</a></li>
+<li><a href="#org2ab202b">1.1. Unquote slicing</a></li>
+<li><a href="#orgc30b157">1.2. Macros</a></li>
 </ul>
 </li>
-<li><a href="#org95a81bc">2. Dangers of Macro Arguments</a></li>
-<li><a href="#orgdac71c2">3. Preventing Macro Argument Evaluation</a>
+<li><a href="#orga8c2fbb">2. Dangers of Macro Arguments</a></li>
+<li><a href="#orgb0ae3f5">3. Preventing Macro Argument Evaluation</a>
 <ul>
-<li><a href="#org462e43d">3.1. Nonexample</a></li>
-<li><a href="#orgcf580f7">3.2. <code>assert</code> based solution</a></li>
-<li><a href="#orga2e564c">3.3. More ergonomic solution</a></li>
+<li><a href="#orgd392a3e">3.1. Nonexample</a></li>
+<li><a href="#orged9c7e9">3.2. <code>assert</code> based solution</a></li>
+<li><a href="#org4084d6d">3.3. More ergonomic solution</a></li>
 </ul>
 </li>
-<li><a href="#orga318bbf">4. Legal/Ethical Concerns</a></li>
+<li><a href="#orgeb46795">4. Legal/Ethical Concerns</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org9a2ac85" class="outline-2">
-<h2 id="org9a2ac85"><span class="section-number-2">1</span> Clojure, in brief&#x2026;</h2>
+<div id="outline-container-org481d4cf" class="outline-2">
+<h2 id="org481d4cf"><span class="section-number-2">1</span> Clojure, in brief&#x2026;</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The programming language <a href="https://clojure.org/">Clojure</a>, a variant of Lisp built atop the Java Virtual Machine, is known to be a safe language to low level attacks such as buffer overflow due to the insulation of its execution space.
@@ -259,8 +259,8 @@ Before we could introduce the vulnerabilities that could come with the misuse of
 </p>
 </div>
 
-<div id="outline-container-org4d87c2a" class="outline-3">
-<h3 id="org4d87c2a"><span class="section-number-3">1.1</span> Unquote slicing</h3>
+<div id="outline-container-org2ab202b" class="outline-3">
+<h3 id="org2ab202b"><span class="section-number-3">1.1</span> Unquote slicing</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 "Unquoting" is a facility to introduce <code>code-mode</code> elements into <code>data-mode</code> lists. Here, for instance, is a regular data mode list that evaluates to value <code>(1 2 3 4)</code>:
@@ -270,6 +270,11 @@ Before we could introduce the vulnerabilities that could come with the misuse of
 <pre class="src src-clojure">'(1 2 3 4)
 </pre>
 </div>
+
+<pre class="example">
+(1 2 3 4)
+</pre>
+
 
 <p>
 Leveraging "unquoting", we could instead execute a <i>statement</i> that returns, for instance, <code>4</code> in place of the number <code>4</code> in the list instead of supplying the r-value <code>4</code> itself: therefore resulting in the same list but introducing live code during its parsing.
@@ -284,14 +289,19 @@ The syntax of unquoting is like so:
 </pre>
 </div>
 
+<pre class="example">
+(1 2 3 4)
+</pre>
+
+
 <p>
 As you could see, the result is still <code>(1 2 3 4)</code>, yet the latter case leveraged <code>(* 2 2); =&gt; 4</code> to <i>unquote</i> the value <code>4</code> into the list using live code.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgb77cd45" class="outline-3">
-<h3 id="orgb77cd45"><span class="section-number-3">1.2</span> Macros</h3>
+<div id="outline-container-orgc30b157" class="outline-3">
+<h3 id="orgc30b157"><span class="section-number-3">1.2</span> Macros</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Marcos are a powerful way of manipulating the syntax of code. Essentially, they are compile-time unraveled directives that take arguments as <code>data-mode</code> lists and return a sliced <code>data-mode</code> expression.
@@ -306,6 +316,11 @@ Here's a basic example of the functionality of Macros. Take, for instance, the f
 </pre>
 </div>
 
+<pre class="example">
+3
+</pre>
+
+
 <p>
 We will now write a macro whose behavior is to reverse the order of the first two expressions before evaluating, like so:
 </p>
@@ -316,6 +331,11 @@ We will now write a macro whose behavior is to reverse the order of the first tw
 </pre>
 </div>
 
+<pre class="example">
+#'user/rev-arg
+</pre>
+
+
 <p>
 Now, leveraging this macro, we could write the addition statement in an now admittedly weird manner:
 </p>
@@ -325,6 +345,11 @@ Now, leveraging this macro, we could write the addition statement in an now admi
 </pre>
 </div>
 
+<pre class="example">
+3
+</pre>
+
+
 <p>
 As you could see, this macro did not <i>evaluate</i> its arguments, but instead took them as <code>data-mode</code> items and swapped their order. The return value of the macro is yet another <code>data-mode</code> list representing the unwrapped expression (now with the order corrected), which is finally evaluated on runtime.
 </p>
@@ -332,8 +357,8 @@ As you could see, this macro did not <i>evaluate</i> its arguments, but instead 
 </div>
 </div>
 
-<div id="outline-container-org95a81bc" class="outline-2">
-<h2 id="org95a81bc"><span class="section-number-2">2</span> Dangers of Macro Arguments</h2>
+<div id="outline-container-orga8c2fbb" class="outline-2">
+<h2 id="orga8c2fbb"><span class="section-number-2">2</span> Dangers of Macro Arguments</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Macros do not evaluate nor &#x2014; by default &#x2014; make any attempts to parse the contents of it arguments. Therefore, if an argument is unquoted wholesale into the result unwrapped expression, it is functionally equivalent to calling <code>eval</code> upon the statement is it will not be parsed at <i>compile-time</i> but instead on <i>run-time</i>.
@@ -355,6 +380,11 @@ Here's the simplest example of runtime evaluation caused by a macro:
 </pre>
 </div>
 
+<pre class="example">
+#'user/secreteval
+</pre>
+
+
 <p>
 And now, we call this macro to demonstrate the run-time eval.
 </p>
@@ -363,6 +393,12 @@ And now, we call this macro to demonstrate the run-time eval.
 <pre class="src src-clojure">(secreteval (println "two"))
 </pre>
 </div>
+
+<pre class="example">
+one
+two
+</pre>
+
 
 <p>
 The <code>stdout</code> result is printed in order of <code>one</code> <code>two</code>, meaning that, indeed, the execution of the argument <code>(println "two")</code> not only took place but took place <i>after</i> the execution of the first part of the macro.
@@ -380,6 +416,11 @@ Compare this to the following functionally almost-similar <i>function</i>:
 </pre>
 </div>
 
+<pre class="example">
+#'user/nosecreteval
+</pre>
+
+
 <p>
 And calling it with the same input&#x2026;
 </p>
@@ -389,22 +430,28 @@ And calling it with the same input&#x2026;
 </pre>
 </div>
 
+<pre class="example">
+two
+one
+</pre>
+
+
 <p>
 As you could see, the argument is evaluated and passed evaluated <i>before</i> the execution of the macro (likely compiled away by the JVM) and, should user data be passed this was as <i>data</i>, will not be evaluated at all due to its persistent as a list.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgdac71c2" class="outline-2">
-<h2 id="orgdac71c2"><span class="section-number-2">3</span> Preventing Macro Argument Evaluation</h2>
+<div id="outline-container-orgb0ae3f5" class="outline-2">
+<h2 id="orgb0ae3f5"><span class="section-number-2">3</span> Preventing Macro Argument Evaluation</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The simplest mechanism by which this type of evaluation could be prevented is via the use of assert statements or even list manipulation to establish basic assumptions regarding the argument.
 </p>
 </div>
 
-<div id="outline-container-org462e43d" class="outline-3">
-<h3 id="org462e43d"><span class="section-number-3">3.1</span> Nonexample</h3>
+<div id="outline-container-orgd392a3e" class="outline-3">
+<h3 id="orgd392a3e"><span class="section-number-3">3.1</span> Nonexample</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 For instance, we write the following macro create a list of two elements.
@@ -416,6 +463,11 @@ For instance, we write the following macro create a list of two elements.
 </pre>
 </div>
 
+<pre class="example">
+#'user/bad-concat
+</pre>
+
+
 <p>
 Calling it with some "normal" elements will act as you'd expect.
 </p>
@@ -424,6 +476,11 @@ Calling it with some "normal" elements will act as you'd expect.
 <pre class="src src-clojure">(bad-concat 12)
 </pre>
 </div>
+
+<pre class="example">
+(1 12)
+</pre>
+
 
 <p>
 However, you could introduce code execution by, for instance, passing an expression that produces a side effect.
@@ -434,14 +491,19 @@ However, you could introduce code execution by, for instance, passing an express
 </pre>
 </div>
 
+<pre class="example">
+Code execution!
+</pre>
+
+
 <p>
 As you could see, the statement <code>code execution</code> is <i>printed</i>, instead of all of <code>(println "aoenust")</code> being concatenated to the list to <code>1</code>, as the author of the program presumably desired.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgcf580f7" class="outline-3">
-<h3 id="orgcf580f7"><span class="section-number-3">3.2</span> <code>assert</code> based solution</h3>
+<div id="outline-container-orged9c7e9" class="outline-3">
+<h3 id="orged9c7e9"><span class="section-number-3">3.2</span> <code>assert</code> based solution</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 One way to solve this is by asserting that the argument <code>a</code> is an <code>atom</code> &#x2014; meaning it does not contain <code>s-expressions</code> that could be accidentally evaluated. This would be implemented as follows:
@@ -454,6 +516,11 @@ One way to solve this is by asserting that the argument <code>a</code> is an <co
 </pre>
 </div>
 
+<pre class="example">
+#'user/better-concat
+</pre>
+
+
 <p>
 The first example returns what one would expect:
 </p>
@@ -463,6 +530,11 @@ The first example returns what one would expect:
 </pre>
 </div>
 
+<pre class="example">
+(1 12)
+</pre>
+
+
 <p>
 And the statement with side-effects would, on <i>compile-time</i> throw an <code>AssertError</code>.
 </p>
@@ -471,11 +543,15 @@ And the statement with side-effects would, on <i>compile-time</i> throw an <code
 <pre class="src src-clojure">(better-concat (println "Code execution!"))
 </pre>
 </div>
+
+<pre class="example">
+class clojure.lang.Compiler$CompilerException
+</pre>
 </div>
 </div>
 
-<div id="outline-container-orga2e564c" class="outline-3">
-<h3 id="orga2e564c"><span class="section-number-3">3.3</span> More ergonomic solution</h3>
+<div id="outline-container-org4084d6d" class="outline-3">
+<h3 id="org4084d6d"><span class="section-number-3">3.3</span> More ergonomic solution</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 There is an even more ergonomic solution to this problem. Instead of validating input, we could coerce the input to <code>data-mode</code> using the quote-expression, essentially sanitizing it. Hence, we could create an even more ergonomic concat like so:
@@ -487,6 +563,11 @@ There is an even more ergonomic solution to this problem. Instead of validating 
 </pre>
 </div>
 
+<pre class="example">
+#'user/ergo-concat
+</pre>
+
+
 <p>
 The first example still remains the same:
 </p>
@@ -495,6 +576,11 @@ The first example still remains the same:
 <pre class="src src-clojure">(ergo-concat 12)
 </pre>
 </div>
+
+<pre class="example">
+(1 12)
+</pre>
+
 
 <p>
 and the side-effect statement will perform more ergonomically: 
@@ -505,6 +591,11 @@ and the side-effect statement will perform more ergonomically:
 </pre>
 </div>
 
+<pre class="example">
+(1 (println "Code execution!"))
+</pre>
+
+
 <p>
 As you could see, the list is actually, properly sliced in instead of triggering executing code.
 </p>
@@ -512,8 +603,8 @@ As you could see, the list is actually, properly sliced in instead of triggering
 </div>
 </div>
 
-<div id="outline-container-orga318bbf" class="outline-2">
-<h2 id="orga318bbf"><span class="section-number-2">4</span> Legal/Ethical Concerns</h2>
+<div id="outline-container-orgeb46795" class="outline-2">
+<h2 id="orgeb46795"><span class="section-number-2">4</span> Legal/Ethical Concerns</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 The problem that exist with Clojure macro evaluation issues is that it is very easily (and perhaps commonly) created by even seasoned Clojurists.

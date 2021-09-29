@@ -29,24 +29,9 @@ source: #index
 
 # Revolution and Causality
 
-the next assignment: historigraphical in nature. synthesithing multiple arguments about causality. small groups, 
+the next assignment: historigraphical in nature. synthesithing multiple arguments about causality.
+
 - [[KBxCausalityAndRevolutionsD1]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [[KBhAmericanRevolution]]
+- [[KBxHistoriographyOfTheRevolutionReadingNotes]]
+- [[KBhBalylinIdeologicalOrigins]] 

@@ -32,4 +32,5 @@ source:  #index
 [[KBxBestFitLinesViaMatrixEquations]]
 [[KBx2AQuestionsHW]]
 [[KBx2ABestFitLinesReview]]
+[[KBx2AExercises]]
 

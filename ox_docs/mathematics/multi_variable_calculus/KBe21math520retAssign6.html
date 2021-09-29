@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:55 -->
+<!-- 2021-09-28 Tue 13:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Assignment 6: Area of Polar Curves</title>
@@ -216,52 +216,71 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Assignment 6: Area of Polar Curves</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Assignment 6: Area of Polar Curves</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-28 Tue 13:38</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orga52cd78">1. shaded area problems</a></li>
-<li><a href="#org0509d99">2. intersection of two circles</a></li>
-<li><a href="#org45e5263">3. overlap between \(r=1\) and \(1+2\cos 2\theta\)</a>
+<li><a href="#orge77a7fb">1. shaded area problems</a></li>
+<li><a href="#orgb88875d">2. intersection of two circles</a></li>
+<li><a href="#org869715e">3. overlap between \(r=1\) and \(1+2\cos 2\theta\)</a>
 <ul>
-<li><a href="#orgfb95ff6">3.1. the bounds</a></li>
-<li><a href="#org94320c0">3.2. large petal area</a></li>
-<li><a href="#orge2ea496">3.3. large petal outer area</a></li>
-<li><a href="#orgd0b1a8f">3.4. small petals</a></li>
-<li><a href="#org97cdc7a">3.5. total area</a></li>
+<li><a href="#org227a55c">3.1. the bounds</a></li>
+<li><a href="#org8256f82">3.2. large petal area</a></li>
+<li><a href="#org770fc3c">3.3. large petal outer area</a></li>
+<li><a href="#org5fe053f">3.4. small petals</a></li>
+<li><a href="#org4d95376">3.5. total area</a></li>
 </ul>
 </li>
 </ul>
 </div></div>
 </div>
-<div id="outline-container-orga52cd78" class="outline-2">
-<h2 id="orga52cd78"><span class="section-number-2">1</span> shaded area problems</h2>
+<div id="outline-container-orge77a7fb" class="outline-2">
+<h2 id="orge77a7fb"><span class="section-number-2">1</span> shaded area problems</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://nuevaschool.instructure.com/courses/3837/files/434017/preview">choices</a>.
@@ -303,8 +322,8 @@ Anyway, Wolfram Alpha says that the area is \(-\frac{1}{2} \cos  2\theta\)
 </p>
 </div>
 </div>
-<div id="outline-container-org0509d99" class="outline-2">
-<h2 id="org0509d99"><span class="section-number-2">2</span> intersection of two circles</h2>
+<div id="outline-container-orgb88875d" class="outline-2">
+<h2 id="orgb88875d"><span class="section-number-2">2</span> intersection of two circles</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 \[\begin{aligned}
@@ -373,16 +392,16 @@ and thus,
 </p>
 </div>
 </div>
-<div id="outline-container-org45e5263" class="outline-2">
-<h2 id="org45e5263"><span class="section-number-2">3</span> overlap between \(r=1\) and \(1+2\cos 2\theta\)</h2>
+<div id="outline-container-org869715e" class="outline-2">
+<h2 id="org869715e"><span class="section-number-2">3</span> overlap between \(r=1\) and \(1+2\cos 2\theta\)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The plan: do the part outside the circle, then subtract it from the full big petal. Add the inner petal, and multiply by two.
 </p>
 </div>
 
-<div id="outline-container-orgfb95ff6" class="outline-3">
-<h3 id="orgfb95ff6"><span class="section-number-3">3.1</span> the bounds</h3>
+<div id="outline-container-org227a55c" class="outline-3">
+<h3 id="org227a55c"><span class="section-number-3">3.1</span> the bounds</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Lets start with finding the points where things cross the origin
@@ -408,8 +427,8 @@ The bounds for the outer portion of the big petal is
 </div>
 
 
-<div id="outline-container-org94320c0" class="outline-3">
-<h3 id="org94320c0"><span class="section-number-3">3.2</span> large petal area</h3>
+<div id="outline-container-org8256f82" class="outline-3">
+<h3 id="org8256f82"><span class="section-number-3">3.2</span> large petal area</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 \[\begin{aligned}
@@ -419,19 +438,19 @@ The bounds for the outer portion of the big petal is
 </div>
 </div>
 
-<div id="outline-container-orge2ea496" class="outline-3">
-<h3 id="orge2ea496"><span class="section-number-3">3.3</span> large petal outer area</h3>
+<div id="outline-container-org770fc3c" class="outline-3">
+<h3 id="org770fc3c"><span class="section-number-3">3.3</span> large petal outer area</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 \[\begin{aligned}
-   A_o = \int_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \frac{1}{2} \left( (1 + 2 \cos  2 \theta )^2 - 1 \right)  d\theta 
+   A_o = \int_{-\frac{\pi}{4}}^{\frac{\pi}{4}} \frac{1}{2} \left( (1 + 2 \cos  2 \theta )^2 - 1 \right)  d\theta 
    \end{aligned}\]
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgd0b1a8f" class="outline-3">
-<h3 id="orgd0b1a8f"><span class="section-number-3">3.4</span> small petals</h3>
+<div id="outline-container-org5fe053f" class="outline-3">
+<h3 id="org5fe053f"><span class="section-number-3">3.4</span> small petals</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 \[\begin{aligned}
@@ -442,12 +461,12 @@ The bounds for the outer portion of the big petal is
 </div>
 
 
-<div id="outline-container-org97cdc7a" class="outline-3">
-<h3 id="org97cdc7a"><span class="section-number-3">3.5</span> total area</h3>
+<div id="outline-container-org4d95376" class="outline-3">
+<h3 id="org4d95376"><span class="section-number-3">3.5</span> total area</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 \[\begin{aligned}
-   A = 2(A_p - A_o + A_s)
+   A = 2(A_p - A_o + A_s) = 2\pi -4
    \end{aligned}\]
 </p>
 </div>
