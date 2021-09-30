@@ -1,151 +1,536 @@
-<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="David Freifeld" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>User Input Validation</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
-        'displayAlign': 'center',
-        'displayIndent': '0em',
-        'extensions': ['tex2jax.js'],
-        'tex2jax': {
-        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
-        'processEscapes': true
-        },
-        'HTML-CSS': { scale: 100,
-                        linebreaks: { automatic: 'false' },
-                        webFont: 'TeX'
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: 'false' },
-              font: 'TeX'},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: 'AMS'},
-               MultLineWidth: '85%',
-               TagSide: 'right',
-               TagIndent: '.8em'
-             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">User Input Validation</h1></div><div class="metamble"><span><span>Written by </span><span>David Freifeld</span></span></div><div class="notebody"><div><section><p><span>I chose the </span><em><span>buffer overflow</span></em><span> example provided in the assignment that consisted of the following code:</span></p><pre class="language-C"><code class="language-C">  #include "stdio.h"
-  #include "string.h"
-  
-  int check_authentication(char *password) {
-      int auth_flag = 0;
-      char password_buffer[20];
-  
-      strcpy(password_buffer, password);
-  
-      if (strcmp(password_buffer, "password") == 0) {
-          auth_flag = 1;
-      }
-  
-      return auth_flag;
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-27 Mon 15:24 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>User Input Validation</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="David Freifeld" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
   }
-  
-  int main(int argc, char* argv[]) {
-      if (argc < 2) {
-          printf("Usage: %s <password>\n", argv[0]);
-      }
-  
-      if (check_authentication(argv[1])) {
-          printf("Access Granted.\n");
-      } else {
-          printf("Access Denied.\n");
-      }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
   }
-</code></pre><p><span>Intended usage would be to compile with </span><code>gcc buffer_overflow.c -o buffer_overflow</code><span> and run </span><code>./buffer_overflow password</code><span> to get an "Access Granted." message.</span></p><p><span>However, since the buffer is located immediately before the </span><code>auth_flag</code><span> variable used to check if a user has authenticated and </span><code>strcpy</code><span> copies the </span><em><span>entire</span></em><span> user input to the buffer, you could input a string longer than 20 characters that would then overwrite the </span><code>auth_flag</code><span> variable. Additionally, since nonzero integers are "truthy" in C, this means that any ascii value except for the null character would do the trick. A user could accidentally gain access without intentionally attempting to be malicious by simply typing a password over 20 characters.</span></p><p><span>Compiling with </span><code>gcc -fno-stack-protector -D_FORTIFY_SOURCE=0 buffer_overflow.c -o buffer_overflow</code><span>  then running it with </span><code>./buffer_overflow aaaaaaaaaaaaaaaaaaaaa</code><span> yields "Access Granted."</span></p></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="potential-fixes"><span class="firn-headline-text"><span>Potential Fixes</span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="strncpy"><span class="firn-headline-text"><code>strncpy</code></span></h2><section><p><span>You could replace </span><code>strcpy(password_buffer, password)</code><span> with </span><code>strncpy(password_buffer, password, 20)</code><span> to only copy 20 characters and ensure that it would not buffer overflow - but this would introduce another problem. Were a user to input a string longer than 20 characters it would only copy over the first 20 without any form of null terminator, so when the program tries to read this string, it will segfault.</span></p><p><span>You could rectify this by doing a manual check: after it copies a string, </span><code>strncpy</code><span> fills the rest of the buffer with 0, so if the final byte of a buffer is not a null terminator, </span><code>strncpy</code><span> didn't copy the entire string and you can gracefully error.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="strcpy_s"><span class="firn-headline-text"><code>strcpy_s</code></span></h2><section><p><span>You could use a function introduced in C11 called </span><code>strcpy_s</code><span> that takes a destination string, size, and source string, yet returns an error when the source string is longer than the size instead of naively copying over anyways. You could then handle the error and exit gracefully or ask for another input.</span></p><p><span>A version of the </span><code>check_authentication()</code><span> function that is improved in this way would look like the following:</span></p><pre class="language-C"><code class="language-C">  int check_authentication(char *password) {
-    char password_buffer[20];  
-    strcpy_s(password_buffer, 20, password);
-    if (strcmp(password_buffer, "password") == 0) {
-        return 1;
-    } else {
-        return 0;
-    }  
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
   }
-</code></pre><p><span>Unfortunately, this is an optional part of the C11 standard and is not supported in most ecosystems.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="bonus:-auth_flag"><span class="firn-headline-text"><span>Bonus: </span><code>auth_flag</code></span></h2><section><p><span>Additionally, easily exposing an </span><code>auth_flag</code><span> variable to be overwritten is providing more oppportunities for an exploit: the user could still attempt to overwrite the return value but removing the </span><code>auth_flag</code><span> variable both allows for some cleaner code and less exploit opportunities.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="compile-options"><span class="firn-headline-text"><span>Compile Options</span></span></h2><section><p><span>Another (worse) way of fixing this would be to keep the same code but compile with options that trigger an exception when they detect a buffer overflow. One such option is </span><code>-fstack-protector</code><span> (which is enabled by default) and GCC will insert a "guard variable" to vulnerable functions and check if it has been changed at the end of said functions. If the the check finds it has been changed (and therefore a buffer overflow has occured) it issues an exception in the form of a SIGTRAP signal, stopping the process. Additionally, the </span><code>FORTIFY_SOURCE</code><span> macro is used to replace common string functional calls with safe versions that perform additional buffer overflow checks around string and memory functions by comparing the amount of memory that </span><em><span>should</span></em><span> be copied to the amount of memory that is copied at runtime.</span></p><p><span>Comparing the assembly output of these programs allows you to see that this is what happens!</span></p><p><span>Inspecting the output when compiling without the </span><code>FORTIFY_SOURCE</code><span> output gives the expected result with a direct call to </span><code>strcpy</code><span>:</span></p><pre class="language-asm"><code class="language-asm">  bl	_strcpy
-</code></pre><p><span>Compiling with the </span><code>FORTIFY_SOURCE</code><span> defined yields the following call instead, showing how the compiler has</span></p><pre class="language-asm"><code class="language-asm">  bl	___strcpy_chk
-</code></pre><p><span>Similarly, when inspecting the assembly output when compiling with </span><code>-fstack-protector</code><span> one can see how the compiler inserts a </span><code>___stack_chk_guard</code><span> variable into the code, with lines like the following being inserted into the top and bottom of the function!</span></p><pre class="language-asm"><code class="language-asm">  adrp	x8, ___stack_chk_guard@GOTPAGE
-  ldr	x8, [x8, ___stack_chk_guard@GOTPAGEOFF
-</code></pre></section></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="legalethical-consequences"><span class="firn-headline-text"><span>Legal/Ethical Consequences</span></span></h1><section><p><span>In 1988, Robert Morris created the first major computer worm, and as part of the worm's process to gain entry into a computer system, it utilized a </span><em><span>buffer overflow</span></em><span> exploit in a network daemon called </span><code>fingerd</code><span> to execute custom shellcode. In essence, the exploit relied on sending a malicious buffer to the daemon that both overwrote the return address on the program's stack, causing it to run a function like </span><code>system()</code><span>, as well as set the parameters to the hijacked return address to custom VAX shellcode (where VAX was a common mainframe at the time). </span><a class="firn-external" href="https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/bsd/finger/morris_fingerd_bof.rb" target="_blank">See a more modern implementation of this exploit in Ruby here.</a></p><p><span>Morris ultimately caused large economic damage, and was arrested under the Computer Fraud and Abuse Act of 1986 for "having knowingly accessed a computer without authorization or exceeding authorized access".</span></p><p><span>Were someone to similarly exploit this code today, the California Penal Code 502(c)(1-4) outlines how it is a crime to  "knowingly accesses...without permission... a computer, computer system, or computer network" and do any variety of activities ranging from causing the system to be used or accessing data on said systems. By using a buffer overflow to access a computer system without permission they would have commited a public offense.</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="appendix:-improved-implementation"><span class="firn-headline-text"><span>Appendix: Improved Implementation</span></span></h1><section><p><span>This implementation incorporates some of the aforementoined solutions (namely removing </span><code>auth_flag</code><span> and using </span><code>strncpy</code><span> with checks) as well as a bonus fix that is unrelated to user input validation. Storing the valid password in plaintext within the code is insecure since the string literal would appear in the binary as well, so a malicious user could run the common shell utility </span><code>strings</code><span> and figure out the valid password. Instead, we can store the hash of the password and compare that so that the user is unable to gleam any valuable information from the binary.</span></p><pre class="language-C"><code class="language-C">  #include "string.h"
-  #include "assert.h"
-  #include "stdio.h"
-  #include "stdint.h"
-  // for SHA-3 
-  #include "openssl/evp.h"
-  #include "openssl/sha.h"
-  
-  typedef enum auth_return {
-      AUTH_VALID, // Correct password.
-      AUTH_INVALID, // Invalid password.
-      AUTH_ERRSIZE, // Password too long.
-      AUTH_ERRALLOC, // Could not allocate buffer.
-      AUTH_ERRDIGEST, // Could not hash password.
-  } auth_return_t;
-  
-  #define PASS_BUFSIZE 20
-  // Store hash as raw byte array for easy comparison.
-  uint8_t valid_hash[64] = {222, 153, 123, 216, 88, 4, 200, 73, 47, 147, 188, 49, 118, 54, 10, 70, 243, 77, 56, 244, 11, 3, 93, 30, 39, 6, 224, 245, 67, 238, 192, 180, 149, 199, 212, 170, 3, 71, 164, 183, 156, 60, 218, 200, 222, 136, 218, 54, 37, 179, 223, 38, 236, 46, 242, 12, 107, 234, 59, 127, 237, 213, 224, 253};
-  
-  // Checks whether the supplied password is valid.
-  // Takes: string with password.
-  // Returns: response code (see auth_return_t)
-  auth_return_t check_authentication(const char* password) {
-      char password_buffer[PASS_BUFSIZE];
-      strncpy(password_buffer, password, PASS_BUFSIZE);
-  
-      // strcpy will always fill rest of buffer with null so if last char is not null
-      // that means that user must have inputted a string longer than 20 characters.
-      if (password_buffer[PASS_BUFSIZE-1] != '\0') return AUTH_ERRSIZE;
-  
-      // generate SHA-3 hash for inputted password
-      // taken from https://stackoverflow.com/a/62605880
-      // begin by initializing the buffer and setting up SHA-3 boilerplate
-      uint32_t digest_length = SHA512_DIGEST_LENGTH;
-      const EVP_MD* algorithm = EVP_sha3_512();
-      uint8_t* digest = (uint8_t*)(OPENSSL_malloc(digest_length));
-      EVP_MD_CTX* context = EVP_MD_CTX_new();
-      // if allocating either of these failed, error
-      if (digest == NULL || context == NULL) return AUTH_ERRALLOC; 
-  
-      // generate digest, return error on first failed operation
-      if (EVP_DigestInit_ex(context, algorithm, NULL) != 1 ||
-          EVP_DigestUpdate(context, password, PASS_BUFSIZE) != 1 ||
-          EVP_DigestFinal_ex(context, digest, &digest_length) != 1) {
-          return AUTH_ERRDIGEST;
-      }
-  
-      EVP_MD_CTX_destroy(context);
-  
-      // compare to valid hash
-      printf("%d\n", digest_length);
-      int cmp = memcmp(digest, valid_hash, digest_length);
-      OPENSSL_free(digest);
-  
-      if (cmp == 0) {
-          return AUTH_VALID;
-      } else {
-          return AUTH_INVALID;
-      }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
   }
-  
-  int main(int argc, char* argv[]) {
-      if (argc < 2) {
-          printf("Usage: %s <password>\n", argv[0]);
-          return 1;
-      }
-  
-      switch (check_authentication(argv[1])) {
-      case AUTH_VALID: 
-          printf("Access Granted.\n");
-          break;
-      case AUTH_INVALID:
-          printf("Access Denied.\n");
-          break;
-      case AUTH_ERRSIZE:
-          printf("Invalid password size!\n");
-          break;
-      case AUTH_ERRALLOC:
-          printf("Out of memory!\n");
-          break;
-      case AUTH_ERRDIGEST:
-          printf("Failed to hash password!\n");
-          break;	
-      }   
+  .equation {
+    vertical-align: middle;
   }
-</code></pre></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="building-this-code"><span class="firn-headline-text"><span>Building This Code</span></span></h2><section><p><span>You'll need OpenSSL to compile this! Compiling the program is as simple as just compiling this C code with gcc but also linking against </span><code>libcrypto.a</code><span> like so:</span></p><pre class="language-sh"><code class="language-sh">  gcc input.c <path-to-libcrypto.a> -o input
-  ./input <password> 
-</code></pre><p><span>The correct password is just "password".</span></p></section><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="installing-openssl"><span class="firn-headline-text"><span>Installing OpenSSL</span></span></h3><section><p><span>I installed it via Homebrew, with </span><code>brew install openssl@1.1</code><span>. Then, you can find the path to the </span><code>lib</code><span> folder by running </span><code>brew list openssl@1.1</code><span> and compile with something like this:</span></p><pre class="language-sh"><code class="language-sh">  gcc input.c /opt/homebrew/Cellar/openssl@1.1/1.1.1l/lib/libcrypto.a -o input
-  ./input <password> 
-</code></pre></section></div></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#potential-fixes">Potential Fixes</a><ol><li><a href="#strncpy">strncpy</a></li><li><a href="#strcpy_s">strcpy_s</a></li><li><a href="#bonus:-auth_flag">Bonus: auth_flag</a></li><li><a href="#compile-options">Compile Options</a></li></ol></li><li><a href="#legalethical-consequences">Legal/Ethical Consequences</a></li><li><a href="#appendix:-improved-implementation">Appendix: Improved Implementation</a><ol><li><a href="#building-this-code">Building This Code</a><ol><li><a href="#installing-openssl">Installing OpenSSL</a></li></ol></li></ol></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">User Input Validation</h1> <h2 class="subtitle"></h2> <span class="author">David Freifeld</span> <span class="date">2021-09-27 Mon 15:24</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='cs240-index.html'>CS240 Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org3b3d8e8">1. Potential Fixes</a>
+<ul>
+<li><a href="#orge9c087f">1.1. <code>strncpy</code></a></li>
+<li><a href="#org71fc0f2">1.2. <code>strcpy_s</code></a></li>
+<li><a href="#org9233969">1.3. Bonus: <code>auth_flag</code></a></li>
+<li><a href="#orge444a10">1.4. Compile Options</a></li>
+</ul>
+</li>
+<li><a href="#org002b1b4">2. Legal/Ethical Consequences</a></li>
+<li><a href="#org653633d">3. Appendix: Improved Implementation</a>
+<ul>
+<li><a href="#org5f1f6da">3.1. Building This Code</a>
+<ul>
+<li><a href="#orge187c96">3.1.1. Installing OpenSSL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<p>
+I chose the <i>buffer overflow</i> example provided in the assignment that consisted of the following code:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span class="org-preprocessor">#include</span> <span class="org-string">"stdio.h"</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">"string.h"</span>
+
+<span class="org-type">int</span> <span class="org-function-name">check_authentication</span>(<span class="org-type">char</span> *<span class="org-variable-name">password</span>) {
+    <span class="org-type">int</span> <span class="org-variable-name">auth_flag</span> = 0;
+    <span class="org-type">char</span> <span class="org-variable-name">password_buffer</span>[20];
+
+    strcpy(password_buffer, password);
+
+    <span class="org-keyword">if</span> (strcmp(password_buffer, <span class="org-string">"password"</span>) == 0) {
+        auth_flag = 1;
+    }
+
+    <span class="org-keyword">return</span> auth_flag;
+}
+
+<span class="org-type">int</span> <span class="org-function-name">main</span>(<span class="org-type">int</span> <span class="org-variable-name">argc</span>, <span class="org-type">char</span>* <span class="org-variable-name">argv</span>[]) {
+    <span class="org-keyword">if</span> (argc &lt; 2) {
+        printf(<span class="org-string">"Usage: %s &lt;password&gt;\n"</span>, argv[0]);
+    }
+
+    <span class="org-keyword">if</span> (check_authentication(argv[1])) {
+        printf(<span class="org-string">"Access Granted.\n"</span>);
+    } <span class="org-keyword">else</span> {
+        printf(<span class="org-string">"Access Denied.\n"</span>);
+    }
+}
+</pre>
+</div>
+
+<p>
+Intended usage would be to compile with <code>gcc buffer_overflow.c -o buffer_overflow</code> and run <code>./buffer_overflow password</code> to get an "Access Granted." message.
+</p>
+
+<p>
+However, since the buffer is located immediately before the <code>auth_flag</code> variable used to check if a user has authenticated and <code>strcpy</code> copies the <i>entire</i> user input to the buffer, you could input a string longer than 20 characters that would then overwrite the <code>auth_flag</code> variable. Additionally, since nonzero integers are "truthy" in C, this means that any ascii value except for the null character would do the trick. A user could accidentally gain access without intentionally attempting to be malicious by simply typing a password over 20 characters.
+</p>
+
+<p>
+Compiling with <code>gcc -fno-stack-protector -D_FORTIFY_SOURCE=0 buffer_overflow.c -o buffer_overflow</code>  then running it with <code>./buffer_overflow aaaaaaaaaaaaaaaaaaaaa</code> yields "Access Granted."
+</p>
+
+<div id="outline-container-org3b3d8e8" class="outline-2">
+<h2 id="org3b3d8e8"><span class="section-number-2">1</span> Potential Fixes</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orge9c087f" class="outline-3">
+<h3 id="orge9c087f"><span class="section-number-3">1.1</span> <code>strncpy</code></h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+You could replace <code>strcpy(password_buffer, password)</code> with <code>strncpy(password_buffer, password, 20)</code> to only copy 20 characters and ensure that it would not buffer overflow - but this would introduce another problem. Were a user to input a string longer than 20 characters it would only copy over the first 20 without any form of null terminator, so when the program tries to read this string, it will segfault.
+</p>
+
+<p>
+You could rectify this by doing a manual check: after it copies a string, <code>strncpy</code> fills the rest of the buffer with 0, so if the final byte of a buffer is not a null terminator, <code>strncpy</code> didn't copy the entire string and you can gracefully error.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org71fc0f2" class="outline-3">
+<h3 id="org71fc0f2"><span class="section-number-3">1.2</span> <code>strcpy_s</code></h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+You could use a function introduced in C11 called <code>strcpy_s</code> that takes a destination string, size, and source string, yet returns an error when the source string is longer than the size instead of naively copying over anyways. You could then handle the error and exit gracefully or ask for another input.
+</p>
+
+<p>
+A version of the <code>check_authentication()</code> function that is improved in this way would look like the following: 
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span class="org-type">int</span> <span class="org-function-name">check_authentication</span>(<span class="org-type">char</span> *<span class="org-variable-name">password</span>) {
+  <span class="org-type">char</span> <span class="org-variable-name">password_buffer</span>[20];  
+  strcpy_s(password_buffer, 20, password);
+  <span class="org-keyword">if</span> (strcmp(password_buffer, <span class="org-string">"password"</span>) == 0) {
+      <span class="org-keyword">return</span> 1;
+  } <span class="org-keyword">else</span> {
+      <span class="org-keyword">return</span> 0;
+  }  
+}
+</pre>
+</div>
+
+<p>
+Unfortunately, this is an optional part of the C11 standard and is not supported in most ecosystems.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9233969" class="outline-3">
+<h3 id="org9233969"><span class="section-number-3">1.3</span> Bonus: <code>auth_flag</code></h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Additionally, easily exposing an <code>auth_flag</code> variable to be overwritten is providing more oppportunities for an exploit: the user could still attempt to overwrite the return value but removing the <code>auth_flag</code> variable both allows for some cleaner code and less exploit opportunities.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge444a10" class="outline-3">
+<h3 id="orge444a10"><span class="section-number-3">1.4</span> Compile Options</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Another (worse) way of fixing this would be to keep the same code but compile with options that trigger an exception when they detect a buffer overflow. One such option is <code>-fstack-protector</code> (which is enabled by default) and GCC will insert a "guard variable" to vulnerable functions and check if it has been changed at the end of said functions. If the the check finds it has been changed (and therefore a buffer overflow has occured) it issues an exception in the form of a SIGTRAP signal, stopping the process. Additionally, the <code>FORTIFY_SOURCE</code> macro is used to replace common string functional calls with safe versions that perform additional buffer overflow checks around string and memory functions by comparing the amount of memory that <i>should</i> be copied to the amount of memory that is copied at runtime.
+</p>
+
+<p>
+Comparing the assembly output of these programs allows you to see that this is what happens!
+</p>
+
+<p>
+Inspecting the output when compiling without the <code>FORTIFY_SOURCE</code> output gives the expected result with a direct call to <code>strcpy</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span class="org-function-name">bl</span>      _strcpy
+</pre>
+</div>
+<p>
+Compiling with the <code>FORTIFY_SOURCE</code> defined yields the following call instead, showing how the compiler has 
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span class="org-function-name">bl</span>      ___strcpy_chk
+</pre>
+</div>
+
+<p>
+Similarly, when inspecting the assembly output when compiling with <code>-fstack-protector</code> one can see how the compiler inserts a <code>___stack_chk_guard</code> variable into the code, with lines like the following being inserted into the top and bottom of the function!
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span class="org-function-name">adrp</span>    <span class="org-keyword">x8</span>, ___stack_chk_guard@GOTPAGE
+<span class="org-function-name">ldr</span>     <span class="org-keyword">x8</span>, [x8, ___stack_chk_guard@GOTPAGEOFF
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org002b1b4" class="outline-2">
+<h2 id="org002b1b4"><span class="section-number-2">2</span> Legal/Ethical Consequences</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+In 1988, Robert Morris created the first major computer worm, and as part of the worm's process to gain entry into a computer system, it utilized a <i>buffer overflow</i> exploit in a network daemon called <code>fingerd</code> to execute custom shellcode. In essence, the exploit relied on sending a malicious buffer to the daemon that both overwrote the return address on the program's stack, causing it to run a function like <code>system()</code>, as well as set the parameters to the hijacked return address to custom VAX shellcode (where VAX was a common mainframe at the time). <a href="https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/bsd/finger/morris_fingerd_bof.rb">See a more modern implementation of this exploit in Ruby here.</a>
+</p>
+
+<p>
+Morris ultimately caused large economic damage, and was arrested under the Computer Fraud and Abuse Act of 1986 for "having knowingly accessed a computer without authorization or exceeding authorized access".
+</p>
+
+<p>
+Were someone to similarly exploit this code today, the California Penal Code 502(c)(1-4) outlines how it is a crime to  "knowingly accesses&#x2026;without permission&#x2026; a computer, computer system, or computer network" and do any variety of activities ranging from causing the system to be used or accessing data on said systems. By using a buffer overflow to access a computer system without permission they would have commited a public offense.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org653633d" class="outline-2">
+<h2 id="org653633d"><span class="section-number-2">3</span> Appendix: Improved Implementation</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+This implementation incorporates some of the aforementoined solutions (namely removing <code>auth_flag</code> and using <code>strncpy</code> with checks) as well as a bonus fix that is unrelated to user input validation. Storing the valid password in plaintext within the code is insecure since the string literal would appear in the binary as well, so a malicious user could run the common shell utility <code>strings</code> and figure out the valid password. Instead, we can store the hash of the password and compare that so that the user is unable to gleam any valuable information from the binary.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span class="org-preprocessor">#include</span> <span class="org-string">"string.h"</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">"assert.h"</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">"stdio.h"</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">"stdint.h"</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">for SHA-3 </span>
+<span class="org-preprocessor">#include</span> <span class="org-string">"openssl/evp.h"</span>
+<span class="org-preprocessor">#include</span> <span class="org-string">"openssl/sha.h"</span>
+
+<span class="org-keyword">typedef</span> <span class="org-keyword">enum</span> <span class="org-type">auth_return</span> {
+    <span class="org-variable-name">AUTH_VALID</span>, <span class="org-comment-delimiter">// </span><span class="org-comment">Correct password.</span>
+    <span class="org-variable-name">AUTH_INVALID</span>, <span class="org-comment-delimiter">// </span><span class="org-comment">Invalid password.</span>
+    <span class="org-variable-name">AUTH_ERRSIZE</span>, <span class="org-comment-delimiter">// </span><span class="org-comment">Password too long.</span>
+    <span class="org-variable-name">AUTH_ERRALLOC</span>, <span class="org-comment-delimiter">// </span><span class="org-comment">Could not allocate buffer.</span>
+    <span class="org-variable-name">AUTH_ERRDIGEST</span>, <span class="org-comment-delimiter">// </span><span class="org-comment">Could not hash password.</span>
+} <span class="org-type">auth_return_t</span>;
+
+<span class="org-preprocessor">#define</span> <span class="org-variable-name">PASS_BUFSIZE</span> 20
+<span class="org-comment-delimiter">// </span><span class="org-comment">Store hash as raw byte array for easy comparison.</span>
+<span class="org-type">uint8_t</span> <span class="org-variable-name">valid_hash</span>[64] = {222, 153, 123, 216, 88, 4, 200, 73, 47, 147, 188, 49, 118, 54, 10, 70, 243, 77, 56, 244, 11, 3, 93, 30, 39, 6, 224, 245, 67, 238, 192, 180, 149, 199, 212, 170, 3, 71, 164, 183, 156, 60, 218, 200, 222, 136, 218, 54, 37, 179, 223, 38, 236, 46, 242, 12, 107, 234, 59, 127, 237, 213, 224, 253};
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">Checks whether the supplied password is valid.</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">Takes: string with password.</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">Returns: response code (see auth_return_t)</span>
+<span class="org-type">auth_return_t</span> <span class="org-function-name">check_authentication</span>(<span class="org-keyword">const</span> <span class="org-type">char</span>* <span class="org-variable-name">password</span>) {
+    <span class="org-type">char</span> <span class="org-variable-name">password_buffer</span>[PASS_BUFSIZE];
+    strncpy(password_buffer, password, PASS_BUFSIZE);
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">strcpy will always fill rest of buffer with null so if last char is not null</span>
+    <span class="org-comment-delimiter">// </span><span class="org-comment">that means that user must have inputted a string longer than 20 characters.</span>
+    <span class="org-keyword">if</span> (password_buffer[PASS_BUFSIZE-1] != <span class="org-string">'\0'</span>) <span class="org-keyword">return</span> AUTH_ERRSIZE;
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">generate SHA-3 hash for inputted password</span>
+    <span class="org-comment-delimiter">// </span><span class="org-comment">taken from https://stackoverflow.com/a/62605880</span>
+    <span class="org-comment-delimiter">// </span><span class="org-comment">begin by initializing the buffer and setting up SHA-3 boilerplate</span>
+    <span class="org-type">uint32_t</span> <span class="org-variable-name">digest_length</span> = SHA512_DIGEST_LENGTH;
+    <span class="org-keyword">const</span> <span class="org-type">EVP_MD</span>* <span class="org-variable-name">algorithm</span> = EVP_sha3_512();
+    <span class="org-type">uint8_t</span>* <span class="org-variable-name">digest</span> = (<span class="org-type">uint8_t</span>*)(OPENSSL_malloc(digest_length));
+    <span class="org-type">EVP_MD_CTX</span>* <span class="org-variable-name">context</span> = EVP_MD_CTX_new();
+    <span class="org-comment-delimiter">// </span><span class="org-comment">if allocating either of these failed, error</span>
+    <span class="org-keyword">if</span> (digest == <span class="org-constant">NULL</span> || context == <span class="org-constant">NULL</span>) <span class="org-keyword">return</span> AUTH_ERRALLOC; 
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">generate digest, return error on first failed operation</span>
+    <span class="org-keyword">if</span> (EVP_DigestInit_ex(context, algorithm, <span class="org-constant">NULL</span>) != 1 ||
+        EVP_DigestUpdate(context, password, PASS_BUFSIZE) != 1 ||
+        EVP_DigestFinal_ex(context, digest, &amp;digest_length) != 1) {
+        <span class="org-keyword">return</span> AUTH_ERRDIGEST;
+    }
+
+    EVP_MD_CTX_destroy(context);
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">compare to valid hash</span>
+    printf(<span class="org-string">"%d\n"</span>, digest_length);
+    <span class="org-type">int</span> <span class="org-variable-name">cmp</span> = memcmp(digest, valid_hash, digest_length);
+    OPENSSL_free(digest);
+
+    <span class="org-keyword">if</span> (cmp == 0) {
+        <span class="org-keyword">return</span> AUTH_VALID;
+    } <span class="org-keyword">else</span> {
+        <span class="org-keyword">return</span> AUTH_INVALID;
+    }
+}
+
+<span class="org-type">int</span> <span class="org-function-name">main</span>(<span class="org-type">int</span> <span class="org-variable-name">argc</span>, <span class="org-type">char</span>* <span class="org-variable-name">argv</span>[]) {
+    <span class="org-keyword">if</span> (argc &lt; 2) {
+        printf(<span class="org-string">"Usage: %s &lt;password&gt;\n"</span>, argv[0]);
+        <span class="org-keyword">return</span> 1;
+    }
+
+    <span class="org-keyword">switch</span> (check_authentication(argv[1])) {
+    <span class="org-keyword">case</span> AUTH_VALID: 
+        printf(<span class="org-string">"Access Granted.\n"</span>);
+        <span class="org-keyword">break</span>;
+    <span class="org-keyword">case</span> AUTH_INVALID:
+        printf(<span class="org-string">"Access Denied.\n"</span>);
+        <span class="org-keyword">break</span>;
+    <span class="org-keyword">case</span> AUTH_ERRSIZE:
+        printf(<span class="org-string">"Invalid password size!\n"</span>);
+        <span class="org-keyword">break</span>;
+    <span class="org-keyword">case</span> AUTH_ERRALLOC:
+        printf(<span class="org-string">"Out of memory!\n"</span>);
+        <span class="org-keyword">break</span>;
+    <span class="org-keyword">case</span> AUTH_ERRDIGEST:
+        printf(<span class="org-string">"Failed to hash password!\n"</span>);
+        <span class="org-keyword">break</span>;  
+    }   
+}
+</pre>
+</div>
+</div>
+<div id="outline-container-org5f1f6da" class="outline-3">
+<h3 id="org5f1f6da"><span class="section-number-3">3.1</span> Building This Code</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+You'll need OpenSSL to compile this! Compiling the program is as simple as just compiling this C code with gcc but also linking against <code>libcrypto.a</code> like so:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">gcc input.c &lt;path-to-libcrypto.a&gt; -o input
+./input &lt;password&gt; 
+</pre>
+</div>
+<p>
+The correct password is just "password".
+</p>
+</div>
+
+<div id="outline-container-orge187c96" class="outline-4">
+<h4 id="orge187c96"><span class="section-number-4">3.1.1</span> Installing OpenSSL</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+I installed it via Homebrew, with <code>brew install openssl@1.1</code>. Then, you can find the path to the <code>lib</code> folder by running <code>brew list openssl@1.1</code> and compile with something like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">gcc input.c /opt/homebrew/Cellar/openssl@1.1/1.1.1l/lib/libcrypto.a -o input
+./input &lt;password&gt; 
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

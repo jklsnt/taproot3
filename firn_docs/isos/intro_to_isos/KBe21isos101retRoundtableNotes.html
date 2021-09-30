@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-11 Sat 18:31 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Taproot" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="https://taproot3.sanity.gq/sitemap.html"> UP </a>
+ |
+ <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
+</div><div id="content">
+<div id="outline-container-org440a4bf" class="outline-2">
+<h2 id="org440a4bf"><span class="section-number-2">1</span> animal ethics</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgde3d09f" class="outline-3">
+<h3 id="orgde3d09f"><span class="section-number-3">1.1</span> what is the ethical issue?</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org715e75c" class="outline-4">
+<h4 id="org715e75c"><span class="section-number-4">1.1.1</span> should other species be tested on / sacrificed on possibly dangerous products</h4>
+</div>
+
+<div id="outline-container-org4435518" class="outline-4">
+<h4 id="org4435518"><span class="section-number-4">1.1.2</span> fundamentally, are animal lives worth less than human lives</h4>
+</div>
+</div>
+
+<div id="outline-container-org172b196" class="outline-3">
+<h3 id="org172b196"><span class="section-number-3">1.2</span> perspectives</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org97faea6" class="outline-4">
+<h4 id="org97faea6"><span class="section-number-4">1.2.1</span> animal testing is often unethical: animals are not treated right and often die during failed attempts</h4>
+</div>
+
+<div id="outline-container-orge5795fa" class="outline-4">
+<h4 id="orge5795fa"><span class="section-number-4">1.2.2</span> however, to push science forward, some ammount of testing is needed. Testing on humans seems worse than testing on animals.</h4>
+</div>
+</div>
+
+<div id="outline-container-org8339413" class="outline-3">
+<h3 id="org8339413"><span class="section-number-3">1.3</span> stakes</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-orgf9e4660" class="outline-4">
+<h4 id="orgf9e4660"><span class="section-number-4">1.3.1</span> larger corporations who are trying to get products out to market have the resources, scale, and incentive to use animal testing</h4>
+</div>
+
+<div id="outline-container-org459ad80" class="outline-4">
+<h4 id="org459ad80"><span class="section-number-4">1.3.2</span> biodiversity is being harmed when some species are specifically targeted for testing</h4>
+</div>
+
+<div id="outline-container-orgeb4e675" class="outline-4">
+<h4 id="orgeb4e675"><span class="section-number-4">1.3.3</span> animal testing allows new drugs / procedures to be tested before accidentally hurting humans in clinical trials</h4>
+<div class="outline-text-4" id="text-1-3-3">
+</div>
+<div id="outline-container-orgf53aa53" class="outline-5">
+<h5 id="orgf53aa53"><span class="section-number-5">1.3.3.1</span> can see long term / life-long efffects because animal lives are shorter</h5>
+</div>
+
+<div id="outline-container-orge4501fb" class="outline-5">
+<h5 id="orge4501fb"><span class="section-number-5">1.3.3.2</span> however, 90% of trials that pass animal stages fail on humans, so does it really even work</h5>
+</div>
+</div>
+
+<div id="outline-container-org785f467" class="outline-4">
+<h4 id="org785f467"><span class="section-number-4">1.3.4</span> consumer activism can disincentivise corporations from using non-essential animal testing (eg. cosmetic)</h4>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org157851a" class="outline-2">
+<h2 id="org157851a"><span class="section-number-2">2</span> animal ethics</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org2bfb3ff" class="outline-3">
+<h3 id="org2bfb3ff"><span class="section-number-3">2.1</span> what is the ethical issue?</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org1731c43" class="outline-4">
+<h4 id="org1731c43"><span class="section-number-4">2.1.1</span> should other species be tested on / sacrificed on possibly dangerous products</h4>
+</div>
+
+<div id="outline-container-orgd6c5e6e" class="outline-4">
+<h4 id="orgd6c5e6e"><span class="section-number-4">2.1.2</span> fundamentally, are animal lives worth less than human lives</h4>
+</div>
+</div>
+
+<div id="outline-container-org6131bb3" class="outline-3">
+<h3 id="org6131bb3"><span class="section-number-3">2.2</span> perspectives</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-org4104185" class="outline-4">
+<h4 id="org4104185"><span class="section-number-4">2.2.1</span> animal testing is often unethical: animals are not treated right and often die during failed attempts</h4>
+</div>
+
+<div id="outline-container-org7ff97a4" class="outline-4">
+<h4 id="org7ff97a4"><span class="section-number-4">2.2.2</span> however, to push science forward, some ammount of testing is needed. Testing on humans seems worse than testing on animals.</h4>
+</div>
+</div>
+
+<div id="outline-container-org342ab98" class="outline-3">
+<h3 id="org342ab98"><span class="section-number-3">2.3</span> stakes</h3>
+<div class="outline-text-3" id="text-2-3">
+</div>
+<div id="outline-container-orgf8e13d6" class="outline-4">
+<h4 id="orgf8e13d6"><span class="section-number-4">2.3.1</span> larger corporations who are trying to get products out to market have the resources, scale, and incentive to use animal testing</h4>
+</div>
+
+<div id="outline-container-orgd53c0bb" class="outline-4">
+<h4 id="orgd53c0bb"><span class="section-number-4">2.3.2</span> biodiversity is being harmed when some species are specifically targeted for testing</h4>
+</div>
+
+<div id="outline-container-org69c9fa9" class="outline-4">
+<h4 id="org69c9fa9"><span class="section-number-4">2.3.3</span> animal testing allows new drugs / procedures to be tested before accidentally hurting humans in clinical trials</h4>
+<div class="outline-text-4" id="text-2-3-3">
+</div>
+<div id="outline-container-orga595852" class="outline-5">
+<h5 id="orga595852"><span class="section-number-5">2.3.3.1</span> can see long term / life-long efffects because animal lives are shorter</h5>
+</div>
+
+<div id="outline-container-org14a74da" class="outline-5">
+<h5 id="org14a74da"><span class="section-number-5">2.3.3.2</span> however, 90% of trials that pass animal stages fail on humans, so does it really even work</h5>
+</div>
+</div>
+
+<div id="outline-container-org95bea24" class="outline-4">
+<h4 id="org95bea24"><span class="section-number-4">2.3.4</span> consumer activism can disincentivise corporations from using non-essential animal testing (eg. cosmetic)</h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6e2aa60" class="outline-2">
+<h2 id="org6e2aa60"><span class="section-number-2">3</span> isos scategories</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgd312d65" class="outline-3">
+<h3 id="orgd312d65"><span class="section-number-3">3.1</span> round one</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+<b>*</b>
+</p>
+</div>
+
+<div id="outline-container-orgb9b28b8" class="outline-4">
+<h4 id="orgb9b28b8"><span class="section-number-4">3.1.1</span> pluto</h4>
+</div>
+
+<div id="outline-container-org2e883e0" class="outline-4">
+<h4 id="org2e883e0"><span class="section-number-4">3.1.2</span> picosecond</h4>
+</div>
+
+<div id="outline-container-org4723201" class="outline-4">
+<h4 id="org4723201"><span class="section-number-4">3.1.3</span> planets</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+<b>*</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4c8d34a" class="outline-4">
+<h4 id="org4c8d34a"><span class="section-number-4">3.1.4</span> planet earth</h4>
+</div>
+
+<div id="outline-container-orgb974572" class="outline-4">
+<h4 id="orgb974572"><span class="section-number-4">3.1.5</span> pangea</h4>
+<div class="outline-text-4" id="text-3-1-5">
+<p>
+<b>*</b>
+</p>
+
+<p>
+<b>*</b>
+</p>
+
+<p>
+<b>*</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2e5a006" class="outline-4">
+<h4 id="org2e5a006"><span class="section-number-4">3.1.6</span> pliers</h4>
+<div class="outline-text-4" id="text-3-1-6">
+<p>
+<b>*</b>
+</p>
+
+<p>
+<b>*</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd3df4e7" class="outline-4">
+<h4 id="orgd3df4e7"><span class="section-number-4">3.1.7</span> pteradactyl</h4>
+<div class="outline-text-4" id="text-3-1-7">
+<p>
+<b>*</b>
+</p>
+
+<p>
+<b>*</b>
+</p>
+
+<p>
+<b>*</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org03fb51f" class="outline-4">
+<h4 id="org03fb51f"><span class="section-number-4">3.1.8</span> paradigms</h4>
+</div>
+</div>
+
+
+<div id="outline-container-org3d72036" class="outline-3">
+<h3 id="org3d72036"><span class="section-number-3">3.2</span> W</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-orgdbb57a9" class="outline-4">
+<h4 id="orgdbb57a9"><span class="section-number-4">3.2.1</span> water recycling, wasm</h4>
+</div>
+
+<div id="outline-container-orga614786" class="outline-4">
+<h4 id="orga614786"><span class="section-number-4">3.2.2</span> watt</h4>
+</div>
+
+<div id="outline-container-org637a768" class="outline-4">
+<h4 id="org637a768"><span class="section-number-4">3.2.3</span> watts</h4>
+</div>
+
+<div id="outline-container-org8b497dd" class="outline-4">
+<h4 id="org8b497dd"><span class="section-number-4">3.2.4</span> wetlands, water</h4>
+<div class="outline-text-4" id="text-3-2-4">
+<p>
+<b>*</b>
+</p>
+
+<p>
+<b>*</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2fccece" class="outline-4">
+<h4 id="org2fccece"><span class="section-number-4">3.2.5</span> weight</h4>
+<div class="outline-text-4" id="text-3-2-5">
+<p>
+<b>*</b>
+</p>
+
+<p>
+<b>*</b>
+</p>
+
+<p>
+<b>*</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1619d07" class="outline-4">
+<h4 id="org1619d07"><span class="section-number-4">3.2.6</span> walls, water</h4>
+</div>
+
+<div id="outline-container-orga0755ba" class="outline-4">
+<h4 id="orga0755ba"><span class="section-number-4">3.2.7</span> watch</h4>
+<div class="outline-text-4" id="text-3-2-7">
+<p>
+<b>*</b>
+</p>
+
+<p>
+<b>*</b>
+</p>
+
+<p>
+<b>*</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9dcdfe3" class="outline-4">
+<h4 id="org9dcdfe3"><span class="section-number-4">3.2.8</span> mrs. who</h4>
+</div>
+
+<div id="outline-container-org72ea9cc" class="outline-4">
+<h4 id="org72ea9cc"><span class="section-number-4">3.2.9</span> weighing</h4>
+</div>
+
+<div id="outline-container-org2bcbe1e" class="outline-4">
+<h4 id="org2bcbe1e"><span class="section-number-4">3.2.10</span> watershed ecology, weak force study</h4>
+</div>
+</div>
+
+
+<div id="outline-container-org52940f1" class="outline-3">
+<h3 id="org52940f1"><span class="section-number-3">3.3</span> L</h3>
+<div class="outline-text-3" id="text-3-3">
+</div>
+<div id="outline-container-org4e488dc" class="outline-4">
+<h4 id="org4e488dc"><span class="section-number-4">3.3.1</span> Lithography</h4>
+</div>
+
+<div id="outline-container-org9918b52" class="outline-4">
+<h4 id="org9918b52"><span class="section-number-4">3.3.2</span> lumen</h4>
+</div>
+
+<div id="outline-container-org81d16fa" class="outline-4">
+<h4 id="org81d16fa"><span class="section-number-4">3.3.3</span> lumens</h4>
+</div>
+
+<div id="outline-container-org908e728" class="outline-4">
+<h4 id="org908e728"><span class="section-number-4">3.3.4</span> laser</h4>
+<div class="outline-text-4" id="text-3-3-4">
+<p>
+<b>*</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5b9b59f" class="outline-4">
+<h4 id="org5b9b59f"><span class="section-number-4">3.3.5</span> layfette?</h4>
+</div>
+
+<div id="outline-container-org8140411" class="outline-4">
+<h4 id="org8140411"><span class="section-number-4">3.3.6</span> language</h4>
+<div class="outline-text-4" id="text-3-3-6">
+<p>
+<b>*</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf64cd43" class="outline-4">
+<h4 id="orgf64cd43"><span class="section-number-4">3.3.7</span> leonardo davinci</h4>
+<div class="outline-text-4" id="text-3-3-7">
+<p>
+<b>*</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9b3d901" class="outline-4">
+<h4 id="org9b3d901"><span class="section-number-4">3.3.8</span> laboratory lighter</h4>
+</div>
+
+<div id="outline-container-orgd18b824" class="outline-4">
+<h4 id="orgd18b824"><span class="section-number-4">3.3.9</span> lentivirus</h4>
+</div>
+
+<div id="outline-container-orga7bae0f" class="outline-4">
+<h4 id="orga7bae0f"><span class="section-number-4">3.3.10</span> laser leveling</h4>
+<div class="outline-text-4" id="text-3-3-10">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-11 Sat 16:34</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+</div>
+</body>
+</html>

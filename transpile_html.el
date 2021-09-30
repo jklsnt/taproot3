@@ -1,8 +1,14 @@
 #!/usr/bin/emacs --script
 
+; bad!
+; (add-to-list 'load-path "~/.emacs.d/elpa/")
+
 (load-file "./resources/htmlize.el")
+(load-file "./resources/org-special-block-extras.el")
+
 (require 'org)
 (require 'htmlize)
+(require 'org-special-block-extras)
 
 (setq user-full-name "Taproot")
 (setq user-mail-address "services@sanity.gq")
@@ -64,7 +70,29 @@
 /*]]>*///-->
 </script>")
 
+(defun admonition-block (color icon title contents)
+  (format
+   "<div class=\"admonition admonition-plugin\" style=\"--admonition-color: %s;\">
+  <div class=\"admonition-title \">
+    <div class=\"admonition-title-content\">
+      <div class=\"admonition-title-icon\">
+        <i class=\"fas %s\"> 
+      </div>
+      <div class=\"admonition-title-markdown\">%s</div>
+    </div>
+  </div>
+  <div class=\"admonition-content-holder\">
+    <div class=\"admonition-content\">
+      <p>%s</p>
+    </div>
+  </div>
+</div>" color icon title contents))
+
+  
+(org-special-block-extras-defblock defn (admonition-block "255, 0, 0" "fa-info-circle" "Testeroo" "dsadjakl"))
+				   
 (find-file (car argv))
+(org-special-block-extras-mode)
 (org-html-export-to-html)
 
 

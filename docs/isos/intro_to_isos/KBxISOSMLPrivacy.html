@@ -1,31 +1,440 @@
-<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Huxley" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>ISOS ML Privacy</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
-        'displayAlign': 'center',
-        'displayIndent': '0em',
-        'extensions': ['tex2jax.js'],
-        'tex2jax': {
-        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
-        'processEscapes': true
-        },
-        'HTML-CSS': { scale: 100,
-                        linebreaks: { automatic: 'false' },
-                        webFont: 'TeX'
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: 'false' },
-              font: 'TeX'},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: 'AMS'},
-               MultLineWidth: '85%',
-               TagSide: 'right',
-               TagIndent: '.8em'
-             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">ISOS ML Privacy</h1></div><div class="metamble"><span><span>Written by </span><span>Huxley</span></span></div><div class="notebody"><div><section><p><span>#ref #ret</span></p><hr /><p><span>%%- n: usa foreing intel survelance - j: edward snowden, apple data
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-27 Mon 12:06 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ISOS ML Privacy</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">ISOS ML Privacy</h1> <h2 class="subtitle"></h2> <span class="author">Huxley</span> <span class="date">2021-09-27 Mon 12:00</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBISOSMasterIndex.html'>ISOS Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#page-o-notes">1. Page o' notes</a>
+<ul>
+<li>
+<ul>
+<li><a href="#machine-learning-broad-level-implications-on-privacy">1.0.1. Machine learning broad level implications on privacy</a></li>
+<li><a href="#regulation">1.0.2. Regulation!</a></li>
+<li><a href="#rights">1.0.3. Rights</a></li>
+<li><a href="#flipside">1.0.4. Flipside</a></li>
+</ul>
+</li>
+<li><a href="#during-discussion">1.1. during discussion</a></li>
+<li><a href="#reflec">1.2. Reflec</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<p>
+#ref #ret
+</p>
+
+<hr />
+
+<p>
+%%- n: usa foreing intel survelance - j: edward snowden, apple data
 collection. consumer notification! - d: digital polical ads + tracking -
-m: social media taking data in general - h: human ml modeling %%</span></p></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="page-o&apos;-notes"><span class="firn-headline-text"><span>Page o' notes</span></span></h1><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="machine-learning-broad-level-implications-on-privacy"><span class="firn-headline-text"><span>Machine learning broad level implications on privacy</span></span></h3><section><ul><li><p><span>ML requires big data</span></p><ul><li><p><span>machine learning has driven us into the "information age"</span></p><ul><li><p><span>cause of most of these issues</span></p></li></ul></li><li><p><span>getting lots of info -> invading privacy, generally</span></p></li></ul></li><li><p><span>ML can break privacy without explicit data</span></p><ul><li><p><span>ML can de-anonymize anonymous activities</span></p><ul><li><p><span>ML based tracking systems make anonymity hard</span></p></li><li><p><span>hashing ISN'T good enough</span></p></li></ul></li><li><p><span>same thing can be done even without ml</span></p><ul><li><p><span>location tracking easily de-anonymized by simple cross reference</span></p></li></ul></li></ul></li><li><p><span>ML can construct human models</span></p><ul><li><p><span>fundamentally about simulation intelligent behavior</span></p></li><li><p><span>ML model of how you think and act</span></p><ul><li><p><span>viewed as creepy</span></p></li></ul></li><li><p><span>if it could predict your thoughts, what then?</span></p></li></ul></li></ul></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="regulation!"><span class="firn-headline-text"><span>Regulation!</span></span></h3><section><ul><li><p><span>FTC (federal trade commission) coming down hard</span></p><ul><li><p><span>hitting Facebook, google, ect.</span></p></li></ul></li><li><p><span>CCPA, California consumer privacy act</span></p></li><li><p><span>GDPR, General Data Protection Regulation</span></p></li><li><p><span>how effective is regulation?</span></p><ul><li><p><span>can we really prevent it?</span></p></li><li><p><span>one of the arguments: > "if you make data collection illegal, only
-    criminals will have the data"</span></p></li></ul></li></ul></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="rights"><span class="firn-headline-text"><span>Rights</span></span></h3><section><ul><li><p><span>right to be forgotten</span></p><ul><li><p><span>opt out law by the consumer</span></p></li><li><p><span>is this a right?</span></p></li></ul></li><li><p><span>right to our data, as outlined in CCPA</span></p><ul><li><p><span>again, really a right?</span></p></li></ul></li><li><p><span>individualize experience moral?</span></p><ul><li><p><span>amazon adjusting prices,</span></p></li><li><p><span>insurance companies not accepting</span></p></li><li><p><span>ect.</span></p></li></ul></li><li><p><span>private company rights to charge how they please?</span></p><ul><li><p><strong><span>libertarian args go here</span></strong></p></li></ul></li></ul></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="flipside"><span class="firn-headline-text"><span>Flipside</span></span></h3><section><ul><li><p><span>if privacy-preserving techniques ultimately fail,</span></p><ul><li><p><span>then what?</span></p></li></ul></li><li><p><span>ML does a lot of good</span></p><ul><li><p><span>though the individual might not want to share medical data,</span></p></li><li><p><span>that same data on the large scale could save countless lives</span></p></li></ul></li><li><p><span>garbage in, garbage out + black box</span></p><ul><li><p><span>not. good.</span></p></li><li><p><span>especially when AI will dominate decision making and analysis.</span></p></li></ul></li><li><p><span>forced to give data by tragedy of the commons</span></p><ul><li><p><span>you want ml networks to portray your demographic accurately,</span></p></li><li><p><span>and if you don't give data, it won't. In a world dominated by ml,</span></p></li><li><p><span>giving your data becomes necessity</span></p></li></ul></li><li><p><span>forced to give data by economic necessity</span></p><ul><li><p><span>where data collection is truly opt out, services replace it with
-    paid</span></p></li><li><p><span>economically worse off will be more likely to give data</span></p></li><li><p><span>skews data collected?</span></p></li></ul></li></ul></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="during-discussion"><span class="firn-headline-text"><span>during discussion</span></span></h2><section><p><span>pri v sec -> pri v los</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="reflec"><span class="firn-headline-text"><span>Reflec</span></span></h2><section><p><span>1) *What is the ethical issue/debate/controversy in question? In other
-   words, how does the topic relate to the question of how we should
-   live with science and technology?* Should abortion be legal? How do
-   we think about start of life with improving technology?</span></p><p><span>2) </span><strong><span>Describe at least two different perspectives on the issue (these
-   could be complementary or opposing).</span></strong><span> Abortion is murder, it shoudn't
-   be legal. People have a right to their own body.</span></p><p><span>3) </span><strong><span>What seems to be at stake (e.g, philosophically, politically, or
-   intellectually)?</span></strong><span> Abortion laws!</span></p></section></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#page-o&apos;-notes">Page o' notes</a><ol><li><a href="#machine-learning-broad-level-implications-on-privacy">Machine learning broad level implications on privacy</a></li><li><a href="#regulation!">Regulation!</a></li><li><a href="#rights">Rights</a></li><li><a href="#flipside">Flipside</a></li></ol></li><li><a href="#during-discussion">during discussion</a></li><li><a href="#reflec">Reflec</a></li></ol><div class="metalabel">Backlinks</div><ul class="firn-backlinks"><li class="firn-backlink"><a href="/isos/intro_to_isos/KBISOSMasterIndex">ISOS Master Index</a></li></ul></div></main></body></html>
+m: social media taking data in general - h: human ml modeling %%
+</p>
+
+<div id="outline-container-page-o-notes" class="outline-2">
+<h2 id="page-o-notes"><span class="section-number-2">1</span> Page o' notes</h2>
+<div class="outline-text-2" id="text-page-o-notes">
+</div>
+<div id="outline-container-machine-learning-broad-level-implications-on-privacy" class="outline-4">
+<h4 id="machine-learning-broad-level-implications-on-privacy"><span class="section-number-4">1.0.1</span> Machine learning broad level implications on privacy</h4>
+<div class="outline-text-4" id="text-machine-learning-broad-level-implications-on-privacy">
+<ul class="org-ul">
+<li>ML requires big data
+
+<ul class="org-ul">
+<li>machine learning has driven us into the "information age"
+
+<ul class="org-ul">
+<li>cause of most of these issues</li>
+</ul></li>
+
+<li>getting lots of info -&gt; invading privacy, generally</li>
+</ul></li>
+
+<li>ML can break privacy without explicit data
+
+<ul class="org-ul">
+<li>ML can de-anonymize anonymous activities
+
+<ul class="org-ul">
+<li>ML based tracking systems make anonymity hard</li>
+<li>hashing ISN'T good enough</li>
+</ul></li>
+
+<li>same thing can be done even without ml
+
+<ul class="org-ul">
+<li>location tracking easily de-anonymized by simple cross reference</li>
+</ul></li>
+</ul></li>
+
+<li>ML can construct human models
+
+<ul class="org-ul">
+<li>fundamentally about simulation intelligent behavior</li>
+<li>ML model of how you think and act
+
+<ul class="org-ul">
+<li>viewed as creepy</li>
+</ul></li>
+
+<li>if it could predict your thoughts, what then?</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-regulation" class="outline-4">
+<h4 id="regulation"><span class="section-number-4">1.0.2</span> Regulation!</h4>
+<div class="outline-text-4" id="text-regulation">
+<ul class="org-ul">
+<li>FTC (federal trade commission) coming down hard
+
+<ul class="org-ul">
+<li>hitting Facebook, google, ect.</li>
+</ul></li>
+
+<li>CCPA, California consumer privacy act</li>
+<li>GDPR, General Data Protection Regulation</li>
+<li>how effective is regulation?
+
+<ul class="org-ul">
+<li>can we really prevent it?</li>
+<li>one of the arguments: &gt; "if you make data collection illegal, only
+criminals will have the data"</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-rights" class="outline-4">
+<h4 id="rights"><span class="section-number-4">1.0.3</span> Rights</h4>
+<div class="outline-text-4" id="text-rights">
+<ul class="org-ul">
+<li>right to be forgotten
+
+<ul class="org-ul">
+<li>opt out law by the consumer</li>
+<li>is this a right?</li>
+</ul></li>
+
+<li>right to our data, as outlined in CCPA
+
+<ul class="org-ul">
+<li>again, really a right?</li>
+</ul></li>
+
+<li>individualize experience moral?
+
+<ul class="org-ul">
+<li>amazon adjusting prices,</li>
+<li>insurance companies not accepting</li>
+<li>ect.</li>
+</ul></li>
+
+<li>private company rights to charge how they please?
+
+<ul class="org-ul">
+<li><b>libertarian args go here</b></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-flipside" class="outline-4">
+<h4 id="flipside"><span class="section-number-4">1.0.4</span> Flipside</h4>
+<div class="outline-text-4" id="text-flipside">
+<ul class="org-ul">
+<li>if privacy-preserving techniques ultimately fail,
+
+<ul class="org-ul">
+<li>then what?</li>
+</ul></li>
+
+<li>ML does a lot of good
+
+<ul class="org-ul">
+<li>though the individual might not want to share medical data,</li>
+<li>that same data on the large scale could save countless lives</li>
+</ul></li>
+
+<li>garbage in, garbage out + black box
+
+<ul class="org-ul">
+<li>not. good.</li>
+<li>especially when AI will dominate decision making and analysis.</li>
+</ul></li>
+
+<li>forced to give data by tragedy of the commons
+
+<ul class="org-ul">
+<li>you want ml networks to portray your demographic accurately,</li>
+<li>and if you don't give data, it won't. In a world dominated by ml,</li>
+<li>giving your data becomes necessity</li>
+</ul></li>
+
+<li>forced to give data by economic necessity
+
+<ul class="org-ul">
+<li>where data collection is truly opt out, services replace it with
+paid</li>
+<li>economically worse off will be more likely to give data</li>
+<li>skews data collected?</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-during-discussion" class="outline-3">
+<h3 id="during-discussion"><span class="section-number-3">1.1</span> during discussion</h3>
+<div class="outline-text-3" id="text-during-discussion">
+<p>
+pri v sec -&gt; pri v los
+</p>
+</div>
+</div>
+
+<div id="outline-container-reflec" class="outline-3">
+<h3 id="reflec"><span class="section-number-3">1.2</span> Reflec</h3>
+<div class="outline-text-3" id="text-reflec">
+<ol class="org-ol">
+<li>*What is the ethical issue/debate/controversy in question? In other
+words, how does the topic relate to the question of how we should
+live with science and technology?* Should abortion be legal? How do
+we think about start of life with improving technology?</li>
+
+<li><b>Describe at least two different perspectives on the issue (these
+could be complementary or opposing).</b> Abortion is murder, it shoudn't
+be legal. People have a right to their own body.</li>
+
+<li><b>What seems to be at stake (e.g, philosophically, politically, or
+intellectually)?</b> Abortion laws!</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,62 +1,542 @@
-<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Albert Huang" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Capacitors Lab Writeup</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
-        'displayAlign': 'center',
-        'displayIndent': '0em',
-        'extensions': ['tex2jax.js'],
-        'tex2jax': {
-        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
-        'processEscapes': true
-        },
-        'HTML-CSS': { scale: 100,
-                        linebreaks: { automatic: 'false' },
-                        webFont: 'TeX'
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-27 Mon 12:05 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Capacitors Lab Writeup</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Albert Huang" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
                        },
         SVG: {scale: 100,
-              linebreaks: { automatic: 'false' },
-              font: 'TeX'},
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
         NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: 'AMS'},
-               MultLineWidth: '85%',
-               TagSide: 'right',
-               TagIndent: '.8em'
-             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Capacitors Lab Writeup</h1></div><div class="metamble"><span><span>Written by </span><span>Albert Huang</span></span></div><div class="notebody"><div><section><p><span>#ret</span></p></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="purpose"><span class="firn-headline-text"><span>Purpose</span></span></h1><section><p><span>To verify the relation between capacitance, resistance, voltage, and
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Capacitors Lab Writeup</h1> <h2 class="subtitle"></h2> <span class="author">Albert Huang</span> <span class="date">2021-09-27 Mon 12:00</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBe20phys250retCapacitorsLab.html'>Capacitor Lab</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#purpose">1. Purpose</a></li>
+<li><a href="#voltage-over-time">2. Voltage over Time</a>
+<ul>
+<li><a href="#equipment">2.1. Equipment</a></li>
+<li><a href="#procedure">2.2. Procedure</a></li>
+<li><a href="#results">2.3. Results</a></li>
+<li><a href="#analysis">2.4. Analysis</a></li>
+<li><a href="#conclusion">2.5. Conclusion</a></li>
+</ul>
+</li>
+<li><a href="#integration-of-current">3. Integration of Current</a>
+<ul>
+<li><a href="#procedure-1">3.1. Procedure</a></li>
+<li><a href="#results-1">3.2. Results</a></li>
+<li><a href="#analysis-1">3.3. Analysis</a></li>
+<li><a href="#conclusion-1">3.4. Conclusion</a></li>
+</ul>
+</li>
+<li><a href="#time-constant-with-various-components">4. Time Constant with Various Components</a>
+<ul>
+<li><a href="#equipment-1">4.1. Equipment</a></li>
+<li><a href="#procedure-2">4.2. Procedure</a></li>
+<li><a href="#results-2">4.3. Results</a></li>
+<li><a href="#analysis-2">4.4. Analysis</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<p>
+#ret
+</p>
+
+<div id="outline-container-purpose" class="outline-2">
+<h2 id="purpose"><span class="section-number-2">1</span> Purpose</h2>
+<div class="outline-text-2" id="text-purpose">
+<p>
+To verify the relation between capacitance, resistance, voltage, and
 charge time of a simple capacitor circuit. The equation that will be
 verified is \[
 V_{cap} = V_{bat}\left(1-e^{-\frac{t}{\tau}}\right)
-\] where each variable has the following meaning:</span></p><table><tr><td><span>Variable</span></td><td><span>Units</span></td><td><span>Description</span></td></tr><tr></tr><tr><td><span>\(t\)</span></td><td><span>Seconds (s)</span></td><td><span>Time elapsed since charging of the capacitor started. May be represented as \(t-t_0\), where \(t\) is the current absolute time and \(t_0\) is the absolute start time.</span></td></tr><tr><td><span>\(V_{cap}\)</span></td><td><span>Volts (V)</span></td><td><span>Voltage across the capacitor after a given elapsed time</span></td></tr><tr><td><span>\(V_{bat}\)</span></td><td><span>Volts (V)</span></td><td><span>Voltage of the battery, assumed to be constant.</span></td></tr><tr><td><span>\(\tau\)</span></td><td><span>Seconds (s)</span></td><td><span>"Time constant" that scales the equation to the circuit. Equal to the product of the resistance and capacitance of the circuit (\(RC\)), and roughly equal to the number of seconds required to charge the capacitor to \(\frac{2}{3}\) of \(V_{bat}\).</span></td></tr></table><blockquote><p><span>  Table 1: The meanings of variables in the numerical model</span></p></blockquote></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="voltage-over-time"><span class="firn-headline-text"><span>Voltage over Time</span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="equipment"><span class="firn-headline-text"><span>Equipment</span></span></h2><section><ul><li><p><span>Logger Pro probes</span></p></li><li><p><span>Logger Pro</span></p></li><li><p><span>Breadboard</span></p></li><li><p><span>Capacitors (22\(\mu\)F-1000\(\mu\)F)</span></p></li><li><p><span>Resistors (15\(\omega\)-100k\(\omega\))</span></p></li><li><p><span>3 volt battery pack</span></p></li></ul></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="procedure"><span class="firn-headline-text"><span>Procedure</span></span></h2><section><p><span>A number of circuits were built, with the same structure but differing
+\] where each variable has the following meaning:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Variable</th>
+<th scope="col" class="org-left">Units</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\(t\)</td>
+<td class="org-left">Seconds (s)</td>
+<td class="org-left">Time elapsed since charging of the capacitor started. May be represented as \(t-t_0\), where \(t\) is the current absolute time and \(t_0\) is the absolute start time.</td>
+</tr>
+
+<tr>
+<td class="org-left">\(V_{cap}\)</td>
+<td class="org-left">Volts (V)</td>
+<td class="org-left">Voltage across the capacitor after a given elapsed time</td>
+</tr>
+
+<tr>
+<td class="org-left">\(V_{bat}\)</td>
+<td class="org-left">Volts (V)</td>
+<td class="org-left">Voltage of the battery, assumed to be constant.</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\tau\)</td>
+<td class="org-left">Seconds (s)</td>
+<td class="org-left">"Time constant" that scales the equation to the circuit. Equal to the product of the resistance and capacitance of the circuit (\(RC\)), and roughly equal to the number of seconds required to charge the capacitor to \(\frac{2}{3}\) of \(V_{bat}\).</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>
+Table 1: The meanings of variables in the numerical model
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-voltage-over-time" class="outline-2">
+<h2 id="voltage-over-time"><span class="section-number-2">2</span> Voltage over Time</h2>
+<div class="outline-text-2" id="text-voltage-over-time">
+</div>
+<div id="outline-container-equipment" class="outline-3">
+<h3 id="equipment"><span class="section-number-3">2.1</span> Equipment</h3>
+<div class="outline-text-3" id="text-equipment">
+<ul class="org-ul">
+<li>Logger Pro probes</li>
+<li>Logger Pro</li>
+<li>Breadboard</li>
+<li>Capacitors (22\(\mu\)F-1000\(\mu\)F)</li>
+<li>Resistors (15\(\omega\)-100k\(\omega\))</li>
+<li>3 volt battery pack</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-procedure" class="outline-3">
+<h3 id="procedure"><span class="section-number-3">2.2</span> Procedure</h3>
+<div class="outline-text-3" id="text-procedure">
+<p>
+A number of circuits were built, with the same structure but differing
 resistances and capacitances. The voltage across the capacitor and the
 current through the circuit were measured over time using a voltage and
-amperage probe with Logger Pro.</span></p><p><a href="#kbe20phys250srccapacitorlabcircuitschematicpng"></a></p><p><span>Section 3 uses a different approach to analyze this data, and Section 4
+amperage probe with Logger Pro.
+</p>
+
+
+<div id="org75f7718" class="figure">
+<p><img src="./KBe20phys250srcCapacitorLabCircuitSchematic.png" alt="KBe20phys250srcCapacitorLabCircuitSchematic.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Circuit Schematic</p>
+</div>
+
+<p>
+Section 3 uses a different approach to analyze this data, and Section 4
 discusses the time constant as measured using a multimeter and
-stopwatch, all on the same basic circuit. The raw data can be found</span><a class="firn-external" href="https://nuevaschool.instructure.com/courses/2851/assignments/52558" target="_blank">on
-Canvas</a><span>. Desmos was used to manually fit curves to the data, using a
+stopwatch, all on the same basic circuit. The raw data can be found
+<a href="https://nuevaschool.instructure.com/courses/2851/assignments/52558">on
+Canvas</a>. Desmos was used to manually fit curves to the data, using a
 modified version of the model with \(t\) and \(t_0\) variables to
 truncate scrap data: \[
 V_{cap} = V_{bat}\left(1-e^{-\frac{t - t_0}{\tau}}\right)
 \] The scattered points near the x-axis are residuals between the curve
 fit and the collected data. The fit heuristic was to visually center the
-dots around the x-axis.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="results"><span class="firn-headline-text"><span>Results</span></span></h2><section><p><span>The results of the fits are summarized below:</span></p><p><span>data (green). Residuals (red) were multiplied by 30.</span><a href="#kbesrccapacitor22microf100kopng"></a></p><p><span>(purple) of the 33\(\Omega\) 0.047\(\mu\)F data (blue). Residuals
-(black) scaled x60.]]</span><a href="#kbesrccapacitorpoint047microf33ohmpng"></a></p><p><span>(black) of the 100\(\Omega\) 1000\(\mu\)F data (purple). Residuals
-(blue) scaled x30.]]</span><a href="#kbesrccapacitor1000microf100ohmpng"></a></p><p><span>(black) of the 15\(\Omega\) 1000\(\mu\)F data (purple). Residuals (red)
-scaled x30.]]</span><a href="#kbesrccapacitor1000microf15ohmpng"></a></p><table><tr><td><span>\(\Omega\)</span></td><td><span>F</span></td><td><span>Fit \(\tau\) (s)</span></td><td><span>Modeled \(\tau\) (s)</span></td><td><span>% Error</span></td></tr><tr></tr><tr><td><span>100k\(\Omega\)</span></td><td><span>22\(\mu\)F</span></td><td><span>2.3860 \(\pm\) 0.01</span></td><td><span>2.2000 \(\pm\) 0.441</span></td><td><span>8.45%</span></td></tr><tr><td><span>33k\(\Omega\)</span></td><td><span>0.047\(\mu\)F</span></td><td><span>0.0017 \(\pm\) 0.0001</span></td><td><span>0.0016 \(\pm\) 0.0003</span></td><td><span>12.83%</span></td></tr><tr><td><span>100\(\Omega\)</span></td><td><span>1000\(\mu\)F</span></td><td><span>0.1058 \(\pm\) 0.001</span></td><td><span>0.1000 \(\pm\) 0.020</span></td><td><span>4.40%</span></td></tr><tr><td><span>15 \(\Omega\)</span></td><td><span>1000\(\mu\)F</span></td><td><span>0.0188 \(\pm\) 0.0001</span></td><td><span>0.0150 \(\pm\) 0.003</span></td><td><span>24.67%</span></td></tr></table><blockquote><p><span>  Table 2: Fit and calculated values of \(\tau\).</span></p></blockquote></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="analysis"><span class="firn-headline-text"><span>Analysis</span></span></h2><section><p><span>The curve fits included a parameter for \(\tau\), and the model predicts
+dots around the x-axis.
+</p>
+</div>
+</div>
+
+<div id="outline-container-results" class="outline-3">
+<h3 id="results"><span class="section-number-3">2.3</span> Results</h3>
+<div class="outline-text-3" id="text-results">
+<p>
+The results of the fits are summarized below:
+</p>
+
+<p>
+data (green). Residuals (red) were multiplied by 30.
+<img src="./KBesrcCapacitor22microF100kO.png" alt="KBesrcCapacitor22microF100kO.png" />
+</p>
+
+<p>
+(purple) of the 33\(\Omega\) 0.047\(\mu\)F data (blue). Residuals
+(black) scaled x60.]]
+<img src="./KBesrcCapacitorPoint047microF33ohm.png" alt="KBesrcCapacitorPoint047microF33ohm.png" />
+</p>
+
+<p>
+(black) of the 100\(\Omega\) 1000\(\mu\)F data (purple). Residuals
+(blue) scaled x30.]]
+<img src="./KBesrcCapacitor1000microF100ohm.png" alt="KBesrcCapacitor1000microF100ohm.png" />
+</p>
+
+<p>
+(black) of the 15\(\Omega\) 1000\(\mu\)F data (purple). Residuals (red)
+scaled x30.]]
+<img src="./KBesrcCapacitor1000microF15ohm.png" alt="KBesrcCapacitor1000microF15ohm.png" />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">\(\Omega\)</th>
+<th scope="col" class="org-left">F</th>
+<th scope="col" class="org-left">Fit \(\tau\) (s)</th>
+<th scope="col" class="org-left">Modeled \(\tau\) (s)</th>
+<th scope="col" class="org-right">% Error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">100k\(\Omega\)</td>
+<td class="org-left">22\(\mu\)F</td>
+<td class="org-left">2.3860 \(\pm\) 0.01</td>
+<td class="org-left">2.2000 \(\pm\) 0.441</td>
+<td class="org-right">8.45%</td>
+</tr>
+
+<tr>
+<td class="org-left">33k\(\Omega\)</td>
+<td class="org-left">0.047\(\mu\)F</td>
+<td class="org-left">0.0017 \(\pm\) 0.0001</td>
+<td class="org-left">0.0016 \(\pm\) 0.0003</td>
+<td class="org-right">12.83%</td>
+</tr>
+
+<tr>
+<td class="org-left">100\(\Omega\)</td>
+<td class="org-left">1000\(\mu\)F</td>
+<td class="org-left">0.1058 \(\pm\) 0.001</td>
+<td class="org-left">0.1000 \(\pm\) 0.020</td>
+<td class="org-right">4.40%</td>
+</tr>
+
+<tr>
+<td class="org-left">15 \(\Omega\)</td>
+<td class="org-left">1000\(\mu\)F</td>
+<td class="org-left">0.0188 \(\pm\) 0.0001</td>
+<td class="org-left">0.0150 \(\pm\) 0.003</td>
+<td class="org-right">24.67%</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>
+Table 2: Fit and calculated values of \(\tau\).
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-analysis" class="outline-3">
+<h3 id="analysis"><span class="section-number-3">2.4</span> Analysis</h3>
+<div class="outline-text-3" id="text-analysis">
+<p>
+The curve fits included a parameter for \(\tau\), and the model predicts
 \(\tau = RC\). Thus, the values and uncertainties for resistance and
 capacitance of each circuit were multiplied and compared to the visual
-best fit \(\tau\) in the table above.</span></p><p><span>Because each fit was done manually, the absolute error was difficult to
+best fit \(\tau\) in the table above.
+</p>
+
+<p>
+Because each fit was done manually, the absolute error was difficult to
 estimate because there was no correct answer. Instead, error was taken
 as the precision at which the number was considered "close enough" by
 the human doing the curve fit. Depending on the size of the value (and
 scale of the Desmos slider), this results in an absolute error ranging
-from 0.1 units to 0.001 units.</span></p><p><span>These uncertainties were propagated through calculations as follows: \[
+from 0.1 units to 0.001 units.
+</p>
+
+<p>
+These uncertainties were propagated through calculations as follows: \[
+</p>
 \begin{aligned}
 \delta (A+B) = \sqrt{\delta A^2 + \delta B^2}\\
 \frac{\delta (AB)}{AB} = \sqrt{\left(\frac{\delta A}{A}\right)^2 + \left(\frac{\delta B}{B}\right)^2}
 \end{aligned}
-\] for additive and multiplicative one operations respectively.</span></p><p><span>The manufacturing tolerances of electronic components were taken into
+<p>
+\] for additive and multiplicative one operations respectively.
+</p>
+
+<p>
+The manufacturing tolerances of electronic components were taken into
 account as well. Resistor tolerances were based on the absolute
 difference between standard resistances and those measured by a
 multimeter. Capacitance tolerances were based on the tolerances of a
-similar capacitor for which the</span><a href="#http:wwwpaullinebargernetdsfoaifoai-%5bradial-thru-hole%5d-cd110-seriespdf">data
-sheet</a><span> was available: the FOAI CD110 radial capacitor, which had
-capacitance tolerances of \(\pm\) 20%.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="conclusion"><span class="firn-headline-text"><span>Conclusion</span></span></h2><section><p><span>Assuming perfect capacitor manufacturing, the curve fit results fell
+similar capacitor for which the
+<a href="http://www.paullinebarger.net/DS/Foai/Foai%20%5Bradial%20thru-hole%5D%20CD110%20Series.pdf">data
+sheet</a> was available: the FOAI CD110 radial capacitor, which had
+capacitance tolerances of \(\pm\) 20%.
+</p>
+</div>
+</div>
+
+<div id="outline-container-conclusion" class="outline-3">
+<h3 id="conclusion"><span class="section-number-3">2.5</span> Conclusion</h3>
+<div class="outline-text-3" id="text-conclusion">
+<p>
+Assuming perfect capacitor manufacturing, the curve fit results fell
 within uncertainties of the model predicted \(\tau\) value for all
 circuits except the fit in Figure 1. This is likely due to the high
 uncertainties placed on smaller scale curve fits, especially the final
@@ -67,22 +547,79 @@ accurately. For future iterations, numerical errors could have been
 better predicted if the specifications of the exact parts used to build
 the circuit were available. Additionally, more systematic curve fit
 heuristics could have been used such as RSME. The exact numerical
-analysis for this section can be found</span><strong><a class="firn-external" href="https://docs.google.com/spreadsheets/d/1Hw9ooz0CtAvTP9vtw1VT9pVyfsW39IojwwrQX94VJQY/edit?usp=sharing" target="_blank">here</a></strong><span>.</span></p></section></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="integration-of-current"><span class="firn-headline-text"><span>Integration of Current</span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="procedure"><span class="firn-headline-text"><span>Procedure</span></span></h2><section><p><span>Another way to evaluate the model is to compare the amount of
-transferred charge. For this comparison, a modified equation is used:</span></p><p><span>\[
+analysis for this section can be found
+<b><a href="https://docs.google.com/spreadsheets/d/1Hw9ooz0CtAvTP9vtw1VT9pVyfsW39IojwwrQX94VJQY/edit?usp=sharing">here</a></b>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-integration-of-current" class="outline-2">
+<h2 id="integration-of-current"><span class="section-number-2">3</span> Integration of Current</h2>
+<div class="outline-text-2" id="text-integration-of-current">
+</div>
+<div id="outline-container-procedure-1" class="outline-3">
+<h3 id="procedure-1"><span class="section-number-3">3.1</span> Procedure</h3>
+<div class="outline-text-3" id="text-procedure-1">
+<p>
+Another way to evaluate the model is to compare the amount of
+transferred charge. For this comparison, a modified equation is used:
+</p>
+
+<p>
+\[
 Q_{cap}=Q_{max}\left(1-e^{-\frac{t-t_{0}}{\tau}}\right)
-\]</span></p><p><span>This is similar to the model used in the previous procedure, but voltage
+\]
+</p>
+
+<p>
+This is similar to the model used in the previous procedure, but voltage
 variables are replaced with charge. Current flow through the circuit is
 used as a proxy to calculate the amount of charge accumulated in the
 capacitor. As before, current is measured across a resistor using a
-digital probe and Logger Pro.</span></p><p><span>The amount of charge on the capacitor was calculated by taking a Riemann
+digital probe and Logger Pro.
+</p>
+
+<p>
+The amount of charge on the capacitor was calculated by taking a Riemann
 sum of the momentary current measurements. In addition, the voltage
 measurements across the capacitor were used as another proxy to
-calculate the amount of charge on the capacitor.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="results"><span class="firn-headline-text"><span>Results</span></span></h2><section><p><span>The values of the three theoretically identical methods of calculating
-capacitor charge are shown below:</span></p><p><a class="firn-external" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRfxrZPfJZareibOZN-KammmgQDBDb5PVMBNmzCvUb_0tSn_TUNsLFQPM8ehfIKGEOaIhL86IoPFdb0/pubchart?oid=483417085&amp;format=image" target="_blank"></a></p><p><span>In addition, the final accumulated charge calculated by the Riemann sum
-was 0.00319C, or the equivalent of 3.19V on the capacitor.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="analysis"><span class="firn-headline-text"><span>Analysis</span></span></h2><section><p><span>As the graph shows, both proxies of charge on the capacitor generally
+calculate the amount of charge on the capacitor.
+</p>
+</div>
+</div>
+
+<div id="outline-container-results-1" class="outline-3">
+<h3 id="results-1"><span class="section-number-3">3.2</span> Results</h3>
+<div class="outline-text-3" id="text-results-1">
+<p>
+The values of the three theoretically identical methods of calculating
+capacitor charge are shown below:
+</p>
+
+<p>
+<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRfxrZPfJZareibOZN-KammmgQDBDb5PVMBNmzCvUb_0tSn_TUNsLFQPM8ehfIKGEOaIhL86IoPFdb0/pubchart?oid=483417085&amp;format=image">https://docs.google.com/spreadsheets/d/e/2PACX-1vRfxrZPfJZareibOZN-KammmgQDBDb5PVMBNmzCvUb_0tSn_TUNsLFQPM8ehfIKGEOaIhL86IoPFdb0/pubchart?oid=483417085&amp;format=image</a>
+</p>
+
+<p>
+In addition, the final accumulated charge calculated by the Riemann sum
+was 0.00319C, or the equivalent of 3.19V on the capacitor.
+</p>
+</div>
+</div>
+
+<div id="outline-container-analysis-1" class="outline-3">
+<h3 id="analysis-1"><span class="section-number-3">3.3</span> Analysis</h3>
+<div class="outline-text-3" id="text-analysis-1">
+<p>
+As the graph shows, both proxies of charge on the capacitor generally
 agree with the model but come up with smaller values of charge. Notably,
 the two experimental proxies don't agree with each other either,
-suggesting some systematic error is at play.</span></p><p><span>One culprit may be misaligned data: if the Riemann sum calculation began
+suggesting some systematic error is at play.
+</p>
+
+<p>
+One culprit may be misaligned data: if the Riemann sum calculation began
 after charging, then the entire sum would be skewed low. However, the
 sum plot is not a vertical translation of the theoretical value, which
 suggests the effect of this issue is minimal or canceled. Another issue
@@ -93,15 +630,32 @@ average of readings when no charge should be flowing, multiplying by the
 number of data points, and subtracting the total from the final charge
 value. However, the calculated drift was an order of magnitude greater
 than the total accumulated charge, so the author did not numerically
-sanitize against this drift.</span></p><p><span>Although the intermediate charge values do not match the model, the
+sanitize against this drift.
+</p>
+
+<p>
+Although the intermediate charge values do not match the model, the
 final accumulated charge is sensical: 3.19 volts is close to the
 expected 3.2 volts. The same errors mentioned previously contribute to
 this difference, but the accuracy of the result suggests that the effect
-was canceled.</span></p><p><span>The Farad Definition line (red) in Figure 6 has blips for unkown
+was canceled.
+</p>
+
+<p>
+The Farad Definition line (red) in Figure 6 has blips for unkown
 reasons. When the battery was off, the probe measured voltages on the
 order of \(10^{-9}\) for a few ticks before measuring a faulty value, so
 a similar stepping phenomenon may be occuring in the voltage
-meauserement.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="conclusion"><span class="firn-headline-text"><span>Conclusion</span></span></h2><section><p><span>The Riemann sums of measured current align with the model and expected
+meauserement.
+</p>
+</div>
+</div>
+
+<div id="outline-container-conclusion-1" class="outline-3">
+<h3 id="conclusion-1"><span class="section-number-3">3.4</span> Conclusion</h3>
+<div class="outline-text-3" id="text-conclusion-1">
+<p>
+The Riemann sums of measured current align with the model and expected
 charge calculated by the voltage on the capacitor and the definition of
 the Farad. Thus, the model accurately predicts experimental behavior,
 suggesting that it is correct. Although the graphs differed slightly,
@@ -111,28 +665,150 @@ calibration inaccuracies. Future analysis could be more accurate by
 calculating the false zero point of the sensor, using various tick times
 to find the most effective range for that sensor, and having more
 accurate values for uncertainty for circuit components and the digital
-probe.</span></p><p><span>Source analysis</span><a class="firn-external" href="https://docs.google.com/spreadsheets/d/1eDmGRePGh8PVv2aKhVhv-TNJc3_n8H7HUrAMvxOG1Vs/edit?usp=sharing" target="_blank">*here*</a><span>.</span></p></section></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="time-constant-with-various-components"><span class="firn-headline-text"><span>Time Constant with Various Components</span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="equipment"><span class="firn-headline-text"><span>Equipment</span></span></h2><section><ul><li><p><span>Breadboard</span></p></li><li><p><span>Capacitors (100\(\mu\)F-1000\(\mu\)F)</span></p></li><li><p><span>Resistors (99.8k\(\Omega\)-1M\(\Omega\))</span></p></li><li><p><span>3 volt battery pack</span></p></li><li><p><span>Multimeter</span></p></li><li><p><span>Stopwatch</span></p></li></ul></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="procedure"><span class="firn-headline-text"><span>Procedure</span></span></h2><section><p><span>Most of the analysis for data collected as a class was done on the
-"charge rate constant" (</span><code>time/RC</code><span>) of each circuit, defined as:</span></p><p><span>\[
+probe.
+</p>
+
+<p>
+Source analysis
+<a href="https://docs.google.com/spreadsheets/d/1eDmGRePGh8PVv2aKhVhv-TNJc3_n8H7HUrAMvxOG1Vs/edit?usp=sharing"><b>here</b></a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-time-constant-with-various-components" class="outline-2">
+<h2 id="time-constant-with-various-components"><span class="section-number-2">4</span> Time Constant with Various Components</h2>
+<div class="outline-text-2" id="text-time-constant-with-various-components">
+</div>
+<div id="outline-container-equipment-1" class="outline-3">
+<h3 id="equipment-1"><span class="section-number-3">4.1</span> Equipment</h3>
+<div class="outline-text-3" id="text-equipment-1">
+<ul class="org-ul">
+<li>Breadboard</li>
+<li>Capacitors (100\(\mu\)F-1000\(\mu\)F)</li>
+<li>Resistors (99.8k\(\Omega\)-1M\(\Omega\))</li>
+<li>3 volt battery pack</li>
+<li>Multimeter</li>
+<li>Stopwatch</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-procedure-2" class="outline-3">
+<h3 id="procedure-2"><span class="section-number-3">4.2</span> Procedure</h3>
+<div class="outline-text-3" id="text-procedure-2">
+<p>
+Most of the analysis for data collected as a class was done on the
+"charge rate constant" (<code>time/RC</code>) of each circuit, defined as:
+</p>
+
+<p>
+\[
 \frac{t}{RC}
-\]</span></p><p><span>The same circuit as above was built by various experimentalists, with
-multimeter probes on the two sides legs of the capacitor:</span></p><p><a href="#kbe20phys250srccapacitorlabcircuitschematicpng"></a></p><p><span>The physical manifestation of which looked like:</span></p><p><span>attached to multimeter, battery attatched to the power rails.</span><a href="#kbe20phys250srccapacitorlabcircuitpng"></a></p><p><span>Starting with discharged capacitors, a battery was connected to the
+\]
+</p>
+
+<p>
+The same circuit as above was built by various experimentalists, with
+multimeter probes on the two sides legs of the capacitor:
+</p>
+
+
+<div id="orgf8dd387" class="figure">
+<p><img src="./KBe20phys250srcCapacitorLabCircuitSchematic.png" alt="KBe20phys250srcCapacitorLabCircuitSchematic.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span>Circuit Schematic</p>
+</div>
+
+<p>
+The physical manifestation of which looked like:
+</p>
+
+<p>
+attached to multimeter, battery attatched to the power rails.
+<img src="./KBe20phys250srcCapacitorLabCircuit.png" alt="KBe20phys250srcCapacitorLabCircuit.png" />
+</p>
+
+<p>
+Starting with discharged capacitors, a battery was connected to the
 circuit and used to charge the capacitor. The time taken for the voltage
 across the capacitor to reach 2 \(\pm\) 0.01 volts was measured for
-various resistor and capacitor combinations.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="results"><span class="firn-headline-text"><span>Results</span></span></h2><section><p><code>time/RC</code><span> is a unitless scalar that represents how quickly it takes to
+various resistor and capacitor combinations.
+</p>
+</div>
+</div>
+
+<div id="outline-container-results-2" class="outline-3">
+<h3 id="results-2"><span class="section-number-3">4.3</span> Results</h3>
+<div class="outline-text-3" id="text-results-2">
+<p>
+<code>time/RC</code> is a unitless scalar that represents how quickly it takes to
 charge any capacitor for a given voltage. Voltage data was not collected
 during the experiment, so the voltage is assumed to be constant across
-trials. If our model of capacitor charge rate is correct, we expect</span><code>time/RC</code><span> to be constant across trials. The actual data was skewed
-right:</span></p><p><a class="firn-external" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTdonVC_CHgEAoezSnGLXLRFZMhR0_IfTl8anSSMXwEDUR4iNzQbhVJGY8PyUq2e946cMuQbj5TSex_/pubchart?oid=587065174&amp;format=image" target="_blank"></a></p><p><span>By comparing the </span><code>time/RC</code><span> and different properties of each circuit,
+trials. If our model of capacitor charge rate is correct, we expect
+<code>time/RC</code> to be constant across trials. The actual data was skewed
+right:
+</p>
+
+<p>
+<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTdonVC_CHgEAoezSnGLXLRFZMhR0_IfTl8anSSMXwEDUR4iNzQbhVJGY8PyUq2e946cMuQbj5TSex_/pubchart?oid=587065174&amp;format=image">https://docs.google.com/spreadsheets/d/e/2PACX-1vTdonVC_CHgEAoezSnGLXLRFZMhR0_IfTl8anSSMXwEDUR4iNzQbhVJGY8PyUq2e946cMuQbj5TSex_/pubchart?oid=587065174&amp;format=image</a>
+</p>
+
+<p>
+By comparing the <code>time/RC</code> and different properties of each circuit,
 reasoning for the outliers may be deduced. The visualization of the
 histogram is reflected in each of the following charts by the density of
-points in a column.</span></p><p><span>First, the </span><code>time/RC</code><span> values were compared with the resistance of the
-circuit:</span></p><p><a class="firn-external" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTdonVC_CHgEAoezSnGLXLRFZMhR0_IfTl8anSSMXwEDUR4iNzQbhVJGY8PyUq2e946cMuQbj5TSex_/pubchart?oid=1655543849&amp;format=image" target="_blank"></a></p><p><span>Although some outliers came from circuits with high resistance, the most
+points in a column.
+</p>
+
+<p>
+First, the <code>time/RC</code> values were compared with the resistance of the
+circuit:
+</p>
+
+<p>
+<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTdonVC_CHgEAoezSnGLXLRFZMhR0_IfTl8anSSMXwEDUR4iNzQbhVJGY8PyUq2e946cMuQbj5TSex_/pubchart?oid=1655543849&amp;format=image">https://docs.google.com/spreadsheets/d/e/2PACX-1vTdonVC_CHgEAoezSnGLXLRFZMhR0_IfTl8anSSMXwEDUR4iNzQbhVJGY8PyUq2e946cMuQbj5TSex_/pubchart?oid=1655543849&amp;format=image</a>
+</p>
+
+<p>
+Although some outliers came from circuits with high resistance, the most
 skewed ones came from those with least resistance. The same can be said
-of capacitance:</span></p><p><a class="firn-external" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTdonVC_CHgEAoezSnGLXLRFZMhR0_IfTl8anSSMXwEDUR4iNzQbhVJGY8PyUq2e946cMuQbj5TSex_/pubchart?oid=1866933099&amp;format=image" target="_blank"></a></p><p><span>Finally, the comparison with time taken to charge the capacitor shows
+of capacitance:
+</p>
+
+<p>
+<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTdonVC_CHgEAoezSnGLXLRFZMhR0_IfTl8anSSMXwEDUR4iNzQbhVJGY8PyUq2e946cMuQbj5TSex_/pubchart?oid=1866933099&amp;format=image">https://docs.google.com/spreadsheets/d/e/2PACX-1vTdonVC_CHgEAoezSnGLXLRFZMhR0_IfTl8anSSMXwEDUR4iNzQbhVJGY8PyUq2e946cMuQbj5TSex_/pubchart?oid=1866933099&amp;format=image</a>
+</p>
+
+<p>
+Finally, the comparison with time taken to charge the capacitor shows
 the strongest correlation, which is to be expected because according to
-the model, this value is the product of the previous two trends.</span></p><p><a class="firn-external" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTdonVC_CHgEAoezSnGLXLRFZMhR0_IfTl8anSSMXwEDUR4iNzQbhVJGY8PyUq2e946cMuQbj5TSex_/pubchart?oid=716778401&amp;format=image" target="_blank"></a></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="analysis"><span class="firn-headline-text"><span>Analysis</span></span></h2><section><p><span>On explanation for the data skew is reaction time: for lower values of
+the model, this value is the product of the previous two trends.
+</p>
+
+<p>
+<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTdonVC_CHgEAoezSnGLXLRFZMhR0_IfTl8anSSMXwEDUR4iNzQbhVJGY8PyUq2e946cMuQbj5TSex_/pubchart?oid=716778401&amp;format=image">https://docs.google.com/spreadsheets/d/e/2PACX-1vTdonVC_CHgEAoezSnGLXLRFZMhR0_IfTl8anSSMXwEDUR4iNzQbhVJGY8PyUq2e946cMuQbj5TSex_/pubchart?oid=716778401&amp;format=image</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-analysis-2" class="outline-3">
+<h3 id="analysis-2"><span class="section-number-3">4.4</span> Analysis</h3>
+<div class="outline-text-3" id="text-analysis-2">
+<p>
+On explanation for the data skew is reaction time: for lower values of
 \(\tau\), the capacitor plateaus faster near 2V and thus the time keeper
 may not react as quickly. Components with smaller ratings also need
 tighter tolerances to achieve the same relative tolerances, so smaller
 capacitors may have relatively higher manufactured variability. The
-source analysis for these conclusions can be found</span><a class="firn-external" href="https://docs.google.com/spreadsheets/d/1Xf3b3GKpNSIkuoEZTTcMQ2gjTIVnO4eHE5aJD3GEjqg/edit?usp=sharing" target="_blank">*here*</a><span>.</span></p><hr /></section></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#purpose">Purpose</a></li><li><a href="#voltage-over-time">Voltage over Time</a><ol><li><a href="#equipment">Equipment</a></li><li><a href="#procedure">Procedure</a></li><li><a href="#results">Results</a></li><li><a href="#analysis">Analysis</a></li><li><a href="#conclusion">Conclusion</a></li></ol></li><li><a href="#integration-of-current">Integration of Current</a><ol><li><a href="#procedure">Procedure</a></li><li><a href="#results">Results</a></li><li><a href="#analysis">Analysis</a></li><li><a href="#conclusion">Conclusion</a></li></ol></li><li><a href="#time-constant-with-various-components">Time Constant with Various Components</a><ol><li><a href="#equipment">Equipment</a></li><li><a href="#procedure">Procedure</a></li><li><a href="#results">Results</a></li><li><a href="#analysis">Analysis</a></li></ol></li></ol><div class="metalabel">Backlinks</div><ul class="firn-backlinks"><li class="firn-backlink"><a href="/physics/modern_physics/KBe20phys250retCapacitorsLab">Capacitor Lab</a></li></ul></div></main></body></html>
+source analysis for these conclusions can be found
+<a href="https://docs.google.com/spreadsheets/d/1Xf3b3GKpNSIkuoEZTTcMQ2gjTIVnO4eHE5aJD3GEjqg/edit?usp=sharing"><b>here</b></a>.
+</p>
+
+<hr />
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

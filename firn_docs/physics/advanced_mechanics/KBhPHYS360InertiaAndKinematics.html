@@ -1,0 +1,125 @@
+<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Houjun Liu" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Rotational Inertia and Kinematics</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        'displayAlign': 'center',
+        'displayIndent': '0em',
+        'extensions': ['tex2jax.js'],
+        'tex2jax': {
+        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
+        'processEscapes': true
+        },
+        'HTML-CSS': { scale: 100,
+                        linebreaks: { automatic: 'false' },
+                        webFont: 'TeX'
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: 'false' },
+              font: 'TeX'},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: 'AMS'},
+               MultLineWidth: '85%',
+               TagSide: 'right',
+               TagIndent: '.8em'
+             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Rotational Inertia and Kinematics</h1></div><div class="metamble"><span><span>Written by </span><span>Houjun Liu</span></span></div><div class="notebody"><div><section></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="deriving-rotational-ke-and-inertia"><span class="firn-headline-text"><span>Deriving Rotational KE and Inertia</span></span></h1><section><p><span>Given $m_i$, mass, $\vec{r_i}'$, location of the center of mass, $l_i$, $\omega$, the angular velocity, figure a $KE_{tot,rot}$.</span></p><p><span>Because of the fact that the value $\omega$ is in units $\frac{d\theta}{dt}$, the rate of radians change, and we know of a radius of the spin $l_i$, we could figure the velocity at which it is moving by simply scaling the change in radians up to a circle of radius $l_i$, that is:</span></p><p><span>\begin{equation}
+    V_i' = l_i \omega 
+\end{equation}</span></p><p><span>(note that, to understand this, radians $\frac{arc length}{radius}$)</span></p><p><span>And so, substituting into the statement of $\sum^N_{i=1} \frac{1}{2}m_i\vec{v_i}'^2$</span></p><p><span>\begin{align}
+    KE_{rot} =& \sum^N_{i=1} \frac{1}{2}m_i\vec{v_i}'^2 \\
+    =& \sum^N_{i=1} \frac{1}{2}m_i(l_i \omega)^2 \\
+    =& \sum^N_{i=1} \frac{1}{2}m_i l_i^2 \omega^2 \\
+    =& \frac{1}{2}\omega^2 \sum^N_{i=1} (m_i l_i^2)
+\end{align}</span></p></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="rotational-inertia"><span class="firn-headline-text"><span>Rotational Inertia</span></span></h2><section><p><span>The right sum --- the mass times the distance away from maxis of rotation ($\sum^N_{i=1} (m_i l_i^2)$) --- is defined as the rotational (moment) of inertia (spinny mass). That is,</span></p><p><span>\begin{equation}
+    I = \sum^N_{i=1} (m_i l_i^2)
+\end{equation}</span></p><p><span>Replacing that value in the prior statement, the statement of $KE_{rot}$ is defined as:</span></p><p><span>\begin{equation}
+    KE_{rot} = \frac{1}{2}\omega^2I
+\end{equation}</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="rotational-inertia-for-a-ring"><span class="firn-headline-text"><span>Rotational Inertia for a Ring</span></span></h2><section><p><span>For a ring (that's perfectly circular) rotating on an axis perpendicular to the plane of the ring, the $l_i$ --- distance from axis of rotation --- is the same value: namely, the radius $R$ as the radius of a circle is the same for all positions. Meaning,</span></p><p><span>\begin{equation}
+    l_i = R
+\end{equation}</span></p><p><span>regardless of which value $i$.</span></p><p><span>Hence, the value of $KE_{rot}$ would be evaluated as...</span></p><p><span>\begin{align}
+    KE_{rot} =& \sum^N_{i=1}(m_il^2_i) \\
+    =& \sum^N_{i=1}(m_iR^2) \\
+    =& R^2 \sum^N_{i=1}m_i \\
+\end{align}</span></p><p><span>Substituting $M$ as the sum of all masses in the ring ($M=\sum^N_{i=1}m_i$), the statement is therefore:</span></p><p><span>\begin{equation}
+    KE_{rot} = MR^2
+\end{equation}</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="rotational-inertia-of-a-solid-sphere"><span class="firn-headline-text"><span>Rotational Inertia of a Solid Sphere</span></span></h2><section><p><span>I believe that the rotational inertia of $I_{sphere}$ to be less than $I_{disk}$. This is because, as the dimension of the object increases, it would be easier to change its velocity (a disk is easier to spin than a ring, etc.). Hence, my intuition states that $I_{sphere}$ would be lower than $I_{disk}$.</span></p><p><span>Mathematically, as $M$ is staying at the same value, in the disk case has more mass closer to the axis of rotation --- meaning that the $m_iR^2$ term would be smaller in more of the point masses than that of an object at a lower dimension. Hence, the sphere would have more points with lower $m_iR^2$ terms than that of disk; hence, $I_{sphere}$ would be less than $I_{disk}$.</span></p><p><span>There is, also, an actual integral solution to this.</span></p></section><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="actual-integral-solution"><span class="firn-headline-text"><span>Actual Integral Solution</span></span></h3><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="rings"><span class="firn-headline-text"><span>Rings</span></span></h4><section><p><span>Here is a ring, which we know:</span></p><p><span>\begin{equation}
+    I= MR^2
+\end{equation}</span></p><p><span>A disk is bunch of small rings squisheified together, so the total $I_{disk}$ is therefore:</span></p><p><span>\begin{equation}
+    I_{disk} = \int^R_0 R^2 dm
+\end{equation}</span></p><p><span>$dm = 2\pi \sigma dr$: radius changes times the each of the radius times surface density ($\sigma$).</span></p><p><span>And so, substituting...</span></p><p><span>\begin{align}
+    I_{disk} =& \int^R_0 r^2 dm \\
+    =& \int^R_0 r^3 2 \pi \sigma dr \\
+    =& 2r\pi\sigma \int^R_0 r^3 dr \\
+    =& \frac{1}{2}\pi\sigma r^4
+\end{align}</span></p><p><span>Replacing $\pi \sigma r^2 = M$, because :why: exactly?</span></p><p><span>\begin{equation}
+    I_{disk} = \frac{1}{2}Mr^2
+\end{equation}</span></p></section></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="spheres"><span class="firn-headline-text"><span>Spheres</span></span></h4><section><p><span>I didn't follow quick enough to get this to be written down. But here's a pretty picture.</span></p><p><img src="/2021-09-14_14-18-55_screenshot.png" /></p><p><span>The gist is essentially to add up the tiny tiny disks that exist in a sphere to result in the moment of rotational inertia for a sphere.</span></p></section></div></div></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="kinematics-equations"><span class="firn-headline-text"><span>Kinematics Equations</span></span></h1><section><p><span>We begin by defining a coordinate system such that positive values are pointed "downwards". That is, as values increase in the positive direction, their corresponding vectors are pointed further towards the "down" direction.</span></p><p><span>Given $a=a_0$, initial velocity $v_0$, and position $y_0$, we derive the kinematics equations.</span></p><p><span>\begin{align}
+    a(t) =& a_0 \\
+    \int a(t) dt =& \int a_0 dt \\
+    v(t) =& a_0t + C 
+\end{align}</span></p><p><span>We are given that $v(0)=v_0$. $v(0) = C = v_0$, hence, $C=v_0$. The velocity statement is therefore,</span></p><p><span>\begin{equation}
+    v(t) = a_0t+v_0
+\end{equation}</span></p><p><span>Continuing with integration:</span></p><p><span>\begin{align}
+    v(t) =& a_0t + v_0 \\
+    \int v(t) =& \int a_0t + v_0 dt \\
+    y(t) =& \frac{1}{2}a_0t^2+v_0t+C \\
+\end{align}</span></p><p><span>Again, substituting $C = y_0$ by the same logic above --- $y(0) = C = y_0$, we derive the statement for the position equation.</span></p><p><span>\begin{equation}
+    y(t) = \frac{1}{2}a_0t^2 + v_0t + y_0
+\end{equation}</span></p><p><span>But what if we want to do this in multiple dimensions? They will be vectors, for one.</span></p><p><span>\begin{align}
+    \vec{a}(t) =& \vec{a_0} \\
+    \int\vec{a}(t)dt =& \int\vec{a_0} dt
+\end{align}</span></p><p><span>and so on. The reason why we could do this is simply because $\vec{a_0} = a_0_x \hat{i} + a_0_y\hat{j} + a_0_z\hat{k}$, and, perhaps unsurprisingly, integrals and derivatives and commutative and distributive across addition.</span></p></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="proving-$v^2(t)-=-v_0^2-+-2a_0(y(t)-y_0)$"><span class="firn-headline-text"><span>Proving $v^2(t) = v_0^2 + 2a_0(y(t)-y_0)$</span></span></h2><section><p><span>We start at the statement for $v(t)$, squaring it, and substituting the necessary statements.</span></p><p><span>\begin{align}
+    v(t) =& a_0t+v_0 \\
+    \Rightarrow v^2(t) =& {a_0}^2 t^2 + 2a_0v_0t + v_0^2 \\
+    v^2(t) =& {v_0}^2 + 2a_0 (\frac{1}{2} a_0 t^2 + v_0t) \\
+    v^2(t) =& {v_0}^2 + 2a_0 (\frac{1}{2} a_0 t^2 + v_0t + y_0 - y_0) \\
+    v^2(t) =& {v_0}^2 + 2a_0 (y(t) - y_0) 
+\end{align}</span></p><p><span>It is therefore shown that:</span></p><p><span>\begin{equation}
+    v^2(t) = {v_0}^2 + 2a_0 (y(t) - y_0) 
+\end{equation}</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="proving-$\delta-y-=-\frac{v(t_1)+v(t_2)}{2}\delta-t$"><span class="firn-headline-text"><span>Proving $\Delta y = \frac{v(t_1)+v(t_2)}{2}\Delta t$</span></span></h2><section><p><span>Showing $\Delta y = \frac{v(t_1)+v(t_2)}{2}\Delta t$, defining $\Delta y=y(t_2)-y(t_1)$ and $\Delta t = t_2 - t_1$. Substituting the appropriate values for $v(t)$, $\Delta y$, $\Delta t$ and solving...</span></p><p><span>\begin{align}
+    \Delta y &= \frac{v(t_1)+v(t_2)}{2}\Delta t \\
+    y(t_2)-y(t_1) &= \frac{v(t_1)+v(t_2)}{2} (t_2 - t_1) \\
+    y(t_2)-y(t_1) &= \frac{((a_0t_1+v_0)+(a_0t_2+v_0))}{2} (t_2 - t_1) \\
+    y(t_2)-y(t_1) &= \frac{((a_0t_1t_2+v_0t_2)-(a_0{t_1}^2+v_0t_1)+(a_0{t_2}^2+v_0t_2)-(a_0t_1t_2+v_0t_1))}{2} \\
+    y(t_2)-y(t_1) &= \frac{(a_0{t_2}^2+2v_0t_2)-(a_0{t_1}^2+2v_0t_1)}{2} \\
+    y(t_2)-y(t_1) &= \frac{(a_0{t_2}^2+2v_0t_2+2y_0)-(a_0{t_1}^2+2v_0t_1+2y_0)}{2} \\
+    y(t_2)-y(t_1) &= \frac{1}{2} a_0{t_2}^2+v_0t_2+y_0 - \frac{1}{2} a_0{t_1}^2+v_0t_1+y_0 \\
+    y(t_2)-y(t_1) &= y(t_2) - y(t_1) \\
+\end{align}
+Hence, it is demonstrated that:</span></p><p><span>\begin{equation}
+    \Delta y = \frac{v(t_1)+v(t_2)}{2}\Delta t
+\end{equation}</span></p></section></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="question-regarding-signage"><span class="firn-headline-text"><span>Question regarding signage</span></span></h1><section><p><span>The </span><a href="#*kinematics-equations">Kinematics Equations derivations</a><span> above relied on the fact that the coordinate system was defined as "positive downwards". Were this not to be the case, constants would have to be redefined and the signs of most terms would be flipped:</span></p><p><span>Given $a=-a_0$, initial velocity $-v_0$, and position $-y_0$, we (re)derive the kinematics equations.</span></p><p><span>\begin{align}
+    a(t) =& -a_0 \\
+    \int a(t) dt =& \int -a_0 dt \\
+    v(t) =& -a_0t + C 
+\end{align}</span></p><p><span>We are given that $v(0)=-v_0$. $v(0) = C = -v_0$, hence, $C=-v_0$. The velocity statement is therefore,</span></p><p><span>\begin{equation}
+    v(t) = -a_0t-v_0
+\end{equation}</span></p><p><span>Continuing with integration:</span></p><p><span>\begin{align}
+    v(t) =& -a_0t - v_0 \\
+    \int v(t) =& \int -a_0t - v_0 dt \\
+    y(t) =& \frac{-1}{2}a_0t^2 - v_0t+C \\
+\end{align}</span></p><p><span>Again, substituting $C = -y_0$ by the same logic above --- $y(0) = C = -y_0$, we derive the statement for the position equation.</span></p><p><span>\begin{align}
+    y(t) =& \frac{-1}{2}a_0t^2 - v_0t - y_0 \\
+    y(t) =& -(\frac{1}{2}a_0t^2 + v_0t + y_0)
+\end{align}</span></p><p><span>As such, if the signage were flipped, terms of the kinematics equation would therefore be the negative of the original --- that $y'(t) = -y(t)$ if $y'$ contains uses a flipped coordinate system. Leveraging the same property, therefore, we could derive quickly the other two statements with a flipped coordinate system:</span></p><p><span>\begin{align}
+    \Delta y' =& \frac{-v(t_1)-v(t_2)}{2}\Delta t \\
+    =& -\frac{v(t_1)+v(t_2)}{2}\Delta t
+\end{align}</span></p><p><span>and</span></p><p><span>\begin{align}
+    v^2(t) =& {-v_0}^2 + 2a_0 (-y(t) - (-y_0)) \\
+    =& {v_0}^2 + 2a_0 (y_0 - y(t)) 
+\end{align}</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="proving-the-third-equation-for-$v^2$"><span class="firn-headline-text"><span>Proving the Third Equation for $V^2$</span></span></h1><section><p><span>\begin{equation}
+    v^2(t) \stackrel{?}{=} {v_0}^2 + 2a_0(y(t)-y_0)
+\end{equation}</span></p><p><span>We begin by deriving an equation of $a(y)$ --- acceleration as a function of position.</span></p><p><span>Based on first principles, the following is true:</span></p><p><span>\begin{equation}
+    a(t) = \frac{dv}{dt}
+\end{equation}</span></p><p><span>With apply the chain rule, we derive the following:</span></p><p><span>\begin{align}
+    a(t) =& \frac{dv}{dt} \\
+    \Rightarrow \frac{dv}{dt} =& \frac{dv}{dy}\frac{dy}{dt} \\
+\end{align}</span></p><p><span>Integrating both sides w.r.t. position...</span></p><p><span>\begin{align}
+    \frac{dv}{dt} =& \frac{dv}{dy}\frac{dy}{dt} \\
+    \Rightarrow \int \frac{dv}{dt}\ dy =& \int \frac{dv}{dy}\frac{dy}{dt}\ dy\\
+\end{align}</span></p><p><span>The right integral now requires some additional movement to solve.</span></p><p><span>\begin{align}
+     \int \frac{dv}{dt}v\ dy =& v^2 - \int \frac{dv}{dy} v\ dy \\
+     \Rightarrow 2\int \frac{dv}{dy}v\ dy =& v^2 + C \\
+     \Rightarrow \int \frac{dv}{dy}v\ dy =& \frac{v^2}{2} + C
+\end{align}</span></p><p><span>Substituting the right statement back into the original expression, and continuing to solve.</span></p><p><span>\begin{align}
+    & \int \frac{dv}{dt}\ dy = \frac{v^2}{2} + C \\
+    & \Rightarrow \int \frac{dv}{dt}\ dy = \frac{v^2}{2} + C\\
+    & \Rightarrow 2ay + C = v^2 
+\end{align}</span></p><p><span>Because of the fact that this expression is a value of $v^2$, and that the constant is an offset of the value (as per calculated by $2ay$), we set $C = {v_0}^2$. Additionally, $y$ is an statement that represents the offset of $y$ position, we set $y = y(t)-y_0$ to represent the actual offset.</span></p><p><span>Hence:</span></p><p><span>\begin{equation}
+    v^2 = 2a(y(t)-y_0) + {v_0}^2
+\end{equation}</span></p></section></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#deriving-rotational-ke-and-inertia">Deriving Rotational KE and Inertia</a><ol><li><a href="#rotational-inertia">Rotational Inertia</a></li><li><a href="#rotational-inertia-for-a-ring">Rotational Inertia for a Ring</a></li><li><a href="#rotational-inertia-of-a-solid-sphere">Rotational Inertia of a Solid Sphere</a><ol><li><a href="#actual-integral-solution">Actual Integral Solution</a><ol><li><a href="#rings">Rings</a></li><li><a href="#spheres">Spheres</a></li></ol></li></ol></li></ol></li><li><a href="#kinematics-equations">Kinematics Equations</a><ol><li><a href="#proving-$v^2(t)-=-v_0^2-+-2a_0(y(t)-y_0)$">Proving $v^2(t) = v_0^2 + 2a_0(y(t)-y_0)$</a></li><li><a href="#proving-$\delta-y-=-\frac{v(t_1)+v(t_2)}{2}\delta-t$">Proving $\Delta y = \frac{v(t_1)+v(t_2)}{2}\Delta t$</a></li></ol></li><li><a href="#question-regarding-signage">Question regarding signage</a></li><li><a href="#proving-the-third-equation-for-$v^2$">Proving the Third Equation for $V^2$</a></li></ol><div class="metalabel">Backlinks</div><ul class="firn-backlinks"><li class="firn-backlink"><a href="/physics/advanced_mechanics/index">Advanced Mechanics Master Index</a></li></ul></div></main></body></html>

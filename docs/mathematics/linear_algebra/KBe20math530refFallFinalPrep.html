@@ -1,27 +1,714 @@
-<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Exr0n" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Final Prep (review)</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
-        'displayAlign': 'center',
-        'displayIndent': '0em',
-        'extensions': ['tex2jax.js'],
-        'tex2jax': {
-        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
-        'processEscapes': true
-        },
-        'HTML-CSS': { scale: 100,
-                        linebreaks: { automatic: 'false' },
-                        webFont: 'TeX'
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-27 Mon 11:55 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Final Prep (review)</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Exr0n" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
                        },
         SVG: {scale: 100,
-              linebreaks: { automatic: 'false' },
-              font: 'TeX'},
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
         NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: 'AMS'},
-               MultLineWidth: '85%',
-               TagSide: 'right',
-               TagIndent: '.8em'
-             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Final Prep (review)</h1></div><div class="metamble"><span><span>Written by </span><span>Exr0n</span></span></div><div class="notebody"><div><section></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="definitions"><span class="firn-headline-text"><span>Definitions</span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="algebraic-structures"><span class="firn-headline-text"><span>Algebraic Structures</span></span></h2><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="group"><span class="firn-headline-text"><span>Group</span></span></h3><section><p><span>    A set of items and an operation that satisfy closure, identity, inverse, assocativity</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="field"><span class="firn-headline-text"><span>Field</span></span></h3><section><p><span>    A group and another "secondary" operation that the set is almost a group under (except the additive identity will have no multiplicative inverse).</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="vector-space"><span class="firn-headline-text"><span>Vector Space</span></span></h3><section><p><span>    A field and a set of vectors that can be added together or multiplied by scalars from the field, </span><strong><span>with the following five properties:</span></strong></p><ul><li><p><span>commutativity</span></p></li><li><p><span>assocativity</span></p></li><li><p><span>additive identity</span></p></li><li><p><span>additive inverse</span></p></li><li><p><span>distributive property</span></p></li></ul></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="subspace"><span class="firn-headline-text"><span>Subspace</span></span></h3><section><p><span>    A subset of a vector space that is itself a vector space. Only need to show that it:</span></p><ol><li><p><span>Includes the additive identity (0)</span></p></li><li><p><span>Is closed under addition</span></p></li><li><p><span>Is closed under scalar multiplication</span></p></li></ol><p><span>    </span><strong><span>The subspace must use the same addition and scalar multiplication of its "superspace"</span></strong></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="sum"><span class="firn-headline-text"><span>Sum</span></span></h3><section><p><span>    A sum of (</span><strong><span>multiple</span></strong><span>) </span><strong><span>subsets</span></strong><span> is all vectors that can be written as the sum of one vector from each sub </span><strong><span>set</span></strong><span> (or zero).</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="direct-sum"><span class="firn-headline-text"><span>Direct Sum</span></span></h3><section><p><span>    If each element in a sum of (</span><strong><span>multiple</span></strong><span>) subspaces can be written in only one way (with one summand from each subspace).</span></p></section><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="results"><span class="firn-headline-text"><span>Results</span></span></h4><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="condition-for-a-direct-sum"><span class="firn-headline-text"><span>Condition for a direct sum</span></span></h5><section><p><span>      </span><strong><span>The only way to write zero as sum of one element from each summand space is all zeros iff the sum is a direct sum.</span></strong></p></section></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="condition-for-a-direct-sum-of-two-subspaces"><span class="firn-headline-text"><span>Condition for a direct sum of two subspaces</span></span></h5><section><p><span>      The intersection of the two subspaces is zero iff the sum is a direct sum.</span></p></section></div></div></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="linear-combination"><span class="firn-headline-text"><span>Linear Combination</span></span></h3><section><p><span>    A linear combination is the sum of some list of vectors with each one multiplied by a coefficient from $\mathbb F$</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="linear-(in)dependence"><span class="firn-headline-text"><span>Linear (In)Dependence</span></span></h3><section><p><span>    </span><strong><span>A list of vectors is linearly independent if the only coefficients in a linear combination equal to zero are all zeros. (The only $a_1, \ldots, a_n$ s.t. $a_1v_1 + \cdots +a_nv_n = 0$ is $0, \ldots, 0$)</span></strong><span>
-    Equivalent: A vector is linearly dependent in a list (and that list is linearly dependent) if it can be written as a linear combination of other vectors in the list.
-    Any list that is not linearly dependent is linearly independent.</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="span"><span class="firn-headline-text"><span>Span</span></span></h3><section><p><span>    The span of a list is all linear combinations of that list</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="basis"><span class="firn-headline-text"><span>Basis</span></span></h3><section><p><span>    The basis of a vector space is a linearly indepnedent list of the elements in that vector space that spans the vector space (whose span is the vector space).
-    A list of vetors is a basis if there is exactly one way to write every vector as a linear combination of the basis.</span></p></section><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="results"><span class="firn-headline-text"><span>Results</span></span></h4><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="all-bases-of-a-vector-space-are-the-same-length"><span class="firn-headline-text"><span>All bases of a vector space are the same length</span></span></h5></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="a-linearly-indpendent-or-spanning-list-of-the-right-length-is-a-basis-(buy-one-get-one-free)"><span class="firn-headline-text"><span>A linearly indpendent or spanning list of the right length is a basis (buy one get one free)</span></span></h5></div></div></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="dimension"><span class="firn-headline-text"><span>Dimension</span></span></h3><section><p><span>    The dimension of a subspace is the length of it's basis. If the basis does not exist (infinitely long), then the space is infinite dimensional.</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="elementry-matrix"><span class="firn-headline-text"><span>Elementry Matrix</span></span></h3><section><p><span>    A matrix that applies exactly one valid "row operation": multiply a row, add one row to another, swap row orders.</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="nonsingular--invertible-matrix"><span class="firn-headline-text"><span>Nonsingular / invertible matrix</span></span></h3><section><p><span>    A non-singular matrix is a matrix that has an inverse, and whose determinant is not zero.</span></p></section></div></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="linear-transformations"><span class="firn-headline-text"><span>Linear Transformations</span></span></h2><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="linearity"><span class="firn-headline-text"><span>Linearity</span></span></h3><section><p><span>    A transformation is linear if it satisfies additivity (adding inside/outside same) and homogeneity (scalar multiplying inside/outside same).</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="injective"><span class="firn-headline-text"><span>Injective</span></span></h3><section><p><span>    When the outputs being the same implies the inputs were the same. (Mapping is one to one; each element is mapped to atmost once).</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="surjective"><span class="firn-headline-text"><span>Surjective</span></span></h3><section><p><span>    When every element in the codomain is in the range (Mapping is onto the codomain; each element mapped to atleast once).</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="linear-map"><span class="firn-headline-text"><span>Linear Map</span></span></h3><section><p><span>    A map from one vector space to another that is linear (satisfies additivity and homogeniety)</span></p></section><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="properties"><span class="firn-headline-text"><span>Properties</span></span></h4><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="linear-maps-from-one-space-to-another-is-a-subspace"><span class="firn-headline-text"><span>Linear maps from one space to another is a subspace</span></span></h5></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="algebraic-properties"><span class="firn-headline-text"><span>Algebraic Properties</span></span></h5><div class="firn-headline-section firn-headline-section-6"><h6 class="firn-headline firn-headline-6" id="associative:-$t_1-\left(t_2-t_3-\right)-=-\left(t_1-t_2-\right)-t_3$"><span class="firn-headline-text"><span>Associative: $T_1 \left(T_2 T_3 \right) = \left(T_1 T_2 \right) T_3$</span></span></h6></div><div class="firn-headline-section firn-headline-section-6"><h6 class="firn-headline firn-headline-6" id="identity:-$it-=-ti-=-t$"><span class="firn-headline-text"><span>Identity: $IT = TI = T$</span></span></h6></div><div class="firn-headline-section firn-headline-section-6"><h6 class="firn-headline firn-headline-6" id="distributive:-$\left(s_1+s_2\right)t-=-ts_1-+-ts_2$"><span class="firn-headline-text"><span>Distributive: $\left(S_1+S_2\right)T = TS_1 + TS_2$</span></span></h6><section><p><span>       And the same for the other side, but you have to be careful about whether maps can be multiplied (composed).</span></p></section></div></div></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="product-of-linear-map"><span class="firn-headline-text"><span>Product of Linear Map</span></span></h4><section><p><span>     The product $ST$ of two linear maps $T \in \mathcal L(U, V)$ and $S \in \mathcal L(V, W)$ is the linear map $S(T(u))$ for $u \in U$.</span></p></section></div></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="image-(range,-column-spac)"><span class="firn-headline-text"><span>Image (range, column spac)</span></span></h3><section><p><span>    Every vector that can be a result of a linear map.</span></p></section><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="properties"><span class="firn-headline-text"><span>Properties</span></span></h4><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="changes-after-rref!"><span class="firn-headline-text"><span>CHANGES AFTER RREF!</span></span></h5></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="surjectivity-is-the-same-as-the-column-space-being-the-domain-(input-space?)"><span class="firn-headline-text"><span>Surjectivity is the same as the column space being the domain (input space?)</span></span></h5></div></div></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="kernel-(null-space)"><span class="firn-headline-text"><span>Kernel (null space)</span></span></h3><section><p><span>    Every vector that the linear map sends to zero.</span></p></section><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="properties"><span class="firn-headline-text"><span>Properties</span></span></h4><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="always-includes-zero"><span class="firn-headline-text"><span>Always includes zero</span></span></h5></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="doesn&apos;t-change-after-rref"><span class="firn-headline-text"><span>Doesn't change after RREF</span></span></h5></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="injectivity-is-the-same-as-the-null-space-being-zero"><span class="firn-headline-text"><span>Injectivity is the same as the null space being zero</span></span></h5></div></div></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="homogenous-system"><span class="firn-headline-text"><span>Homogenous System</span></span></h3><section><p><span>    A homogenous system is a system of equations where all the right sides are zero.
-    A homogenous system always has (the trivial) solution (of zeros).</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="isomorphism"><span class="firn-headline-text"><span>Isomorphism</span></span></h3><section><p><span>    An isomorphism is a bijective map from one vector space to another. Two vector spaces are isomorphic if there exists such a map
-    There exists such a map iff the two vector spaces are the same dimension.</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="operator"><span class="firn-headline-text"><span>Operator</span></span></h3><section><p><span>    A linear map from one vector space to itself</span></p></section><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="properties"><span class="firn-headline-text"><span>Properties</span></span></h4><section><p><span>     An operator on a finite dimensional vector space is injective iff it is surjective.</span></p></section></div></div></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="important-things"><span class="firn-headline-text"><span>Important Things</span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="linear-dependence-lemma"><span class="firn-headline-text"><span>Linear Dependence Lemma</span></span></h2><section><p><span>   </span><strong><span>If a list is linearly dependent, then exists one element in the list can be written as a linear combination of the other elements, and the span of the remaining elements is the same as the span of the whole list (that element didn't add anything).</span></strong></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="length-of-a-linearly-independent-list-$\le$-length-of-a-spanning-list"><span class="firn-headline-text"><span>Length of a linearly independent list $\le$ length of a spanning list</span></span></h2></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="(spanning-list-contains;-linearly-independent-list-extends-to)-a-basis"><span class="firn-headline-text"><span>(Spanning list contains; linearly independent list extends to) a basis</span></span></h2></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="fundamental-theorem-of-linear-maps"><span class="firn-headline-text"><span>Fundamental Theorem of Linear Maps</span></span></h2><section><p><span>   If $T$ is a map from a </span><strong><span>finite dimensional</span></strong><span> vector space $V$, then $\text{range }T$ is finite dimensional and $\text{dim range }T + \text{dim null }T = \text{dim )V$</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="io-dimension-vs-injectivity,-surjectivity"><span class="firn-headline-text"><span>I/O Dimension vs injectivity, surjectivity</span></span></h2><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="a-map-to-a-larger-vector-space-is-not-surjective"><span class="firn-headline-text"><span>A map to a larger vector space is not surjective</span></span></h3></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="a-map-to-a-smaller-vector-space-is-not-injective"><span class="firn-headline-text"><span>A map to a smaller vector space is not injective</span></span></h3></div></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="direct-sum-and-linear-independence"><span class="firn-headline-text"><span>Direct Sum and Linear Independence</span></span></h2><section><p><span>   A sum is direct if the bases of the summands are linearly independent.</span></p></section></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="questions!!"><span class="firn-headline-text"><span>Questions!!</span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="from-the-template"><span class="firn-headline-text"><span>From the template</span></span></h2><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="what-is-an-&quot;identity-transformation&quot;?"><span class="firn-headline-text"><span>What is an "identity transformation"?</span></span></h3><section><p><span>    just the identity map. an operator (must go from a vector space to itself) that does nothing.
-    $$T \in \mathcal L(V) : Tv = v$$</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="what-is-the-geometric-interpretation-of-the-determinant?"><span class="firn-headline-text"><span>What is the geometric interpretation of the determinant?</span></span></h3><section><p><span>    turn rows into vectors, take the size of the parrallelogram. (magnitude of top multiplied by magnitude of bottom?)</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="what-is-the-definition-of-&quot;linearity&quot;?-how-do-you-apply-it?"><span class="firn-headline-text"><span>What is the definition of "linearity"? How do you Apply it?</span></span></h3><section><p><span>    Whether a map is linear (satisfies additivity and homogeneity).</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="what-is-the-rank-nullity-theorem?"><span class="firn-headline-text"><span>What is the rank nullity theorem?</span></span></h3><section><p><span>    It is the Fundamental Theorem of Linear Algebra</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="isomorphism-vs-bijective-maps?"><span class="firn-headline-text"><span>isomorphism vs bijective maps?</span></span></h3><section><p><span>    There are bijective maps that are not isomorphisms, but because in linear algebra every map maintains structure, it is automatically an isomorphism if it is bijective.</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="what-is-the-connection-between-rangenull-space-and-nonsingularity?"><span class="firn-headline-text"><span>What is the connection between range/null space and nonsingularity?</span></span></h3><section><p><span>    In order for a map/matrix to be invertible, its rows and columns must be linearly independent?</span></p></section></div></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#definitions">Definitions</a><ol><li><a href="#algebraic-structures">Algebraic Structures</a><ol><li><a href="#group">Group</a></li><li><a href="#field">Field</a></li><li><a href="#vector-space">Vector Space</a></li><li><a href="#subspace">Subspace</a></li><li><a href="#sum">Sum</a></li><li><a href="#direct-sum">Direct Sum</a><ol><li><a href="#results">Results</a><ol><li><a href="#condition-for-a-direct-sum">Condition for a direct sum</a></li><li><a href="#condition-for-a-direct-sum-of-two-subspaces">Condition for a direct sum of two subspaces</a></li></ol></li></ol></li><li><a href="#linear-combination">Linear Combination</a></li><li><a href="#linear-(in)dependence">Linear (In)Dependence</a></li><li><a href="#span">Span</a></li><li><a href="#basis">Basis</a><ol><li><a href="#results">Results</a><ol><li><a href="#all-bases-of-a-vector-space-are-the-same-length">All bases of a vector space are the same length</a></li><li><a href="#a-linearly-indpendent-or-spanning-list-of-the-right-length-is-a-basis-(buy-one-get-one-free)">A linearly indpendent or spanning list of the right length is a basis (buy one get one free)</a></li></ol></li></ol></li><li><a href="#dimension">Dimension</a></li><li><a href="#elementry-matrix">Elementry Matrix</a></li><li><a href="#nonsingular--invertible-matrix">Nonsingular / invertible matrix</a></li></ol></li><li><a href="#linear-transformations">Linear Transformations</a><ol><li><a href="#linearity">Linearity</a></li><li><a href="#injective">Injective</a></li><li><a href="#surjective">Surjective</a></li><li><a href="#linear-map">Linear Map</a><ol><li><a href="#properties">Properties</a><ol><li><a href="#linear-maps-from-one-space-to-another-is-a-subspace">Linear maps from one space to another is a subspace</a></li><li><a href="#algebraic-properties">Algebraic Properties</a><ol><li><a href="#associative:-$t_1-\left(t_2-t_3-\right)-=-\left(t_1-t_2-\right)-t_3$">Associative: $T_1 \left(T_2 T_3 \right) = \left(T_1 T_2 \right) T_3$</a></li><li><a href="#identity:-$it-=-ti-=-t$">Identity: $IT = TI = T$</a></li><li><a href="#distributive:-$\left(s_1+s_2\right)t-=-ts_1-+-ts_2$">Distributive: $\left(S_1+S_2\right)T = TS_1 + TS_2$</a></li></ol></li></ol></li><li><a href="#product-of-linear-map">Product of Linear Map</a></li></ol></li><li><a href="#image-(range,-column-spac)">Image (range, column spac)</a><ol><li><a href="#properties">Properties</a><ol><li><a href="#changes-after-rref!">CHANGES AFTER RREF!</a></li><li><a href="#surjectivity-is-the-same-as-the-column-space-being-the-domain-(input-space?)">Surjectivity is the same as the column space being the domain (input space?)</a></li></ol></li></ol></li><li><a href="#kernel-(null-space)">Kernel (null space)</a><ol><li><a href="#properties">Properties</a><ol><li><a href="#always-includes-zero">Always includes zero</a></li><li><a href="#doesn&apos;t-change-after-rref">Doesn't change after RREF</a></li><li><a href="#injectivity-is-the-same-as-the-null-space-being-zero">Injectivity is the same as the null space being zero</a></li></ol></li></ol></li><li><a href="#homogenous-system">Homogenous System</a></li><li><a href="#isomorphism">Isomorphism</a></li><li><a href="#operator">Operator</a><ol><li><a href="#properties">Properties</a></li></ol></li></ol></li></ol></li><li><a href="#important-things">Important Things</a><ol><li><a href="#linear-dependence-lemma">Linear Dependence Lemma</a></li><li><a href="#length-of-a-linearly-independent-list-$\le$-length-of-a-spanning-list">Length of a linearly independent list $\le$ length of a spanning list</a></li><li><a href="#(spanning-list-contains;-linearly-independent-list-extends-to)-a-basis">(Spanning list contains; linearly independent list extends to) a basis</a></li><li><a href="#fundamental-theorem-of-linear-maps">Fundamental Theorem of Linear Maps</a></li><li><a href="#io-dimension-vs-injectivity,-surjectivity">I/O Dimension vs injectivity, surjectivity</a><ol><li><a href="#a-map-to-a-larger-vector-space-is-not-surjective">A map to a larger vector space is not surjective</a></li><li><a href="#a-map-to-a-smaller-vector-space-is-not-injective">A map to a smaller vector space is not injective</a></li></ol></li><li><a href="#direct-sum-and-linear-independence">Direct Sum and Linear Independence</a></li></ol></li><li><a href="#questions!!">Questions!!</a><ol><li><a href="#from-the-template">From the template</a><ol><li><a href="#what-is-an-&quot;identity-transformation&quot;?">What is an "identity transformation"?</a></li><li><a href="#what-is-the-geometric-interpretation-of-the-determinant?">What is the geometric interpretation of the determinant?</a></li><li><a href="#what-is-the-definition-of-&quot;linearity&quot;?-how-do-you-apply-it?">What is the definition of "linearity"? How do you Apply it?</a></li><li><a href="#what-is-the-rank-nullity-theorem?">What is the rank nullity theorem?</a></li><li><a href="#isomorphism-vs-bijective-maps?">isomorphism vs bijective maps?</a></li><li><a href="#what-is-the-connection-between-rangenull-space-and-nonsingularity?">What is the connection between range/null space and nonsingularity?</a></li></ol></li></ol></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Final Prep (review)</h1> <h2 class="subtitle"></h2> <span class="author">Exr0n</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#orgb43545c">1. Definitions</a>
+<ul>
+<li><a href="#org39ef5d2">1.1. Algebraic Structures</a>
+<ul>
+<li><a href="#org9708de5">1.1.1. Group</a></li>
+<li><a href="#orgcc06acd">1.1.2. Field</a></li>
+<li><a href="#org4048938">1.1.3. Vector Space</a></li>
+<li><a href="#orgd2ae0e6">1.1.4. Subspace</a></li>
+<li><a href="#org8cb0b94">1.1.5. Sum</a></li>
+<li><a href="#orgedcd6bc">1.1.6. Direct Sum</a></li>
+<li><a href="#orgd28aacd">1.1.7. Linear Combination</a></li>
+<li><a href="#orgdb07fb8">1.1.8. Linear (In)Dependence</a></li>
+<li><a href="#org190c256">1.1.9. Span</a></li>
+<li><a href="#org5190c9d">1.1.10. Basis</a></li>
+<li><a href="#org6373dd6">1.1.11. Dimension</a></li>
+<li><a href="#orge3f7523">1.1.12. Elementry Matrix</a></li>
+<li><a href="#orgb32bcc1">1.1.13. Nonsingular / invertible matrix</a></li>
+</ul>
+</li>
+<li><a href="#org68f2a2c">1.2. Linear Transformations</a>
+<ul>
+<li><a href="#orgc3d9442">1.2.1. Linearity</a></li>
+<li><a href="#org2583802">1.2.2. Injective</a></li>
+<li><a href="#org1947231">1.2.3. Surjective</a></li>
+<li><a href="#orga10b9f3">1.2.4. Linear Map</a></li>
+<li><a href="#org7434b75">1.2.5. Image (range, column spac)</a></li>
+<li><a href="#org6086fec">1.2.6. Kernel (null space)</a></li>
+<li><a href="#org98bb724">1.2.7. Homogenous System</a></li>
+<li><a href="#org8db4d99">1.2.8. Isomorphism</a></li>
+<li><a href="#org587e7ed">1.2.9. Operator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgb40df50">2. Important Things</a>
+<ul>
+<li><a href="#org51953c7">2.1. Linear Dependence Lemma</a></li>
+<li><a href="#orgbceeee0">2.2. Length of a linearly independent list \(\le\) length of a spanning list</a></li>
+<li><a href="#org74d25cb">2.3. (Spanning list contains; linearly independent list extends to) a basis</a></li>
+<li><a href="#org93e3adc">2.4. Fundamental Theorem of Linear Maps</a></li>
+<li><a href="#org639c470">2.5. I/O Dimension vs injectivity, surjectivity</a>
+<ul>
+<li><a href="#org8014740">2.5.1. A map to a larger vector space is not surjective</a></li>
+<li><a href="#org8571422">2.5.2. A map to a smaller vector space is not injective</a></li>
+</ul>
+</li>
+<li><a href="#org53f1c95">2.6. Direct Sum and Linear Independence</a></li>
+</ul>
+</li>
+<li><a href="#orgdd6d583">3. Questions!!</a>
+<ul>
+<li><a href="#org8ffefc6">3.1. From the template</a>
+<ul>
+<li><a href="#org87ad410">3.1.1. What is an "identity transformation"?</a></li>
+<li><a href="#org787ae3e">3.1.2. What is the geometric interpretation of the determinant?</a></li>
+<li><a href="#org9daa49e">3.1.3. What is the definition of "linearity"? How do you Apply it?</a></li>
+<li><a href="#org5f8c83b">3.1.4. What is the rank nullity theorem?</a></li>
+<li><a href="#org008fb2b">3.1.5. isomorphism vs bijective maps?</a></li>
+<li><a href="#org7ef2133">3.1.6. What is the connection between range/null space and nonsingularity?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<div id="outline-container-orgb43545c" class="outline-2">
+<h2 id="orgb43545c"><span class="section-number-2">1</span> Definitions</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org39ef5d2" class="outline-3">
+<h3 id="org39ef5d2"><span class="section-number-3">1.1</span> Algebraic Structures</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org9708de5" class="outline-4">
+<h4 id="org9708de5"><span class="section-number-4">1.1.1</span> Group</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+A set of items and an operation that satisfy closure, identity, inverse, assocativity
+</p>
+</div>
+</div>
+<div id="outline-container-orgcc06acd" class="outline-4">
+<h4 id="orgcc06acd"><span class="section-number-4">1.1.2</span> Field</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+A group and another "secondary" operation that the set is almost a group under (except the additive identity will have no multiplicative inverse).
+</p>
+</div>
+</div>
+<div id="outline-container-org4048938" class="outline-4">
+<h4 id="org4048938"><span class="section-number-4">1.1.3</span> Vector Space</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+A field and a set of vectors that can be added together or multiplied by scalars from the field, <b>with the following five properties:</b>
+</p>
+<ul class="org-ul">
+<li>commutativity</li>
+<li>assocativity</li>
+<li>additive identity</li>
+<li>additive inverse</li>
+<li>distributive property</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd2ae0e6" class="outline-4">
+<h4 id="orgd2ae0e6"><span class="section-number-4">1.1.4</span> Subspace</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<p>
+A subset of a vector space that is itself a vector space. Only need to show that it:
+</p>
+<ol class="org-ol">
+<li>Includes the additive identity (0)</li>
+<li>Is closed under addition</li>
+<li>Is closed under scalar multiplication</li>
+</ol>
+<p>
+<b>The subspace must use the same addition and scalar multiplication of its "superspace"</b>
+</p>
+</div>
+</div>
+<div id="outline-container-org8cb0b94" class="outline-4">
+<h4 id="org8cb0b94"><span class="section-number-4">1.1.5</span> Sum</h4>
+<div class="outline-text-4" id="text-1-1-5">
+<p>
+A sum of (<b>multiple</b>) <b>subsets</b> is all vectors that can be written as the sum of one vector from each sub <b>set</b> (or zero).
+</p>
+</div>
+</div>
+<div id="outline-container-orgedcd6bc" class="outline-4">
+<h4 id="orgedcd6bc"><span class="section-number-4">1.1.6</span> Direct Sum</h4>
+<div class="outline-text-4" id="text-1-1-6">
+<p>
+If each element in a sum of (<b>multiple</b>) subspaces can be written in only one way (with one summand from each subspace).
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgf41c09f"></a>Results<br />
+<ol class="org-ol">
+<li><a id="org324eec3"></a>Condition for a direct sum<br />
+<div class="outline-text-6" id="text-1-1-6-1-1">
+<p>
+<b>The only way to write zero as sum of one element from each summand space is all zeros iff the sum is a direct sum.</b>
+</p>
+</div>
+</li>
+<li><a id="org87defba"></a>Condition for a direct sum of two subspaces<br />
+<div class="outline-text-6" id="text-1-1-6-1-2">
+<p>
+The intersection of the two subspaces is zero iff the sum is a direct sum.
+</p>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgd28aacd" class="outline-4">
+<h4 id="orgd28aacd"><span class="section-number-4">1.1.7</span> Linear Combination</h4>
+<div class="outline-text-4" id="text-1-1-7">
+<p>
+A linear combination is the sum of some list of vectors with each one multiplied by a coefficient from \(\mathbb F\)
+</p>
+</div>
+</div>
+<div id="outline-container-orgdb07fb8" class="outline-4">
+<h4 id="orgdb07fb8"><span class="section-number-4">1.1.8</span> Linear (In)Dependence</h4>
+<div class="outline-text-4" id="text-1-1-8">
+<p>
+<b>A list of vectors is linearly independent if the only coefficients in a linear combination equal to zero are all zeros. (The only \(a_1, \ldots, a_n\) s.t. \(a_1v_1 + \cdots +a_nv_n = 0\) is \(0, \ldots, 0\))</b>
+Equivalent: A vector is linearly dependent in a list (and that list is linearly dependent) if it can be written as a linear combination of other vectors in the list.
+Any list that is not linearly dependent is linearly independent.
+</p>
+</div>
+</div>
+<div id="outline-container-org190c256" class="outline-4">
+<h4 id="org190c256"><span class="section-number-4">1.1.9</span> Span</h4>
+<div class="outline-text-4" id="text-1-1-9">
+<p>
+The span of a list is all linear combinations of that list
+</p>
+</div>
+</div>
+<div id="outline-container-org5190c9d" class="outline-4">
+<h4 id="org5190c9d"><span class="section-number-4">1.1.10</span> Basis</h4>
+<div class="outline-text-4" id="text-1-1-10">
+<p>
+The basis of a vector space is a linearly indepnedent list of the elements in that vector space that spans the vector space (whose span is the vector space).
+A list of vetors is a basis if there is exactly one way to write every vector as a linear combination of the basis.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgd328bd2"></a>Results<br />
+<ol class="org-ol">
+<li><a id="org8003237"></a>All bases of a vector space are the same length<br /></li>
+<li><a id="org589c198"></a>A linearly indpendent or spanning list of the right length is a basis (buy one get one free)<br /></li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-org6373dd6" class="outline-4">
+<h4 id="org6373dd6"><span class="section-number-4">1.1.11</span> Dimension</h4>
+<div class="outline-text-4" id="text-1-1-11">
+<p>
+The dimension of a subspace is the length of it's basis. If the basis does not exist (infinitely long), then the space is infinite dimensional.
+</p>
+</div>
+</div>
+<div id="outline-container-orge3f7523" class="outline-4">
+<h4 id="orge3f7523"><span class="section-number-4">1.1.12</span> Elementry Matrix</h4>
+<div class="outline-text-4" id="text-1-1-12">
+<p>
+A matrix that applies exactly one valid "row operation": multiply a row, add one row to another, swap row orders.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb32bcc1" class="outline-4">
+<h4 id="orgb32bcc1"><span class="section-number-4">1.1.13</span> Nonsingular / invertible matrix</h4>
+<div class="outline-text-4" id="text-1-1-13">
+<p>
+A non-singular matrix is a matrix that has an inverse, and whose determinant is not zero.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org68f2a2c" class="outline-3">
+<h3 id="org68f2a2c"><span class="section-number-3">1.2</span> Linear Transformations</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-orgc3d9442" class="outline-4">
+<h4 id="orgc3d9442"><span class="section-number-4">1.2.1</span> Linearity</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+A transformation is linear if it satisfies additivity (adding inside/outside same) and homogeneity (scalar multiplying inside/outside same).
+</p>
+</div>
+</div>
+<div id="outline-container-org2583802" class="outline-4">
+<h4 id="org2583802"><span class="section-number-4">1.2.2</span> Injective</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+When the outputs being the same implies the inputs were the same. (Mapping is one to one; each element is mapped to atmost once).
+</p>
+</div>
+</div>
+<div id="outline-container-org1947231" class="outline-4">
+<h4 id="org1947231"><span class="section-number-4">1.2.3</span> Surjective</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+When every element in the codomain is in the range (Mapping is onto the codomain; each element mapped to atleast once).
+</p>
+</div>
+</div>
+<div id="outline-container-orga10b9f3" class="outline-4">
+<h4 id="orga10b9f3"><span class="section-number-4">1.2.4</span> Linear Map</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<p>
+A map from one vector space to another that is linear (satisfies additivity and homogeniety)
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgf0e7bdb"></a>Properties<br />
+<ol class="org-ol">
+<li><a id="orgc18d0a1"></a>Linear maps from one space to another is a subspace<br /></li>
+<li><a id="org53a9717"></a>Algebraic Properties<br />
+<ol class="org-ol">
+<li><a id="org49c29d7"></a>Associative: \(T_1 \left(T_2 T_3 \right) = \left(T_1 T_2 \right) T_3\)<br /></li>
+<li><a id="org5abb30d"></a>Identity: \(IT = TI = T\)<br /></li>
+<li><a id="org182316e"></a>Distributive: \(\left(S_1+S_2\right)T = TS_1 + TS_2\)<br />
+<div class="outline-text-7" id="text-1-2-4-1-2-3">
+<p>
+And the same for the other side, but you have to be careful about whether maps can be multiplied (composed).
+</p>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a id="org1ba49bb"></a>Product of Linear Map<br />
+<div class="outline-text-5" id="text-1-2-4-2">
+<p>
+The product \(ST\) of two linear maps \(T \in \mathcal L(U, V)\) and \(S \in \mathcal L(V, W)\) is the linear map \(S(T(u))\) for \(u \in U\).
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org7434b75" class="outline-4">
+<h4 id="org7434b75"><span class="section-number-4">1.2.5</span> Image (range, column spac)</h4>
+<div class="outline-text-4" id="text-1-2-5">
+<p>
+Every vector that can be a result of a linear map.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org2a208d9"></a>Properties<br />
+<ol class="org-ol">
+<li><a id="orgacc8130"></a>CHANGES AFTER RREF!<br /></li>
+<li><a id="orgaa96b25"></a>Surjectivity is the same as the column space being the domain (input space?)<br /></li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-org6086fec" class="outline-4">
+<h4 id="org6086fec"><span class="section-number-4">1.2.6</span> Kernel (null space)</h4>
+<div class="outline-text-4" id="text-1-2-6">
+<p>
+Every vector that the linear map sends to zero.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgf6f5d66"></a>Properties<br />
+<ol class="org-ol">
+<li><a id="org1f35dee"></a>Always includes zero<br /></li>
+<li><a id="orge553a0e"></a>Doesn't change after RREF<br /></li>
+<li><a id="orgbb154bf"></a>Injectivity is the same as the null space being zero<br /></li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-org98bb724" class="outline-4">
+<h4 id="org98bb724"><span class="section-number-4">1.2.7</span> Homogenous System</h4>
+<div class="outline-text-4" id="text-1-2-7">
+<p>
+A homogenous system is a system of equations where all the right sides are zero.
+A homogenous system always has (the trivial) solution (of zeros).
+</p>
+</div>
+</div>
+<div id="outline-container-org8db4d99" class="outline-4">
+<h4 id="org8db4d99"><span class="section-number-4">1.2.8</span> Isomorphism</h4>
+<div class="outline-text-4" id="text-1-2-8">
+<p>
+An isomorphism is a bijective map from one vector space to another. Two vector spaces are isomorphic if there exists such a map
+There exists such a map iff the two vector spaces are the same dimension.
+</p>
+</div>
+</div>
+<div id="outline-container-org587e7ed" class="outline-4">
+<h4 id="org587e7ed"><span class="section-number-4">1.2.9</span> Operator</h4>
+<div class="outline-text-4" id="text-1-2-9">
+<p>
+A linear map from one vector space to itself
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org3ca9767"></a>Properties<br />
+<div class="outline-text-5" id="text-1-2-9-1">
+<p>
+An operator on a finite dimensional vector space is injective iff it is surjective.
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb40df50" class="outline-2">
+<h2 id="orgb40df50"><span class="section-number-2">2</span> Important Things</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org51953c7" class="outline-3">
+<h3 id="org51953c7"><span class="section-number-3">2.1</span> Linear Dependence Lemma</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+<b>If a list is linearly dependent, then exists one element in the list can be written as a linear combination of the other elements, and the span of the remaining elements is the same as the span of the whole list (that element didn't add anything).</b>
+</p>
+</div>
+</div>
+<div id="outline-container-orgbceeee0" class="outline-3">
+<h3 id="orgbceeee0"><span class="section-number-3">2.2</span> Length of a linearly independent list \(\le\) length of a spanning list</h3>
+</div>
+<div id="outline-container-org74d25cb" class="outline-3">
+<h3 id="org74d25cb"><span class="section-number-3">2.3</span> (Spanning list contains; linearly independent list extends to) a basis</h3>
+</div>
+<div id="outline-container-org93e3adc" class="outline-3">
+<h3 id="org93e3adc"><span class="section-number-3">2.4</span> Fundamental Theorem of Linear Maps</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+If \(T\) is a map from a <b>finite dimensional</b> vector space \(V\), then \(\text{range }T\) is finite dimensional and \(\text{dim range }T + \text{dim null }T = \text{dim )V\)
+</p>
+</div>
+</div>
+<div id="outline-container-org639c470" class="outline-3">
+<h3 id="org639c470"><span class="section-number-3">2.5</span> I/O Dimension vs injectivity, surjectivity</h3>
+<div class="outline-text-3" id="text-2-5">
+</div>
+<div id="outline-container-org8014740" class="outline-4">
+<h4 id="org8014740"><span class="section-number-4">2.5.1</span> A map to a larger vector space is not surjective</h4>
+</div>
+<div id="outline-container-org8571422" class="outline-4">
+<h4 id="org8571422"><span class="section-number-4">2.5.2</span> A map to a smaller vector space is not injective</h4>
+</div>
+</div>
+<div id="outline-container-org53f1c95" class="outline-3">
+<h3 id="org53f1c95"><span class="section-number-3">2.6</span> Direct Sum and Linear Independence</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+A sum is direct if the bases of the summands are linearly independent.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdd6d583" class="outline-2">
+<h2 id="orgdd6d583"><span class="section-number-2">3</span> Questions!!</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org8ffefc6" class="outline-3">
+<h3 id="org8ffefc6"><span class="section-number-3">3.1</span> From the template</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-org87ad410" class="outline-4">
+<h4 id="org87ad410"><span class="section-number-4">3.1.1</span> What is an "identity transformation"?</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+just the identity map. an operator (must go from a vector space to itself) that does nothing.
+\[T \in \mathcal L(V) : Tv = v\]
+</p>
+</div>
+</div>
+<div id="outline-container-org787ae3e" class="outline-4">
+<h4 id="org787ae3e"><span class="section-number-4">3.1.2</span> What is the geometric interpretation of the determinant?</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+turn rows into vectors, take the size of the parrallelogram. (magnitude of top multiplied by magnitude of bottom?)
+</p>
+</div>
+</div>
+<div id="outline-container-org9daa49e" class="outline-4">
+<h4 id="org9daa49e"><span class="section-number-4">3.1.3</span> What is the definition of "linearity"? How do you Apply it?</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+Whether a map is linear (satisfies additivity and homogeneity).
+</p>
+</div>
+</div>
+<div id="outline-container-org5f8c83b" class="outline-4">
+<h4 id="org5f8c83b"><span class="section-number-4">3.1.4</span> What is the rank nullity theorem?</h4>
+<div class="outline-text-4" id="text-3-1-4">
+<p>
+It is the Fundamental Theorem of Linear Algebra
+</p>
+</div>
+</div>
+<div id="outline-container-org008fb2b" class="outline-4">
+<h4 id="org008fb2b"><span class="section-number-4">3.1.5</span> isomorphism vs bijective maps?</h4>
+<div class="outline-text-4" id="text-3-1-5">
+<p>
+There are bijective maps that are not isomorphisms, but because in linear algebra every map maintains structure, it is automatically an isomorphism if it is bijective.
+</p>
+</div>
+</div>
+<div id="outline-container-org7ef2133" class="outline-4">
+<h4 id="org7ef2133"><span class="section-number-4">3.1.6</span> What is the connection between range/null space and nonsingularity?</h4>
+<div class="outline-text-4" id="text-3-1-6">
+<p>
+In order for a map/matrix to be invertible, its rows and columns must be linearly independent?
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,30 +1,424 @@
-<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Exr0n" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Application Presentations</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
-        'displayAlign': 'center',
-        'displayIndent': '0em',
-        'extensions': ['tex2jax.js'],
-        'tex2jax': {
-        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
-        'processEscapes': true
-        },
-        'HTML-CSS': { scale: 100,
-                        linebreaks: { automatic: 'false' },
-                        webFont: 'TeX'
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-27 Mon 11:55 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Application Presentations</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Exr0n" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
                        },
         SVG: {scale: 100,
-              linebreaks: { automatic: 'false' },
-              font: 'TeX'},
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
         NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: 'AMS'},
-               MultLineWidth: '85%',
-               TagSide: 'right',
-               TagIndent: '.8em'
-             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Application Presentations</h1></div><div class="metamble"><span><span>Written by </span><span>Exr0n</span></span></div><div class="notebody"><div><section></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="done-brian-p:-traffic-control"><span class="firn-headline-text"><span>DONE Brian P: Traffic control</span></span></h1><section><p><span>  model and predict flow through streets using systems of linear equations</span></p></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="traffic-circle-example"><span class="firn-headline-text"><span>traffic circle example</span></span></h2><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="info"><span class="firn-headline-text"><span>info</span></span></h3><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="cars-perminute-from-each-direction"><span class="firn-headline-text"><span>cars perminute from each direction</span></span></h4></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="but-counters-only-counted-four-of-the-road-segments"><span class="firn-headline-text"><span>but counters only counted four of the road segments</span></span></h4></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="calculate-how-many-cars-went-through-the-other-road-segments"><span class="firn-headline-text"><span>calculate how many cars went through the other road segments</span></span></h4></div></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="calculation"><span class="firn-headline-text"><span>calculation</span></span></h3><section><p><span>    $$
-    \begin{aligned}
-    x_2 + 75 = x_5+92\\
-    x_1+x_2 = x_3+56\\
-    75 = x_1+x_4\\
-    x_3+x_4+23 = 46?\\
-    x_5 = 33
-    \end{aligned}
-    $$</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="take-rref-(it-happens-to-not-be-the-identity,-which-means-there-isn&apos;t-enough-information-to)"><span class="firn-headline-text"><span>Take RREF (it happens to not be the identity, which means there isn't enough information to)</span></span></h3><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="pivot-columns?"><span class="firn-headline-text"><span>pivot columns?</span></span></h4></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="replace-the-dependent-variable-(in-this-case-$x_4$-with-$t$,-and-try-to-remember-how-many-cars-went-on-the-other-roads-(create-parametric-equations)"><span class="firn-headline-text"><span>replace the dependent variable (in this case $x_4$ with $t$, and try to remember how many cars went on the other roads (create parametric equations)</span></span></h4></div></div></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="block-example"><span class="firn-headline-text"><span>Block example</span></span></h2><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="goal"><span class="firn-headline-text"><span>goal</span></span></h3><section><p><span>    Given some flow rates, figure out how many cars should be allowed to go through an area.
-    Even though there are multiple solutions, it is possible to see which streets will become bottlenecks.</span></p></section></div></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="general-steps"><span class="firn-headline-text"><span>general steps</span></span></h2><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="assign-variables"><span class="firn-headline-text"><span>assign variables</span></span></h3></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="create-system-of-equations"><span class="firn-headline-text"><span>create system of equations</span></span></h3></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="create-matrix"><span class="firn-headline-text"><span>create matrix</span></span></h3></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="use-gaussian-elimination-to-gain-information"><span class="firn-headline-text"><span>use gaussian elimination to gain information</span></span></h3></div></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="with-this-information-you-can"><span class="firn-headline-text"><span>with this information you can</span></span></h2><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="adjust-traffic-light-timings"><span class="firn-headline-text"><span>adjust traffic light timings</span></span></h3></div></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="more-complexity"><span class="firn-headline-text"><span>more complexity</span></span></h2><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="some-examples-with-120-variables-or-more"><span class="firn-headline-text"><span>some examples with 120 variables or more</span></span></h3></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="done-by-computers"><span class="firn-headline-text"><span>done by computers</span></span></h3></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="jamiton-linesenvelopes-(phantom-traffic-slowdowns)"><span class="firn-headline-text"><span>jamiton lines/envelopes (phantom traffic slowdowns)</span></span></h3></div></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="limitations"><span class="firn-headline-text"><span>limitations</span></span></h2><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="spikes-of-traffic-vary-based-on-time-of-day-or-year"><span class="firn-headline-text"><span>spikes of traffic vary based on time of day or year</span></span></h3></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="routes-are-not-considered"><span class="firn-headline-text"><span>routes are not considered</span></span></h3></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="size--type-of-vehicle"><span class="firn-headline-text"><span>size / type of vehicle</span></span></h3></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="speed-of-vehicles"><span class="firn-headline-text"><span>speed of vehicles</span></span></h3></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="line-of-sight"><span class="firn-headline-text"><span>line of sight</span></span></h3><section></section></div></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#done-brian-p:-traffic-control">DONE Brian P: Traffic control</a><ol><li><a href="#traffic-circle-example">traffic circle example</a><ol><li><a href="#info">info</a><ol><li><a href="#cars-perminute-from-each-direction">cars perminute from each direction</a></li><li><a href="#but-counters-only-counted-four-of-the-road-segments">but counters only counted four of the road segments</a></li><li><a href="#calculate-how-many-cars-went-through-the-other-road-segments">calculate how many cars went through the other road segments</a></li></ol></li><li><a href="#calculation">calculation</a></li><li><a href="#take-rref-(it-happens-to-not-be-the-identity,-which-means-there-isn&apos;t-enough-information-to)">Take RREF (it happens to not be the identity, which means there isn't enough information to)</a><ol><li><a href="#pivot-columns?">pivot columns?</a></li><li><a href="#replace-the-dependent-variable-(in-this-case-$x_4$-with-$t$,-and-try-to-remember-how-many-cars-went-on-the-other-roads-(create-parametric-equations)">replace the dependent variable (in this case $x_4$ with $t$, and try to remember how many cars went on the other roads (create parametric equations)</a></li></ol></li></ol></li><li><a href="#block-example">Block example</a><ol><li><a href="#goal">goal</a></li></ol></li><li><a href="#general-steps">general steps</a><ol><li><a href="#assign-variables">assign variables</a></li><li><a href="#create-system-of-equations">create system of equations</a></li><li><a href="#create-matrix">create matrix</a></li><li><a href="#use-gaussian-elimination-to-gain-information">use gaussian elimination to gain information</a></li></ol></li><li><a href="#with-this-information-you-can">with this information you can</a><ol><li><a href="#adjust-traffic-light-timings">adjust traffic light timings</a></li></ol></li><li><a href="#more-complexity">more complexity</a><ol><li><a href="#some-examples-with-120-variables-or-more">some examples with 120 variables or more</a></li><li><a href="#done-by-computers">done by computers</a></li><li><a href="#jamiton-linesenvelopes-(phantom-traffic-slowdowns)">jamiton lines/envelopes (phantom traffic slowdowns)</a></li></ol></li><li><a href="#limitations">limitations</a><ol><li><a href="#spikes-of-traffic-vary-based-on-time-of-day-or-year">spikes of traffic vary based on time of day or year</a></li><li><a href="#routes-are-not-considered">routes are not considered</a></li><li><a href="#size--type-of-vehicle">size / type of vehicle</a></li><li><a href="#speed-of-vehicles">speed of vehicles</a></li><li><a href="#line-of-sight">line of sight</a></li></ol></li></ol></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Application Presentations</h1> <h2 class="subtitle"></h2> <span class="author">Exr0n</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#orgcd351f1">1. <span class="done DONE">DONE</span> Brian P: Traffic control</a>
+<ul>
+<li><a href="#orgb1698f2">1.1. traffic circle example</a>
+<ul>
+<li><a href="#orgfdf1d5e">1.1.1. info</a></li>
+<li><a href="#orgeb42052">1.1.2. calculation</a></li>
+<li><a href="#org3774de2">1.1.3. Take RREF (it happens to not be the identity, which means there isn't enough information to)</a></li>
+</ul>
+</li>
+<li><a href="#org96f8c4c">1.2. Block example</a>
+<ul>
+<li><a href="#orgb780760">1.2.1. goal</a></li>
+</ul>
+</li>
+<li><a href="#org5f251f0">1.3. general steps</a>
+<ul>
+<li><a href="#org62705e5">1.3.1. assign variables</a></li>
+<li><a href="#orgd03843f">1.3.2. create system of equations</a></li>
+<li><a href="#org8df8272">1.3.3. create matrix</a></li>
+<li><a href="#orgd0cea7c">1.3.4. use gaussian elimination to gain information</a></li>
+</ul>
+</li>
+<li><a href="#org8995ff4">1.4. with this information you can</a>
+<ul>
+<li><a href="#org3297f2c">1.4.1. adjust traffic light timings</a></li>
+</ul>
+</li>
+<li><a href="#org301752d">1.5. more complexity</a>
+<ul>
+<li><a href="#orgcf9dbbf">1.5.1. some examples with 120 variables or more</a></li>
+<li><a href="#org4bb9a67">1.5.2. done by computers</a></li>
+<li><a href="#orgaa6a5a3">1.5.3. jamiton lines/envelopes (phantom traffic slowdowns)</a></li>
+</ul>
+</li>
+<li><a href="#org667dbf7">1.6. limitations</a>
+<ul>
+<li><a href="#orgd829806">1.6.1. spikes of traffic vary based on time of day or year</a></li>
+<li><a href="#org190f4bd">1.6.2. routes are not considered</a></li>
+<li><a href="#org40f6ecd">1.6.3. size / type of vehicle</a></li>
+<li><a href="#org5b45d2c">1.6.4. speed of vehicles</a></li>
+<li><a href="#orgfc76e76">1.6.5. line of sight</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<div id="outline-container-orgcd351f1" class="outline-2">
+<h2 id="orgcd351f1"><span class="section-number-2">1</span> <span class="done DONE">DONE</span> Brian P: Traffic control</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+model and predict flow through streets using systems of linear equations
+</p>
+</div>
+<div id="outline-container-orgb1698f2" class="outline-3">
+<h3 id="orgb1698f2"><span class="section-number-3">1.1</span> traffic circle example</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-orgfdf1d5e" class="outline-4">
+<h4 id="orgfdf1d5e"><span class="section-number-4">1.1.1</span> info</h4>
+<div class="outline-text-4" id="text-1-1-1">
+</div>
+<ol class="org-ol">
+<li><a id="org26edd52"></a>cars perminute from each direction<br /></li>
+<li><a id="org7a281f0"></a>but counters only counted four of the road segments<br /></li>
+<li><a id="org2d26e17"></a>calculate how many cars went through the other road segments<br /></li>
+</ol>
+</div>
+<div id="outline-container-orgeb42052" class="outline-4">
+<h4 id="orgeb42052"><span class="section-number-4">1.1.2</span> calculation</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+$$
+</p>
+\begin{aligned}
+x_2 + 75 = x_5+92\\
+x_1+x_2 = x_3+56\\
+75 = x_1+x_4\\
+x_3+x_4+23 = 46?\\
+x_5 = 33
+\end{aligned}
+<p>
+$$
+</p>
+</div>
+</div>
+<div id="outline-container-org3774de2" class="outline-4">
+<h4 id="org3774de2"><span class="section-number-4">1.1.3</span> Take RREF (it happens to not be the identity, which means there isn't enough information to)</h4>
+<div class="outline-text-4" id="text-1-1-3">
+</div>
+<ol class="org-ol">
+<li><a id="org464fba1"></a>pivot columns?<br /></li>
+<li><a id="orgf15e907"></a>replace the dependent variable (in this case \(x_4\) with \(t\), and try to remember how many cars went on the other roads (create parametric equations)<br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org96f8c4c" class="outline-3">
+<h3 id="org96f8c4c"><span class="section-number-3">1.2</span> Block example</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-orgb780760" class="outline-4">
+<h4 id="orgb780760"><span class="section-number-4">1.2.1</span> goal</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+Given some flow rates, figure out how many cars should be allowed to go through an area.
+Even though there are multiple solutions, it is possible to see which streets will become bottlenecks.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5f251f0" class="outline-3">
+<h3 id="org5f251f0"><span class="section-number-3">1.3</span> general steps</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org62705e5" class="outline-4">
+<h4 id="org62705e5"><span class="section-number-4">1.3.1</span> assign variables</h4>
+</div>
+<div id="outline-container-orgd03843f" class="outline-4">
+<h4 id="orgd03843f"><span class="section-number-4">1.3.2</span> create system of equations</h4>
+</div>
+<div id="outline-container-org8df8272" class="outline-4">
+<h4 id="org8df8272"><span class="section-number-4">1.3.3</span> create matrix</h4>
+</div>
+<div id="outline-container-orgd0cea7c" class="outline-4">
+<h4 id="orgd0cea7c"><span class="section-number-4">1.3.4</span> use gaussian elimination to gain information</h4>
+</div>
+</div>
+<div id="outline-container-org8995ff4" class="outline-3">
+<h3 id="org8995ff4"><span class="section-number-3">1.4</span> with this information you can</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-org3297f2c" class="outline-4">
+<h4 id="org3297f2c"><span class="section-number-4">1.4.1</span> adjust traffic light timings</h4>
+</div>
+</div>
+<div id="outline-container-org301752d" class="outline-3">
+<h3 id="org301752d"><span class="section-number-3">1.5</span> more complexity</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-orgcf9dbbf" class="outline-4">
+<h4 id="orgcf9dbbf"><span class="section-number-4">1.5.1</span> some examples with 120 variables or more</h4>
+</div>
+<div id="outline-container-org4bb9a67" class="outline-4">
+<h4 id="org4bb9a67"><span class="section-number-4">1.5.2</span> done by computers</h4>
+</div>
+<div id="outline-container-orgaa6a5a3" class="outline-4">
+<h4 id="orgaa6a5a3"><span class="section-number-4">1.5.3</span> jamiton lines/envelopes (phantom traffic slowdowns)</h4>
+</div>
+</div>
+<div id="outline-container-org667dbf7" class="outline-3">
+<h3 id="org667dbf7"><span class="section-number-3">1.6</span> limitations</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+<div id="outline-container-orgd829806" class="outline-4">
+<h4 id="orgd829806"><span class="section-number-4">1.6.1</span> spikes of traffic vary based on time of day or year</h4>
+</div>
+<div id="outline-container-org190f4bd" class="outline-4">
+<h4 id="org190f4bd"><span class="section-number-4">1.6.2</span> routes are not considered</h4>
+</div>
+<div id="outline-container-org40f6ecd" class="outline-4">
+<h4 id="org40f6ecd"><span class="section-number-4">1.6.3</span> size / type of vehicle</h4>
+</div>
+<div id="outline-container-org5b45d2c" class="outline-4">
+<h4 id="org5b45d2c"><span class="section-number-4">1.6.4</span> speed of vehicles</h4>
+</div>
+<div id="outline-container-orgfc76e76" class="outline-4">
+<h4 id="orgfc76e76"><span class="section-number-4">1.6.5</span> line of sight</h4>
+<div class="outline-text-4" id="text-1-6-5">
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

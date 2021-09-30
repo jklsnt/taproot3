@@ -1,57 +1,457 @@
-<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Zachary Sayyah" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Surplus Assignment Notes</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
-        'displayAlign': 'center',
-        'displayIndent': '0em',
-        'extensions': ['tex2jax.js'],
-        'tex2jax': {
-        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
-        'processEscapes': true
-        },
-        'HTML-CSS': { scale: 100,
-                        linebreaks: { automatic: 'false' },
-                        webFont: 'TeX'
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-27 Mon 12:05 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Surplus Assignment Notes</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Zachary Sayyah" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
                        },
         SVG: {scale: 100,
-              linebreaks: { automatic: 'false' },
-              font: 'TeX'},
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
         NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: 'AMS'},
-               MultLineWidth: '85%',
-               TagSide: 'right',
-               TagIndent: '.8em'
-             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Surplus Assignment Notes</h1></div><div class="metamble"><span><span>Written by </span><span>Zachary Sayyah</span></span></div><div class="notebody"><div><section></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="consumer-and-producer-surplus"><span class="firn-headline-text"><span>Consumer and Producer Surplus</span></span></h1><section><ul><li><p><span>Evaluating the consumer and producer surplus can be done simply via
-  supply and demand curves</span></p></li></ul></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="consumer-surplus-and-the-demand-curve"><span class="firn-headline-text"><span>Consumer Surplus and the Demand Curve</span></span></h2><section><ul><li><p><span>The demand curve is derived from preferences</span></p><ul><li><p><span>This determines how much they gain from the opportunity to buy
-    something</span></p></li><li><p><span>It primarily dictates their willingness to pay</span></p><ul><li><p><span>Example: old battered textbook may not present much utility in
-      comparison to the reduction in price making it not worth it for
-      the consumer</span></p></li></ul></li></ul></li></ul><blockquote><p><span>  Definition: a </span><strong><span>demand schedule</span></strong><span> is a chart showing how many books will
-  be sold (assuming infinite supply) at each fixed price</span></p></blockquote><ul><li><p><span>A demand schedule can be used to derive a demand curve since it's
-  really only a descretized version</span></p><ul><li><p><span>When there are more people this demand curve grows more continuous
-    (is defined at more values of x)</span></p></li></ul></li></ul><blockquote><p><span>  Definition: an </span><strong><span>individual consumer surplus</span></strong><span> is a is how much each
-  consumer "profits" in utility from a purchase</span></p></blockquote><ul><li><p><span>There is </span><em><span>always</span></em><span> a consumer surplus whenever a consumer pays less
-  than their willingness to pay</span></p></li></ul><blockquote><p><span>  Definition: the </span><strong><span>total consumer surplus</span></strong><span> is the sum of all the
-  individual consumer surpluses within a given system</span></p></blockquote><ul><li><p><span>Sometimes </span><strong><span>consumer surplus</span></strong><span> can be used for both total and individual
-  consumer surplus</span></p></li><li><p><span>The integral of the demand schedule represents the </span><strong><span>total consumer
-  surplus</span></strong></p></li><li><p><span>A change in price simply means that the delta in total consumer
-  surplus is just the integral between two functions</span></p></li><li><p><span>During wartime when low supply goods were sold at original pre-war
-  prices, the goverment had to restrict the market even more by making
-  people use things like stamps</span></p><ul><li><p><span>This created a whole market for stamps and such but they were only
-    purchasing the </span><em><span>right</span></em><span> to purchase that good</span></p><ul><li><p><span>This really becomes the same system where the people who either
-      have a lot of utility, or really want something are going to go
-      purchase it for more anyways except the extra margins go to the
-      black market instead of the producer</span></p></li></ul></li></ul></li></ul></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="producer-surplus-and-the-supply-curve"><span class="firn-headline-text"><span>Producer Surplus and the Supply Curve</span></span></h2><section><ul><li><p><span>With the producer, you have a similar curve where sometimes the
-  producer is simply willing to sell the good for a lower price than it
-  was purchased since keeping the good still provides less utility than
-  if they were to sell it for a lower price</span></p><ul><li><p><span>In other words, the baseline isn't the purchase price, but the
-    seller's lowest selling price (where the seller breaks even with the
-    amount of utility they get simply from possessing the item)</span></p></li></ul></li></ul><blockquote><p><span>  Definition: the </span><strong><span>seller's price</span></strong><span> is the lowest a seller is willing to
-  sell a good</span></p></blockquote><ul><li><p><span>There is an opportunity cost to selling something since there is
-  inherit utility sometimes to simply possessing a useful good</span></p></li></ul><blockquote><p><span>  Definition: the </span><strong><span>individual producer surplus</span></strong><span> and </span><strong><span>total producer
-  surplus</span></strong><span> refer to the same thing as their consumer counterparts</span></p></blockquote><ul><li><p><span>Producer charts swap the axes and thus the axes of integration becomes
-  the price</span></p></li><li><p><span>Otherwise producers work more or less like consumers</span></p></li></ul></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="consumer-surplus,-producer-surplus,-and-the-gains-from-trade"><span class="firn-headline-text"><span>Consumer Surplus, Producer Surplus, and the Gains from Trade</span></span></h2><section><ul><li><p><span>A market is usually </span><em><span>good</span></em><span> for everyone</span></p><ul><li><p><span>For one person to do well, someone else does not have to do badly</span></p></li></ul></li><li><p><span>A market is usually efficient in creating mutually beneficial trades</span></p><ul><li><p><span>Technically a planned economy can be done, but people are better at
-    deciding what they want then other people are at deciding what they
-    want</span></p></li></ul></li><li><p><span>generally attempting something planned ends with a lower surplus</span></p></li></ul><p><span>In our market many mutually beneficial trades did not occur, after
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Surplus Assignment Notes</h1> <h2 class="subtitle"></h2> <span class="author">Zachary Sayyah</span> <span class="date">2021-09-27 Mon 12:00</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>Microeconomics Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#consumer-and-producer-surplus">1. Consumer and Producer Surplus</a>
+<ul>
+<li><a href="#consumer-surplus-and-the-demand-curve">1.1. Consumer Surplus and the Demand Curve</a></li>
+<li><a href="#producer-surplus-and-the-supply-curve">1.2. Producer Surplus and the Supply Curve</a></li>
+<li><a href="#consumer-surplus-producer-surplus-and-the-gains-from-trade">1.3. Consumer Surplus, Producer Surplus, and the Gains from Trade</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+
+
+<div id="outline-container-consumer-and-producer-surplus" class="outline-2">
+<h2 id="consumer-and-producer-surplus"><span class="section-number-2">1</span> Consumer and Producer Surplus</h2>
+<div class="outline-text-2" id="text-consumer-and-producer-surplus">
+<ul class="org-ul">
+<li>Evaluating the consumer and producer surplus can be done simply via
+supply and demand curves</li>
+</ul>
+</div>
+
+<div id="outline-container-consumer-surplus-and-the-demand-curve" class="outline-3">
+<h3 id="consumer-surplus-and-the-demand-curve"><span class="section-number-3">1.1</span> Consumer Surplus and the Demand Curve</h3>
+<div class="outline-text-3" id="text-consumer-surplus-and-the-demand-curve">
+<ul class="org-ul">
+<li>The demand curve is derived from preferences
+
+<ul class="org-ul">
+<li>This determines how much they gain from the opportunity to buy
+something</li>
+<li>It primarily dictates their willingness to pay
+
+<ul class="org-ul">
+<li>Example: old battered textbook may not present much utility in
+comparison to the reduction in price making it not worth it for
+the consumer</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<blockquote>
+<p>
+Definition: a <b>demand schedule</b> is a chart showing how many books will
+be sold (assuming infinite supply) at each fixed price
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>A demand schedule can be used to derive a demand curve since it's
+really only a descretized version
+
+<ul class="org-ul">
+<li>When there are more people this demand curve grows more continuous
+(is defined at more values of x)</li>
+</ul></li>
+</ul>
+
+<blockquote>
+<p>
+Definition: an <b>individual consumer surplus</b> is a is how much each
+consumer "profits" in utility from a purchase
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>There is <i>always</i> a consumer surplus whenever a consumer pays less
+than their willingness to pay</li>
+</ul>
+
+<blockquote>
+<p>
+Definition: the <b>total consumer surplus</b> is the sum of all the
+individual consumer surpluses within a given system
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>Sometimes <b>consumer surplus</b> can be used for both total and individual
+consumer surplus</li>
+<li>The integral of the demand schedule represents the <b>total consumer
+surplus</b></li>
+<li>A change in price simply means that the delta in total consumer
+surplus is just the integral between two functions</li>
+<li>During wartime when low supply goods were sold at original pre-war
+prices, the goverment had to restrict the market even more by making
+people use things like stamps
+
+<ul class="org-ul">
+<li>This created a whole market for stamps and such but they were only
+purchasing the <i>right</i> to purchase that good
+
+<ul class="org-ul">
+<li>This really becomes the same system where the people who either
+have a lot of utility, or really want something are going to go
+purchase it for more anyways except the extra margins go to the
+black market instead of the producer</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-producer-surplus-and-the-supply-curve" class="outline-3">
+<h3 id="producer-surplus-and-the-supply-curve"><span class="section-number-3">1.2</span> Producer Surplus and the Supply Curve</h3>
+<div class="outline-text-3" id="text-producer-surplus-and-the-supply-curve">
+<ul class="org-ul">
+<li>With the producer, you have a similar curve where sometimes the
+producer is simply willing to sell the good for a lower price than it
+was purchased since keeping the good still provides less utility than
+if they were to sell it for a lower price
+
+<ul class="org-ul">
+<li>In other words, the baseline isn't the purchase price, but the
+seller's lowest selling price (where the seller breaks even with the
+amount of utility they get simply from possessing the item)</li>
+</ul></li>
+</ul>
+
+<blockquote>
+<p>
+Definition: the <b>seller's price</b> is the lowest a seller is willing to
+sell a good
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>There is an opportunity cost to selling something since there is
+inherit utility sometimes to simply possessing a useful good</li>
+</ul>
+
+<blockquote>
+<p>
+Definition: the <b>individual producer surplus</b> and <b>total producer
+surplus</b> refer to the same thing as their consumer counterparts
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>Producer charts swap the axes and thus the axes of integration becomes
+the price</li>
+<li>Otherwise producers work more or less like consumers</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-consumer-surplus-producer-surplus-and-the-gains-from-trade" class="outline-3">
+<h3 id="consumer-surplus-producer-surplus-and-the-gains-from-trade"><span class="section-number-3">1.3</span> Consumer Surplus, Producer Surplus, and the Gains from Trade</h3>
+<div class="outline-text-3" id="text-consumer-surplus-producer-surplus-and-the-gains-from-trade">
+<ul class="org-ul">
+<li>A market is usually <i>good</i> for everyone
+
+<ul class="org-ul">
+<li>For one person to do well, someone else does not have to do badly</li>
+</ul></li>
+
+<li>A market is usually efficient in creating mutually beneficial trades
+
+<ul class="org-ul">
+<li>Technically a planned economy can be done, but people are better at
+deciding what they want then other people are at deciding what they
+want</li>
+</ul></li>
+
+<li>generally attempting something planned ends with a lower surplus</li>
+</ul>
+
+<p>
+In our market many mutually beneficial trades did not occur, after
 reading the chapter do you have more insight as to why this might have
-been the case and how we could avoid it in the future?</span></p><p><span>Our market didn't really converge on a sensical equilibrium and instead
+been the case and how we could avoid it in the future? 
+</p>
+
+<p>
+Our market didn't really converge on a sensical equilibrium and instead
 converged on a much higher price (of about on average 50 utility). This
 meant of course that the going price wasn't an efficient one and many
-mutually beneficial trades could not occur.</span></p><p><span>What is the equilibrium price, equilibrium quantity, consumer surplus,
-and producer surplus in the following market?</span></p><p><span>Demand: \(P = 45 - 5Q\)</span></p><p><span>Supply: \(P = 10 + 2Q\)</span></p><p><span>\[45 - 5Q = 10 + 2Q\]</span></p><p><span>\[35 = 7Q\]</span></p><p><span>\[\boxed{Q = 5}\]</span></p></section></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#consumer-and-producer-surplus">Consumer and Producer Surplus</a><ol><li><a href="#consumer-surplus-and-the-demand-curve">Consumer Surplus and the Demand Curve</a></li><li><a href="#producer-surplus-and-the-supply-curve">Producer Surplus and the Supply Curve</a></li><li><a href="#consumer-surplus,-producer-surplus,-and-the-gains-from-trade">Consumer Surplus, Producer Surplus, and the Gains from Trade</a></li></ol></li></ol><div class="metalabel">Backlinks</div><ul class="firn-backlinks"><li class="firn-backlink"><a href="/economics/micro_economics/index">Microeconomics Master Index</a></li></ul></div></main></body></html>
+mutually beneficial trades could not occur.
+</p>
+
+<p>
+What is the equilibrium price, equilibrium quantity, consumer surplus,
+and producer surplus in the following market?
+</p>
+
+<p>
+Demand: \(P = 45 - 5Q\)
+</p>
+
+<p>
+Supply: \(P = 10 + 2Q\)
+</p>
+
+<p>
+\[45 - 5Q = 10 + 2Q\]
+</p>
+
+<p>
+\[35 = 7Q\]
+</p>
+
+<p>
+\[\boxed{Q = 5}\]
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

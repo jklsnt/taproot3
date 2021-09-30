@@ -1,0 +1,76 @@
+<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Algebra with Integrals</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        'displayAlign': 'center',
+        'displayIndent': '0em',
+        'extensions': ['tex2jax.js'],
+        'tex2jax': {
+        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
+        'processEscapes': true
+        },
+        'HTML-CSS': { scale: 100,
+                        linebreaks: { automatic: 'false' },
+                        webFont: 'TeX'
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: 'false' },
+              font: 'TeX'},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: 'AMS'},
+               MultLineWidth: '85%',
+               TagSide: 'right',
+               TagIndent: '.8em'
+             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Algebra with Integrals</h1></div><div class="metamble"></div><div class="notebody"><div><section></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="general-trends"><span class="firn-headline-text"><span>general trends</span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="split-fractions"><span class="firn-headline-text"><span>split fractions</span></span></h2><section><p><span>   Always consider splitting sums of fractions
+   \[\begin{aligned}
+   \int \frac{a+b}{c} dx = \int \frac{a}{c} dx +\int \frac{b}{c} dx
+   \end{aligned}\]</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="pull-out-constant-factors"><span class="firn-headline-text"><span>pull out constant factors</span></span></h2><section><p><span>   \[\begin{aligned}
+   \int af(x) dx = a \int f(x) dx
+   \end{aligned}\]</span></p></section></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="additive"><span class="firn-headline-text"><span>additive</span></span></h1><section><p><span>  \[\begin{aligned}
+  \int f(x) + g(x) dx = \int f(x) dx  + \int g(x) dx
+  \end{aligned}\]</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="change-of-lower-bound"><span class="firn-headline-text"><span>change of lower bound</span></span></h1><section><p><span>  \[\begin{aligned}
+  \int_{a}^{b} f(x) dx + \int_{b}^{c} f(x) dx = \int_{a}^{c} f(x) dx\\
+  \implies \int_{a}^{x} f(t) dt = \int_{b}^{x} f(t) dt - \int_{a}^{b} f(t) dt
+  \end{aligned}\]</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="fundamental-theorem-of-calculus"><span class="firn-headline-text"><a class="firn-internal" href="/mathematics/single_variable_calculus/KBrefFundamentalTheoremOfCalculus">fundamental theorem of calculus</a></span></h1><section><p><span>  \[\begin{aligned}
+  \int_{}^{} f'(x) dx = f(x) + C\\
+  \frac{d}{dx} \int_{}^{} f(x) dx = f(x)\\
+  \frac{d}{dx} \int_{a}^{x} f(t) dt = f(x)
+  \end{aligned}\]</span></p><p><span>  (second one doesn't have a $+C$ because the derivative sends that to zero)</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="net-change-theorem"><span class="firn-headline-text"><span>net change theorem</span></span></h1><section><p><span>  \[\begin{aligned}
+  \int_{a}^{b} f'(x) dx = f(b) - f(a)\\
+  \frac{d}{dx}\int_{a}^{x} f(x) dx = f(x)\\
+  \int_{a}^{x} f'(x) dx = f(x) - f(a)\\
+  \end{aligned}\]</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="variable-bounds"><span class="firn-headline-text"><span>variable bounds</span></span></h1><section><p><span>  \[\begin{aligned}
+  \frac{d}{dx}\int_{a}^{p(x)} f(x) dx = f(p(x))p'(x)\\
+  \int_{p(x)}^{q(x)} f(t)dt = \int_{0}^{q(x)} f(t)dt - \int_{0}^{p(x)} f(t)dt
+  \end{aligned}\]</span></p><p><span>  An example</span></p><p><span>  \[\begin{aligned}
+  k(x) = \int_{x^2}^{e^x} \sqrt{\sin t} dt = \int_{0}^{e^x} \sqrt{\sin t}dt - \int_{0}^{x^2} \sqrt{\sin t} dt\\
+  k'(x) = \sqrt{\sin e^x}e^x - 2x\sqrt{\sin x^2}
+  \end{aligned}\]</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="mean-value-theorem-(for-integrals)"><span class="firn-headline-text"><span>mean value theorem (for integrals)</span></span></h1><section><p><span>  There exists some point $c$ over an integrable interval $[a, b]$ s.t.
+  \[\begin{aligned}
+  f(c) = \frac{1}{b-a}\int_{a}^{b} f(x) dx
+  \end{aligned}\]</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="integration-rules"><span class="firn-headline-text"><span>integration rules</span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="power-rule-for-integrals"><span class="firn-headline-text"><span>power rule for integrals</span></span></h2><section><p><span>   \[\begin{aligned}
+   \int x^n dx = \frac{x^{n+1}}{n+1} +C
+   \end{aligned}\]</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="k-angle-formulas-for-sinusoids"><span class="firn-headline-text"><span>k-angle formulas for sinusoids</span></span></h2><section><p><span>   \[\begin{aligned}
+   \int \sin kx dx &= - \frac{\cos kx}{k}\\
+   \int \cos kx dx &= \frac{\sin kx}{k}
+   \end{aligned}\]</span></p></section><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="for-$\sin-^2x$-or-$\cos-^2x$,"><span class="firn-headline-text"><span>for $\sin ^2x$ or $\cos ^2x$,</span></span></h3><section><p><span>	Try to get a double angle using the $\cos 2x$ identities.</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="for-a-product-of-$\sin-x-\cos--x$-or-similar,"><span class="firn-headline-text"><span>for a product of $\sin x \cos  x$ or similar,</span></span></h3><section><p><span>	Use the double angle identity for $\sin 2x = 2 \sin x \cos  x$.</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="for-$\sec-x$-and-$\tan-x$,"><span class="firn-headline-text"><span>for $\sec x$ and $\tan x$,</span></span></h3><section><p><span>	We know their derivatives contain themselves, so we can look for something cyclic.</span></p><p><span>	For example,</span></p><p><span>	\[\begin{aligned}
+    \int \sec x dx &= \int \sec x \frac{\sec  x + \tan  x}{\sec x+\tan x} dx \\
+	&= \int \frac{\sec ^2x + \sec x \tan x}{\sec x+\tan x} dx \\
+	\end{aligned}\]</span></p><p><span>	Let $u = \sec x+\tan x$, $du = \sec x\tan x + \sec ^2x$</span></p><p><span>	\[\begin{aligned}
+    \int \sec x dx &= \int \frac{du}{u} dx \\
+	&= \int \frac{1}{u} du\\
+	&= \ln | u | \\
+	&= \ln | \sec x+\tan x|
+	\end{aligned}\]</span></p></section></div></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="u-substitution-(on-products,-chain-rule)"><span class="firn-headline-text"><span>u-substitution (on products, chain rule)</span></span></h2><section><p><span>   if it happens to work:
+   \[\begin{aligned}
+   \int f'(g(x)) g'(x)dx = f(g(x)) + C
+   \end{aligned}\]</span></p><p><span>   an example:</span></p><p><span>   \[\begin{aligned}
+   \int 2x \sin (x^2) dx\\
+   \end{aligned}\]
+   Let $u = x^2$ and $du = frac{du}{dx} dx = 2x dx$</span></p><p><span>   \[\begin{aligned}
+   \int \sin x^2 2x dx &= \int \sin u du\\
+   &= -\cos (u) +C\\
+   &= -\cos (x^2) +C
+   \end{aligned}\]</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="integration-by-parts-(on-products,-product-rule)"><span class="firn-headline-text"><span>integration by parts (on products, product rule)</span></span></h2><section><p><span>   \[\begin{aligned}
+   &\frac{d}{dx}f(x)g(x) &=& f'(x)g(x) + g'(x)f(x)\\
+   &\int \frac{d}{dx}f(x)g(x) dx &=& \int  f'(x)g(x) + g'(x)f(x) dx\\
+   &f(x)g(x)+C &=& \int f'(x)g(x) dx + \int g'(x)f(x) dx\\
+   \implies & \int f'(x)g(x) dx &=& f(x)g(x) - \int g'(x)f(x) dx +C
+   \end{aligned}\]</span></p></section><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="tips"><span class="firn-headline-text"><span>tips</span></span></h3><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="can-use-$1$-as-the-other-part-of-the-product"><span class="firn-headline-text"><span>can use $1$ as the other part of the product</span></span></h4></div></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="todo-a-graphical-representation"><span class="firn-headline-text"><span>TODO a graphical representation</span></span></h3><section><p><span>	Imagine graphing $f(g(x))$ as a function of $f(x)$ and $g(x)$. Then, for some interval on $g(x)$, the bounding rectangle has area $fg(x)$, the area under the curve is $\int TODO dx$</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="tabular-technique"><span class="firn-headline-text"><span>tabular technique</span></span></h3><section><p><span>	Just syntactic sugar for integral by parts repeatedly (eg. when you have a power function $x^n$ multiplied by eg. $a^bx$). It has to be a case where one of the functions has a derivative that goes to zero (a power function).</span></p><p><span>	Take repeated derivatives on the left (with the power function) and take repeated integrals to the right. Match up the entries in the table, and alternate negatives and positives to expand the integration by parts relatively quickly.</span></p></section></div></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#general-trends">general trends</a><ol><li><a href="#split-fractions">split fractions</a></li><li><a href="#pull-out-constant-factors">pull out constant factors</a></li></ol></li><li><a href="#additive">additive</a></li><li><a href="#change-of-lower-bound">change of lower bound</a></li><li><a href="#fundamental-theorem-of-calculus">fundamental theorem of calculus</a></li><li><a href="#net-change-theorem">net change theorem</a></li><li><a href="#variable-bounds">variable bounds</a></li><li><a href="#mean-value-theorem-(for-integrals)">mean value theorem (for integrals)</a></li><li><a href="#integration-rules">integration rules</a><ol><li><a href="#power-rule-for-integrals">power rule for integrals</a></li><li><a href="#k-angle-formulas-for-sinusoids">k-angle formulas for sinusoids</a><ol><li><a href="#for-$\sin-^2x$-or-$\cos-^2x$,">for $\sin ^2x$ or $\cos ^2x$,</a></li><li><a href="#for-a-product-of-$\sin-x-\cos--x$-or-similar,">for a product of $\sin x \cos  x$ or similar,</a></li><li><a href="#for-$\sec-x$-and-$\tan-x$,">for $\sec x$ and $\tan x$,</a></li></ol></li><li><a href="#u-substitution-(on-products,-chain-rule)">u-substitution (on products, chain rule)</a></li><li><a href="#integration-by-parts-(on-products,-product-rule)">integration by parts (on products, product rule)</a><ol><li><a href="#tips">tips</a><ol><li><a href="#can-use-$1$-as-the-other-part-of-the-product">can use $1$ as the other part of the product</a></li></ol></li><li><a href="#todo-a-graphical-representation">TODO a graphical representation</a></li><li><a href="#tabular-technique">tabular technique</a></li></ol></li></ol></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>

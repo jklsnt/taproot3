@@ -20,9 +20,7 @@ ORG_GEN := $(subst src/,gen/,$(ORG_TARGET))
 # Compilation Lists
 ORG_BUILD := $(subst src/,docs/,$(ORG_TARGET)) 
 PDF_BUILD := $(ORG_BUILD:.org=.pdf)
-
-OX_BUILD := $(subst docs/,ox_docs/,$(ORG_BUILD))
-HTML_OX_BUILD := $(OX_BUILD:.org=.html)
+HTML_BUILD := $(ORG_BUILD:.org=.html)
 
 # Redux Lists
 PDF_REDUX := $(subst docs/,src/,$(PDF_BUILD))
@@ -51,7 +49,7 @@ gen/%.org: src/%.org
 
 gen: $(ORG_GEN)
 	cp -r static/* docs/
-	cp -r static/* ox_docs/
+	cp -r static/* firn_docs/
 
 
 
@@ -62,25 +60,22 @@ docs/%.tex: gen/%.org
 	cp $$(echo "$<" | sed "s/\.org/.tex/g") "$@"
 	sed -ie "s/\\href{\(.*\).svg\}{\?.*\}\?/\includesvg{\1}/g" "$@"
 
-docs/%.html: gen/%.org
-	echo "PHONY"
-
-ox_docs/%.html: gen/%.org 
+docs/%.html: gen/%.org 
+	mkdir -p docs
 	./transpile_html.el "$<"
 	mkdir -p $$(dirname "$@")
 	cp $$(echo "$<" | sed "s/\.org/.html/g") "$@"
 
 transpile: gen
-	mkdir -p docs
 	./cache_ids.el
 	rsync -am --include='*.'{jpg,jpeg,png,gif,svg} --include='*/' --exclude='*' ./src/* ./docs
-	rsync -am --include='*.html' --include='*/' --exclude='*' ./gen/_firn/_site/* ./docs
-	find ./src/ -regex '.*\(jpg\|jpeg\|png\|gif\|svg\)' -not -path "*ltximg*" -exec cp "{}" docs \;
 	mkdir -p gen/_firn
 	cp -r site/* gen/_firn
-	cp -r gen/_firn/static docs
+	cp -r gen/_firn/static firn_docs
 	 #cd firn/clojure && lein run build -d ../../gen
 	cd gen && firn build
+	rsync -am --include='*.html' --include='*/' --exclude='*' ./gen/_firn/_site/* ./firn_docs
+	find ./src/ -regex '.*\(jpg\|jpeg\|png\|gif\|svg\)' -not -path "*ltximg*" -exec cp "{}" firn_docs \;
 	find . -d -name "*~" -exec rm -f {} \;
 	find . -d -name "*.texe" -exec rm -f {} \;
 	find . -d -name "*sync-conflict*" -exec rm -f {} \;
@@ -91,8 +86,8 @@ transpile: gen
 docs/%.pdf: docs/%.tex
 	-(cd $$(dirname "$@") && xelatex --shell-escape -interaction nonstopmode $$(basename "$<") $$(basename "$@"))
 
-compile: transpile $(PDF_BUILD) $(HTML_OX_BUILD)
-	for FILE in $$(find ox_docs -regex ".*html"); do ./generate_backlinks.sh $$FILE; done
+compile: transpile $(PDF_BUILD) $(HTML_BUILD)
+	for FILE in $$(find docs -regex ".*html"); do ./generate_backlinks.sh $$FILE; done
 
 
 

@@ -49,6 +49,7 @@ source: #index
 
 # Relativity
 - [[KBhPHYS201SpecialRelativity]] 
+- [[KBxSpecialRelativityIntro]]
 
 # Quantum Mechanics
 - [[KBhPHYS201QuantumMechanics]]

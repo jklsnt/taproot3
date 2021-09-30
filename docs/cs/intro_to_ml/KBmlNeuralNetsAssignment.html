@@ -1,44 +1,616 @@
-<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Huxley" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Neural Nets Assignment</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
-        'displayAlign': 'center',
-        'displayIndent': '0em',
-        'extensions': ['tex2jax.js'],
-        'tex2jax': {
-        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
-        'processEscapes': true
-        },
-        'HTML-CSS': { scale: 100,
-                        linebreaks: { automatic: 'false' },
-                        webFont: 'TeX'
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: 'false' },
-              font: 'TeX'},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: 'AMS'},
-               MultLineWidth: '85%',
-               TagSide: 'right',
-               TagIndent: '.8em'
-             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Neural Nets Assignment</h1></div><div class="metamble"><span><span>Written by </span><span>Huxley</span></span></div><div class="notebody"><div><section><p><span>#ref #ret</span></p><hr /></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="opt-3-+"><span class="firn-headline-text"><span>Opt 3 +</span></span></h1><section><p><span>Looked at the</span><a class="firn-external" href="https://github.com/ml4a/ml4a-guides/blob/master/notebooks/convolutional_neural_networks.ipynb" target="_blank">Convolutional
-Neural Network Notebook</a></p><ul><li><p><span>What type of data are they using?</span></p><ul><li><p><span>They are using images as their input data.</span></p></li></ul></li><li><p><span>What conversions (if any) had to be done to the data before it could
-  be put into the neural network?</span></p><ul><li><p><span>For the basic neural network, they reshape the data to be individual
-    vectors, make them float32, normalize the data, then convert the
-    vectors to binary class matrices via one hot encoding. For the CNN,
-    they repeat the previous steps except without reshaping the data
-    into unrolled input vectors.</span></p></li></ul></li><li><p><span>What is the output of the neural network, both in terms of what it
-  looks like to the computer (e.g. integers in the range [0-2]) and how
-  humans should interpret it (e.g. the type of iris)?</span></p><ul><li><p><span>The output should be an array of probabilities for each category,
-    which can be interpreted as, at a given index in the array, the
-    item's probabilities for belonging in each category.</span></p></li></ul></li><li><p><span>How many hidden layers does the network have, and what type are they
-  (e.g. fully connected, convolutional, recurrent, LSTM, sparse, etc.)?</span></p><ul><li><p><span>For the final iteration of the CNN, the model has four hidden layers
-    --- two convolutional, and two dense.</span></p></li></ul></li><li><p><span>What activation function(s) does it use?</span></p><ul><li><p><span>The CNN used ReLU and softmax.</span></p></li></ul></li><li><p><span>What loss or cost function is it using?</span></p><ul><li><p><span>The model's loss function is categorical crossentropy</span></p></li></ul></li><li><p><span>What kind of validation (if any) are they using?</span></p><ul><li><p><span>The model uses accuracy as it's validation metric.</span></p></li></ul></li><li><p><span>What other validation methods might work for this type of problem?</span></p><ul><li><p><span>Any validation that works for classification problems, such as
-    recall, f-measure, or precision.</span></p></li></ul></li><li><p><span>Why do you think the authors may have chosen this architecture for
-  their network?</span></p><ul><li><p><span>They started with a small network to help illustrate the concepts
-    more clearly, then gradually added more layers. They used a CNN so
-    the model would be able to perform feature based recognition.</span></p></li></ul></li><li><p><span>Are there any changes you might try, if you were going to improve on
-  their model?</span></p><ul><li><p><span>I will try to add some more layers, as well as some more dropout.</span></p></li></ul></li></ul></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="opt-3-pt 2!"><span class="firn-headline-text"><span>Opt 3 pt. 2!</span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="iteration-one:-more-regularization"><span class="firn-headline-text"><span>Iteration One: More Regularization</span></span></h2><section><p><span>Tried to add more regularization with this model setup:</span></p><p><span>After </span><em><span>hours</span></em><span> of training, the model produced these results:</span></p><p><span>Which is roughly </span><em><span>one percent worse.</span></em></p><p><span>great.</span></p><hr /></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="i2:-better-placed-regularization"><span class="firn-headline-text"><span>I2: Better Placed Regularization</span></span></h2><section><p><span>Once realizing I wasn't on a GPU, and trying out this new model setup:</span></p><p><span>It produced these results:</span></p><p><span>Which, when compared with the original results:</span></p><p><span>Is better!</span></p><hr /></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="i3:-more-of-that"><span class="firn-headline-text"><span>I3: More of That</span></span></h2><section><p><span>Dialed up dropout again...</span></p><p><span>Which gave an even better score!</span></p><hr /></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="i4:-more-layers"><span class="firn-headline-text"><span>I4: More Layers</span></span></h2><section><p><span>Our test accuracy and training accuracy are approaching each other.</span></p><hr /></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="i(9?):-more-more-layers"><span class="firn-headline-text"><span>I(9?): More More Layers</span></span></h2><section><p><span>After quite some more experimenting, these were around the best results
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-27 Mon 12:05 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Neural Nets Assignment</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Neural Nets Assignment</h1> <h2 class="subtitle"></h2> <span class="author">Huxley</span> <span class="date">2021-09-27 Mon 12:00</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#opt-3">1. Opt 3 +</a></li>
+<li><a href="#opt-3-pt.-2">2. Opt 3 pt. 2!</a>
+<ul>
+<li><a href="#iteration-one-more-regularization">2.1. Iteration One: More Regularization</a></li>
+<li><a href="#i2-better-placed-regularization">2.2. I2: Better Placed Regularization</a></li>
+<li><a href="#i3-more-of-that">2.3. I3: More of That</a></li>
+<li><a href="#i4-more-layers">2.4. I4: More Layers</a></li>
+<li><a href="#i9-more-more-layers">2.5. I(9?): More More Layers</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<p>
+#ref #ret
+</p>
+
+<hr />
+
+<div id="outline-container-opt-3" class="outline-2">
+<h2 id="opt-3"><span class="section-number-2">1</span> Opt 3 +</h2>
+<div class="outline-text-2" id="text-opt-3">
+<p>
+Looked at the
+<a href="https://github.com/ml4a/ml4a-guides/blob/master/notebooks/convolutional_neural_networks.ipynb">Convolutional
+Neural Network Notebook</a>
+</p>
+
+<ul class="org-ul">
+<li>What type of data are they using?
+
+<ul class="org-ul">
+<li>They are using images as their input data.</li>
+</ul></li>
+
+<li>What conversions (if any) had to be done to the data before it could
+be put into the neural network?
+
+<ul class="org-ul">
+<li>For the basic neural network, they reshape the data to be individual
+vectors, make them float32, normalize the data, then convert the
+vectors to binary class matrices via one hot encoding. For the CNN,
+they repeat the previous steps except without reshaping the data
+into unrolled input vectors.</li>
+</ul></li>
+
+<li>What is the output of the neural network, both in terms of what it
+looks like to the computer (e.g. integers in the range [0-2]) and how
+humans should interpret it (e.g. the type of iris)?
+
+<ul class="org-ul">
+<li>The output should be an array of probabilities for each category,
+which can be interpreted as, at a given index in the array, the
+item's probabilities for belonging in each category.</li>
+</ul></li>
+
+<li>How many hidden layers does the network have, and what type are they
+(e.g. fully connected, convolutional, recurrent, LSTM, sparse, etc.)?
+
+<ul class="org-ul">
+<li>For the final iteration of the CNN, the model has four hidden layers
+&#x2014; two convolutional, and two dense.</li>
+</ul></li>
+
+<li>What activation function(s) does it use?
+
+<ul class="org-ul">
+<li>The CNN used ReLU and softmax.</li>
+</ul></li>
+
+<li>What loss or cost function is it using?
+
+<ul class="org-ul">
+<li>The model's loss function is categorical crossentropy</li>
+</ul></li>
+
+<li>What kind of validation (if any) are they using?
+
+<ul class="org-ul">
+<li>The model uses accuracy as it's validation metric.</li>
+</ul></li>
+
+<li>What other validation methods might work for this type of problem?
+
+<ul class="org-ul">
+<li>Any validation that works for classification problems, such as
+recall, f-measure, or precision.</li>
+</ul></li>
+
+<li>Why do you think the authors may have chosen this architecture for
+their network?
+
+<ul class="org-ul">
+<li>They started with a small network to help illustrate the concepts
+more clearly, then gradually added more layers. They used a CNN so
+the model would be able to perform feature based recognition.</li>
+</ul></li>
+
+<li>Are there any changes you might try, if you were going to improve on
+their model?
+
+<ul class="org-ul">
+<li>I will try to add some more layers, as well as some more dropout.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-opt-3-pt.-2" class="outline-2">
+<h2 id="opt-3-pt.-2"><span class="section-number-2">2</span> Opt 3 pt. 2!</h2>
+<div class="outline-text-2" id="text-opt-3-pt.-2">
+</div>
+<div id="outline-container-iteration-one-more-regularization" class="outline-3">
+<h3 id="iteration-one-more-regularization"><span class="section-number-3">2.1</span> Iteration One: More Regularization</h3>
+<div class="outline-text-3" id="text-iteration-one-more-regularization">
+<p>
+Tried to add more regularization with this model setup:
+</p>
+
+<pre class="example" id="orgced41d6">
+model = Sequential()
+model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Flatten())
+model.add(Dense(256))
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+model.add(Dense(100))
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+model.add(Dense(num_classes))
+model.add(Activation('softmax'))
+model.summary()
+</pre>
+
+<p>
+After <i>hours</i> of training, the model produced these results:
+</p>
+
+<pre class="example" id="orgd9ea949">
+Test loss: 0.930192768573761
+Test accuracy: 0.7660999894142151
+Training loss: 0.057676762342453
+Training accuracy: 0.9868000149726868
+</pre>
+
+<p>
+Which is roughly <i>one percent worse.</i>
+</p>
+
+<p>
+great.
+</p>
+
+<hr />
+</div>
+</div>
+
+<div id="outline-container-i2-better-placed-regularization" class="outline-3">
+<h3 id="i2-better-placed-regularization"><span class="section-number-3">2.2</span> I2: Better Placed Regularization</h3>
+<div class="outline-text-3" id="text-i2-better-placed-regularization">
+<p>
+Once realizing I wasn't on a GPU, and trying out this new model setup:
+</p>
+
+<pre class="example" id="orgd8518ea">
+model = Sequential()
+model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25)) ## CHANGED ##
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25))
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Flatten())
+model.add(Dense(256))
+model.add(Activation('relu'))
+model.add(Dropout(0.25)) ## CHANGED ##
+model.add(Dense(100))
+model.add(Activation('relu'))
+model.add(Dropout(0.25)) ## CHANGED ##
+model.add(Dense(num_classes))
+model.add(Activation('softmax'))
+model.summary()
+</pre>
+
+<p>
+It produced these results:
+</p>
+
+<pre class="example" id="orga3f4e0d">
+Test loss: 0.7443265914916992
+Test accuracy: 0.7879999876022339
+Training loss: 0.08786039799451828
+Training accuracy: 0.9797599911689758
+</pre>
+
+<p>
+Which, when compared with the original results:
+</p>
+
+<pre class="example" id="org741cc56">
+Test loss: 0.9660877988576889
+Test accuracy: 0.779
+Training loss: 0.024635728995651005
+Training accuracy: 0.99504
+</pre>
+
+<p>
+Is better!
+</p>
+
+<hr />
+</div>
+</div>
+
+<div id="outline-container-i3-more-of-that" class="outline-3">
+<h3 id="i3-more-of-that"><span class="section-number-3">2.3</span> I3: More of That</h3>
+<div class="outline-text-3" id="text-i3-more-of-that">
+<p>
+Dialed up dropout again&#x2026;
+</p>
+
+<pre class="example" id="orgad07e54">
+model = Sequential()
+model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25))
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.35)) ## CHANGED ##
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Flatten())
+model.add(Dense(256))
+model.add(Activation('relu'))
+model.add(Dropout(0.35)) ## CHANGED ##
+model.add(Dense(100))
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+model.add(Dense(num_classes))
+model.add(Activation('softmax'))
+model.summary()
+</pre>
+
+<pre class="example" id="org721fbaf">
+Test loss: 0.6344813704490662
+Test accuracy: 0.7918000221252441
+Training loss: 0.20304201543331146
+Training accuracy: 0.9369400143623352
+</pre>
+
+<p>
+Which gave an even better score!
+</p>
+
+<hr />
+</div>
+</div>
+
+<div id="outline-container-i4-more-layers" class="outline-3">
+<h3 id="i4-more-layers"><span class="section-number-3">2.4</span> I4: More Layers</h3>
+<div class="outline-text-3" id="text-i4-more-layers">
+<pre class="example" id="org5bc3b36">
+model = Sequential()
+model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+
+model.add(Dropout(0.25)) ## CHANGED ##
+model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3))) ## CHANGED ##
+model.add(Activation('relu')) ## CHANGED ##
+model.add(MaxPooling2D(pool_size=(2, 2))) ## CHANGED ##
+
+model.add(Dropout(0.35))
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.35))
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Flatten())
+model.add(Dense(256))
+model.add(Activation('relu'))
+model.add(Dropout(0.35))
+model.add(Dense(100))
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+model.add(Dense(num_classes))
+model.add(Activation('softmax'))
+model.summary()
+</pre>
+
+<pre class="example" id="org32eeec2">
+Test loss: 0.5848628878593445
+Test accuracy: 0.8004999756813049
+Training loss: 0.34681835770606995
+Training accuracy: 0.878600001335144
+</pre>
+
+<p>
+Our test accuracy and training accuracy are approaching each other.
+</p>
+
+<hr />
+</div>
+</div>
+
+<div id="outline-container-i9-more-more-layers" class="outline-3">
+<h3 id="i9-more-more-layers"><span class="section-number-3">2.5</span> I(9?): More More Layers</h3>
+<div class="outline-text-3" id="text-i9-more-more-layers">
+<pre class="example" id="org62e26aa">
+model = Sequential()
+model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+
+model.add(Dropout(0.25))
+model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3)))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+
+model.add(Dropout(0.35)) ## CHANGED ##
+model.add(Conv2D(128, (3, 3), padding='same', input_shape=(32,32,3))) ## CHANGED ##
+model.add(Activation('relu')) ## CHANGED ##
+model.add(MaxPooling2D(pool_size=(2, 2))) ## CHANGED ##
+
+model.add(Dropout(0.35))
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.35))
+model.add(Conv2D(64, (3, 3), padding='same'))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Flatten())
+model.add(Dense(256))
+model.add(Activation('relu'))
+model.add(Dropout(0.35))
+
+model.add(Dense(256)) ## CHANGED ##
+model.add(Activation('relu')) ## CHANGED ##
+model.add(Dropout(0.35)) ## CHANGED ##
+
+model.add(Dense(100))
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+model.add(Dense(num_classes))
+model.add(Activation('softmax'))
+model.summary()
+</pre>
+
+<pre class="example" id="org87bb2cb">
+Test loss: 0.5869606137275696
+Test accuracy: 0.8033999800682068
+Training loss: 0.4103561043739319
+Training accuracy: 0.8682600259780884
+</pre>
+
+<p>
+After quite some more experimenting, these were around the best results
 I could get. I achieved this by adding two new layers, and a significant
 amount more dropout from the original model. However, this process was
 mostly guess and check. I assume that as I get more practice with this
 kind of work and gain a deeper understanding, I will get better at
 iterating more quickly and more effectively. Right now, however, I don't
-know how those skills would manifest.</span></p></section></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#opt-3-+">Opt 3 +</a></li><li><a href="#opt-3-pt 2!">Opt 3 pt. 2!</a><ol><li><a href="#iteration-one:-more-regularization">Iteration One: More Regularization</a></li><li><a href="#i2:-better-placed-regularization">I2: Better Placed Regularization</a></li><li><a href="#i3:-more-of-that">I3: More of That</a></li><li><a href="#i4:-more-layers">I4: More Layers</a></li><li><a href="#i(9?):-more-more-layers">I(9?): More More Layers</a></li></ol></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>
+know how those skills would manifest.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

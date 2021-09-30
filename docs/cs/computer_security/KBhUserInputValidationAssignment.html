@@ -1,70 +1,640 @@
-<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Houjun Liu" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>User Input Validation Assignment</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
-        'displayAlign': 'center',
-        'displayIndent': '0em',
-        'extensions': ['tex2jax.js'],
-        'tex2jax': {
-        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
-        'processEscapes': true
-        },
-        'HTML-CSS': { scale: 100,
-                        linebreaks: { automatic: 'false' },
-                        webFont: 'TeX'
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: 'false' },
-              font: 'TeX'},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: 'AMS'},
-               MultLineWidth: '85%',
-               TagSide: 'right',
-               TagIndent: '.8em'
-             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">User Input Validation Assignment</h1></div><div class="metamble"><span><span>Written by </span><span>Houjun Liu</span></span></div><div class="notebody"><div><section></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="clojure,-in-brief"><span class="firn-headline-text"><span>Clojure, in brief...</span></span></h1><section><p><span>The programming language </span><a class="firn-external" href="https://clojure.org/" target="_blank">Clojure</a><span>, a variant of Lisp built atop the Java Virtual Machine, is known to be a safe language to low level attacks such as buffer overflow due to the insulation of its execution space.</span></p><p><span>To preserve the functionality of being a Lisp, however, the Clojure preserves most of the powerful syntax-manipulation tools like unquote slicing and compile-time macros.</span></p><p><span>Before we could introduce the vulnerabilities that could come with the misuse of these tools, it is important to introduce these tools first.</span></p></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="unquote-slicing"><span class="firn-headline-text"><span>Unquote slicing</span></span></h2><section><p><span>"Unquoting" is a facility to introduce </span><code>code-mode</code><span> elements into </span><code>data-mode</code><span> lists. Here, for instance, is a regular data mode list that evaluates to value </span><code>(1 2 3 4)</code><span>:</span></p><pre class="language-clojure"><code class="language-clojure">'(1 2 3 4)
-</code></pre><pre class="fixed-width"> (1 2 3 4)
-</pre><p><span>Leveraging "unquoting", we could instead execute a </span><em><span>statement</span></em><span> that returns, for instance, </span><code>4</code><span> in place of the number </span><code>4</code><span> in the list instead of supplying the r-value </span><code>4</code><span> itself: therefore resulting in the same list but introducing live code during its parsing.</span></p><p><span>The syntax of unquoting is like so:</span></p><pre class="language-clojure"><code class="language-clojure">`(1 2 3 ~(* 2 2)) ; notice the ` instead of ' to denote a unquotable list
-</code></pre><pre class="fixed-width"> (1 2 3 4)
-</pre><p><span>As you could see, the result is still </span><code>(1 2 3 4)</code><span>, yet the latter case leveraged </span><code>(* 2 2); => 4</code><span> to </span><em><span>unquote</span></em><span> the value </span><code>4</code><span> into the list using live code.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="macros"><span class="firn-headline-text"><span>Macros</span></span></h2><section><p><span>Marcos are a powerful way of manipulating the syntax of code. Essentially, they are compile-time unraveled directives that take arguments as </span><code>data-mode</code><span> lists and return a sliced </span><code>data-mode</code><span> expression.</span></p><p><span>Here's a basic example of the functionality of Macros. Take, for instance, the following expression adding two numbers:</span></p><pre class="language-clojure"><code class="language-clojure">(+ 1 2)
-</code></pre><pre class="fixed-width"> 3
-</pre><p><span>We will now write a macro whose behavior is to reverse the order of the first two expressions before evaluating, like so:</span></p><pre class="language-clojure"><code class="language-clojure">(defmacro rev-arg [a b c]
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-29 Wed 08:48 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>User Input Validation Assignment</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">User Input Validation Assignment</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-09-29 Wed 08:48</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>CS240 Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#orgd8c6b14">1. Clojure, in brief&#x2026;</a>
+<ul>
+<li><a href="#orgded38a5">1.1. Unquote slicing</a></li>
+<li><a href="#org89039ba">1.2. Macros</a></li>
+</ul>
+</li>
+<li><a href="#org75b278b">2. Dangers of Macro Arguments</a></li>
+<li><a href="#orgb66bf12">3. Preventing Macro Argument Evaluation</a>
+<ul>
+<li><a href="#org932a894">3.1. Nonexample</a></li>
+<li><a href="#org12f3422">3.2. <code>assert</code> based solution</a></li>
+<li><a href="#org789d9cd">3.3. More ergonomic solution</a></li>
+</ul>
+</li>
+<li><a href="#org041e778">4. Legal/Ethical Concerns</a></li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-orgd8c6b14" class="outline-2">
+<h2 id="orgd8c6b14"><span class="section-number-2">1</span> Clojure, in brief&#x2026;</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The programming language <a href="https://clojure.org/">Clojure</a>, a variant of Lisp built atop the Java Virtual Machine, is known to be a safe language to low level attacks such as buffer overflow due to the insulation of its execution space.
+</p>
+
+<p>
+To preserve the functionality of being a Lisp, however, the Clojure preserves most of the powerful syntax-manipulation tools like unquote slicing and compile-time macros.
+</p>
+
+<p>
+Before we could introduce the vulnerabilities that could come with the misuse of these tools, it is important to introduce these tools first due to their unique nature.
+</p>
+</div>
+
+<div id="outline-container-orgded38a5" class="outline-3">
+<h3 id="orgded38a5"><span class="section-number-3">1.1</span> Unquote slicing</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+"Unquoting" is a facility to introduce <code>code-mode</code> elements into <code>data-mode</code> lists. Here, for instance, is a regular data mode list that evaluates to value <code>(1 2 3 4)</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">'(1 2 3 4)
+</pre>
+</div>
+
+<pre class="example">
+(1 2 3 4)
+</pre>
+
+
+<p>
+Leveraging "unquoting", we could instead execute a <i>statement</i> that returns, for instance, <code>4</code> in place of the number <code>4</code> in the list instead of supplying the r-value <code>4</code> itself: therefore resulting in the same list but introducing live code during its parsing.
+</p>
+
+<p>
+The syntax of unquoting is like so:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">`(1 2 3 ~(* 2 2)) ; notice the ` instead of ' to denote a unquotable list
+</pre>
+</div>
+
+<pre class="example">
+(1 2 3 4)
+</pre>
+
+
+<p>
+As you could see, the result is still <code>(1 2 3 4)</code>, yet the latter case leveraged <code>(* 2 2); =&gt; 4</code> to <i>unquote</i> the value <code>4</code> into the list using live code.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org89039ba" class="outline-3">
+<h3 id="org89039ba"><span class="section-number-3">1.2</span> Macros</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Marcos are a powerful way of manipulating the syntax of code. Essentially, they are compile-time unraveled directives that take arguments as <code>data-mode</code> lists and return a sliced <code>data-mode</code> expression.
+</p>
+
+<p>
+Here's a basic example of the functionality of Macros. Take, for instance, the following expression adding two numbers:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(+ 1 2)
+</pre>
+</div>
+
+<pre class="example">
+3
+</pre>
+
+
+<p>
+We will now write a macro whose behavior is to reverse the order of the first two expressions before evaluating, like so:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(defmacro rev-arg [a b c]
     `(~b ~a ~c))
-</code></pre><pre class="fixed-width"> #'user/rev-arg
-</pre><p><span>Now, leveraging this macro, we could write the addition statement in an now admittedly weird manner:</span></p><pre class="language-clojure"><code class="language-clojure">(rev-arg 1 + 2)
-</code></pre><pre class="fixed-width"> 3
-</pre><p><span>As you could see, this macro did not </span><em><span>evaluate</span></em><span> its arguments, but instead took them as </span><code>data-mode</code><span> items and swapped their order. The return value of the macro is yet another </span><code>data-mode</code><span> list representing the unwrapped expression (now with the order corrected), which is finally evaluated on runtime.</span></p></section></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="dangers-of-macro-arguments"><span class="firn-headline-text"><span>Dangers of Macro Arguments</span></span></h1><section><p><span>Macros do not evaluate nor --- by default --- make any attempts to parse the contents of it arguments. Therefore, if an argument is unquoted wholesale into the result unwrapped expression, it is functionally equivalent to calling </span><code>eval</code><span> upon the statement is it will not be parsed at </span><em><span>compile-time</span></em><span> but instead on </span><em><span>run-time</span></em><span>.</span></p><p><span>Especially dangerous an action is if the argument of macros come from user input, as --- with functions --- the argument would either be passed consciously as fully data or evaluated with </span><code>eval</code><span> but is potentially sliced into the source tree and evaluated automatically on run-time for macros.</span></p><p><span>Here's the simplest example of runtime evaluation caused by a macro:</span></p><pre class="language-clojure"><code class="language-clojure">(defmacro secreteval [a]
+</pre>
+</div>
+
+<pre class="example">
+#'user/rev-arg
+</pre>
+
+
+<p>
+Now, leveraging this macro, we could write the addition statement in an now admittedly weird manner:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(rev-arg 1 + 2)
+</pre>
+</div>
+
+<pre class="example">
+3
+</pre>
+
+
+<p>
+As you could see, this macro did not <i>evaluate</i> its arguments, but instead took them as <code>data-mode</code> items and swapped their order. The return value of the macro is yet another <code>data-mode</code> list representing the unwrapped expression (now with the order corrected), which is finally evaluated on runtime.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org75b278b" class="outline-2">
+<h2 id="org75b278b"><span class="section-number-2">2</span> Dangers of Macro Arguments</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Macros do not evaluate nor &#x2014; by default &#x2014; make any attempts to parse the contents of it arguments. Therefore, if an argument is unquoted wholesale into the result unwrapped expression, it is functionally equivalent to calling <code>eval</code> upon the statement is it will not be parsed at <i>compile-time</i> but instead on <i>run-time</i>.
+</p>
+
+<p>
+Especially dangerous an action is if the argument of macros come from user input, as &#x2014; with functions &#x2014; the argument would either be passed consciously as fully data or evaluated with <code>eval</code> but is potentially sliced into the source tree and evaluated automatically on run-time for macros.
+</p>
+
+<p>
+Here's the simplest example of runtime evaluation caused by a macro:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(defmacro secreteval [a]
     `(do
-        (println "one")
-        ~a))
-</code></pre><pre class="fixed-width"> #'user/secreteval
-</pre><p><span>And now, we call this macro to demonstrate the run-time eval.</span></p><pre class="language-clojure"><code class="language-clojure">(secreteval (println "two"))
-</code></pre><pre class="fixed-width"> one
-: two
-</pre><p><span>The </span><code>stdout</code><span> result is printed in order of </span><code>one</code><span> </span><code>two</code><span>, meaning that, indeed, the execution of the argument </span><code>(println "two")</code><span> not only took place but took place </span><em><span>after</span></em><span> the execution of the first part of the macro.</span></p><p><span>Compare this to the following functionally almost-similar </span><em><span>function</span></em><span>:</span></p><pre class="language-clojure"><code class="language-clojure">(defn nosecreteval [a]
+	(println "one")
+	~a))
+</pre>
+</div>
+
+<pre class="example">
+#'user/secreteval
+</pre>
+
+
+<p>
+And now, we call this macro to demonstrate the run-time eval.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(secreteval (println "two"))
+</pre>
+</div>
+
+<pre class="example">
+one
+two
+</pre>
+
+
+<p>
+The <code>stdout</code> result is printed in order of <code>one</code> <code>two</code>, meaning that, indeed, the execution of the argument <code>(println "two")</code> not only took place but took place <i>after</i> the execution of the first part of the macro.
+</p>
+
+<p>
+Compare this to the following functionally almost-similar <i>function</i>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(defn nosecreteval [a]
   (do
     (println "one")
     a))
-</code></pre><pre class="fixed-width"> #'user/nosecreteval
-</pre><p><span>And calling it with the same input...</span></p><pre class="language-clojure"><code class="language-clojure">(nosecreteval (println "two"))
-</code></pre><pre class="fixed-width"> two
-: one
-</pre><p><span>As you could see, the argument is evaluated and passed evaluated </span><em><span>before</span></em><span> the execution of the macro (likely compiled away by the JVM) and, should user data be passed this was as </span><em><span>data</span></em><span>, will not be evaluated at all due to its persistent as a list.</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="preventing-macro-argument-evaluation"><span class="firn-headline-text"><span>Preventing Macro Argument Evaluation</span></span></h1><section><p><span>The simplest mechanism by which this type of evaluation could be prevented is via the use of assert statements or even list manipulation to establish basic assumptions regarding the argument.</span></p></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="nonexample"><span class="firn-headline-text"><span>Nonexample</span></span></h2><section><p><span>For instance, we write the following macro create a list of two elements.</span></p><pre class="language-clojure"><code class="language-clojure">(defmacro bad-concat [a]
+</pre>
+</div>
+
+<pre class="example">
+#'user/nosecreteval
+</pre>
+
+
+<p>
+And calling it with the same input&#x2026;
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(nosecreteval (println "two"))
+</pre>
+</div>
+
+<pre class="example">
+two
+one
+</pre>
+
+
+<p>
+As you could see, the argument is evaluated and passed evaluated <i>before</i> the execution of the macro (likely compiled away by the JVM) and, should user data be passed this was as <i>data</i>, will not be evaluated at all due to its persistent as a list.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb66bf12" class="outline-2">
+<h2 id="orgb66bf12"><span class="section-number-2">3</span> Preventing Macro Argument Evaluation</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The simplest mechanism by which this type of evaluation could be prevented is via the use of assert statements or even list manipulation to establish basic assumptions regarding the argument.
+</p>
+</div>
+
+<div id="outline-container-org932a894" class="outline-3">
+<h3 id="org932a894"><span class="section-number-3">3.1</span> Nonexample</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+For instance, we write the following macro create a list of two elements.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(defmacro bad-concat [a]
     `(list 1 ~a))
-</code></pre><pre class="fixed-width"> #'user/bad-concat
-</pre><p><span>Calling it with some "normal" elements will act as you'd expect.</span></p><pre class="language-clojure"><code class="language-clojure">(bad-concat 12)
-</code></pre><pre class="fixed-width"> (1 12)
-</pre><p><span>However, you could introduce code execution by, for instance, passing an expression that produces a side effect.</span></p><pre class="language-clojure"><code class="language-clojure">(bad-concat (println "Code execution!"))
-</code></pre><pre class="fixed-width"> Code execution!
-</pre><p><span>As you could see, the statement </span><code>code execution</code><span> is </span><em><span>printed</span></em><span>, instead of all of </span><code>(println "aoenust")</code><span> being concatenated to the list to </span><code>1</code><span>, as the author of the program presumably desired.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="assert-based-solution"><span class="firn-headline-text"><code>assert</code><span> based solution</span></span></h2><section><p><span>One way to solve this is by asserting that the argument </span><code>a</code><span> is an </span><code>atom</code><span> --- meaning it does not contain </span><code>s-expressions</code><span> that could be accidentally evaluated. This would be implemented as follows:</span></p><pre class="language-clojure"><code class="language-clojure">(defmacro better-concat [a]
+</pre>
+</div>
+
+<pre class="example">
+#'user/bad-concat
+</pre>
+
+
+<p>
+Calling it with some "normal" elements will act as you'd expect.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(bad-concat 12)
+</pre>
+</div>
+
+<pre class="example">
+(1 12)
+</pre>
+
+
+<p>
+However, you could introduce code execution by, for instance, passing an expression that produces a side effect.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(bad-concat (println "Code execution!"))
+</pre>
+</div>
+
+<pre class="example">
+Code execution!
+</pre>
+
+
+<p>
+As you could see, the statement <code>code execution</code> is <i>printed</i>, instead of all of <code>(println "aoenust")</code> being concatenated to the list to <code>1</code>, as the author of the program presumably desired.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org12f3422" class="outline-3">
+<h3 id="org12f3422"><span class="section-number-3">3.2</span> <code>assert</code> based solution</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+One way to solve this is by asserting that the argument <code>a</code> is an <code>atom</code> &#x2014; meaning it does not contain <code>s-expressions</code> that could be accidentally evaluated. This would be implemented as follows:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(defmacro better-concat [a]
     (assert (not (list? a)))
     `(list 1 ~a))
-</code></pre><pre class="fixed-width"> #'user/better-concat
-</pre><p><span>The first example returns what one would expect:</span></p><pre class="language-clojure"><code class="language-clojure">(better-concat 12)
-</code></pre><pre class="fixed-width"> (1 12)
-</pre><p><span>And the statement with side-effects would, on </span><em><span>compile-time</span></em><span> throw an </span><code>AssertError</code><span>.</span></p><pre class="language-clojure"><code class="language-clojure">(better-concat (println "Code execution!"))
-</code></pre><pre class="fixed-width"> class clojure.lang.Compiler$CompilerException
-</pre></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="more-ergonomic-solution"><span class="firn-headline-text"><span>More ergonomic solution</span></span></h2><section><p><span>There is an even more ergonomic solution to this problem. Instead of validating input, we could coerce the input to </span><code>data-mode</code><span> using the quote-expression, essentially sanitizing it. Hence, we could create an even more ergonomic concat like so:</span></p><pre class="language-clojure"><code class="language-clojure">(defmacro ergo-concat [a]
+</pre>
+</div>
+
+<pre class="example">
+#'user/better-concat
+</pre>
+
+
+<p>
+The first example returns what one would expect:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(better-concat 12)
+</pre>
+</div>
+
+<pre class="example">
+(1 12)
+</pre>
+
+
+<p>
+And the statement with side-effects would, on <i>compile-time</i> throw an <code>AssertError</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(better-concat (println "Code execution!"))
+</pre>
+</div>
+
+<pre class="example">
+class clojure.lang.Compiler$CompilerException
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org789d9cd" class="outline-3">
+<h3 id="org789d9cd"><span class="section-number-3">3.3</span> More ergonomic solution</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+There is an even more ergonomic solution to this problem. Instead of validating input, we could coerce the input to <code>data-mode</code> using the quote-expression, essentially sanitizing it. Hence, we could create an even more ergonomic concat like so:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(defmacro ergo-concat [a]
     `(list 1 '~a))
-</code></pre><pre class="fixed-width"> #'user/ergo-concat
-</pre><p><span>The first example still remains the same:</span></p><pre class="language-clojure"><code class="language-clojure">(ergo-concat 12)
-</code></pre><pre class="fixed-width"> (1 12)
-</pre><p><span>and the side-effect statement will perform more ergonomically:</span></p><pre class="language-clojure"><code class="language-clojure">(ergo-concat (println "Code execution!"))
-</code></pre><pre class="fixed-width"> (1 (println "Code execution!"))
-</pre><p><span>As you could see, the list is actually, properly sliced in instead of triggering executing code.</span></p></section></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="legalethical-concerns"><span class="firn-headline-text"><span>Legal/Ethical Concerns</span></span></h1><section><p><span>The problem that exist with Clojure macro evaluation issues is that it is very easily (and perhaps commonly) created by even seasoned Clojurists.</span></p><p><span>Exploitation of these issues could take a variety of forms, but the main and easiest form of these payloads probably are introduced through programs that take Clojurescript/Clojure as extension languages, which is becoming more common as it leverages the extensibility of these languages.</span></p><p><span>One possible attacker may create an extension or a string on a fileserver fetched by the extension that is used and evaluated as an argument of a badly-written macro. This may subsequently access APIs (or, in worse cases where the plugin passes a macro exposed by server-side Clojure code, even perform server-side modifications.)</span></p><p><span>Such action would, therefore, create modifications and unlawful access to systems that may not even have been a member of the base system that was exploited (for instance, inserting </span><code>slurp("../../../test.txt")</code><span> to read a random file a few directories up.)</span></p><p><span>This would, of course, be under the purview of </span><code>18USC§1030.a1</code><span>, which defines "knowingly accessed a computer without authorization" as something punishable under </span><code>18USC§1030.c</code><span>. Furthermore, it would likely be an unethical use of both the plug in and the target system as it is directly creating the possibility and channels for completely unauthorized access.</span></p><p><span>Due to the proliferation of such code, however, and the fact that extensions are knowingly accessible from the public, it is also likely that the individual attacking may not know this loophole at all and proceeded to accidentally invoke a macro as a function: for instance, passing </span><code>slurp</code><span> to a symbol expecting to slurp local files but due to it actually being a macro results in access of server files.</span></p><p><span>As long as the unknowing "attacker" stops and notifies the owner of the system after realizing this, I don't believe it would be ethically challenging.</span></p></section></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#clojure,-in-brief">Clojure, in brief...</a><ol><li><a href="#unquote-slicing">Unquote slicing</a></li><li><a href="#macros">Macros</a></li></ol></li><li><a href="#dangers-of-macro-arguments">Dangers of Macro Arguments</a></li><li><a href="#preventing-macro-argument-evaluation">Preventing Macro Argument Evaluation</a><ol><li><a href="#nonexample">Nonexample</a></li><li><a href="#assert-based-solution">assert based solution</a></li><li><a href="#more-ergonomic-solution">More ergonomic solution</a></li></ol></li><li><a href="#legalethical-concerns">Legal/Ethical Concerns</a></li></ol><div class="metalabel">Backlinks</div><ul class="firn-backlinks"><li class="firn-backlink"><a href="/cs/computer_security/index">CS240 Master Index</a></li></ul></div></main></body></html>
+</pre>
+</div>
+
+<pre class="example">
+#'user/ergo-concat
+</pre>
+
+
+<p>
+The first example still remains the same:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(ergo-concat 12)
+</pre>
+</div>
+
+<pre class="example">
+(1 12)
+</pre>
+
+
+<p>
+and the side-effect statement will perform more ergonomically: 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(ergo-concat (println "Code execution!"))
+</pre>
+</div>
+
+<pre class="example">
+(1 (println "Code execution!"))
+</pre>
+
+
+<p>
+As you could see, the list is actually, properly sliced in instead of triggering executing code.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org041e778" class="outline-2">
+<h2 id="org041e778"><span class="section-number-2">4</span> Legal/Ethical Concerns</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+The problem that exist with Clojure macro evaluation issues is that it is very easily (and perhaps commonly) created by even seasoned Clojurists.
+</p>
+
+<p>
+Exploitation of these issues could take a variety of forms, but the main and easiest form of these payloads probably are introduced through programs that take Clojurescript/Clojure as extension languages, which is becoming more common as it leverages the extensibility of these languages.
+</p>
+
+<p>
+One possible attacker may create an extension or a string on a fileserver fetched by the extension that is used and evaluated as an argument of a badly-written macro. This may subsequently access APIs (or, in worse cases where the plugin passes a macro exposed by server-side Clojure code, even perform server-side modifications.)
+</p>
+
+<p>
+Such action would, therefore, create modifications and unlawful access to systems that may not even have been a member of the base system that was exploited (for instance, inserting <code>slurp("../../../test.txt")</code> to read a random file a few directories up.)
+</p>
+
+<p>
+This would, of course, be under the purview of <code>18USC§1030.a1</code>, which defines "knowingly accessed a computer without authorization" as something punishable under <code>18USC§1030.c</code>. Furthermore, it would likely be an unethical use of both the plug in and the target system as it is directly creating the possibility and channels for completely unauthorized access.
+</p>
+
+<p>
+Due to the proliferation of such code, however, and the fact that extensions are knowingly accessible from the public, it is also likely that the individual attacking may not know this loophole at all and proceeded to accidentally invoke a macro as a function: for instance, passing <code>slurp</code> to a symbol expecting to slurp local files but due to it actually being a macro results in access of server files.
+</p>
+
+<p>
+As long as the unknowing "attacker" stops and notifies the owner of the system after realizing this, I don't believe it would be ethically challenging.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

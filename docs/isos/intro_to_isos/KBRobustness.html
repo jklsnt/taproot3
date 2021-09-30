@@ -1,35 +1,376 @@
-<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Huxley" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Robustness Notes</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
-        'displayAlign': 'center',
-        'displayIndent': '0em',
-        'extensions': ['tex2jax.js'],
-        'tex2jax': {
-        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
-        'processEscapes': true
-        },
-        'HTML-CSS': { scale: 100,
-                        linebreaks: { automatic: 'false' },
-                        webFont: 'TeX'
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-27 Mon 12:05 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Robustness Notes</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
                        },
         SVG: {scale: 100,
-              linebreaks: { automatic: 'false' },
-              font: 'TeX'},
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
         NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: 'AMS'},
-               MultLineWidth: '85%',
-               TagSide: 'right',
-               TagIndent: '.8em'
-             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Robustness Notes</h1></div><div class="metamble"><span><span>Written by </span><span>Huxley</span></span></div><div class="notebody"><div><section><hr /><p><span>#flo</span></p></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="\[robustness,\-reliabilty,\-overdetermination\]"><span class="firn-headline-text"><span>\[Robustness,\ Reliabilty,\ Overdetermination\]</span></span></h1><section><p><span>Starts with quote about how philosophy should emulate the scientific
-method.</span></p><p><span>This is incorrect. Philosophy is about building a logical framework of
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Robustness Notes</h1> <h2 class="subtitle"></h2> <span class="author">Huxley</span> <span class="date">2021-09-27 Mon 12:00</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBISOSMasterIndex.html'>ISOS Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#robustness-reliabilty-overdetermination">1. \[Robustness,\ Reliabilty,\ Overdetermination\]</a>
+<ul>
+<li><a href="#common-features-and-concepts-of-robustness">1.1. Common Features and Concepts of Robustness</a></li>
+<li><a href="#robustness-objectification-and-realism">1.2. Robustness, Objectification, and Realism</a></li>
+<li><a href="#discussion-point">1.3. \[Discussion\ Point\]</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<hr />
+
+<p>
+#flo
+</p>
+
+<pre class="example" id="orgbd49137">
+
+</pre>
+
+<div id="outline-container-robustness-reliabilty-overdetermination" class="outline-2">
+<h2 id="robustness-reliabilty-overdetermination"><span class="section-number-2">1</span> \[Robustness,\ Reliabilty,\ Overdetermination\]</h2>
+<div class="outline-text-2" id="text-robustness-reliabilty-overdetermination">
+<pre class="example" id="org5f870e3">
+
+</pre>
+
+<p>
+Starts with quote about how philosophy should emulate the scientific
+method.
+</p>
+
+<p>
+This is incorrect. Philosophy is about building a logical framework of
 understanding. Science is about finding things out about the real world
-through experimentation. These two subjects and approaches are</span><strong><span>fundamentally</span></strong><span> incompatible (Godel's theory, perception bias, forgot
-the name of the theory but extended simulation theory).</span></p><blockquote><p><span>  Our truth is the intersection of independent lies.</span></p></blockquote><p><span>This is certainly a thought provoking quote, but once again, I am unsure
-it is true.</span></p></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="common-features-and-concepts-of-robustness"><span class="firn-headline-text"><span>Common Features and Concepts of Robustness</span></span></h2><section><p><span>Robustness analysis</span></p><p><span>Eh, more of the same.</span></p><blockquote><p><span>  </span><strong><strong><span>**</span></strong></strong><span> With independent alternative ways of deriving a result the
-  result is always surer than its weakest derivation.</span></p></blockquote><p><span>All about dealing with fallacies and inconsistency.</span></p><p><span>When an error occurs, it corrupts everything it's connected to until you
-reach something with independent support.</span></p><p><em><span>Using alternative methods of proving to provide independent support and
-'wall off' the spread of inconsistency.</span></em></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="robustness,-objectification,-and-realism"><span class="firn-headline-text"><span>Robustness, Objectification, and Realism</span></span></h2><section><p><span>Overlap of sensory modalities are what allow us to say an object is
-robust? ie. not an illusion.</span></p><p><span>Rebuts drugs and hallucinigens/natios by saying they arn't consistent
-across people or time. This is iffy....</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="\[discussion\-point\]"><span class="firn-headline-text"><span>\[Discussion\ Point\]</span></span></h2><section><p><span>I'm genuinely curious about the meaning of the quote: "Our truth is the
+through experimentation. These two subjects and approaches are
+<b>fundamentally</b> incompatible (Godel's theory, perception bias, forgot
+the name of the theory but extended simulation theory).
+</p>
+
+<blockquote>
+<p>
+Our truth is the intersection of independent lies.
+</p>
+</blockquote>
+
+<p>
+This is certainly a thought provoking quote, but once again, I am unsure
+it is true.
+</p>
+</div>
+
+<div id="outline-container-common-features-and-concepts-of-robustness" class="outline-3">
+<h3 id="common-features-and-concepts-of-robustness"><span class="section-number-3">1.1</span> Common Features and Concepts of Robustness</h3>
+<div class="outline-text-3" id="text-common-features-and-concepts-of-robustness">
+<p>
+Robustness analysis
+</p>
+
+<p>
+Eh, more of the same.
+</p>
+
+<blockquote>
+<p>
+<b><b>**</b></b> With independent alternative ways of deriving a result the
+result is always surer than its weakest derivation.
+</p>
+<p>
+:CUSTOM<sub>ID</sub>: with-independent-alternative-ways-of-deriving-a-result-the-result-is-always-surer-than-its-weakest-derivation.
+</p>
+</blockquote>
+
+<p>
+All about dealing with fallacies and inconsistency.
+</p>
+
+<p>
+When an error occurs, it corrupts everything it's connected to until you
+reach something with independent support.
+</p>
+
+<p>
+<i>Using alternative methods of proving to provide independent support and
+'wall off' the spread of inconsistency.</i>
+</p>
+</div>
+</div>
+
+<div id="outline-container-robustness-objectification-and-realism" class="outline-3">
+<h3 id="robustness-objectification-and-realism"><span class="section-number-3">1.2</span> Robustness, Objectification, and Realism</h3>
+<div class="outline-text-3" id="text-robustness-objectification-and-realism">
+<p>
+Overlap of sensory modalities are what allow us to say an object is
+robust? ie. not an illusion.
+</p>
+
+<p>
+Rebuts drugs and hallucinigens/natios by saying they arn't consistent
+across people or time. This is iffy&#x2026;.
+</p>
+
+<pre class="example" id="orga7ef284">
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-discussion-point" class="outline-3">
+<h3 id="discussion-point"><span class="section-number-3">1.3</span> \[Discussion\ Point\]</h3>
+<div class="outline-text-3" id="text-discussion-point">
+<pre class="example" id="orgd5bcda4">
+
+</pre>
+
+<p>
+I'm genuinely curious about the meaning of the quote: "Our truth is the
 intersection of independent lies" - Levins Perhaps this is referring to
 how our world is constructed of assumptions, and the overlap of these
 assumptions are what we take to be truth? I'm not at all sure if this is
-correct, and would love to be enlightened.</span></p></section></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#\[robustness,\-reliabilty,\-overdetermination\]">\[Robustness,\ Reliabilty,\ Overdetermination\]</a><ol><li><a href="#common-features-and-concepts-of-robustness">Common Features and Concepts of Robustness</a></li><li><a href="#robustness,-objectification,-and-realism">Robustness, Objectification, and Realism</a></li><li><a href="#\[discussion\-point\]">\[Discussion\ Point\]</a></li></ol></li></ol><div class="metalabel">Backlinks</div><ul class="firn-backlinks"><li class="firn-backlink"><a href="/isos/intro_to_isos/KBISOSMasterIndex">ISOS Master Index</a></li></ul></div></main></body></html>
+correct, and would love to be enlightened.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

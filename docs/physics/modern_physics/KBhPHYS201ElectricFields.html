@@ -1,56 +1,454 @@
-<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Houjun Liu" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Electric fields</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
-        'displayAlign': 'center',
-        'displayIndent': '0em',
-        'extensions': ['tex2jax.js'],
-        'tex2jax': {
-        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
-        'processEscapes': true
-        },
-        'HTML-CSS': { scale: 100,
-                        linebreaks: { automatic: 'false' },
-                        webFont: 'TeX'
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-27 Mon 12:05 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Electric fields</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
                        },
         SVG: {scale: 100,
-              linebreaks: { automatic: 'false' },
-              font: 'TeX'},
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
         NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: 'AMS'},
-               MultLineWidth: '85%',
-               TagSide: 'right',
-               TagIndent: '.8em'
-             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Electric fields</h1></div><div class="metamble"><span><span>Written by </span><span>Houjun Liu</span></span></div><div class="notebody"><div><section></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="electric-fields"><span class="firn-headline-text"><span>Electric Fields</span></span></h1><section><hr /></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="calculation-cheatsheet!"><span class="firn-headline-text"><strong><span>Calculation CheatSheet!</span></strong></span></h2><section><p><span>To recall, Coulomb's Law</span><a class="firn-internal" href="/physics/modern_physics/KBhPHYS201ColoumbsLaw">KBhPHYS201ColoumbsLaw</a><span> looks like
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Electric fields</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-09-27 Mon 12:00</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhPHYS201IntroToElectrostaticsLN.html'>Electrostatics Index</a></li> <li><a class='backlink' href='KBe20phys201refVoltage.html'>Voltage</a></li> <li><a class='backlink' href='KBhPHYS201Voltage.html'>Voltage</a></li> <li><a class='backlink' href='KBhPHYS201GravitationalFields.html'>Gravitational Fields, Newton's Law of Gravitation</a></li> <li><a class='backlink' href='KBhPHYS201ColoumbsLaw.html'>Coloumb's Law</a></li> <li><a class='backlink' href='KBhPHYS201ConductorsEquilibrium.html'>Conductors and Equlibrium</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#electric-fields">1. Electric Fields</a>
+<ul>
+<li><a href="#calculation-cheatsheet">1.1. <b>Calculation CheatSheet!</b></a></li>
+<li><a href="#directionality-of-electric-fields">1.2. Directionality of Electric Fields</a></li>
+<li><a href="#illustrating-electric-fields">1.3. Illustrating Electric Fields</a></li>
+<li><a href="#electric-field-interactions">1.4. Electric Field Interactions</a></li>
+<li><a href="#conductors-electric-field-interactions">1.5. Conductors + Electric Field Interactions</a></li>
+<li><a href="#gravity-and-voltage">1.6. Gravity and Voltage</a></li>
+<li><a href="#an-now-something-interesting">1.7. An now, something interesting</a></li>
+<li><a href="#pressure-of-a-field-voltage">1.8. Pressure of a field: voltage</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+
+
+<div id="outline-container-electric-fields" class="outline-2">
+<h2 id="electric-fields"><span class="section-number-2">1</span> Electric Fields</h2>
+<div class="outline-text-2" id="text-electric-fields">
+<hr />
+</div>
+
+<div id="outline-container-calculation-cheatsheet" class="outline-3">
+<h3 id="calculation-cheatsheet"><span class="section-number-3">1.1</span> <b>Calculation CheatSheet!</b></h3>
+<div class="outline-text-3" id="text-calculation-cheatsheet">
+<p>
+To recall, Coulomb's Law
+<a href="KBhPHYS201ColoumbsLaw.html">KBhPHYS201ColoumbsLaw</a> looks like
 \(F_{attraction} = k\frac{Q_1Q_2}{R^2}\), which is eerily similar to the
-Force of Gravity, \(F_{grav} = G\frac{M_2M_2}{R^2}\).</span></p><p><span>And so, by the some token, we could also redefine electric force by
-splitting the function in the same way as with gravity fields:</span></p><p><span>\definition{Electric Field}{$E = \frac{k \times Q_2}{R^2}$}
-\definition[where $E$ is $Q_2$'s electric field]{Electric Force}{$F_{attraction} = E Q_1$}
-Unsurprisingly, the units for </span><em><span>Electric Field</span></em><span> is \(\frac{N}{C}\), and
-no, before you get excited, there is nothing it equals.</span></p><hr /></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="directionality-of-electric-fields"><span class="firn-headline-text"><span>Directionality of Electric Fields</span></span></h2><section><p><span>With masses (and w.r.t.</span><a class="firn-internal" href="/physics/modern_physics/KBh_PHYS201_GravitationalFields">KBh_PHYS201_GravitationalFields</a><span>
-gravitational fields), it's easy. Masses always </span><em><span>attracts</span></em><span> because
-negative mass doesn't exist (</span><em><span>yet</span></em><span>). But, with an electric field,
-figuring out directions is harder.</span></p><p><span>So, we have two choices to dealing with directions:</span></p><p><span>1) Electric field of any \(Q\) has two values, one "attract field" and
-   one "repel field"
-2) Drawing a single vector \(\vec{E}\), but remember that the direction
-   of the vector depends on what's dropped in it</span></p><p><span>USE OPTION </span><strong><span>2</span></strong><span>.</span></p><p><span>In this manner, when we say, "this atom has a electric field vector in
-this direction", we mean two things</span></p><ol><li><p><span>When a positive test change is dropped onto that vector, it will
-   experience force in the same direction as the vector</span></p></li><li><p><span>When a negative “” “” “","” “” “” the opposite direction as the
-   vector</span></p></li></ol></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="illustrating-electric-fields"><span class="firn-headline-text"><span>Illustrating Electric Fields</span></span></h2><section><p><span>There are two ways of illustrating electric fields --- either drawing an
+Force of Gravity, \(F_{grav} = G\frac{M_2M_2}{R^2}\).
+</p>
+
+<p>
+And so, by the some token, we could also redefine electric force by
+splitting the function in the same way as with gravity fields:
+</p>
+
+<p>
+\definition{Electric Field}{\(E = \frac{k \times Q_2}{R^2}\)}
+\definition[where $E$ is $Q_2$'s electric field]{Electric Force}{\(F_{attraction} = E Q_1\)}
+Unsurprisingly, the units for <i>Electric Field</i> is \(\frac{N}{C}\), and
+no, before you get excited, there is nothing it equals.
+</p>
+
+<hr />
+</div>
+</div>
+
+<div id="outline-container-directionality-of-electric-fields" class="outline-3">
+<h3 id="directionality-of-electric-fields"><span class="section-number-3">1.2</span> Directionality of Electric Fields</h3>
+<div class="outline-text-3" id="text-directionality-of-electric-fields">
+<p>
+With masses (and w.r.t.
+<a href="KBh_PHYS201_GravitationalFields.html">KBh<sub>PHYS201</sub><sub>GravitationalFields</sub></a>
+gravitational fields), it's easy. Masses always <i>attracts</i> because
+negative mass doesn't exist (<i>yet</i>). But, with an electric field,
+figuring out directions is harder.
+</p>
+
+<p>
+So, we have two choices to dealing with directions:
+</p>
+
+<ol class="org-ol">
+<li>Electric field of any \(Q\) has two values, one "attract field" and
+one "repel field"</li>
+<li>Drawing a single vector \(\vec{E}\), but remember that the direction
+of the vector depends on what's dropped in it</li>
+</ol>
+
+<p>
+USE OPTION <b>2</b>.
+</p>
+
+<p>
+In this manner, when we say, "this atom has a electric field vector in
+this direction", we mean two things
+</p>
+
+<ol class="org-ol">
+<li>When a positive test change is dropped onto that vector, it will
+experience force in the same direction as the vector</li>
+<li>When a negative “” “” “","” “” “” the opposite direction as the
+vector</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-illustrating-electric-fields" class="outline-3">
+<h3 id="illustrating-electric-fields"><span class="section-number-3">1.3</span> Illustrating Electric Fields</h3>
+<div class="outline-text-3" id="text-illustrating-electric-fields">
+<p>
+There are two ways of illustrating electric fields &#x2014; either drawing an
 infinite amount of vectors (that's a lot of vectors), or drawing lines
 originating from the main particle lining up all the vectors (Think! The
-original Japanese flag.)</span></p><p><span>See</span><a class="firn-internal" href="/physics/modern_physics/KBhPHYS201IllustratingElectricFields">KBhPHYS201IllustratingElectricFields</a><span>
-illustrating electric fields.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="electric-field-interactions"><span class="firn-headline-text"><span>Electric Field Interactions</span></span></h2><section><p><span>See</span><a class="firn-internal" href="/physics/modern_physics/KBhPHYS201ElectricFieldInteractions">KBhPHYS201ElectricFieldInteractions</a><span>
-Electric Field Interactions.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="conductors-+-electric-field-interactions"><span class="firn-headline-text"><span>Conductors + Electric Field Interactions</span></span></h2><section><p><span>To get our modern world, </span><strong><span>Conductors</span></strong><span> --- metals and other elements in
-which electrons could move freely --- are an important item to study and
+original Japanese flag.)
+</p>
+
+<p>
+See
+<a href="KBhPHYS201IllustratingElectricFields.html">KBhPHYS201IllustratingElectricFields</a>
+illustrating electric fields.
+</p>
+</div>
+</div>
+
+<div id="outline-container-electric-field-interactions" class="outline-3">
+<h3 id="electric-field-interactions"><span class="section-number-3">1.4</span> Electric Field Interactions</h3>
+<div class="outline-text-3" id="text-electric-field-interactions">
+<p>
+See
+<a href="KBhPHYS201ElectricFieldInteractions.html">KBhPHYS201ElectricFieldInteractions</a>
+Electric Field Interactions.
+</p>
+</div>
+</div>
+
+<div id="outline-container-conductors-electric-field-interactions" class="outline-3">
+<h3 id="conductors-electric-field-interactions"><span class="section-number-3">1.5</span> Conductors + Electric Field Interactions</h3>
+<div class="outline-text-3" id="text-conductors-electric-field-interactions">
+<p>
+To get our modern world, <b>Conductors</b> &#x2014; metals and other elements in
+which electrons could move freely &#x2014; are an important item to study and
 model. Lots of problems involve interactions between electrons +
-electric fields being placed in and around conductors.</span></p><p><span>See</span><a class="firn-internal" href="/physics/modern_physics/KBhPHYS201ConductorsEquilibrium">KBhPHYS201ConductorsEquilibrium</a></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="gravity-and-voltage"><span class="firn-headline-text"><span>Gravity and Voltage</span></span></h2><section><p><span>In addition to the measurements of field strength with \(\frac{N}{C}\),
+electric fields being placed in and around conductors.
+</p>
+
+<p>
+See
+<a href="KBhPHYS201ConductorsEquilibrium.html">KBhPHYS201ConductorsEquilibrium</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-gravity-and-voltage" class="outline-3">
+<h3 id="gravity-and-voltage"><span class="section-number-3">1.6</span> Gravity and Voltage</h3>
+<div class="outline-text-3" id="text-gravity-and-voltage">
+<p>
+In addition to the measurements of field strength with \(\frac{N}{C}\),
 there is a unit called Volts (\(V\)), measuring the amount of energy in
-an electric field.</span></p><p><span>See </span><a class="firn-internal" href="/physics/modern_physics/KBhPHYS201Voltage">KBhPHYS201Voltage</a></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="an-now,-something-interesting"><span class="firn-headline-text"><span>An now, something interesting</span></span></h2><section><p><span>Take, a neutral conductor.</span></p><p><a href="#screen-shot-2020-08-24-at-94446-pmpng">Screen Shot
-2020-08-24 at 9.44.46 PM.png</a></p><p><span>At the point of the cursor, there would be an electric field cause by
+an electric field.
+</p>
+
+<p>
+See <a href="KBhPHYS201Voltage.html">KBhPHYS201Voltage</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-an-now-something-interesting" class="outline-3">
+<h3 id="an-now-something-interesting"><span class="section-number-3">1.7</span> An now, something interesting</h3>
+<div class="outline-text-3" id="text-an-now-something-interesting">
+<p>
+Take, a neutral conductor.
+</p>
+
+<p>
+<a href="./Screen Shot 2020-08-24 at 9.44.46 PM.png">Screen Shot
+2020-08-24 at 9.44.46 PM.png</a>
+</p>
+
+<p>
+At the point of the cursor, there would be an electric field cause by
 the central charge going outwards; at which point the following will
-happen...</span></p><p><span>1) The red (positive) charge attracts electrons to the inside of the
-   tube
-2) These newly electrons set up their own electric fields equal and
-   opposite to the electric field by the central electron (because of
-   the Electric Field Deux. Gravitational Field thing)</span></p><p><span>So, the conductor has a net electric field of 0. It's static.</span></p><p><span>Because of the fact that the neutral conductor had both 1) and 2) going
-on, there is no tangent changes to the conductor (</span><strong><span>think!</span></strong><span> rule 2
+happen&#x2026;
+</p>
+
+<ol class="org-ol">
+<li>The red (positive) charge attracts electrons to the inside of the
+tube</li>
+<li>These newly electrons set up their own electric fields equal and
+opposite to the electric field by the central electron (because of
+the Electric Field Deux. Gravitational Field thing)</li>
+</ol>
+
+<p>
+So, the conductor has a net electric field of 0. It's static.
+</p>
+
+<p>
+Because of the fact that the neutral conductor had both 1) and 2) going
+on, there is no tangent changes to the conductor (<b>think!</b> rule 2
 aforementioned), and only field lines that are perpendicular (emitted by
-the red, positive charge), will be passed out.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="pressure-of-a-field:-voltage"><span class="firn-headline-text"><span>Pressure of a field: voltage</span></span></h2><section><p><a class="firn-internal" href="/physics/modern_physics/KBe20phys201refVoltage">KBe20phys201refVoltage</a></p><p><span>Annotated document:</span><a class="firn-internal" href="/physics/modern_physics/SRCelectrostaticsPacket1annotatedExr0n.pdf">SRCelectrostaticsPacket1annotatedExr0n.pdf</a></p></section></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#electric-fields">Electric Fields</a><ol><li><a href="#calculation-cheatsheet!">Calculation CheatSheet!</a></li><li><a href="#directionality-of-electric-fields">Directionality of Electric Fields</a></li><li><a href="#illustrating-electric-fields">Illustrating Electric Fields</a></li><li><a href="#electric-field-interactions">Electric Field Interactions</a></li><li><a href="#conductors-+-electric-field-interactions">Conductors + Electric Field Interactions</a></li><li><a href="#gravity-and-voltage">Gravity and Voltage</a></li><li><a href="#an-now,-something-interesting">An now, something interesting</a></li><li><a href="#pressure-of-a-field:-voltage">Pressure of a field: voltage</a></li></ol></li></ol><div class="metalabel">Backlinks</div><ul class="firn-backlinks"><li class="firn-backlink"><a href="/physics/modern_physics/KBhPHYS201IntroToElectrostaticsLN">Electrostatics Index</a></li><li class="firn-backlink"><a href="/physics/modern_physics/KBhPHYS201GravitationalFields">Gravitational Fields, Newton's Law of Gravitation</a></li><li class="firn-backlink"><a href="/physics/modern_physics/KBhPHYS201ColoumbsLaw">Coloumb's Law</a></li></ul></div></main></body></html>
+the red, positive charge), will be passed out.
+</p>
+</div>
+</div>
+
+<div id="outline-container-pressure-of-a-field-voltage" class="outline-3">
+<h3 id="pressure-of-a-field-voltage"><span class="section-number-3">1.8</span> Pressure of a field: voltage</h3>
+<div class="outline-text-3" id="text-pressure-of-a-field-voltage">
+<p>
+<a href="KBe20phys201refVoltage.html">KBe20phys201refVoltage</a>
+</p>
+
+<p>
+Annotated document:
+<a href="SRCelectrostaticsPacket1annotatedExr0n.pdf.html">SRCelectrostaticsPacket1annotatedExr0n.pdf</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

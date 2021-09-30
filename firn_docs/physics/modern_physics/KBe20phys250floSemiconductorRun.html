@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-11 Sat 18:31 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Taproot" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="https://taproot3.sanity.gq/sitemap.html"> UP </a>
+ |
+ <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
+</div><div id="content">
+<div id="outline-container-orgc383725" class="outline-2">
+<h2 id="orgc383725"><span class="section-number-2">1</span> Silicon</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org42059de" class="outline-3">
+<h3 id="org42059de"><span class="section-number-3">1.1</span> refirenry</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-orgc962d42" class="outline-4">
+<h4 id="orgc962d42"><span class="section-number-4">1.1.1</span> from sand</h4>
+</div>
+<div id="outline-container-org4a76a34" class="outline-4">
+<h4 id="org4a76a34"><span class="section-number-4">1.1.2</span> melted</h4>
+</div>
+<div id="outline-container-orga1c2c00" class="outline-4">
+<h4 id="orga1c2c00"><span class="section-number-4">1.1.3</span> small molten crystal "seed" lower into a vat</h4>
+</div>
+<div id="outline-container-org36a0eb5" class="outline-4">
+<h4 id="org36a0eb5"><span class="section-number-4">1.1.4</span> crystal forms</h4>
+</div>
+<div id="outline-container-orgb7dfef6" class="outline-4">
+<h4 id="orgb7dfef6"><span class="section-number-4">1.1.5</span> pull cylander from molten reigon</h4>
+</div>
+<div id="outline-container-org81ac88b" class="outline-4">
+<h4 id="org81ac88b"><span class="section-number-4">1.1.6</span> ground to form ingots</h4>
+</div>
+<div id="outline-container-org9b5ec29" class="outline-4">
+<h4 id="org9b5ec29"><span class="section-number-4">1.1.7</span> sawed with diamond blade to form wafers</h4>
+</div>
+<div id="outline-container-org908212d" class="outline-4">
+<h4 id="org908212d"><span class="section-number-4">1.1.8</span> wafer scrubbed</h4>
+</div>
+<div id="outline-container-orgdf73257" class="outline-4">
+<h4 id="orgdf73257"><span class="section-number-4">1.1.9</span> edges rounded and surfaces ground smooth and to create uniform thickness</h4>
+</div>
+<div id="outline-container-orga43154b" class="outline-4">
+<h4 id="orga43154b"><span class="section-number-4">1.1.10</span> rinsed and etched in "chemicals" to remove impurities</h4>
+</div>
+<div id="outline-container-org01d7fd5" class="outline-4">
+<h4 id="org01d7fd5"><span class="section-number-4">1.1.11</span> final polish on one side of the wafer</h4>
+</div>
+<div id="outline-container-org9e00606" class="outline-4">
+<h4 id="org9e00606"><span class="section-number-4">1.1.12</span> all so that there are no scratches or contamination</h4>
+</div>
+<div id="outline-container-orgd2a7c50" class="outline-4">
+<h4 id="orgd2a7c50"><span class="section-number-4">1.1.13</span> then, measured for resistivity</h4>
+<div class="outline-text-4" id="text-1-1-13">
+</div>
+<div id="outline-container-org9254d6f" class="outline-5">
+<h5 id="org9254d6f"><span class="section-number-5">1.1.13.1</span> function of dopant concentratian</h5>
+</div>
+</div>
+<div id="outline-container-org0de6c6a" class="outline-4">
+<h4 id="org0de6c6a"><span class="section-number-4">1.1.14</span> electron beam machine</h4>
+<div class="outline-text-4" id="text-1-1-14">
+</div>
+<div id="outline-container-org0cbd45e" class="outline-5">
+<h5 id="org0cbd45e"><span class="section-number-5">1.1.14.1</span> etches patterns onto chrome plated glass plates in clean room</h5>
+</div>
+</div>
+<div id="outline-container-org6f4c4c7" class="outline-4">
+<h4 id="org6f4c4c7"><span class="section-number-4">1.1.15</span> glass plates become masks used to transfer the circuit pattern onto the wafer</h4>
+</div>
+<div id="outline-container-org31f642e" class="outline-4">
+<h4 id="org31f642e"><span class="section-number-4">1.1.16</span> usage of masks</h4>
+<div class="outline-text-4" id="text-1-1-16">
+</div>
+<div id="outline-container-org67af2be" class="outline-5">
+<h5 id="org67af2be"><span class="section-number-5">1.1.16.1</span> first mask creates divots</h5>
+</div>
+<div id="outline-container-orgd531ca1" class="outline-5">
+<h5 id="orgd531ca1"><span class="section-number-5">1.1.16.2</span> masks 4, 5 define source and drain reigons</h5>
+</div>
+<div id="outline-container-org851e505" class="outline-5">
+<h5 id="org851e505"><span class="section-number-5">1.1.16.3</span> mask 6 defines contact holes to allow aluminium to be inserted</h5>
+</div>
+<div id="outline-container-org8f52a21" class="outline-5">
+<h5 id="org8f52a21"><span class="section-number-5">1.1.16.4</span> mostly use 12-25 masks depending on complexity and type of circuit (much more now)</h5>
+</div>
+</div>
+<div id="outline-container-orga198749" class="outline-4">
+<h4 id="orga198749"><span class="section-number-4">1.1.17</span> decontamination</h4>
+<div class="outline-text-4" id="text-1-1-17">
+</div>
+<div id="outline-container-org08615bd" class="outline-5">
+<h5 id="org08615bd"><span class="section-number-5">1.1.17.1</span> bunny suits</h5>
+</div>
+<div id="outline-container-orga4cd7df" class="outline-5">
+<h5 id="orga4cd7df"><span class="section-number-5">1.1.17.2</span> very high purity materials</h5>
+</div>
+</div>
+<div id="outline-container-org79ea99b" class="outline-4">
+<h4 id="org79ea99b"><span class="section-number-4">1.1.18</span> fabrication techniques (4)</h4>
+<div class="outline-text-4" id="text-1-1-18">
+</div>
+<div id="outline-container-orgbb8fa6a" class="outline-5">
+<h5 id="orgbb8fa6a"><span class="section-number-5">1.1.18.1</span> formation of thin layers of silicon dioxidn</h5>
+</div>
+<div id="outline-container-orgefff387" class="outline-5">
+<h5 id="orgefff387"><span class="section-number-5">1.1.18.2</span> introduction of dopants</h5>
+</div>
+<div id="outline-container-org6f3030c" class="outline-5">
+<h5 id="org6f3030c"><span class="section-number-5">1.1.18.3</span> deposition of thin layers of conducting/insulating materials</h5>
+</div>
+<div id="outline-container-org4931da8" class="outline-5">
+<h5 id="org4931da8"><span class="section-number-5">1.1.18.4</span> something?</h5>
+</div>
+</div>
+<div id="outline-container-orge0e8ad8" class="outline-4">
+<h4 id="orge0e8ad8"><span class="section-number-4">1.1.19</span> cleaning</h4>
+<div class="outline-text-4" id="text-1-1-19">
+</div>
+<div id="outline-container-org0029177" class="outline-5">
+<h5 id="org0029177"><span class="section-number-5">1.1.19.1</span> hot acids to clean wafers, repeated throughout process</h5>
+</div>
+<div id="outline-container-org06a98fd" class="outline-5">
+<h5 id="org06a98fd"><span class="section-number-5">1.1.19.2</span> rinsed in deionized water and spun dry in filtered nitrogen gas</h5>
+</div>
+<div id="outline-container-org3f4ebad" class="outline-5">
+<h5 id="org3f4ebad"><span class="section-number-5">1.1.19.3</span> grow layer of silicon dioxide in a vertical furnace</h5>
+<div class="outline-text-5" id="text-1-1-19-3">
+</div>
+<div id="outline-container-org674545b" class="outline-6">
+<h6 id="org674545b"><span class="section-number-6">1.1.19.3.1</span> protects silicon substrate benieth from unwanted reactions</h6>
+<div class="outline-text-6" id="text-1-1-19-3-1">
+</div>
+<div id="outline-container-org6d8097d" class="outline-7">
+<h7 id="org6d8097d"><span class="section-number-7">1.1.19.3.1.1</span> pure oxygen used to grow silicon dioxide</h7>
+</div>
+</div>
+</div>
+<div id="outline-container-orgee155a4" class="outline-5">
+<h5 id="orgee155a4"><span class="section-number-5">1.1.19.4</span> etch stencil to silicon dioxide using photolithography</h5>
+</div>
+<div id="outline-container-org81209cf" class="outline-5">
+<h5 id="org81209cf"><span class="section-number-5">1.1.19.5</span> photoresist coated on wafers, then solvents inside the solution is evaporated</h5>
+<div class="outline-text-5" id="text-1-1-19-5">
+</div>
+<div id="outline-container-org23cd6bb" class="outline-6">
+<h6 id="org23cd6bb"><span class="section-number-6">1.1.19.5.1</span> negative resist hardens when exposed</h6>
+</div>
+<div id="outline-container-orged794cf" class="outline-6">
+<h6 id="orged794cf"><span class="section-number-6">1.1.19.5.2</span> positive resist changes and is removed when developed</h6>
+<div class="outline-text-6" id="text-1-1-19-5-2">
+</div>
+<div id="outline-container-org82ab34f" class="outline-7">
+<h7 id="org82ab34f"><span class="section-number-7">1.1.19.5.2.1</span> that's what is used in this run</h7>
+</div>
+</div>
+</div>
+<div id="outline-container-org102919f" class="outline-5">
+<h5 id="org102919f"><span class="section-number-5">1.1.19.6</span> computer controlled machine called stepper</h5>
+<div class="outline-text-5" id="text-1-1-19-6">
+</div>
+<div id="outline-container-orgef3b0fb" class="outline-6">
+<h6 id="orgef3b0fb"><span class="section-number-6">1.1.19.6.1</span> wafer positioned under selected mask pattern</h6>
+</div>
+<div id="outline-container-org9b4e70b" class="outline-6">
+<h6 id="org9b4e70b"><span class="section-number-6">1.1.19.6.2</span> ultraviolet light projected onto photoresist</h6>
+</div>
+</div>
+<div id="outline-container-orgb9a6064" class="outline-5">
+<h5 id="orgb9a6064"><span class="section-number-5">1.1.19.7</span> etching</h5>
+<div class="outline-text-5" id="text-1-1-19-7">
+</div>
+<div id="outline-container-org4e004c1" class="outline-6">
+<h6 id="org4e004c1"><span class="section-number-6">1.1.19.7.1</span> wet etching can be bad</h6>
+<div class="outline-text-6" id="text-1-1-19-7-1">
+</div>
+<div id="outline-container-org7291a7d" class="outline-7">
+<h7 id="org7291a7d"><span class="section-number-7">1.1.19.7.1.1</span> can undercut photoresist</h7>
+</div>
+</div>
+<div id="outline-container-org4261d1d" class="outline-6">
+<h6 id="org4261d1d"><span class="section-number-6">1.1.19.7.2</span> dry (plasma) etching</h6>
+<div class="outline-text-6" id="text-1-1-19-7-2">
+</div>
+<div id="outline-container-org82a3113" class="outline-7">
+<h7 id="org82a3113"><span class="section-number-7">1.1.19.7.2.1</span> use plasma to react away exposed silicon dioxide</h7>
+</div>
+</div>
+</div>
+<div id="outline-container-org6002eb3" class="outline-5">
+<h5 id="org6002eb3"><span class="section-number-5">1.1.19.8</span> removal of photoresist</h5>
+<div class="outline-text-5" id="text-1-1-19-8">
+</div>
+<div id="outline-container-orgb64de30" class="outline-6">
+<h6 id="orgb64de30"><span class="section-number-6">1.1.19.8.1</span> acid baths?</h6>
+</div>
+<div id="outline-container-org4e3183e" class="outline-6">
+<h6 id="org4e3183e"><span class="section-number-6">1.1.19.8.2</span> hot oxygen?</h6>
+</div>
+</div>
+<div id="outline-container-org59adb7d" class="outline-5">
+<h5 id="org59adb7d"><span class="section-number-5">1.1.19.9</span> same thing repeated with each mask</h5>
+</div>
+</div>
+<div id="outline-container-org337f7ff" class="outline-4">
+<h4 id="org337f7ff"><span class="section-number-4">1.1.20</span> ion implanter</h4>
+<div class="outline-text-4" id="text-1-1-20">
+</div>
+<div id="outline-container-org305785f" class="outline-5">
+<h5 id="org305785f"><span class="section-number-5">1.1.20.1</span> bombard with ions to implant dopants</h5>
+<div class="outline-text-5" id="text-1-1-20-1">
+</div>
+<div id="outline-container-orgac8ed93" class="outline-6">
+<h6 id="orgac8ed93"><span class="section-number-6">1.1.20.1.1</span> ions accelerated using magnetic fields</h6>
+</div>
+<div id="outline-container-orgbbf657e" class="outline-6">
+<h6 id="orgbbf657e"><span class="section-number-6">1.1.20.1.2</span> etched silicon dioxide only allows ions on some areas</h6>
+</div>
+<div id="outline-container-org7bb1e3e" class="outline-6">
+<h6 id="org7bb1e3e"><span class="section-number-6">1.1.20.1.3</span> embed opposite ions that are later diffused into the well to become transistors</h6>
+</div>
+</div>
+</div>
+<div id="outline-container-org5bb52f4" class="outline-4">
+<h4 id="org5bb52f4"><span class="section-number-4">1.1.21</span> deposition furnace</h4>
+<div class="outline-text-4" id="text-1-1-21">
+</div>
+<div id="outline-container-orgc5e4d6a" class="outline-5">
+<h5 id="orgc5e4d6a"><span class="section-number-5">1.1.21.1</span> deposits something resistive to protect?</h5>
+</div>
+</div>
+<div id="outline-container-org6c95672" class="outline-4">
+<h4 id="org6c95672"><span class="section-number-4">1.1.22</span> second mask</h4>
+<div class="outline-text-4" id="text-1-1-22">
+</div>
+<div id="outline-container-org165d4a8" class="outline-5">
+<h5 id="org165d4a8"><span class="section-number-5">1.1.22.1</span> used to define actual transistor reigons</h5>
+</div>
+<div id="outline-container-org587b41a" class="outline-5">
+<h5 id="org587b41a"><span class="section-number-5">1.1.22.2</span> wafers devolped to remove exposed photoresist</h5>
+</div>
+<div id="outline-container-orgc03cc8d" class="outline-5">
+<h5 id="orgc03cc8d"><span class="section-number-5">1.1.22.3</span> then plasma etched to remove free flourine</h5>
+</div>
+<div id="outline-container-orge0f7bd9" class="outline-5">
+<h5 id="orge0f7bd9"><span class="section-number-5">1.1.22.4</span> then photoresist removed</h5>
+</div>
+<div id="outline-container-org81dcb2c" class="outline-5">
+<h5 id="org81dcb2c"><span class="section-number-5">1.1.22.5</span> wafers in oxidization furnace</h5>
+</div>
+<div id="outline-container-org10e9b73" class="outline-5">
+<h5 id="org10e9b73"><span class="section-number-5">1.1.22.6</span> thick insulating layer of sicilon dioxide grown over where previous was etched</h5>
+</div>
+<div id="outline-container-org6f46852" class="outline-5">
+<h5 id="org6f46852"><span class="section-number-5">1.1.22.7</span> called field oxide</h5>
+</div>
+</div>
+<div id="outline-container-org7106e3a" class="outline-4">
+<h4 id="org7106e3a"><span class="section-number-4">1.1.23</span> uniform electrical dioxide regrown?</h4>
+<div class="outline-text-4" id="text-1-1-23">
+</div>
+<div id="outline-container-org1bebaed" class="outline-5">
+<h5 id="org1bebaed"><span class="section-number-5">1.1.23.1</span> gate electrons formed by depositing polysilicon</h5>
+<div class="outline-text-5" id="text-1-1-23-1">
+</div>
+<div id="outline-container-org42ed1ef" class="outline-6">
+<h6 id="org42ed1ef"><span class="section-number-6">1.1.23.1.1</span> many small grains of silicon doped with phospherus</h6>
+</div>
+</div>
+<div id="outline-container-orge49829a" class="outline-5">
+<h5 id="orge49829a"><span class="section-number-5">1.1.23.2</span> photolithography and next mask to etch gate electrodes</h5>
+</div>
+<div id="outline-container-org8ad4be9" class="outline-5">
+<h5 id="org8ad4be9"><span class="section-number-5">1.1.23.3</span> distance controlled carefully because it affects final speed of transistor</h5>
+</div>
+</div>
+<div id="outline-container-org341c27d" class="outline-4">
+<h4 id="org341c27d"><span class="section-number-4">1.1.24</span> more masks used with photoresist and cleaning to grower further complexity</h4>
+</div>
+<div id="outline-container-org0041902" class="outline-4">
+<h4 id="org0041902"><span class="section-number-4">1.1.25</span> annealing</h4>
+<div class="outline-text-4" id="text-1-1-25">
+</div>
+<div id="outline-container-orgcec1596" class="outline-5">
+<h5 id="orgcec1596"><span class="section-number-5">1.1.25.1</span> ion implantation defects repaired</h5>
+</div>
+</div>
+<div id="outline-container-orgfb89d45" class="outline-4">
+<h4 id="orgfb89d45"><span class="section-number-4">1.1.26</span> thick glass layer</h4>
+<div class="outline-text-4" id="text-1-1-26">
+</div>
+<div id="outline-container-orge5d9526" class="outline-5">
+<h5 id="orge5d9526"><span class="section-number-5">1.1.26.1</span> insulates all pieces</h5>
+</div>
+</div>
+<div id="outline-container-org9442782" class="outline-4">
+<h4 id="org9442782"><span class="section-number-4">1.1.27</span> glass surface planarized</h4>
+<div class="outline-text-4" id="text-1-1-27">
+</div>
+<div id="outline-container-orgd9111b5" class="outline-5">
+<h5 id="orgd9111b5"><span class="section-number-5">1.1.27.1</span> using chemical and mechanical processes</h5>
+</div>
+<div id="outline-container-org4deec21" class="outline-5">
+<h5 id="org4deec21"><span class="section-number-5">1.1.27.2</span> chemical mechanical planalization (CMP) not used much anymore</h5>
+</div>
+</div>
+<div id="outline-container-org5ffaf11" class="outline-4">
+<h4 id="org5ffaf11"><span class="section-number-4">1.1.28</span> mask 6: define contact holes for metal wiring</h4>
+</div>
+<div id="outline-container-org2f6a3c2" class="outline-4">
+<h4 id="org2f6a3c2"><span class="section-number-4">1.1.29</span> plasma etching again to create contact holes</h4>
+<div class="outline-text-4" id="text-1-1-29">
+</div>
+<div id="outline-container-org406ce63" class="outline-5">
+<h5 id="org406ce63"><span class="section-number-5">1.1.29.1</span> looks like small dots under microscope</h5>
+</div>
+<div id="outline-container-org01a0842" class="outline-5">
+<h5 id="org01a0842"><span class="section-number-5">1.1.29.2</span> must be filled with metal plug to ensure solid elecric connection (tungsten)</h5>
+</div>
+</div>
+<div id="outline-container-orgd210733" class="outline-4">
+<h4 id="orgd210733"><span class="section-number-4">1.1.30</span> metal etcher polishes away extra tungsten</h4>
+</div>
+</div>
+<div id="outline-container-org0b1e64a" class="outline-3">
+<h3 id="org0b1e64a"><span class="section-number-3">1.2</span> design</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org278ba43" class="outline-4">
+<h4 id="org278ba43"><span class="section-number-4">1.2.1</span> circuit design</h4>
+</div>
+<div id="outline-container-org38a2aa8" class="outline-4">
+<h4 id="org38a2aa8"><span class="section-number-4">1.2.2</span> organization of design team</h4>
+<div class="outline-text-4" id="text-1-2-2">
+</div>
+<div id="outline-container-orgf1be659" class="outline-5">
+<h5 id="orgf1be659"><span class="section-number-5">1.2.2.1</span> based on organization of the chip</h5>
+</div>
+<div id="outline-container-org25ec341" class="outline-5">
+<h5 id="org25ec341"><span class="section-number-5">1.2.2.2</span> establish microarchitecture that regulates sequences and timings</h5>
+</div>
+<div id="outline-container-orgc4efcc7" class="outline-5">
+<h5 id="orgc4efcc7"><span class="section-number-5">1.2.2.3</span> design divided into areas</h5>
+<div class="outline-text-5" id="text-1-2-2-3">
+</div>
+<div id="outline-container-org0c03c33" class="outline-6">
+<h6 id="org0c03c33"><span class="section-number-6">1.2.2.3.1</span> each unit given to logic designer</h6>
+</div>
+<div id="outline-container-org2a1f3bb" class="outline-6">
+<h6 id="org2a1f3bb"><span class="section-number-6">1.2.2.3.2</span> each functional block given to circuit designer who works at transistor level</h6>
+</div>
+</div>
+<div id="outline-container-org1fedb8e" class="outline-5">
+<h5 id="org1fedb8e"><span class="section-number-5">1.2.2.4</span> mask designer draws out blueprints on paper</h5>
+</div>
+</div>
+<div id="outline-container-orgab7491a" class="outline-4">
+<h4 id="orgab7491a"><span class="section-number-4">1.2.3</span> transistors</h4>
+<div class="outline-text-4" id="text-1-2-3">
+</div>
+<div id="outline-container-org77c951a" class="outline-5">
+<h5 id="org77c951a"><span class="section-number-5">1.2.3.1</span> represents digital zero or one</h5>
+</div>
+<div id="outline-container-orgd51fb7e" class="outline-5">
+<h5 id="orgd51fb7e"><span class="section-number-5">1.2.3.2</span> C-MOS transistors</h5>
+<div class="outline-text-5" id="text-1-2-3-2">
+</div>
+<div id="outline-container-orgf2e650d" class="outline-6">
+<h6 id="orgf2e650d"><span class="section-number-6">1.2.3.2.1</span> complementary metal oxidized transistor</h6>
+</div>
+<div id="outline-container-orga859f76" class="outline-6">
+<h6 id="orga859f76"><span class="section-number-6">1.2.3.2.2</span> n type transistor</h6>
+<div class="outline-text-6" id="text-1-2-3-2-2">
+</div>
+<div id="outline-container-org762b1f2" class="outline-7">
+<h7 id="org762b1f2"><span class="section-number-7">1.2.3.2.2.1</span> surrounded by n-type</h7>
+</div>
+<div id="outline-container-org8613338" class="outline-7">
+<h7 id="org8613338"><span class="section-number-7">1.2.3.2.2.2</span> sandwhiching a p-type layer</h7>
+</div>
+<div id="outline-container-orgd0d51b3" class="outline-7">
+<h7 id="orgd0d51b3"><span class="section-number-7">1.2.3.2.2.3</span> gate electrode is near but not connect to the p type reigon</h7>
+</div>
+<div id="outline-container-org0181a70" class="outline-7">
+<h7 id="org0181a70"><span class="section-number-7">1.2.3.2.2.4</span> a positive charge in gate attracts electrons and allows electrons to pass</h7>
+</div>
+</div>
+<div id="outline-container-org46c813e" class="outline-6">
+<h6 id="org46c813e"><span class="section-number-6">1.2.3.2.3</span> both types can be made on the same chip using "complementary manufacturing?"</h6>
+</div>
+<div id="outline-container-org51807c6" class="outline-6">
+<h6 id="org51807c6"><span class="section-number-6">1.2.3.2.4</span> signals propogate through complex maze of switches</h6>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org4fff3cd" class="outline-3">
+<h3 id="org4fff3cd"><span class="section-number-3">1.3</span> structure</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org376de3f" class="outline-4">
+<h4 id="org376de3f"><span class="section-number-4">1.3.1</span> cubic atomic structure</h4>
+</div>
+<div id="outline-container-orgfe56112" class="outline-4">
+<h4 id="orgfe56112"><span class="section-number-4">1.3.2</span> 4 electrons valence shell</h4>
+</div>
+<div id="outline-container-org48c24f1" class="outline-4">
+<h4 id="org48c24f1"><span class="section-number-4">1.3.3</span> perfect crystal will have no holes</h4>
+</div>
+<div id="outline-container-orgd636ac2" class="outline-4">
+<h4 id="orgd636ac2"><span class="section-number-4">1.3.4</span> but at room temperature, free electrons can conduct</h4>
+</div>
+</div>
+<div id="outline-container-orgfd00c49" class="outline-3">
+<h3 id="orgfd00c49"><span class="section-number-3">1.4</span> impurities called dopants</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-org1936a23" class="outline-4">
+<h4 id="org1936a23"><span class="section-number-4">1.4.1</span> negative</h4>
+<div class="outline-text-4" id="text-1-4-1">
+</div>
+<div id="outline-container-org38fa356" class="outline-5">
+<h5 id="org38fa356"><span class="section-number-5">1.4.1.1</span> arsenic or phospherus</h5>
+</div>
+<div id="outline-container-orgaa76f0a" class="outline-5">
+<h5 id="orgaa76f0a"><span class="section-number-5">1.4.1.2</span> one more valence</h5>
+</div>
+<div id="outline-container-org19f99a1" class="outline-5">
+<h5 id="org19f99a1"><span class="section-number-5">1.4.1.3</span> n type crystal because negative free carriers</h5>
+</div>
+</div>
+<div id="outline-container-org130daf2" class="outline-4">
+<h4 id="org130daf2"><span class="section-number-4">1.4.2</span> positive</h4>
+<div class="outline-text-4" id="text-1-4-2">
+</div>
+<div id="outline-container-org1cbbba4" class="outline-5">
+<h5 id="org1cbbba4"><span class="section-number-5">1.4.2.1</span> boron</h5>
+</div>
+<div id="outline-container-org6ef8ef7" class="outline-5">
+<h5 id="org6ef8ef7"><span class="section-number-5">1.4.2.2</span> missing electron acts like positive carrier, "hole"</h5>
+</div>
+</div>
+<div id="outline-container-orga5f438c" class="outline-4">
+<h4 id="orga5f438c"><span class="section-number-4">1.4.3</span> silicon can be either good or poor conductor (semiconductor)</h4>
+<div class="outline-text-4" id="text-1-4-3">
+</div>
+<div id="outline-container-org3fe123f" class="outline-5">
+<h5 id="org3fe123f"><span class="section-number-5">1.4.3.1</span> controlled by concentration of dopant</h5>
+<div class="outline-text-5" id="text-1-4-3-1">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="namedate"><p class="subtitle"><span class="author">Taproot</span><span class="date">2021-09-11 Sat 16:34</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
+</div>
+</body>
+</html>

@@ -1,21 +1,829 @@
-<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Albert H" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Story of Science: Computational Complexity Theory</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
-        'displayAlign': 'center',
-        'displayIndent': '0em',
-        'extensions': ['tex2jax.js'],
-        'tex2jax': {
-        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
-        'processEscapes': true
-        },
-        'HTML-CSS': { scale: 100,
-                        linebreaks: { automatic: 'false' },
-                        webFont: 'TeX'
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-27 Mon 11:54 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Story of Science: Computational Complexity Theory</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Albert H" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
                        },
         SVG: {scale: 100,
-              linebreaks: { automatic: 'false' },
-              font: 'TeX'},
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
         NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: 'AMS'},
-               MultLineWidth: '85%',
-               TagSide: 'right',
-               TagIndent: '.8em'
-             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Story of Science: Computational Complexity Theory</h1></div><div class="metamble"><span><span>Written by </span><span>Albert H</span></span></div><div class="notebody"><div><section></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="sources"><span class="firn-headline-text"><span>sources</span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="gentle-introductions"><span class="firn-headline-text"><span>gentle introductions</span></span></h2><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="https:enwikipediaorgwikicomputational_complexity_theory"><span class="firn-headline-text"><span>https://en.wikipedia.org/wiki/Computational_complexity_theory</span></span></h3></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="https:complexityzoonetpetting_zoo"><span class="firn-headline-text"><span>https://complexityzoo.net/Petting_Zoo</span></span></h3></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="https:wwwsimonsfoundationorg20131213richard-karp"><span class="firn-headline-text"><span>https://www.simonsfoundation.org/2013/12/13/richard-karp/</span></span></h3></div></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="overview"><span class="firn-headline-text"><span>overview</span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="computational-complexity-theory-studies-how-&quot;difficult&quot;-a-problem-is"><span class="firn-headline-text"><span>computational complexity theory studies how "difficult" a problem is</span></span></h2><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="importantly,-not-how-&quot;good&quot;-an-algorithm-is-this-field-deals-with-all-algorithms-that-solve-a-given-problem"><span class="firn-headline-text"><span>importantly, not how "good" an algorithm is... this field deals with all algorithms that solve a given problem</span></span></h3></div></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="key-concepts"><span class="firn-headline-text"><span>key concepts</span></span></h2><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="types-of-problems"><span class="firn-headline-text"><span>types of problems</span></span></h3></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="turing-machines"><span class="firn-headline-text"><span>Turing machines</span></span></h3></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="reducibility"><span class="firn-headline-text"><span>reducibility</span></span></h3></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="complexity-classes"><span class="firn-headline-text"><span>complexity classes</span></span></h3></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="hierarchy"><span class="firn-headline-text"><span>hierarchy</span></span></h3></div></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="key-problems"><span class="firn-headline-text"><span>key problems</span></span></h2><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="p-vs-np"><span class="firn-headline-text"><span>P vs NP</span></span></h3></div></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="richard-karp-(the-actual-assignment)"><span class="firn-headline-text"><span>richard karp (the actual assignment)</span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="overview"><span class="firn-headline-text"><span>overview</span></span></h2><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="basically,-see-https:wwwsimonsfoundationorg20131213richard-karp"><span class="firn-headline-text"><span>basically, see https://www.simonsfoundation.org/2013/12/13/richard-karp/</span></span></h3></div></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="todo-storyboard-richard-karp-life"><span class="firn-headline-text"><span>TODO storyboard richard karp life</span></span></h2></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="vocab-and-definitions"><span class="firn-headline-text"><span>vocab and definitions</span></span><span class="firn-org-tags"><span><a class="firn-org-tag" href="/tags#def">def</a></span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="dtm,-deterministic-turing-machine"><span class="firn-headline-text"><span>DTM, deterministic Turing machine</span></span></h2><section><p><span>   A Turing machine with one infinite tape and a state function that has exactly one output for each (tape value, machine state) input. (Not a formal definition).</span></p></section></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="complexity-classes"><span class="firn-headline-text"><span>complexity classes</span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="p"><span class="firn-headline-text"><span>P</span></span></h2><section><p><span>   Problems that can be solved in polynomial time using a deterministic Turing machine (DTM). These problems are generally considered "tractable" by the Cobham-Edmonds thesis.</span></p><p><span>   In practice, problems with large-degree solutions usually have smaller-degree solutions discovered later, so the division between P and other problems 'has turned out to be somewhat "natural"'.</span></p><p><span>   Examples: { graph reachability (whether two nodes are in the same component), 2SAT (SCC :)), matrix multiplication }</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="np"><span class="firn-headline-text"><span>NP</span></span></h2><section><p><span>   Problems that can be checked "yes" in polynomial time. For example, graph isomorphism.</span></p></section><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="whats-up-with-conp?-checkin-&quot;no&quot;??"><span class="firn-headline-text"><span>whats up with coNP? checkin "no"??</span></span><span class="firn-org-tags"><span><a class="firn-org-tag" href="/tags#toexpand">toexpand</a></span></span></h3></div></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="np-complete"><span class="firn-headline-text"><span>NP-complete</span></span></h2><section><p><span>   Problems that are complete for NP, aka. problems in NP that all other NP problems can be reduced to in polynomial time. One example is CircuitSAT: any NP problem can be reduced to CircuitSAT and any problem that CircuitSAT can be reduced to is also NP-complete. Showing that CircuitSAT or any other NP-complete problem can be solved in polynomial time implies that P = NP.</span></p><p><span>   Examples: TSP, SAT</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="ph-(polynomial-hierarchy?)"><span class="firn-headline-text"><span>PH (polynomial hierarchy?)</span></span><span class="firn-org-tags"><span><a class="firn-org-tag" href="/tags#toexpand">toexpand</a></span></span></h2><section><p><span>   Defined as the union of a set of recursively defined classes... something? Something about P and NP and oracles about NP and coNP. This is the thing that would collapse, I guess. Eg, why people don't think Graph Isomorphism is NP-complete.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="pspace"><span class="firn-headline-text"><span>PSPACE</span></span></h2><section><p><span>   Restricts space instead of time. This class is very large, and includes the entirety of NP (brute force check all possible proofs) and also PP and P^{#P}, apparently.</span></p><p><span>   Notable PSPACE-complete examples: QBF (or QSAT), deciding the winner of eg. Go.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="exp"><span class="firn-headline-text"><span>EXP</span></span></h2><section><p><span>   run-time bounded by $2^{p(n)}$ where $p$ is a polynomial (ig). EXP is generally big enough: it contains PSPACE, the polynomial hierarchy (PH), and 'most problems we ever hope to attack'. Of course, there are bigger ones.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="ac^0,-nc^0,-nc"><span class="firn-headline-text"><span>AC^0, NC^0, NC</span></span></h2><section><p><span>   small classes that have to do with circuit complexity.. generally the represent problems that can be solved quickly with massive parallelism.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="l"><span class="firn-headline-text"><span>L</span></span></h2><section><p><span>   Logarithmic space (logarithmic spaces on the Turing machine tape). This is nice because space is usually limited. L is contained within P because something about deterministic Turing machines?.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="ppoly"><span class="firn-headline-text"><span>P/poly</span></span></h2><section><p><span>   polynomial time algorithms that solve a problem given an advice string which is at most polynomial in length and a function only of the input size. P/exp would make all problems trivial (provide a lookup table), but P/poly is actually interesting, ig. P/poly contains P, so $NP \notin P/poly$ would imply $P \neq NP$.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="bpp"><span class="firn-headline-text"><span>BPP</span></span></h2><section><p><span>   Randomized algorithms where the error rate is 'bounded by a constant'. Error rate could be improved by running the algorithm more times and taking a majority vote.</span></p><p><span>   AKS primality test made a previously randomized algorithm deterministic, which was a 'key example of derandomization'. People apparently think that P = BPP (and this is an important open problem).</span></p></section></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="flows"><span class="firn-headline-text"><span>flows</span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="wikipedia-computational-complexity-theory"><span class="firn-headline-text"><span>Wikipedia computational complexity theory</span></span></h2><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="computational-problems"><span class="firn-headline-text"><span>computational problems</span></span></h3><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="problem-instances"><span class="firn-headline-text"><span>problem instances</span></span></h4><section><p><span>	 A problem describes the problem. the actual "numbers" that describe a specific problem is called a problem instance. sorting a list is a problem, sorting </span><em><span>this</span></em><span> list is a problem instance.</span></p></section></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="representing-problem-instances"><span class="firn-headline-text"><span>representing problem instances</span></span></h4><section><p><span>	 formally strings of characters from alphabets. The input size is the length of the string. Different representations can be chosen but it should be trivial (fast) to convert from one to the other.</span></p></section></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="decision-problems-(most-basic-type)"><span class="firn-headline-text"><span>decision problems (most basic type)</span></span></h4><section><p><span>	 Generally, given an input, the output is either yes (accept) or no (reject). For example, deciding whether a graph is connected or not.</span></p></section><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="it-can-be-thought-of-as-a-&quot;formal-language&quot;"><span class="firn-headline-text"><span>it can be thought of as a "formal language"</span></span><span class="firn-org-tags"><span><a class="firn-org-tag" href="/tags#toexpand">toexpand</a></span></span></h5></div></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="function-problems"><span class="firn-headline-text"><span>function problems</span></span></h4><section><p><span>	 Very general: a function problem 'is a computational problem where a single output (of a total function) is expected for every input, but the output is more complex than that of a decision problem'. Basically calculate a non-binary function.</span></p><p><span>	 Examples: traveling salesman, integer factorization.</span></p><p><span>	 However, all function problems can be modeled as decision problems: For some function $f(*args) \to ans$, it can be modeled as the decision problem of whether $(*args, ans)$ is a valid output.</span></p></section><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="but-does-this-really-work?-how-can-a-decision-tm-be-used-to-compute-the-function-output-efficiently?"><span class="firn-headline-text"><span>but does this really work? how can a decision TM be used to compute the function output efficiently?</span></span><span class="firn-org-tags"><span><a class="firn-org-tag" href="/tags#toexpand">toexpand</a></span></span></h5></div></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="size-of-an-instance"><span class="firn-headline-text"><span>size of an instance</span></span></h4><section><p><span>	 Size is usually the length of the input. The complexity is a function of the input size, usually representing the worst case time or space (or any other complexity measure) required for any input size.</span></p></section></div></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="machine-models-and-complexity-measures"><span class="firn-headline-text"><span>machine models and complexity measures</span></span></h3><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="turing-machine"><span class="firn-headline-text"><span>Turing machine</span></span></h4><section><p><span>	 standard Turing machine stuff. its very general. Many types of turing machines (probabilistic, non-deterministic, quantum, etc) are used to define different complexity classes.</span></p></section></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="other-machine-models"><span class="firn-headline-text"><span>other machine models</span></span><span class="firn-org-tags"><span><a class="firn-org-tag" href="/tags#toexpand">toexpand</a></span></span></h4><section><p><span>	 Other non-standard Turing machines are used, but the idea is that they aren't actually any better, somehow?</span></p></section></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="complexity-measures"><span class="firn-headline-text"><span>Complexity Measures</span></span></h4><section><p><span>	 Usually time or space, but any complexity measure that satisfies Blum's complexity axioms can be used. Examples include: communication complexity, circuit complexity.</span></p><p><span>	 Also constant factors don't really matter. And its usually the worst case.</span></p><p><span>	 Importantly, complexity measures are also a function of the type of Turing machine used, since some Turing machines are better in some scenarios.</span></p></section><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="blums-complexity-axioms"><span class="firn-headline-text"><span>blums complexity axioms</span></span><span class="firn-org-tags"><span><a class="firn-org-tag" href="/tags#toexpand">toexpand</a></span></span></h5></div></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="bestworstaverage-case"><span class="firn-headline-text"><span>best/worst/average case</span></span></h4><section><p><span>	 We generally talk about worst case complexity, but some algorithms have good average-case which is good enough (eg. quicksort). Generally, best-case < average-case < amortized analysis < worst-case.</span></p></section></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="upper-and-lower-bounds-for-problems"><span class="firn-headline-text"><span>upper and lower bounds for problems</span></span></h4><section><p><span>	 Importantly, this is </span><strong><span>not an upper or lower bound for an algorithm</span></strong><span>. Instead, for problems in general, it's relatively easy to decide an upper bound (which is just the worst case complexity of any correct algorithm), but a lower bound is difficult (since it must involve algorithms that haven't been discovered yet).</span></p></section></div></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="complexity-classes"><span class="firn-headline-text"><span>complexity classes</span></span></h3><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="dependencies"><span class="firn-headline-text"><span>dependencies</span></span></h4><section><p><span>	 Complexity classes are a function of the following factors</span></p></section><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="problem-type"><span class="firn-headline-text"><span>problem type</span></span></h5><section><p><span>	  { decision, function, counting, optimization, promise, etc }</span></p></section></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="computation-model"><span class="firn-headline-text"><span>computation model</span></span></h5><section><p><span>	  { deterministic Turing machine, non-deterministic, Boolean circuits, quantum TM, monotone circuits, etc }</span></p></section></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="bounded-resources"><span class="firn-headline-text"><span>bounded resources</span></span></h5><section><p><span>	  { polynomial time, logarithmic space, constant depth }</span></p></section></div></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="an-example-definition"><span class="firn-headline-text"><span>an example definition</span></span></h4><section><blockquote><p><span>	 The set of decision problems solvable by a deterministic Turing machine within time f(n). (This complexity class is known as DTIME(f(n)).)</span></p></blockquote><p><span>	 However, using a concrete function $f(n)$ is often computational-model-dependent, but the Cobham-Edmonds thesis states that 'the time complexities in any two reasonable general models of computation are polynomial related.'</span></p><p><span>	 This suggests that all if we want to be machine-independent, all polynomial problems are roughly the same and belong in the same class: P (for decision problems) and FP (for function problems).</span></p></section><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="why-are-there-different-classes-if-decision-and-function-problems-are-the-same-ish?-dunno"><span class="firn-headline-text"><span>why are there different classes if decision and function problems are the same-ish? dunno</span></span><span class="firn-org-tags"><span><a class="firn-org-tag" href="/tags#toexpand">toexpand</a></span></span></h5></div></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="important-complexity-classes"><span class="firn-headline-text"><span>important complexity classes</span></span></h4><section><p><span>	 A nice list here but the complexity petting zoo is more friendly.</span></p></section></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="hierarchy-theorems"><span class="firn-headline-text"><span>Hierarchy theorems</span></span><span class="firn-org-tags"><span><a class="firn-org-tag" href="/tags#toexpand">toexpand</a></span></span></h4><section><p><span>	 We would like to establish a strict containment hierarchy within classes (but between different eg. polynomial functions). This does that, apparently?</span></p></section></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="reduction"><span class="firn-headline-text"><span>Reduction</span></span></h4><section><p><span>	 Many problems can be turned into other problems in their class, which provides an upper bound on the difficulty of the problem.</span></p><p><span>	 There are many types of reductions, but the most common type is the polynomial-time reduction which means the reduction takes polynomial time. If you take a non-polynomial reduction to turn a problem into a polynomial problem, then you haven't proven anything.</span></p></section><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="hardness-and-completeness"><span class="firn-headline-text"><span>hardness and completeness</span></span></h5><section><p><span>	  A problem $X$ is hard for a class $C$ if every problem in $C$ can be reduced to $X$. A problem $X$ is complete for $C$ if it is hard for $C$ it is in $C$. NP-complete problems are the "most difficult problems in NP" because other problems can be reduced to them.</span></p><p><span>	  Being able to reduce a hard problem to another problem shows that that other problem is just as hard, by contradiction. Similarly, being able to reduce a hard problem to a known easy one collapses the hierarchy.</span></p></section></div></div></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="important-open-problems"><span class="firn-headline-text"><span>important open problems</span></span></h3><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="p-vs-np"><span class="firn-headline-text"><span>P vs NP</span></span></h4><section><p><span>	 If any NP-complete problem can be reduced (polynomially) to a P problem, then many NP problems would be solvable in polynomial time. There are many NP problems that we would like to solve efficiently, so this would be a big deal.</span></p><p><span>	 In fact, many of the other 'important open problems' are important because they would show that $P \neq  NP$.</span></p></section></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="np-indeterminate-problems-(in-np-but-not-in-p-nor-np-complete)"><span class="firn-headline-text"><span>NP-indeterminate problems (in NP but not in P nor NP-complete)</span></span><span class="firn-org-tags"><span><a class="firn-org-tag" href="/tags#toexpand">toexpand</a></span></span></h4><section><p><span>	 some theorem shows that if P neq NP then there are NP-indeterminate problems. If we show that there are none, then that proves P = NP. Some unclassified problems (graph isomorphism problem, integer factorization problem) being NP-complete would 'collapse the polynomial hierarchy.' ?????</span></p></section></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="separations-between-other-complexity-classes"><span class="firn-headline-text"><span>separations between other complexity classes</span></span></h4><section><p><span>	 There are many classes that are improper subsets of each other. If any of those relations can be shown to be a proper subset, then classes on either side would be unequal. For example, many such relations exist between P and NP and showing that one of those relations is a proper subset relation would prove that P != NP. Or, proving that two classes (eg. P, PSPACE) are equal would squish all classes in between into one (in this case, showing that P = NP).</span></p></section></div></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="intractability"><span class="firn-headline-text"><span>Intractability</span></span></h3><section><p><span>	Meaning "not handleable". The Cobham-Edmonds thesis suggests that all polynomial problems are tractable. However, in the real world, specific numbers matter ($N^{15}$ is much worse than $0.0001^N$)</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="continuous-complexity-theory"><span class="firn-headline-text"><span>continuous complexity theory</span></span><span class="firn-org-tags"><span><a class="firn-org-tag" href="/tags#toexpand">toexpand</a></span></span></h3><section><p><span>	Something about continuous functions or analog logic.</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="history"><span class="firn-headline-text"><span>History</span></span></h3><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="many-foundations-laid,-eg-turing-machine-in-1936-which-allowed-for-analysis-of-various-algorithms"><span class="firn-headline-text"><span>Many foundations laid, eg. Turing machine in 1936 which allowed for analysis of various algorithms.</span></span></h4></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="first-systematic-study-attributed-to-juris-hartmanis-and-richard-e-stearns-in-&quot;on-the-computational-complexity-of-algorithms&quot;-(1965)"><span class="firn-headline-text"><span>First systematic study attributed to Juris Hartmanis and Richard E. Stearns in "On the Computational Complexity of Algorithms" (1965)</span></span></h4></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="edmonds-(cobham-edmonds-thesis)-suggests-polynomial-problems-are-&quot;good&quot;-(1965)"><span class="firn-headline-text"><span>Edmonds (Cobham-Edmonds thesis) suggests polynomial problems are "good" (1965)</span></span></h4></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="other-studies-of-problems-with-bounded-resources-in-the-previous-few-years"><span class="firn-headline-text"><span>other studies of problems with bounded resources in the previous few years</span></span></h4></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="blum-axioms-for-complexity-measures-(1967),-and-the-&quot;speed-up-theorem&quot;"><span class="firn-headline-text"><span>Blum axioms for complexity measures (1967), and the "speed-up theorem"</span></span></h4></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="1971-stephen-cook-and-leonid-levin-proved-existance-of-practically-relevant-np-complete-problems"><span class="firn-headline-text"><span>1971 Stephen Cook and Leonid Levin proved existance of practically relevant NP-complete problems</span></span></h4></div><div class="firn-headline-section firn-headline-section-4"><h4 class="firn-headline firn-headline-4" id="richard-karp-(1972)-showed-21-relevant-and-np-complete-problems-(op)"><span class="firn-headline-text"><span>Richard Karp (1972) showed 21 relevant and NP-complete problems (op)</span></span></h4><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="oldest-of-four-children,-born-to-jewish-family-in-dorchester,-boston"><span class="firn-headline-text"><span>oldest of four children, born to jewish family in Dorchester, Boston</span></span></h5></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="mother-got-harvard-degree-at-age-57-and-father-wanted-to-go-on-to-medschool-after-harvard-but-became-a-math-teacher-bc-he-couldn&apos;t-afford-med-school"><span class="firn-headline-text"><span>mother got harvard degree at age 57 and father wanted to go on to medschool after Harvard but became a math teacher bc he couldn't afford med school</span></span></h5></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="went-to-harvard,-some-career-jumps,-mostly-cs-professor-at-uc-berkeley"><span class="firn-headline-text"><span>went to harvard, some career jumps, mostly CS professor at UC Berkeley</span></span></h5></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="leads-a-number-of-societies-and-organizations,-including-international-computer-science-institute,-simons-institute-for-the-theory-of-computing"><span class="firn-headline-text"><span>leads a number of societies and organizations, including International Computer Science Institute, Simons Institute for the Theory of Computing</span></span></h5></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="and-also-got-a-bunch-of-prizes-for-his-work-on-np-complete-problems"><span class="firn-headline-text"><span>and also got a bunch of prizes for his work on NP-complete problems</span></span></h5></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="edmonds-karp-algorithm-for-max-flow-with-jack-edmonds-1971"><span class="firn-headline-text"><span>Edmonds-Karp algorithm for max flow with Jack Edmonds 1971</span></span></h5></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="landmark-np-completeness-paper-in-1972"><span class="firn-headline-text"><span>landmark NP-completeness paper in 1972</span></span></h5><div class="firn-headline-section firn-headline-section-6"><h6 class="firn-headline firn-headline-6" id="showed-21-problems-that-sat-can-be-reduced-to"><span class="firn-headline-text"><span>showed 21 problems that SAT can be reduced to</span></span></h6></div><div class="firn-headline-section firn-headline-section-6"><h6 class="firn-headline firn-headline-6" id="a-nice-tree-of-reducibility-+-some-previous-work-mentioned-in-the-paper"><span class="firn-headline-text"><span>a nice tree of reducibility + some previous work mentioned in the paper</span></span></h6></div></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="1973-hopcroft-karp-algorithm-with-john-hopcroft-for-bipartite-graph-max-matchings"><span class="firn-headline-text"><span>1973 Hopcroft-karp algorithm with john hopcroft for bipartite graph max matchings</span></span></h5></div><div class="firn-headline-section firn-headline-section-5"><h5 class="firn-headline firn-headline-5" id="some-other-work-later-on"><span class="firn-headline-text"><span>some other work later on</span></span></h5><section></section></div></div></div></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#sources">sources</a><ol><li><a href="#gentle-introductions">gentle introductions</a><ol><li><a href="#https:enwikipediaorgwikicomputational_complexity_theory">https://en.wikipedia.org/wiki/Computational_complexity_theory</a></li><li><a href="#https:complexityzoonetpetting_zoo">https://complexityzoo.net/Petting_Zoo</a></li><li><a href="#https:wwwsimonsfoundationorg20131213richard-karp">https://www.simonsfoundation.org/2013/12/13/richard-karp/</a></li></ol></li></ol></li><li><a href="#overview">overview</a><ol><li><a href="#computational-complexity-theory-studies-how-&quot;difficult&quot;-a-problem-is">computational complexity theory studies how "difficult" a problem is</a><ol><li><a href="#importantly,-not-how-&quot;good&quot;-an-algorithm-is-this-field-deals-with-all-algorithms-that-solve-a-given-problem">importantly, not how "good" an algorithm is... this field deals with all algorithms that solve a given problem</a></li></ol></li><li><a href="#key-concepts">key concepts</a><ol><li><a href="#types-of-problems">types of problems</a></li><li><a href="#turing-machines">Turing machines</a></li><li><a href="#reducibility">reducibility</a></li><li><a href="#complexity-classes">complexity classes</a></li><li><a href="#hierarchy">hierarchy</a></li></ol></li><li><a href="#key-problems">key problems</a><ol><li><a href="#p-vs-np">P vs NP</a></li></ol></li></ol></li><li><a href="#richard-karp-(the-actual-assignment)">richard karp (the actual assignment)</a><ol><li><a href="#overview">overview</a><ol><li><a href="#basically,-see-https:wwwsimonsfoundationorg20131213richard-karp">basically, see https://www.simonsfoundation.org/2013/12/13/richard-karp/</a></li></ol></li><li><a href="#todo-storyboard-richard-karp-life">TODO storyboard richard karp life</a></li></ol></li><li><a href="#vocab-and-definitions">vocab and definitions</a><ol><li><a href="#dtm,-deterministic-turing-machine">DTM, deterministic Turing machine</a></li></ol></li><li><a href="#complexity-classes">complexity classes</a><ol><li><a href="#p">P</a></li><li><a href="#np">NP</a><ol><li><a href="#whats-up-with-conp?-checkin-&quot;no&quot;??">whats up with coNP? checkin "no"??</a></li></ol></li><li><a href="#np-complete">NP-complete</a></li><li><a href="#ph-(polynomial-hierarchy?)">PH (polynomial hierarchy?)</a></li><li><a href="#pspace">PSPACE</a></li><li><a href="#exp">EXP</a></li><li><a href="#ac^0,-nc^0,-nc">AC^0, NC^0, NC</a></li><li><a href="#l">L</a></li><li><a href="#ppoly">P/poly</a></li><li><a href="#bpp">BPP</a></li></ol></li><li><a href="#flows">flows</a><ol><li><a href="#wikipedia-computational-complexity-theory">Wikipedia computational complexity theory</a><ol><li><a href="#computational-problems">computational problems</a><ol><li><a href="#problem-instances">problem instances</a></li><li><a href="#representing-problem-instances">representing problem instances</a></li><li><a href="#decision-problems-(most-basic-type)">decision problems (most basic type)</a><ol><li><a href="#it-can-be-thought-of-as-a-&quot;formal-language&quot;">it can be thought of as a "formal language"</a></li></ol></li><li><a href="#function-problems">function problems</a><ol><li><a href="#but-does-this-really-work?-how-can-a-decision-tm-be-used-to-compute-the-function-output-efficiently?">but does this really work? how can a decision TM be used to compute the function output efficiently?</a></li></ol></li><li><a href="#size-of-an-instance">size of an instance</a></li></ol></li><li><a href="#machine-models-and-complexity-measures">machine models and complexity measures</a><ol><li><a href="#turing-machine">Turing machine</a></li><li><a href="#other-machine-models">other machine models</a></li><li><a href="#complexity-measures">Complexity Measures</a><ol><li><a href="#blums-complexity-axioms">blums complexity axioms</a></li></ol></li><li><a href="#bestworstaverage-case">best/worst/average case</a></li><li><a href="#upper-and-lower-bounds-for-problems">upper and lower bounds for problems</a></li></ol></li><li><a href="#complexity-classes">complexity classes</a><ol><li><a href="#dependencies">dependencies</a><ol><li><a href="#problem-type">problem type</a></li><li><a href="#computation-model">computation model</a></li><li><a href="#bounded-resources">bounded resources</a></li></ol></li><li><a href="#an-example-definition">an example definition</a><ol><li><a href="#why-are-there-different-classes-if-decision-and-function-problems-are-the-same-ish?-dunno">why are there different classes if decision and function problems are the same-ish? dunno</a></li></ol></li><li><a href="#important-complexity-classes">important complexity classes</a></li><li><a href="#hierarchy-theorems">Hierarchy theorems</a></li><li><a href="#reduction">Reduction</a><ol><li><a href="#hardness-and-completeness">hardness and completeness</a></li></ol></li></ol></li><li><a href="#important-open-problems">important open problems</a><ol><li><a href="#p-vs-np">P vs NP</a></li><li><a href="#np-indeterminate-problems-(in-np-but-not-in-p-nor-np-complete)">NP-indeterminate problems (in NP but not in P nor NP-complete)</a></li><li><a href="#separations-between-other-complexity-classes">separations between other complexity classes</a></li></ol></li><li><a href="#intractability">Intractability</a></li><li><a href="#continuous-complexity-theory">continuous complexity theory</a></li><li><a href="#history">History</a><ol><li><a href="#many-foundations-laid,-eg-turing-machine-in-1936-which-allowed-for-analysis-of-various-algorithms">Many foundations laid, eg. Turing machine in 1936 which allowed for analysis of various algorithms.</a></li><li><a href="#first-systematic-study-attributed-to-juris-hartmanis-and-richard-e-stearns-in-&quot;on-the-computational-complexity-of-algorithms&quot;-(1965)">First systematic study attributed to Juris Hartmanis and Richard E. Stearns in "On the Computational Complexity of Algorithms" (1965)</a></li><li><a href="#edmonds-(cobham-edmonds-thesis)-suggests-polynomial-problems-are-&quot;good&quot;-(1965)">Edmonds (Cobham-Edmonds thesis) suggests polynomial problems are "good" (1965)</a></li><li><a href="#other-studies-of-problems-with-bounded-resources-in-the-previous-few-years">other studies of problems with bounded resources in the previous few years</a></li><li><a href="#blum-axioms-for-complexity-measures-(1967),-and-the-&quot;speed-up-theorem&quot;">Blum axioms for complexity measures (1967), and the "speed-up theorem"</a></li><li><a href="#1971-stephen-cook-and-leonid-levin-proved-existance-of-practically-relevant-np-complete-problems">1971 Stephen Cook and Leonid Levin proved existance of practically relevant NP-complete problems</a></li><li><a href="#richard-karp-(1972)-showed-21-relevant-and-np-complete-problems-(op)">Richard Karp (1972) showed 21 relevant and NP-complete problems (op)</a><ol><li><a href="#oldest-of-four-children,-born-to-jewish-family-in-dorchester,-boston">oldest of four children, born to jewish family in Dorchester, Boston</a></li><li><a href="#mother-got-harvard-degree-at-age-57-and-father-wanted-to-go-on-to-medschool-after-harvard-but-became-a-math-teacher-bc-he-couldn&apos;t-afford-med-school">mother got harvard degree at age 57 and father wanted to go on to medschool after Harvard but became a math teacher bc he couldn't afford med school</a></li><li><a href="#went-to-harvard,-some-career-jumps,-mostly-cs-professor-at-uc-berkeley">went to harvard, some career jumps, mostly CS professor at UC Berkeley</a></li><li><a href="#leads-a-number-of-societies-and-organizations,-including-international-computer-science-institute,-simons-institute-for-the-theory-of-computing">leads a number of societies and organizations, including International Computer Science Institute, Simons Institute for the Theory of Computing</a></li><li><a href="#and-also-got-a-bunch-of-prizes-for-his-work-on-np-complete-problems">and also got a bunch of prizes for his work on NP-complete problems</a></li><li><a href="#edmonds-karp-algorithm-for-max-flow-with-jack-edmonds-1971">Edmonds-Karp algorithm for max flow with Jack Edmonds 1971</a></li><li><a href="#landmark-np-completeness-paper-in-1972">landmark NP-completeness paper in 1972</a><ol><li><a href="#showed-21-problems-that-sat-can-be-reduced-to">showed 21 problems that SAT can be reduced to</a></li><li><a href="#a-nice-tree-of-reducibility-+-some-previous-work-mentioned-in-the-paper">a nice tree of reducibility + some previous work mentioned in the paper</a></li></ol></li><li><a href="#1973-hopcroft-karp-algorithm-with-john-hopcroft-for-bipartite-graph-max-matchings">1973 Hopcroft-karp algorithm with john hopcroft for bipartite graph max matchings</a></li><li><a href="#some-other-work-later-on">some other work later on</a></li></ol></li></ol></li></ol></li></ol></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Story of Science: Computational Complexity Theory</h1> <h2 class="subtitle"></h2> <span class="author">Albert H</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org4e75639">1. sources</a>
+<ul>
+<li><a href="#org77b0c56">1.1. gentle introductions</a>
+<ul>
+<li><a href="#org9fba467">1.1.1. https://en.wikipedia.org/wiki/Computational_complexity_theory</a></li>
+<li><a href="#orgcc380dc">1.1.2. https://complexityzoo.net/Petting_Zoo</a></li>
+<li><a href="#orgad3b2a6">1.1.3. https://www.simonsfoundation.org/2013/12/13/richard-karp/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org40c5e21">2. overview</a>
+<ul>
+<li><a href="#orga103a63">2.1. computational complexity theory studies how "difficult" a problem is</a>
+<ul>
+<li><a href="#org421eabf">2.1.1. importantly, not how "good" an algorithm is&#x2026; this field deals with all algorithms that solve a given problem</a></li>
+</ul>
+</li>
+<li><a href="#org8bbdc20">2.2. key concepts</a>
+<ul>
+<li><a href="#org3ae7e16">2.2.1. types of problems</a></li>
+<li><a href="#org8762d2c">2.2.2. Turing machines</a></li>
+<li><a href="#orge7afbf4">2.2.3. reducibility</a></li>
+<li><a href="#org9b29ae6">2.2.4. complexity classes</a></li>
+<li><a href="#org0190237">2.2.5. hierarchy</a></li>
+</ul>
+</li>
+<li><a href="#org1276ad8">2.3. key problems</a>
+<ul>
+<li><a href="#org3bbdbd0">2.3.1. P vs NP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6a8f3b8">3. richard karp (the actual assignment)</a>
+<ul>
+<li><a href="#orgf757167">3.1. overview</a>
+<ul>
+<li><a href="#org6ce37ef">3.1.1. basically, see https://www.simonsfoundation.org/2013/12/13/richard-karp/</a></li>
+</ul>
+</li>
+<li><a href="#orgfe2ad59">3.2. <span class="todo TODO">TODO</span> storyboard richard karp life</a></li>
+</ul>
+</li>
+<li><a href="#orgaf338c4">4. vocab and definitions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></a>
+<ul>
+<li><a href="#org4a14c88">4.1. DTM, deterministic Turing machine</a></li>
+</ul>
+</li>
+<li><a href="#orgbecc08e">5. complexity classes</a>
+<ul>
+<li><a href="#orgfdbaacf">5.1. P</a></li>
+<li><a href="#orgbeda34e">5.2. NP</a>
+<ul>
+<li><a href="#org7b968b7">5.2.1. whats up with coNP? checkin "no"??&#xa0;&#xa0;&#xa0;<span class="tag"><span class="toexpand">toexpand</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org24d392b">5.3. NP-complete</a></li>
+<li><a href="#org82ba1b8">5.4. PH (polynomial hierarchy?)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="toexpand">toexpand</span></span></a></li>
+<li><a href="#org25d4627">5.5. PSPACE</a></li>
+<li><a href="#org5b5d5ba">5.6. EXP</a></li>
+<li><a href="#org6ac9e91">5.7. AC<sup>0</sup>, NC<sup>0</sup>, NC</a></li>
+<li><a href="#orga9db6d8">5.8. L</a></li>
+<li><a href="#org8024dc8">5.9. P/poly</a></li>
+<li><a href="#org2149989">5.10. BPP</a></li>
+</ul>
+</li>
+<li><a href="#org2b1f278">6. flows</a>
+<ul>
+<li><a href="#org55c0dd3">6.1. Wikipedia computational complexity theory</a>
+<ul>
+<li><a href="#org0f3bbd0">6.1.1. computational problems</a></li>
+<li><a href="#org1ee6c82">6.1.2. machine models and complexity measures</a></li>
+<li><a href="#org6c9d36d">6.1.3. complexity classes</a></li>
+<li><a href="#org8d9653b">6.1.4. important open problems</a></li>
+<li><a href="#orgec8ffce">6.1.5. Intractability</a></li>
+<li><a href="#org8d9c9b9">6.1.6. continuous complexity theory&#xa0;&#xa0;&#xa0;<span class="tag"><span class="toexpand">toexpand</span></span></a></li>
+<li><a href="#org95fee0c">6.1.7. History</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<div id="outline-container-org4e75639" class="outline-2">
+<h2 id="org4e75639"><span class="section-number-2">1</span> sources</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org77b0c56" class="outline-3">
+<h3 id="org77b0c56"><span class="section-number-3">1.1</span> gentle introductions</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org9fba467" class="outline-4">
+<h4 id="org9fba467"><span class="section-number-4">1.1.1</span> <a href="https://en.wikipedia.org/wiki/Computational_complexity_theory">https://en.wikipedia.org/wiki/Computational_complexity_theory</a></h4>
+</div>
+<div id="outline-container-orgcc380dc" class="outline-4">
+<h4 id="orgcc380dc"><span class="section-number-4">1.1.2</span> <a href="https://complexityzoo.net/Petting_Zoo">https://complexityzoo.net/Petting_Zoo</a></h4>
+</div>
+<div id="outline-container-orgad3b2a6" class="outline-4">
+<h4 id="orgad3b2a6"><span class="section-number-4">1.1.3</span> <a href="https://www.simonsfoundation.org/2013/12/13/richard-karp/">https://www.simonsfoundation.org/2013/12/13/richard-karp/</a></h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org40c5e21" class="outline-2">
+<h2 id="org40c5e21"><span class="section-number-2">2</span> overview</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orga103a63" class="outline-3">
+<h3 id="orga103a63"><span class="section-number-3">2.1</span> computational complexity theory studies how "difficult" a problem is</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org421eabf" class="outline-4">
+<h4 id="org421eabf"><span class="section-number-4">2.1.1</span> importantly, not how "good" an algorithm is&#x2026; this field deals with all algorithms that solve a given problem</h4>
+</div>
+</div>
+<div id="outline-container-org8bbdc20" class="outline-3">
+<h3 id="org8bbdc20"><span class="section-number-3">2.2</span> key concepts</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-org3ae7e16" class="outline-4">
+<h4 id="org3ae7e16"><span class="section-number-4">2.2.1</span> types of problems</h4>
+</div>
+<div id="outline-container-org8762d2c" class="outline-4">
+<h4 id="org8762d2c"><span class="section-number-4">2.2.2</span> Turing machines</h4>
+</div>
+<div id="outline-container-orge7afbf4" class="outline-4">
+<h4 id="orge7afbf4"><span class="section-number-4">2.2.3</span> reducibility</h4>
+</div>
+<div id="outline-container-org9b29ae6" class="outline-4">
+<h4 id="org9b29ae6"><span class="section-number-4">2.2.4</span> complexity classes</h4>
+</div>
+<div id="outline-container-org0190237" class="outline-4">
+<h4 id="org0190237"><span class="section-number-4">2.2.5</span> hierarchy</h4>
+</div>
+</div>
+<div id="outline-container-org1276ad8" class="outline-3">
+<h3 id="org1276ad8"><span class="section-number-3">2.3</span> key problems</h3>
+<div class="outline-text-3" id="text-2-3">
+</div>
+<div id="outline-container-org3bbdbd0" class="outline-4">
+<h4 id="org3bbdbd0"><span class="section-number-4">2.3.1</span> P vs NP</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org6a8f3b8" class="outline-2">
+<h2 id="org6a8f3b8"><span class="section-number-2">3</span> richard karp (the actual assignment)</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgf757167" class="outline-3">
+<h3 id="orgf757167"><span class="section-number-3">3.1</span> overview</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-org6ce37ef" class="outline-4">
+<h4 id="org6ce37ef"><span class="section-number-4">3.1.1</span> basically, see <a href="https://www.simonsfoundation.org/2013/12/13/richard-karp/">https://www.simonsfoundation.org/2013/12/13/richard-karp/</a></h4>
+</div>
+</div>
+<div id="outline-container-orgfe2ad59" class="outline-3">
+<h3 id="orgfe2ad59"><span class="section-number-3">3.2</span> <span class="todo TODO">TODO</span> storyboard richard karp life</h3>
+</div>
+</div>
+<div id="outline-container-orgaf338c4" class="outline-2">
+<h2 id="orgaf338c4"><span class="section-number-2">4</span> vocab and definitions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org4a14c88" class="outline-3">
+<h3 id="org4a14c88"><span class="section-number-3">4.1</span> DTM, deterministic Turing machine</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+A Turing machine with one infinite tape and a state function that has exactly one output for each (tape value, machine state) input. (Not a formal definition).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbecc08e" class="outline-2">
+<h2 id="orgbecc08e"><span class="section-number-2">5</span> complexity classes</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgfdbaacf" class="outline-3">
+<h3 id="orgfdbaacf"><span class="section-number-3">5.1</span> P</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Problems that can be solved in polynomial time using a deterministic Turing machine (DTM). These problems are generally considered "tractable" by the Cobham-Edmonds thesis.
+</p>
+
+<p>
+In practice, problems with large-degree solutions usually have smaller-degree solutions discovered later, so the division between P and other problems 'has turned out to be somewhat "natural"'.
+</p>
+
+<p>
+Examples: { graph reachability (whether two nodes are in the same component), 2SAT (SCC :)), matrix multiplication }
+</p>
+</div>
+</div>
+<div id="outline-container-orgbeda34e" class="outline-3">
+<h3 id="orgbeda34e"><span class="section-number-3">5.2</span> NP</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+Problems that can be checked "yes" in polynomial time. For example, graph isomorphism.
+</p>
+</div>
+<div id="outline-container-org7b968b7" class="outline-4">
+<h4 id="org7b968b7"><span class="section-number-4">5.2.1</span> whats up with coNP? checkin "no"??&#xa0;&#xa0;&#xa0;<span class="tag"><span class="toexpand">toexpand</span></span></h4>
+</div>
+</div>
+<div id="outline-container-org24d392b" class="outline-3">
+<h3 id="org24d392b"><span class="section-number-3">5.3</span> NP-complete</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+Problems that are complete for NP, aka. problems in NP that all other NP problems can be reduced to in polynomial time. One example is CircuitSAT: any NP problem can be reduced to CircuitSAT and any problem that CircuitSAT can be reduced to is also NP-complete. Showing that CircuitSAT or any other NP-complete problem can be solved in polynomial time implies that P = NP.
+</p>
+
+<p>
+Examples: TSP, SAT
+</p>
+</div>
+</div>
+<div id="outline-container-org82ba1b8" class="outline-3">
+<h3 id="org82ba1b8"><span class="section-number-3">5.4</span> PH (polynomial hierarchy?)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="toexpand">toexpand</span></span></h3>
+<div class="outline-text-3" id="text-5-4">
+<p>
+Defined as the union of a set of recursively defined classes&#x2026; something? Something about P and NP and oracles about NP and coNP. This is the thing that would collapse, I guess. Eg, why people don't think Graph Isomorphism is NP-complete.
+</p>
+</div>
+</div>
+<div id="outline-container-org25d4627" class="outline-3">
+<h3 id="org25d4627"><span class="section-number-3">5.5</span> PSPACE</h3>
+<div class="outline-text-3" id="text-5-5">
+<p>
+Restricts space instead of time. This class is very large, and includes the entirety of NP (brute force check all possible proofs) and also PP and P<sup>#P</sup>, apparently.
+</p>
+
+<p>
+Notable PSPACE-complete examples: QBF (or QSAT), deciding the winner of eg. Go.
+</p>
+</div>
+</div>
+<div id="outline-container-org5b5d5ba" class="outline-3">
+<h3 id="org5b5d5ba"><span class="section-number-3">5.6</span> EXP</h3>
+<div class="outline-text-3" id="text-5-6">
+<p>
+run-time bounded by \(2^{p(n)}\) where \(p\) is a polynomial (ig). EXP is generally big enough: it contains PSPACE, the polynomial hierarchy (PH), and 'most problems we ever hope to attack'. Of course, there are bigger ones.
+</p>
+</div>
+</div>
+<div id="outline-container-org6ac9e91" class="outline-3">
+<h3 id="org6ac9e91"><span class="section-number-3">5.7</span> AC<sup>0</sup>, NC<sup>0</sup>, NC</h3>
+<div class="outline-text-3" id="text-5-7">
+<p>
+small classes that have to do with circuit complexity.. generally the represent problems that can be solved quickly with massive parallelism.
+</p>
+</div>
+</div>
+<div id="outline-container-orga9db6d8" class="outline-3">
+<h3 id="orga9db6d8"><span class="section-number-3">5.8</span> L</h3>
+<div class="outline-text-3" id="text-5-8">
+<p>
+Logarithmic space (logarithmic spaces on the Turing machine tape). This is nice because space is usually limited. L is contained within P because something about deterministic Turing machines?.
+</p>
+</div>
+</div>
+<div id="outline-container-org8024dc8" class="outline-3">
+<h3 id="org8024dc8"><span class="section-number-3">5.9</span> P/poly</h3>
+<div class="outline-text-3" id="text-5-9">
+<p>
+polynomial time algorithms that solve a problem given an advice string which is at most polynomial in length and a function only of the input size. P/exp would make all problems trivial (provide a lookup table), but P/poly is actually interesting, ig. P/poly contains P, so \(NP \notin P/poly\) would imply \(P \neq NP\).
+</p>
+</div>
+</div>
+<div id="outline-container-org2149989" class="outline-3">
+<h3 id="org2149989"><span class="section-number-3">5.10</span> BPP</h3>
+<div class="outline-text-3" id="text-5-10">
+<p>
+Randomized algorithms where the error rate is 'bounded by a constant'. Error rate could be improved by running the algorithm more times and taking a majority vote.
+</p>
+
+<p>
+AKS primality test made a previously randomized algorithm deterministic, which was a 'key example of derandomization'. People apparently think that P = BPP (and this is an important open problem).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org2b1f278" class="outline-2">
+<h2 id="org2b1f278"><span class="section-number-2">6</span> flows</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org55c0dd3" class="outline-3">
+<h3 id="org55c0dd3"><span class="section-number-3">6.1</span> Wikipedia computational complexity theory</h3>
+<div class="outline-text-3" id="text-6-1">
+</div>
+<div id="outline-container-org0f3bbd0" class="outline-4">
+<h4 id="org0f3bbd0"><span class="section-number-4">6.1.1</span> computational problems</h4>
+<div class="outline-text-4" id="text-6-1-1">
+</div>
+<ol class="org-ol">
+<li><a id="orgf6b086e"></a>problem instances<br />
+<div class="outline-text-5" id="text-6-1-1-1">
+<p>
+A problem describes the problem. the actual "numbers" that describe a specific problem is called a problem instance. sorting a list is a problem, sorting <i>this</i> list is a problem instance.
+</p>
+</div>
+</li>
+<li><a id="org1129836"></a>representing problem instances<br />
+<div class="outline-text-5" id="text-6-1-1-2">
+<p>
+formally strings of characters from alphabets. The input size is the length of the string. Different representations can be chosen but it should be trivial (fast) to convert from one to the other.
+</p>
+</div>
+</li>
+<li><a id="org40b8ddd"></a>decision problems (most basic type)<br />
+<div class="outline-text-5" id="text-6-1-1-3">
+<p>
+Generally, given an input, the output is either yes (accept) or no (reject). For example, deciding whether a graph is connected or not.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org517415c"></a>it can be thought of as a "formal language"&#xa0;&#xa0;&#xa0;<span class="tag"><span class="toexpand">toexpand</span></span><br /></li>
+</ol>
+</li>
+<li><a id="org2361af2"></a>function problems<br />
+<div class="outline-text-5" id="text-6-1-1-4">
+<p>
+Very general: a function problem 'is a computational problem where a single output (of a total function) is expected for every input, but the output is more complex than that of a decision problem'. Basically calculate a non-binary function.
+</p>
+
+<p>
+Examples: traveling salesman, integer factorization.
+</p>
+
+<p>
+However, all function problems can be modeled as decision problems: For some function \(f(*args) \to ans\), it can be modeled as the decision problem of whether \((*args, ans)\) is a valid output.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org4d5cdbf"></a>but does this really work? how can a decision TM be used to compute the function output efficiently?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="toexpand">toexpand</span></span><br /></li>
+</ol>
+</li>
+<li><a id="org4dc1e05"></a>size of an instance<br />
+<div class="outline-text-5" id="text-6-1-1-5">
+<p>
+Size is usually the length of the input. The complexity is a function of the input size, usually representing the worst case time or space (or any other complexity measure) required for any input size.
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org1ee6c82" class="outline-4">
+<h4 id="org1ee6c82"><span class="section-number-4">6.1.2</span> machine models and complexity measures</h4>
+<div class="outline-text-4" id="text-6-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="org3fd3ba9"></a>Turing machine<br />
+<div class="outline-text-5" id="text-6-1-2-1">
+<p>
+standard Turing machine stuff. its very general. Many types of turing machines (probabilistic, non-deterministic, quantum, etc) are used to define different complexity classes.
+</p>
+</div>
+</li>
+<li><a id="org730ab14"></a>other machine models&#xa0;&#xa0;&#xa0;<span class="tag"><span class="toexpand">toexpand</span></span><br />
+<div class="outline-text-5" id="text-6-1-2-2">
+<p>
+Other non-standard Turing machines are used, but the idea is that they aren't actually any better, somehow?
+</p>
+</div>
+</li>
+<li><a id="org86d5a15"></a>Complexity Measures<br />
+<div class="outline-text-5" id="text-6-1-2-3">
+<p>
+Usually time or space, but any complexity measure that satisfies Blum's complexity axioms can be used. Examples include: communication complexity, circuit complexity.
+</p>
+
+<p>
+Also constant factors don't really matter. And its usually the worst case.
+</p>
+
+<p>
+Importantly, complexity measures are also a function of the type of Turing machine used, since some Turing machines are better in some scenarios.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org57d4637"></a>blums complexity axioms&#xa0;&#xa0;&#xa0;<span class="tag"><span class="toexpand">toexpand</span></span><br /></li>
+</ol>
+</li>
+<li><a id="org6b4cdcf"></a>best/worst/average case<br />
+<div class="outline-text-5" id="text-6-1-2-4">
+<p>
+We generally talk about worst case complexity, but some algorithms have good average-case which is good enough (eg. quicksort). Generally, best-case &lt; average-case &lt; amortized analysis &lt; worst-case.
+</p>
+</div>
+</li>
+<li><a id="orgd66e360"></a>upper and lower bounds for problems<br />
+<div class="outline-text-5" id="text-6-1-2-5">
+<p>
+Importantly, this is <b>not an upper or lower bound for an algorithm</b>. Instead, for problems in general, it's relatively easy to decide an upper bound (which is just the worst case complexity of any correct algorithm), but a lower bound is difficult (since it must involve algorithms that haven't been discovered yet).
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org6c9d36d" class="outline-4">
+<h4 id="org6c9d36d"><span class="section-number-4">6.1.3</span> complexity classes</h4>
+<div class="outline-text-4" id="text-6-1-3">
+</div>
+<ol class="org-ol">
+<li><a id="orgd148ee3"></a>dependencies<br />
+<div class="outline-text-5" id="text-6-1-3-1">
+<p>
+Complexity classes are a function of the following factors
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org52a92bd"></a>problem type<br />
+<div class="outline-text-6" id="text-6-1-3-1-1">
+<p>
+{ decision, function, counting, optimization, promise, etc }
+</p>
+</div>
+</li>
+<li><a id="orge8bbe75"></a>computation model<br />
+<div class="outline-text-6" id="text-6-1-3-1-2">
+<p>
+{ deterministic Turing machine, non-deterministic, Boolean circuits, quantum TM, monotone circuits, etc }
+</p>
+</div>
+</li>
+<li><a id="org85d70d6"></a>bounded resources<br />
+<div class="outline-text-6" id="text-6-1-3-1-3">
+<p>
+{ polynomial time, logarithmic space, constant depth }
+</p>
+</div>
+</li>
+</ol>
+</li>
+<li><a id="org641e351"></a>an example definition<br />
+<div class="outline-text-5" id="text-6-1-3-2">
+<blockquote>
+<p>
+The set of decision problems solvable by a deterministic Turing machine within time f(n). (This complexity class is known as DTIME(f(n)).)
+</p>
+</blockquote>
+
+<p>
+However, using a concrete function \(f(n)\) is often computational-model-dependent, but the Cobham-Edmonds thesis states that 'the time complexities in any two reasonable general models of computation are polynomial related.'
+</p>
+
+<p>
+This suggests that all if we want to be machine-independent, all polynomial problems are roughly the same and belong in the same class: P (for decision problems) and FP (for function problems).
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgc396f18"></a>why are there different classes if decision and function problems are the same-ish? dunno&#xa0;&#xa0;&#xa0;<span class="tag"><span class="toexpand">toexpand</span></span><br /></li>
+</ol>
+</li>
+<li><a id="org401accb"></a>important complexity classes<br />
+<div class="outline-text-5" id="text-6-1-3-3">
+<p>
+A nice list here but the complexity petting zoo is more friendly.
+</p>
+</div>
+</li>
+<li><a id="org5807f6c"></a>Hierarchy theorems&#xa0;&#xa0;&#xa0;<span class="tag"><span class="toexpand">toexpand</span></span><br />
+<div class="outline-text-5" id="text-6-1-3-4">
+<p>
+We would like to establish a strict containment hierarchy within classes (but between different eg. polynomial functions). This does that, apparently?
+</p>
+</div>
+</li>
+<li><a id="orgd0d5e80"></a>Reduction<br />
+<div class="outline-text-5" id="text-6-1-3-5">
+<p>
+Many problems can be turned into other problems in their class, which provides an upper bound on the difficulty of the problem.
+</p>
+
+<p>
+There are many types of reductions, but the most common type is the polynomial-time reduction which means the reduction takes polynomial time. If you take a non-polynomial reduction to turn a problem into a polynomial problem, then you haven't proven anything.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgf008fc1"></a>hardness and completeness<br />
+<div class="outline-text-6" id="text-6-1-3-5-1">
+<p>
+A problem \(X\) is hard for a class \(C\) if every problem in \(C\) can be reduced to \(X\). A problem \(X\) is complete for \(C\) if it is hard for \(C\) it is in \(C\). NP-complete problems are the "most difficult problems in NP" because other problems can be reduced to them.
+</p>
+
+<p>
+Being able to reduce a hard problem to another problem shows that that other problem is just as hard, by contradiction. Similarly, being able to reduce a hard problem to a known easy one collapses the hierarchy.
+</p>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-org8d9653b" class="outline-4">
+<h4 id="org8d9653b"><span class="section-number-4">6.1.4</span> important open problems</h4>
+<div class="outline-text-4" id="text-6-1-4">
+</div>
+<ol class="org-ol">
+<li><a id="org14d3319"></a>P vs NP<br />
+<div class="outline-text-5" id="text-6-1-4-1">
+<p>
+If any NP-complete problem can be reduced (polynomially) to a P problem, then many NP problems would be solvable in polynomial time. There are many NP problems that we would like to solve efficiently, so this would be a big deal.
+</p>
+
+<p>
+In fact, many of the other 'important open problems' are important because they would show that \(P \neq  NP\).
+</p>
+</div>
+</li>
+<li><a id="org7d62d81"></a>NP-indeterminate problems (in NP but not in P nor NP-complete)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="toexpand">toexpand</span></span><br />
+<div class="outline-text-5" id="text-6-1-4-2">
+<p>
+some theorem shows that if P neq NP then there are NP-indeterminate problems. If we show that there are none, then that proves P = NP. Some unclassified problems (graph isomorphism problem, integer factorization problem) being NP-complete would 'collapse the polynomial hierarchy.' ?????
+</p>
+</div>
+</li>
+<li><a id="org504980a"></a>separations between other complexity classes<br />
+<div class="outline-text-5" id="text-6-1-4-3">
+<p>
+There are many classes that are improper subsets of each other. If any of those relations can be shown to be a proper subset, then classes on either side would be unequal. For example, many such relations exist between P and NP and showing that one of those relations is a proper subset relation would prove that P != NP. Or, proving that two classes (eg. P, PSPACE) are equal would squish all classes in between into one (in this case, showing that P = NP).
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgec8ffce" class="outline-4">
+<h4 id="orgec8ffce"><span class="section-number-4">6.1.5</span> Intractability</h4>
+<div class="outline-text-4" id="text-6-1-5">
+<p>
+Meaning "not handleable". The Cobham-Edmonds thesis suggests that all polynomial problems are tractable. However, in the real world, specific numbers matter (\(N^{15}\) is much worse than \(0.0001^N\))
+</p>
+</div>
+</div>
+<div id="outline-container-org8d9c9b9" class="outline-4">
+<h4 id="org8d9c9b9"><span class="section-number-4">6.1.6</span> continuous complexity theory&#xa0;&#xa0;&#xa0;<span class="tag"><span class="toexpand">toexpand</span></span></h4>
+<div class="outline-text-4" id="text-6-1-6">
+<p>
+Something about continuous functions or analog logic.
+</p>
+</div>
+</div>
+<div id="outline-container-org95fee0c" class="outline-4">
+<h4 id="org95fee0c"><span class="section-number-4">6.1.7</span> History</h4>
+<div class="outline-text-4" id="text-6-1-7">
+</div>
+<ol class="org-ol">
+<li><a id="org5a4d811"></a>Many foundations laid, eg. Turing machine in 1936 which allowed for analysis of various algorithms.<br /></li>
+<li><a id="org6c8c398"></a>First systematic study attributed to Juris Hartmanis and Richard E. Stearns in "On the Computational Complexity of Algorithms" (1965)<br /></li>
+<li><a id="orgdeb500e"></a>Edmonds (Cobham-Edmonds thesis) suggests polynomial problems are "good" (1965)<br /></li>
+<li><a id="orga0008ca"></a>other studies of problems with bounded resources in the previous few years<br /></li>
+<li><a id="org9aae67a"></a>Blum axioms for complexity measures (1967), and the "speed-up theorem"<br /></li>
+<li><a id="orgb6d30ae"></a>1971 Stephen Cook and Leonid Levin proved existance of practically relevant NP-complete problems<br /></li>
+<li><a id="orgab31d99"></a>Richard Karp (1972) showed 21 relevant and NP-complete problems (op)<br />
+<ol class="org-ol">
+<li><a id="org2f6eaa1"></a>oldest of four children, born to jewish family in Dorchester, Boston<br /></li>
+<li><a id="org00309c8"></a>mother got harvard degree at age 57 and father wanted to go on to medschool after Harvard but became a math teacher bc he couldn't afford med school<br /></li>
+<li><a id="org0dfe735"></a>went to harvard, some career jumps, mostly CS professor at UC Berkeley<br /></li>
+<li><a id="org290f48c"></a>leads a number of societies and organizations, including International Computer Science Institute, Simons Institute for the Theory of Computing<br /></li>
+<li><a id="orgeb552b3"></a>and also got a bunch of prizes for his work on NP-complete problems<br /></li>
+<li><a id="org48c4cc9"></a>Edmonds-Karp algorithm for max flow with Jack Edmonds 1971<br /></li>
+<li><a id="orgdd401d8"></a>landmark NP-completeness paper in 1972<br />
+<ol class="org-ol">
+<li><a id="orgfb6366e"></a>showed 21 problems that SAT can be reduced to<br /></li>
+<li><a id="org390422a"></a>a nice tree of reducibility + some previous work mentioned in the paper<br /></li>
+</ol>
+</li>
+<li><a id="org2e3f074"></a>1973 Hopcroft-karp algorithm with john hopcroft for bipartite graph max matchings<br /></li>
+<li><a id="org965c78e"></a>some other work later on<br />
+<div class="outline-text-6" id="text-6-1-7-7-9">
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

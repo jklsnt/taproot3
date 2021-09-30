@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-11 Sat 18:32 -->
+<!-- 2021-09-27 Mon 11:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="https://taproot3.sanity.gq/global.css" type="text/css"/>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -218,124 +218,150 @@
 </script>
 </head>
 <body>
-<div id="org-div-home-and-up">
- <a accesskey="h" href="https://taproot3.sanity.gq/sitemap.html"> UP </a>
- |
- <a accesskey="H" href="https://taproot3.sanity.gq/theindex.html"> HOME </a>
-</div><div id="content">
-<div id="outline-container-org0f8a7c6" class="outline-2">
-<h2 id="org0f8a7c6"><span class="section-number-2">1</span> multivariate analysis</h2>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title"></h1> <h2 class="subtitle"></h2> <span class="author">Exr0n</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org04a9920">1. multivariate analysis</a>
+<ul>
+<li><a href="#org2e59a7d">1.1. terms</a>
+<ul>
+<li><a href="#orgdd0ab76">1.1.1. null hypothesis</a></li>
+<li><a href="#org8134518">1.1.2. dependence - if one set of variables can predict another</a></li>
+<li><a href="#org8bd9aa4">1.1.3. interdependent analysis - intercorrelations for underlying understanding</a></li>
+<li><a href="#orga6d3016">1.1.4. metric vs non metric - a metric variable is numeric</a></li>
+</ul>
+</li>
+<li><a href="#orgb6434e8">1.2. then a bunch of methods for dependence analysis</a>
+<ul>
+<li><a href="#org413400e">1.2.1. pick by matching which ones match your input/output variable types and numbers</a></li>
+</ul>
+</li>
+<li><a href="#org605c41a">1.3. interdependent multivariate analysis</a>
+<ul>
+<li><a href="#org0189dd8">1.3.1. factor analysis</a></li>
+</ul>
+</li>
+<li><a href="#orgaaa0f70">1.4. important matrices</a>
+<ul>
+<li><a href="#orgc127e71">1.4.1. data matrix</a></li>
+<li><a href="#orgcebb5ca">1.4.2. USSCP</a></li>
+<li><a href="#org460a5a0">1.4.3. some other thing CSSCP</a></li>
+<li><a href="#orgb55b786">1.4.4. covariance matrix (C)</a></li>
+<li><a href="#orgeb15eeb">1.4.5. correlation matrix (R)</a></li>
+</ul>
+</li>
+<li><a href="#org61bc701">1.5. applications</a>
+<ul>
+<li><a href="#orgd1c9c51">1.5.1. lots of fields</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<div id="outline-container-org04a9920" class="outline-2">
+<h2 id="org04a9920"><span class="section-number-2">1</span> multivariate analysis</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgae0de33" class="outline-3">
-<h3 id="orgae0de33"><span class="section-number-3">1.1</span> terms</h3>
+<div id="outline-container-org2e59a7d" class="outline-3">
+<h3 id="org2e59a7d"><span class="section-number-3">1.1</span> terms</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org35a1d9c" class="outline-4">
-<h4 id="org35a1d9c"><span class="section-number-4">1.1.1</span> null hypothesis</h4>
+<div id="outline-container-orgdd0ab76" class="outline-4">
+<h4 id="orgdd0ab76"><span class="section-number-4">1.1.1</span> null hypothesis</h4>
 </div>
-<div id="outline-container-orge02c6eb" class="outline-4">
-<h4 id="orge02c6eb"><span class="section-number-4">1.1.2</span> dependence - if one set of variables can predict another</h4>
+<div id="outline-container-org8134518" class="outline-4">
+<h4 id="org8134518"><span class="section-number-4">1.1.2</span> dependence - if one set of variables can predict another</h4>
 </div>
-<div id="outline-container-orgb9abbfb" class="outline-4">
-<h4 id="orgb9abbfb"><span class="section-number-4">1.1.3</span> interdependent analysis - intercorrelations for underlying understanding</h4>
+<div id="outline-container-org8bd9aa4" class="outline-4">
+<h4 id="org8bd9aa4"><span class="section-number-4">1.1.3</span> interdependent analysis - intercorrelations for underlying understanding</h4>
 </div>
-<div id="outline-container-org4e29de6" class="outline-4">
-<h4 id="org4e29de6"><span class="section-number-4">1.1.4</span> metric vs non metric - a metric variable is numeric</h4>
+<div id="outline-container-orga6d3016" class="outline-4">
+<h4 id="orga6d3016"><span class="section-number-4">1.1.4</span> metric vs non metric - a metric variable is numeric</h4>
 </div>
 </div>
-<div id="outline-container-org1cf86da" class="outline-3">
-<h3 id="org1cf86da"><span class="section-number-3">1.2</span> then a bunch of methods for dependence analysis</h3>
+<div id="outline-container-orgb6434e8" class="outline-3">
+<h3 id="orgb6434e8"><span class="section-number-3">1.2</span> then a bunch of methods for dependence analysis</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-orgbac0812" class="outline-4">
-<h4 id="orgbac0812"><span class="section-number-4">1.2.1</span> pick by matching which ones match your input/output variable types and numbers</h4>
+<div id="outline-container-org413400e" class="outline-4">
+<h4 id="org413400e"><span class="section-number-4">1.2.1</span> pick by matching which ones match your input/output variable types and numbers</h4>
 </div>
 </div>
-<div id="outline-container-org2b070c7" class="outline-3">
-<h3 id="org2b070c7"><span class="section-number-3">1.3</span> interdependent multivariate analysis</h3>
+<div id="outline-container-org605c41a" class="outline-3">
+<h3 id="org605c41a"><span class="section-number-3">1.3</span> interdependent multivariate analysis</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-org3811749" class="outline-4">
-<h4 id="org3811749"><span class="section-number-4">1.3.1</span> factor analysis</h4>
+<div id="outline-container-org0189dd8" class="outline-4">
+<h4 id="org0189dd8"><span class="section-number-4">1.3.1</span> factor analysis</h4>
 <div class="outline-text-4" id="text-1-3-1">
 </div>
-<div id="outline-container-orge313e5a" class="outline-5">
-<h5 id="orge313e5a"><span class="section-number-5">1.3.1.1</span> understand which variables highly correlate to others</h5>
-<div class="outline-text-5" id="text-1-3-1-1">
-</div>
-<div id="outline-container-orgf32f43f" class="outline-6">
-<h6 id="orgf32f43f"><span class="section-number-6">1.3.1.1.1</span> common factor analysis - extracts factors that correlate</h6>
-</div>
-<div id="outline-container-org08a99c8" class="outline-6">
-<h6 id="org08a99c8"><span class="section-number-6">1.3.1.1.2</span> principal component analysis - extract factors that have the largest impact</h6>
-</div>
-</div>
-<div id="outline-container-org0f8e8cd" class="outline-5">
-<h5 id="org0f8e8cd"><span class="section-number-5">1.3.1.2</span> clusterananlysis</h5>
-</div>
-<div id="outline-container-org8a8db84" class="outline-5">
-<h5 id="org8a8db84"><span class="section-number-5">1.3.1.3</span> multidimensional scaling</h5>
-<div class="outline-text-5" id="text-1-3-1-3">
-</div>
-<div id="outline-container-org2cb0348" class="outline-6">
-<h6 id="org2cb0348"><span class="section-number-6">1.3.1.3.1</span> obtain tabluar data from a weighted graph structure?</h6>
-</div>
-</div>
-<div id="outline-container-org4e589f0" class="outline-5">
-<h5 id="org4e589f0"><span class="section-number-5">1.3.1.4</span> corresponding analysis</h5>
-<div class="outline-text-5" id="text-1-3-1-4">
-</div>
-<div id="outline-container-orgc843156" class="outline-6">
-<h6 id="orgc843156"><span class="section-number-6">1.3.1.4.1</span> like factor analysis or something?</h6>
+<ol class="org-ol">
+<li><a id="org9a11622"></a>understand which variables highly correlate to others<br />
+<ol class="org-ol">
+<li><a id="orgd37499a"></a>common factor analysis - extracts factors that correlate<br /></li>
+<li><a id="orgd4197d8"></a>principal component analysis - extract factors that have the largest impact<br /></li>
+</ol>
+</li>
+<li><a id="org6089c4c"></a>clusterananlysis<br /></li>
+<li><a id="orgf6a9629"></a>multidimensional scaling<br />
+<ol class="org-ol">
+<li><a id="orged5e0d1"></a>obtain tabluar data from a weighted graph structure?<br /></li>
+</ol>
+</li>
+<li><a id="org50e7df3"></a>corresponding analysis<br />
+<ol class="org-ol">
+<li><a id="orgfb535d7"></a>like factor analysis or something?<br /></li>
+</ol>
+</li>
+</ol>
 </div>
 </div>
-</div>
-</div>
-<div id="outline-container-orge46b404" class="outline-3">
-<h3 id="orge46b404"><span class="section-number-3">1.4</span> important matrices</h3>
+<div id="outline-container-orgaaa0f70" class="outline-3">
+<h3 id="orgaaa0f70"><span class="section-number-3">1.4</span> important matrices</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-org3db5f0e" class="outline-4">
-<h4 id="org3db5f0e"><span class="section-number-4">1.4.1</span> data matrix</h4>
+<div id="outline-container-orgc127e71" class="outline-4">
+<h4 id="orgc127e71"><span class="section-number-4">1.4.1</span> data matrix</h4>
 </div>
-<div id="outline-container-org2c79f39" class="outline-4">
-<h4 id="org2c79f39"><span class="section-number-4">1.4.2</span> USSCP</h4>
+<div id="outline-container-orgcebb5ca" class="outline-4">
+<h4 id="orgcebb5ca"><span class="section-number-4">1.4.2</span> USSCP</h4>
 <div class="outline-text-4" id="text-1-4-2">
 </div>
-<div id="outline-container-org3f68d94" class="outline-5">
-<h5 id="org3f68d94"><span class="section-number-5">1.4.2.1</span> data matrix multiplied by the transpose</h5>
+<ol class="org-ol">
+<li><a id="org75f3566"></a>data matrix multiplied by the transpose<br /></li>
+</ol>
 </div>
+<div id="outline-container-org460a5a0" class="outline-4">
+<h4 id="org460a5a0"><span class="section-number-4">1.4.3</span> some other thing CSSCP</h4>
 </div>
-<div id="outline-container-org98a8f2f" class="outline-4">
-<h4 id="org98a8f2f"><span class="section-number-4">1.4.3</span> some other thing CSSCP</h4>
+<div id="outline-container-orgb55b786" class="outline-4">
+<h4 id="orgb55b786"><span class="section-number-4">1.4.4</span> covariance matrix (C)</h4>
 </div>
-<div id="outline-container-org6879672" class="outline-4">
-<h4 id="org6879672"><span class="section-number-4">1.4.4</span> covariance matrix (C)</h4>
-</div>
-<div id="outline-container-org802d273" class="outline-4">
-<h4 id="org802d273"><span class="section-number-4">1.4.5</span> correlation matrix (R)</h4>
+<div id="outline-container-orgeb15eeb" class="outline-4">
+<h4 id="orgeb15eeb"><span class="section-number-4">1.4.5</span> correlation matrix (R)</h4>
 <div class="outline-text-4" id="text-1-4-5">
 </div>
-<div id="outline-container-orgc16a434" class="outline-5">
-<h5 id="orgc16a434"><span class="section-number-5">1.4.5.1</span> variables normalized for mean 0 and stddev 1</h5>
+<ol class="org-ol">
+<li><a id="orgaf37682"></a>variables normalized for mean 0 and stddev 1<br /></li>
+</ol>
 </div>
 </div>
-</div>
-<div id="outline-container-orgbf2efbe" class="outline-3">
-<h3 id="orgbf2efbe"><span class="section-number-3">1.5</span> applications</h3>
+<div id="outline-container-org61bc701" class="outline-3">
+<h3 id="org61bc701"><span class="section-number-3">1.5</span> applications</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
-<div id="outline-container-org663bf97" class="outline-4">
-<h4 id="org663bf97"><span class="section-number-4">1.5.1</span> lots of fields</h4>
+<div id="outline-container-orgd1c9c51" class="outline-4">
+<h4 id="orgd1c9c51"><span class="section-number-4">1.5.1</span> lots of fields</h4>
 <div class="outline-text-4" id="text-1-5-1">
 </div>
 </div>
 </div>
 </div>
-</div>
-<div id="postamble" class="status">
-<div class="namedate"><p class="subtitle"><span class="author">Exr0n</span><span class="date">2021-09-11 Sat 16:34</span></p></div><div class="taprootcopyright">(c) 2021 Houjun Liu, Huxley Marvit, Zachary Sayyah, Albert Huang, Dylan Wallace</div>
 </div>
 </body>
 </html>

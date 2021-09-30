@@ -1,0 +1,55 @@
+<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Exr0n" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Handout 17 Riemann Sums Additional Exercises</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        'displayAlign': 'center',
+        'displayIndent': '0em',
+        'extensions': ['tex2jax.js'],
+        'tex2jax': {
+        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
+        'processEscapes': true
+        },
+        'HTML-CSS': { scale: 100,
+                        linebreaks: { automatic: 'false' },
+                        webFont: 'TeX'
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: 'false' },
+              font: 'TeX'},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: 'AMS'},
+               MultLineWidth: '85%',
+               TagSide: 'right',
+               TagIndent: '.8em'
+             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Handout 17 Riemann Sums Additional Exercises</h1></div><div class="metamble"><span><span>Written by </span><span>Exr0n</span></span></div><div class="notebody"><div><section></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="exercises"><span class="firn-headline-text"><span>Exercises</span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="interpreting-in-terms-of-area"><span class="firn-headline-text"><span>interpreting in terms of area</span></span></h2><section><p><span>   </span><img src="/./KBe21math401srcHandout17AdditionalExercises.jpg" /></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="subtracting-integrals"><span class="firn-headline-text"><span>subtracting integrals</span></span></h2><section><p><span>   I expect
+   \[\begin{aligned}
+   \int_1^2f(x)dx = \int_1^5f(x)dx - \int_2^5f(x)dx = -3-4 = -7
+   \end{aligned}\]</span></p><p><span>   In fact, I expect
+   \[\begin{aligned}
+   \int_a^bf(x)dx + \int_b^cf(x)dx = \int_a^cf(x)dx
+   \end{aligned}\]</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="show-$\int_a^b-x^2dx-=-\frac{b^3-a^3}{3}$"><span class="firn-headline-text"><span>show $\int_a^b x^2dx = \frac{b^3-a^3}{3}$</span></span></h2><section><p><span>   (see attached pages)</span></p><p><span>   Keep in mind
+   \[\begin{aligned}
+   \sum_{k=1}^n af(x) = a\sum_{k=1}^n f(x)\\
+   \sum_{k=1}^n \left( a+f(x)\right)  = an + \sum_{k=1}^{n} f(x)
+   \end{aligned}\]</span></p><p><span>   \[\begin{aligned}
+   \int_a^b x^2 dx &= \lim_{n\to \infty} \sum_{k=1}^n \left( \frac{b-a}{n} \left( a+k\frac{b-a}{n}\right) ^2\right)\\
+   &= \lim_{n\to \infty} \frac{b-a}{n} \sum_{k=1}^n \left( a+k\frac{b-a}{n}\right) ^2\\
+   &= \lim_{n\to \infty} \frac{b-a}{n} \sum_{k=1}^n \left( a^2+\left( k\frac{b-a}{n}\right) ^2 + 2ak\frac{b-a}{n}\right) \\
+   &= \lim_{n\to \infty} \frac{b-a}{n} \sum_{k=1}^n a^2+\sum_{k=1}^n \left( k\frac{b-a}{n}\right) ^2 +\sum_{k=1}^n  2ak\frac{b-a}{n} \\
+   &= \lim_{n\to \infty} \frac{b-a}{n} \left( a^2n +\sum_{k=1}^n k^2\left(\frac{b-a}{n}\right)^2 +2a\frac{b-a}{n}\sum_{k=1}^n k\right)  \\
+   &= \lim_{n\to \infty} \frac{b-a}{n} \left( a^2n + \left(\frac{b-a}{n}\right)^2\sum_{k=1}^n k^2 +2a\frac{b-a}{n}\sum_{k=1}^n k\right)  \\
+   &= \lim_{n\to \infty} \frac{b-a}{n} \left( a^2n + \left(\frac{b-a}{n}\right)^2 \frac{n(n+1)(2n+1)}{6} +2a\frac{b-a}{n}\frac{n(n+1)}{2}\right)  \\
+   &= \lim_{n\to \infty} (b-a) \left( a^2 + \left(\frac{b-a}{n}\right)^2 \frac{(n+1)(2n+1)}{6} +\cancel{2}a\frac{b-a}{n}\frac{(n+1)}{\cancel{2}}\right)  \\
+   &= \lim_{n\to \infty} (b-a) \left( a^2 + \frac{(b-a)^2}{n^2} \left( n\frac{(2n+1)}{6} + \frac{(2n+1)}{6}\right) +a\frac{b-a}{n}(n+1)\right)  \\
+   &= \lim_{n\to \infty} (b-a) \left( a^2 + \frac{(b-a)^2}{n^2} \left( n\frac{(2n+1)}{6} + \frac{(2n+1)}{6}\right) +a\cancel{n}\frac{b-a}{\cancel{n}}+a\frac{b-a}{n}\right)  \\
+   &= \lim_{n\to \infty} (b-a) \left( a^2 + \frac{(b-a)^2}{n^2} \left( n\frac{(2n+1)}{6} + \frac{(2n+1)}{6}\right) +a(b-a) +\cancelto{0}{a\frac{b-a}{n}}\right)  \\
+   &= \lim_{n\to \infty} (b-a) \left( a^2 + \frac{(b-a)^2}{n^{\cancel{2}} } \cancel{n} \frac{(2n+1)}{6} + \cancelto{0}{\frac{(b-a)^2}{n^2} \frac{(2n+1)}{6}} +a(b-a) \right)  \\
+   &= \lim_{n\to \infty} (b-a) \left( a^2 + \frac{(b-a)^2}{n} \frac{(2n+1)}{6} + a(b-a) \right)  \\
+   &= \lim_{n\to \infty} (b-a) \left( a^2 + \frac{\cancel{n}}{3}\frac{(b-a)^2}{\cancel{n}} + \cancelto{0}{\frac{1}{6}\frac{(b-a)^2}{n}} + a(b-a) \right)  \\
+   &= \lim_{n\to \infty} (b-a) \left( a^2 + \frac{(b-a)^2}{3} + a(b-a) \right)  \\
+   &= a^2(b-a) + \frac{b^2+a^2-2ab}{3}(b-a) + a(b-a)^2 \\
+   &= \frac{1}{3}\left( 3a^2(b-a) + b^2(b-a)+a^2(b-a)-2ab(b-a) + 3a(b-a)^2\right) \\
+   &= \frac{1}{3}\left( 3a^2b -3a^3 + b^3 - ab^2 + a^2b - a^3 - 2ab^2 + 2a^2b + 3a(b^2+a^2-2ab)\right) \\
+   &= \frac{1}{3}\left( 3a^2b -3a^3 + b^3 - ab^2 + a^2b - a^3 - 2ab^2 + 2a^2b + 3ab^2+3a^3-6a^2b\right) \\
+   &= \frac{1}{3}\left( 3a^2b-6a^2b -3a^3- a^3+ 3a^3 + b^3 + a^2b+ 2a^2b - ab^2 - 2ab^2  + 3ab^2 \right) \\
+   &= \frac{1}{3}\left( -3a^2b + 3a^2b - a^3 + b^3 \right) \\
+   &= \frac{1}{3}\left(b^3 - a^3 \right) \\
+   &= \frac{b^3 - a^3 }{3} \\
+   \end{aligned}\]</span></p></section></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#exercises">Exercises</a><ol><li><a href="#interpreting-in-terms-of-area">interpreting in terms of area</a></li><li><a href="#subtracting-integrals">subtracting integrals</a></li><li><a href="#show-$\int_a^b-x^2dx-=-\frac{b^3-a^3}{3}$">show $\int_a^b x^2dx = \frac{b^3-a^3}{3}$</a></li></ol></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>
