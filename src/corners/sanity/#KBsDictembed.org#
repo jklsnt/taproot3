@@ -176,7 +176,7 @@ plot_rogue1_colors <- total %>% ggplot() + geom_histogram(aes(x=rouge1_recc, col
 #+end_src
 
 #+begin_src R
-plot_rogue1_context <- total %>% ggplot() + geom_dotplot(aes(x=context, y=rouge1_recc)) + xlab("ROUGE1 Recall") + ylab("Count of Samples") + geom_vline(aes(xintercept = mean(rouge1_recc))) + theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0)))
+plot_rogue1_context <- total %>% ggplot() + geom_dotplot(aes(x=nchar(context), y=rouge1_recc)) + xlab("Number ") + ylab("ROUGE1 Recall") + geom_vline(aes(xintercept = mean(rouge1_recc))) + theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0)))
 #+end_src
 
 
