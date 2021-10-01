@@ -149,10 +149,11 @@ val_bleu_rolling <- wandb_bleu %>% ggplot() + geom_line(aes(x=Step, y=northern.s
 
 #+RESULTS:
 
-* OC Influencing Validation
+* OC and Length Influencing Validation
 #+begin_src R :results none
 total <- data_withcnd
 total$oc = validation_data$oc
+total$context = validation_data$context
 total <- total %>% filter(rouge1_prec+rougel_prec != 0)
 #+end_src
 
@@ -168,9 +169,14 @@ colnames(total)
 : rougel_recc
 : rougel_fm
 : oc
+: context
 
 #+begin_src R
 plot_rogue1_colors <- total %>% ggplot() + geom_histogram(aes(x=rouge1_recc, color=oc)) + xlab("ROUGE1 Recall") + ylab("Count of Samples") + geom_vline(aes(xintercept = mean(rouge1_recc))) + theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0)))
+#+end_src
+
+#+begin_src R
+plot_rogue1_context <- total %>% ggplot() + geom_dotplot(aes(x=(context), y=rouge1_recc) + xlab("ROUGE1 Recall") + ylab("Count of Samples") + geom_vline(aes(xintercept = mean(rouge1_recc))) + theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0)))
 #+end_src
 
 
@@ -178,7 +184,7 @@ plot_rogue1_colors <- total %>% ggplot() + geom_histogram(aes(x=rouge1_recc, col
 
 * Figures
 #+begin_src R :results output graphics :file figure1.png :width 1920 :height 850
-plot_grid(plot_grid(plot_rogue1_recc, plot_roguel_recc, ncol=1, labels = c("A", "B")), plot_grid(plot_grid(context_box_plot, prediction_box_plot, ncol=1, labels=c("C", "D")), plot_rogue1_colors, ncol=1, labels=c("C", "E")), ncol=2)
+plot_grid(plot_grid(plot_rogue1_recc, plot_roguel_recc, ncol=1, labels = c("A", "B")), plot_grid(plot_grid(context_box_plot, prediction_box_plot, ncol=1, labels=c("C", "D")), plot_grid(plot_rogue1_colors, plot_rogue1_context, ncol=1), ncol=1, labels=c("C", "E")), ncol=2)
 #+end_src
 
 #+RESULTS:
