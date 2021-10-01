@@ -4,11 +4,11 @@
 ; (add-to-list 'load-path "~/.emacs.d/elpa/")
 
 (load-file "./resources/htmlize.el")
-(load-file "./resources/org-special-block-extras.el")
+; (load-file "./resources/org-special-block-extras.el")
 
 (require 'org)
 (require 'htmlize)
-(require 'org-special-block-extras)
+; (require 'org-special-block-extras)
 
 (setq user-full-name "Taproot")
 (setq user-mail-address "services@sanity.gq")
@@ -89,10 +89,10 @@
 </div>" color icon title contents))
 
   
-(org-special-block-extras-defblock defn (admonition-block "255, 0, 0" "fa-info-circle" "Testeroo" "dsadjakl"))
+; (org-special-block-extras-defblock defn (admonition-block "255, 0, 0" "fa-info-circle" "Testeroo" "dsadjakl"))
 				   
 (find-file (car argv))
-(org-special-block-extras-mode)
+;;(org-special-block-extras-mode)
 (org-html-export-to-html)
 
 

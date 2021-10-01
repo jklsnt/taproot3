@@ -1,0 +1,74 @@
+<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Jack and Zach" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Dictembed!</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        'displayAlign': 'center',
+        'displayIndent': '0em',
+        'extensions': ['tex2jax.js'],
+        'tex2jax': {
+        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
+        'processEscapes': true
+        },
+        'HTML-CSS': { scale: 100,
+                        linebreaks: { automatic: 'false' },
+                        webFont: 'TeX'
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: 'false' },
+              font: 'TeX'},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: 'AMS'},
+               MultLineWidth: '85%',
+               TagSide: 'right',
+               TagIndent: '.8em'
+             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Dictembed!</h1></div><div class="metamble"><span><span>Written by </span><span>Jack and Zach</span></span></div><div class="notebody"><div><section><pre class="language-R"><code class="language-R">library(tidyverse)
+library(gridExtra)
+library(cowplot)
+</code></pre></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="validation-results"><span class="firn-headline-text"><span>Validation Results</span></span></h1><section><p><span>Grab the CSV file</span></p><pre class="language-R"><code class="language-R">data_withcnd <- read.csv("./valdata.csv") 
+colnames(data_withcnd)
+</code></pre><pre class="fixed-width"> rouge1_prec
+: rouge1_recc
+: rouge1_fm
+: rougel_prec
+: rougel_recc
+: rougel_fm
+</pre><p><span>We will proceed to plot the distribution, </span><em><span>removing samples whereby the output is all zero exactly as all of those values (see the codebase) was resulted when the input data contain no mention of the term to be defined, and hence isn't in scope</span></em></p><pre class="language-R"><code class="language-R">data_total <- data_withcnd
+data_withcnd <- data_withcnd %>% filter(rouge1_prec+rougel_prec != 0)
+</code></pre><pre class="language-R"><code class="language-R">data.frame(measure=colnames(data_withcnd), mean=colMeans(data_withcnd))
+</code></pre><pre class="fixed-width"> rouge1_prec	0.628426120831488
+: rouge1_recc	0.464001115660334
+: rouge1_fm	0.509749913066602
+: rougel_prec	0.584153097709648
+: rougel_recc	0.432615317695647
+: rougel_fm	0.474798716995343
+</pre><pre class="fixed-width"> FALSE
+</pre><p><span>Calculation of p value for rogue1 precision and roguel precision</span></p><pre class="language-R"><code class="language-R">t.test(data_withcnd$rouge1_prec)
+</code></pre><pre class="language-R"><code class="language-R">t.test(data_withcnd$rougel_prec)
+</code></pre><pre class="language-R"><code class="language-R">plot_rogue1_recc <- data_withcnd %>% ggplot() + geom_histogram(aes(x=rouge1_recc)) + xlab("ROUGE1 Recall") + ylab("Count of Samples") + geom_vline(aes(xintercept = mean(rouge1_recc))) + theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0)))
+plot_roguel_recc <- data_withcnd %>% ggplot() + geom_histogram(aes(x=rougel_recc)) + xlab("ROUGEL Recall") + ylab("Count of Samples") + geom_vline(aes(xintercept = mean(rougel_recc))) + theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0)))
+</code></pre><p><span>We will also</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="validation-data"><span class="firn-headline-text"><span>Validation Data</span></span></h1><section><pre class="language-R"><code class="language-R">validation_data <- read.csv("./validata.csv")
+</code></pre><p><span>Rows</span></p><pre class="language-R"><code class="language-R">colnames(validation_data)
+</code></pre><pre class="fixed-width"> title
+: context
+: desired_output
+: oc
+</pre><pre class="language-R"><code class="language-R">context_box_plot <- validation_data %>% ggplot() + geom_boxplot(aes(x=nchar(context)))+ theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0))) + xlab("Context Length") + guides(y = "none")
+prediction_box_plot <- validation_data %>% ggplot() + geom_boxplot(aes(x=nchar(desired_output)))+ theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0))) + xlab("Target Output Length") + guides(y = "none")
+</code></pre></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="wandb-exported-bleu-over-time"><span class="firn-headline-text"><span>Wandb Exported BLEU over time</span></span></h1><section><pre class="language-R"><code class="language-R">wandb_bleu <- read.csv("./wandb_export_bleu.csv")
+</code></pre><p><span>Columns:</span></p><pre class="language-R"><code class="language-R">colnames(wandb_bleu)
+</code></pre><pre class="fixed-width"> Step
+: northern.sky.16516...val_bleu_20rolling
+: northern.sky.16516...val_bleu_20rolling__MIN
+: northern.sky.16516...val_bleu_20rolling__MAX
+</pre><pre class="language-R"><code class="language-R">val_bleu_rolling <- wandb_bleu %>% ggplot() + geom_line(aes(x=Step, y=northern.sky.16516...val_bleu_20rolling))+ theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0))) + xlab("Step in Training") + ylab("BLEU Value on Validation Set (avg. 20 rolling)")
+</code></pre></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="oc-influencing-validation"><span class="firn-headline-text"><span>OC Influencing Validation</span></span></h1><section><pre class="language-R"><code class="language-R">total <- data_withcnd
+total$oc = validation_data$oc
+total <- total %>% filter(rouge1_prec+rougel_prec != 0)
+</code></pre><pre class="language-R"><code class="language-R">colnames(total)
+</code></pre><pre class="fixed-width"> rouge1_prec
+: rouge1_recc
+: rouge1_fm
+: rougel_prec
+: rougel_recc
+: rougel_fm
+: oc
+</pre><pre class="language-R"><code class="language-R">plot_rogue1_colors <- total %>% ggplot() + geom_histogram(aes(x=rouge1_recc, color=oc)) + xlab("ROUGE1 Recall") + ylab("Count of Samples") + geom_vline(aes(xintercept = mean(rouge1_recc))) + theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0)))
+</code></pre></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="figures"><span class="firn-headline-text"><span>Figures</span></span></h1><section><pre class="language-R"><code class="language-R">plot_grid(plot_grid(plot_rogue1_recc, plot_roguel_recc, ncol=1, labels = c("A", "B")), plot_grid(plot_grid(context_box_plot, prediction_box_plot, ncol=1, labels=c("C", "D")), plot_rogue1_colors, ncol=1, labels=c("C", "E")), ncol=2)
+</code></pre><p><a href="#figure1png"></a></p></section></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#validation-results">Validation Results</a></li><li><a href="#validation-data">Validation Data</a></li><li><a href="#wandb-exported-bleu-over-time">Wandb Exported BLEU over time</a></li><li><a href="#oc-influencing-validation">OC Influencing Validation</a></li><li><a href="#figures">Figures</a></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>

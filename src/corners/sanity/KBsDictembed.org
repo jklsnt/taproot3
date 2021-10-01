@@ -1,0 +1,187 @@
+#+TITLE: Dictembed!
+#+AUTHOR: Jack and Zach
+
+#+PROPERTY: header-args :tangle processing.r :results verbatim :exports both :session processing_image
+
+#+begin_src R :results none
+library(tidyverse)
+library(gridExtra)
+library(cowplot)
+#+end_src
+
+* Validation Results
+Grab the CSV file
+
+#+begin_src R
+data_withcnd <- read.csv("./valdata.csv") 
+colnames(data_withcnd)
+#+end_src
+
+#+RESULTS:
+: rouge1_prec
+: rouge1_recc
+: rouge1_fm
+: rougel_prec
+: rougel_recc
+: rougel_fm
+
+
+
+We will proceed to plot the distribution, /removing samples whereby the output is all zero exactly as all of those values (see the codebase) was resulted when the input data contain no mention of the term to be defined, and hence isn't in scope/
+
+#+begin_src R :results none
+data_total <- data_withcnd
+data_withcnd <- data_withcnd %>% filter(rouge1_prec+rougel_prec != 0)
+#+end_src
+
+
+#+begin_src R
+data.frame(measure=colnames(data_withcnd), mean=colMeans(data_withcnd))
+#+end_src
+
+#+RESULTS:
+: rouge1_prec	0.628426120831488
+: rouge1_recc	0.464001115660334
+: rouge1_fm	0.509749913066602
+: rougel_prec	0.584153097709648
+: rougel_recc	0.432615317695647
+: rougel_fm	0.474798716995343
+
+#+RESULTS:
+: FALSE
+
+Calculation of p value for rogue1 precision and roguel precision
+
+#+begin_src R :results output
+t.test(data_withcnd$rouge1_prec)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+	One Sample t-test
+
+data:  data_withcnd$rouge1_prec
+t = 90.644, df = 851, p-value < 2.2e-16
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 0.6148185 0.6420337
+sample estimates:
+mean of x 
+0.6284261
+#+end_example
+
+
+#+begin_src R :results output
+t.test(data_withcnd$rougel_prec)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+	One Sample t-test
+
+data:  data_withcnd$rougel_prec
+t = 79.005, df = 851, p-value < 2.2e-16
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 0.5696407 0.5986655
+sample estimates:
+mean of x 
+0.5841531
+#+end_example
+
+
+#+begin_src R :results none
+plot_rogue1_recc <- data_withcnd %>% ggplot() + geom_histogram(aes(x=rouge1_recc)) + xlab("ROUGE1 Recall") + ylab("Count of Samples") + geom_vline(aes(xintercept = mean(rouge1_recc))) + theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0)))
+plot_roguel_recc <- data_withcnd %>% ggplot() + geom_histogram(aes(x=rougel_recc)) + xlab("ROUGEL Recall") + ylab("Count of Samples") + geom_vline(aes(xintercept = mean(rougel_recc))) + theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0)))
+#+end_src
+
+We will also
+
+
+* Validation Data
+
+#+begin_src R :results none
+validation_data <- read.csv("./validata.csv")
+#+end_src
+
+Rows
+
+#+begin_src R
+colnames(validation_data)
+#+end_src
+
+#+RESULTS:
+: title
+: context
+: desired_output
+: oc
+
+#+begin_src R
+context_box_plot <- validation_data %>% ggplot() + geom_boxplot(aes(x=nchar(context)))+ theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0))) + xlab("Context Length") + guides(y = "none")
+prediction_box_plot <- validation_data %>% ggplot() + geom_boxplot(aes(x=nchar(desired_output)))+ theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0))) + xlab("Target Output Length") + guides(y = "none")
+#+end_src
+
+#+RESULTS:
+
+* Wandb Exported BLEU over time
+
+#+begin_src R :results none
+wandb_bleu <- read.csv("./wandb_export_bleu.csv")
+#+end_src
+
+Columns:
+
+#+begin_src R
+colnames(wandb_bleu)
+#+end_src
+
+#+RESULTS:
+: Step
+: northern.sky.16516...val_bleu_20rolling
+: northern.sky.16516...val_bleu_20rolling__MIN
+: northern.sky.16516...val_bleu_20rolling__MAX
+
+#+begin_src R
+val_bleu_rolling <- wandb_bleu %>% ggplot() + geom_line(aes(x=Step, y=northern.sky.16516...val_bleu_20rolling))+ theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0))) + xlab("Step in Training") + ylab("BLEU Value on Validation Set (avg. 20 rolling)")
+#+end_src
+
+#+RESULTS:
+
+* OC Influencing Validation
+#+begin_src R :results none
+total <- data_withcnd
+total$oc = validation_data$oc
+total <- total %>% filter(rouge1_prec+rougel_prec != 0)
+#+end_src
+
+#+begin_src R
+colnames(total)
+#+end_src
+
+#+RESULTS:
+: rouge1_prec
+: rouge1_recc
+: rouge1_fm
+: rougel_prec
+: rougel_recc
+: rougel_fm
+: oc
+
+#+begin_src R
+plot_rogue1_colors <- total %>% ggplot() + geom_histogram(aes(x=rouge1_recc, color=oc)) + xlab("ROUGE1 Recall") + ylab("Count of Samples") + geom_vline(aes(xintercept = mean(rouge1_recc))) + theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0)))
+#+end_src
+
+
+#+RESULTS:
+
+* Figures
+#+begin_src R :results output graphics :file figure1.png :width 1920 :height 850
+plot_grid(plot_grid(plot_rogue1_recc, plot_roguel_recc, ncol=1, labels = c("A", "B")), plot_grid(plot_grid(context_box_plot, prediction_box_plot, ncol=1, labels=c("C", "D")), plot_rogue1_colors, ncol=1, labels=c("C", "E")), ncol=2)
+#+end_src
+
+#+RESULTS:
+
+
+[[./figure1.png]]

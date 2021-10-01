@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-30 Thu 22:48 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dictembed!</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Jack and Zach" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Dictembed!</h1> <h2 class="subtitle"></h2> <span class="author">Jack and Zach</span> <span class="date">2021-09-30 Thu 22:48</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org05f4576">1. Validation Results</a></li>
+<li><a href="#org6942421">2. Validation Data</a></li>
+<li><a href="#org6d4eebe">3. Wandb Exported BLEU over time</a></li>
+<li><a href="#orgc6da901">4. OC Influencing Validation</a></li>
+<li><a href="#org2a6adf2">5. Figures</a></li>
+</ul>
+</div></div>
+</div>
+<div class="org-src-container">
+<pre class="src src-R">library(tidyverse)
+library(gridExtra)
+library(cowplot)
+</pre>
+</div>
+
+<div id="outline-container-org05f4576" class="outline-2">
+<h2 id="org05f4576"><span class="section-number-2">1</span> Validation Results</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Grab the CSV file
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">data_withcnd &lt;- read.csv("./valdata.csv") 
+colnames(data_withcnd)
+</pre>
+</div>
+
+<pre class="example">
+rouge1_prec
+rouge1_recc
+rouge1_fm
+rougel_prec
+rougel_recc
+rougel_fm
+</pre>
+
+
+
+
+<p>
+We will proceed to plot the distribution, <i>removing samples whereby the output is all zero exactly as all of those values (see the codebase) was resulted when the input data contain no mention of the term to be defined, and hence isn't in scope</i>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">data_total &lt;- data_withcnd
+data_withcnd &lt;- data_withcnd %&gt;% filter(rouge1_prec+rougel_prec != 0)
+</pre>
+</div>
+
+
+<div class="org-src-container">
+<pre class="src src-R">data.frame(measure=colnames(data_withcnd), mean=colMeans(data_withcnd))
+</pre>
+</div>
+
+<pre class="example">
+rouge1_prec	0.628426120831488
+rouge1_recc	0.464001115660334
+rouge1_fm	0.509749913066602
+rougel_prec	0.584153097709648
+rougel_recc	0.432615317695647
+rougel_fm	0.474798716995343
+</pre>
+
+
+<pre class="example">
+FALSE
+</pre>
+
+
+<p>
+Calculation of p value for rogue1 precision and roguel precision
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">t.test(data_withcnd$rouge1_prec)
+</pre>
+</div>
+
+<pre class="example" id="org5a12be5">
+
+	One Sample t-test
+
+data:  data_withcnd$rouge1_prec
+t = 90.644, df = 851, p-value &lt; 2.2e-16
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 0.6148185 0.6420337
+sample estimates:
+mean of x 
+0.6284261
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">t.test(data_withcnd$rougel_prec)
+</pre>
+</div>
+
+<pre class="example" id="org710b9f8">
+
+	One Sample t-test
+
+data:  data_withcnd$rougel_prec
+t = 79.005, df = 851, p-value &lt; 2.2e-16
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 0.5696407 0.5986655
+sample estimates:
+mean of x 
+0.5841531
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">plot_rogue1_recc &lt;- data_withcnd %&gt;% ggplot() + geom_histogram(aes(x=rouge1_recc)) + xlab("ROUGE1 Recall") + ylab("Count of Samples") + geom_vline(aes(xintercept = mean(rouge1_recc))) + theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0)))
+plot_roguel_recc &lt;- data_withcnd %&gt;% ggplot() + geom_histogram(aes(x=rougel_recc)) + xlab("ROUGEL Recall") + ylab("Count of Samples") + geom_vline(aes(xintercept = mean(rougel_recc))) + theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0)))
+</pre>
+</div>
+
+<p>
+We will also
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org6942421" class="outline-2">
+<h2 id="org6942421"><span class="section-number-2">2</span> Validation Data</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-R">validation_data &lt;- read.csv("./validata.csv")
+</pre>
+</div>
+
+<p>
+Rows
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">colnames(validation_data)
+</pre>
+</div>
+
+<pre class="example">
+title
+context
+desired_output
+oc
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">context_box_plot &lt;- validation_data %&gt;% ggplot() + geom_boxplot(aes(x=nchar(context)))+ theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0))) + xlab("Context Length") + guides(y = "none")
+prediction_box_plot &lt;- validation_data %&gt;% ggplot() + geom_boxplot(aes(x=nchar(desired_output)))+ theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0))) + xlab("Target Output Length") + guides(y = "none")
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6d4eebe" class="outline-2">
+<h2 id="org6d4eebe"><span class="section-number-2">3</span> Wandb Exported BLEU over time</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-R">wandb_bleu &lt;- read.csv("./wandb_export_bleu.csv")
+</pre>
+</div>
+
+<p>
+Columns:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">colnames(wandb_bleu)
+</pre>
+</div>
+
+<pre class="example">
+Step
+northern.sky.16516...val_bleu_20rolling
+northern.sky.16516...val_bleu_20rolling__MIN
+northern.sky.16516...val_bleu_20rolling__MAX
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">val_bleu_rolling &lt;- wandb_bleu %&gt;% ggplot() + geom_line(aes(x=Step, y=northern.sky.16516...val_bleu_20rolling))+ theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0))) + xlab("Step in Training") + ylab("BLEU Value on Validation Set (avg. 20 rolling)")
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc6da901" class="outline-2">
+<h2 id="orgc6da901"><span class="section-number-2">4</span> OC Influencing Validation</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-R">total &lt;- data_withcnd
+total$oc = validation_data$oc
+total &lt;- total %&gt;% filter(rouge1_prec+rougel_prec != 0)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-R">colnames(total)
+</pre>
+</div>
+
+<pre class="example">
+rouge1_prec
+rouge1_recc
+rouge1_fm
+rougel_prec
+rougel_recc
+rougel_fm
+oc
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">plot_rogue1_colors &lt;- total %&gt;% ggplot() + geom_histogram(aes(x=rouge1_recc, color=oc)) + xlab("ROUGE1 Recall") + ylab("Count of Samples") + geom_vline(aes(xintercept = mean(rouge1_recc))) + theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0)))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2a6adf2" class="outline-2">
+<h2 id="org2a6adf2"><span class="section-number-2">5</span> Figures</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+<pre class="src src-R">plot_grid(plot_grid(plot_rogue1_recc, plot_roguel_recc, ncol=1, labels = c("A", "B")), plot_grid(plot_grid(context_box_plot, prediction_box_plot, ncol=1, labels=c("C", "D")), plot_rogue1_colors, ncol=1, labels=c("C", "E")), ncol=2)
+</pre>
+</div>
+
+
+<div id="org11a5d6d" class="figure">
+<p><img src="./figure1.png" alt="figure1.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

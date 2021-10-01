@@ -25,6 +25,8 @@ And if you haven't brought in your old quizzes, please be sure to do so!
 ### Linear Dependence Lemma
 - Why do we care that j is the largest element? #question
 	- So we can add up everything before it? Just arbitrary?
+	- Oh, so we can cancel *everything* after it.
+	- Can also choose the smallest, it's just about segmenting
 
 - How does 2.22 work? #question 
 	- To get to 2.22, subtract everything but $a_j v_j$ from both sides of $a_1v_1+...+a_mv_m=0$ 
@@ -37,8 +39,8 @@ And if you haven't brought in your old quizzes, please be sure to do so!
 	- It's replacing what's in the "...", which is unclear.. is $v_j$ actually in the equation then? Or just in the value? #question
 	- Now, we can remove the $j^{th}$ finally, and represent it as the linear combination of the previous elements
 	- $\therefore$ any element of the span can be represented without $v_j$
-
-
+This is called a direct proof!
+Also, we can iterate this process until we get a linearly independent list.
 
 ### A few problems
 ~Fibonacci! 
@@ -104,8 +106,59 @@ $\lambda \cdot 0 = 0$
 
 Draws from: [[KBxLinearIndependence]] [[KBxSpansLinAlg]]
 
-```ad-reflection
-```
+***
+
+In class review #extract
+
+# In class after
+
+## Direct sums
+Don't have the same rules when you add two together and many together!
+Intersection of zero != direct sum when you are adding more than one.
+
+$
+u_1 + u_2  + ... + u_n = \{u_1+u_2  + ... + u_n \mid u_1 \in U_1 , ... ,  u_n \in U_n\}
+$
+
+If the direct sum requirements are not true, then it's just a sum.
+
+Direct sum is all possible combos? 
+
+When all the vectors inside the direct sum are linearly dependent, then you can't make a direct sum with them? Because really, $u_1 \in u_2$
+Because the sums will not be unique. **Redundancy!**
+
+$
+U_1 = \{\begin{bmatrix} 
+ 1 \\
+ 0   
+ \end{bmatrix}\}
+$
+$
+U_2 = \{\begin{bmatrix} 
+ 2 \\
+ 0   
+ \end{bmatrix}\}
+$ doesn't work, cus you can just multiply all in $U_1$ by 2 to get things in $U_2$
+
+#question how do finite fields work?
+field is just 0 and 1? but what about being closed under addition?
+
+
+**Trivial**: the simplest one? how do you quantify that? #question
+Just about zeros?
+
+Interesting concept: Step 1, to Step J. Represent algo's as an example first, then the final iteration?
+
+Instead of just one generalized loop.
+
+
+
+
+
+
+
+
+
 
 
 

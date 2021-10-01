@@ -31,3 +31,4 @@ It's time for... American lit!
 ## The Crucible
 - [[KBxCrucibleActOneInClass]]
 - [[KBhCrucibleDiscussion]] 
+- [[KBxCruciblePlayExemplarReading]]

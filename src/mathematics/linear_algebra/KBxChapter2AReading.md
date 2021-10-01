@@ -42,6 +42,7 @@ title: learning objectives for the chapter
 	- multiply each element in a list of vectors by an element in F
 	- and then add them up!
 	- any relation between the element scalar and what's being multiplied? can the scalars repeat?  #question
+		- yes, yes they can.
 	
 - *span*
 	- the set of all linear combos of a list of vectors

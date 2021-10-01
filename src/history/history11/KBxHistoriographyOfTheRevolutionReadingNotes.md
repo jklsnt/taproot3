@@ -81,19 +81,67 @@ goods became the foundation of trust
 	- because it's about some divine luck that defys close analysis? that doesnt mean we should avoid it, but ok.
 	
 - stopping for now, quarter way through page 8
+***
+- continuing!
+
+```ad-qoute
+for which we would choose to live, or dare to die.
+```
+
+- everyone had narrow-evolded world views in their own communities?
+- "invention of identity" collective act of self-discovery that happened over a decade of troubles with great britain
+
+- the sugar act: seemed so bad that it defies explanation
+	- ie. how tf?
+- colonies beleived that britain was wallowing in welth and luxery
+	- which they were
+- wait, no.. BRITAIN believed that the colonies were wallowing in luxery
+- end of page ten.
+
+- britain had 'gross' misrepresentations of american culture
+- benjamin franklin was angry.
+
+- baldwin argues:
+	- economic leveling in colonies stimulated status competiotion
+		- this competition was primarily done through consumer goods, bought from britain.
+		- this was how they sorted in an open society?
+		- people must "make a show" more than they do in england, says baldwin 
+		
+- the narrative goes:
+	- england send the best of the best soldiers and welthy sons over,
+	- colonies displayed riches to try and impress that were our of the leuge of reality
+	- soldiers went back and informed well-connect friends in england about the "affluent consmers" in the colonies.
+	
+- this was why the parliment taxed the collonies in the first place! that's the point.
+	- this was what made the sugar tax and etc seem resanable to the in-debt england.
+	
+- imbued goods with symbolic meaning
+- subscription rolls
+	- allowed for recoriding of the popular will
+	- people ineligable to vote in the actual system were allowed in the rolls
+	- the number of people on these rolls allowed them to say "we speak for the people"
+
+```ad-qoute
+the spirit of nationalism was as much a cause as a result of revolution
+```
+
+## strength out of Dependence: strategies of consumer resistance in an empire of goods
 
 
+- imported goods provide powerful political leverage 
+- franklin argued that all the imported good were not nessasay
+	- didnt need em or could make themselves
+	
+- colonies willing to forgo the 'luxery' of fashion was a bold concept
+	- used to be the pride to indulge in the fashions manguactered by great britain
+	- changed to wear old cloathes over and over until they can make new ones themselves
+- they repealed the stamp act! franklin had a large part in it, and was regonized as such.
 
+- not easy to give up all these nicitites!
+- rhetoric of "save your money and you will save your country"
 
-
-
-
-
-
-
-
-
-
+- stamp act shattered the shared british identity
+- end, pg 34
 
 
 
