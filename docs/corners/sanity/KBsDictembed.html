@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-30 Thu 23:56 -->
+<!-- 2021-10-01 Fri 00:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Dictembed!</title>
@@ -220,16 +220,16 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Dictembed!</h1> <h2 class="subtitle"></h2> <span class="author">Jack and Zach</span> <span class="date">2021-09-30 Thu 23:56</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Dictembed!</h1> <h2 class="subtitle"></h2> <span class="author">Jack and Zach</span> <span class="date">2021-10-01 Fri 00:02</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org32b3616">1. Validation Results</a></li>
-<li><a href="#org8cb4975">2. Validation Data</a></li>
-<li><a href="#org6474e00">3. Wandb Exported BLEU over time</a></li>
-<li><a href="#orgfcacd1e">4. OC and Length Influencing Validation</a></li>
-<li><a href="#org1e5a0bf">5. Figures</a></li>
+<li><a href="#org44df304">1. Validation Results</a></li>
+<li><a href="#org61992c3">2. Validation Data</a></li>
+<li><a href="#org6ba7735">3. Wandb Exported BLEU over time</a></li>
+<li><a href="#orgabdf2ad">4. OC and Length Influencing Validation</a></li>
+<li><a href="#org69375ce">5. Figures</a></li>
 </ul>
 </div></div>
 </div>
@@ -240,8 +240,8 @@ library(cowplot)
 </pre>
 </div>
 
-<div id="outline-container-org32b3616" class="outline-2">
-<h2 id="org32b3616"><span class="section-number-2">1</span> Validation Results</h2>
+<div id="outline-container-org44df304" class="outline-2">
+<h2 id="org44df304"><span class="section-number-2">1</span> Validation Results</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Grab the CSV file
@@ -305,7 +305,7 @@ Calculation of p value for rogue1 precision and roguel precision
 </pre>
 </div>
 
-<pre class="example" id="orgbf73b32">
+<pre class="example" id="org711ec7d">
 
 	One Sample t-test
 
@@ -325,7 +325,7 @@ mean of x
 </pre>
 </div>
 
-<pre class="example" id="org8fbfaf8">
+<pre class="example" id="orgd76e03f">
 
 	One Sample t-test
 
@@ -353,8 +353,8 @@ We will also
 </div>
 
 
-<div id="outline-container-org8cb4975" class="outline-2">
-<h2 id="org8cb4975"><span class="section-number-2">2</span> Validation Data</h2>
+<div id="outline-container-org61992c3" class="outline-2">
+<h2 id="org61992c3"><span class="section-number-2">2</span> Validation Data</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-R">validation_data &lt;- read.csv("./validata.csv")
@@ -386,8 +386,8 @@ prediction_box_plot &lt;- validation_data %&gt;% ggplot() + geom_boxplot(aes(x=n
 </div>
 </div>
 
-<div id="outline-container-org6474e00" class="outline-2">
-<h2 id="org6474e00"><span class="section-number-2">3</span> Wandb Exported BLEU over time</h2>
+<div id="outline-container-org6ba7735" class="outline-2">
+<h2 id="org6ba7735"><span class="section-number-2">3</span> Wandb Exported BLEU over time</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-R">wandb_bleu &lt;- read.csv("./wandb_export_bleu.csv")
@@ -418,8 +418,8 @@ northern.sky.16516...val_bleu_20rolling__MAX
 </div>
 </div>
 
-<div id="outline-container-orgfcacd1e" class="outline-2">
-<h2 id="orgfcacd1e"><span class="section-number-2">4</span> OC and Length Influencing Validation</h2>
+<div id="outline-container-orgabdf2ad" class="outline-2">
+<h2 id="orgabdf2ad"><span class="section-number-2">4</span> OC and Length Influencing Validation</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-R">total &lt;- data_withcnd
@@ -455,19 +455,43 @@ context
 <pre class="src src-R">plot_rogue1_context &lt;- total %&gt;% ggplot() + geom_point(aes(x=nchar(context), y=rouge1_recc)) + xlab("Context Length (chars)") + ylab("ROUGE1 Recall") + theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0)))
 </pre>
 </div>
+
+
+<p>
+does the above work?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">cor.test(nchar(total$context), total$rouge1_recc)
+</pre>
+</div>
+
+<pre class="example" id="orgca1c424">
+
+	Pearson's product-moment correlation
+
+data:  nchar(total$context) and total$rouge1_recc
+t = -5.1299, df = 850, p-value = 3.594e-07
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.2376886 -0.1073757
+sample estimates:
+       cor 
+-0.1732905
+</pre>
 </div>
 </div>
 
-<div id="outline-container-org1e5a0bf" class="outline-2">
-<h2 id="org1e5a0bf"><span class="section-number-2">5</span> Figures</h2>
+<div id="outline-container-org69375ce" class="outline-2">
+<h2 id="org69375ce"><span class="section-number-2">5</span> Figures</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
-<pre class="src src-R">plot_grid(plot_grid(plot_rogue1_recc, plot_roguel_recc, ncol=1, labels = c("A", "B")), plot_grid(plot_grid(context_box_plot, prediction_box_plot, ncol=1, labels=c("C", "D")), plot_grid(plot_rogue1_colors, plot_rogue1_context, ncol=1), ncol=1, labels=c("C", "E")), ncol=2)
+<pre class="src src-R">plot_grid(plot_grid(plot_rogue1_recc, plot_roguel_recc, ncol=1, labels = c("A", "B")), plot_grid(plot_grid(context_box_plot, prediction_box_plot, ncol=1, labels=c("C", "D")), plot_grid(plot_rogue1_colors, plot_rogue1_context, ncol=1, labels=c("E", "F")), ncol=1, labels=c("C", "E", "F")), ncol=2)
 </pre>
 </div>
 
 
-<div id="orgc863bc5" class="figure">
+<div id="orge369267" class="figure">
 <p><img src="./figure1.png" alt="figure1.png" />
 </p>
 </div>
