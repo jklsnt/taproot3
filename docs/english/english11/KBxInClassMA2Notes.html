@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-10-01 Fri 15:05 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MA2 Discussion Notes</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley Marvit" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MA2 Discussion Notes</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-10-01 Fri 15:05</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>English 11 Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#crucible-discussion-notes">1. Crucible Discussion Notes</a>
+<ul>
+<li><a href="#inner-circle">1.1. Inner circle,</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<p>
+#flo #ret #inclass
+</p>
+
+<hr />
+
+<div id="outline-container-crucible-discussion-notes" class="outline-2">
+<h2 id="crucible-discussion-notes"><span class="section-number-2">1</span> Crucible Discussion Notes</h2>
+<div class="outline-text-2" id="text-crucible-discussion-notes">
+<pre class="example" id="org1028a06">
+how are our thoughts related to others? ~sarah
+</pre>
+
+<pre class="example" id="orgca8d771">
+title: the prompts
+Consider the following questions as entry points into the discussion. We don’t need to address all of them or go in order!
+1.  Analyze the role and presentation of Tituba’s character in the play so far. How does she help to complicate the allegory offered by Miller, and how should a modern reader meaningfully engage with her? Considering all of this, why does Tituba not appear onstage in Act 3?
+
+2.  Compare and contrast the presentation of Abigail in Act 3 with her initial introductions in Act 1, looking at both dialogue and stage directions. Why specifically does Miller offer these specific aspects of continuity or discontinuity?
+
+3.  Analyze and evaluate the evolving motifs of seeing or sight and knowing or knowledge. How do they work individually, and how do they intertwine?
+
+4.  Consider Mr. Hale’s evolution as a religious authority, legal authority, and community member. How does he change or stay the same and why? How can we interpret his presence in Act 3?
+
+5.  Choose a subject or instance from within Act 3 and put it “on the stand” for the purpose of thoughtful response and connection. (For example: In Act 3, Proctor goes in to "save his wife." Why does he bring in a quiet-spoken elderly man, an absent-minded farmer, and a sickly girl to present his case? Put this "shielding” on the stand. Grill it from different angles.)
+</pre>
+</div>
+
+<div id="outline-container-inner-circle" class="outline-3">
+<h3 id="inner-circle"><span class="section-number-3">1.1</span> Inner circle,</h3>
+<div class="outline-text-3" id="text-inner-circle">
+<p>
+<i>~{riley, henry, hannah, rohan, dhruv, nico, kate, madeline, anya}</i>
+<i>messy, flow notes:</i>
+</p>
+
+<ul class="org-ul">
+<li>abigail and power ~nico
+
+<ul class="org-ul">
+<li>begins in power, gets taken out, and goes back in</li>
+<li>"inversion of power" ~riley</li>
+</ul></li>
+
+<li>mass hysteria -&gt; inversion of power
+
+<ul class="org-ul">
+<li>abigial starts with power over proctor</li>
+<li>as play goes on, accusers gain more power over accused
+
+<ul class="org-ul">
+<li>cyclic power increase as emergent property of system #review</li>
+</ul></li>
+</ul></li>
+
+<li>abigail is victimized? act1 ~kate
+
+<ul class="org-ul">
+<li>third act, abigail is vilanized? we need to look for nuance about
+her actions claims kate</li>
+<li>proctor dehumanizes abigail ~hannah
+
+<ul class="org-ul">
+<li>'proctor is the dominant cause for abigails actions' ~hannah
+
+<ul class="org-ul">
+<li>woahhhh</li>
+<li>"it is not a child"</li>
+<li>"is is a whore"
+
+<ul class="org-ul">
+<li>removes himself from the situation</li>
+<li>proctor removes himself of blaim. don't forget reason why
+abigail showed up in the first place ~hannah</li>
+</ul></li>
+
+<li>rohan counters, "it" is a general use thing.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+
+<li>children are gaining more power in society is a contradiction
+
+<ul class="org-ul">
+<li>oooh, intresting. #review</li>
+<li>abigail gains her power <i>through</i> her vulnerability. intresting
+dichotomy ~rohan</li>
+</ul></li>
+
+<li>act1: proctor talks to abi with childlike language ~dhruv
+
+<ul class="org-ul">
+<li>this is what evolves? hmm?</li>
+<li>contrast, pg54 &#x2013; rejects childlike?</li>
+<li>empowering moment through victimhood is still going to their heads
+~riley</li>
+</ul></li>
+
+<li>pg52 &#x2013; proctor critizises for being doubted
+
+<ul class="org-ul">
+<li>same with eliz and abi &#x2013; what?</li>
+</ul></li>
+
+<li>abi and friends are the only one that can feel the power of witchcraft
+~hannah
+
+<ul class="org-ul">
+<li>no this wasn't true, that was just part of the story. everyone was
+acccusing eachother in the actual hist, right?</li>
+</ul></li>
+
+<li>tokenision implies limits
+
+<ul class="org-ul">
+<li>concept of "burden of proof" ~riley #review this is a cool idea</li>
+</ul></li>
+
+<li>henry argues the girls abuse their power
+
+<ul class="org-ul">
+<li>intresting how.. personal motivation is invovled? eh</li>
+<li>huh?
+
+<ul class="org-ul">
+<li>thread shift</li>
+</ul></li>
+</ul></li>
+
+<li>the moment when proctor disses the idea of justice is when he loses
+control and admiration of system ~rohan
+
+<ul class="org-ul">
+<li>emergent element of self perpuating system #review</li>
+</ul></li>
+</ul>
+
+<pre class="example" id="org443c9a9">
+how does the concept of justice change? ~rohan
+</pre>
+
+<ul class="org-ul">
+<li>god defines just ~nico
+
+<ul class="org-ul">
+<li>context shift changes what we call just</li>
+</ul></li>
+
+<li>john proctor doesnt lose faith in god, he loses faith in&#x2026; ~riley
+
+<ul class="org-ul">
+<li>the system? the intrepetation? 'parris doesnt hve the light of god
+in him'</li>
+</ul></li>
+
+<li>hannah says, madeline! anya!</li>
+
+<li>self intrest doesnt motivate, self <i>preservation</i> does ~madeline
+
+<ul class="org-ul">
+<li>i mean, that's a subset</li>
+</ul></li>
+
+<li>justice system for women specifically ~hannah
+
+<ul class="org-ul">
+<li>'only one source of power for women' uhhh</li>
+<li>proctor is a dominating voice
+
+<ul class="org-ul">
+<li>he has power over the court</li>
+</ul></li>
+
+<li>'can only be one women right at the same time unless they are
+agreeing' that's the def of right though? unless ofc postmodernism</li>
+<li>gets more fatal for women, because you die if you don't win ~hannah
+
+<ul class="org-ul">
+<li>is that true? proctor's gonna get killed as well right?</li>
+</ul></li>
+</ul></li>
+
+<li>end: proctor is pushed down ~rohan ~hannah
+
+<ul class="org-ul">
+<li>because he doubts the court</li>
+<li>proctor loses power when doubting the court
+
+<ul class="org-ul">
+<li>can't complete sentences @pg94
+
+<ul class="org-ul">
+<li>or, danforth -&gt; hale</li>
+<li>people are tools to danforth ~riley</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>
+<b>danforth</b> - court is danforth and court is also god ~madeline - that's
+intresting #review - he is something of a god ~hannah - drunk off power?
+hmm.. not sure i agree with this.
+</p>
+
+<ul class="org-ul">
+<li>nico questions: <b>hale</b>
+
+<ul class="org-ul">
+<li>where does he come from, where does he go?</li>
+</ul></li>
+</ul>
+
+<p>
+conclude. <b>*</b>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

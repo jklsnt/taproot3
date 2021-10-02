@@ -13,3 +13,4 @@ source:  #index
 - [[KBxTheElevatorProblem]]
 - [[KBxLakeProb]]
 - [[KBxSupertangrams]]
+- [[KBxCOMAPPracticeProb]]

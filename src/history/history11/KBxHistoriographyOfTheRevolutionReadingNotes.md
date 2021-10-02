@@ -142,6 +142,7 @@ the spirit of nationalism was as much a cause as a result of revolution
 
 - stamp act shattered the shared british identity
 - end, pg 34
+***
 
 
 
