@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:54 -->
+<!-- 2021-10-02 Sat 12:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,68 +217,87 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title"></h1> <h2 class="subtitle"></h2> <span class="author">Exr0n</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title"></h1> <h2 class="subtitle"></h2> <span class="author">Exr0n</span> <span class="date">2021-10-02 Sat 10:58</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org57a7ad6">1. eigenvalues</a>
+<li><a href="#org48daaa9">1. eigenvalues</a>
 <ul>
-<li><a href="#org0954f22">1.1. Axler 5.6 equivalent conditions</a>
+<li><a href="#orgc154e4e">1.1. Axler 5.6 equivalent conditions</a>
 <ul>
-<li><a href="#orgc3f5db2">1.1.1. \(T-\lambda I\) is not injective, because both \(v, 0\) are in the null space.</a></li>
-<li><a href="#org35a1051">1.1.2. \(T-\lambda I\) is also not surjective or invertible bc finite dim operator.</a></li>
+<li><a href="#orgb83aeca">1.1.1. \(T-\lambda I\) is not injective, because both \(v, 0\) are in the null space.</a></li>
+<li><a href="#org6fb1cc7">1.1.2. \(T-\lambda I\) is also not surjective or invertible bc finite dim operator.</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orga0f51ff">2. an example</a>
+<li><a href="#orge4d89f7">2. an example</a>
 <ul>
-<li><a href="#orgc8760f0">2.1. review of terms</a>
+<li><a href="#org5012a4f">2.1. review of terms</a>
 <ul>
-<li><a href="#org569fdc8">2.1.1. \(span(1, 0)\) is an invariant subspace. (also whatever you get for \(\lambda = 2\)</a></li>
-<li><a href="#org37860cd">2.1.2. any vector in an invariant subspace is an eigenvector</a></li>
-<li><a href="#org0620186">2.1.3. the eigenvalues are \(2, 3\)</a></li>
+<li><a href="#orge41dee1">2.1.1. \(span(1, 0)\) is an invariant subspace. (also whatever you get for \(\lambda = 2\)</a></li>
+<li><a href="#org578e23d">2.1.2. any vector in an invariant subspace is an eigenvector</a></li>
+<li><a href="#org4ee3906">2.1.3. the eigenvalues are \(2, 3\)</a></li>
 </ul>
 </li>
-<li><a href="#org82b04c6">2.2. general idea</a></li>
+<li><a href="#orga140815">2.2. general idea</a></li>
 </ul>
 </li>
-<li><a href="#org4fa9e5a">3. depends on</a>
+<li><a href="#org52d9e0e">3. depends on</a>
 <ul>
-<li><a href="#org0b08c09">3.1. finding roots is helpful</a></li>
+<li><a href="#org3a8e434">3.1. finding roots is helpful</a></li>
 </ul>
 </li>
 </ul>
 </div></div>
 </div>
-<div id="outline-container-org57a7ad6" class="outline-2">
-<h2 id="org57a7ad6"><span class="section-number-2">1</span> eigenvalues</h2>
+<div id="outline-container-org48daaa9" class="outline-2">
+<h2 id="org48daaa9"><span class="section-number-2">1</span> eigenvalues</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 eigenvalue: multiplied by a scalar?
@@ -319,24 +339,24 @@ now this can be factored and roots can be found. also it's an operator.
 </p>
 </div>
 
-<div id="outline-container-org0954f22" class="outline-3">
-<h3 id="org0954f22"><span class="section-number-3">1.1</span> Axler 5.6 equivalent conditions</h3>
+<div id="outline-container-orgc154e4e" class="outline-3">
+<h3 id="orgc154e4e"><span class="section-number-3">1.1</span> Axler 5.6 equivalent conditions</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Only when \(V\) is finite dimensional!
 </p>
 </div>
-<div id="outline-container-orgc3f5db2" class="outline-4">
-<h4 id="orgc3f5db2"><span class="section-number-4">1.1.1</span> \(T-\lambda I\) is not injective, because both \(v, 0\) are in the null space.</h4>
+<div id="outline-container-orgb83aeca" class="outline-4">
+<h4 id="orgb83aeca"><span class="section-number-4">1.1.1</span> \(T-\lambda I\) is not injective, because both \(v, 0\) are in the null space.</h4>
 </div>
-<div id="outline-container-org35a1051" class="outline-4">
-<h4 id="org35a1051"><span class="section-number-4">1.1.2</span> \(T-\lambda I\) is also not surjective or invertible bc finite dim operator.</h4>
+<div id="outline-container-org6fb1cc7" class="outline-4">
+<h4 id="org6fb1cc7"><span class="section-number-4">1.1.2</span> \(T-\lambda I\) is also not surjective or invertible bc finite dim operator.</h4>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga0f51ff" class="outline-2">
-<h2 id="orga0f51ff"><span class="section-number-2">2</span> an example</h2>
+<div id="outline-container-orge4d89f7" class="outline-2">
+<h2 id="orge4d89f7"><span class="section-number-2">2</span> an example</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Given the matrix \(\begin{pmatrix}3&1\\0&2\end{pmatrix}\), find the eigenvalues and eigenvectors.
@@ -362,25 +382,25 @@ Now just plug in \(\lambda\) and find the null space using RREF. The null space 
 </div>
 
 
-<div id="outline-container-orgc8760f0" class="outline-3">
-<h3 id="orgc8760f0"><span class="section-number-3">2.1</span> review of terms</h3>
+<div id="outline-container-org5012a4f" class="outline-3">
+<h3 id="org5012a4f"><span class="section-number-3">2.1</span> review of terms</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org569fdc8" class="outline-4">
-<h4 id="org569fdc8"><span class="section-number-4">2.1.1</span> \(span(1, 0)\) is an invariant subspace. (also whatever you get for \(\lambda = 2\)</h4>
+<div id="outline-container-orge41dee1" class="outline-4">
+<h4 id="orge41dee1"><span class="section-number-4">2.1.1</span> \(span(1, 0)\) is an invariant subspace. (also whatever you get for \(\lambda = 2\)</h4>
 </div>
 
-<div id="outline-container-org37860cd" class="outline-4">
-<h4 id="org37860cd"><span class="section-number-4">2.1.2</span> any vector in an invariant subspace is an eigenvector</h4>
+<div id="outline-container-org578e23d" class="outline-4">
+<h4 id="org578e23d"><span class="section-number-4">2.1.2</span> any vector in an invariant subspace is an eigenvector</h4>
 </div>
 
-<div id="outline-container-org0620186" class="outline-4">
-<h4 id="org0620186"><span class="section-number-4">2.1.3</span> the eigenvalues are \(2, 3\)</h4>
+<div id="outline-container-org4ee3906" class="outline-4">
+<h4 id="org4ee3906"><span class="section-number-4">2.1.3</span> the eigenvalues are \(2, 3\)</h4>
 </div>
 </div>
 
-<div id="outline-container-org82b04c6" class="outline-3">
-<h3 id="org82b04c6"><span class="section-number-3">2.2</span> general idea</h3>
+<div id="outline-container-orga140815" class="outline-3">
+<h3 id="orga140815"><span class="section-number-3">2.2</span> general idea</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 the point of eigenvectors is to figure out where other vectors go by looking at pieces that only get streched or shrunk.
@@ -389,12 +409,12 @@ the point of eigenvectors is to figure out where other vectors go by looking at 
 </div>
 </div>
 
-<div id="outline-container-org4fa9e5a" class="outline-2">
-<h2 id="org4fa9e5a"><span class="section-number-2">3</span> depends on</h2>
+<div id="outline-container-org52d9e0e" class="outline-2">
+<h2 id="org52d9e0e"><span class="section-number-2">3</span> depends on</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org0b08c09" class="outline-3">
-<h3 id="org0b08c09"><span class="section-number-3">3.1</span> finding roots is helpful</h3>
+<div id="outline-container-org3a8e434" class="outline-3">
+<h3 id="org3a8e434"><span class="section-number-3">3.1</span> finding roots is helpful</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
 </div>

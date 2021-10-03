@@ -12,6 +12,7 @@ date: 2021-09-27
 
 
 ## best fit lines review
+the review of [[KBxBestFitLinesViaMatrixEquations]]
 
 #### general form:
 

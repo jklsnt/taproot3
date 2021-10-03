@@ -1,7 +1,27 @@
+:PROPERTIES:
+:ID:       09408803-9D5D-44CD-836A-8A9E5B0B1742
+:END:
 #+TITLE: Assignment 7: Vectors!
 * projections or smt
-** figma
-** language of projections?
+** projections
+#+BEGIN_LATEX
+\begin{tikzpicture}
+\draw[thick,->] (0,0) -- (3,0) node[anchor=west] {x};
+\draw[thick,->] (0,0) -- (0,3) node[above] {y};
+\draw[thick,->] (0, 0) -- (1.5,2) node[above right] {(3, 4)};
+\end{tikzpicture}
+\begin{tikzpicture}
+\draw[thick,->] (0,0) -- (3,0) node[anchor=west] {y};
+\draw[thick,->] (0,0) -- (0,3) node[above] {z};
+\draw[thick,->] (0, 0) -- (2,2.5) node[above right] {(4, 5)};
+\end{tikzpicture}
+\begin{tikzpicture}
+\draw[thick,->] (0,0) -- (3,0) node[anchor=west] {x};
+\draw[thick,->] (0,0) -- (0,3) node[above] {z};
+\draw[thick,->] (0, 0) -- (1.5,2.5) node[above right] {(3, 5)};
+\end{tikzpicture}
+#+END_LATEX
+** TODO language of projections?
 * vectors problems
 ** adding two vectors $\langle a_1, a_2, a_3 \rangle$ and $\langle b_1, b_2, b_3 \rangle$
 *** the coordinates of the sum
@@ -111,10 +131,60 @@
   You are really stretching my LaTeX abilities here
   
 ** $a + b = b + a$
-   
-   \[\begin{tikzfigure}
-   \draw[thick,->] (0,0) -- (4.5,0) node[anchor=north west] {x axis};
-   \draw[thick,->] (0,0) -- (0,4.5) node[anchor=south east] {y axis};
-   \draw[red,thick]
-   \end{tikzfigure}]
+
+#+begin_latex
+\begin{tikzpicture}
+\draw[thick,->] (0,0) -- (5.5,0) node[anchor=west] {x};
+\draw[thick,->] (0,0) -- (0,4.5) node[above] {y};
+\draw[blue,thick,->] (0,0) -- (1,3) node[midway,above left] {a};
+\draw[red,thick,->] (1,3) -- (5,4) node[midway,above left] {b};
+\draw[red,thick,->] (0,0) -- (4,1) node[midway,below right] {b};
+\draw[blue,thick,->] (4,1) -- (5,4) node[midway, below right] {a};
+\draw[purple,thick,->] (0,0) -- (5,4) node[midway, above left] {a+b, b+a};
+\end{tikzpicture}
+#+end_latex
+
+** $c(\textbf a + \textbf b) = c\textbf a + c\textbf b$
+#+BEGIN_LATEX
+\begin{tikzpicture}
+\draw[thick,->] (0,0) -- (7,0) node[anchor=west] {x};
+\draw[thick,->] (0,0) -- (0,5) node[above] {y};
+
+\draw[blue,very thick,->] (0,0) -- (1,1.5) node[midway,right] {a};
+\draw[red,thick,->] (1,1.5) -- (2,1) node[midway,above right] {b};
+\draw[blue,thick,->] (2,1) -- (3,2.5) node[midway,above left] {a};
+\draw[red,thick,->] (3,2.5) -- (4,2) node[midway,above right] {b};
+\draw[blue,thick,->] (4,2) -- (5,3.5) node[midway,above left] {a};
+\draw[red,very thick,->] (5,3.5) -- (6,3) node[midway,below left] {b};
+
+\draw[blue,thick,->] (1,1.5) -- (2,3) node[midway,above left] {$c \vec \textbf a$};
+\draw[blue,thick,->] (2,3) -- (3,4.5);
+\draw[red,thick,->] (3,4.5) -- (4,4);
+\draw[red,thick,->] (4,4) -- (5,3.5) node[midway,above right] {$c\vec{\textbf b}$};
+
+\draw[purple, thick, ->] (0, 0) -- (2,1);
+\draw[purple, thick, ->] (2, 1) -- (4,2) node[midway,below right] {$c\left(\vec \textbf a+\vec \textbf b \right)$};
+\draw[purple, thick, ->] (4, 2) -- (6,3);
+\end{tikzpicture}
+#+END_LATEX
+
+** $(cd)\textbf a = c(d\textbf a)$
+
+#+BEGIN_LATEX
+\begin{tikzpicture}
+\draw[thick,->] (0,0) -- (6.5,0) node[anchor=west] {x};
+\draw[thick,->] (0,0) -- (0,4) node[above] {y};
+
+\draw[red, thick, ->] (0, 0.1) -- (1, 0.6);
+\draw[red, thick, ->] (1, 0.6) -- (2, 1.1);
+\draw[red, thick, ->] (2, 1.1) -- (3, 1.6) node[above left] {$(cd)\vec{\textbf a}$};
+\draw[red, thick, ->] (3, 1.6) -- (4, 2.1);
+\draw[red, thick, ->] (4, 2.1) -- (5, 2.6);
+\draw[red, thick, ->] (5, 2.6) -- (6, 3.1);
+\draw[purple, thick, ->] (0.1, 0) -- (2.1,1);
+\draw[purple, thick, ->] (2.1, 1) -- (4.1,2) node[midway,below right] {$c(d\vec{\textbf a})$};
+\draw[purple, thick, ->] (4.1, 2) -- (6.1,3);
+\end{tikzpicture}
+#+END_LATEX
+
 

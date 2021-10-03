@@ -11,7 +11,31 @@ date: 2021-09-30
 
 # Assignment Exemplar Notes
 
-https://docs.google.com/document/d/1R772ZHTVC6yrrmd1d-rRAtGxWE4dq6gwWnz5KTS0xBM/edit
+[the instructions (hers)](https://docs.google.com/document/d/1R772ZHTVC6yrrmd1d-rRAtGxWE4dq6gwWnz5KTS0xBM/edit)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

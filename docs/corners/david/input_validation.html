@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 15:24 -->
+<!-- 2021-10-02 Sat 12:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>User Input Validation</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -219,25 +220,25 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">User Input Validation</h1> <h2 class="subtitle"></h2> <span class="author">David Freifeld</span> <span class="date">2021-09-27 Mon 15:24</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">User Input Validation</h1> <h2 class="subtitle"></h2> <span class="author">David Freifeld</span> <span class="date">2021-10-02 Sat 10:57</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='cs240-index.html'>CS240 Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org3b3d8e8">1. Potential Fixes</a>
+<li><a href="#org9a5ceee">1. Potential Fixes</a>
 <ul>
-<li><a href="#orge9c087f">1.1. <code>strncpy</code></a></li>
-<li><a href="#org71fc0f2">1.2. <code>strcpy_s</code></a></li>
-<li><a href="#org9233969">1.3. Bonus: <code>auth_flag</code></a></li>
-<li><a href="#orge444a10">1.4. Compile Options</a></li>
+<li><a href="#org0c2fd55">1.1. <code>strncpy</code></a></li>
+<li><a href="#orgad03e9c">1.2. <code>strcpy_s</code></a></li>
+<li><a href="#org0ed9f13">1.3. Bonus: <code>auth_flag</code></a></li>
+<li><a href="#org7226ce0">1.4. Compile Options</a></li>
 </ul>
 </li>
-<li><a href="#org002b1b4">2. Legal/Ethical Consequences</a></li>
-<li><a href="#org653633d">3. Appendix: Improved Implementation</a>
+<li><a href="#org3681ea3">2. Legal/Ethical Consequences</a></li>
+<li><a href="#org4175517">3. Appendix: Improved Implementation</a>
 <ul>
-<li><a href="#org5f1f6da">3.1. Building This Code</a>
+<li><a href="#org2b2037c">3.1. Building This Code</a>
 <ul>
-<li><a href="#orge187c96">3.1.1. Installing OpenSSL</a></li>
+<li><a href="#orge210b20">3.1.1. Installing OpenSSL</a></li>
 </ul>
 </li>
 </ul>
@@ -292,12 +293,12 @@ However, since the buffer is located immediately before the <code>auth_flag</cod
 Compiling with <code>gcc -fno-stack-protector -D_FORTIFY_SOURCE=0 buffer_overflow.c -o buffer_overflow</code>  then running it with <code>./buffer_overflow aaaaaaaaaaaaaaaaaaaaa</code> yields "Access Granted."
 </p>
 
-<div id="outline-container-org3b3d8e8" class="outline-2">
-<h2 id="org3b3d8e8"><span class="section-number-2">1</span> Potential Fixes</h2>
+<div id="outline-container-org9a5ceee" class="outline-2">
+<h2 id="org9a5ceee"><span class="section-number-2">1</span> Potential Fixes</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orge9c087f" class="outline-3">
-<h3 id="orge9c087f"><span class="section-number-3">1.1</span> <code>strncpy</code></h3>
+<div id="outline-container-org0c2fd55" class="outline-3">
+<h3 id="org0c2fd55"><span class="section-number-3">1.1</span> <code>strncpy</code></h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 You could replace <code>strcpy(password_buffer, password)</code> with <code>strncpy(password_buffer, password, 20)</code> to only copy 20 characters and ensure that it would not buffer overflow - but this would introduce another problem. Were a user to input a string longer than 20 characters it would only copy over the first 20 without any form of null terminator, so when the program tries to read this string, it will segfault.
@@ -309,8 +310,8 @@ You could rectify this by doing a manual check: after it copies a string, <code>
 </div>
 </div>
 
-<div id="outline-container-org71fc0f2" class="outline-3">
-<h3 id="org71fc0f2"><span class="section-number-3">1.2</span> <code>strcpy_s</code></h3>
+<div id="outline-container-orgad03e9c" class="outline-3">
+<h3 id="orgad03e9c"><span class="section-number-3">1.2</span> <code>strcpy_s</code></h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 You could use a function introduced in C11 called <code>strcpy_s</code> that takes a destination string, size, and source string, yet returns an error when the source string is longer than the size instead of naively copying over anyways. You could then handle the error and exit gracefully or ask for another input.
@@ -338,8 +339,8 @@ Unfortunately, this is an optional part of the C11 standard and is not supported
 </div>
 </div>
 
-<div id="outline-container-org9233969" class="outline-3">
-<h3 id="org9233969"><span class="section-number-3">1.3</span> Bonus: <code>auth_flag</code></h3>
+<div id="outline-container-org0ed9f13" class="outline-3">
+<h3 id="org0ed9f13"><span class="section-number-3">1.3</span> Bonus: <code>auth_flag</code></h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Additionally, easily exposing an <code>auth_flag</code> variable to be overwritten is providing more oppportunities for an exploit: the user could still attempt to overwrite the return value but removing the <code>auth_flag</code> variable both allows for some cleaner code and less exploit opportunities.
@@ -347,8 +348,8 @@ Additionally, easily exposing an <code>auth_flag</code> variable to be overwritt
 </div>
 </div>
 
-<div id="outline-container-orge444a10" class="outline-3">
-<h3 id="orge444a10"><span class="section-number-3">1.4</span> Compile Options</h3>
+<div id="outline-container-org7226ce0" class="outline-3">
+<h3 id="org7226ce0"><span class="section-number-3">1.4</span> Compile Options</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Another (worse) way of fixing this would be to keep the same code but compile with options that trigger an exception when they detect a buffer overflow. One such option is <code>-fstack-protector</code> (which is enabled by default) and GCC will insert a "guard variable" to vulnerable functions and check if it has been changed at the end of said functions. If the the check finds it has been changed (and therefore a buffer overflow has occured) it issues an exception in the form of a SIGTRAP signal, stopping the process. Additionally, the <code>FORTIFY_SOURCE</code> macro is used to replace common string functional calls with safe versions that perform additional buffer overflow checks around string and memory functions by comparing the amount of memory that <i>should</i> be copied to the amount of memory that is copied at runtime.
@@ -385,8 +386,8 @@ Similarly, when inspecting the assembly output when compiling with <code>-fstack
 </div>
 </div>
 
-<div id="outline-container-org002b1b4" class="outline-2">
-<h2 id="org002b1b4"><span class="section-number-2">2</span> Legal/Ethical Consequences</h2>
+<div id="outline-container-org3681ea3" class="outline-2">
+<h2 id="org3681ea3"><span class="section-number-2">2</span> Legal/Ethical Consequences</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 In 1988, Robert Morris created the first major computer worm, and as part of the worm's process to gain entry into a computer system, it utilized a <i>buffer overflow</i> exploit in a network daemon called <code>fingerd</code> to execute custom shellcode. In essence, the exploit relied on sending a malicious buffer to the daemon that both overwrote the return address on the program's stack, causing it to run a function like <code>system()</code>, as well as set the parameters to the hijacked return address to custom VAX shellcode (where VAX was a common mainframe at the time). <a href="https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/bsd/finger/morris_fingerd_bof.rb">See a more modern implementation of this exploit in Ruby here.</a>
@@ -403,8 +404,8 @@ Were someone to similarly exploit this code today, the California Penal Code 502
 </div>
 
 
-<div id="outline-container-org653633d" class="outline-2">
-<h2 id="org653633d"><span class="section-number-2">3</span> Appendix: Improved Implementation</h2>
+<div id="outline-container-org4175517" class="outline-2">
+<h2 id="org4175517"><span class="section-number-2">3</span> Appendix: Improved Implementation</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 This implementation incorporates some of the aforementoined solutions (namely removing <code>auth_flag</code> and using <code>strncpy</code> with checks) as well as a bonus fix that is unrelated to user input validation. Storing the valid password in plaintext within the code is insecure since the string literal would appear in the binary as well, so a malicious user could run the common shell utility <code>strings</code> and figure out the valid password. Instead, we can store the hash of the password and compare that so that the user is unable to gleam any valuable information from the binary.
@@ -500,8 +501,8 @@ This implementation incorporates some of the aforementoined solutions (namely re
 </pre>
 </div>
 </div>
-<div id="outline-container-org5f1f6da" class="outline-3">
-<h3 id="org5f1f6da"><span class="section-number-3">3.1</span> Building This Code</h3>
+<div id="outline-container-org2b2037c" class="outline-3">
+<h3 id="org2b2037c"><span class="section-number-3">3.1</span> Building This Code</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 You'll need OpenSSL to compile this! Compiling the program is as simple as just compiling this C code with gcc but also linking against <code>libcrypto.a</code> like so:
@@ -516,8 +517,8 @@ The correct password is just "password".
 </p>
 </div>
 
-<div id="outline-container-orge187c96" class="outline-4">
-<h4 id="orge187c96"><span class="section-number-4">3.1.1</span> Installing OpenSSL</h4>
+<div id="outline-container-orge210b20" class="outline-4">
+<h4 id="orge210b20"><span class="section-number-4">3.1.1</span> Installing OpenSSL</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 I installed it via Homebrew, with <code>brew install openssl@1.1</code>. Then, you can find the path to the <code>lib</code> folder by running <code>brew list openssl@1.1</code> and compile with something like this:

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:54 -->
+<!-- 2021-10-02 Sat 12:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Gravitational Potential and Center of Mass</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,71 +217,90 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Gravitational Potential and Center of Mass</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Gravitational Potential and Center of Mass</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-10-02 Sat 10:58</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>Advanced Mechanics Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb24fc75">1. Escape Velocity and Gravitational Potential Energy</a>
+<li><a href="#orgabd3c20">1. Escape Velocity and Gravitational Potential Energy</a>
 <ul>
-<li><a href="#org94d1165">1.1. Newton's Universal Gravitation Law</a></li>
-<li><a href="#org9f3b8a0">1.2. Equation for Gravitational Potential Energy</a>
+<li><a href="#org065a671">1.1. Newton's Universal Gravitation Law</a></li>
+<li><a href="#org1c57b2c">1.2. Equation for Gravitational Potential Energy</a>
 <ul>
-<li><a href="#org50b4b0a">1.2.1. Needed Definitions</a></li>
-<li><a href="#orgff56435">1.2.2. Deducing Gravitational Potential energy</a></li>
+<li><a href="#org174c46e">1.2.1. Needed Definitions</a></li>
+<li><a href="#org2313205">1.2.2. Deducing Gravitational Potential energy</a></li>
 </ul>
 </li>
-<li><a href="#org14fb0b8">1.3. Escape Velocity</a>
+<li><a href="#org20f75eb">1.3. Escape Velocity</a>
 <ul>
-<li><a href="#org6ba6aea">1.3.1. Calculation Setup</a></li>
-<li><a href="#org7c161d1">1.3.2. Deducing Escape Velocity</a></li>
-<li><a href="#orgdb7889a">1.3.3. Calculating Escape Velocity</a></li>
+<li><a href="#orgbd5f239">1.3.1. Calculation Setup</a></li>
+<li><a href="#org87ea4f2">1.3.2. Deducing Escape Velocity</a></li>
+<li><a href="#orge0ac23b">1.3.3. Calculating Escape Velocity</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgeedceee">2. Center of Mass</a>
+<li><a href="#org2a26690">2. Center of Mass</a>
 <ul>
-<li><a href="#org6ca0905">2.1. Finding an Expression for the Position of the Center of Mass</a></li>
-<li><a href="#orgf2c7988">2.2. Simplifying to ignore internal forces</a></li>
+<li><a href="#orgc9f1c89">2.1. Finding an Expression for the Position of the Center of Mass</a></li>
+<li><a href="#org68ce921">2.2. Simplifying to ignore internal forces</a></li>
 </ul>
 </li>
-<li><a href="#orge03018d">3. Calculating the Center of Mass</a></li>
+<li><a href="#orgc308f8e">3. Calculating the Center of Mass</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-orgb24fc75" class="outline-2">
-<h2 id="orgb24fc75"><span class="section-number-2">1</span> Escape Velocity and Gravitational Potential Energy</h2>
+<div id="outline-container-orgabd3c20" class="outline-2">
+<h2 id="orgabd3c20"><span class="section-number-2">1</span> Escape Velocity and Gravitational Potential Energy</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org94d1165" class="outline-3">
-<h3 id="org94d1165"><span class="section-number-3">1.1</span> Newton's Universal Gravitation Law</h3>
+<div id="outline-container-org065a671" class="outline-3">
+<h3 id="org065a671"><span class="section-number-3">1.1</span> Newton's Universal Gravitation Law</h3>
 <div class="outline-text-3" id="text-1-1">
 \begin{equation}
 \vec{F_g} = - \frac{GM_1M_2}{r^2} \hat{r}
@@ -292,15 +312,15 @@ where, \(\vec{F_g}\) is the force of gravity on \(M_2\); \(M_1\) and \(M_2\) are
 </div>
 </div>
 
-<div id="outline-container-org9f3b8a0" class="outline-3">
-<h3 id="org9f3b8a0"><span class="section-number-3">1.2</span> Equation for Gravitational Potential Energy</h3>
+<div id="outline-container-org1c57b2c" class="outline-3">
+<h3 id="org1c57b2c"><span class="section-number-3">1.2</span> Equation for Gravitational Potential Energy</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org50b4b0a" class="outline-4">
-<h4 id="org50b4b0a"><span class="section-number-4">1.2.1</span> Needed Definitions</h4>
+<div id="outline-container-org174c46e" class="outline-4">
+<h4 id="org174c46e"><span class="section-number-4">1.2.1</span> Needed Definitions</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
-To begin, we need to modify the <a href="#org94d1165">Newton's Universal Gravitation Law</a> to fit the parameters of the scenario. Namely, we need to treat both Earth and our object as point masses, and assign \(M_1\) to be Earth and \(M_2\) to be our object.
+To begin, we need to modify the <a href="#org065a671">Newton's Universal Gravitation Law</a> to fit the parameters of the scenario. Namely, we need to treat both Earth and our object as point masses, and assign \(M_1\) to be Earth and \(M_2\) to be our object.
 </p>
 
 <p>
@@ -321,8 +341,8 @@ Hence, with the necessary variable substitutions as highlighted before, we arriv
 </div>
 </div>
 
-<div id="outline-container-orgff56435" class="outline-4">
-<h4 id="orgff56435"><span class="section-number-4">1.2.2</span> Deducing Gravitational Potential energy</h4>
+<div id="outline-container-org2313205" class="outline-4">
+<h4 id="org2313205"><span class="section-number-4">1.2.2</span> Deducing Gravitational Potential energy</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 The general equation for work is as follows:
@@ -374,16 +394,16 @@ Therefore:
 </div>
 </div>
 
-<div id="outline-container-org14fb0b8" class="outline-3">
-<h3 id="org14fb0b8"><span class="section-number-3">1.3</span> Escape Velocity</h3>
+<div id="outline-container-org20f75eb" class="outline-3">
+<h3 id="org20f75eb"><span class="section-number-3">1.3</span> Escape Velocity</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
-To deduct the escape velocity of the Earth, our object \(M_2\) must do enough work such that the work Earth exerts upon it &#x2014; <a href="#orgff56435">as deducted above</a> &#x2014; is canceled out.
+To deduct the escape velocity of the Earth, our object \(M_2\) must do enough work such that the work Earth exerts upon it &#x2014; <a href="#org2313205">as deducted above</a> &#x2014; is canceled out.
 </p>
 </div>
 
-<div id="outline-container-org6ba6aea" class="outline-4">
-<h4 id="org6ba6aea"><span class="section-number-4">1.3.1</span> Calculation Setup</h4>
+<div id="outline-container-orgbd5f239" class="outline-4">
+<h4 id="orgbd5f239"><span class="section-number-4">1.3.1</span> Calculation Setup</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 Hence, to figure the escape velocity, we must deduct the kinetic energy needed to perform the exact work deducted above in the opposite direction by substituting the statement of change in kinetic energy and \(-\Delta PE\) as derived above. That,
@@ -399,8 +419,8 @@ Also, as the object to escape Earth's gravitation is starting at the surface of 
 </div>
 </div>
 
-<div id="outline-container-org7c161d1" class="outline-4">
-<h4 id="org7c161d1"><span class="section-number-4">1.3.2</span> Deducing Escape Velocity</h4>
+<div id="outline-container-org87ea4f2" class="outline-4">
+<h4 id="org87ea4f2"><span class="section-number-4">1.3.2</span> Deducing Escape Velocity</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
 The final calculations after substitution is therefore simply a matter of isolating \(v\), the magnitude velocity.
@@ -414,8 +434,8 @@ v &= \sqrt{2\frac{GM_e}{R_e}}
 </div>
 </div>
 
-<div id="outline-container-orgdb7889a" class="outline-4">
-<h4 id="orgdb7889a"><span class="section-number-4">1.3.3</span> Calculating Escape Velocity</h4>
+<div id="outline-container-orge0ac23b" class="outline-4">
+<h4 id="orge0ac23b"><span class="section-number-4">1.3.3</span> Calculating Escape Velocity</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
 Taking \(G = 6.674 \times 10^{-11} m^3 \frac{m^3}{kg\ s^2}\), \(M_e = 5.97 \times 10^{24} kg\), and \(R_e = 6.371 \times 10^6 km\)&#x2026;
@@ -429,12 +449,12 @@ v \approx 1.119 \times 10^4 \frac{m}{s} = 2.503 \times 10^4 \frac{M}{h}
 </div>
 </div>
 
-<div id="outline-container-orgeedceee" class="outline-2">
-<h2 id="orgeedceee"><span class="section-number-2">2</span> Center of Mass</h2>
+<div id="outline-container-org2a26690" class="outline-2">
+<h2 id="org2a26690"><span class="section-number-2">2</span> Center of Mass</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org6ca0905" class="outline-3">
-<h3 id="org6ca0905"><span class="section-number-3">2.1</span> Finding an Expression for the Position of the Center of Mass</h3>
+<div id="outline-container-orgc9f1c89" class="outline-3">
+<h3 id="orgc9f1c89"><span class="section-number-3">2.1</span> Finding an Expression for the Position of the Center of Mass</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 The net force of a system is described as:
@@ -509,15 +529,15 @@ Where, \(M\) is the total mass of the system, \(m_i\) the mass of component \(i\
 </div>
 </div>
 
-<div id="outline-container-orgf2c7988" class="outline-3">
-<h3 id="orgf2c7988"><span class="section-number-3">2.2</span> Simplifying to ignore internal forces</h3>
+<div id="outline-container-org68ce921" class="outline-3">
+<h3 id="org68ce921"><span class="section-number-3">2.2</span> Simplifying to ignore internal forces</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Because of Newton's Third Law, if forces acted internal to a system, the target of the force &#x2014; given its inside the system &#x2014; will preform an equal and opposite reaction. Hence, the net internal force will be \(0\), meaning that we could ignore internal forces.
 </p>
 
 <p>
-Because of the fact that \(\vec{r_{CM}} = \frac{1}{M} \sum^n_{i=1} m_i \vec{r_i}\) as derived <a href="#org6ca0905">above</a>, \(\vec{r_{CM}}\) changes when the system as a whole moves. However, internal forces does not do this, meaning the existence of internal forces does not change \(\vec{r_{CM}}\).
+Because of the fact that \(\vec{r_{CM}} = \frac{1}{M} \sum^n_{i=1} m_i \vec{r_i}\) as derived <a href="#orgc9f1c89">above</a>, \(\vec{r_{CM}}\) changes when the system as a whole moves. However, internal forces does not do this, meaning the existence of internal forces does not change \(\vec{r_{CM}}\).
 </p>
 
 <p>
@@ -543,8 +563,8 @@ by applying  \(\sum^n_{i=1} m_i = M\) as per aforementioned and the external for
 </div>
 </div>
 
-<div id="outline-container-orge03018d" class="outline-2">
-<h2 id="orge03018d"><span class="section-number-2">3</span> Calculating the Center of Mass</h2>
+<div id="outline-container-orgc308f8e" class="outline-2">
+<h2 id="orgc308f8e"><span class="section-number-2">3</span> Calculating the Center of Mass</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 For an system with the following points, calculate its center of mass:
@@ -588,7 +608,7 @@ For an system with the following points, calculate its center of mass:
 </table>
 
 <p>
-Applying the expression for the center of mass <a href="#org6ca0905">above</a>, we deduct that the center of mass of this object is located at point \(\frac{\{(1-3\times 2 + 2 \times 3 - 2 \times 4), (-4-2\times 2 + 5 \times 3 + 4 \times 4), \(1+6\times 2  -3 \times 3 + 6 \times 4)\}}{1+2+3+4} = (-0.7, 2.3, 2.8)\).
+Applying the expression for the center of mass <a href="#orgc9f1c89">above</a>, we deduct that the center of mass of this object is located at point \(\frac{\{(1-3\times 2 + 2 \times 3 - 2 \times 4), (-4-2\times 2 + 5 \times 3 + 4 \times 4), \(1+6\times 2  -3 \times 3 + 6 \times 4)\}}{1+2+3+4} = (-0.7, 2.3, 2.8)\).
 </p>
 
 <p>
@@ -596,7 +616,7 @@ This center of mass is then plotted visually in <a href="https://www.geogebra.or
 </p>
 
 
-<div id="org42189d1" class="figure">
+<div id="org470f63e" class="figure">
 <p><img src="2021-09-22_07-49-48_screenshot.png" alt="2021-09-22_07-49-48_screenshot.png" />
 </p>
 </div>

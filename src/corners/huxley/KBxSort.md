@@ -1,6 +1,24 @@
----
-title: sort
----
+n
+*** 
+
+ defining new term: gardening, as the term for knowledge organization.
+	
+***
+
+explanation of power of emergent property: "that even when the underlying rules for a system are extremely simple, the behavior of the system as a whole can be essentially arbitrarily rich and complex." ~wolfram
+[computational irreducibility](https://www.wolframscience.com/nks/p737--computational-irreducibility/)
+
+***
+
+hypergraph! edges are sets of points not connections. one model for etomolgysarus
+or, bipartite with roots and words
+or, store as one and represent subset as another.
+
+bfs and look for number of shared.. roots? plug in for force
+
+***
+
+graph theory! i wanna take it. ~"most likely will exist next year" ~exr0n
 
 ***
 

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:54 -->
+<!-- 2021-10-02 Sat 12:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Threat Modeling Assignment</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -219,29 +220,29 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Threat Modeling Assignment</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Threat Modeling Assignment</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-10-02 Sat 10:57</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>CS240 Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org8e326c5">1. What are we protecting?</a></li>
-<li><a href="#org802587d">2. Who are we protecting it from, and what are their motivations?</a>
+<li><a href="#org89b5dc0">1. What are we protecting?</a></li>
+<li><a href="#org7282bc6">2. Who are we protecting it from, and what are their motivations?</a>
 <ul>
-<li><a href="#org760c4c5">2.1. Protecting from&#x2026;</a></li>
-<li><a href="#orgbad443c">2.2. Not Protecting from&#x2026;</a></li>
+<li><a href="#org4fad96a">2.1. Protecting from&#x2026;</a></li>
+<li><a href="#orgeb1554b">2.2. Not Protecting from&#x2026;</a></li>
 </ul>
 </li>
-<li><a href="#orgbfd52ad">3. What methods of attacks do we prevent?</a>
+<li><a href="#orgfc7de46">3. What methods of attacks do we prevent?</a>
 <ul>
-<li><a href="#org066a6a9">3.1. Software Attacks</a></li>
-<li><a href="#orgdfdff10">3.2. Pipeline Attacks</a></li>
-<li><a href="#org95a2908">3.3. Social Attacks</a></li>
+<li><a href="#org6f25a3c">3.1. Software Attacks</a></li>
+<li><a href="#orgf7970f6">3.2. Pipeline Attacks</a></li>
+<li><a href="#org8cdbc83">3.3. Social Attacks</a></li>
 </ul>
 </li>
-<li><a href="#orge81e7c9">4. What are the possible effects of these attacks</a></li>
-<li><a href="#org82fa6bb">5. What are the resources of the attackers</a></li>
-<li><a href="#org194cc64">6. What are our resources?</a></li>
-<li><a href="#org64a30cd">7. What should we do?</a></li>
+<li><a href="#org9128888">4. What are the possible effects of these attacks</a></li>
+<li><a href="#org8105382">5. What are the resources of the attackers</a></li>
+<li><a href="#org8b8a500">6. What are our resources?</a></li>
+<li><a href="#orga0546c0">7. What should we do?</a></li>
 </ul>
 </div></div>
 </div>
@@ -249,8 +250,8 @@
 The assignment is centered around <a href="https://www.condution.com/">Condution</a>, an open-source task management platform. Data processing and querying is done on-device, but raw user tables and data is stored in a remote PosgreSQL server that's either officially hosted and supported or optionally on-prem hosted by the user.
 </p>
 
-<div id="outline-container-org8e326c5" class="outline-2">
-<h2 id="org8e326c5"><span class="section-number-2">1</span> What are we protecting?</h2>
+<div id="outline-container-org89b5dc0" class="outline-2">
+<h2 id="org89b5dc0"><span class="section-number-2">1</span> What are we protecting?</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Because of the open-source nature of Condution, and the fact that all data processing code is done with the client application, the most important asset to actually protect is any user's data (tasks, perspectives, due dates, etc.).
@@ -266,12 +267,12 @@ The scope of Condution is has too narrow scope to protect anyone but direct Cond
 </div>
 </div>
 
-<div id="outline-container-org802587d" class="outline-2">
-<h2 id="org802587d"><span class="section-number-2">2</span> Who are we protecting it from, and what are their motivations?</h2>
+<div id="outline-container-org7282bc6" class="outline-2">
+<h2 id="org7282bc6"><span class="section-number-2">2</span> Who are we protecting it from, and what are their motivations?</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org760c4c5" class="outline-3">
-<h3 id="org760c4c5"><span class="section-number-3">2.1</span> Protecting from&#x2026;</h3>
+<div id="outline-container-org4fad96a" class="outline-3">
+<h3 id="org4fad96a"><span class="section-number-3">2.1</span> Protecting from&#x2026;</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Advertisers who may want to advertise based on notes of users</li>
@@ -282,8 +283,8 @@ The scope of Condution is has too narrow scope to protect anyone but direct Cond
 </div>
 </div>
 
-<div id="outline-container-orgbad443c" class="outline-3">
-<h3 id="orgbad443c"><span class="section-number-3">2.2</span> Not Protecting from&#x2026;</h3>
+<div id="outline-container-orgeb1554b" class="outline-3">
+<h3 id="orgeb1554b"><span class="section-number-3">2.2</span> Not Protecting from&#x2026;</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Organized, state-supported exploits</li>
@@ -303,12 +304,12 @@ Also, user data is also locally backed up. Hence, it is possible to restore serv
 </div>
 </div>
 
-<div id="outline-container-orgbfd52ad" class="outline-2">
-<h2 id="orgbfd52ad"><span class="section-number-2">3</span> What methods of attacks do we prevent?</h2>
+<div id="outline-container-orgfc7de46" class="outline-2">
+<h2 id="orgfc7de46"><span class="section-number-2">3</span> What methods of attacks do we prevent?</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org066a6a9" class="outline-3">
-<h3 id="org066a6a9"><span class="section-number-3">3.1</span> Software Attacks</h3>
+<div id="outline-container-org6f25a3c" class="outline-3">
+<h3 id="org6f25a3c"><span class="section-number-3">3.1</span> Software Attacks</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Software attacks mostly center around attacking the user-facing (both server and client) software and exposing its vulnerabilities.
@@ -324,8 +325,8 @@ Software attacks mostly center around attacking the user-facing (both server and
 </div>
 </div>
 
-<div id="outline-container-orgdfdff10" class="outline-3">
-<h3 id="orgdfdff10"><span class="section-number-3">3.2</span> Pipeline Attacks</h3>
+<div id="outline-container-orgf7970f6" class="outline-3">
+<h3 id="orgf7970f6"><span class="section-number-3">3.2</span> Pipeline Attacks</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Pipeline attacks mostly interfere with our DevOps pipeline to gain unauthorized access.
@@ -340,8 +341,8 @@ Pipeline attacks mostly interfere with our DevOps pipeline to gain unauthorized 
 </div>
 </div>
 
-<div id="outline-container-org95a2908" class="outline-3">
-<h3 id="org95a2908"><span class="section-number-3">3.3</span> Social Attacks</h3>
+<div id="outline-container-org8cdbc83" class="outline-3">
+<h3 id="org8cdbc83"><span class="section-number-3">3.3</span> Social Attacks</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Social attacks work on hijacking user's information by exposing social vulnerabilities of the user.
@@ -356,8 +357,8 @@ Social attacks work on hijacking user's information by exposing social vulnerabi
 </div>
 </div>
 
-<div id="outline-container-orge81e7c9" class="outline-2">
-<h2 id="orge81e7c9"><span class="section-number-2">4</span> What are the possible effects of these attacks</h2>
+<div id="outline-container-org9128888" class="outline-2">
+<h2 id="org9128888"><span class="section-number-2">4</span> What are the possible effects of these attacks</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li>Digital or physical harm to users via leaking of privileged information</li>
@@ -368,8 +369,8 @@ Social attacks work on hijacking user's information by exposing social vulnerabi
 </div>
 </div>
 
-<div id="outline-container-org82fa6bb" class="outline-2">
-<h2 id="org82fa6bb"><span class="section-number-2">5</span> What are the resources of the attackers</h2>
+<div id="outline-container-org8105382" class="outline-2">
+<h2 id="org8105382"><span class="section-number-2">5</span> What are the resources of the attackers</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The attacker's resources are primarily limited.
@@ -388,8 +389,8 @@ Because of the fact that we are limiting our scope to non-organisational non-nat
 </div>
 </div>
 
-<div id="outline-container-org194cc64" class="outline-2">
-<h2 id="org194cc64"><span class="section-number-2">6</span> What are our resources?</h2>
+<div id="outline-container-org8b8a500" class="outline-2">
+<h2 id="org8b8a500"><span class="section-number-2">6</span> What are our resources?</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Directly accessible resources are reasonably limited: have 8 engineers on all departments, limited cybersecurity experience, and only freely or cheaply available commercial tools for PAM, authentication, or security.
@@ -401,8 +402,8 @@ However, it is possible &#x2014; in cases with pipeline leaks and database secur
 </div>
 </div>
 
-<div id="outline-container-org64a30cd" class="outline-2">
-<h2 id="org64a30cd"><span class="section-number-2">7</span> What should we do?</h2>
+<div id="outline-container-orga0546c0" class="outline-2">
+<h2 id="orga0546c0"><span class="section-number-2">7</span> What should we do?</h2>
 <div class="outline-text-2" id="text-7">
 <ol class="org-ol">
 <li>Align and protect resources and partnerships with hosting services to allow emergency triage</li>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:55 -->
+<!-- 2021-10-02 Sat 12:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,84 +217,103 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title"></h1> <h2 class="subtitle"></h2> <span class="author">Exr0n</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title"></h1> <h2 class="subtitle"></h2> <span class="author">Exr0n</span> <span class="date">2021-10-02 Sat 10:58</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc0be351">1. linear approximations</a>
+<li><a href="#org3255ef9">1. linear approximations</a>
 <ul>
-<li><a href="#orgaed598c">1.1. cube root</a>
+<li><a href="#org2f1a001">1.1. cube root</a>
 <ul>
-<li><a href="#org8b5d4fd">1.1.1. approximation</a></li>
-<li><a href="#orgee5d357">1.1.2. estimations</a></li>
+<li><a href="#org8d078f3">1.1.1. approximation</a></li>
+<li><a href="#org03315fe">1.1.2. estimations</a></li>
 </ul>
 </li>
-<li><a href="#org40123a4">1.2. sin(x)</a>
+<li><a href="#org9e2b734">1.2. sin(x)</a>
 <ul>
-<li><a href="#orgcf4b114">1.2.1. approximation</a></li>
-<li><a href="#orga0f123c">1.2.2. estimates</a></li>
+<li><a href="#orgf5f5d0a">1.2.1. approximation</a></li>
+<li><a href="#org64131f3">1.2.2. estimates</a></li>
 </ul>
 </li>
-<li><a href="#org35d367c">1.3. unknown function (only some points known</a>
+<li><a href="#orga1bac19">1.3. unknown function (only some points known</a>
 <ul>
-<li><a href="#orgc820924">1.3.1. approximation</a></li>
-<li><a href="#orgd843827">1.3.2. estimations</a></li>
+<li><a href="#org2fccf6f">1.3.1. approximation</a></li>
+<li><a href="#org4a23852">1.3.2. estimations</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orge0234a5">2. differentials</a>
+<li><a href="#org667fd0c">2. differentials</a>
 <ul>
-<li><a href="#orgcf585c9">2.1. cube error</a>
+<li><a href="#org8f044a5">2.1. cube error</a>
 <ul>
-<li><a href="#org4632289">2.1.1. differential</a></li>
-<li><a href="#org7377e28">2.1.2. volume error</a></li>
-<li><a href="#org6ce1d64">2.1.3. max error for some \(\epsilon\)</a></li>
+<li><a href="#org8b8494e">2.1.1. differential</a></li>
+<li><a href="#orgaf16eb3">2.1.2. volume error</a></li>
+<li><a href="#org210b6d1">2.1.3. max error for some \(\epsilon\)</a></li>
 </ul>
 </li>
-<li><a href="#org3c7c8a1">2.2. sphere measuring</a></li>
+<li><a href="#org7c216a6">2.2. sphere measuring</a></li>
 </ul>
 </li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-orgc0be351" class="outline-2">
-<h2 id="orgc0be351"><span class="section-number-2">1</span> linear approximations</h2>
+<div id="outline-container-org3255ef9" class="outline-2">
+<h2 id="org3255ef9"><span class="section-number-2">1</span> linear approximations</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgaed598c" class="outline-3">
-<h3 id="orgaed598c"><span class="section-number-3">1.1</span> cube root</h3>
+<div id="outline-container-org2f1a001" class="outline-3">
+<h3 id="org2f1a001"><span class="section-number-3">1.1</span> cube root</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org8b5d4fd" class="outline-4">
-<h4 id="org8b5d4fd"><span class="section-number-4">1.1.1</span> approximation</h4>
+<div id="outline-container-org8d078f3" class="outline-4">
+<h4 id="org8d078f3"><span class="section-number-4">1.1.1</span> approximation</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 \[ (1+x)^{\frac{1}{3}} \to \frac{1}{3} (1+x)^{\frac{-2}{3}} \]
@@ -304,8 +324,8 @@ so the linear approximation is
 </p>
 </div>
 </div>
-<div id="outline-container-orgee5d357" class="outline-4">
-<h4 id="orgee5d357"><span class="section-number-4">1.1.2</span> estimations</h4>
+<div id="outline-container-org03315fe" class="outline-4">
+<h4 id="org03315fe"><span class="section-number-4">1.1.2</span> estimations</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -341,12 +361,12 @@ These will be overestimates because the graph is concave down in this reigon.
 </div>
 </div>
 
-<div id="outline-container-org40123a4" class="outline-3">
-<h3 id="org40123a4"><span class="section-number-3">1.2</span> sin(x)</h3>
+<div id="outline-container-org9e2b734" class="outline-3">
+<h3 id="org9e2b734"><span class="section-number-3">1.2</span> sin(x)</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-orgcf4b114" class="outline-4">
-<h4 id="orgcf4b114"><span class="section-number-4">1.2.1</span> approximation</h4>
+<div id="outline-container-orgf5f5d0a" class="outline-4">
+<h4 id="orgf5f5d0a"><span class="section-number-4">1.2.1</span> approximation</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 \[ y \approx \frac{d}{dx} \sin x \Bigr|_0 (x-0) + \sin 0 = x \]
@@ -354,8 +374,8 @@ These will be overestimates because the graph is concave down in this reigon.
 </div>
 </div>
 
-<div id="outline-container-orga0f123c" class="outline-4">
-<h4 id="orga0f123c"><span class="section-number-4">1.2.2</span> estimates</h4>
+<div id="outline-container-org64131f3" class="outline-4">
+<h4 id="org64131f3"><span class="section-number-4">1.2.2</span> estimates</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -391,12 +411,12 @@ The first estimate will be an underestimate because \(\sin x\) is concave up in 
 </div>
 </div>
 
-<div id="outline-container-org35d367c" class="outline-3">
-<h3 id="org35d367c"><span class="section-number-3">1.3</span> unknown function (only some points known</h3>
+<div id="outline-container-orga1bac19" class="outline-3">
+<h3 id="orga1bac19"><span class="section-number-3">1.3</span> unknown function (only some points known</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-orgc820924" class="outline-4">
-<h4 id="orgc820924"><span class="section-number-4">1.3.1</span> approximation</h4>
+<div id="outline-container-org2fccf6f" class="outline-4">
+<h4 id="org2fccf6f"><span class="section-number-4">1.3.1</span> approximation</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 \[ y \approx \frac{d}{dx} f(x) \Bigr|_c (x-c) + f(c) \]
@@ -406,8 +426,8 @@ plugging in \(c = 1\),
 </div>
 </div>
 
-<div id="outline-container-orgd843827" class="outline-4">
-<h4 id="orgd843827"><span class="section-number-4">1.3.2</span> estimations</h4>
+<div id="outline-container-org4a23852" class="outline-4">
+<h4 id="org4a23852"><span class="section-number-4">1.3.2</span> estimations</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -441,8 +461,8 @@ This will be an underestimate because the second derivative is positive and the 
 
 
 
-<div id="outline-container-orge0234a5" class="outline-2">
-<h2 id="orge0234a5"><span class="section-number-2">2</span> differentials</h2>
+<div id="outline-container-org667fd0c" class="outline-2">
+<h2 id="org667fd0c"><span class="section-number-2">2</span> differentials</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 For a function \(y = f(x)\), \(dy\) and \(dx\) are diferentials and the relationship is \(dy = f'(x) dx = \frac{L(a+\Delta a)-L(a)}{\cancel{dx}} \cancel{dx}\).
@@ -453,12 +473,12 @@ For a function written \(f(x) = \text{(something)}\), the differentials are \(df
 </p>
 </div>
 
-<div id="outline-container-orgcf585c9" class="outline-3">
-<h3 id="orgcf585c9"><span class="section-number-3">2.1</span> cube error</h3>
+<div id="outline-container-org8f044a5" class="outline-3">
+<h3 id="org8f044a5"><span class="section-number-3">2.1</span> cube error</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org4632289" class="outline-4">
-<h4 id="org4632289"><span class="section-number-4">2.1.1</span> differential</h4>
+<div id="outline-container-org8b8494e" class="outline-4">
+<h4 id="org8b8494e"><span class="section-number-4">2.1.1</span> differential</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 \[\begin{split}df &= f'(x) dx\\ &= 3x^2 dx\end{split}\]
@@ -466,8 +486,8 @@ For a function written \(f(x) = \text{(something)}\), the differentials are \(df
 </div>
 </div>
 
-<div id="outline-container-org7377e28" class="outline-4">
-<h4 id="org7377e28"><span class="section-number-4">2.1.2</span> volume error</h4>
+<div id="outline-container-orgaf16eb3" class="outline-4">
+<h4 id="orgaf16eb3"><span class="section-number-4">2.1.2</span> volume error</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
 If I understand the use of differentials corretly, then \(x\) is the measured value (\(2\)) and \(dx\) is the uncertainty (delta x), or \(0.2 \text{ft}\).
@@ -476,8 +496,8 @@ Then, the change in the volume (change in fuction or \(df\)) would be \(3(2)^2 (
 </div>
 </div>
 
-<div id="outline-container-org6ce1d64" class="outline-4">
-<h4 id="org6ce1d64"><span class="section-number-4">2.1.3</span> max error for some \(\epsilon\)</h4>
+<div id="outline-container-org210b6d1" class="outline-4">
+<h4 id="org210b6d1"><span class="section-number-4">2.1.3</span> max error for some \(\epsilon\)</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
 \[
@@ -495,8 +515,8 @@ Then, the change in the volume (change in fuction or \(df\)) would be \(3(2)^2 (
 </div>
 </div>
 
-<div id="outline-container-org3c7c8a1" class="outline-3">
-<h3 id="org3c7c8a1"><span class="section-number-3">2.2</span> sphere measuring</h3>
+<div id="outline-container-org7c216a6" class="outline-3">
+<h3 id="org7c216a6"><span class="section-number-3">2.2</span> sphere measuring</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 \[

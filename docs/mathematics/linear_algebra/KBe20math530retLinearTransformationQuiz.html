@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:55 -->
+<!-- 2021-10-02 Sat 12:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>LInear Transformation Quiz</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,123 +217,142 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">LInear Transformation Quiz</h1> <h2 class="subtitle"></h2> <span class="author">Exr0n</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">LInear Transformation Quiz</h1> <h2 class="subtitle"></h2> <span class="author">Exr0n</span> <span class="date">2021-10-02 Sat 10:58</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf5f01ea">1. Definitions</a>
+<li><a href="#org12bbc8f">1. Definitions</a>
 <ul>
-<li><a href="#org7ecf495">1.1. Linear Map</a></li>
-<li><a href="#org48aa4b3">1.2. Null Space</a></li>
-<li><a href="#org5aeb3cd">1.3. Column Space</a></li>
-<li><a href="#orgbdd7b54">1.4. Homogeneous system of equations</a></li>
-<li><a href="#orgc28c2c4">1.5. Injective</a></li>
-<li><a href="#org258d6e8">1.6. Surjective</a></li>
+<li><a href="#org044fc58">1.1. Linear Map</a></li>
+<li><a href="#orgc9ebafb">1.2. Null Space</a></li>
+<li><a href="#org7246e93">1.3. Column Space</a></li>
+<li><a href="#org4dbc3a8">1.4. Homogeneous system of equations</a></li>
+<li><a href="#org98c6d57">1.5. Injective</a></li>
+<li><a href="#org5d90ae8">1.6. Surjective</a></li>
 </ul>
 </li>
-<li><a href="#org437a6a7">2. Fundamental theorem of linear maps</a></li>
-<li><a href="#orgad4fc2b">3. Why is the range also called the "column space"?</a></li>
-<li><a href="#orgc0f1326">4. Prove that for (presumably a linear map) \(T \in \mathcal L(V, W)\) the null space is a subspace of \(V\).</a>
+<li><a href="#orgf60c470">2. Fundamental theorem of linear maps</a></li>
+<li><a href="#org2578232">3. Why is the range also called the "column space"?</a></li>
+<li><a href="#org1139cf2">4. Prove that for (presumably a linear map) \(T \in \mathcal L(V, W)\) the null space is a subspace of \(V\).</a>
 <ul>
-<li><a href="#orga02fe82">4.1. Contains Zero</a></li>
-<li><a href="#orgd48e32b">4.2. Additivity</a></li>
-<li><a href="#orgb7f3e67">4.3. Homogeneity</a></li>
+<li><a href="#orgb576da0">4.1. Contains Zero</a></li>
+<li><a href="#org34a0d05">4.2. Additivity</a></li>
+<li><a href="#org285c24d">4.3. Homogeneity</a></li>
 </ul>
 </li>
-<li><a href="#org38d7087">5. Prove that \(T \in \mathcal L(V, W)\) is injective iff \(\text{null}(T) = 0\)</a>
+<li><a href="#orga0ca726">5. Prove that \(T \in \mathcal L(V, W)\) is injective iff \(\text{null}(T) = 0\)</a>
 <ul>
-<li><a href="#orgc672db7">5.1. In the forwards direction</a></li>
-<li><a href="#orgba589e8">5.2. In the reverse direction</a></li>
+<li><a href="#orgb7107ed">5.1. In the forwards direction</a></li>
+<li><a href="#org570aae6">5.2. In the reverse direction</a></li>
 </ul>
 </li>
-<li><a href="#org3df56b5">6. Prove that for any \(T \in \mathcal L(V, W)\), there is a subspace \(U\) of \(V\) such that \(U \bigoplus \text{null }T = V\)</a>
+<li><a href="#org73705e1">6. Prove that for any \(T \in \mathcal L(V, W)\), there is a subspace \(U\) of \(V\) such that \(U \bigoplus \text{null }T = V\)</a>
 <ul>
-<li><a href="#org6c1dfc3">6.1. Proposed Set</a></li>
-<li><a href="#org718c06a">6.2. Subspace \(\therefore\) direct sum</a>
+<li><a href="#org713f96b">6.1. Proposed Set</a></li>
+<li><a href="#orga435b63">6.2. Subspace \(\therefore\) direct sum</a>
 <ul>
-<li><a href="#org0d208ef">6.2.1. Contains zero</a></li>
-<li><a href="#org45ec37a">6.2.2. Closed under addition</a></li>
-<li><a href="#orged636bf">6.2.3. Closed under scalar multiplication</a></li>
+<li><a href="#orga77030f">6.2.1. Contains zero</a></li>
+<li><a href="#org37bc43a">6.2.2. Closed under addition</a></li>
+<li><a href="#orgc9db16f">6.2.3. Closed under scalar multiplication</a></li>
 </ul>
 </li>
-<li><a href="#org3aa78f7">6.3. Direct sum is equal to \(V\)</a></li>
+<li><a href="#orgdfd935e">6.3. Direct sum is equal to \(V\)</a></li>
 </ul>
 </li>
 </ul>
 </div></div>
 </div>
-<div id="outline-container-orgf5f01ea" class="outline-2">
-<h2 id="orgf5f01ea"><span class="section-number-2">1</span> Definitions</h2>
+<div id="outline-container-org12bbc8f" class="outline-2">
+<h2 id="org12bbc8f"><span class="section-number-2">1</span> Definitions</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org7ecf495" class="outline-3">
-<h3 id="org7ecf495"><span class="section-number-3">1.1</span> Linear Map</h3>
+<div id="outline-container-org044fc58" class="outline-3">
+<h3 id="org044fc58"><span class="section-number-3">1.1</span> Linear Map</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 A linear map is a function/map from one vector space to another such that it satisfies the properties of additivity and homogeneity. Notationally, a linear map \(T \in \mathcal L(V, W)\) satisfies \(T(a) + T(b) = T(a+b) : a, b \in V\) and \(\lambda Ta = T(\lambda a) : \lambda \in \mathbb F, a \in V\)
 </p>
 </div>
 </div>
-<div id="outline-container-org48aa4b3" class="outline-3">
-<h3 id="org48aa4b3"><span class="section-number-3">1.2</span> Null Space</h3>
+<div id="outline-container-orgc9ebafb" class="outline-3">
+<h3 id="orgc9ebafb"><span class="section-number-3">1.2</span> Null Space</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 The null space of a linear map is the space of vectors that are sent to 0 by \(T\), aka \(\{v : v \in V \land Tv = 0\}\)
 </p>
 </div>
 </div>
-<div id="outline-container-org5aeb3cd" class="outline-3">
-<h3 id="org5aeb3cd"><span class="section-number-3">1.3</span> Column Space</h3>
+<div id="outline-container-org7246e93" class="outline-3">
+<h3 id="org7246e93"><span class="section-number-3">1.3</span> Column Space</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 The column space of a linear map is the subspace of the codomain that is an output to the map, aka \(\{w : Tv = w, v\in V, w\in W\}\)
 </p>
 </div>
 </div>
-<div id="outline-container-orgbdd7b54" class="outline-3">
-<h3 id="orgbdd7b54"><span class="section-number-3">1.4</span> Homogeneous system of equations</h3>
+<div id="outline-container-org4dbc3a8" class="outline-3">
+<h3 id="org4dbc3a8"><span class="section-number-3">1.4</span> Homogeneous system of equations</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 A system of equations where all the right hand sides are \(0\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgc28c2c4" class="outline-3">
-<h3 id="orgc28c2c4"><span class="section-number-3">1.5</span> Injective</h3>
+<div id="outline-container-org98c6d57" class="outline-3">
+<h3 id="org98c6d57"><span class="section-number-3">1.5</span> Injective</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 When each element in the column space of a map is mapped to by exactly one element in the domain, aka when \(Tu = Tv \implies u = v\).
 </p>
 </div>
 </div>
-<div id="outline-container-org258d6e8" class="outline-3">
-<h3 id="org258d6e8"><span class="section-number-3">1.6</span> Surjective</h3>
+<div id="outline-container-org5d90ae8" class="outline-3">
+<h3 id="org5d90ae8"><span class="section-number-3">1.6</span> Surjective</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 When every element in the codomain is mapped to, aka the column space is the codomain, aka \(W = \{Tv : v \in V\}\).
@@ -340,28 +360,28 @@ When every element in the codomain is mapped to, aka the column space is the cod
 </div>
 </div>
 </div>
-<div id="outline-container-org437a6a7" class="outline-2">
-<h2 id="org437a6a7"><span class="section-number-2">2</span> Fundamental theorem of linear maps</h2>
+<div id="outline-container-orgf60c470" class="outline-2">
+<h2 id="orgf60c470"><span class="section-number-2">2</span> Fundamental theorem of linear maps</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 In a map \(T \in \mathcal L(U, V)\) where \(U\) is finite dimensional, \(\text{dim }U = \text{dim range }T + \text{dim null }T\). Intuitively, the dimension of the input space is the dimension of everything that gets sent to zero plus everything that doesn't get sent to zero.
 </p>
 </div>
 </div>
-<div id="outline-container-orgad4fc2b" class="outline-2">
-<h2 id="orgad4fc2b"><span class="section-number-2">3</span> Why is the range also called the "column space"?</h2>
+<div id="outline-container-org2578232" class="outline-2">
+<h2 id="org2578232"><span class="section-number-2">3</span> Why is the range also called the "column space"?</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 When a linear map is thought of as a matrix, (which Jana promises is always possible), everything that can be mapped to is a linear combination of the columns. Why columns instead of rows? The convention we use is to multiply operation matrices on the left, and the way matrix multiplication works means that when a \(n \times 1\) matrix is multiplied each element ends up as the coefficient for a column in a linear combination. Thus, all possible \(n \times 1\) matrices when taken as input to the operation matrix will create the span of the columns.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc0f1326" class="outline-2">
-<h2 id="orgc0f1326"><span class="section-number-2">4</span> Prove that for (presumably a linear map) \(T \in \mathcal L(V, W)\) the null space is a subspace of \(V\).</h2>
+<div id="outline-container-org1139cf2" class="outline-2">
+<h2 id="org1139cf2"><span class="section-number-2">4</span> Prove that for (presumably a linear map) \(T \in \mathcal L(V, W)\) the null space is a subspace of \(V\).</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orga02fe82" class="outline-3">
-<h3 id="orga02fe82"><span class="section-number-3">4.1</span> Contains Zero</h3>
+<div id="outline-container-orgb576da0" class="outline-3">
+<h3 id="orgb576da0"><span class="section-number-3">4.1</span> Contains Zero</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Let \(v = T0\).
@@ -373,8 +393,8 @@ thus linear maps send zero to zero. Thus zero is in the null space.
 </div>
 </div>
 
-<div id="outline-container-orgd48e32b" class="outline-3">
-<h3 id="orgd48e32b"><span class="section-number-3">4.2</span> Additivity</h3>
+<div id="outline-container-org34a0d05" class="outline-3">
+<h3 id="org34a0d05"><span class="section-number-3">4.2</span> Additivity</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 For vectors \(a, b \in \text{null }T\) if \(Ta = 0\) and \(Tb = 0\), then
@@ -384,8 +404,8 @@ thus \(a+b\) is in the null space and the null space is closed under addition.
 </div>
 </div>
 
-<div id="outline-container-orgb7f3e67" class="outline-3">
-<h3 id="orgb7f3e67"><span class="section-number-3">4.3</span> Homogeneity</h3>
+<div id="outline-container-org285c24d" class="outline-3">
+<h3 id="org285c24d"><span class="section-number-3">4.3</span> Homogeneity</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 If \(a \in \text{null }T\) (aka \(Ta = 0\)) and \(\lambda \in \mathbb F\), then
@@ -400,12 +420,12 @@ Thus the null space is a vector space and a subspace of \(V\).
 </div>
 </div>
 
-<div id="outline-container-org38d7087" class="outline-2">
-<h2 id="org38d7087"><span class="section-number-2">5</span> Prove that \(T \in \mathcal L(V, W)\) is injective iff \(\text{null}(T) = 0\)</h2>
+<div id="outline-container-orga0ca726" class="outline-2">
+<h2 id="orga0ca726"><span class="section-number-2">5</span> Prove that \(T \in \mathcal L(V, W)\) is injective iff \(\text{null}(T) = 0\)</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgc672db7" class="outline-3">
-<h3 id="orgc672db7"><span class="section-number-3">5.1</span> In the forwards direction</h3>
+<div id="outline-container-orgb7107ed" class="outline-3">
+<h3 id="orgb7107ed"><span class="section-number-3">5.1</span> In the forwards direction</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 \(T\) being injective means \(Tu = Tv \implies u = v\), so only one vector \(v \in V\) satisfies \(Tv = 0\).
@@ -414,8 +434,8 @@ Because linear maps take zero to zero (result 4.1 in the previous proof), that v
 </div>
 </div>
 
-<div id="outline-container-orgba589e8" class="outline-3">
-<h3 id="orgba589e8"><span class="section-number-3">5.2</span> In the reverse direction</h3>
+<div id="outline-container-org570aae6" class="outline-3">
+<h3 id="org570aae6"><span class="section-number-3">5.2</span> In the reverse direction</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 Intuitively: if any information is lost, then some of it must be lost to zero because zero is an element in every vector space and information should be lost "linearly" meaning "evenly".
@@ -439,16 +459,16 @@ Thus \(Tu = Tv \implies u = v\) aka \(T\) is injective.
 </div>
 </div>
 
-<div id="outline-container-org3df56b5" class="outline-2">
-<h2 id="org3df56b5"><span class="section-number-2">6</span> Prove that for any \(T \in \mathcal L(V, W)\), there is a subspace \(U\) of \(V\) such that \(U \bigoplus \text{null }T = V\)</h2>
+<div id="outline-container-org73705e1" class="outline-2">
+<h2 id="org73705e1"><span class="section-number-2">6</span> Prove that for any \(T \in \mathcal L(V, W)\), there is a subspace \(U\) of \(V\) such that \(U \bigoplus \text{null }T = V\)</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 This is not a complete proof because I ran out of time. I sketched out the high level framework for how I was planning on proving this.
 </p>
 </div>
 
-<div id="outline-container-org6c1dfc3" class="outline-3">
-<h3 id="org6c1dfc3"><span class="section-number-3">6.1</span> Proposed Set</h3>
+<div id="outline-container-org713f96b" class="outline-3">
+<h3 id="org713f96b"><span class="section-number-3">6.1</span> Proposed Set</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 A the sum of two subspaces being a direct sub is equivalent to their intersection = 0. Let
@@ -457,12 +477,12 @@ A the sum of two subspaces being a direct sub is equivalent to their intersectio
 </div>
 </div>
 
-<div id="outline-container-org718c06a" class="outline-3">
-<h3 id="org718c06a"><span class="section-number-3">6.2</span> Subspace \(\therefore\) direct sum</h3>
+<div id="outline-container-orga435b63" class="outline-3">
+<h3 id="orga435b63"><span class="section-number-3">6.2</span> Subspace \(\therefore\) direct sum</h3>
 <div class="outline-text-3" id="text-6-2">
 </div>
-<div id="outline-container-org0d208ef" class="outline-4">
-<h4 id="org0d208ef"><span class="section-number-4">6.2.1</span> Contains zero</h4>
+<div id="outline-container-orga77030f" class="outline-4">
+<h4 id="orga77030f"><span class="section-number-4">6.2.1</span> Contains zero</h4>
 <div class="outline-text-4" id="text-6-2-1">
 <p>
 \(U\) contains zero by definition.
@@ -470,17 +490,17 @@ A the sum of two subspaces being a direct sub is equivalent to their intersectio
 </div>
 </div>
 
-<div id="outline-container-org45ec37a" class="outline-4">
-<h4 id="org45ec37a"><span class="section-number-4">6.2.2</span> Closed under addition</h4>
+<div id="outline-container-org37bc43a" class="outline-4">
+<h4 id="org37bc43a"><span class="section-number-4">6.2.2</span> Closed under addition</h4>
 </div>
 
-<div id="outline-container-orged636bf" class="outline-4">
-<h4 id="orged636bf"><span class="section-number-4">6.2.3</span> Closed under scalar multiplication</h4>
+<div id="outline-container-orgc9db16f" class="outline-4">
+<h4 id="orgc9db16f"><span class="section-number-4">6.2.3</span> Closed under scalar multiplication</h4>
 </div>
 </div>
 
-<div id="outline-container-org3aa78f7" class="outline-3">
-<h3 id="org3aa78f7"><span class="section-number-3">6.3</span> Direct sum is equal to \(V\)</h3>
+<div id="outline-container-orgdfd935e" class="outline-3">
+<h3 id="orgdfd935e"><span class="section-number-3">6.3</span> Direct sum is equal to \(V\)</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 Either dimension stuff or double containment: all vectors \(v \in V\) have either \(Tv = 0\) or \(Tv \neq 0\) so the sum contains \(V\), and \(V\) contains the sum because both summands were subspaces.

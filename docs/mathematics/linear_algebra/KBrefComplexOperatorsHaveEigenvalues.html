@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:55 -->
+<!-- 2021-10-02 Sat 12:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Axler5.21 Complex vector spaces have eigenvalues</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,53 +217,72 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Axler5.21 Complex vector spaces have eigenvalues</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Axler5.21 Complex vector spaces have eigenvalues</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-10-02 Sat 10:58</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc482a93">1. Axler5.21 Complex Vector Spaces have atleast one eigenvalue</a></li>
-<li><a href="#orgdc34c4f">2. intuition</a>
+<li><a href="#orgf851f5c">1. Axler5.21 Complex Vector Spaces have atleast one eigenvalue</a></li>
+<li><a href="#org4cb0a25">2. intuition</a>
 <ul>
-<li><a href="#org38ab350">2.1. by the fundamental theorem of algebra, the characteristic polynomial will have roots and thus there will be eigenvalues.</a></li>
+<li><a href="#orgd5ed3fc">2.1. by the fundamental theorem of algebra, the characteristic polynomial will have roots and thus there will be eigenvalues.</a></li>
 </ul>
 </li>
-<li><a href="#orgbaf1d41">3. proof</a>
+<li><a href="#org613ad01">3. proof</a>
 <ul>
-<li><a href="#org49c3b5b">3.1. by factoring, we turn the polynomial of maps into a composition of linear maps of the form \((T-\lambda I)\) and the input vector has to go to all of them. We choose a \(v\) s.t. it should be equal to zero, which means that one of the maps needs to send the \(v\) to zero (and that map will be injective and that lambda will be an eigenvalue).</a></li>
-<li><a href="#orgffb6b1f">3.2. to formalize the "one of the maps sends the input to zero," you can just use a prev proof "if a chain of maps is not injective, then one of the maps is not injective" or induct because there is a finite number of maps.</a></li>
+<li><a href="#org3c2fe94">3.1. by factoring, we turn the polynomial of maps into a composition of linear maps of the form \((T-\lambda I)\) and the input vector has to go to all of them. We choose a \(v\) s.t. it should be equal to zero, which means that one of the maps needs to send the \(v\) to zero (and that map will be injective and that lambda will be an eigenvalue).</a></li>
+<li><a href="#org58b7a1e">3.2. to formalize the "one of the maps sends the input to zero," you can just use a prev proof "if a chain of maps is not injective, then one of the maps is not injective" or induct because there is a finite number of maps.</a></li>
 </ul>
 </li>
 </ul>
 </div></div>
 </div>
-<div id="outline-container-orgc482a93" class="outline-2">
-<h2 id="orgc482a93"><span class="section-number-2">1</span> Axler5.21 Complex Vector Spaces have atleast one eigenvalue</h2>
+<div id="outline-container-orgf851f5c" class="outline-2">
+<h2 id="orgf851f5c"><span class="section-number-2">1</span> Axler5.21 Complex Vector Spaces have atleast one eigenvalue</h2>
 <div class="outline-text-2" id="text-1">
 <blockquote>
 <p>
@@ -271,23 +291,23 @@ Every operator on a finite-dimensional, nonzero, complex vector space has an eig
 </blockquote>
 </div>
 </div>
-<div id="outline-container-orgdc34c4f" class="outline-2">
-<h2 id="orgdc34c4f"><span class="section-number-2">2</span> intuition</h2>
+<div id="outline-container-org4cb0a25" class="outline-2">
+<h2 id="org4cb0a25"><span class="section-number-2">2</span> intuition</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org38ab350" class="outline-3">
-<h3 id="org38ab350"><span class="section-number-3">2.1</span> by the fundamental theorem of algebra, the characteristic polynomial will have roots and thus there will be eigenvalues.</h3>
+<div id="outline-container-orgd5ed3fc" class="outline-3">
+<h3 id="orgd5ed3fc"><span class="section-number-3">2.1</span> by the fundamental theorem of algebra, the characteristic polynomial will have roots and thus there will be eigenvalues.</h3>
 </div>
 </div>
-<div id="outline-container-orgbaf1d41" class="outline-2">
-<h2 id="orgbaf1d41"><span class="section-number-2">3</span> proof</h2>
+<div id="outline-container-org613ad01" class="outline-2">
+<h2 id="org613ad01"><span class="section-number-2">3</span> proof</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org49c3b5b" class="outline-3">
-<h3 id="org49c3b5b"><span class="section-number-3">3.1</span> by factoring, we turn the polynomial of maps into a composition of linear maps of the form \((T-\lambda I)\) and the input vector has to go to all of them. We choose a \(v\) s.t. it should be equal to zero, which means that one of the maps needs to send the \(v\) to zero (and that map will be injective and that lambda will be an eigenvalue).</h3>
+<div id="outline-container-org3c2fe94" class="outline-3">
+<h3 id="org3c2fe94"><span class="section-number-3">3.1</span> by factoring, we turn the polynomial of maps into a composition of linear maps of the form \((T-\lambda I)\) and the input vector has to go to all of them. We choose a \(v\) s.t. it should be equal to zero, which means that one of the maps needs to send the \(v\) to zero (and that map will be injective and that lambda will be an eigenvalue).</h3>
 </div>
-<div id="outline-container-orgffb6b1f" class="outline-3">
-<h3 id="orgffb6b1f"><span class="section-number-3">3.2</span> to formalize the "one of the maps sends the input to zero," you can just use a prev proof "if a chain of maps is not injective, then one of the maps is not injective" or induct because there is a finite number of maps.</h3>
+<div id="outline-container-org58b7a1e" class="outline-3">
+<h3 id="org58b7a1e"><span class="section-number-3">3.2</span> to formalize the "one of the maps sends the input to zero," you can just use a prev proof "if a chain of maps is not injective, then one of the maps is not injective" or induct because there is a finite number of maps.</h3>
 <div class="outline-text-3" id="text-3-2">
 </div>
 </div>

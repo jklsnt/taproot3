@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:55 -->
+<!-- 2021-10-02 Sat 12:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Integration By Parts</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,59 +217,78 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Integration By Parts</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Integration By Parts</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-10-02 Sat 10:58</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgba152d2">1. \(\int \ln x dx\)</a></li>
-<li><a href="#org1ae8e3e">2. \(\int\tan ^-x dx\)</a></li>
-<li><a href="#org422cf88">3. \(\int x\sec ^2 x dx\)</a></li>
-<li><a href="#org1ee404c">4. \(\int x^2 e^{5x} dx\)</a></li>
-<li><a href="#orgf74b4d5">5. \(\int x ^2\cos x  dx = f(x) -\int 2x\sin x dx\)</a></li>
-<li><a href="#orgb4ba62b">6. \(\int x\cos x  dx\)</a></li>
-<li><a href="#org548ed08">7. \(\int x^2\sin x dx\)</a></li>
-<li><a href="#org43de52a">8. \(\int x^3 e^{x^2} dx\)</a></li>
-<li><a href="#org021df39">9. \(\int x^2 \ln x dx\)</a></li>
-<li><a href="#org3040565">10. \(\int \cos \ln x dx\)</a></li>
-<li><a href="#org2463472">11. multiple parts</a>
+<li><a href="#org7c8b7da">1. \(\int \ln x dx\)</a></li>
+<li><a href="#orgeacb300">2. \(\int\tan ^-x dx\)</a></li>
+<li><a href="#org0138f95">3. \(\int x\sec ^2 x dx\)</a></li>
+<li><a href="#org10d219a">4. \(\int x^2 e^{5x} dx\)</a></li>
+<li><a href="#org510e9fb">5. \(\int x ^2\cos x  dx = f(x) -\int 2x\sin x dx\)</a></li>
+<li><a href="#orgd5ff9d1">6. \(\int x\cos x  dx\)</a></li>
+<li><a href="#org3b9d94f">7. \(\int x^2\sin x dx\)</a></li>
+<li><a href="#org89e9701">8. \(\int x^3 e^{x^2} dx\)</a></li>
+<li><a href="#orgd36ffbd">9. \(\int x^2 \ln x dx\)</a></li>
+<li><a href="#org8a9259d">10. \(\int \cos \ln x dx\)</a></li>
+<li><a href="#org97646c7">11. multiple parts</a>
 <ul>
-<li><a href="#orgcfceab7">11.1. e</a></li>
-<li><a href="#orga843e42">11.2. \(\int e^{2x} \cos 3x dx\)</a></li>
-<li><a href="#org9a21881">11.3. evaluate previous from \([0, \frac{pi}{6}]\)</a></li>
+<li><a href="#org11e04fc">11.1. e</a></li>
+<li><a href="#org1555ef7">11.2. \(\int e^{2x} \cos 3x dx\)</a></li>
+<li><a href="#org56c36d7">11.3. evaluate previous from \([0, \frac{pi}{6}]\)</a></li>
 </ul>
 </li>
-<li><a href="#org2aff5eb">12. \(\int \sec^3 x dx\)</a></li>
+<li><a href="#orgc8aa69b">12. \(\int \sec^3 x dx\)</a></li>
 </ul>
 </div></div>
 </div>
-<div id="outline-container-orgba152d2" class="outline-2">
-<h2 id="orgba152d2"><span class="section-number-2">1</span> \(\int \ln x dx\)</h2>
+<div id="outline-container-org7c8b7da" class="outline-2">
+<h2 id="org7c8b7da"><span class="section-number-2">1</span> \(\int \ln x dx\)</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 \[\begin{aligned}
@@ -280,8 +300,8 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org1ae8e3e" class="outline-2">
-<h2 id="org1ae8e3e"><span class="section-number-2">2</span> \(\int\tan ^-x dx\)</h2>
+<div id="outline-container-orgeacb300" class="outline-2">
+<h2 id="orgeacb300"><span class="section-number-2">2</span> \(\int\tan ^-x dx\)</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 \[\begin{aligned}
@@ -293,8 +313,8 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org422cf88" class="outline-2">
-<h2 id="org422cf88"><span class="section-number-2">3</span> \(\int x\sec ^2 x dx\)</h2>
+<div id="outline-container-org0138f95" class="outline-2">
+<h2 id="org0138f95"><span class="section-number-2">3</span> \(\int x\sec ^2 x dx\)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 \[\begin{aligned}
@@ -304,8 +324,8 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org1ee404c" class="outline-2">
-<h2 id="org1ee404c"><span class="section-number-2">4</span> \(\int x^2 e^{5x} dx\)</h2>
+<div id="outline-container-org10d219a" class="outline-2">
+<h2 id="org10d219a"><span class="section-number-2">4</span> \(\int x^2 e^{5x} dx\)</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 \[\begin{aligned}
@@ -317,8 +337,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgf74b4d5" class="outline-2">
-<h2 id="orgf74b4d5"><span class="section-number-2">5</span> \(\int x ^2\cos x  dx = f(x) -\int 2x\sin x dx\)</h2>
+<div id="outline-container-org510e9fb" class="outline-2">
+<h2 id="org510e9fb"><span class="section-number-2">5</span> \(\int x ^2\cos x  dx = f(x) -\int 2x\sin x dx\)</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Find \(f(x)\)
@@ -329,8 +349,8 @@ Find \(f(x)\)
 </div>
 </div>
 
-<div id="outline-container-orgb4ba62b" class="outline-2">
-<h2 id="orgb4ba62b"><span class="section-number-2">6</span> \(\int x\cos x  dx\)</h2>
+<div id="outline-container-orgd5ff9d1" class="outline-2">
+<h2 id="orgd5ff9d1"><span class="section-number-2">6</span> \(\int x\cos x  dx\)</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 \[\begin{aligned}
@@ -341,8 +361,8 @@ Find \(f(x)\)
 </div>
 </div>
 
-<div id="outline-container-org548ed08" class="outline-2">
-<h2 id="org548ed08"><span class="section-number-2">7</span> \(\int x^2\sin x dx\)</h2>
+<div id="outline-container-org3b9d94f" class="outline-2">
+<h2 id="org3b9d94f"><span class="section-number-2">7</span> \(\int x^2\sin x dx\)</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 \[\begin{aligned}
@@ -354,8 +374,8 @@ Find \(f(x)\)
 </div>
 
 
-<div id="outline-container-org43de52a" class="outline-2">
-<h2 id="org43de52a"><span class="section-number-2">8</span> \(\int x^3 e^{x^2} dx\)</h2>
+<div id="outline-container-org89e9701" class="outline-2">
+<h2 id="org89e9701"><span class="section-number-2">8</span> \(\int x^3 e^{x^2} dx\)</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 Let \(u = x^2\)
@@ -375,8 +395,8 @@ Let \(u = x^2\)
 </div>
 
 
-<div id="outline-container-org021df39" class="outline-2">
-<h2 id="org021df39"><span class="section-number-2">9</span> \(\int x^2 \ln x dx\)</h2>
+<div id="outline-container-orgd36ffbd" class="outline-2">
+<h2 id="orgd36ffbd"><span class="section-number-2">9</span> \(\int x^2 \ln x dx\)</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 \[\begin{aligned}
@@ -388,8 +408,8 @@ Let \(u = x^2\)
 </div>
 </div>
 
-<div id="outline-container-org3040565" class="outline-2">
-<h2 id="org3040565"><span class="section-number-2">10</span> \(\int \cos \ln x dx\)</h2>
+<div id="outline-container-org8a9259d" class="outline-2">
+<h2 id="org8a9259d"><span class="section-number-2">10</span> \(\int \cos \ln x dx\)</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 \[\begin{aligned}
@@ -406,16 +426,16 @@ Or you could use \(u = \ln  x\), apparently.
 </div>
 </div>
 
-<div id="outline-container-org2463472" class="outline-2">
-<h2 id="org2463472"><span class="section-number-2">11</span> multiple parts</h2>
+<div id="outline-container-org97646c7" class="outline-2">
+<h2 id="org97646c7"><span class="section-number-2">11</span> multiple parts</h2>
 <div class="outline-text-2" id="text-11">
 </div>
-<div id="outline-container-orgcfceab7" class="outline-3">
-<h3 id="orgcfceab7"><span class="section-number-3">11.1</span> e</h3>
+<div id="outline-container-org11e04fc" class="outline-3">
+<h3 id="org11e04fc"><span class="section-number-3">11.1</span> e</h3>
 </div>
 
-<div id="outline-container-orga843e42" class="outline-3">
-<h3 id="orga843e42"><span class="section-number-3">11.2</span> \(\int e^{2x} \cos 3x dx\)</h3>
+<div id="outline-container-org1555ef7" class="outline-3">
+<h3 id="org1555ef7"><span class="section-number-3">11.2</span> \(\int e^{2x} \cos 3x dx\)</h3>
 <div class="outline-text-3" id="text-11-2">
 <p>
 \[\begin{aligned}
@@ -431,8 +451,8 @@ Or you could use \(u = \ln  x\), apparently.
 </div>
 
 
-<div id="outline-container-org9a21881" class="outline-3">
-<h3 id="org9a21881"><span class="section-number-3">11.3</span> evaluate previous from \([0, \frac{pi}{6}]\)</h3>
+<div id="outline-container-org56c36d7" class="outline-3">
+<h3 id="org56c36d7"><span class="section-number-3">11.3</span> evaluate previous from \([0, \frac{pi}{6}]\)</h3>
 <div class="outline-text-3" id="text-11-3">
 <p>
 \[\begin{aligned}
@@ -443,8 +463,8 @@ Or you could use \(u = \ln  x\), apparently.
 </div>
 </div>
 
-<div id="outline-container-org2aff5eb" class="outline-2">
-<h2 id="org2aff5eb"><span class="section-number-2">12</span> \(\int \sec^3 x dx\)</h2>
+<div id="outline-container-orgc8aa69b" class="outline-2">
+<h2 id="orgc8aa69b"><span class="section-number-2">12</span> \(\int \sec^3 x dx\)</h2>
 <div class="outline-text-2" id="text-12">
 <p>
 \[\begin{aligned}

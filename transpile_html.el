@@ -7,6 +7,7 @@
 ; (load-file "./resources/org-special-block-extras.el")
 
 (require 'org)
+(require 'org-id)
 (require 'htmlize)
 ; (require 'org-special-block-extras)
 
@@ -17,6 +18,7 @@
 (setq org-html-postamble nil)
 (setq org-src-fontify-natively t)
 (setq org-html-htmlize-output-type 'css)
+(org-id-locations-load)
 
 (setq org-html-preamble-format '(("en" "<div class=\"header\"><span class=\"site\"><a href=\"https://taproot3.sanity.gq\">TR3.5</a></span></div><div class=\"datarow\"><h1 class=\"title\">%t</h1> <h2 class=\"subtitle\">%s</h2> <span class=\"author\">%a</span> <span class=\"date\">%C</date></div>")))
 

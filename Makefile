@@ -48,6 +48,7 @@ gen/%.org: src/%.org
 	sed -i "s/%20/ /g" "$@"
 
 gen: $(ORG_GEN)
+	./cache_ids.el
 	cp -r static/* docs/
 	cp -r static/* firn_docs/
 
@@ -55,19 +56,18 @@ gen: $(ORG_GEN)
 
 # Transpiling recipes
 docs/%.tex: gen/%.org
-	./transpile_latex.el "$<"
-	mkdir -p $$(dirname "$@")
-	cp $$(echo "$<" | sed "s/\.org/.tex/g") "$@"
-	sed -ie "s/\\href{\(.*\).svg\}{\?.*\}\?/\includesvg{\1}/g" "$@"
+	- ./transpile_latex.el "$<"
+	- mkdir -p $$(dirname "$@")
+	- cp $$(echo "$<" | sed "s/\.org/.tex/g") "$@"
+	- sed -ie "s/\\href{\(.*\).svg\}{\?.*\}\?/\includesvg{\1}/g" "$@"
 
 docs/%.html: gen/%.org 
-	mkdir -p docs
-	./transpile_html.el "$<"
-	mkdir -p $$(dirname "$@")
-	cp $$(echo "$<" | sed "s/\.org/.html/g") "$@"
+	- mkdir -p docs
+	- ./transpile_html.el "$<"
+	- mkdir -p $$(dirname "$@")
+	- cp $$(echo "$<" | sed "s/\.org/.html/g") "$@"
 
 transpile: gen
-	./cache_ids.el
 	rsync -am --include='*.'{jpg,jpeg,png,gif,svg} --include='*/' --exclude='*' ./src/* ./docs
 	mkdir -p gen/_firn
 	cp -r site/* gen/_firn

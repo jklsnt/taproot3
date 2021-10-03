@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:55 -->
+<!-- 2021-10-02 Sat 12:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Questions to Ponder about \(A^TA\) and \(AA^T\)</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,46 +217,65 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Questions to Ponder about \(A^TA\) and \(AA^T\)</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Questions to Ponder about \(A^TA\) and \(AA^T\)</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-10-02 Sat 10:58</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org67ed1d5">1. A real valued matrix</a></li>
-<li><a href="#org9b27057">2. For complex matrices</a></li>
-<li><a href="#org8d6d48e">3. Complex conjugate (\(A^*A\) vs \(A A^*\))</a></li>
-<li><a href="#orge3dba39">4. Transpose distributivity with matrix multiplication</a></li>
-<li><a href="#org373443b">5. Determinant distributivity with matrix multiplication</a></li>
+<li><a href="#orgbe39372">1. A real valued matrix</a></li>
+<li><a href="#orgad15b25">2. For complex matrices</a></li>
+<li><a href="#org783ba88">3. Complex conjugate (\(A^*A\) vs \(A A^*\))</a></li>
+<li><a href="#org4de6f84">4. Transpose distributivity with matrix multiplication</a></li>
+<li><a href="#org79f25aa">5. Determinant distributivity with matrix multiplication</a></li>
 </ul>
 </div></div>
 </div>
-<div id="outline-container-org67ed1d5" class="outline-2">
-<h2 id="org67ed1d5"><span class="section-number-2">1</span> A real valued matrix</h2>
+<div id="outline-container-orgbe39372" class="outline-2">
+<h2 id="orgbe39372"><span class="section-number-2">1</span> A real valued matrix</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Let \(A =\begin{pmatrix}2 &1 \\ 3 & 2\end{pmatrix}\)
@@ -275,8 +295,8 @@ Then, \(A^TA\) is the same thing, but with \(b, c\) swapped.
 </p>
 </div>
 </div>
-<div id="outline-container-org9b27057" class="outline-2">
-<h2 id="org9b27057"><span class="section-number-2">2</span> For complex matrices</h2>
+<div id="outline-container-orgad15b25" class="outline-2">
+<h2 id="orgad15b25"><span class="section-number-2">2</span> For complex matrices</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 \[\begin{aligned}
@@ -292,8 +312,8 @@ I'm not sure if I'm noticing anything different from the real ones, although may
 </p>
 </div>
 </div>
-<div id="outline-container-org8d6d48e" class="outline-2">
-<h2 id="org8d6d48e"><span class="section-number-2">3</span> Complex conjugate (\(A^*A\) vs \(A A^*\))</h2>
+<div id="outline-container-org783ba88" class="outline-2">
+<h2 id="org783ba88"><span class="section-number-2">3</span> Complex conjugate (\(A^*A\) vs \(A A^*\))</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 \[\begin{aligned}
@@ -320,8 +340,8 @@ The diagonals are real-valued, and the matrices are symmetric about the diagonal
 </p>
 </div>
 </div>
-<div id="outline-container-orge3dba39" class="outline-2">
-<h2 id="orge3dba39"><span class="section-number-2">4</span> Transpose distributivity with matrix multiplication</h2>
+<div id="outline-container-org4de6f84" class="outline-2">
+<h2 id="org4de6f84"><span class="section-number-2">4</span> Transpose distributivity with matrix multiplication</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 \[\begin{aligned}
@@ -335,8 +355,8 @@ I have no good proof of this for larger matrices or non-square matrices, but it 
 </p>
 </div>
 </div>
-<div id="outline-container-org373443b" class="outline-2">
-<h2 id="org373443b"><span class="section-number-2">5</span> Determinant distributivity with matrix multiplication</h2>
+<div id="outline-container-org79f25aa" class="outline-2">
+<h2 id="org79f25aa"><span class="section-number-2">5</span> Determinant distributivity with matrix multiplication</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 \[\begin{aligned}

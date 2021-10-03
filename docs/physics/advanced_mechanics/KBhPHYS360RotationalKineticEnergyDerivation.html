@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:54 -->
+<!-- 2021-10-02 Sat 12:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Deriving Rotational Energy</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,44 +217,63 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Deriving Rotational Energy</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Deriving Rotational Energy</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-10-02 Sat 10:58</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhPHYS360RotationalKineticEnergy.html'>Rotational Kinetic Energy</a></li> <li><a class='backlink' href='index.html'>Advanced Mechanics Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org8b8cdb9">1. Position of \(m_i\)</a></li>
-<li><a href="#org7a6be5b">2. Velocity of \(m_i\)</a></li>
-<li><a href="#org4ff6f71">3. Deriving \(KE_{total}\)</a>
+<li><a href="#orge2363fa">1. Position of \(m_i\)</a></li>
+<li><a href="#org7f83dc1">2. Velocity of \(m_i\)</a></li>
+<li><a href="#orgdd4dabe">3. Deriving \(KE_{total}\)</a>
 <ul>
-<li><a href="#org11ab9c2">3.1. Setting up</a></li>
-<li><a href="#orge34ec98">3.2. Derivation, part 1</a></li>
-<li><a href="#org786af52">3.3. Dealing with the Middle Term</a></li>
-<li><a href="#orge0b0963">3.4. Derivation, part 2</a></li>
+<li><a href="#org1e3cee2">3.1. Setting up</a></li>
+<li><a href="#org9508369">3.2. Derivation, part 1</a></li>
+<li><a href="#org244a132">3.3. Dealing with the Middle Term</a></li>
+<li><a href="#org6d14f4c">3.4. Derivation, part 2</a></li>
 </ul>
 </li>
 </ul>
@@ -261,8 +281,8 @@
 </div>
 
 
-<div id="outline-container-org8b8cdb9" class="outline-2">
-<h2 id="org8b8cdb9"><span class="section-number-2">1</span> Position of \(m_i\)</h2>
+<div id="outline-container-orge2363fa" class="outline-2">
+<h2 id="orge2363fa"><span class="section-number-2">1</span> Position of \(m_i\)</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In a rigid body consisting of \(N\) point masses, the vector to the position of \(m_i\) is defined as \(\vec{r_i(t)}\), which is defined as follows:
@@ -278,8 +298,8 @@ whereas, \(\vec{R_{CM}(t)}\) is the position vector of the center of mass of the
 </div>
 </div>
 
-<div id="outline-container-org7a6be5b" class="outline-2">
-<h2 id="org7a6be5b"><span class="section-number-2">2</span> Velocity of \(m_i\)</h2>
+<div id="outline-container-org7f83dc1" class="outline-2">
+<h2 id="org7f83dc1"><span class="section-number-2">2</span> Velocity of \(m_i\)</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The velocity of \(m_i\) is simply determined by the first derivative of the position equation as per above. Namely, that:
@@ -295,12 +315,12 @@ where, \(\vec{v_i(t)}\) is the velocity vector of \(m_i\), and \(\vec{V_{CM}(t)}
 </div>
 </div>
 
-<div id="outline-container-org4ff6f71" class="outline-2">
-<h2 id="org4ff6f71"><span class="section-number-2">3</span> Deriving \(KE_{total}\)</h2>
+<div id="outline-container-orgdd4dabe" class="outline-2">
+<h2 id="orgdd4dabe"><span class="section-number-2">3</span> Deriving \(KE_{total}\)</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org11ab9c2" class="outline-3">
-<h3 id="org11ab9c2"><span class="section-number-3">3.1</span> Setting up</h3>
+<div id="outline-container-org1e3cee2" class="outline-3">
+<h3 id="org1e3cee2"><span class="section-number-3">3.1</span> Setting up</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 From definition of \(KE_{total}\) itself, \(KE_{total}\) is the sum of all energies of each point mass in the rigid body.
@@ -313,8 +333,8 @@ From definition of \(KE_{total}\) itself, \(KE_{total}\) is the sum of all energ
 </div>
 
 
-<div id="outline-container-orge34ec98" class="outline-3">
-<h3 id="orge34ec98"><span class="section-number-3">3.2</span> Derivation, part 1</h3>
+<div id="outline-container-org9508369" class="outline-3">
+<h3 id="org9508369"><span class="section-number-3">3.2</span> Derivation, part 1</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Expanding this equation and substituting the value of \(v_i\), and additionally setting \(M = \sum m_i\) (namely, that \(M\) represents the total mass of the rigid body) we could derive:
@@ -330,8 +350,8 @@ Expanding this equation and substituting the value of \(v_i\), and additionally 
 </div>
 </div>
 
-<div id="outline-container-org786af52" class="outline-3">
-<h3 id="org786af52"><span class="section-number-3">3.3</span> Dealing with the Middle Term</h3>
+<div id="outline-container-org244a132" class="outline-3">
+<h3 id="org244a132"><span class="section-number-3">3.3</span> Dealing with the Middle Term</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 At this point, we must note that \(\sum^N_{i=1} m_i \vec{v_i}' = 0\). Per the definition of the center of mass, the following holds:
@@ -369,8 +389,8 @@ Given that \(\frac{1}{M}\) could not be zero for an object with non-zero mass, i
 </div>
 </div>
 
-<div id="outline-container-orge0b0963" class="outline-3">
-<h3 id="orge0b0963"><span class="section-number-3">3.4</span> Derivation, part 2</h3>
+<div id="outline-container-org6d14f4c" class="outline-3">
+<h3 id="org6d14f4c"><span class="section-number-3">3.4</span> Derivation, part 2</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 As \(\sum_i m_i \vec{v_i}' = 0\), the \(KE_{total}\) work-in-progress equation's middle term (which contains the statement \(\sum_i m_i \vec{v_i}'\)) is therefore zero. Substituting that in and removing the term, we therefore result in:

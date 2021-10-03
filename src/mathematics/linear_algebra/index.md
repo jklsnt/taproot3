@@ -28,10 +28,10 @@ source:  #index
 	- [[KBxLinearIndependence]]
 	- [[KBxSpansLinAlg]]
 	- [[KBxChapter2AReview]]
-[[KBxLinAlgLongNotTheoretical]]
+[[KBxDeterminantsInClass]]
 [[KBxBestFitLinesViaMatrixEquations]]
 [[KBx2AQuestionsHW]]
 [[KBx2ABestFitLinesReview]]
 [[KBx2AExercises]]
 [[KBx2Aref]]
-
+- [[KBxChapter2BReading]]

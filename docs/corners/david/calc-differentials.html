@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:53 -->
+<!-- 2021-10-02 Sat 12:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>LinApprox + Differentials Quiz</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,70 +217,89 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">LinApprox + Differentials Quiz</h1> <h2 class="subtitle">Let's do this.</h2> <span class="author">Taproot</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">LinApprox + Differentials Quiz</h1> <h2 class="subtitle">Let's do this.</h2> <span class="author">Taproot</span> <span class="date">2021-10-02 Sat 10:57</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='calc-index.html'>MATH401 Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org9aab2dd">1. Implicit Differentiation</a>
+<li><a href="#org67ba4ff">1. Implicit Differentiation</a>
 <ul>
-<li><a href="#orgf251a97">1.1. Common Problems and their Respective Approaches</a>
+<li><a href="#orgc4caec0">1.1. Common Problems and their Respective Approaches</a>
 <ul>
-<li><a href="#orgf78793d">1.1.1. Find the equation of the tangent/normal at (A,B)</a></li>
-<li><a href="#orgaa64670">1.1.2. Find location of curve where tangent is <i>vertical</i></a></li>
-<li><a href="#org1c52962">1.1.3. Find location of curve where tangent is <i>horizontal</i></a></li>
+<li><a href="#org2e5cd0a">1.1.1. Find the equation of the tangent/normal at (A,B)</a></li>
+<li><a href="#orgd808aed">1.1.2. Find location of curve where tangent is <i>vertical</i></a></li>
+<li><a href="#orgc8122f0">1.1.3. Find location of curve where tangent is <i>horizontal</i></a></li>
 </ul>
 </li>
-<li><a href="#org1cdfc1c">1.2. Misc Tips</a>
+<li><a href="#orge8a9229">1.2. Misc Tips</a>
 <ul>
-<li><a href="#org35bcebd">1.2.1. Pay attention to the original equations!</a></li>
+<li><a href="#org42f5e48">1.2.1. Pay attention to the original equations!</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgaba0496">2. Derivatives of Inverse Functions</a></li>
-<li><a href="#org5023d3f">3. Derivatives of Inv. Trig Functions</a>
+<li><a href="#org3c5509b">2. Derivatives of Inverse Functions</a></li>
+<li><a href="#orgcb6b860">3. Derivatives of Inv. Trig Functions</a>
 <ul>
-<li><a href="#org12a38ff">3.1. <span class="todo TODO">TODO</span> Explicitly deriving</a></li>
+<li><a href="#org02d508d">3.1. <span class="todo TODO">TODO</span> Explicitly deriving</a></li>
 </ul>
 </li>
-<li><a href="#orgeac63c6">4. Linear Approximations</a>
+<li><a href="#orgc6af0ab">4. Linear Approximations</a>
 <ul>
-<li><a href="#orgadc210a">4.1. <span class="todo TODO">TODO</span> Algebraically getting set accuracy bounds</a></li>
+<li><a href="#org503ff73">4.1. <span class="todo TODO">TODO</span> Algebraically getting set accuracy bounds</a></li>
 </ul>
 </li>
-<li><a href="#orgf6aa15b">5. Differentials</a></li>
+<li><a href="#orgae32004">5. Differentials</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org9aab2dd" class="outline-2">
-<h2 id="org9aab2dd"><span class="section-number-2">1</span> Implicit Differentiation</h2>
+<div id="outline-container-org67ba4ff" class="outline-2">
+<h2 id="org67ba4ff"><span class="section-number-2">1</span> Implicit Differentiation</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The usual process:
@@ -292,12 +312,12 @@ The usual process:
 </ol>
 </div>
 
-<div id="outline-container-orgf251a97" class="outline-3">
-<h3 id="orgf251a97"><span class="section-number-3">1.1</span> Common Problems and their Respective Approaches</h3>
+<div id="outline-container-orgc4caec0" class="outline-3">
+<h3 id="orgc4caec0"><span class="section-number-3">1.1</span> Common Problems and their Respective Approaches</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orgf78793d" class="outline-4">
-<h4 id="orgf78793d"><span class="section-number-4">1.1.1</span> Find the equation of the tangent/normal at (A,B)</h4>
+<div id="outline-container-org2e5cd0a" class="outline-4">
+<h4 id="org2e5cd0a"><span class="section-number-4">1.1.1</span> Find the equation of the tangent/normal at (A,B)</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 Remember that \(L(a) = f(a) + f'(a)(x-a)\), and that'll give you tangent.
@@ -305,8 +325,8 @@ Normal line is just perpendicular of tangent, so \(\frac{-1}{L(a)}\).
 </p>
 </div>
 </div>
-<div id="outline-container-orgaa64670" class="outline-4">
-<h4 id="orgaa64670"><span class="section-number-4">1.1.2</span> Find location of curve where tangent is <i>vertical</i></h4>
+<div id="outline-container-orgd808aed" class="outline-4">
+<h4 id="orgd808aed"><span class="section-number-4">1.1.2</span> Find location of curve where tangent is <i>vertical</i></h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 Simply find what values of x and y make the tangent go to infinity.
@@ -314,8 +334,8 @@ System of equations with the derivative and the original implicit equation itsel
 </p>
 </div>
 </div>
-<div id="outline-container-org1c52962" class="outline-4">
-<h4 id="org1c52962"><span class="section-number-4">1.1.3</span> Find location of curve where tangent is <i>horizontal</i></h4>
+<div id="outline-container-orgc8122f0" class="outline-4">
+<h4 id="orgc8122f0"><span class="section-number-4">1.1.3</span> Find location of curve where tangent is <i>horizontal</i></h4>
 <div class="outline-text-4" id="text-1-1-3">
 <p>
 Same as above but solve for what makes tangent go to zero.
@@ -323,12 +343,12 @@ Same as above but solve for what makes tangent go to zero.
 </div>
 </div>
 </div>
-<div id="outline-container-org1cdfc1c" class="outline-3">
-<h3 id="org1cdfc1c"><span class="section-number-3">1.2</span> Misc Tips</h3>
+<div id="outline-container-orge8a9229" class="outline-3">
+<h3 id="orge8a9229"><span class="section-number-3">1.2</span> Misc Tips</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org35bcebd" class="outline-4">
-<h4 id="org35bcebd"><span class="section-number-4">1.2.1</span> Pay attention to the original equations!</h4>
+<div id="outline-container-org42f5e48" class="outline-4">
+<h4 id="org42f5e48"><span class="section-number-4">1.2.1</span> Pay attention to the original equations!</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 They're very useful in algebra!
@@ -338,8 +358,8 @@ They're very useful in algebra!
 </div>
 </div>
 
-<div id="outline-container-orgaba0496" class="outline-2">
-<h2 id="orgaba0496"><span class="section-number-2">2</span> Derivatives of Inverse Functions</h2>
+<div id="outline-container-org3c5509b" class="outline-2">
+<h2 id="org3c5509b"><span class="section-number-2">2</span> Derivatives of Inverse Functions</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Formula for this is \((f^{-1}(x))' = \frac{1}{f'(f^{-1}(x))}\). 
@@ -347,21 +367,21 @@ Formula for this is \((f^{-1}(x))' = \frac{1}{f'(f^{-1}(x))}\).
 </div>
 </div>
 
-<div id="outline-container-org5023d3f" class="outline-2">
-<h2 id="org5023d3f"><span class="section-number-2">3</span> Derivatives of Inv. Trig Functions</h2>
+<div id="outline-container-orgcb6b860" class="outline-2">
+<h2 id="orgcb6b860"><span class="section-number-2">3</span> Derivatives of Inv. Trig Functions</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Remember the derivs
 </p>
 </div>
 
-<div id="outline-container-org12a38ff" class="outline-3">
-<h3 id="org12a38ff"><span class="section-number-3">3.1</span> <span class="todo TODO">TODO</span> Explicitly deriving</h3>
+<div id="outline-container-org02d508d" class="outline-3">
+<h3 id="org02d508d"><span class="section-number-3">3.1</span> <span class="todo TODO">TODO</span> Explicitly deriving</h3>
 </div>
 </div>
 
-<div id="outline-container-orgeac63c6" class="outline-2">
-<h2 id="orgeac63c6"><span class="section-number-2">4</span> Linear Approximations</h2>
+<div id="outline-container-orgc6af0ab" class="outline-2">
+<h2 id="orgc6af0ab"><span class="section-number-2">4</span> Linear Approximations</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 \(L(a) = f(a) + f'(a)(x-a)\)
@@ -369,13 +389,13 @@ Plug in for appropriate a, and manually check for over/underestimation if proble
 </p>
 </div>
 
-<div id="outline-container-orgadc210a" class="outline-3">
-<h3 id="orgadc210a"><span class="section-number-3">4.1</span> <span class="todo TODO">TODO</span> Algebraically getting set accuracy bounds</h3>
+<div id="outline-container-org503ff73" class="outline-3">
+<h3 id="org503ff73"><span class="section-number-3">4.1</span> <span class="todo TODO">TODO</span> Algebraically getting set accuracy bounds</h3>
 </div>
 </div>
 
-<div id="outline-container-orgf6aa15b" class="outline-2">
-<h2 id="orgf6aa15b"><span class="section-number-2">5</span> Differentials</h2>
+<div id="outline-container-orgae32004" class="outline-2">
+<h2 id="orgae32004"><span class="section-number-2">5</span> Differentials</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 \(dy = f'(x)dx\)

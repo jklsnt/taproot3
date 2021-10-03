@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:55 -->
+<!-- 2021-10-02 Sat 12:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Eigenvalues and Eigenvectors</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,59 +217,78 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Eigenvalues and Eigenvectors</h1> <h2 class="subtitle"></h2> <span class="author">Exr0n</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Eigenvalues and Eigenvectors</h1> <h2 class="subtitle"></h2> <span class="author">Exr0n</span> <span class="date">2021-10-02 Sat 10:58</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBrefEigenspace.html'>Axler5.36 Eigenspace</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgec8310d">1. sources&#xa0;&#xa0;&#xa0;<span class="tag"><span class="source">source</span></span></a>
+<li><a href="#orgff62796">1. sources&#xa0;&#xa0;&#xa0;<span class="tag"><span class="source">source</span></span></a>
 <ul>
-<li><a href="#org4c6e4d4">1.1. linear algebra done right (Axler 5.A)</a></li>
+<li><a href="#orgf78b1b1">1.1. linear algebra done right (Axler 5.A)</a></li>
 </ul>
 </li>
-<li><a href="#org137e007">2. motivation</a></li>
-<li><a href="#org0da4f76">3. eigenvalue&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></a>
+<li><a href="#orgf9a4831">2. motivation</a></li>
+<li><a href="#org90d24fd">3. eigenvalue&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></a>
 <ul>
-<li><a href="#orgc076c0e">3.1. results</a>
+<li><a href="#orga51df7c">3.1. results</a>
 <ul>
-<li><a href="#org49d077f">3.1.1. Axler5.6 equivalent conditions</a></li>
+<li><a href="#org70e5105">3.1.1. Axler5.6 equivalent conditions</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org98e8100">4. eigenvector&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></a>
+<li><a href="#org76bbfbe">4. eigenvector&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></a>
 <ul>
-<li><a href="#org9008ec2">4.1. intuit&#xa0;&#xa0;&#xa0;<span class="tag"><span class="intuit">intuit</span></span></a></li>
-<li><a href="#org8d07ac8">4.2. results</a>
+<li><a href="#orgb136739">4.1. intuit&#xa0;&#xa0;&#xa0;<span class="tag"><span class="intuit">intuit</span></span></a></li>
+<li><a href="#org96a3f30">4.2. results</a>
 <ul>
-<li><a href="#orgf80de0b">4.2.1. equivalent condition</a></li>
-<li><a href="#org58e6762">4.2.2. axler5.10 linearly independent eigenvectors</a></li>
-<li><a href="#orga2d51f8">4.2.3. axler5.11 maximum number of eigenvalues</a></li>
+<li><a href="#org8e2819d">4.2.1. equivalent condition</a></li>
+<li><a href="#orgfceefeb">4.2.2. axler5.10 linearly independent eigenvectors</a></li>
+<li><a href="#org55da790">4.2.3. axler5.11 maximum number of eigenvalues</a></li>
 </ul>
 </li>
 </ul>
@@ -276,16 +296,16 @@
 </ul>
 </div></div>
 </div>
-<div id="outline-container-orgec8310d" class="outline-2">
-<h2 id="orgec8310d"><span class="section-number-2">1</span> sources&#xa0;&#xa0;&#xa0;<span class="tag"><span class="source">source</span></span></h2>
+<div id="outline-container-orgff62796" class="outline-2">
+<h2 id="orgff62796"><span class="section-number-2">1</span> sources&#xa0;&#xa0;&#xa0;<span class="tag"><span class="source">source</span></span></h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org4c6e4d4" class="outline-3">
-<h3 id="org4c6e4d4"><span class="section-number-3">1.1</span> linear algebra done right (Axler 5.A)</h3>
+<div id="outline-container-orgf78b1b1" class="outline-3">
+<h3 id="orgf78b1b1"><span class="section-number-3">1.1</span> linear algebra done right (Axler 5.A)</h3>
 </div>
 </div>
-<div id="outline-container-org137e007" class="outline-2">
-<h2 id="org137e007"><span class="section-number-2">2</span> motivation</h2>
+<div id="outline-container-orgf9a4831" class="outline-2">
+<h2 id="orgf9a4831"><span class="section-number-2">2</span> motivation</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The simplest non-trivial invariant subspaces are one-dimensional. Let \(U\) be a one-dimensional invariant subspace under \(T\), then
@@ -296,8 +316,8 @@ which defines an eigenvalue (\(\lambda\)) and eigenvector(\(u\)) pair.
 </p>
 </div>
 </div>
-<div id="outline-container-org0da4f76" class="outline-2">
-<h2 id="org0da4f76"><span class="section-number-2">3</span> eigenvalue&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></h2>
+<div id="outline-container-org90d24fd" class="outline-2">
+<h2 id="org90d24fd"><span class="section-number-2">3</span> eigenvalue&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></h2>
 <div class="outline-text-2" id="text-3">
 <blockquote>
 <p>
@@ -305,12 +325,12 @@ Suppose \(T \in \mathcal L(V)\). A number \(\lambda \in \mathbb F\) is called an
 </p>
 </blockquote>
 </div>
-<div id="outline-container-orgc076c0e" class="outline-3">
-<h3 id="orgc076c0e"><span class="section-number-3">3.1</span> results</h3>
+<div id="outline-container-orga51df7c" class="outline-3">
+<h3 id="orga51df7c"><span class="section-number-3">3.1</span> results</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-org49d077f" class="outline-4">
-<h4 id="org49d077f"><span class="section-number-4">3.1.1</span> Axler5.6 equivalent conditions</h4>
+<div id="outline-container-org70e5105" class="outline-4">
+<h4 id="org70e5105"><span class="section-number-4">3.1.1</span> Axler5.6 equivalent conditions</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 When \(V\) is finite-dimensional, \(T \in \mathcal L(V)\) and \(\lambda \in F\),
@@ -318,20 +338,20 @@ When \(V\) is finite-dimensional, \(T \in \mathcal L(V)\) and \(\lambda \in F\),
 </div>
 
 <ol class="org-ol">
-<li><a id="orgf528781"></a>\(T - \lambda I\) is not ijnective<br /></li>
+<li><a id="org51d4b5f"></a>\(T - \lambda I\) is not ijnective<br /></li>
 
-<li><a id="org64a620b"></a>\(T - \lambda I\) is not surjective<br /></li>
+<li><a id="org35acb6d"></a>\(T - \lambda I\) is not surjective<br /></li>
 
-<li><a id="orgea501f8"></a>\(T - \lambda I\) is not invertible<br /></li>
+<li><a id="orgbac3bf1"></a>\(T - \lambda I\) is not invertible<br /></li>
 
-<li><a id="org839b3dc"></a>we don't want \(T - \lambda I\) to be invertible because we want it to be zero  (rearranging the prev equation)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="intuit">intuit</span></span><br /></li>
+<li><a id="orgd6d3a3d"></a>we don't want \(T - \lambda I\) to be invertible because we want it to be zero  (rearranging the prev equation)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="intuit">intuit</span></span><br /></li>
 </ol>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org98e8100" class="outline-2">
-<h2 id="org98e8100"><span class="section-number-2">4</span> eigenvector&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></h2>
+<div id="outline-container-org76bbfbe" class="outline-2">
+<h2 id="org76bbfbe"><span class="section-number-2">4</span> eigenvector&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></h2>
 <div class="outline-text-2" id="text-4">
 <blockquote>
 <p>
@@ -340,8 +360,8 @@ Suppose \(T\) &isin; \mathcal L(V)$ and \(\lambda \in \mathbb F\) is an eigenval
 </blockquote>
 </div>
 
-<div id="outline-container-org9008ec2" class="outline-3">
-<h3 id="org9008ec2"><span class="section-number-3">4.1</span> intuit&#xa0;&#xa0;&#xa0;<span class="tag"><span class="intuit">intuit</span></span></h3>
+<div id="outline-container-orgb136739" class="outline-3">
+<h3 id="orgb136739"><span class="section-number-3">4.1</span> intuit&#xa0;&#xa0;&#xa0;<span class="tag"><span class="intuit">intuit</span></span></h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 \(v\) can't be zero because that would be trivial. Otherwise, this is just terminology based on the prev definition: if it gets scaled but stays in the same space, then its called an eigenvector. Note that each eigenvalue \(\lambda\) has a whole \(\text{span}v\) of associated eigenvectors.
@@ -349,12 +369,12 @@ Suppose \(T\) &isin; \mathcal L(V)$ and \(\lambda \in \mathbb F\) is an eigenval
 </div>
 </div>
 
-<div id="outline-container-org8d07ac8" class="outline-3">
-<h3 id="org8d07ac8"><span class="section-number-3">4.2</span> results</h3>
+<div id="outline-container-org96a3f30" class="outline-3">
+<h3 id="org96a3f30"><span class="section-number-3">4.2</span> results</h3>
 <div class="outline-text-3" id="text-4-2">
 </div>
-<div id="outline-container-orgf80de0b" class="outline-4">
-<h4 id="orgf80de0b"><span class="section-number-4">4.2.1</span> equivalent condition</h4>
+<div id="outline-container-org8e2819d" class="outline-4">
+<h4 id="org8e2819d"><span class="section-number-4">4.2.1</span> equivalent condition</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <blockquote>
 <p>
@@ -365,8 +385,8 @@ Because \(Tv = \lambda v\) iff \(\left(T-\lambda I\right)v = 0\) (algebra), a ve
 </div>
 
 
-<div id="outline-container-org58e6762" class="outline-4">
-<h4 id="org58e6762"><span class="section-number-4">4.2.2</span> axler5.10 linearly independent eigenvectors</h4>
+<div id="outline-container-orgfceefeb" class="outline-4">
+<h4 id="orgfceefeb"><span class="section-number-4">4.2.2</span> axler5.10 linearly independent eigenvectors</h4>
 <div class="outline-text-4" id="text-4-2-2">
 <blockquote>
 <p>
@@ -376,7 +396,7 @@ Let $T &isin; \mathcal L(V). Suppose \(\lambda_1, \ldots, \lambda_m\) are distin
 </div>
 
 <ol class="org-ol">
-<li><a id="orga317e7e"></a>intuit&#xa0;&#xa0;&#xa0;<span class="tag"><span class="intuit">intuit</span></span><br />
+<li><a id="org71b6a5e"></a>intuit&#xa0;&#xa0;&#xa0;<span class="tag"><span class="intuit">intuit</span></span><br />
 <div class="outline-text-5" id="text-4-2-2-1">
 <p>
 If some list of eigenvalues is distinct, then the corresponding eigenvectors will be linearly independent because if any subset linear combination could add to another, then something would be funny about linearity?
@@ -387,8 +407,8 @@ If some list of eigenvalues is distinct, then the corresponding eigenvectors wil
 </div>
 
 
-<div id="outline-container-orga2d51f8" class="outline-4">
-<h4 id="orga2d51f8"><span class="section-number-4">4.2.3</span> axler5.11 maximum number of eigenvalues</h4>
+<div id="outline-container-org55da790" class="outline-4">
+<h4 id="org55da790"><span class="section-number-4">4.2.3</span> axler5.11 maximum number of eigenvalues</h4>
 <div class="outline-text-4" id="text-4-2-3">
 <blockquote>
 <p>

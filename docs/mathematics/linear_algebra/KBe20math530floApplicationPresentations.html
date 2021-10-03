@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:55 -->
+<!-- 2021-10-02 Sat 12:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Application Presentations</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,77 +217,96 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Application Presentations</h1> <h2 class="subtitle"></h2> <span class="author">Exr0n</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Application Presentations</h1> <h2 class="subtitle"></h2> <span class="author">Exr0n</span> <span class="date">2021-10-02 Sat 10:58</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgcd351f1">1. <span class="done DONE">DONE</span> Brian P: Traffic control</a>
+<li><a href="#org23423a0">1. <span class="done DONE">DONE</span> Brian P: Traffic control</a>
 <ul>
-<li><a href="#orgb1698f2">1.1. traffic circle example</a>
+<li><a href="#orgadb26c4">1.1. traffic circle example</a>
 <ul>
-<li><a href="#orgfdf1d5e">1.1.1. info</a></li>
-<li><a href="#orgeb42052">1.1.2. calculation</a></li>
-<li><a href="#org3774de2">1.1.3. Take RREF (it happens to not be the identity, which means there isn't enough information to)</a></li>
+<li><a href="#orgf57d66c">1.1.1. info</a></li>
+<li><a href="#orgd86e815">1.1.2. calculation</a></li>
+<li><a href="#org30a270f">1.1.3. Take RREF (it happens to not be the identity, which means there isn't enough information to)</a></li>
 </ul>
 </li>
-<li><a href="#org96f8c4c">1.2. Block example</a>
+<li><a href="#org4d1f875">1.2. Block example</a>
 <ul>
-<li><a href="#orgb780760">1.2.1. goal</a></li>
+<li><a href="#orge94a215">1.2.1. goal</a></li>
 </ul>
 </li>
-<li><a href="#org5f251f0">1.3. general steps</a>
+<li><a href="#org7a0d117">1.3. general steps</a>
 <ul>
-<li><a href="#org62705e5">1.3.1. assign variables</a></li>
-<li><a href="#orgd03843f">1.3.2. create system of equations</a></li>
-<li><a href="#org8df8272">1.3.3. create matrix</a></li>
-<li><a href="#orgd0cea7c">1.3.4. use gaussian elimination to gain information</a></li>
+<li><a href="#orge3b5565">1.3.1. assign variables</a></li>
+<li><a href="#orgae8120e">1.3.2. create system of equations</a></li>
+<li><a href="#orgfd08108">1.3.3. create matrix</a></li>
+<li><a href="#org88bf6dc">1.3.4. use gaussian elimination to gain information</a></li>
 </ul>
 </li>
-<li><a href="#org8995ff4">1.4. with this information you can</a>
+<li><a href="#orgfcce488">1.4. with this information you can</a>
 <ul>
-<li><a href="#org3297f2c">1.4.1. adjust traffic light timings</a></li>
+<li><a href="#org069de49">1.4.1. adjust traffic light timings</a></li>
 </ul>
 </li>
-<li><a href="#org301752d">1.5. more complexity</a>
+<li><a href="#org6830f52">1.5. more complexity</a>
 <ul>
-<li><a href="#orgcf9dbbf">1.5.1. some examples with 120 variables or more</a></li>
-<li><a href="#org4bb9a67">1.5.2. done by computers</a></li>
-<li><a href="#orgaa6a5a3">1.5.3. jamiton lines/envelopes (phantom traffic slowdowns)</a></li>
+<li><a href="#org6956b8f">1.5.1. some examples with 120 variables or more</a></li>
+<li><a href="#orgccb2b61">1.5.2. done by computers</a></li>
+<li><a href="#org039a0a1">1.5.3. jamiton lines/envelopes (phantom traffic slowdowns)</a></li>
 </ul>
 </li>
-<li><a href="#org667dbf7">1.6. limitations</a>
+<li><a href="#org53d425f">1.6. limitations</a>
 <ul>
-<li><a href="#orgd829806">1.6.1. spikes of traffic vary based on time of day or year</a></li>
-<li><a href="#org190f4bd">1.6.2. routes are not considered</a></li>
-<li><a href="#org40f6ecd">1.6.3. size / type of vehicle</a></li>
-<li><a href="#org5b45d2c">1.6.4. speed of vehicles</a></li>
-<li><a href="#orgfc76e76">1.6.5. line of sight</a></li>
+<li><a href="#org4f46bc7">1.6.1. spikes of traffic vary based on time of day or year</a></li>
+<li><a href="#org211bcdd">1.6.2. routes are not considered</a></li>
+<li><a href="#org737a36a">1.6.3. size / type of vehicle</a></li>
+<li><a href="#orgfc36cb9">1.6.4. speed of vehicles</a></li>
+<li><a href="#org16150b5">1.6.5. line of sight</a></li>
 </ul>
 </li>
 </ul>
@@ -294,29 +314,29 @@
 </ul>
 </div></div>
 </div>
-<div id="outline-container-orgcd351f1" class="outline-2">
-<h2 id="orgcd351f1"><span class="section-number-2">1</span> <span class="done DONE">DONE</span> Brian P: Traffic control</h2>
+<div id="outline-container-org23423a0" class="outline-2">
+<h2 id="org23423a0"><span class="section-number-2">1</span> <span class="done DONE">DONE</span> Brian P: Traffic control</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 model and predict flow through streets using systems of linear equations
 </p>
 </div>
-<div id="outline-container-orgb1698f2" class="outline-3">
-<h3 id="orgb1698f2"><span class="section-number-3">1.1</span> traffic circle example</h3>
+<div id="outline-container-orgadb26c4" class="outline-3">
+<h3 id="orgadb26c4"><span class="section-number-3">1.1</span> traffic circle example</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orgfdf1d5e" class="outline-4">
-<h4 id="orgfdf1d5e"><span class="section-number-4">1.1.1</span> info</h4>
+<div id="outline-container-orgf57d66c" class="outline-4">
+<h4 id="orgf57d66c"><span class="section-number-4">1.1.1</span> info</h4>
 <div class="outline-text-4" id="text-1-1-1">
 </div>
 <ol class="org-ol">
-<li><a id="org26edd52"></a>cars perminute from each direction<br /></li>
-<li><a id="org7a281f0"></a>but counters only counted four of the road segments<br /></li>
-<li><a id="org2d26e17"></a>calculate how many cars went through the other road segments<br /></li>
+<li><a id="org4e175b2"></a>cars perminute from each direction<br /></li>
+<li><a id="orga720a17"></a>but counters only counted four of the road segments<br /></li>
+<li><a id="org7d8a5ee"></a>calculate how many cars went through the other road segments<br /></li>
 </ol>
 </div>
-<div id="outline-container-orgeb42052" class="outline-4">
-<h4 id="orgeb42052"><span class="section-number-4">1.1.2</span> calculation</h4>
+<div id="outline-container-orgd86e815" class="outline-4">
+<h4 id="orgd86e815"><span class="section-number-4">1.1.2</span> calculation</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 $$
@@ -333,22 +353,22 @@ $$
 </p>
 </div>
 </div>
-<div id="outline-container-org3774de2" class="outline-4">
-<h4 id="org3774de2"><span class="section-number-4">1.1.3</span> Take RREF (it happens to not be the identity, which means there isn't enough information to)</h4>
+<div id="outline-container-org30a270f" class="outline-4">
+<h4 id="org30a270f"><span class="section-number-4">1.1.3</span> Take RREF (it happens to not be the identity, which means there isn't enough information to)</h4>
 <div class="outline-text-4" id="text-1-1-3">
 </div>
 <ol class="org-ol">
-<li><a id="org464fba1"></a>pivot columns?<br /></li>
-<li><a id="orgf15e907"></a>replace the dependent variable (in this case \(x_4\) with \(t\), and try to remember how many cars went on the other roads (create parametric equations)<br /></li>
+<li><a id="org3a0c3d8"></a>pivot columns?<br /></li>
+<li><a id="org6ebf89d"></a>replace the dependent variable (in this case \(x_4\) with \(t\), and try to remember how many cars went on the other roads (create parametric equations)<br /></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org96f8c4c" class="outline-3">
-<h3 id="org96f8c4c"><span class="section-number-3">1.2</span> Block example</h3>
+<div id="outline-container-org4d1f875" class="outline-3">
+<h3 id="org4d1f875"><span class="section-number-3">1.2</span> Block example</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-orgb780760" class="outline-4">
-<h4 id="orgb780760"><span class="section-number-4">1.2.1</span> goal</h4>
+<div id="outline-container-orge94a215" class="outline-4">
+<h4 id="orge94a215"><span class="section-number-4">1.2.1</span> goal</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 Given some flow rates, figure out how many cars should be allowed to go through an area.
@@ -357,63 +377,63 @@ Even though there are multiple solutions, it is possible to see which streets wi
 </div>
 </div>
 </div>
-<div id="outline-container-org5f251f0" class="outline-3">
-<h3 id="org5f251f0"><span class="section-number-3">1.3</span> general steps</h3>
+<div id="outline-container-org7a0d117" class="outline-3">
+<h3 id="org7a0d117"><span class="section-number-3">1.3</span> general steps</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-org62705e5" class="outline-4">
-<h4 id="org62705e5"><span class="section-number-4">1.3.1</span> assign variables</h4>
+<div id="outline-container-orge3b5565" class="outline-4">
+<h4 id="orge3b5565"><span class="section-number-4">1.3.1</span> assign variables</h4>
 </div>
-<div id="outline-container-orgd03843f" class="outline-4">
-<h4 id="orgd03843f"><span class="section-number-4">1.3.2</span> create system of equations</h4>
+<div id="outline-container-orgae8120e" class="outline-4">
+<h4 id="orgae8120e"><span class="section-number-4">1.3.2</span> create system of equations</h4>
 </div>
-<div id="outline-container-org8df8272" class="outline-4">
-<h4 id="org8df8272"><span class="section-number-4">1.3.3</span> create matrix</h4>
+<div id="outline-container-orgfd08108" class="outline-4">
+<h4 id="orgfd08108"><span class="section-number-4">1.3.3</span> create matrix</h4>
 </div>
-<div id="outline-container-orgd0cea7c" class="outline-4">
-<h4 id="orgd0cea7c"><span class="section-number-4">1.3.4</span> use gaussian elimination to gain information</h4>
+<div id="outline-container-org88bf6dc" class="outline-4">
+<h4 id="org88bf6dc"><span class="section-number-4">1.3.4</span> use gaussian elimination to gain information</h4>
 </div>
 </div>
-<div id="outline-container-org8995ff4" class="outline-3">
-<h3 id="org8995ff4"><span class="section-number-3">1.4</span> with this information you can</h3>
+<div id="outline-container-orgfcce488" class="outline-3">
+<h3 id="orgfcce488"><span class="section-number-3">1.4</span> with this information you can</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-org3297f2c" class="outline-4">
-<h4 id="org3297f2c"><span class="section-number-4">1.4.1</span> adjust traffic light timings</h4>
+<div id="outline-container-org069de49" class="outline-4">
+<h4 id="org069de49"><span class="section-number-4">1.4.1</span> adjust traffic light timings</h4>
 </div>
 </div>
-<div id="outline-container-org301752d" class="outline-3">
-<h3 id="org301752d"><span class="section-number-3">1.5</span> more complexity</h3>
+<div id="outline-container-org6830f52" class="outline-3">
+<h3 id="org6830f52"><span class="section-number-3">1.5</span> more complexity</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
-<div id="outline-container-orgcf9dbbf" class="outline-4">
-<h4 id="orgcf9dbbf"><span class="section-number-4">1.5.1</span> some examples with 120 variables or more</h4>
+<div id="outline-container-org6956b8f" class="outline-4">
+<h4 id="org6956b8f"><span class="section-number-4">1.5.1</span> some examples with 120 variables or more</h4>
 </div>
-<div id="outline-container-org4bb9a67" class="outline-4">
-<h4 id="org4bb9a67"><span class="section-number-4">1.5.2</span> done by computers</h4>
+<div id="outline-container-orgccb2b61" class="outline-4">
+<h4 id="orgccb2b61"><span class="section-number-4">1.5.2</span> done by computers</h4>
 </div>
-<div id="outline-container-orgaa6a5a3" class="outline-4">
-<h4 id="orgaa6a5a3"><span class="section-number-4">1.5.3</span> jamiton lines/envelopes (phantom traffic slowdowns)</h4>
+<div id="outline-container-org039a0a1" class="outline-4">
+<h4 id="org039a0a1"><span class="section-number-4">1.5.3</span> jamiton lines/envelopes (phantom traffic slowdowns)</h4>
 </div>
 </div>
-<div id="outline-container-org667dbf7" class="outline-3">
-<h3 id="org667dbf7"><span class="section-number-3">1.6</span> limitations</h3>
+<div id="outline-container-org53d425f" class="outline-3">
+<h3 id="org53d425f"><span class="section-number-3">1.6</span> limitations</h3>
 <div class="outline-text-3" id="text-1-6">
 </div>
-<div id="outline-container-orgd829806" class="outline-4">
-<h4 id="orgd829806"><span class="section-number-4">1.6.1</span> spikes of traffic vary based on time of day or year</h4>
+<div id="outline-container-org4f46bc7" class="outline-4">
+<h4 id="org4f46bc7"><span class="section-number-4">1.6.1</span> spikes of traffic vary based on time of day or year</h4>
 </div>
-<div id="outline-container-org190f4bd" class="outline-4">
-<h4 id="org190f4bd"><span class="section-number-4">1.6.2</span> routes are not considered</h4>
+<div id="outline-container-org211bcdd" class="outline-4">
+<h4 id="org211bcdd"><span class="section-number-4">1.6.2</span> routes are not considered</h4>
 </div>
-<div id="outline-container-org40f6ecd" class="outline-4">
-<h4 id="org40f6ecd"><span class="section-number-4">1.6.3</span> size / type of vehicle</h4>
+<div id="outline-container-org737a36a" class="outline-4">
+<h4 id="org737a36a"><span class="section-number-4">1.6.3</span> size / type of vehicle</h4>
 </div>
-<div id="outline-container-org5b45d2c" class="outline-4">
-<h4 id="org5b45d2c"><span class="section-number-4">1.6.4</span> speed of vehicles</h4>
+<div id="outline-container-orgfc36cb9" class="outline-4">
+<h4 id="orgfc36cb9"><span class="section-number-4">1.6.4</span> speed of vehicles</h4>
 </div>
-<div id="outline-container-orgfc76e76" class="outline-4">
-<h4 id="orgfc76e76"><span class="section-number-4">1.6.5</span> line of sight</h4>
+<div id="outline-container-org16150b5" class="outline-4">
+<h4 id="org16150b5"><span class="section-number-4">1.6.5</span> line of sight</h4>
 <div class="outline-text-4" id="text-1-6-5">
 </div>
 </div>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:55 -->
+<!-- 2021-10-02 Sat 12:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Derivative Rules</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,66 +217,85 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Derivative Rules</h1> <h2 class="subtitle"></h2> <span class="author">EXr0n</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Derivative Rules</h1> <h2 class="subtitle"></h2> <span class="author">EXr0n</span> <span class="date">2021-10-02 Sat 10:58</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org0c26c31">1. Basics</a>
+<li><a href="#org56182b1">1. Basics</a>
 <ul>
-<li><a href="#orgc009a75">1.1. Monomial</a></li>
-<li><a href="#org7ca12ee">1.2. Exponential</a></li>
+<li><a href="#org484c875">1.1. Monomial</a></li>
+<li><a href="#org3bb7b55">1.2. Exponential</a></li>
 </ul>
 </li>
-<li><a href="#org9d349a2">2. Composing</a>
+<li><a href="#org33e3859">2. Composing</a>
 <ul>
-<li><a href="#orgf546307">2.1. Sum</a></li>
-<li><a href="#orgbfa3bbc">2.2. Product</a></li>
-<li><a href="#org3a13ec2">2.3. Product</a></li>
+<li><a href="#orge6400da">2.1. Sum</a></li>
+<li><a href="#org9aa7473">2.2. Product</a></li>
+<li><a href="#org6b04a82">2.3. Product</a></li>
 </ul>
 </li>
 </ul>
 </div></div>
 </div>
-<div id="outline-container-org0c26c31" class="outline-2">
-<h2 id="org0c26c31"><span class="section-number-2">1</span> Basics</h2>
+<div id="outline-container-org56182b1" class="outline-2">
+<h2 id="org56182b1"><span class="section-number-2">1</span> Basics</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgc009a75" class="outline-3">
-<h3 id="orgc009a75"><span class="section-number-3">1.1</span> Monomial</h3>
+<div id="outline-container-org484c875" class="outline-3">
+<h3 id="org484c875"><span class="section-number-3">1.1</span> Monomial</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 \[\frac{\partial}{\partial x} x^a = ax^{a-1}\]
 </p>
 </div>
 </div>
-<div id="outline-container-org7ca12ee" class="outline-3">
-<h3 id="org7ca12ee"><span class="section-number-3">1.2</span> Exponential</h3>
+<div id="outline-container-org3bb7b55" class="outline-3">
+<h3 id="org3bb7b55"><span class="section-number-3">1.2</span> Exponential</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 \[\frac{\partial}{\partial x} a^x = \left(\ln a\right)a^x\]
@@ -283,28 +303,28 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org9d349a2" class="outline-2">
-<h2 id="org9d349a2"><span class="section-number-2">2</span> Composing</h2>
+<div id="outline-container-org33e3859" class="outline-2">
+<h2 id="org33e3859"><span class="section-number-2">2</span> Composing</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgf546307" class="outline-3">
-<h3 id="orgf546307"><span class="section-number-3">2.1</span> Sum</h3>
+<div id="outline-container-orge6400da" class="outline-3">
+<h3 id="orge6400da"><span class="section-number-3">2.1</span> Sum</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 \[\frac{\partial}{\partial x} (f+g)(x) = \frac{\partial}{\partial x}f(x) + \frac{\partial}{\partial x}g(x)\]
 </p>
 </div>
 </div>
-<div id="outline-container-orgbfa3bbc" class="outline-3">
-<h3 id="orgbfa3bbc"><span class="section-number-3">2.2</span> Product</h3>
+<div id="outline-container-org9aa7473" class="outline-3">
+<h3 id="org9aa7473"><span class="section-number-3">2.2</span> Product</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 \[\frac{\partial}{\partial x} (fg)(x) = \left(f\frac{\partial}{\partial x}g\right)(x) + \left(g\frac{\partial}{\partial x}f\right)(x)\]
 </p>
 </div>
 </div>
-<div id="outline-container-org3a13ec2" class="outline-3">
-<h3 id="org3a13ec2"><span class="section-number-3">2.3</span> Product</h3>
+<div id="outline-container-org6b04a82" class="outline-3">
+<h3 id="org6b04a82"><span class="section-number-3">2.3</span> Product</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 \[\frac{\partial}{\partial x} \left(\frac{f}{g}\right)(x) = \frac{\left(g\frac{\partial}{\partial x}f\right)(x) - \left(f\frac{\partial}{\partial x}g\right)(x)}{g^2(x)}\]

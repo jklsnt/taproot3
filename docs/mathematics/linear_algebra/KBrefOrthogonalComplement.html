@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:55 -->
+<!-- 2021-10-02 Sat 12:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Orthogonal Complement</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,44 +217,63 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Orthogonal Complement</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Orthogonal Complement</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-10-02 Sat 10:58</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org6bc2c24">1. Axler6.45 orthogonal complement, \(U^\bot\)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></a>
+<li><a href="#orgb2b02e3">1. Axler6.45 orthogonal complement, \(U^\bot\)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></a>
 <ul>
-<li><a href="#orgb0967da">1.1. results</a>
+<li><a href="#orgf4c08ce">1.1. results</a>
 <ul>
-<li><a href="#org1fe78c6">1.1.1. Axler6.46 basic properties</a></li>
-<li><a href="#org0c1fb57">1.1.2. Axler6.47 direct sum of a subspace and its orthogonal complement</a></li>
-<li><a href="#orga884ca4">1.1.3. Axler6.50 dimension of orthogonal complement</a></li>
-<li><a href="#org9aa9301">1.1.4. Axler6.51 orthogonal complement of orthogonal complement is itself</a></li>
+<li><a href="#orgfd0e0a6">1.1.1. Axler6.46 basic properties</a></li>
+<li><a href="#org965839f">1.1.2. Axler6.47 direct sum of a subspace and its orthogonal complement</a></li>
+<li><a href="#org563da19">1.1.3. Axler6.50 dimension of orthogonal complement</a></li>
+<li><a href="#org5ff5da1">1.1.4. Axler6.51 orthogonal complement of orthogonal complement is itself</a></li>
 </ul>
 </li>
 </ul>
@@ -261,8 +281,8 @@
 </ul>
 </div></div>
 </div>
-<div id="outline-container-org6bc2c24" class="outline-2">
-<h2 id="org6bc2c24"><span class="section-number-2">1</span> Axler6.45 orthogonal complement, \(U^\bot\)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></h2>
+<div id="outline-container-orgb2b02e3" class="outline-2">
+<h2 id="orgb2b02e3"><span class="section-number-2">1</span> Axler6.45 orthogonal complement, \(U^\bot\)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="def">def</span></span></h2>
 <div class="outline-text-2" id="text-1">
 <blockquote>
 <p>
@@ -276,44 +296,44 @@ if \(U\) is a subset of \(V\), then the orthogonal complement of \(U\), denoted 
 </p>
 </blockquote>
 </div>
-<div id="outline-container-orgb0967da" class="outline-3">
-<h3 id="orgb0967da"><span class="section-number-3">1.1</span> results</h3>
+<div id="outline-container-orgf4c08ce" class="outline-3">
+<h3 id="orgf4c08ce"><span class="section-number-3">1.1</span> results</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org1fe78c6" class="outline-4">
-<h4 id="org1fe78c6"><span class="section-number-4">1.1.1</span> Axler6.46 basic properties</h4>
+<div id="outline-container-orgfd0e0a6" class="outline-4">
+<h4 id="orgfd0e0a6"><span class="section-number-4">1.1.1</span> Axler6.46 basic properties</h4>
 <div class="outline-text-4" id="text-1-1-1">
 </div>
 <ol class="org-ol">
-<li><a id="orgec66f9e"></a>complement is a subspace: if \(U\) is a subset of \(V\), then \(U^\bot\) is a subspace of \(V\)<br />
+<li><a id="org62d3ee3"></a>complement is a subspace: if \(U\) is a subset of \(V\), then \(U^\bot\) is a subspace of \(V\)<br />
 <ol class="org-ol">
-<li><a id="orgf163ce8"></a>zero is orthogonal to each vector, any vector that is the sum of two fully orthogonal vectors or the scalar multiple of an orthogonal vector will still be fully orthogonal.<br /></li>
+<li><a id="org750f87e"></a>zero is orthogonal to each vector, any vector that is the sum of two fully orthogonal vectors or the scalar multiple of an orthogonal vector will still be fully orthogonal.<br /></li>
 </ol>
 </li>
-<li><a id="org19bda43"></a>\(\{0\}^\bot = V\)<br />
+<li><a id="org6f2203b"></a>\(\{0\}^\bot = V\)<br />
 <ol class="org-ol">
-<li><a id="orgc483c75"></a>zero orthogonal to every vector<br /></li>
+<li><a id="org05a6fbb"></a>zero orthogonal to every vector<br /></li>
 </ol>
 </li>
-<li><a id="org1789fa3"></a>\(V ^\bot = \{0\}\)<br />
+<li><a id="org6fda413"></a>\(V ^\bot = \{0\}\)<br />
 <ol class="org-ol">
-<li><a id="org6b021e4"></a>only zero orthogonal to every vector<br /></li>
+<li><a id="org5d54cba"></a>only zero orthogonal to every vector<br /></li>
 </ol>
 </li>
-<li><a id="orgdfd2de4"></a>If \(U\) is a subset of \(V\), then \(U \cap U^\bot\subseteq \{0\}\)<br />
+<li><a id="orgbdf7b2b"></a>If \(U\) is a subset of \(V\), then \(U \cap U^\bot\subseteq \{0\}\)<br />
 <ol class="org-ol">
-<li><a id="org25de2d9"></a>only zero is orthogonal to itself<br /></li>
+<li><a id="orgc6e064b"></a>only zero is orthogonal to itself<br /></li>
 </ol>
 </li>
-<li><a id="org5a794d8"></a>If \(U\) and \(W\) are subsets of \(V\) and \(U\subseteq W\) then \(W^\bot \subseteq U^\bot\)<br />
+<li><a id="org9cb8eeb"></a>If \(U\) and \(W\) are subsets of \(V\) and \(U\subseteq W\) then \(W^\bot \subseteq U^\bot\)<br />
 <ol class="org-ol">
-<li><a id="org8359049"></a>Everything in \(W^\bot\) is in \(U^\bot\), and more.<br /></li>
+<li><a id="orga00a316"></a>Everything in \(W^\bot\) is in \(U^\bot\), and more.<br /></li>
 </ol>
 </li>
 </ol>
 </div>
-<div id="outline-container-org0c1fb57" class="outline-4">
-<h4 id="org0c1fb57"><span class="section-number-4">1.1.2</span> Axler6.47 direct sum of a subspace and its orthogonal complement</h4>
+<div id="outline-container-org965839f" class="outline-4">
+<h4 id="org965839f"><span class="section-number-4">1.1.2</span> Axler6.47 direct sum of a subspace and its orthogonal complement</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <blockquote>
 <p>
@@ -328,8 +348,8 @@ This can be shown by seeing that splitting any vector in \(V\) into a \(U\) part
 </p>
 </div>
 </div>
-<div id="outline-container-orga884ca4" class="outline-4">
-<h4 id="orga884ca4"><span class="section-number-4">1.1.3</span> Axler6.50 dimension of orthogonal complement</h4>
+<div id="outline-container-org563da19" class="outline-4">
+<h4 id="org563da19"><span class="section-number-4">1.1.3</span> Axler6.50 dimension of orthogonal complement</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <blockquote>
 <p>
@@ -348,8 +368,8 @@ By the dimension of a subspace addition (Axler3.78)
 </div>
 </div>
 
-<div id="outline-container-org9aa9301" class="outline-4">
-<h4 id="org9aa9301"><span class="section-number-4">1.1.4</span> Axler6.51 orthogonal complement of orthogonal complement is itself</h4>
+<div id="outline-container-org5ff5da1" class="outline-4">
+<h4 id="org5ff5da1"><span class="section-number-4">1.1.4</span> Axler6.51 orthogonal complement of orthogonal complement is itself</h4>
 <div class="outline-text-4" id="text-1-1-4">
 <blockquote>
 <p>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:55 -->
+<!-- 2021-10-02 Sat 12:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Flo 23 (19 Nov 2020, skipped a bunch of proofs)</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,54 +217,73 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Flo 23 (19 Nov 2020, skipped a bunch of proofs)</h1> <h2 class="subtitle"></h2> <span class="author">Exr0n</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Flo 23 (19 Nov 2020, skipped a bunch of proofs)</h1> <h2 class="subtitle"></h2> <span class="author">Exr0n</span> <span class="date">2021-10-02 Sat 10:58</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org7cc63fa">1. Row Reduced Echelon Form</a></li>
-<li><a href="#org49b12d6">2. Factoring a vector</a></li>
-<li><a href="#org570813e">3. #icr 3.C&#xa0;&#xa0;&#xa0;<span class="tag"><span class="icr">icr</span></span></a>
+<li><a href="#orgf2b0555">1. Row Reduced Echelon Form</a></li>
+<li><a href="#org2ec963d">2. Factoring a vector</a></li>
+<li><a href="#org161a14e">3. #icr 3.C&#xa0;&#xa0;&#xa0;<span class="tag"><span class="icr">icr</span></span></a>
 <ul>
-<li><a href="#orge2d6685">3.1. Matrix Definition</a></li>
-<li><a href="#orgb727117">3.2. Making a matrix from a map</a></li>
-<li><a href="#org0388aad">3.3. Matrix addition and scalar multiplication</a></li>
-<li><a href="#orgb17bd43">3.4. The matrix for the derivative map (finite)</a></li>
-<li><a href="#org02862f4">3.5. Axler3.40 dimension of the matrix vector space&#xa0;&#xa0;&#xa0;<span class="tag"><span class="icr">icr</span></span></a></li>
-<li><a href="#org53045d9">3.6. Axler3.49 column of matrix product equals matrix times column&#xa0;&#xa0;&#xa0;<span class="tag"><span class="icr">icr</span></span></a></li>
+<li><a href="#org69e791e">3.1. Matrix Definition</a></li>
+<li><a href="#orgecf7f8f">3.2. Making a matrix from a map</a></li>
+<li><a href="#org5a97cdc">3.3. Matrix addition and scalar multiplication</a></li>
+<li><a href="#orga266069">3.4. The matrix for the derivative map (finite)</a></li>
+<li><a href="#org776a304">3.5. Axler3.40 dimension of the matrix vector space&#xa0;&#xa0;&#xa0;<span class="tag"><span class="icr">icr</span></span></a></li>
+<li><a href="#org91c71e8">3.6. Axler3.49 column of matrix product equals matrix times column&#xa0;&#xa0;&#xa0;<span class="tag"><span class="icr">icr</span></span></a></li>
 </ul>
 </li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org7cc63fa" class="outline-2">
-<h2 id="org7cc63fa"><span class="section-number-2">1</span> Row Reduced Echelon Form</h2>
+<div id="outline-container-orgf2b0555" class="outline-2">
+<h2 id="orgf2b0555"><span class="section-number-2">1</span> Row Reduced Echelon Form</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Null space is the same (because algebra).
@@ -272,8 +292,8 @@ Then turn it into a system of equations and use those equations to find the null
 </div>
 </div>
 
-<div id="outline-container-org49b12d6" class="outline-2">
-<h2 id="org49b12d6"><span class="section-number-2">2</span> Factoring a vector</h2>
+<div id="outline-container-org2ec963d" class="outline-2">
+<h2 id="org2ec963d"><span class="section-number-2">2</span> Factoring a vector</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Say we have \(\begin{pmatrix}-2x_3-4x_4\\-4x_3-7x_4\\x_3\\x_4\end{pmatrix}\).
@@ -282,12 +302,12 @@ Then you can write it as the linear combination \[\begin{pmatrix}-2x_3\\-4x_3\\x
 </div>
 </div>
 
-<div id="outline-container-org570813e" class="outline-2">
-<h2 id="org570813e"><span class="section-number-2">3</span> #icr 3.C&#xa0;&#xa0;&#xa0;<span class="tag"><span class="icr">icr</span></span></h2>
+<div id="outline-container-org161a14e" class="outline-2">
+<h2 id="org161a14e"><span class="section-number-2">3</span> #icr 3.C&#xa0;&#xa0;&#xa0;<span class="tag"><span class="icr">icr</span></span></h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orge2d6685" class="outline-3">
-<h3 id="orge2d6685"><span class="section-number-3">3.1</span> Matrix Definition</h3>
+<div id="outline-container-org69e791e" class="outline-3">
+<h3 id="org69e791e"><span class="section-number-3">3.1</span> Matrix Definition</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Old news (but lots of subscripts)
@@ -295,8 +315,8 @@ Old news (but lots of subscripts)
 </div>
 </div>
 
-<div id="outline-container-orgb727117" class="outline-3">
-<h3 id="orgb727117"><span class="section-number-3">3.2</span> Making a matrix from a map</h3>
+<div id="outline-container-orgecf7f8f" class="outline-3">
+<h3 id="orgecf7f8f"><span class="section-number-3">3.2</span> Making a matrix from a map</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Based on maps being uniquely determined
@@ -304,8 +324,8 @@ Based on maps being uniquely determined
 </div>
 </div>
 
-<div id="outline-container-org0388aad" class="outline-3">
-<h3 id="org0388aad"><span class="section-number-3">3.3</span> Matrix addition and scalar multiplication</h3>
+<div id="outline-container-org5a97cdc" class="outline-3">
+<h3 id="org5a97cdc"><span class="section-number-3">3.3</span> Matrix addition and scalar multiplication</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Not news
@@ -313,8 +333,8 @@ Not news
 </div>
 </div>
 
-<div id="outline-container-orgb17bd43" class="outline-3">
-<h3 id="orgb17bd43"><span class="section-number-3">3.4</span> The matrix for the derivative map (finite)</h3>
+<div id="outline-container-orga266069" class="outline-3">
+<h3 id="orga266069"><span class="section-number-3">3.4</span> The matrix for the derivative map (finite)</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 \[T \in \mathcal L\left(\mathcal P_5\left(\mathbb R\right), \mathcal P_4\left(\mathbb R\right)\right)\]
@@ -352,8 +372,8 @@ Note that the matrix is \(5\times 6\) because we are going from dimension \(6 \t
 </div>
 </div>
 
-<div id="outline-container-org02862f4" class="outline-3">
-<h3 id="org02862f4"><span class="section-number-3">3.5</span> Axler3.40 dimension of the matrix vector space&#xa0;&#xa0;&#xa0;<span class="tag"><span class="icr">icr</span></span></h3>
+<div id="outline-container-org776a304" class="outline-3">
+<h3 id="org776a304"><span class="section-number-3">3.5</span> Axler3.40 dimension of the matrix vector space&#xa0;&#xa0;&#xa0;<span class="tag"><span class="icr">icr</span></span></h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 Put a one in every location which forms a basis.
@@ -361,8 +381,8 @@ Put a one in every location which forms a basis.
 </div>
 </div>
 
-<div id="outline-container-org53045d9" class="outline-3">
-<h3 id="org53045d9"><span class="section-number-3">3.6</span> Axler3.49 column of matrix product equals matrix times column&#xa0;&#xa0;&#xa0;<span class="tag"><span class="icr">icr</span></span></h3>
+<div id="outline-container-org91c71e8" class="outline-3">
+<h3 id="org91c71e8"><span class="section-number-3">3.6</span> Axler3.49 column of matrix product equals matrix times column&#xa0;&#xa0;&#xa0;<span class="tag"><span class="icr">icr</span></span></h3>
 <div class="outline-text-3" id="text-3-6">
 <p>
 Makes sense if you draw it out.. basically a column in the product \(AC\) will have used all of \(A\) but only the one column in \(C\).

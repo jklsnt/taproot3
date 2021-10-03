@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:54 -->
+<!-- 2021-10-02 Sat 12:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Attention</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,46 +217,65 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Attention</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Attention</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-10-02 Sat 10:57</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='20200925082551-transformers.html'>Transformers</a></li> <li><a class='backlink' href='ml-index.html'>ML Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orge99f338">1. Overview</a></li>
-<li><a href="#org801f25b">2. Calculation</a></li>
-<li><a href="#org0cf2753">3. Multi-Headed Attention</a></li>
-<li><a href="#orgd15fb7b">4. Positional Encodings</a></li>
+<li><a href="#org22a0c26">1. Overview</a></li>
+<li><a href="#org51dc6d2">2. Calculation</a></li>
+<li><a href="#org15dffbe">3. Multi-Headed Attention</a></li>
+<li><a href="#org77e2532">4. Positional Encodings</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-orge99f338" class="outline-2">
-<h2 id="orge99f338"><span class="section-number-2">1</span> Overview</h2>
+<div id="outline-container-org22a0c26" class="outline-2">
+<h2 id="org22a0c26"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Attention is a process for interpreting context of inputs, something computers and networks aren't usually great at (see interpreting sentences like "The animal was tired so <span class="underline">it</span> didn't cross the road" and understanding the "it"). 
@@ -267,8 +287,8 @@ Attention (in the context of NLP) allows better encoding of words by looking at 
 </div>
 </div>
 
-<div id="outline-container-org801f25b" class="outline-2">
-<h2 id="org801f25b"><span class="section-number-2">2</span> Calculation</h2>
+<div id="outline-container-org51dc6d2" class="outline-2">
+<h2 id="org51dc6d2"><span class="section-number-2">2</span> Calculation</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 To begin, we calculate query, key, and value vectors by multiplying the word embeddings (vector representations of words) by weight matrices <i>Note: Where the hell do these come from? Ask Jack?</i>.
@@ -283,8 +303,8 @@ Calculation of the key/value/query vectors and their involvement is intuitive to
 </div>
 
 
-<div id="outline-container-org0cf2753" class="outline-2">
-<h2 id="org0cf2753"><span class="section-number-2">3</span> Multi-Headed Attention</h2>
+<div id="outline-container-org15dffbe" class="outline-2">
+<h2 id="org15dffbe"><span class="section-number-2">3</span> Multi-Headed Attention</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Different version of attention with even more weird representations like query/key/value.
@@ -292,8 +312,8 @@ Different version of attention with even more weird representations like query/k
 </div>
 </div>
 
-<div id="outline-container-orgd15fb7b" class="outline-2">
-<h2 id="orgd15fb7b"><span class="section-number-2">4</span> Positional Encodings</h2>
+<div id="outline-container-org77e2532" class="outline-2">
+<h2 id="org77e2532"><span class="section-number-2">4</span> Positional Encodings</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Positional encodings, vectors representing where the word is in the sentence are added to the original word embedding to allow a notion of time/position in the encoding process.

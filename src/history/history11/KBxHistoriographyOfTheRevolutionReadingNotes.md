@@ -144,8 +144,29 @@ the spirit of nationalism was as much a cause as a result of revolution
 - end, pg 34
 ***
 
+- colonia fantasy that america had freinds in endglad was started
+- linked the concept of ameria manufacturing to colinal independence
+	- but they didnt anticipate the creation of an entire new republic!
+-  even after repealing stamp act the seeds of revolution and ideas of freedom had already been placed 
+
+-  were convinced: english needed the colonies more than they needed the english
+	-  due to the colonies consumption of goods
+		-  thus, britain cant just use their warships and overpower them. diff kind of power
+- the whole 'freedom means no debt' idea started
+- communicated and synced up across vast distance with newspapers?
+	- uh, pahplets? not newspapers?
+- social environment of: imported goods symbolize the burden of colonial dependence
+
+- people had role of woman to maintain state of luxery rejection?
+
+```ad-important
+"forging new links with distant strangers who understood, now more than ever, how thinking about goods invited ordinary men and woman also to think about politics.
+
+```
 
 
+
+%%## making lists -- taking names: the politicization of everyday life%%
 
 
 

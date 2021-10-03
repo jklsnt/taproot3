@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:53 -->
+<!-- 2021-10-02 Sat 12:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Trajectories</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,54 +217,73 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Trajectories</h1> <h2 class="subtitle">PHYS360</h2> <span class="author">David Freifeld</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Trajectories</h1> <h2 class="subtitle">PHYS360</h2> <span class="author">David Freifeld</span> <span class="date">2021-10-02 Sat 10:57</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org16e1538">1. Problem 1</a>
+<li><a href="#org4783ef6">1. Problem 1</a>
 <ul>
-<li><a href="#orgab0b107">1.1. Subproblem A</a></li>
-<li><a href="#org55f194c">1.2. Subproblem B</a></li>
+<li><a href="#org7f2f693">1.1. Subproblem A</a></li>
+<li><a href="#org7f7924a">1.2. Subproblem B</a></li>
 </ul>
 </li>
-<li><a href="#orgbb98a31">2. Problem 2</a>
+<li><a href="#org7690e68">2. Problem 2</a>
 <ul>
-<li><a href="#org434896a">2.1. Expression for Height</a></li>
+<li><a href="#org74ad6f8">2.1. Expression for Height</a></li>
 </ul>
 </li>
-<li><a href="#org82cbae0">3. Problem 3</a></li>
+<li><a href="#orge119ead">3. Problem 3</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org16e1538" class="outline-2">
-<h2 id="org16e1538"><span class="section-number-2">1</span> Problem 1</h2>
+<div id="outline-container-org4783ef6" class="outline-2">
+<h2 id="org4783ef6"><span class="section-number-2">1</span> Problem 1</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We can start by modeling the mass through the following parameterized equations:<br />
@@ -326,8 +346,8 @@ R =  \frac{v_0^2 2\sin \theta \cos\theta}{g} \\
 \end{align*}
 </div>
 
-<div id="outline-container-orgab0b107" class="outline-3">
-<h3 id="orgab0b107"><span class="section-number-3">1.1</span> Subproblem A</h3>
+<div id="outline-container-org7f2f693" class="outline-3">
+<h3 id="org7f2f693"><span class="section-number-3">1.1</span> Subproblem A</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 The maximum of the sine function is \(\sin(90^\circ) = 1\) and since the numerator of the range equation has the term \(\sin(2\theta)\) the angle yielding the maximum range is \(45^\circ\).<br />
@@ -335,8 +355,8 @@ The maximum of the sine function is \(\sin(90^\circ) = 1\) and since the numerat
 </div>
 </div>
 
-<div id="outline-container-org55f194c" class="outline-3">
-<h3 id="org55f194c"><span class="section-number-3">1.2</span> Subproblem B</h3>
+<div id="outline-container-org7f7924a" class="outline-3">
+<h3 id="org7f7924a"><span class="section-number-3">1.2</span> Subproblem B</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 We can differentiate the range equation with respect to theta to get the critical points of the function, then use the second derivative test to show that the critical point is a maximum.<br />
@@ -373,8 +393,8 @@ We can then differentiate once more to determine if the critical point is a maxi
 </div>
 </div>
 
-<div id="outline-container-orgbb98a31" class="outline-2">
-<h2 id="orgbb98a31"><span class="section-number-2">2</span> Problem 2</h2>
+<div id="outline-container-org7690e68" class="outline-2">
+<h2 id="org7690e68"><span class="section-number-2">2</span> Problem 2</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 To begin, we can define the origin to be the location of the cannon (a.k.a. \(m_1\)'s initial position). The mass being fired out of the cannon, \(m_1\), can then be modeled by the following equations:<br />
@@ -448,8 +468,8 @@ Because we get an identity, we know that the two systems of equations for the ma
 </p>
 </div>
 
-<div id="outline-container-org434896a" class="outline-3">
-<h3 id="org434896a"><span class="section-number-3">2.1</span> Expression for Height</h3>
+<div id="outline-container-org74ad6f8" class="outline-3">
+<h3 id="org74ad6f8"><span class="section-number-3">2.1</span> Expression for Height</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 We can use the already determined systems for \(m_1\) and \(m_2\)  as well as the value of \(\theta\) to determine \(h\).<br />
@@ -486,8 +506,8 @@ h = h_0 - \frac{1}{2}g\left(\frac{x_0}{v_0\cos(\tan^{-1}( \frac{h_0}{x_0}))}\rig
 </div>
 </div>
 
-<div id="outline-container-org82cbae0" class="outline-2">
-<h2 id="org82cbae0"><span class="section-number-2">3</span> Problem 3</h2>
+<div id="outline-container-orge119ead" class="outline-2">
+<h2 id="orge119ead"><span class="section-number-2">3</span> Problem 3</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 With an initial velocity, our system of equations modeling the heights of the falling target is now the following:<br />

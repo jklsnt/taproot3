@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:55 -->
+<!-- 2021-10-02 Sat 12:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Categories, Logic, and Language</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,43 +217,62 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Categories, Logic, and Language</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Categories, Logic, and Language</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-10-02 Sat 10:58</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>Mathematics Workshops!</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org0e06dac">1. Intro, and a Book!</a></li>
-<li><a href="#orge3af9bb">2. Category Theory</a>
+<li><a href="#org8fe0053">1. Intro, and a Book!</a></li>
+<li><a href="#orge99379b">2. Category Theory</a>
 <ul>
-<li><a href="#orgd4da3fc">2.1. Extensions of Category Theory</a></li>
-<li><a href="#orgd0bf870">2.2. Category</a></li>
-<li><a href="#org14f4cc8">2.3. Funtors</a></li>
-<li><a href="#org8347ade">2.4. Natural Transformations</a></li>
+<li><a href="#org563ae5b">2.1. Extensions of Category Theory</a></li>
+<li><a href="#orgffbb15c">2.2. Category</a></li>
+<li><a href="#org7111d79">2.3. Funtors</a></li>
+<li><a href="#orge9cfbf4">2.4. Natural Transformations</a></li>
 </ul>
 </li>
 </ul>
@@ -262,8 +282,8 @@
 <a href="https://docs.google.com/presentation/d/1rpqDXysh8GJJodXCTbWCj4MmIx87mT_ksyMqHoq-hkk/edit#slide=id.gf21caa7154_0_15">Ted's Slides</a>
 </p>
 
-<div id="outline-container-org0e06dac" class="outline-2">
-<h2 id="org0e06dac"><span class="section-number-2">1</span> Intro, and a Book!</h2>
+<div id="outline-container-org8fe0053" class="outline-2">
+<h2 id="org8fe0053"><span class="section-number-2">1</span> Intro, and a Book!</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://en.wikipedia.org/wiki/Logicomix">Logicomix!</a>
@@ -279,8 +299,8 @@ Logic and atheism as quintessentially modern.
 </div>
 </div>
 
-<div id="outline-container-orge3af9bb" class="outline-2">
-<h2 id="orge3af9bb"><span class="section-number-2">2</span> Category Theory</h2>
+<div id="outline-container-orge99379b" class="outline-2">
+<h2 id="orge99379b"><span class="section-number-2">2</span> Category Theory</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 A specialty of mathematics that is somewhat new. Category theory aims to reshape mathematics to instead of studying the <i>objects</i>, we study the transformations.
@@ -291,8 +311,8 @@ Category theory has <i>objects</i> and <i>morphism</i>: "things" and "ways to go
 </p>
 </div>
 
-<div id="outline-container-orgd4da3fc" class="outline-3">
-<h3 id="orgd4da3fc"><span class="section-number-3">2.1</span> Extensions of Category Theory</h3>
+<div id="outline-container-org563ae5b" class="outline-3">
+<h3 id="org563ae5b"><span class="section-number-3">2.1</span> Extensions of Category Theory</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Category is a generalization of proofs
@@ -351,8 +371,8 @@ As you could see, category theory is a generalization.
 </div>
 </div>
 
-<div id="outline-container-orgd0bf870" class="outline-3">
-<h3 id="orgd0bf870"><span class="section-number-3">2.2</span> Category</h3>
+<div id="outline-container-orgffbb15c" class="outline-3">
+<h3 id="orgffbb15c"><span class="section-number-3">2.2</span> Category</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Define category \(C\)
@@ -384,8 +404,8 @@ Such that&#x2026;
 </div>
 </div>
 
-<div id="outline-container-org14f4cc8" class="outline-3">
-<h3 id="org14f4cc8"><span class="section-number-3">2.3</span> Funtors</h3>
+<div id="outline-container-org7111d79" class="outline-3">
+<h3 id="org7111d79"><span class="section-number-3">2.3</span> Funtors</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Mapping operators <i>between</i> categories. It could act on <i>both</i> objects and morphisms.
@@ -411,15 +431,15 @@ in such a way that&#x2026;
 </div>
 </div>
 
-<div id="outline-container-org8347ade" class="outline-3">
-<h3 id="org8347ade"><span class="section-number-3">2.4</span> Natural Transformations</h3>
+<div id="outline-container-orge9cfbf4" class="outline-3">
+<h3 id="orge9cfbf4"><span class="section-number-3">2.4</span> Natural Transformations</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 Natural Transformation are operations that make a functor to another functor.
 </p>
 
 
-<div id="org02ae53b" class="figure">
+<div id="orgf1cc22e" class="figure">
 <p><img src="2021-09-22_14-02-12_screenshot.png" alt="2021-09-22_14-02-12_screenshot.png" />
 </p>
 </div>

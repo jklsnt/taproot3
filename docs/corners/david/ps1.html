@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 11:54 -->
+<!-- 2021-10-02 Sat 12:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Problem Set 1</title>
@@ -194,6 +194,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -216,52 +217,71 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
              }
-});
+        }
+    });
+/*]]>*///-->
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Problem Set 1</h1> <h2 class="subtitle"></h2> <span class="author">David Freifeld</span> <span class="date">2021-09-27 Mon 11:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Problem Set 1</h1> <h2 class="subtitle"></h2> <span class="author">David Freifeld</span> <span class="date">2021-10-02 Sat 10:57</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org6b4c117">1. Problem 1</a></li>
-<li><a href="#orgbb11af8">2. <span class="todo TODO">TODO</span> Problem 4</a></li>
-<li><a href="#org547f5d3">3. Problem 8</a>
+<li><a href="#orgdee1bdc">1. Problem 1</a></li>
+<li><a href="#orgb8d1ae7">2. <span class="todo TODO">TODO</span> Problem 4</a></li>
+<li><a href="#orgf11fc2c">3. Problem 8</a>
 <ul>
-<li><a href="#orgf9db859">3.1. <i>Show that \(S+T\) is a vector space</i>.</a></li>
-<li><a href="#org985a07b">3.2. <i>Is \(S+T\) the same as \(S \cup T\) or not?</i></a></li>
-<li><a href="#org42c9004">3.3. <i>If \(S\) is the column space of a matrix \(A\) and \(T\) is the column space of a matrix \(B\), then \(S + T\) is the column space of which matrix?</i></a></li>
+<li><a href="#org28ab742">3.1. <i>Show that \(S+T\) is a vector space</i>.</a></li>
+<li><a href="#org5747eaf">3.2. <i>Is \(S+T\) the same as \(S \cup T\) or not?</i></a></li>
+<li><a href="#orgc7ba8f0">3.3. <i>If \(S\) is the column space of a matrix \(A\) and \(T\) is the column space of a matrix \(B\), then \(S + T\) is the column space of which matrix?</i></a></li>
 </ul>
 </li>
-<li><a href="#orgb107dab">4. Problem 14</a></li>
+<li><a href="#org61b685f">4. Problem 14</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org6b4c117" class="outline-2">
-<h2 id="org6b4c117"><span class="section-number-2">1</span> Problem 1</h2>
+<div id="outline-container-orgdee1bdc" class="outline-2">
+<h2 id="orgdee1bdc"><span class="section-number-2">1</span> Problem 1</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Use Gauss-Jordan elimination:<br />
@@ -341,8 +361,8 @@ z_3 \\
 </div>
 </div>
 
-<div id="outline-container-orgbb11af8" class="outline-2">
-<h2 id="orgbb11af8"><span class="section-number-2">2</span> <span class="todo TODO">TODO</span> Problem 4</h2>
+<div id="outline-container-orgb8d1ae7" class="outline-2">
+<h2 id="orgb8d1ae7"><span class="section-number-2">2</span> <span class="todo TODO">TODO</span> Problem 4</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The smallest length of \(||\mathbf{v}-\mathbf{w}||\) is when \(\mathbf{v}\) and \(\mathbf{w}\) are oriented in the same direction and so \(||\mathbf{v}-\mathbf{w}|| = 2\), and the largest is when the vectors face oppposite directions and \(||\mathbf{v}-\mathbf{w}|| = 8\) .<br />
@@ -354,12 +374,12 @@ Largest dot product is 25, not sure for intuition. Smallest is 0.<br />
 </div>
 </div>
 
-<div id="outline-container-org547f5d3" class="outline-2">
-<h2 id="org547f5d3"><span class="section-number-2">3</span> Problem 8</h2>
+<div id="outline-container-orgf11fc2c" class="outline-2">
+<h2 id="orgf11fc2c"><span class="section-number-2">3</span> Problem 8</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgf9db859" class="outline-3">
-<h3 id="orgf9db859"><span class="section-number-3">3.1</span> <i>Show that \(S+T\) is a vector space</i>.</h3>
+<div id="outline-container-org28ab742" class="outline-3">
+<h3 id="org28ab742"><span class="section-number-3">3.1</span> <i>Show that \(S+T\) is a vector space</i>.</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 We can first show that \(S+T\) is closed under addition. Given two vectors \(X = (s_1 + t_1)\) and \(Y = (s_2 + t_2)\)  in the \(S+T\) subspace such that \(t_1, t_2\) are arbitrary elements of \(T\) and \(s_1, s_2\) are arbitrary elements of \(S\) we can simplify the following expression:<br />
@@ -393,8 +413,8 @@ Since \(S+T\) is both closed under addition and scalar multiplication and is def
 </div>
 </div>
 
-<div id="outline-container-org985a07b" class="outline-3">
-<h3 id="org985a07b"><span class="section-number-3">3.2</span> <i>Is \(S+T\) the same as \(S \cup T\) or not?</i></h3>
+<div id="outline-container-org5747eaf" class="outline-3">
+<h3 id="org5747eaf"><span class="section-number-3">3.2</span> <i>Is \(S+T\) the same as \(S \cup T\) or not?</i></h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 <i>No</i>, \(S+T \neq S \cup T\).<br />
@@ -416,8 +436,8 @@ More specifically, adding the subspaces allows for a subspace containing vectors
 </div>
 </div>
 
-<div id="outline-container-org42c9004" class="outline-3">
-<h3 id="org42c9004"><span class="section-number-3">3.3</span> <i>If \(S\) is the column space of a matrix \(A\) and \(T\) is the column space of a matrix \(B\), then \(S + T\) is the column space of which matrix?</i></h3>
+<div id="outline-container-orgc7ba8f0" class="outline-3">
+<h3 id="orgc7ba8f0"><span class="section-number-3">3.3</span> <i>If \(S\) is the column space of a matrix \(A\) and \(T\) is the column space of a matrix \(B\), then \(S + T\) is the column space of which matrix?</i></h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 We can show that \(\spn(A + B) = \spn(A \cup B)\):<br />
@@ -441,8 +461,8 @@ would have a column space equal to \(S+T\). A matrix cannot be defined solely by
 </div>
 </div>
 
-<div id="outline-container-orgb107dab" class="outline-2">
-<h2 id="orgb107dab"><span class="section-number-2">4</span> Problem 14</h2>
+<div id="outline-container-org61b685f" class="outline-2">
+<h2 id="org61b685f"><span class="section-number-2">4</span> Problem 14</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 From the vector spaces \(V\) and \(W\) we can construct an "ambient" vector space \(\mathbf{F}^{\max (dim(V), dim(W))+1\) that contains both \(V\) and \(W\).<br />

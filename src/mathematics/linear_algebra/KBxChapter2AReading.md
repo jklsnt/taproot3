@@ -37,7 +37,7 @@ title: learning objectives for the chapter
 			- list len 2 of vectors in R^3
 		- n-tuples without surrounding parens
 		
-- *linear combination*
+- *linear combination* [[KBxLinearCombinations]]
 	- a linear combination of _x_ and _y_ would be any expression of the form _ax_ + _by_, where _a_ and _b_ are constants ~wiki
 	- multiply each element in a list of vectors by an element in F
 	- and then add them up!
