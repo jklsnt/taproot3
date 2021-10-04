@@ -25,6 +25,7 @@ source: #index
 ## Circuits
 - [[KBhPHYS201Capacitors]] 
 * [[KBhPHYS201CircuitsIndex]] Circuits!
+* [[KBxResistivityQuizPrep]]
 
 ### Resistors
 - [[KBxResistorsFlow]]
