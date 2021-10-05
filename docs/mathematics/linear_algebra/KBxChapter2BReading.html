@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-02 Sat 17:37 -->
+<!-- 2021-10-04 Mon 09:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Axler Chapter 2B Reading</title>
@@ -220,12 +220,21 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Axler Chapter 2B Reading</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-10-02 Sat 17:37</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Axler Chapter 2B Reading</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-10-04 Mon 09:14</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>Linear Algebra Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#bases">1. Bases !</a></li>
+<li><a href="#bases">1. Bases !</a>
+<ul>
+<li>
+<ul>
+<li><a href="#criterion-for-basis">1.0.1. criterion for basis</a></li>
+<li><a href="#spanning-lists-and-basis">1.0.2. spanning lists and basis</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div></div>
 </div>
@@ -238,6 +247,80 @@
 <div id="outline-container-bases" class="outline-2">
 <h2 id="bases"><span class="section-number-2">1</span> Bases !</h2>
 <div class="outline-text-2" id="text-bases">
+<ul class="org-ul">
+<li>types of lists, so far
+
+<ul class="org-ul">
+<li><a href="KBxLinearIndependence">linearly independent lists</a></li>
+<li>spanning lists
+
+<ul class="org-ul">
+<li>list of vecs, that when span()-ed, contains all the elements of
+the vector space.</li>
+<li>ie. you can use linear combo of the original list to get to every
+element in the vector space</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<pre class="example" id="org4e12146">
+title: basis
+a *basis* of V is a list of vectors in V that is [linearly independant](KBxLinearIndependence) and [spans](KBxSpansLinAlg) V
+</pre>
+
+<p>
+such as,
+</p>
+
+<pre class="example" id="org174953e">
+standard basis of $F^n$ is $(1,0, ... ,  0), (0,1, ... ,  0) , ... ,  (0, ... ,  0,1)$
+$(1,2),(3,5)$ -&gt; basis of $F^2$
+</pre>
+
+<ul class="org-ul">
+<li>things can have many basis!</li>
+</ul>
+</div>
+
+<div id="outline-container-criterion-for-basis" class="outline-4">
+<h4 id="criterion-for-basis"><span class="section-number-4">1.0.1</span> criterion for basis</h4>
+<div class="outline-text-4" id="text-criterion-for-basis">
+<pre class="example" id="org93352be">
+title: criterian for basis
+a list $v_1, ... ,  v_n$ of vectors in V is a basis of V iff every $v \in V$ can be written uniqely in the form
+$$ v = a_1 v_1  + ... + a_n v_n$$
+where $a_1, ... ,  a_n \in F$
+</pre>
+
+<p>
+essentially, for a list of vectors in V to be a basis of V, every
+element in V has to be written uniqely as the linear combo of the org
+list of vectors. uh, #review
+</p>
+</div>
+</div>
+
+<div id="outline-container-spanning-lists-and-basis" class="outline-4">
+<h4 id="spanning-lists-and-basis"><span class="section-number-4">1.0.2</span> spanning lists and basis</h4>
+<div class="outline-text-4" id="text-spanning-lists-and-basis">
+<ul class="org-ul">
+<li>spanning list isnt nesasarrily a basis cus they don't need to be
+linearly independent
+
+<ul class="org-ul">
+<li>but, each spanning list does contain a basis</li>
+</ul></li>
+
+<li>each spanning list can be converted to a basis through the removal of
+some number of elements</li>
+
+<li>but also, every linearly independent list extends to a basis
+
+<ul class="org-ul">
+<li>can be extended to a basis</li>
+</ul></li>
+</ul>
+</div>
 </div>
 </div>
 </div>

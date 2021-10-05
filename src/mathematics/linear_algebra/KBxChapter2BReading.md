@@ -33,7 +33,7 @@ $(1,2),(3,5)$ -> basis of $F^2$
 
 - things can have many basis!
 
-### why do we care about basis?
+### criterion for basis
 
 ```ad-def
 title: criterian for basis
@@ -45,7 +45,7 @@ essentially, for a list of vectors in V to be a basis of V, every element in V h
 
 
 
-
+### spanning lists and basis
 - spanning list isnt nesasarrily a basis cus they don't need to be linearly independent
 	- but, each spanning list does contain a basis
 - each spanning list can be converted to a basis through the removal of some number of elements
