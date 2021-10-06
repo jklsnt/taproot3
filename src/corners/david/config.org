@@ -5,7 +5,7 @@
 * Preparation
 ** Packages
 First, let's set the package archives and do some basic tweaks.
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (require 'package)
   (setq package-enable-at-startup nil) ;; Speed tip taken from Doom Emacs
   (setq package-archives '(("ELPA" . "https://tromey.com/elpa/")
@@ -18,7 +18,7 @@ First, let's set the package archives and do some basic tweaks.
 
 We're going to use ~straight.el~ for package management.
 
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (defvar bootstrap-version)
   (let ((bootstrap-file
 	 (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -38,7 +38,7 @@ We're going to use ~straight.el~ for package management.
 
 This configuration also uses ~use-package~ for package management: it's a macro that'll make things much easier. All that's generally important to understand right now is that code after the ~:init~ keyword argument will be evaluated as the package is initialized, code after the ~:config~ keyword arg is lazy-loaded, the ~:bind~ and ~:hook~ keyword arguments are for specifying package-related keybinds and hooks respectively.
 
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (straight-use-package 'use-package)
   (eval-when-compile
     (require 'use-package))
@@ -52,7 +52,7 @@ This configuration also uses ~use-package~ for package management: it's a macro 
 #+end_src
 
 Are we using native-comp? If so, let's actually native compile things. Also, the popup compilation warnings are really bothersome, so turn those off, too.
-#+begin_src emacs-lisp :tangle (if (string-match-p (regexp-quote "NATIVE_COMP") system-configuration-features) "yes" "no")
+#+begin_src emacs-lisp 
     (setq package-native-compile t)
     (setq comp-deferred-compilation t)
     (setq native-comp-deferred-compilation-deny-list nil)
@@ -61,7 +61,7 @@ Are we using native-comp? If so, let's actually native compile things. Also, the
 
 ** Speed
 Let's then use a variety of the tips for speeding up initialization time given by the creator of Doom Emacs.
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
     ;; Go back to normal GC behavior after init
     (add-hook 'emacs-startup-hook
               (lambda ()
@@ -91,7 +91,7 @@ Let's then use a variety of the tips for speeding up initialization time given b
 ** Undoing Defaults
 Emacs has some default behaviors that are generally annoying. Let's disable them!
 
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   ;; Turn off all unnecessary GUI elements.
   (tool-bar-mode -1)
   (menu-bar-mode -1)
@@ -138,7 +138,7 @@ Emacs has some default behaviors that are generally annoying. Let's disable them
 ** System Packages
 Let's now move on to system-level configuration. First, some utility functions for running commands and deducing distro/OS.
 
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (defun process-exit-code-and-output (program &rest args)
     "Run PROGRAM with ARGS and return the exit code and output in a list."
     (with-temp-buffer
@@ -157,7 +157,7 @@ Let's now move on to system-level configuration. First, some utility functions f
 
 Then, let's set up [[https://gitlab.com/jabranham/system-packages][system-packages]], an awesome package that lets you programmatically install packages from Emacs across operating systems.
 
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (use-package system-packages
     :init
     (let (os-name (get-distro-or-os))
@@ -192,7 +192,7 @@ Then, let's set up [[https://gitlab.com/jabranham/system-packages][system-packag
 
 This package also has some nice extensions like ~use-package-ensure-system-package~ which lets you express system-level dependencies for Emacs packages, and ~helm-system-packages~ which is the ultimate package manager interface (although it unfortunately means we'll need to install all of Helm for just this).
 
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (use-package use-package-ensure-system-package)
   (use-package helm-system-packages
     :commands (helm-system-packages))
@@ -200,13 +200,13 @@ This package also has some nice extensions like ~use-package-ensure-system-packa
 
 ** External Programs
 ~pywal~ will be our savior for theming by allowing for thematic consistency.
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   ;; (use-package exwm
   ;;   :ensure-system-package python-pywal)
 #+end_src
 
 ~kitty~ is a terminal emulator that's featureful and usable.
-#+begin_src conf :tangle (config-tangle "~/.config/kitty/kitty.conf")
+#+begin_src conf 
   include ~/.cache/wal/colors-kitty.conf
   font_family IBM Plex Mono
   window_padding_width 10 15
@@ -220,7 +220,7 @@ This package also has some nice extensions like ~use-package-ensure-system-packa
 #+end_src
 
 ~zsh~ is good.
-#+begin_src sh :tangle (config-tangle "~/.zshrc" 'gnu/linux) 
+#+begin_src sh 
   # p10k instant prompt
   if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -279,7 +279,7 @@ This package also has some nice extensions like ~use-package-ensure-system-packa
   source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #+end_src
 
-#+begin_src sh :tangle (config-tangle "~/.zshrc" 'darwin)
+#+begin_src sh
 export PATH=$PATH:$HOME/.local/bin/:$HOME/.cargo/bin/
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -300,7 +300,7 @@ alias g++="g++ -Wall -Weffc++ -Werror -pedantic-errors"
 
 
 It is clearly of top priority to ensure the Arch logo in ~neofetch~ looks good.
-#+begin_src text :tangle (config-tangle "~/.config/neofetch/arch.ascii" 'gnu/linux)
+#+begin_src text
 ${c1}
                    ▄
                   ▟█▙
@@ -325,7 +325,7 @@ ${c1}
 #+end_src
 
 Firefox could be prettier.
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   ;; (use-package exwm
   ;;   :ensure-system-package (firefox python-pywalfox))
 #+end_src
@@ -339,7 +339,7 @@ Firefox could be prettier.
 ** Desktop
 It's time to load EXWM, the Emacs X Window Manager.
 
-#+begin_src emacs-lisp :tangle "yes" :tangle (config-tangle nil 'gnu/linux)
+#+begin_src emacs-lisp
   (use-package exwm
     :init
     (setq exwm-workspace-number 3)
@@ -369,7 +369,7 @@ It's time to load EXWM, the Emacs X Window Manager.
 
 Setting up multi-monitor support is a bit of a hack in my configuration since my input devices tend to mysteriously swap around. You'll notice I'm using ~use-package~ for the same package twice in a row here, but fear not, it merely executes them sequentially and it means I can intersperse long-winded package configuration with text without fear of accidentally breaking something one day.
 
-#+begin_src emacs-lisp :tangle (config-tangle nil 'gnu/linux)
+#+begin_src emacs-lisp 
   (use-package exwm
     :init
     (defvar left-screen "DP-1")
@@ -394,7 +394,7 @@ Setting up multi-monitor support is a bit of a hack in my configuration since my
 Next, if we're on Linux, let's do everything we need to do at startup.
 
 ~xmodmap~ lets you modify the keys, so let's make things a lot nicer for Emacs.
-#+begin_src sh :tangle (config-tangle "~/.config/X/Xmodmap" 'gnu/linux)
+#+begin_src sh 
   clear      lock
   clear   control
   clear      mod1
@@ -415,7 +415,7 @@ Next, if we're on Linux, let's do everything we need to do at startup.
 #+end_src
 
 ~xbindkeys~ allows for customizing system-wide keybinds which can be useful when you're in a pickle. Most of this is legacy config from back before I started using EXWM.
-#+begin_src sh :tangle (config-tangle "~/.xbindkeysrc" 'gnu/linux) 
+#+begin_src sh 
   # -*- shell-script -*-
   # TODO Phase me out!
 
@@ -456,14 +456,14 @@ Next, if we're on Linux, let's do everything we need to do at startup.
 #+end_src
 
 ~xcape~ allows for "dual-function" keys that can act as one key when held down, and another when tapped. It's niche but useful. We'll remap tapping left-shift and right-shift to left and right parentheses respectively, as well as remap tapping caps-lock to escape.
-#+begin_src sh :tangle (config-tangle "~/.config/X/xcape.sh" 'gnu/linux)
+#+begin_src sh 
 xcape -e "Control_L=Escape"
 xcape -e "Shift_R=parenright"
 xcape -e "Shift_L=parenleft"
 #+end_src
 
 ~dunst~ is a great notification server.
-#+begin_src conf :tangle (config-tangle "~/.config/dunst/dunstrc" 'gnu/linux)
+#+begin_src conf 
   [global]
   monitor = 0
   follow = keyboard
@@ -542,7 +542,7 @@ xcape -e "Shift_L=parenleft"
 #+end_src
 
 Let's define a quick script to reload it based on pywal, too.
-#+begin_src sh :tangle (config-tangle "~/.config/dunst/reload_dunst.sh" 'gnu/linux) 
+#+begin_src sh
   . "${HOME}/.cache/wal/colors.sh"
 
   pkill dunst
@@ -559,7 +559,7 @@ Let's define a quick script to reload it based on pywal, too.
 #+end_src
 
 ~picom~ is a nice compositor, and will allow us to have effects like rounded corners and transparency if we want them. Dual kawase blur looks very nice, so let's use it.
-#+begin_src conf :tangle (config-tangle "~/.config/picom.conf" 'gnu/linux)
+#+begin_src conf 
 backend = "glx";
 blur: {
       method = "dual_kawase";
@@ -571,7 +571,7 @@ blur: {
 #+end_src
 
 Finally, we actually run the startup.
-#+begin_src emacs-lisp :tangle (config-tangle nil 'gnu/linux) 
+#+begin_src emacs-lisp
   (use-package exwm
     ; :ensure-system-package (xbindkeys xcape dunst flameshot unclutter polybar feh picom)
     :init
@@ -592,7 +592,7 @@ Finally, we actually run the startup.
 #+end_src
 
 Let's make moving across monitors and workspaces a little easier.
-#+begin_src emacs-lisp :tangle (config-tangle nil 'gnu/linux)
+#+begin_src emacs-lisp 
    (defun exwm-workspace-next ()
      (interactive)
      (if (< exwm-workspace-current-index (- exwm-workspace-number 1))
@@ -629,7 +629,7 @@ Let's make moving across monitors and workspaces a little easier.
  #+end_src
 
 Then, make it so EXWM buffer names contain part of the the window title based off [[https://www.reddit.com/r/emacs/comments/mb8u1m/weekly_tipstricketc_thread/gs55kqw?utm_source=share&utm_medium=web2x&context=3][this great tip]] from [[https://www.reddit.com/r/emacs][r/emacs]].
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (use-package exwm
     :init
 
@@ -657,7 +657,7 @@ Then, make it so EXWM buffer names contain part of the the window title based of
 #+end_src
 
 Finally, update polybar config file to match monitor and make it so we have decorative gaps around all of EXWM (not individual buffers/windows unfortunately).
-#+begin_src emacs-lisp :tangle (config-tangle nil 'gnu/linux)
+#+begin_src emacs-lisp
    ;; TODO Use Org Babel and tangle polybar config?
    (start-process-shell-command "polybar-update" nil
        (concat "sed s/<MONITOR>/"
@@ -675,7 +675,7 @@ Finally, update polybar config file to match monitor and make it so we have deco
 
 * Interface
 ** Theming
-  #+begin_src emacs-lisp :tangle "yes"
+  #+begin_src emacs-lisp 
     ;; TODO: Set up treemacs.
 
     (use-package hide-mode-line)
@@ -764,7 +764,7 @@ Finally, update polybar config file to match monitor and make it so we have deco
   #+end_src
 *** Translucent
 Transparency can look nice - sometimes. Polybar clashes with transparency, so disable it while we're using it.
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   ;; FIXME hacky and broken
   (define-minor-mode translucent-mode
     "Make the current frame slightly transparent and don't use polybar."
@@ -776,7 +776,7 @@ Transparency can look nice - sometimes. Polybar clashes with transparency, so di
 #+end_src
 
 ** Dashboard
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
 
   (use-package dashboard
     :straight (emacs-dashboard :type git :host github :repo "emacs-dashboard/emacs-dashboard"
@@ -835,7 +835,7 @@ Next, let's improve interactions with Emacs: things like finding files, running 
 
 On top of this, ~prescient~ allows for completions to be even more useful by basing them off of history and sorting them better. Finally, we can add some icons and extra text to make it all prettier.
 
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (use-package prescient
     :init (setq prescient-persist-mode t))
 
@@ -868,7 +868,7 @@ On top of this, ~prescient~ allows for completions to be even more useful by bas
 ** Help
 In order to make some parts of exploring Emacs slightly nicer, let's install ~helpful~ which overhauls the Help interface, and ~which-key~ which helps you discover keybinds.
 
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (use-package helpful
     :init
     ;; Advise describe-style functions so that Helpful appears no matter what
@@ -894,7 +894,7 @@ In order to make some parts of exploring Emacs slightly nicer, let's install ~he
 #+end_src
 
 * Movement
-  #+begin_src emacs-lisp :tangle "yes"
+  #+begin_src emacs-lisp 
     (use-package zygospore
       :bind ("M-m" . 'zygospore-toggle-delete-other-windows))
 
@@ -1008,7 +1008,7 @@ In order to make some parts of exploring Emacs slightly nicer, let's install ~he
 ** Perspectives
 * TODO Org
 First, let's set up the basics.
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (use-package org
     :init
     (setq org-todo-keywords '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)" "NOPE(n)")))
@@ -1017,7 +1017,7 @@ First, let's set up the basics.
 
 ** Aesthetics
 Let's add aesthetics for normal prose-style Org usage.
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (use-package org
     :config
     (setq org-fontify-quote-and-verse-blocks t)
@@ -1032,7 +1032,7 @@ Let's add aesthetics for normal prose-style Org usage.
 #+end_src
 
 There are a variety of useful packages that make Org look nicer:
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (setq org-latex-create-formula-image-program 'dvisvgm)
   ;; Smart mixing of variable pitch and monospace
   ;; This is preferred over `mixed-pitch` because of small details
@@ -1064,7 +1064,7 @@ There are a variety of useful packages that make Org look nicer:
 #+end_src
 
 *** Icons
- #+begin_src emacs-lisp :tangle "yes"
+ #+begin_src emacs-lisp 
    (use-package org
      :config
      (defun magic-icon-fix ()
@@ -1113,7 +1113,7 @@ There are a variety of useful packages that make Org look nicer:
  #+end_src
 
 *** Property Drawers
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (defun org-cycle-hide-drawers (state)
     "Re-hide all drawers after a visibility state change."
     (when (and (derived-mode-p 'org-mode)
@@ -1153,7 +1153,7 @@ There are a variety of useful packages that make Org look nicer:
 #+end_src
 
 ** Export
-  #+begin_src emacs-lisp :tangle "yes"
+  #+begin_src emacs-lisp 
     (use-package org-special-block-extras
       :init
       (org-special-block-extras-mode)
@@ -1196,7 +1196,7 @@ There are a variety of useful packages that make Org look nicer:
   #+end_src
    
 * Notes
-  #+begin_src emacs-lisp :tangle "yes"
+  #+begin_src emacs-lisp 
     (use-package org-roam
       :init
       (setq org-roam-directory "~/sync/notes")
@@ -1282,10 +1282,10 @@ And a function to open in Taproot:
           (message "Not a Taproot buffer!"))
       (message "Not a file buffer!")))  
 #+end_src
-
+ 
 * Productivity
 ** Agenda
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (use-package org
     :init
     (defvar org-inbox-file (concat (getenv "HOME") "/sync/org/inbox.org"))
@@ -1298,7 +1298,7 @@ And a function to open in Taproot:
 #+end_src
 
 ** Projects
-   #+begin_src emacs-lisp :tangle "yes"
+   #+begin_src emacs-lisp 
      (use-package org
        :init
        (setq org-enforce-todo-dependencies t)
@@ -1308,11 +1308,11 @@ And a function to open in Taproot:
 
 * Development
 ** Terminal
-  #+begin_src emacs-lisp :tangle "yes"
+  #+begin_src emacs-lisp 
  (use-package vterm)
   #+end_src
 
-  #+begin_src emacs-lisp :tangle "yes"
+  #+begin_src emacs-lisp 
 	 (defun dw/get-prompt-path ()
 	  (let* ((current-path (eshell/pwd))
 		 (git-output (shell-command-to-string "git rev-parse --show-toplevel"))
@@ -1438,7 +1438,7 @@ And a function to open in Taproot:
 
 ~lsp-mode~ can do more than just provide good completions: you can jump to definitions and references with ~lsp-find-definition~ and ~lsp-find-references~ respectively, as well as most other things you'd expect from an IDE.
 
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (use-package lsp-mode
     ; :ensure-system-package ccls
     ; :ensure-system-package (pyls . "python -m pip install pyls")
@@ -1471,7 +1471,7 @@ And a function to open in Taproot:
 ** Company
 ~company-mode~ provides code completions in Emacs, and will work together with ~lsp-mode~ to provide a nice experience. On top of that, let's use add-ons that allow documentation for completions to pop up and also let ~prescient~ make things better like it did with Ivy.
 
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (use-package company
     :init
     (setq company-idle-delay 0)
@@ -1602,7 +1602,7 @@ And a function to open in Taproot:
 ** TODO Projectile?
 ** Linting
 Next, we can add linting to the editor with flycheck!
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (use-package flycheck
     :hook
     (prog-mode . flycheck-mode)
@@ -1610,7 +1610,7 @@ Next, we can add linting to the editor with flycheck!
 #+end_src
 
 With a tweak courtesy of [[https://github.com/jemoka/][@jemoka]], we can smooth over bits of the interface. Goodbye squiggly lines and strange fringe indicators. Goodbye linter errors while typing.
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (use-package flycheck
     :config
     (setq flycheck-check-syntax-automatically '(mode-enabled save))
@@ -1660,13 +1660,13 @@ With a tweak courtesy of [[https://github.com/jemoka/][@jemoka]], we can smooth 
 ** Snippets
 YASnippet is the premiere package for snippets, so let's install it.
 
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (use-package yasnippet
     :init (yas-global-mode))
 #+end_src
 
 ~auto-activating-snippets~ provides the very useful ability to automatically expand snippets while typing.
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
     (use-package aas
       :hook (LaTeX-mode . ass-activate-for-major-mode)
       :hook (org-mode . ass-activate-for-major-mode)
@@ -1708,7 +1708,7 @@ YASnippet is the premiere package for snippets, so let's install it.
 ** Git
 Let's install the wonderful git porcelain Magit and some extra usefulness.
 
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   ;; The ultimate Git porcelain.
   (use-package magit)
   ;; Show all TODOs in a git repo
@@ -1717,7 +1717,7 @@ Let's install the wonderful git porcelain Magit and some extra usefulness.
   (use-package gitignore-mode)
 #+end_src
 ** Language-Specific
-#+begin_src emacs-lisp :tangle "yes"
+#+begin_src emacs-lisp 
   (use-package rustic)
   (use-package cuda-mode)
   (use-package clojure-mode)
@@ -1731,7 +1731,7 @@ Let's install the wonderful git porcelain Magit and some extra usefulness.
 #+end_src
 
 *** TODO C++
-  #+begin_src emacs-lisp :tangle "yes"
+  #+begin_src emacs-lisp 
 
 (setq c-default-style "k&r")
 (setq-default c-basic-offset 4)
@@ -1771,7 +1771,7 @@ Let's install the wonderful git porcelain Magit and some extra usefulness.
 
   #+end_src
 *** TODO Python
-  #+begin_src emacs-lisp :tangle "yes"
+  #+begin_src emacs-lisp 
 (use-package ein)
 
 (use-package lsp-mode
@@ -1826,7 +1826,7 @@ Let's install the wonderful git porcelain Magit and some extra usefulness.
     :hook (python-mode . python-docstring-mode))
   #+end_src
 ** TODO Code Aesthetics
-  #+begin_src emacs-lisp :tangle "yes"
+  #+begin_src emacs-lisp 
     (use-package hl-todo
       :init
       (global-hl-todo-mode)
@@ -1846,7 +1846,7 @@ Let's install the wonderful git porcelain Magit and some extra usefulness.
       ("C-c t i" . hl-todo-insert)))
   #+end_src
 
-  #+begin_src emacs-lisp :tangle "yes"
+  #+begin_src emacs-lisp 
     (use-package rainbow-mode)
   #+end_src
   
@@ -1863,7 +1863,7 @@ Let's install the wonderful git porcelain Magit and some extra usefulness.
 
 Also, Google-Docs esque comments:
 #+begin_src emacs-lisp
- #+begin_src emacs-lisp :tangle "yes"
+ #+begin_src emacs-lisp 
    ;; Google Docs style comments
    (use-package org-marginalia
      :straight (:host github :repo "nobiot/org-marginalia")
@@ -1881,7 +1881,7 @@ Also, Google-Docs esque comments:
 #+end_src
 
 * TODO Vanilla++
-  #+begin_src emacs-lisp :tangle "yes"
+  #+begin_src emacs-lisp 
     (use-package crux
       :bind
       (("C-a" . crux-move-beginning-of-line) ;; Move to beginning of text, not line.
@@ -1906,12 +1906,12 @@ Also, Google-Docs esque comments:
   #+end_src
 * Fun
   FIXME
-  #+begin_src emacs-lisp :tangle "yes"
+  #+begin_src emacs-lisp 
 (use-package pdf-tools)
 #+end_src
 
 ** Exit Message
-   #+begin_src emacs-lisp :tangle "yes"
+   #+begin_src emacs-lisp 
      (setq exit-messages '(
 	     "Please don't leave, there's more demons to toast!"
 	     "Let's beat it -- This is turning into a bloodbath!"
@@ -1949,7 +1949,7 @@ Also, Google-Docs esque comments:
    #+end_src
 ** Spotify
 Smudge is nice. 
-#+begin_src emacs-lisp :tangle "yes" 
+#+begin_src emacs-lisp  
   (use-package smudge
     :straight (smudge :type git :host github :repo "danielfm/smudge"
                       :fork (:host github :repo "richardfeynmanrocks/smudge"))
@@ -1970,7 +1970,7 @@ Smudge is nice.
 * Scratch
 * The End.
 Well, that's it. We're done. Time to get going!
-#+begin_src emacs-lisp :tangle (if (string-match-p (regexp-quote "DBUS") system-configuration-features) "yes" "no")
+#+begin_src emacs-lisp
 (require 'notifications)
 (notifications-notify :title "Up and at 'em!"
                       :body (format "Loaded %d packages in %s with %d GCs."

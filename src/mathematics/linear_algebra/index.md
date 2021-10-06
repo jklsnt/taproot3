@@ -36,5 +36,6 @@ source:  #index
 [[KBx2Aref]]
 - [[KBxChapter2BReading]]
 	- [[KBxBasisInclass]]
+- [[KBxChapter2CReading]]
 
 

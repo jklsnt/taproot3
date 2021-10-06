@@ -14,3 +14,4 @@ source:  #index
 - [[KBxLakeProb]]
 - [[KBxSupertangrams]]
 - [[KBxCOMAPPracticeProb]]
+- [[KBxMidgesPracticeProb]]

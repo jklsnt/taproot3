@@ -1,4 +1,10 @@
 n
+***
+
+eom: good name for something.
+means: end of sentence
+but it sounds cool! 
+
 *** 
 
  defining new term: gardening, as the term for knowledge organization.
