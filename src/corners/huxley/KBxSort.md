@@ -1,6 +1,10 @@
 n
 ***
 
+ simplex: simplileft geometric shape in a given dimension? cool concept
+
+***
+
 eom: good name for something.
 means: end of sentence
 but it sounds cool! 

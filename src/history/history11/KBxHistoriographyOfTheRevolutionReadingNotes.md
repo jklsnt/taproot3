@@ -39,7 +39,7 @@ don't take popular mobilization for granted!
 	- mutual education -> trust
 
 ```ad-qoute
-people transalated personal sacrifice into revolutionary idealogy.
+People transalated personal sacrifice into revolutionary ideology.
 ```
 
 - beginning with idealogy leads to discounting social conditions
@@ -165,6 +165,10 @@ the spirit of nationalism was as much a cause as a result of revolution
 ```
 
 
+```ad-qoute
+Forging new links with distant strangers who understood, now more than ever, how thinking about goods invited ordinary men and woman also to think about politics.
+
+```
 
 %%## making lists -- taking names: the politicization of everyday life%%
 
