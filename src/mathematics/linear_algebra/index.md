@@ -37,5 +37,6 @@ source:  #index
 - [[KBxChapter2BReading]]
 	- [[KBxBasisInclass]]
 - [[KBxChapter2CReading]]
+	- [[KBxDimensionInClass]]
 - [[KBxLinAlgApplicationInterests]]
 

@@ -105,12 +105,21 @@ What is the author’s argument? Note that argument and purpose, while related, 
 						- allows people to participate who normally don't get a say in politics
 						- very visible, homemade clothes in a culture which values fashion
 
+***
+#extract 
+
+# the essay!
+Class, class, and class!
+
+the rejected fashion, about class not race, uneducated people can't read so not ideological
 
 
 
+read aloud -> dont need to be literate
 
 
-
+about class strucutre: many headed hydra
+transnational working class that are the root of the revolution
 
 
 

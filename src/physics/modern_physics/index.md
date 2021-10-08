@@ -37,6 +37,7 @@ source: #index
 - [[KBe20phys250retCapacitorsLab]]
 - [[KBe20Phys201refCapacitorSeriesParralel]]
 - [[KBxCapacitorsIntro]]
+- [[KBxCapacitorLabPlanning]]
 
 ## Silicon Things
 - [[KBhPHYS201Silicon]]

@@ -1,6 +1,10 @@
 n
 ***
 
+ Vox Populi: the beliefes of the majority
+
+***
+
  simplex: simplileft geometric shape in a given dimension? cool concept
 
 ***

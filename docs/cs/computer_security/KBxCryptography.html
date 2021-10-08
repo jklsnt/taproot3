@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-30 Thu 14:45 -->
+<!-- 2021-10-07 Thu 21:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Cryptography</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Huxley Marvit" />
 <style type="text/css">
@@ -220,74 +220,98 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title"></h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-09-30 Thu 14:39</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Cryptography</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-10-07 Thu 21:10</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>CS240 Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#crypto-clap-graphy-clap">1. Crypto :clap: graphy&#xa0;&#xa0;&#xa0;<span class="tag"><span class="clap">clap</span></span></a></li>
+<li><a href="#cryptography">1. Cryptography!</a>
+<ul>
+<li><a href="#hashes">1.1. Hashes</a>
+<ul>
+<li><a href="#requirements-for-a-hash">1.1.1. Requirements for a hash</a></li>
+<li><a href="#org30a59f4">1.1.2. -</a></li>
+</ul>
+</li>
+<li><a href="#custom-hashing-function">1.2. Custom hashing function</a></li>
+</ul>
+</li>
 </ul>
 </div></div>
 </div>
 <p>
-#ret #hw
+#ret #incomplete #hw <b>*</b>
 </p>
 
-<hr />
-
-<div id="outline-container-crypto-clap-graphy-clap" class="outline-2">
-<h2 id="crypto-clap-graphy-clap"><span class="section-number-2">1</span> Crypto :clap: graphy&#xa0;&#xa0;&#xa0;<span class="tag"><span class="clap">clap</span></span></h2>
-<div class="outline-text-2" id="text-crypto-clap-graphy-clap">
+<div id="outline-container-cryptography" class="outline-2">
+<h2 id="cryptography"><span class="section-number-2">1</span> Cryptography!</h2>
+<div class="outline-text-2" id="text-cryptography">
+</div>
+<div id="outline-container-hashes" class="outline-3">
+<h3 id="hashes"><span class="section-number-3">1.1</span> Hashes</h3>
+<div class="outline-text-3" id="text-hashes">
+</div>
+<div id="outline-container-requirements-for-a-hash" class="outline-4">
+<h4 id="requirements-for-a-hash"><span class="section-number-4">1.1.1</span> Requirements for a hash</h4>
+<div class="outline-text-4" id="text-requirements-for-a-hash">
 <p>
-Try to use some of the cryptographic tools we're been talking about.
-<b>Keep notes on what you do and learn, and submit them here.</b> Here are
-some suggestions for things to try:
+First, how do we know if it works? A hash needs to be: - One way? -
+Deterministic - Unique
+</p>
+
+<p>
+How we we prove it is one way? uh, we can't. unless we prove P!=NP. hash
+function zoo! <a href="https://ehash.iaik.tugraz.at/wiki/The_Hash_Function_Zoo">https://ehash.iaik.tugraz.at/wiki/The_Hash_Function_Zoo</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org30a59f4" class="outline-4">
+<h4 id="org30a59f4"><span class="section-number-4">1.1.2</span> -</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+<a href="https://stackoverflow.com/questions/2889473/when-is-it-safe-to-use-a-broken-hash-function">source</a> -
+No preimage: given <i>y</i>, it should not be feasible to find <i>x</i> such that
+<i>h(x) = y</i>. - No second preimage: given <i>x1</i>, it should not be feasible
+to find <i>x2</i> (distinct from <i>x1</i>) such that <i>h(x1) = h(x2)</i>. - No
+collision: it should not be feasible to find any <i>x1</i> and <i>x2</i> (distinct
+from each other) such that <i>h(x1) = h(x2)</i>.
 </p>
 
 <ul class="org-ul">
-<li>n &#x2013; Send an encrypted email to another person in the class, such that
-only they can read it. What tools exist to let you do this, and how
-well do they work?</li>
-<li>n &#x2013; Send an email to another person in the class that has been
-cryptographically signed. What tools exist to let you do this, and how
-well do they work?</li>
-<li>n &#x2013; If you have a website that does not currently support https,
-use <a href="https://letsencrypt.org/getting-started/">https://letsencrypt.org/getting-started/
-(Links to an external site.)</a> to create a certificate for your site.</li>
-<li>n &#x2013; Figure out what Certificate Authorities your browser trusts.</li>
-<li>m &#x2013; Hash some string (or have a partner do it). Test out the
-properties of the hashing function, noting how much the output changes
-from small input changes. Write a program that will try some brute
-force solution to figure out the string by finding a matching hash.
-Observe how the length of time varies based on the string you use and
-the way you structure your search. Try this with different hash
-functions, to see the differences in speed.</li>
-<li>n &#x2013; Look at the different accounts you have and see what level of
-security they provide.
+<li>what this means
 
 <ul class="org-ul">
-<li>already done &#x2013; Try turning on two-factor authentication, if you
-have that option.</li>
-<li>Look at their security questions and figure out roughly how many
-different options there are, assuming you answer honestly. For
-instance, it if it is asking for the model of your first car, get an
-estimate of how many different car models have ever been made.</li>
-<li>already done &#x2013; Think about how secure your password is, relative to
-how attackers would try guessing. Is it a dictionary or relatively
-common word? Is it all lower case letters, or do you also include
-uppercase letters, numbers, and/or symbols? Think about how large a
-search space is needed to find your password. Do some research on
-current recommendations on password length and generation.</li>
+<li>not feasible to get the original from the function output</li>
+<li>not feasible to find a colliding hash?</li>
+<li>not feasible to find collisions</li>
 </ul></li>
 
-<li>m &#x2013; Try encrypting and decrypting files. What are the different tools
-out there that provide this service? What do encrypted files look
-like?</li>
-<li>already done &#x2013; Generate a public/private key pair for yourself. Put
-the public key on our test laptop so that you can SSH into your
-account without typing a password. You could also use this key for
-your Github account, if you have one.</li>
+<li>breaking a hash function, from
+<a href="https://stackoverflow.com/questions/2889473/when-is-it-safe-to-use-a-broken-hash-function">here</a></li>
 </ul>
+
+<pre class="example" id="org7a44568">
+title: what does it mean for a hash function to be broken?
+
+"For a hash function with a _n_-bit output, there are generic attacks (which work regardless of the details of the hash function) in _2n_ operations for the two first properties, and _2n/2_ operations for the third. If, for a given hash function, an attack is found, which, by exploiting special details of how the hash function operates, finds a preimage, a second preimage or a collision faster than the corresponding generic attack, then the hash function is said to be 'broken.'"
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-custom-hashing-function" class="outline-3">
+<h3 id="custom-hashing-function"><span class="section-number-3">1.2</span> Custom hashing function</h3>
+<div class="outline-text-3" id="text-custom-hashing-function">
+<p>
+what if&#x2026; we just use a neural network?
+</p>
+
+<p>
+create a giant, randomly initialized neural network. then, have
+permuting layers in the middle which make the output space
+non-continuous
+</p>
+</div>
 </div>
 </div>
 </div>

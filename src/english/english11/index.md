@@ -33,12 +33,5 @@ It's time for... American lit!
 - [[KBhCrucibleDiscussion]] 
 - [[KBxCruciblePlayExemplarReading]]
 - [[KBxInClassMA2Notes]]
-
-
-
-
-
-
-
-
-
+- [[KBxMA3Planning]]
+- [[KBhpitch_a_play_research]]   
