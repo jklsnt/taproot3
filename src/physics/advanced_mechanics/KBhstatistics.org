@@ -61,3 +61,79 @@ And, the distribution of the sampled means will become a bell curve slightly "fa
 **** Standard Deviation
 `n-1` standard deviation.
 
+* Mean
+:PROPERTIES:
+:ID:       CE0A1D3C-D2F9-4FC1-8644-7EDCC85613C8
+:END:
+
+** Sample Mean
+\begin{equation}
+    \bar{x} = mean\ of\ x = \frac{\sum_{i=1}^n x_i}{n}
+\end{equation}
+
+We know that, for the actual population, we have a bell curve that acts as a probability distribution of an element at any given height.
+
+
+** Population Mean
+\begin{equation}
+    \bar{X} = \mu
+\end{equation}
+
+* Distribution of Means
+If, for instance, we took the mean value of all possible random groups of $10$, we will deduct a similar bell curve for the value of $\bar{x_{10}}$, called the "Distribution of the Means"; the means of sample size $n=10$. It would be a bell curve skinnier than the previous one.
+
+According to the =Central Limit Theorem=, we know that as $n$ increases, the bell curve will become sharper and sharper. The bigger the sample size, the more narrow the distribution will become --- until it tends to a single value as $n=pop\_size$, and that will be a single line that is the mean.
+
+It fact, the =Central Limit Theorem= states that even if the sampled distribution is not normal, the distribution of the means will be normal.
+
+** General Formula of Normal Function
+\begin{equation}
+    f(x) = A_e^{-Bx^2}
+\end{equation}
+
+Where, $A$ is the amplitude at origin and $B$ is related to the standard deviation.
+
+
+* Hypothesis Testing
+:PROPERTIES:
+:ID:       1EE05621-3497-41B5-958A-1590C4028CDD
+:ROAM_ALIASES: "Hypothesis Testing"
+:END:
+If $A$ /were/ true, what is the likelihood that $B$ is not true?
+
+Say, we propose that...
+
+#+begin_quote
+$A$: Ten percent of the World's Trees are Redwood Trees
+#+end_quote
+
+We go out, randomly sample $50$ trees (but like actually randomly), and we find no Redwood Trees ($B$).
+
+
+** Proportion Method
+If $P_1 = 0.1$ is a Redwood Tree (any given tree is $10\%$ possible to be a redwood), the probability of finding $B$, $50\%$ /non/ Redwoods, is $P_{50} = (1-0.1)^{50} = 0.005153775 = 0.51\%$.
+
+The standard acceptable values for a probability is, for disapprovals, $5\%$, and approvals, $95\%$. Given the probability of $B$ being true if $A$ is true is $<<5\%$, we disapprove $A$ as $B$ is measured to be true. 
+
+The means of the distribution of means is as follows:
+
+\begin{equation}
+    \sigma_x = \frac{\sigma}{\sqrt{n}}
+\end{equation}
+
+We could see, if you take 4 samples, you reduce the means by factor of $2$, 25, reduce by factor of $5$.
+
+
+
+** Example: Comparing Launcher
+One launcher has a mean launch distance $\mu_1$, and $\mu_2$. Essentially, we want to know if $\mu_1$ and $\mu_2$ are, when plotted against the sample distribution of distances, two different points in two overlapping fat curves forming one giant bell curve (not significantly different), or part of two different spiky curves (significantly different).
+
+We need to figure, therefore, the standard deviation squared of the sample.
+
+\begin{equation}
+    \sigma^2 = \frac{\sum^n_{i=1} (x - \bar{x})^2}{n}
+\end{equation}
+
+This is the squared, mean distance between the mean of the sample population vs. each sample. Squared distance from the center.
+
+**Why squared?** 1) This function has a well-behaved derivative vs. the absolute value distance. 2) You are biasing for the extremes as they are more far out.

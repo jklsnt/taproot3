@@ -13,3 +13,6 @@ course: MATH520
 ## Day 1
 ### HW
 - Dylan: [[KBdMATH520Day1HW]]
+
+- Jack's Homework [[KBhHomeworkIndex]] 
+- Dylan's Homework

@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-10-08 Fri 15:19 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MVC PS#13</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC PS#13</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-10-08 Fri 15:16</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhHomeworkIndex.html'>MVC Homework Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#orge6e0288">1. Parametric Equations</a>
+<ul>
+<li><a href="#org2ab4182">1.1. Rectangular Equations</a></li>
+<li><a href="#org27c6681">1.2. Sketching the curve</a></li>
+<li><a href="#org96307f1">1.3. Particle path and length</a>
+<ul>
+<li><a href="#orga0f10db">1.3.1. Start position</a></li>
+<li><a href="#org1e9e09e">1.3.2. End position</a></li>
+<li><a href="#orgdc240b3">1.3.3. Direction of Travel</a></li>
+<li><a href="#org5755c8b">1.3.4. Total Distance of Travel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgab2925d">2. Solids of Revolution</a>
+<ul>
+<li><a href="#orgf66cd74">2.1. Surface Area</a></li>
+<li><a href="#orgf221fdd">2.2. Volume</a></li>
+</ul>
+</li>
+<li><a href="#org025c7c8">3. Partial Derivatives</a>
+<ul>
+<li><a href="#org2999dee">3.1. \(f(x,y) = 7x+2x^2y^3+10y^2\)</a></li>
+<li><a href="#orgd177347">3.2. \(f(x_y) = 3xy^3+8x^2y^4\)</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-orge6e0288" class="outline-2">
+<h2 id="orge6e0288"><span class="section-number-2">1</span> Parametric Equations</h2>
+<div class="outline-text-2" id="text-1">
+<blockquote>
+<p>
+Consider the curve described by the following parametric equations:
+</p>
+
+\begin{align}
+    x(t) = t^2 \\
+    y(t) = t^3 - ct, {c \in \mathbb{R}}
+\end{align}
+</blockquote>
+</div>
+
+<div id="outline-container-org2ab4182" class="outline-3">
+<h3 id="org2ab4182"><span class="section-number-3">1.1</span> Rectangular Equations</h3>
+<div class="outline-text-3" id="text-1-1">
+<blockquote>
+<p>
+Come up with function &#x2014; functions, rather &#x2014; for this curve. In other words, convert it to rectangular form.
+</p>
+</blockquote>
+
+<p>
+Given \(x(t) = t^2\), we could figure that \(t = \sqrt{x}\). As such, replacing for the definition of \(t\) in the second statement, we could derive that:
+</p>
+
+\begin{align}
+    y(t) =& t^3 - ct \\
+\Rightarrow y(t) =& (\pm \sqrt{x})^3 - c(\pm \sqrt{x}) \\
+=& \pm x\sqrt{x} \pm  c\sqrt{x} \\
+=& \pm \sqrt{x} (x - c)
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org27c6681" class="outline-3">
+<h3 id="org27c6681"><span class="section-number-3">1.2</span> Sketching the curve</h3>
+<div class="outline-text-3" id="text-1-2">
+<blockquote>
+<p>
+Try sketching it!
+</p>
+</blockquote>
+
+
+<div id="org712b302" class="figure">
+<p><img src="2021-10-08_11-20-12_screenshot.png" alt="2021-10-08_11-20-12_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org96307f1" class="outline-3">
+<h3 id="org96307f1"><span class="section-number-3">1.3</span> Particle path and length</h3>
+<div class="outline-text-3" id="text-1-3">
+<blockquote>
+<p>
+Imagine if you are a little particle on this curve, traveling from \(t=5\) to \(t=7\). What is your path, and what's the total distance you travel?
+</p>
+</blockquote>
+</div>
+
+<div id="outline-container-orga0f10db" class="outline-4">
+<h4 id="orga0f10db"><span class="section-number-4">1.3.1</span> Start position</h4>
+<div class="outline-text-4" id="text-1-3-1">
+\begin{align}
+    x(5) = 5^2 = 25 \\
+    y(5) = 5^3 - 5c = 125 - 5c
+\end{align}
+
+<p>
+Setting \(c=1\), we derive that&#x2026;
+</p>
+
+\begin{align}
+    x(5) = 25 \\
+    y(5) = 120
+\end{align}
+
+<p>
+Hence, the start position of the particle is \((25,120)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1e9e09e" class="outline-4">
+<h4 id="org1e9e09e"><span class="section-number-4">1.3.2</span> End position</h4>
+<div class="outline-text-4" id="text-1-3-2">
+\begin{align}
+    x(7) = 7^2 = 49 \\
+    y(7) = 7^3 - 7 = 336
+\end{align}
+
+<p>
+Hence, the end position of the particle is \((49,336)\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdc240b3" class="outline-4">
+<h4 id="orgdc240b3"><span class="section-number-4">1.3.3</span> Direction of Travel</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<p>
+The middle point of the travel is at \(t = \frac{12}{2} = 6\).
+</p>
+
+<p>
+The derivatives of the parameter equations are as follows: 
+</p>
+
+\begin{align}
+x'(t) = 2t \\
+y'(t) = 3t^2-c
+\end{align}
+
+<p>
+Therefore, the derivative in the direction of the particle travel is:
+</p>
+
+\begin{equation}
+    \frac{dy}{dx} = \frac{3t^2-c}{2t}
+\end{equation}
+
+<p>
+At \(c=1\) and \(t=6\), the value is therefore:
+</p>
+
+\begin{equation}
+    \frac{108-1}{12} \approx 8.9
+\end{equation}
+
+<p>
+As the value of the derivative is positive &#x2014; that as x increases, y increases, we know that at \(t=8\) the particle is traveling in a positive direction as \(x\) increases.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5755c8b" class="outline-4">
+<h4 id="org5755c8b"><span class="section-number-4">1.3.4</span> Total Distance of Travel</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<p>
+To figure the distance of travel, we need to apply the following expression for arc length:
+</p>
+
+\begin{align}
+     \int_{t=5}^{t=7} & \sqrt{(\frac{dx}{dt})^2 + (\frac{dy}{dt})^2} dt \\
+     \int_{t=5}^{t=7} & \sqrt{(2t)^2 + (3t^2-c)^2} dt 
+\end{align}
+
+<p>
+At this point, we set \(c=0\) as an example value.
+</p>
+
+\begin{align}
+    \int_{t=5}^{t=7} & \sqrt{(2t)^2 + (3t^2)^2} dt  \\
+    \int_{t=5}^{t=7} & \sqrt{4t^2 + 9t^4} dt  \\
+    \int_{t=5}^{t=7} & \sqrt{t^2(4 + 9t^2)} dt  \\
+    \int_{t=5}^{t=7} & t \sqrt{(4 + 9t^2)} dt 
+\end{align}
+
+<p>
+We now perform u-sub upon this problem to figure the final solution.
+</p>
+
+\begin{align}
+    Let\ u=(4+9t^2)\\
+\frac{du}{dt} = 18t \\
+dt = \frac{1}{18t}du 
+\end{align}
+
+\begin{align}
+    \frac{1}{18} \int_{t=5}^{t=7} & u^{\frac{1}{2}} du \\
+    \frac{1}{18} & (\frac{u^{\frac{3}{2}}}{\frac{3}{2}} \mid^3_2) \\
+    \frac{1}{18} & (\frac{2\sqrt{u^3}}{3} \mid^3_2) \\
+    \frac{1}{18} & (\frac{2\sqrt{(4+9t^2)^3}}{3} \mid^3_2) \\
+    \frac{1}{18} & ((\frac{2\sqrt{(4+9(3^2))^3}}{3}) - 
+ (\frac{2\sqrt{(4+9(2^2))^3}}{3})) \approx 19.65 \\
+\end{align}
+<p>
+The particle travels about \(19.65\) units.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgab2925d" class="outline-2">
+<h2 id="orgab2925d"><span class="section-number-2">2</span> Solids of Revolution</h2>
+<div class="outline-text-2" id="text-2">
+<blockquote>
+<p>
+Consider the shape made by taking the function \(f(x) = \frac{1}{x}\) from \(x=1\) out to \(\infty\) by spinning it around the x-axis.
+</p>
+</blockquote>
+</div>
+
+<div id="outline-container-orgf66cd74" class="outline-3">
+<h3 id="orgf66cd74"><span class="section-number-3">2.1</span> Surface Area</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+The surface area of the resulting shape could be deducted by applying the circumference formula for circles produced by rotation. That is &#x2014;
+</p>
+
+\begin{align}
+    & 2\pi \int_1^\infty \frac{1}{x} dx \\
+    \Rightarrow & 2\pi \lim_{b \to \infty} (ln(x) \mid^b_1) dx  \\
+    \Rightarrow & \infty
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgf221fdd" class="outline-3">
+<h3 id="orgf221fdd"><span class="section-number-3">2.2</span> Volume</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+The volume calculation is much the same (though, with dramatically different results at infinity), except that the "radius" of the circles are squared and multiplied to \(\pi\) to produce the area of each circular slice.
+</p>
+
+\begin{align}
+    & 2\pi \int_1^\infty x^{-2} dx \\
+    \Rightarrow & \pi \lim_{b \to \infty} \frac{-1}{x} \mid^b_1 dx  \\
+    \Rightarrow & -\pi
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org025c7c8" class="outline-2">
+<h2 id="org025c7c8"><span class="section-number-2">3</span> Partial Derivatives</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org2999dee" class="outline-3">
+<h3 id="org2999dee"><span class="section-number-3">3.1</span> \(f(x,y) = 7x+2x^2y^3+10y^2\)</h3>
+<div class="outline-text-3" id="text-3-1">
+\begin{align}
+    f_x =& 7 + 4xy^3 \\
+    f_y =& 6x^2y^2 + 20y \\
+    f_{xx} =& 4y^3 \\
+    f_{yy} =& 12x^2y + 20 \\
+    f_{xy} =& 12xy^2 \\
+    f_{xxx} =& 0 \\
+    f_{yyy} =& 12x^2 \\
+    f_{xxy} =& 12y^2 \\
+    f_{yyx} =& 24yx 
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgd177347" class="outline-3">
+<h3 id="orgd177347"><span class="section-number-3">3.2</span> \(f(x_y) = 3xy^3+8x^2y^4\)</h3>
+<div class="outline-text-3" id="text-3-2">
+\begin{align}
+    f_x =& 3y^3 + 16xy^4 \\
+    f_y =& 9xy^2 + 32x^2y^3 \\
+    f_{xx} =& 16y^4 \\
+    f_{yy} =& 18xy + 96x^2y^2 \\
+    f_{xy} =& 9y^2 + 64xy^3 \\
+    f_{xxx} =& 0 \\
+    f_{yyy} =& 18x + 192x^2y \\
+    f_{xxy} =& 64y^3 \\
+    f_{yyx} =& 18y + 192xy^2 \\
+\end{align}
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

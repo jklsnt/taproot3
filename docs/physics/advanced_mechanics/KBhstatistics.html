@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-05 Tue 14:33 -->
+<!-- 2021-10-08 Fri 13:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Statistics!</title>
@@ -261,18 +261,35 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Statistics!</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-10-05 Tue 14:33</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Statistics!</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-10-08 Fri 13:44</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org87a4d8a">1. Introduction to Probability</a>
+<li><a href="#org15b0adb">1. Introduction to Probability</a>
 <ul>
-<li><a href="#orgd88b4f5">1.1. A Statistical Trial</a>
+<li><a href="#orgdcf15df">1.1. A Statistical Trial</a>
 <ul>
-<li><a href="#orga927d1a">1.1.1. Definitions</a></li>
+<li><a href="#orgac4f5a7">1.1.1. Definitions</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#org2af1c60">2. Mean</a>
+<ul>
+<li><a href="#orgc8ac110">2.1. Sample Mean</a></li>
+<li><a href="#org8c3cd7d">2.2. Population Mean</a></li>
+</ul>
+</li>
+<li><a href="#orgbc9db99">3. Distribution of Means</a>
+<ul>
+<li><a href="#org540605d">3.1. General Formula of Normal Function</a></li>
+</ul>
+</li>
+<li><a href="#orgff963c2">4. Hypothesis Testing</a>
+<ul>
+<li><a href="#orga80553d">4.1. Proportion Method</a></li>
+<li><a href="#orgbfff459">4.2. Example: Comparing Launcher</a></li>
 </ul>
 </li>
 </ul>
@@ -281,8 +298,8 @@
 
 
 
-<div id="outline-container-org87a4d8a" class="outline-2">
-<h2 id="org87a4d8a"><span class="section-number-2">1</span> Introduction to Probability</h2>
+<div id="outline-container-org15b0adb" class="outline-2">
+<h2 id="org15b0adb"><span class="section-number-2">1</span> Introduction to Probability</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Probability: the likelihood of something happening
@@ -298,8 +315,8 @@ At the moment, those are the two categories.
 </p>
 </div>
 
-<div id="outline-container-orgd88b4f5" class="outline-3">
-<h3 id="orgd88b4f5"><span class="section-number-3">1.1</span> A Statistical Trial</h3>
+<div id="outline-container-orgdcf15df" class="outline-3">
+<h3 id="orgdcf15df"><span class="section-number-3">1.1</span> A Statistical Trial</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Each trial is an event with an outcome. Say, your case for "success" is rolling a 6. All other events are considered as a "failure"
@@ -318,8 +335,8 @@ Statistics is not a hard and fast mathematical thing.
 </p>
 </div>
 
-<div id="outline-container-orga927d1a" class="outline-4">
-<h4 id="orga927d1a"><span class="section-number-4">1.1.1</span> Definitions</h4>
+<div id="outline-container-orgac4f5a7" class="outline-4">
+<h4 id="orgac4f5a7"><span class="section-number-4">1.1.1</span> Definitions</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 In order to perform the trials, we need to define a few things.
@@ -339,7 +356,7 @@ We don't want to sample the whole population, so we therefore want to sample a s
 </div>
 
 <ol class="org-ol">
-<li><a id="org2690f2b"></a>Mean<br />
+<li><a id="org35eed63"></a>Mean<br />
 <div class="outline-text-5" id="text-1-1-1-1">
 <p>
 The mean of our samples could be defined as follows:
@@ -371,7 +388,7 @@ And, the distribution of the sampled means will become a bell curve slightly "fa
 </div>
 </li>
 
-<li><a id="orgeb4cc16"></a>Standard Deviation<br />
+<li><a id="org6279142"></a>Standard Deviation<br />
 <div class="outline-text-5" id="text-1-1-1-2">
 <p>
 `n-1` standard deviation.
@@ -379,6 +396,142 @@ And, the distribution of the sampled means will become a bell curve slightly "fa
 </div>
 </li>
 </ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2af1c60" class="outline-2">
+<h2 id="org2af1c60"><span class="section-number-2">2</span> Mean</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+
+<div id="outline-container-orgc8ac110" class="outline-3">
+<h3 id="orgc8ac110"><span class="section-number-3">2.1</span> Sample Mean</h3>
+<div class="outline-text-3" id="text-2-1">
+\begin{equation}
+    \bar{x} = mean\ of\ x = \frac{\sum_{i=1}^n x_i}{n}
+\end{equation}
+
+<p>
+We know that, for the actual population, we have a bell curve that acts as a probability distribution of an element at any given height.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org8c3cd7d" class="outline-3">
+<h3 id="org8c3cd7d"><span class="section-number-3">2.2</span> Population Mean</h3>
+<div class="outline-text-3" id="text-2-2">
+\begin{equation}
+    \bar{X} = \mu
+\end{equation}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbc9db99" class="outline-2">
+<h2 id="orgbc9db99"><span class="section-number-2">3</span> Distribution of Means</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+If, for instance, we took the mean value of all possible random groups of \(10\), we will deduct a similar bell curve for the value of \(\bar{x_{10}}\), called the "Distribution of the Means"; the means of sample size \(n=10\). It would be a bell curve skinnier than the previous one.
+</p>
+
+<p>
+According to the <code>Central Limit Theorem</code>, we know that as \(n\) increases, the bell curve will become sharper and sharper. The bigger the sample size, the more narrow the distribution will become &#x2014; until it tends to a single value as \(n=pop\_size\), and that will be a single line that is the mean.
+</p>
+
+<p>
+It fact, the <code>Central Limit Theorem</code> states that even if the sampled distribution is not normal, the distribution of the means will be normal.
+</p>
+</div>
+
+<div id="outline-container-org540605d" class="outline-3">
+<h3 id="org540605d"><span class="section-number-3">3.1</span> General Formula of Normal Function</h3>
+<div class="outline-text-3" id="text-3-1">
+\begin{equation}
+    f(x) = A_e^{-Bx^2}
+\end{equation}
+
+<p>
+Where, \(A\) is the amplitude at origin and \(B\) is related to the standard deviation.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgff963c2" class="outline-2">
+<h2 id="orgff963c2"><span class="section-number-2">4</span> Hypothesis Testing</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+If \(A\) <i>were</i> true, what is the likelihood that \(B\) is not true?
+</p>
+
+<p>
+Say, we propose that&#x2026;
+</p>
+
+<blockquote>
+<p>
+\(A\): Ten percent of the World's Trees are Redwood Trees
+</p>
+</blockquote>
+
+<p>
+We go out, randomly sample \(50\) trees (but like actually randomly), and we find no Redwood Trees (\(B\)).
+</p>
+</div>
+
+
+<div id="outline-container-orga80553d" class="outline-3">
+<h3 id="orga80553d"><span class="section-number-3">4.1</span> Proportion Method</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+If \(P_1 = 0.1\) is a Redwood Tree (any given tree is \(10\%\) possible to be a redwood), the probability of finding \(B\), \(50\%\) <i>non</i> Redwoods, is \(P_{50} = (1-0.1)^{50} = 0.005153775 = 0.51\%\).
+</p>
+
+<p>
+The standard acceptable values for a probability is, for disapprovals, \(5\%\), and approvals, \(95\%\). Given the probability of \(B\) being true if \(A\) is true is \(<<5\%\), we disapprove \(A\) as \(B\) is measured to be true. 
+</p>
+
+<p>
+The means of the distribution of means is as follows:
+</p>
+
+\begin{equation}
+    \sigma_x = \frac{\sigma}{\sqrt{n}}
+\end{equation}
+
+<p>
+We could see, if you take 4 samples, you reduce the means by factor of \(2\), 25, reduce by factor of \(5\).
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgbfff459" class="outline-3">
+<h3 id="orgbfff459"><span class="section-number-3">4.2</span> Example: Comparing Launcher</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+One launcher has a mean launch distance \(\mu_1\), and \(\mu_2\). Essentially, we want to know if \(\mu_1\) and \(\mu_2\) are, when plotted against the sample distribution of distances, two different points in two overlapping fat curves forming one giant bell curve (not significantly different), or part of two different spiky curves (significantly different).
+</p>
+
+<p>
+We need to figure, therefore, the standard deviation squared of the sample.
+</p>
+
+\begin{equation}
+    \sigma^2 = \frac{\sum^n_{i=1} (x - \bar{x})^2}{n}
+\end{equation}
+
+<p>
+This is the squared, mean distance between the mean of the sample population vs. each sample. Squared distance from the center.
+</p>
+
+<p>
+<b><b>Why squared?</b></b> 1) This function has a well-behaved derivative vs. the absolute value distance. 2) You are biasing for the extremes as they are more far out.
+</p>
 </div>
 </div>
 </div>

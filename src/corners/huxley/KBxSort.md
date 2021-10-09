@@ -1,6 +1,10 @@
 n
 ***
 
+ dismaland: besument park. by banksy. check it out.
+
+***
+
  Vox Populi: the beliefes of the majority
 
 ***

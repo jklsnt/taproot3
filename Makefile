@@ -24,6 +24,8 @@ HTML_BUILD := $(ORG_BUILD:.org=.html)
 
 # Redux Lists
 PDF_REDUX := $(subst docs/,src/,$(PDF_BUILD))
+LATEX_MOVE := $(subst gen/,src/,$(PDF_BUILD))
+LATEX_REDUX := $(subst pdf/,tex/,$(LATEX_MOVE))
 
 
 
@@ -93,6 +95,9 @@ compile: transpile $(PDF_BUILD) $(HTML_BUILD)
 
 # Reduxing recipies
 src/%.pdf: docs/%.pdf
+	-cp "$<" "$@"
+
+src/%.tex: gen/%.tex
 	-cp "$<" "$@"
 
 redux: $(PDF_REDUX)

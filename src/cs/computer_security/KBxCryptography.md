@@ -80,7 +80,3 @@ then, have permuting layers in the middle which make the output space non-contin
 
 
 
-
-
-
-
