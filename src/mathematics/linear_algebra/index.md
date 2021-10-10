@@ -39,4 +39,5 @@ source:  #index
 - [[KBxChapter2CReading]]
 	- [[KBxDimensionInClass]]
 - [[KBxLinAlgApplicationInterests]]
+- [[KBxLinAlgSelfAssesmentMidterm]]
 

@@ -34,7 +34,7 @@ we will get a checklist of things that go into the report.
 gonna be a lot of graphs! don't put em all in
 
 
-
+$\frac{1}{3}$
 
 
 
