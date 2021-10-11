@@ -86,6 +86,28 @@ My habits are based around my interests. I'm excited about this stuff! Linear Al
 
 ## Quiz Corrections
 
+Attached in another file.
+
+![[quiz_corrections.pdf]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,6 +1,18 @@
 n
 ***
 
+ proximal: possible name!
+ distal: also a good name?
+
+***
+
+mechanical pencils!
+ want to get: https://www.amazon.com/Al-Star-Graphite-Mechanical-Pencil-L126/dp/B000FA5EHO/ref=sr_1_1?crid=1AGSNPXV81ZUF&dchild=1&keywords=lamy+mechanical+pencil&qid=1633903922&s=office-products&sprefix=lamy+mechan%2Coffice-products%2C232&sr=1-1
+ or, https://www.amazon.com/Mechanical-Pencil-Roulette-Silver-M510171P-26/dp/B004OHNTVC/ref=sr_1_3?dchild=1&keywords=kuru%2Btoga&qid=1633903910&s=office-products&sr=1-3&th=1
+ maybe https://www.amazon.com/Black-Lacquer-Mechanical-Pencil-Scriveiner/dp/B08BZQDYT7/ref=sr_1_3?dchild=1&keywords=luxury+mechanical+pencils&qid=1633903451&sr=8-3
+
+***
+
  dismaland: besument park. by banksy. check it out.
 
 ***
