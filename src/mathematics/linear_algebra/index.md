@@ -39,6 +39,16 @@ source:  #index
 - [[KBxChapter2CReading]]
 	- [[KBxDimensionInClass]]
 	- [[KBx2C14ProofPrez]]
+	- [[KBx2Band2Cproofs]]
+	
+#### Midterms
 - [[KBxLinAlgApplicationInterests]]
 - [[KBxLinAlgSelfAssesmentMidterm]]
+- [[KBxLinAlgMidtermReview]]
+
+
+
+
+
+
 

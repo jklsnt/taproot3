@@ -37,7 +37,7 @@ gonna be a lot of graphs! don't put em all in
 $\frac{1}{3}$
 
 
-
+$I(t) = I_0e^{-\frac{t-t_0}{\tau}}$
 
 
 
