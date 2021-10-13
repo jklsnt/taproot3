@@ -58,8 +58,21 @@ that the mean of 10 random samples is pretty close to the actual mean.
 
 And, the distribution of the sampled means will become a bell curve slightly "fatter" than that in the original distribution. **As sample size increases, the skinnier the bell curve for the distribution of means increases.**
 
-**** Standard Deviation
-`n-1` standard deviation.
+* Standard Deviation
+:PROPERTIES:
+:ID:       C658D4C4-614E-43ED-BACA-AB558701A4DB
+:END:
+Variance is calculated as follows:
+
+\begin{equation}
+    \sigma^2 = \frac{\sum^{N}_{i=1} (x_i - \mu)^2}{N}
+\end{equation}
+
+But, we don't know $\mu$, population mean, and $N$, total samples, we instead elect to use
+
+\begin{equation}
+     \hat{\sigma^2} \approx \sigma^2 = \frac{\sum^{n}_{i=1} (x_i - \hat{x})^2}{n-1}
+\end{equation}
 
 * Mean
 :PROPERTIES:
@@ -80,11 +93,19 @@ We know that, for the actual population, we have a bell curve that acts as a pro
 \end{equation}
 
 * Distribution of Means
+:PROPERTIES:
+:ID:       3FB8E7F6-3734-4A56-B1AD-B9ABE3BC05FD
+:END:
 If, for instance, we took the mean value of all possible random groups of $10$, we will deduct a similar bell curve for the value of $\bar{x_{10}}$, called the "Distribution of the Means"; the means of sample size $n=10$. It would be a bell curve skinnier than the previous one.
 
+** Properties
 According to the =Central Limit Theorem=, we know that as $n$ increases, the bell curve will become sharper and sharper. The bigger the sample size, the more narrow the distribution will become --- until it tends to a single value as $n=pop\_size$, and that will be a single line that is the mean.
 
-It fact, the =Central Limit Theorem= states that even if the sampled distribution is not normal, the distribution of the means will be normal.
+It fact, the =Central Limit Theorem= states that even if the sampled distribution is not normal, the distribution of the means will be normal. Hence: even in a lopsided distribution will this normality of the distribution of the means hold
+
+Note, that: $\sigma_{\bar{x_n}} = \frac{\sigma}{\sqrt{n}}$, with $\sigma_{\bar{x_n}}$ being the standard deviation of the distribution of the means, $n$ is the number of samples to calculate the means, and $\sigma$ is the standard deviation in the population. See [[id:C658D4C4-614E-43ED-BACA-AB558701A4DB][Standard Deviation]].
+
+As $n$ increases, you reduce the distribution of the means to be more confident (lower standard deviation.) A good $n$ is therefore $n=16$ or $n=15$.
 
 ** General Formula of Normal Function
 \begin{equation}
@@ -92,6 +113,7 @@ It fact, the =Central Limit Theorem= states that even if the sampled distributio
 \end{equation}
 
 Where, $A$ is the amplitude at origin and $B$ is related to the standard deviation.
+
 
 
 * Hypothesis Testing
@@ -124,7 +146,6 @@ The means of the distribution of means is as follows:
 We could see, if you take 4 samples, you reduce the means by factor of $2$, 25, reduce by factor of $5$.
 
 
-
 ** Example: Comparing Launcher
 One launcher has a mean launch distance $\mu_1$, and $\mu_2$. Essentially, we want to know if $\mu_1$ and $\mu_2$ are, when plotted against the sample distribution of distances, two different points in two overlapping fat curves forming one giant bell curve (not significantly different), or part of two different spiky curves (significantly different).
 
@@ -137,3 +158,5 @@ We need to figure, therefore, the standard deviation squared of the sample.
 This is the squared, mean distance between the mean of the sample population vs. each sample. Squared distance from the center.
 
 **Why squared?** 1) This function has a well-behaved derivative vs. the absolute value distance. 2) You are biasing for the extremes as they are more far out.
+
+

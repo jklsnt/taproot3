@@ -49,7 +49,7 @@ what if... we just use a neural network?
 create a giant, randomly initialized neural network. 
 then, have permuting layers in the middle which make the output space non-continuous
 
-
+[[KBxCryptographyRet]]
 
 
 

@@ -27,6 +27,7 @@ title: CS240 Master Index
 ## Cryptography
 
 - [[KBxCryptography]]
+	- [[KBxCryptographyRet]]
 - [[KBhRainbowTables]] 
 - [[KBxInternetSecurity]]
 - [[KBxPasswordStorage]]

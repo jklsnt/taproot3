@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-10-12 Tue 16:06 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cryptography</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley Marvit" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Cryptography</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-10-12 Tue 16:06</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>CS240 Master Index</a></li> <li><a class='backlink' href='KBxCryptography.html'>Cryptography</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#cryptography">1. Cryptography</a>
+<ul>
+<li><a href="#creating-a-custom-hash-function">1.1. Creating a custom hash function</a>
+<ul>
+<li><a href="#requirements">1.1.1. Requirements</a></li>
+<li><a href="#nn-hash">1.1.2. NN hash</a></li>
+<li><a href="#proof-of-concept">1.1.3. Proof of concept</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<p>
+#ret #hw
+</p>
+
+<hr />
+
+<div id="outline-container-cryptography" class="outline-2">
+<h2 id="cryptography"><span class="section-number-2">1</span> Cryptography</h2>
+<div class="outline-text-2" id="text-cryptography">
+<p>
+Done prior:
+</p>
+
+<pre class="example" id="org5481cf9">
+-   Try turning on two-factor authentication, if you have that option.
+-   Think about how secure your password is, relative to how attackers would try guessing. Is it a dictionary or relatively common word? Is it all lower case letters, or do you also include uppercase letters, numbers, and/or symbols? Think about how large a search space is needed to find your password. Do some
+-   Generate a public/private key pair for yourself. Put the public key on our test laptop so that you can SSH into your account without typing a password. You could also use this key for your Github account, if you have one.
+</pre>
+</div>
+
+<div id="outline-container-creating-a-custom-hash-function" class="outline-3">
+<h3 id="creating-a-custom-hash-function"><span class="section-number-3">1.1</span> Creating a custom hash function</h3>
+<div class="outline-text-3" id="text-creating-a-custom-hash-function">
+<pre class="example" id="org1dbfbf4">
+Hey Wes, this is a bit of a weirder one.
+</pre>
+</div>
+
+<div id="outline-container-requirements" class="outline-4">
+<h4 id="requirements"><span class="section-number-4">1.1.1</span> Requirements</h4>
+<div class="outline-text-4" id="text-requirements">
+<p>
+What are the requirements for a hash function?
+</p>
+
+<ul class="org-ul">
+<li><a href="https://stackoverflow.com/questions/2889473/when-is-it-safe-to-use-a-broken-hash-function">Source</a>
+
+<ul class="org-ul">
+<li>No preimage: given \(y\), it should not be feasible to find \(x\)
+such that \(h(x) = y\).</li>
+<li>No second preimage: given \(x_1\), it should not be feasible to find
+\(x_2\) (distinct from \(x_1\)) such that \(h(x_1) = h(x_2)\).</li>
+<li>No collision: it should not be feasible to find any \(x_1\) and
+\(x_2\) (distinct from each other) such that \(h(x_1) = h(x_2)\).</li>
+</ul></li>
+</ul>
+
+<pre class="example" id="orga104be6">
+What if we just.. use a neural network?
+</pre>
+</div>
+</div>
+
+<div id="outline-container-nn-hash" class="outline-4">
+<h4 id="nn-hash"><span class="section-number-4">1.1.2</span> NN hash</h4>
+<div class="outline-text-4" id="text-nn-hash">
+<p>
+Intuitively, using a neural network as a hash function seems like it
+won't work. In fact, I believe it doesn't work, <b>I just don't know why
+it doesn't work.</b> <b>*</b> Of course, a vanilla neural network won't work
+because we can just train a model to reverse its mapping. To solve this
+problem, we can use something I call permute layers.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="permute-layers"></a>Permute Layers<br />
+<div class="outline-text-5" id="text-permute-layers">
+<p>
+<b>Concept --</b> Fundamentally, the concept of permute layers is to take an
+input, and do some operation on it such that a non-continuous output
+space is generated. The goal would be that: - Similar inputs lead to
+vastly different outputs - Make there no guarantee that an adversarial
+NN's guess of \(x\) is closer to \(x+\epsilon_0\) than it is to
+\(x+ \frac{1}{\epsilon_0}\) - As in, we can't train a NN to reverse it!
+</p>
+
+<p>
+<b>Implementation --</b> One possible implementation of these permute layers
+would be simply permuting the bits that make up our tensors.
+</p>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-proof-of-concept" class="outline-4">
+<h4 id="proof-of-concept"><span class="section-number-4">1.1.3</span> Proof of concept</h4>
+<div class="outline-text-4" id="text-proof-of-concept">
+<p>
+The code below is meant as proof of concept &#x2013; or rather, demonstration
+of concept. It is messy and surely error ridden, but it seems to work.
+</p>
+
+<p>
+Outline: - Create a deep neural network with randomly initialized
+weights. - Ensure that it is deterministic with a set seed. This seed
+could potentially be carried with the hash. - Add permute layers in
+between the
+</p>
+
+<p>
+The code can also be found
+<a href="https://gist.github.com/TheEnquirer/1260b18f40cec198348a0a30d0a19e83">here</a>.
+</p>
+
+<pre class="example" id="org2a4ecb7">
+#####################
+#       SETUP       #
+#####################
+
+# imports
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import math
+import struct
+from codecs import decode
+import numpy as np
+import string
+
+INP = [0.1, 0.0, 1.01] # our input!
+SAFE = 8 # don't permute the first 8 bits, so we don't get infs and 0
+
+# makes things deterministic
+np.random.seed(0)
+torch.manual_seed(0)
+
+torch.set_default_dtype(torch.float64) # make sure we use the right datatype!
+
+
+#######################
+#       BASE NN       #
+#######################
+
+class Net(nn.Module): # define the model
+
+    def __init__(self):
+        super(Net, self).__init__()
+        self.l1 = nn.Linear(3, 128) # linear layer, with input size 3
+        self.pl1 = PermuteLayer(128,256) # custom permute layer
+
+        self.l2 = nn.Linear(256, 512)
+        self.pl2 = PermuteLayer(512, 512)
+
+        self.l3 = nn.Linear(512, 256)
+        self.pl3 = PermuteLayer(256, 256)
+
+        self.l4 = nn.Linear(256, 128)
+        self.pl4 = PermuteLayer(128, 8) # output a tensor with 8 floats
+
+
+    def forward(self, x): # run it through!
+        x = [100*(y+1) for y in x] # add 1 and multiply by 100 for each input element
+        x = torch.tensor(x) # then convert it to a tensor
+
+        x = self.l1(x) # run it through the layers
+        x = x.view(-1, 128)
+        x = self.pl1(x)
+        x = self.l2(x)
+        x = self.pl2(x)
+        x = self.l3(x)
+        x = self.pl3(x)
+        x = self.l4(x)
+        x = self.pl4(x)
+
+        return x
+
+
+####################################
+#       CUSTOM PERMUTE LAYER       #
+####################################
+
+class PermuteLayer(nn.Module): # not my code! default linear code comes from https://auro-227.medium.com/writing-a-custom-layer-in-pytorch-14ab6ac94b77
+    # after modification, acts as a normal linear layer except it permutes the bits.
+    def __init__(self, size_in, size_out):
+        super().__init__()
+        self.size_in, self.size_out = size_in, size_out
+        weights = torch.Tensor(size_out, size_in)
+        self.weights = nn.Parameter(weights)  # nn.Parameter is a Tensor that's a module parameter.
+        bias = torch.Tensor(size_out)
+        self.bias = nn.Parameter(bias)
+
+        # initialize weights and biases
+        nn.init.kaiming_uniform_(self.weights, a=math.sqrt(5)) # weight init
+        fan_in, _ = nn.init._calculate_fan_in_and_fan_out(self.weights)
+        bound = 1 / math.sqrt(fan_in)
+        nn.init.uniform_(self.bias, -bound, bound)  # bias init
+
+    def forward(self, x): # where the permuting happens
+        # this part isn't pretty..
+        # but according to Dr. Brian Dean, we don't need to constant factor optimize!
+
+        bits = "" # store bits in a char array
+        saved = [] # save the bits we want to protect
+
+        for i,v in enumerate(x[0]): # loop through the floats
+            tnsr = float_to_bin(v) # convert them to binary
+            saved.append(tnsr[:SAFE]) # save what we need to
+            bits += tnsr[SAFE:] # and add to the char array
+
+        p = np.random.permutation([x for x in bits]) # permute it!
+        p = ''.join(map(str, p)) # and then.. join it back together
+
+        converted = []
+
+        # loop through p, chunk it into segments
+        for i in range(len(p)//(64-SAFE)):
+            # convert segment to floats
+            item = bin_to_float(saved[i]+p[(64-SAFE)*i:((64-SAFE)*i)+(64-SAFE)])
+            converted.append(item)
+
+        converted = torch.tensor([converted]) # change it back to a tensor
+        x = converted
+
+        w_times_x= torch.mm(x, self.weights.t()) # matrix multiply them
+        return torch.add(w_times_x, self.bias)  # w times x + b
+
+
+#########################
+#       HELPERS         #
+#########################
+
+# not my code! from https://stackoverflow.com/questions/16444726/binary-representation-of-float-in-python-bits-not-hex
+def bin_to_float(b):
+    """ Convert binary string to a float. """
+    bf = int_to_bytes(int(b, 2), 8)  # 8 bytes needed for IEEE 754 binary64.
+    return struct.unpack('&gt;d', bf)[0]
+
+def int_to_bytes(n, length):  # Helper function
+    """ Int/long to byte string.
+        Python 3.2+ has a built-in int.to_bytes() method that could be used
+        instead, but the following works in earlier versions including 2.x.
+    """
+    return decode('%%0%dx' % (length &lt;&lt; 1) % n, 'hex')[-length:]
+
+def float_to_bin(value):  # For testing.
+    """ Convert float to 64-bit binary string. """
+    [d] = struct.unpack("&gt;Q", struct.pack("&gt;d", value))
+    return '{:064b}'.format(d)
+
+
+def int2base(x, base): # not my code! modified from https://stackoverflow.com/questions/2267362/how-to-convert-an-integer-to-a-string-in-any-base
+    if x &lt; 0:    sign = -1
+    elif x == 0: return digs[0]
+    else:        sign = 1
+    x *= sign
+    digits = []
+    while x:
+        digits.append(digs[x % base])
+        x = x // base
+    if sign &lt; 0: digits.append('-')
+    digits.reverse()
+    return ''.join(digits)
+digs = string.digits + string.ascii_letters
+
+########################
+#       OUTPUT         #
+########################
+
+model = Net()
+
+result = list(model(INP).detach().numpy()[0]) # convert output to list
+
+output_bits = ''
+for i in result:
+    # convert to bits, then take the second half
+    # because it's more shuffled
+    output_bits += float_to_bin(i)[32:]
+
+print(int2base(int(output_bits, 2), 16)) # clean the output up and print it out
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
