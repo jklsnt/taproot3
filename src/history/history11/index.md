@@ -36,7 +36,7 @@ the next assignment: historigraphical in nature. synthesithing multiple argument
 - [[KBxHistoriographyOfTheRevolutionReadingNotes]]
 	- [[KBxHistoriographyOfTheRevolutionPrezPrep]]
 - [[KBhBalylinIdeologicalOrigins]] 
-- [[KBhhistoriography_essay_planning.org]] 
+- [[KBhhistoriography_essay_planning]] 
 - [[KBxSchoolOfThoughOnAmericanRevolutionInClassPrezs]]
 - [[KBxThePathtoRevolution]]
 - [[KBxAmericanRevolutionHistoriographyEssayPrep]]

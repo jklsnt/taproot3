@@ -1,0 +1,43 @@
+:PROPERTIES:
+:ID:       D97DCB5A-5016-4413-B393-65FD3CE4EF6F
+:END:
+#+title: MVC Vectors Add
+#+author: Houjun Liu
+
+Take, for instance, problem =e=. From taking two partial derivatives in the $x$ and $y$ dimensions, we deduce that the partial derivative values are...
+
+\begin{equation}
+    \frac{\partial f}{\partial x} = 10 
+\end{equation}
+ 
+\begin{equation}
+    \frac{\partial f}{\partial y} = 10 \sqrt{3}
+\end{equation}
+
+We could, therefore, treat these terms as two separate vectors lying at the $x$ and $y$ directions. That is, we know that the multidimentional "slope" of the function could be represented by a combination of vectors...
+
+\begin{equation}
+\left\{\begin{pmatrix}10 \\ 0 \end{pmatrix},\begin{pmatrix}0 \\ 10\sqrt{3} \end{pmatrix} \right\}
+\end{equation}
+
+The "slope" created by the two slope values at a $60^{\circ}$ angle is essential the sums of the two partial derivative vectors projected at $60^{\circ}$. Hence, we have to project the two vectors' magnitudes to a shared $60^{\circ}$ angle, and sum it up.
+
+We first note that, to project the two /orthogonal/ vectors to the same, shared "60-degrees" direction, we must project one vector to $60^{\circ}$ and the other to $(90-60)^{\circ}$ to actually result in the projections' alignment.
+
+Conventionally, we will project the x-direction vector to $60^{\circ}$. and the y-direction vector to $(90-60)^{\circ}$, but the 60 degree direction that we aim to share is actual arbitrary.
+
+To perform the actual magnitude projection, we perform the follows.
+
+\begin{align}
+    let\ \vec{X} &= \begin{pmatrix}10\\0\end{pmatrix} \\
+    \vec{Y} &= \begin{pmatrix}0\\10\sqrt{3}\end{pmatrix} \\
+ \vec{X_p} &= \|X\|cos(60^{\circ}) \\ 
+ &= 10 \times \frac{1}{2} \\
+ &= 5 \\
+ \vec{Y_p} &= \|Y\|cos((90-60)^{\circ}) \\
+ &= \|Y\|sin(60^{\circ}) \\
+ &= 10\sqrt{3}\times\frac{\sqrt{3}}{2} \\
+ &= \frac{30}{2} = 15
+\end{align}
+
+Finally, the sum of slopes in that shared direction would therefore be $20$.

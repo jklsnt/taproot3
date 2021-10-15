@@ -1,0 +1,112 @@
+% Created 2021-10-14 Thu 19:31
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{tikz}
+\usepackage{cancel}
+\usepackage{pgfplots}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Huxley Marvit}
+\date{\today}
+\title{Cryptography}
+\hypersetup{
+ pdfauthor={Huxley Marvit},
+ pdftitle={Cryptography},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\#ret \#incomplete \#hw \textbf{*}
+
+\section{Cryptography!}
+\label{sec:org7332979}
+\subsection{Hashes}
+\label{sec:org543acc4}
+\subsubsection{Requirements for a hash}
+\label{sec:org2d81fa0}
+First, how do we know if it works? A hash needs to be: - One way? -
+Deterministic - Unique
+
+How we we prove it is one way? uh, we can't. unless we prove P!=NP. hash
+function zoo! \url{https://ehash.iaik.tugraz.at/wiki/The\_Hash\_Function\_Zoo}
+\subsubsection{-}
+\label{sec:orge98b353}
+\href{https://stackoverflow.com/questions/2889473/when-is-it-safe-to-use-a-broken-hash-function}{source} -
+No preimage: given \emph{y}, it should not be feasible to find \emph{x} such that
+\emph{h(x) = y}. - No second preimage: given \emph{x1}, it should not be feasible
+to find \emph{x2} (distinct from \emph{x1}) such that \emph{h(x1) = h(x2)}. - No
+collision: it should not be feasible to find any \emph{x1} and \emph{x2} (distinct
+from each other) such that \emph{h(x1) = h(x2)}.
+
+\begin{itemize}
+\item what this means
+
+\begin{itemize}
+\item not feasible to get the original from the function output
+\item not feasible to find a colliding hash?
+\item not feasible to find collisions
+\end{itemize}
+
+\item breaking a hash function, from
+\href{https://stackoverflow.com/questions/2889473/when-is-it-safe-to-use-a-broken-hash-function}{here}
+\end{itemize}
+
+\begin{verbatim}
+title: what does it mean for a hash function to be broken?
+
+"For a hash function with a _n_-bit output, there are generic attacks (which work regardless of the details of the hash function) in _2n_ operations for the two first properties, and _2n/2_ operations for the third. If, for a given hash function, an attack is found, which, by exploiting special details of how the hash function operates, finds a preimage, a second preimage or a collision faster than the corresponding generic attack, then the hash function is said to be 'broken.'"
+\end{verbatim}
+
+\subsection{Custom hashing function}
+\label{sec:org5e88917}
+what if\ldots{} we just use a neural network?
+
+create a giant, randomly initialized neural network. then, have
+permuting layers in the middle which make the output space
+non-continuous
+
+\href{KBxCryptographyRet.org}{KBxCryptographyRet}
+\end{document}

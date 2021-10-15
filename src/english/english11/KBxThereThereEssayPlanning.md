@@ -127,6 +127,16 @@ By revising "we are the memories we don't remember" to "we live in the memories 
 https://docs.google.com/document/d/1S-htkZDhHdHZh8CRe50VdCajlTc1U1b_mHx6hasAlGs/edit 
 
 
+## meeting prep!
+
+
+
+
+
+
+
+
+
 
 
 

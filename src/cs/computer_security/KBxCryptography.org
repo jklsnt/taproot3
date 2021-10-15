@@ -1,0 +1,59 @@
+#+TITLE: Cryptography
+#+AUTHOR: Huxley Marvit
+#+COURSE: 
+#+SOURCE: 
+
+
+#ret #incomplete #hw ***
+
+* Cryptography!
+  :PROPERTIES:
+  :CUSTOM_ID: cryptography
+  :END:
+** Hashes
+   :PROPERTIES:
+   :CUSTOM_ID: hashes
+   :END:
+*** Requirements for a hash
+    :PROPERTIES:
+    :CUSTOM_ID: requirements-for-a-hash
+    :END:
+First, how do we know if it works? A hash needs to be: - One way? -
+Deterministic - Unique
+
+How we we prove it is one way? uh, we can't. unless we prove P!=NP. hash
+function zoo! https://ehash.iaik.tugraz.at/wiki/The_Hash_Function_Zoo
+*** -
+[[https://stackoverflow.com/questions/2889473/when-is-it-safe-to-use-a-broken-hash-function][source]] -
+No preimage: given /y/, it should not be feasible to find /x/ such that
+/h(x) = y/. - No second preimage: given /x1/, it should not be feasible
+to find /x2/ (distinct from /x1/) such that /h(x1) = h(x2)/. - No
+collision: it should not be feasible to find any /x1/ and /x2/ (distinct
+from each other) such that /h(x1) = h(x2)/.
+
+- what this means
+
+  - not feasible to get the original from the function output
+  - not feasible to find a colliding hash?
+  - not feasible to find collisions
+
+- breaking a hash function, from
+  [[https://stackoverflow.com/questions/2889473/when-is-it-safe-to-use-a-broken-hash-function][here]]
+
+#+begin_example
+  title: what does it mean for a hash function to be broken?
+
+  "For a hash function with a _n_-bit output, there are generic attacks (which work regardless of the details of the hash function) in _2n_ operations for the two first properties, and _2n/2_ operations for the third. If, for a given hash function, an attack is found, which, by exploiting special details of how the hash function operates, finds a preimage, a second preimage or a collision faster than the corresponding generic attack, then the hash function is said to be 'broken.'"
+#+end_example
+
+** Custom hashing function
+   :PROPERTIES:
+   :CUSTOM_ID: custom-hashing-function
+   :END:
+what if... we just use a neural network?
+
+create a giant, randomly initialized neural network. then, have
+permuting layers in the middle which make the output space
+non-continuous
+
+[[file:KBxCryptographyRet.org][KBxCryptographyRet]]

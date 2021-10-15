@@ -1,7 +1,8 @@
 n
 ***
 
- 
+ read this later! supposed to be generalization of godel's incompleteness theorem
+ https://ncatlab.org/nlab/show/Lawvere%27s+fixed+point+theorem
 
 ***
 

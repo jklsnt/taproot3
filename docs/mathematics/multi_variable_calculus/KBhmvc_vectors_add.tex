@@ -1,0 +1,99 @@
+% Created 2021-10-14 Thu 19:58
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{tikz}
+\usepackage{cancel}
+\usepackage{pgfplots}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Houjun Liu}
+\date{\today}
+\title{MVC Vectors Add}
+\hypersetup{
+ pdfauthor={Houjun Liu},
+ pdftitle={MVC Vectors Add},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+Take, for instance, problem \texttt{e}. From taking two partial derivatives in the \(x\) and \(y\) dimensions, we deduce that the partial derivative values are\ldots{}
+
+\begin{equation}
+    \frac{\partial f}{\partial x} = 10 
+\end{equation}
+
+\begin{equation}
+    \frac{\partial f}{\partial y} = 10 \sqrt{3}
+\end{equation}
+
+We could, therefore, treat these terms as two separate vectors lying at the \(x\) and \(y\) directions. That is, we know that the multidimentional "slope" of the function could be represented by a combination of vectors\ldots{}
+
+\begin{equation}
+\left\{\begin{pmatrix}10 \\ 0 \end{pmatrix},\begin{pmatrix}0 \\ 10\sqrt{3} \end{pmatrix} \right\}
+\end{equation}
+
+The "slope" created by the two slope values at a \(60^{\circ}\) angle is essential the sums of the two partial derivative vectors projected at \(60^{\circ}\). Hence, we have to project the two vectors' magnitudes to a shared \(60^{\circ}\) angle, and sum it up.
+
+We first note that, to project the two \emph{orthogonal} vectors to the same, shared "60-degrees" direction, we must project one vector to \(60^{\circ}\) and the other to \((90-60)^{\circ}\) to actually result in the projections' alignment.
+
+Conventionally, we will project the x-direction vector to \(60^{\circ}\). and the y-direction vector to \((90-60)^{\circ}\), but the 60 degree direction that we aim to share is actual arbitrary.
+
+To perform the actual magnitude projection, we perform the follows.
+
+\begin{align}
+    let\ \vec{X} &= \begin{pmatrix}10\\0\end{pmatrix} \\
+    \vec{Y} &= \begin{pmatrix}0\\10\sqrt{3}\end{pmatrix} \\
+ \vec{X_p} &= \|X\|cos(60^{\circ}) \\ 
+ &= 10 \times \frac{1}{2} \\
+ &= 5 \\
+ \vec{Y_p} &= \|Y\|cos((90-60)^{\circ}) \\
+ &= \|Y\|sin(60^{\circ}) \\
+ &= 10\sqrt{3}\times\frac{\sqrt{3}}{2} \\
+ &= \frac{30}{2} = 15
+\end{align}
+
+Finally, the sum of slopes in that shared direction would therefore be \(20\).
+\end{document}

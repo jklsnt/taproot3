@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-12 Tue 16:06 -->
+<!-- 2021-10-14 Thu 19:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Cryptography</title>
@@ -261,7 +261,7 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Cryptography</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-10-12 Tue 16:06</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Cryptography</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-10-14 Thu 19:38</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>CS240 Master Index</a></li> <li><a class='backlink' href='KBxCryptography.html'>Cryptography</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
@@ -273,6 +273,7 @@
 <li><a href="#requirements">1.1.1. Requirements</a></li>
 <li><a href="#nn-hash">1.1.2. NN hash</a></li>
 <li><a href="#proof-of-concept">1.1.3. Proof of concept</a></li>
+<li><a href="#results">1.1.4. Results</a></li>
 </ul>
 </li>
 </ul>
@@ -289,11 +290,15 @@
 <div id="outline-container-cryptography" class="outline-2">
 <h2 id="cryptography"><span class="section-number-2">1</span> Cryptography</h2>
 <div class="outline-text-2" id="text-cryptography">
+<pre class="example" id="org98a049b">
+This is a bit of a weirder one..
+</pre>
+
 <p>
 Done prior:
 </p>
 
-<pre class="example" id="org5481cf9">
+<pre class="example" id="org2f02c57">
 -   Try turning on two-factor authentication, if you have that option.
 -   Think about how secure your password is, relative to how attackers would try guessing. Is it a dictionary or relatively common word? Is it all lower case letters, or do you also include uppercase letters, numbers, and/or symbols? Think about how large a search space is needed to find your password. Do some
 -   Generate a public/private key pair for yourself. Put the public key on our test laptop so that you can SSH into your account without typing a password. You could also use this key for your Github account, if you have one.
@@ -303,11 +308,7 @@ Done prior:
 <div id="outline-container-creating-a-custom-hash-function" class="outline-3">
 <h3 id="creating-a-custom-hash-function"><span class="section-number-3">1.1</span> Creating a custom hash function</h3>
 <div class="outline-text-3" id="text-creating-a-custom-hash-function">
-<pre class="example" id="org1dbfbf4">
-Hey Wes, this is a bit of a weirder one.
-</pre>
 </div>
-
 <div id="outline-container-requirements" class="outline-4">
 <h4 id="requirements"><span class="section-number-4">1.1.1</span> Requirements</h4>
 <div class="outline-text-4" id="text-requirements">
@@ -328,7 +329,7 @@ such that \(h(x) = y\).</li>
 </ul></li>
 </ul>
 
-<pre class="example" id="orga104be6">
+<pre class="example" id="org89a2059">
 What if we just.. use a neural network?
 </pre>
 </div>
@@ -354,8 +355,8 @@ problem, we can use something I call permute layers.
 input, and do some operation on it such that a non-continuous output
 space is generated. The goal would be that: - Similar inputs lead to
 vastly different outputs - Make there no guarantee that an adversarial
-NN's guess of \(x\) is closer to \(x+\epsilon_0\) than it is to
-\(x+ \frac{1}{\epsilon_0}\) - As in, we can't train a NN to reverse it!
+NN's guess of \(x\) is closer to \(x+\epsilon_1\) than it is to
+\(x+ \frac{1}{\epsilon_2}\) - As in, we can't train a NN to reverse it!
 </p>
 
 <p>
@@ -372,14 +373,20 @@ would be simply permuting the bits that make up our tensors.
 <div class="outline-text-4" id="text-proof-of-concept">
 <p>
 The code below is meant as proof of concept &#x2013; or rather, demonstration
-of concept. It is messy and surely error ridden, but it seems to work.
+of concept. It is messy, unoptimized, and surely error ridden, but it
+seems to work.
 </p>
 
 <p>
-Outline: - Create a deep neural network with randomly initialized
+<b>Outline:</b> - Create a deep neural network with randomly initialized
 weights. - Ensure that it is deterministic with a set seed. This seed
-could potentially be carried with the hash. - Add permute layers in
-between the
+could potentially be carried with the hash. - Add permute layers
+throughout the model. - Store the first 8 bits to preserve the mantissa,
+then concatenate and permute the rest. - Reform floats from the permuted
+bits, and convert back into a tensor. - Do some post-processing to clean
+the output - Convert each float in the output tensor to bits, then take
+the last half of each as this is the part that is most shuffled -
+Convert to base 10, then to 16 - Profit
 </p>
 
 <p>
@@ -387,172 +394,396 @@ The code can also be found
 <a href="https://gist.github.com/TheEnquirer/1260b18f40cec198348a0a30d0a19e83">here</a>.
 </p>
 
-<pre class="example" id="org2a4ecb7">
-#####################
-#       SETUP       #
-#####################
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-comment-delimiter">#####################</span>
+<span class="org-comment-delimiter">#       </span><span class="org-comment">SETUP       #</span>
+<span class="org-comment-delimiter">#####################</span>
 
-# imports
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import math
-import struct
-from codecs import decode
-import numpy as np
-import string
+<span class="org-comment-delimiter"># </span><span class="org-comment">imports</span>
+<span class="org-keyword">import</span> torch
+<span class="org-keyword">import</span> torch.nn <span class="org-keyword">as</span> nn
+<span class="org-keyword">import</span> torch.nn.functional <span class="org-keyword">as</span> F
+<span class="org-keyword">import</span> math
+<span class="org-keyword">import</span> struct
+<span class="org-keyword">from</span> codecs <span class="org-keyword">import</span> decode
+<span class="org-keyword">import</span> numpy <span class="org-keyword">as</span> np
+<span class="org-keyword">import</span> string
 
-INP = [0.1, 0.0, 1.01] # our input!
-SAFE = 8 # don't permute the first 8 bits, so we don't get infs and 0
+<span class="org-variable-name">INP</span> = [0.1, 0.0, 1.01] <span class="org-comment-delimiter"># </span><span class="org-comment">our input!</span>
+<span class="org-variable-name">SAFE</span> = 8 <span class="org-comment-delimiter"># </span><span class="org-comment">don't permute the first 8 bits, so we don't get infs and 0</span>
 
-# makes things deterministic
+<span class="org-comment-delimiter"># </span><span class="org-comment">makes things deterministic</span>
 np.random.seed(0)
 torch.manual_seed(0)
 
-torch.set_default_dtype(torch.float64) # make sure we use the right datatype!
+torch.set_default_dtype(torch.float64) <span class="org-comment-delimiter"># </span><span class="org-comment">make sure we use the right datatype!</span>
 
 
-#######################
-#       BASE NN       #
-#######################
+<span class="org-comment-delimiter">#######################</span>
+<span class="org-comment-delimiter">#       </span><span class="org-comment">BASE NN       #</span>
+<span class="org-comment-delimiter">#######################</span>
 
-class Net(nn.Module): # define the model
+<span class="org-keyword">class</span> <span class="org-type">Net</span>(nn.Module): <span class="org-comment-delimiter"># </span><span class="org-comment">define the model</span>
 
-    def __init__(self):
-        super(Net, self).__init__()
-        self.l1 = nn.Linear(3, 128) # linear layer, with input size 3
-        self.pl1 = PermuteLayer(128,256) # custom permute layer
+    <span class="org-keyword">def</span> <span class="org-function-name">__init__</span>(<span class="org-keyword">self</span>):
+        <span class="org-builtin">super</span>(Net, <span class="org-keyword">self</span>).__init__()
+        <span class="org-keyword">self</span>.<span class="org-variable-name">l1</span> = nn.Linear(3, 128) <span class="org-comment-delimiter"># </span><span class="org-comment">linear layer, with input size 3</span>
+        <span class="org-keyword">self</span>.<span class="org-variable-name">pl1</span> = PermuteLayer(128,256) <span class="org-comment-delimiter"># </span><span class="org-comment">custom permute layer</span>
 
-        self.l2 = nn.Linear(256, 512)
-        self.pl2 = PermuteLayer(512, 512)
+        <span class="org-keyword">self</span>.<span class="org-variable-name">l2</span> = nn.Linear(256, 512)
+        <span class="org-keyword">self</span>.<span class="org-variable-name">pl2</span> = PermuteLayer(512, 512)
 
-        self.l3 = nn.Linear(512, 256)
-        self.pl3 = PermuteLayer(256, 256)
+        <span class="org-keyword">self</span>.<span class="org-variable-name">l3</span> = nn.Linear(512, 256)
+        <span class="org-keyword">self</span>.<span class="org-variable-name">pl3</span> = PermuteLayer(256, 256)
 
-        self.l4 = nn.Linear(256, 128)
-        self.pl4 = PermuteLayer(128, 8) # output a tensor with 8 floats
-
-
-    def forward(self, x): # run it through!
-        x = [100*(y+1) for y in x] # add 1 and multiply by 100 for each input element
-        x = torch.tensor(x) # then convert it to a tensor
-
-        x = self.l1(x) # run it through the layers
-        x = x.view(-1, 128)
-        x = self.pl1(x)
-        x = self.l2(x)
-        x = self.pl2(x)
-        x = self.l3(x)
-        x = self.pl3(x)
-        x = self.l4(x)
-        x = self.pl4(x)
-
-        return x
+        <span class="org-keyword">self</span>.<span class="org-variable-name">l4</span> = nn.Linear(256, 128)
+        <span class="org-keyword">self</span>.<span class="org-variable-name">pl4</span> = PermuteLayer(128, 8) <span class="org-comment-delimiter"># </span><span class="org-comment">output a tensor with 8 floats</span>
 
 
-####################################
-#       CUSTOM PERMUTE LAYER       #
-####################################
+    <span class="org-keyword">def</span> <span class="org-function-name">forward</span>(<span class="org-keyword">self</span>, x): <span class="org-comment-delimiter"># </span><span class="org-comment">run it through!</span>
+        <span class="org-variable-name">x</span> = [100*(y+1) <span class="org-keyword">for</span> y <span class="org-keyword">in</span> x] <span class="org-comment-delimiter"># </span><span class="org-comment">add 1 and multiply by 100 for each input element</span>
+        <span class="org-variable-name">x</span> = torch.tensor(x) <span class="org-comment-delimiter"># </span><span class="org-comment">then convert it to a tensor</span>
 
-class PermuteLayer(nn.Module): # not my code! default linear code comes from https://auro-227.medium.com/writing-a-custom-layer-in-pytorch-14ab6ac94b77
-    # after modification, acts as a normal linear layer except it permutes the bits.
-    def __init__(self, size_in, size_out):
-        super().__init__()
-        self.size_in, self.size_out = size_in, size_out
-        weights = torch.Tensor(size_out, size_in)
-        self.weights = nn.Parameter(weights)  # nn.Parameter is a Tensor that's a module parameter.
-        bias = torch.Tensor(size_out)
-        self.bias = nn.Parameter(bias)
+        <span class="org-variable-name">x</span> = <span class="org-keyword">self</span>.l1(x) <span class="org-comment-delimiter"># </span><span class="org-comment">run it through the layers</span>
+        <span class="org-variable-name">x</span> = x.view(-1, 128)
+        <span class="org-variable-name">x</span> = <span class="org-keyword">self</span>.pl1(x)
+        <span class="org-variable-name">x</span> = <span class="org-keyword">self</span>.l2(x)
+        <span class="org-variable-name">x</span> = <span class="org-keyword">self</span>.pl2(x)
+        <span class="org-variable-name">x</span> = <span class="org-keyword">self</span>.l3(x)
+        <span class="org-variable-name">x</span> = <span class="org-keyword">self</span>.pl3(x)
+        <span class="org-variable-name">x</span> = <span class="org-keyword">self</span>.l4(x)
+        <span class="org-variable-name">x</span> = <span class="org-keyword">self</span>.pl4(x)
 
-        # initialize weights and biases
-        nn.init.kaiming_uniform_(self.weights, a=math.sqrt(5)) # weight init
-        fan_in, _ = nn.init._calculate_fan_in_and_fan_out(self.weights)
+        <span class="org-keyword">return</span> x
+
+
+<span class="org-comment-delimiter">####################################</span>
+<span class="org-comment-delimiter">#       </span><span class="org-comment">CUSTOM PERMUTE LAYER       #</span>
+<span class="org-comment-delimiter">####################################</span>
+
+<span class="org-keyword">class</span> <span class="org-type">PermuteLayer</span>(nn.Module): <span class="org-comment-delimiter"># </span><span class="org-comment">not my code! default linear code comes from https://auro-227.medium.com/writing-a-custom-layer-in-pytorch-14ab6ac94b77</span>
+    <span class="org-comment-delimiter"># </span><span class="org-comment">after modification, acts as a normal linear layer except it permutes the bits.</span>
+    <span class="org-keyword">def</span> <span class="org-function-name">__init__</span>(<span class="org-keyword">self</span>, size_in, size_out):
+        <span class="org-builtin">super</span>().__init__()
+        <span class="org-keyword">self</span>.<span class="org-variable-name">size_in</span>, <span class="org-keyword">self</span>.<span class="org-variable-name">size_out</span> = size_in, size_out
+        <span class="org-variable-name">weights</span> = torch.Tensor(size_out, size_in)
+        <span class="org-keyword">self</span>.<span class="org-variable-name">weights</span> = nn.Parameter(weights)  <span class="org-comment-delimiter"># </span><span class="org-comment">nn.Parameter is a Tensor that's a module parameter.</span>
+        <span class="org-variable-name">bias</span> = torch.Tensor(size_out)
+        <span class="org-keyword">self</span>.<span class="org-variable-name">bias</span> = nn.Parameter(bias)
+
+        <span class="org-comment-delimiter"># </span><span class="org-comment">initialize weights and biases</span>
+        nn.init.kaiming_uniform_(<span class="org-keyword">self</span>.weights, a=math.sqrt(5)) <span class="org-comment-delimiter"># </span><span class="org-comment">weight init</span>
+        fan_in, _ = nn.init._calculate_fan_in_and_fan_out(<span class="org-keyword">self</span>.weights)
         bound = 1 / math.sqrt(fan_in)
-        nn.init.uniform_(self.bias, -bound, bound)  # bias init
+        nn.init.uniform_(<span class="org-keyword">self</span>.bias, -bound, bound)  <span class="org-comment-delimiter"># </span><span class="org-comment">bias init</span>
 
-    def forward(self, x): # where the permuting happens
-        # this part isn't pretty..
-        # but according to Dr. Brian Dean, we don't need to constant factor optimize!
+    <span class="org-keyword">def</span> <span class="org-function-name">forward</span>(<span class="org-keyword">self</span>, x): <span class="org-comment-delimiter"># </span><span class="org-comment">where the permuting happens</span>
+        <span class="org-comment-delimiter"># </span><span class="org-comment">this part isn't pretty..</span>
+        <span class="org-comment-delimiter"># </span><span class="org-comment">but according to Dr. Brian Dean, we don't need to constant factor optimize!</span>
 
-        bits = "" # store bits in a char array
-        saved = [] # save the bits we want to protect
+        bits = <span class="org-string">""</span> <span class="org-comment-delimiter"># </span><span class="org-comment">store bits in a char array</span>
+        saved = [] <span class="org-comment-delimiter"># </span><span class="org-comment">save the bits we want to protect</span>
 
-        for i,v in enumerate(x[0]): # loop through the floats
-            tnsr = float_to_bin(v) # convert them to binary
-            saved.append(tnsr[:SAFE]) # save what we need to
-            bits += tnsr[SAFE:] # and add to the char array
+        <span class="org-keyword">for</span> i,v <span class="org-keyword">in</span> <span class="org-builtin">enumerate</span>(x[0]): <span class="org-comment-delimiter"># </span><span class="org-comment">loop through the floats</span>
+            tnsr = float_to_bin(v) <span class="org-comment-delimiter"># </span><span class="org-comment">convert them to binary</span>
+            saved.append(tnsr[:SAFE]) <span class="org-comment-delimiter"># </span><span class="org-comment">save what we need to</span>
+            bits += tnsr[SAFE:] <span class="org-comment-delimiter"># </span><span class="org-comment">and add to the char array</span>
 
-        p = np.random.permutation([x for x in bits]) # permute it!
-        p = ''.join(map(str, p)) # and then.. join it back together
+        p = np.random.permutation([x <span class="org-keyword">for</span> x <span class="org-keyword">in</span> bits]) <span class="org-comment-delimiter"># </span><span class="org-comment">permute it!</span>
+        p = <span class="org-string">''</span>.join(<span class="org-builtin">map</span>(<span class="org-builtin">str</span>, p)) <span class="org-comment-delimiter"># </span><span class="org-comment">and then.. join it back together</span>
 
         converted = []
 
-        # loop through p, chunk it into segments
-        for i in range(len(p)//(64-SAFE)):
-            # convert segment to floats
+        <span class="org-comment-delimiter"># </span><span class="org-comment">loop through p, chunk it into segments</span>
+        <span class="org-keyword">for</span> i <span class="org-keyword">in</span> <span class="org-builtin">range</span>(<span class="org-builtin">len</span>(p)//(64-SAFE)):
+            <span class="org-comment-delimiter"># </span><span class="org-comment">convert segment to floats</span>
             item = bin_to_float(saved[i]+p[(64-SAFE)*i:((64-SAFE)*i)+(64-SAFE)])
             converted.append(item)
 
-        converted = torch.tensor([converted]) # change it back to a tensor
+        converted = torch.tensor([converted]) <span class="org-comment-delimiter"># </span><span class="org-comment">change it back to a tensor</span>
         x = converted
 
-        w_times_x= torch.mm(x, self.weights.t()) # matrix multiply them
-        return torch.add(w_times_x, self.bias)  # w times x + b
+        w_times_x= torch.mm(x, <span class="org-keyword">self</span>.weights.t()) <span class="org-comment-delimiter"># </span><span class="org-comment">matrix multiply them</span>
+        <span class="org-keyword">return</span> torch.add(w_times_x, <span class="org-keyword">self</span>.bias)  <span class="org-comment-delimiter"># </span><span class="org-comment">w times x + b</span>
 
 
-#########################
-#       HELPERS         #
-#########################
+<span class="org-comment-delimiter">#########################</span>
+<span class="org-comment-delimiter">#       </span><span class="org-comment">HELPERS         #</span>
+<span class="org-comment-delimiter">#########################</span>
 
-# not my code! from https://stackoverflow.com/questions/16444726/binary-representation-of-float-in-python-bits-not-hex
-def bin_to_float(b):
-    """ Convert binary string to a float. """
-    bf = int_to_bytes(int(b, 2), 8)  # 8 bytes needed for IEEE 754 binary64.
-    return struct.unpack('&gt;d', bf)[0]
+<span class="org-comment-delimiter"># </span><span class="org-comment">not my code! from https://stackoverflow.com/questions/16444726/binary-representation-of-float-in-python-bits-not-hex</span>
+<span class="org-keyword">def</span> <span class="org-function-name">bin_to_float</span>(b):
+    <span class="org-doc">""" Convert binary string to a float. """</span>
+    bf = int_to_bytes(<span class="org-builtin">int</span>(b, 2), 8)  <span class="org-comment-delimiter"># </span><span class="org-comment">8 bytes needed for IEEE 754 binary64.</span>
+    <span class="org-keyword">return</span> struct.unpack(<span class="org-string">'&gt;d'</span>, bf)[0]
 
-def int_to_bytes(n, length):  # Helper function
-    """ Int/long to byte string.
-        Python 3.2+ has a built-in int.to_bytes() method that could be used
-        instead, but the following works in earlier versions including 2.x.
-    """
-    return decode('%%0%dx' % (length &lt;&lt; 1) % n, 'hex')[-length:]
+<span class="org-keyword">def</span> <span class="org-function-name">int_to_bytes</span>(n, length):  <span class="org-comment-delimiter"># </span><span class="org-comment">Helper function</span>
+    <span class="org-doc">""" Int/long to byte string.</span>
+<span class="org-doc">        Python 3.2+ has a built-in int.to_bytes() method that could be used</span>
+<span class="org-doc">        instead, but the following works in earlier versions including 2.x.</span>
+<span class="org-doc">    """</span>
+    <span class="org-keyword">return</span> decode(<span class="org-string">'%%0%dx'</span> % (length &lt;&lt; 1) % n, <span class="org-string">'hex'</span>)[-length:]
 
-def float_to_bin(value):  # For testing.
-    """ Convert float to 64-bit binary string. """
-    [d] = struct.unpack("&gt;Q", struct.pack("&gt;d", value))
-    return '{:064b}'.format(d)
+<span class="org-keyword">def</span> <span class="org-function-name">float_to_bin</span>(value):  <span class="org-comment-delimiter"># </span><span class="org-comment">For testing.</span>
+    <span class="org-doc">""" Convert float to 64-bit binary string. """</span>
+    [<span class="org-variable-name">d</span>] = struct.unpack(<span class="org-string">"&gt;Q"</span>, struct.pack(<span class="org-string">"&gt;d"</span>, value))
+    <span class="org-keyword">return</span> <span class="org-string">'{:064b}'</span>.<span class="org-builtin">format</span>(d)
 
 
-def int2base(x, base): # not my code! modified from https://stackoverflow.com/questions/2267362/how-to-convert-an-integer-to-a-string-in-any-base
-    if x &lt; 0:    sign = -1
-    elif x == 0: return digs[0]
-    else:        sign = 1
+<span class="org-keyword">def</span> <span class="org-function-name">int2base</span>(x, base): <span class="org-comment-delimiter"># </span><span class="org-comment">not my code! modified from https://stackoverflow.com/questions/2267362/how-to-convert-an-integer-to-a-string-in-any-base</span>
+    <span class="org-keyword">if</span> x &lt; 0:    sign = -1
+    <span class="org-keyword">elif</span> x == 0: <span class="org-keyword">return</span> digs[0]
+    <span class="org-keyword">else</span>:        sign = 1
     x *= sign
     digits = []
-    while x:
+    <span class="org-keyword">while</span> x:
         digits.append(digs[x % base])
         x = x // base
-    if sign &lt; 0: digits.append('-')
+    <span class="org-keyword">if</span> sign &lt; 0: digits.append(<span class="org-string">'-'</span>)
     digits.reverse()
-    return ''.join(digits)
+    <span class="org-keyword">return</span> <span class="org-string">''</span>.join(digits)
 digs = string.digits + string.ascii_letters
 
-########################
-#       OUTPUT         #
-########################
+<span class="org-comment-delimiter">########################</span>
+<span class="org-comment-delimiter">#       </span><span class="org-comment">OUTPUT         #</span>
+<span class="org-comment-delimiter">########################</span>
 
 model = Net()
 
-result = list(model(INP).detach().numpy()[0]) # convert output to list
+result = <span class="org-builtin">list</span>(model(INP).detach().numpy()[0]) <span class="org-comment-delimiter"># </span><span class="org-comment">convert output to list</span>
 
-output_bits = ''
-for i in result:
-    # convert to bits, then take the second half
-    # because it's more shuffled
+output_bits = <span class="org-string">''</span>
+<span class="org-keyword">for</span> i <span class="org-keyword">in</span> result:
+    <span class="org-comment-delimiter"># </span><span class="org-comment">convert to bits, then take the second half</span>
+    <span class="org-comment-delimiter"># </span><span class="org-comment">because it's more shuffled</span>
     output_bits += float_to_bin(i)[32:]
 
-print(int2base(int(output_bits, 2), 16)) # clean the output up and print it out
+<span class="org-keyword">print</span>(int2base(<span class="org-builtin">int</span>(output_bits, 2), 16)) <span class="org-comment-delimiter"># </span><span class="org-comment">clean the output up and print it out</span>
 </pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-results" class="outline-4">
+<h4 id="results"><span class="section-number-4">1.1.4</span> Results</h4>
+<div class="outline-text-4" id="text-results">
+<p>
+Running the hash function with a few example inputs gives us:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Input</th>
+<th scope="col" class="org-left">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">1.0, 0.0, 0.0</td>
+<td class="org-left">7707b1d82074095cd7ec672e372dd54002594a60762ddab49954fd7536983af3</td>
+</tr>
+
+<tr>
+<td class="org-left">1.0, 0.1, 0.0</td>
+<td class="org-left">489014b1b6a164c4410abb09d38fa2c974dda663853a870d8da2e7bbe1276561</td>
+</tr>
+
+<tr>
+<td class="org-left">1.0, 0.01, 0.0</td>
+<td class="org-left">ba1c5e18233cfd68ef14fa7d77cf47fbaeca8182bcc6688fdfce32b0feab6e69</td>
+</tr>
+
+<tr>
+<td class="org-left">1.0, 0.01, 1000.0</td>
+<td class="org-left">593c5d758312de157e7bff4733227ddb95033a364724e8e7492a355ca32b56e0</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Raw Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">6898.310410004538, -27752.31448079027, 5368.972044730368, 15157.626683930517, 2565.062517919854, 3530.8778547601196, -1500.8912099151323, 12012.064166096481</td>
+</tr>
+
+<tr>
+<td class="org-left">10800.338151941398, 7383.0027867194185, 3447.3852618554415, 27197.54416266343, -16078.800441461795, 15308.535315814917, -10308.394947398328, 21108.498117302897</td>
+</tr>
+
+<tr>
+<td class="org-left">6385.139558575604, -11019.165137885793, -2616.5486990505, -4771.384640650819, -27374.854418398354, -22029.83964691363, 32460.107410001277, 39128.374837604184</td>
+</tr>
+
+<tr>
+<td class="org-left">28033.42732152106, 27429.429875103833, 19619.10146999292, -20498.237496016412, 28754.94659500775, 20997.47309229607, 11754.59598281484, 13.915845011749695</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Cosine Similarity of these outputs were calculated with:
+</p>
+
+<pre class="example" id="org1e2c8ff">
+similarity = np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b)
+</pre>
+
+<p>
+The sorted Cosine Similarities of the outputs above are as follows:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">A</th>
+<th scope="col" class="org-right">B</th>
+<th scope="col" class="org-right">Similarity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">4</td>
+<td class="org-right">-0.29788</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+<td class="org-right">-0.24353</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">4</td>
+<td class="org-right">-0.09071</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">0.157713</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">3</td>
+<td class="org-right">0.240493</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">0.372453</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+This table demonstrates how different inputs lead to drastically
+different outputs, regardless of how similar the inputs were.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">%%</th>
+<th scope="col" class="org-right">A</th>
+<th scope="col" class="org-right">B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">4</td>
+<td class="org-right">0.000996</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">4</td>
+<td class="org-right">0.000999</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+<td class="org-right">0.001000</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">0.995037</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">0.995982</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">3</td>
+<td class="org-right">0.999950</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1.0</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">2</td>
+<td class="org-right">1.000000</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+%% Further analysis is required, as collision rate and etc. have not yet
+been determined because no large scale tests have been done. However,
+this method of hash function seems potentially viable.
+</p>
 </div>
 </div>
 </div>
