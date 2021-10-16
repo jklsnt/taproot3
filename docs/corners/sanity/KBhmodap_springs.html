@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-10-15 Fri 22:34 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MODAP Springs</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MODAP Springs</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-10-15 Fri 22:34</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>Sanity corner</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org3b5e559">1. Proving Myself</a>
+<ul>
+<li><a href="#orge843a2b">1.1. At the point of Launch</a></li>
+<li><a href="#org7d824bd">1.2. To get to the air.</a></li>
+<li><a href="#org847d5e6">1.3. Launch, to Get to the Air</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<p>
+Here's a launcher idea, springs! I was talking to Triple today and thought a little bit about those <a href="https://www.arborsci.com/products/elasti-launcher-set">Physics Elastics Launchers</a> that we used to do experiments with. Other factors nonwithstanding, I think it may actually be reasonable to use a spring-fired projectile system, and here's why.
+</p>
+
+<div id="outline-container-org3b5e559" class="outline-2">
+<h2 id="org3b5e559"><span class="section-number-2">1</span> Proving Myself</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+We are not going to use calculus because that's so 18th century. Instead, we treat everything linearly. Take that, Newton.
+</p>
+
+\begin{equation}
+    F_{elastic} = -k \Delta x
+\end{equation}
+
+\begin{equation}
+    F_{gravity} = mg
+\end{equation}
+</div>
+
+<div id="outline-container-orge843a2b" class="outline-3">
+<h3 id="orge843a2b"><span class="section-number-3">1.1</span> At the point of Launch</h3>
+<div class="outline-text-3" id="text-1-1">
+\begin{equation}
+    PE_{elastic} = \frac{1}{2} K \Delta x^2
+\end{equation}
+
+<p>
+Ok I lied, this needs a bit of calculus to proof. But to uphold my honour of "no calclus" I am going to leave that as an exercise to the reader. Think about the spring force as the Height of a right triangle of base \(\Delta x\), and the Work is the area of that triangle.
+</p>
+
+<p>
+And of course,
+</p>
+
+\begin{equation}
+    KE_{translational} = \frac{1}{2}mv^2
+\end{equation}
+
+<p>
+We again ignore rotational kinetic energy because its not like I am taking advanced mechanics or something.
+</p>
+
+<p>
+So, at launch, we know that our conditions are:
+</p>
+
+\begin{align}
+    mv^2 =& k\Delta x^2 \\
+    v^2 =& \frac{k\Delta x^2}{m}
+\end{align}
+
+<p>
+Hence, given a mass \(m\) (\(kg\)), a spring constant \(k\) (\(\frac{N}{m}\)), and a displacement \(\Delta x\) (\(m\)), we could figure the velocity at which the projectile is going/needs to go.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7d824bd" class="outline-3">
+<h3 id="org7d824bd"><span class="section-number-3">1.2</span> To get to the air.</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Let's get to 150 metres!
+</p>
+
+<p>
+We know that:
+</p>
+
+\begin{align}
+    PE_{grav} =& mg\Delta h \\
+    =& 150gm
+\end{align}
+
+<p>
+To reach this height, we therefore have to contribute \(150gm\) joules worth of energy. To make all of this energy come from moving goodly, we will set that equal to kinetic energy of the object at the start of our experiment.
+</p>
+
+\begin{align}
+    150gm =& \frac{1}{2}mv^2 \\
+    150g =& \frac{1}{2}v^2 \\
+    v^2 =& 300g
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org847d5e6" class="outline-3">
+<h3 id="org847d5e6"><span class="section-number-3">1.3</span> Launch, to Get to the Air</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Putting the two together; that we need to "launch with enough velocity to get to the air."
+</p>
+
+\begin{equation}
+\frac{k\Delta x^2}{m} = 300g
+\end{equation}
+
+<p>
+We will need to set \(m=250g=0.25kg\), and \(g=9.8\).
+</p>
+
+\begin{align}
+k\Delta x^2 =& 0.25\times300\times9.8 \\
+=& 735
+\end{align}
+
+<p>
+We will set the solution set, with
+</p>
+
+<p>
+\(y=k\) and \(x=x\) &#x2014; such that, given a distance we wish to stretch the spring, we could figure the spring constant needed.
+</p>
+
+<p>
+The graph is <a href="https://www.desmos.com/calculator/jwllnxlmsv">available here</a>, and here's a screenshot:
+</p>
+
+
+
+<div id="org6074679" class="figure">
+<p><img src="2021-10-15_22-26-14_screenshot.png" alt="2021-10-15_22-26-14_screenshot.png" />
+</p>
+</div>
+
+<p>
+A few noticing.
+</p>
+
+<p>
+If we had, say, a typical rubber band (spring constant roughly 40 newtons per meter), the solution set tells us that we have to stretch it by 4 metres.
+</p>
+
+<p>
+If we want to stretch/compress it by only a normal length (0.5m), our spring constant has to be roughly 2000 newtons a meter = 11 pounds/inch.
+</p>
+
+<p>
+Looks like we <i>could</i> get &gt;11lb/in springs. :tada!:
+</p>
+
+
+<div id="orge1c0777" class="figure">
+<p><img src="2021-10-15_22-31-08_screenshot.png" alt="2021-10-15_22-31-08_screenshot.png" />
+</p>
+</div>
+
+<p>
+<a href="https://www.acxesspring.com/find-spring-constant-k-units-calculator.html">Here's the URL.</a> So we just have to make a squishy compression thing that squishes the spring down and release all at once.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
