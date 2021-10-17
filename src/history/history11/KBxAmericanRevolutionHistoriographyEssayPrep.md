@@ -84,6 +84,7 @@ this is, historiography.
 bailyn -> [wood, holton] -> 
 
 linebaugh: breen: [wood, holton] : bailyn
+<- time
 
 - many different people united.
 	- how did they unite?
@@ -99,30 +100,103 @@ linebaugh: breen: [wood, holton] : bailyn
 
  
  
+the complex nature of causality 
+ 
+outline:
+- thesis 
+	- causality is complex and historians pick a small piece that matches a ideological agenda
+- 
  
  
  
  
+with this updated model, the "cause" of the revolution becomes multifactorial
+{graph}
+ 
+proximal - distal 
  
  
+ given complexity, how do we think about causality?
+ exponential reweighting
+
+C -> c --> c --> c -> E
+1 		2 		3		4
+^ this c
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+them: [c, c, c]  -> me: c -> c -> c
+
+
+luck: 
+
+
+inp -> [] -> oup
+
+[] = (divine) luck = [god\*random]
+
+
+
+
+A
+
+
+
+A -> -> -> B
+e = c
+
+| e != 0
+
+**primary cause is flawed**
+
+history =  [] -> oup
+[] ??
+
+(		{ )		}
+
+()
+{}
+
+
+models:
+god
+random (luck)
+primary cause
+	too interdependant
+
+
+theology -> modernism -> postmoderism!
+
+groups:
+
+- theological
+	- by god
+- modernism 
+	- by cause
+- postmodernism
+	- no cause
+- transcendent-modernism
+	- graph
+
+objective truth != exist
+useful truth = exist
+postmodern -> useful truth != exist
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
