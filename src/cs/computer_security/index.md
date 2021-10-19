@@ -32,4 +32,6 @@ title: CS240 Master Index
 - [[KBxInternetSecurity]]
 - [[KBxPasswordStorage]]
 
-
+## Authorization
+- [[KBhAuthorization]] 
+- 

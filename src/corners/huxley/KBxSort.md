@@ -1,6 +1,14 @@
 n
 ***
 
+ config! https://github.com/sainnhe/tmux-fzf
+
+***
+
+[category theory](https://ncatlab.org/nlab/show/category+theory). to review
+
+***
+
  read this later! supposed to be generalization of godel's incompleteness theorem
  https://ncatlab.org/nlab/show/Lawvere%27s+fixed+point+theorem
 
