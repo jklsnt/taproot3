@@ -54,7 +54,10 @@ the set of all linear maps from $V$ to $W$.
 ```
 
 ### examples of linear maps
-- zero?
+- 0?
+	- 0 is the func that takes each ele from some vec space to the additive iden of another vec space.
+		- 0v = 0
+		- 
 
 
 
