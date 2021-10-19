@@ -64,6 +64,9 @@ the set of all linear maps from $V$ to $W$.
 	- maps each element to itself
 linear transformation like a `.map`?
 
+- differentiation and integration!
+- multiplication by $x^2$ (on polynomials)
+- 
 
 
 
