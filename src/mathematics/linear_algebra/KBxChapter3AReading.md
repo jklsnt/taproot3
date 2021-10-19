@@ -81,7 +81,7 @@ for each $j=1,\dots n$.
 ```
 we can uniquely map between the basis of a subspace and a list of equal len in a diff subspace?
 
-
+#question wait how does the uniqness proof work here at the end?
 
 
 
