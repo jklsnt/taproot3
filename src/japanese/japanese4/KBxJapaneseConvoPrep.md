@@ -12,7 +12,11 @@ date: 2021-10-19
 # oh noes
 
 
+intro:
 
+
+topic: 
+-   Self-introduction (yourself, family, pets, hobbies, where you live, etc.)
 
 
 
