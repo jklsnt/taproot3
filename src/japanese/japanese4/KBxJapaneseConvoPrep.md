@@ -13,12 +13,12 @@ date: 2021-10-19
 
 
 intro:
-
+-kyouno gogoni hanasemasuka?
 
 topic: 
 -   Self-introduction (yourself, family, pets, hobbies, where you live, etc.)
 
-
+- 
 
 
 
