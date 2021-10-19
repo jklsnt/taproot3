@@ -71,11 +71,12 @@ linear transformation like a `.map`?
 
 - from $R^3 \to R^2$ ? #question what? how does this work?
 - #review how this dimension shift works..
-- 
 
 
-
-
+```ad-def
+title: linear maps and basis of domain
+Suppose $v_1, \dots , v_n$ is a basis of $V$ and $w_1, \dots , w_n \in W$. Then there exists a uniqe
+```
 
 
 
