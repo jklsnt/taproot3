@@ -48,7 +48,7 @@ $T(\lambda v) = \lambda(Tv)$ for all $\lambda \in F$ and $v \in V$.
 the functional notation T(V) is the same as the notation Tv when talking about linear maps.
 
 
-$\L$
+$\map L_RR$
 
 
 
