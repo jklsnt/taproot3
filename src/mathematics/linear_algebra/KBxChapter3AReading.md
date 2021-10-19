@@ -48,10 +48,13 @@ $T(\lambda v) = \lambda(Tv)$ for all $\lambda \in F$ and $v \in V$.
 the functional notation T(V) is the same as the notation Tv when talking about linear maps.
 
 
-$\map L_RR$
+```ad-def
+title: notation -- $L(V,W)$
+the set of all linear maps from $V$ to $W$.
+```
 
-
-
+### examples of linear maps
+- zero?
 
 
 
