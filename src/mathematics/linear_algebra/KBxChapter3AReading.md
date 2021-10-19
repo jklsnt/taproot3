@@ -75,9 +75,11 @@ linear transformation like a `.map`?
 
 ```ad-def
 title: linear maps and basis of domain
-Suppose $v_1, \dots , v_n$ is a basis of $V$ and $w_1, \dots , w_n \in W$. Then there exists a uniqe
+Suppose $v_1, \dots , v_n$ is a basis of $V$ and $w_1, \dots , w_n \in W$. Then there exists a unique linear map $T:V \to W$ such that
+$$Tv_j = W_j$$
+for each $j=1,\dots n$.
 ```
-
+we can map between the basis of a subspace and 
 
 
 
