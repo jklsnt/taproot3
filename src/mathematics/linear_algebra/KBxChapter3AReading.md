@@ -38,9 +38,10 @@ title: learning objectives
 title: linear map
 a *linear map* from $V$ to $W$ is a function $T:V \to W$ with the following properties:
 **additivity**
-$T(v+v) = Tu+Tv$ for all $u, v \in V$
+$T(u+v) = Tu+Tv$ for all $u, v \in V$;
 **homogeneity**
-T(\lambda
+$T(\lambda v) = \lambda(Tv)$ for all $\lambda \in F$ and $v \in V$.
+```
 
 
 
