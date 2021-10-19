@@ -57,9 +57,12 @@ the set of all linear maps from $V$ to $W$.
 - 0?
 	- 0 is the func that takes each ele from some vec space to the additive iden of another vec space.
 		- 0v = 0
-		- 
-
-
+		- left: func from V to W, right: additive iden in W
+		- #question what does it mean for it to be a function from V to W?
+- identity, denoted $I$
+	- $Iv = v$
+	- maps each element to itself
+linear transformation like a `.map`?
 
 
 
