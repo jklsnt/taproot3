@@ -36,6 +36,8 @@ title: learning objectives
 
 ```ad-def
 title: linear map
+aka *linear transformation.*
+
 a *linear map* from $V$ to $W$ is a function $T:V \to W$ with the following properties:
 **additivity**
 $T(u+v) = Tu+Tv$ for all $u, v \in V$;
@@ -43,10 +45,10 @@ $T(u+v) = Tu+Tv$ for all $u, v \in V$;
 $T(\lambda v) = \lambda(Tv)$ for all $\lambda \in F$ and $v \in V$.
 ```
 
+the functional notation T(V) is the same as the notation Tv when talking about linear maps.
 
 
-
-
+$\L$
 
 
 
