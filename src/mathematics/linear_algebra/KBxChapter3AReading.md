@@ -79,7 +79,24 @@ Suppose $v_1, \dots , v_n$ is a basis of $V$ and $w_1, \dots , w_n \in W$. Then 
 $$Tv_j = W_j$$
 for each $j=1,\dots n$.
 ```
-we can map between the basis of a subspace and 
+we can uniquely map between the basis of a subspace and a list of equal len in a diff subspace?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
