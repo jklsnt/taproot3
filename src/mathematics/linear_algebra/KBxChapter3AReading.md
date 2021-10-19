@@ -67,8 +67,10 @@ linear transformation like a `.map`?
 - differentiation and integration!
 - multiplication by $x^2$ (on polynomials)
 - shifts! defined as, $T(x_1, x_2, x_3, \dots) = (x_2, x_3, \dots)$
+	- #question this is an example, but how do we define it as a transformation? or is giving an example in the general case the same thing as defining a transformation?
 
-
+- from $R^3 \to R^2$ ? #question what? how does this work?
+- 
 
 
 
