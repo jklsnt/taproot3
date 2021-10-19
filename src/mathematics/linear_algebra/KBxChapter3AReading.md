@@ -66,7 +66,7 @@ linear transformation like a `.map`?
 
 - differentiation and integration!
 - multiplication by $x^2$ (on polynomials)
-- 
+- shifts! defined as, $T(x_1, x_2, x_3, \dots) = (x_2, x_3, \dots)$
 
 
 
