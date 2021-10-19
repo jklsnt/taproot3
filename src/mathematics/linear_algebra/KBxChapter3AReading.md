@@ -85,7 +85,14 @@ we can uniquely map between the basis of a subspace and a list of equal len in a
 
 
 
+### algebraic operations on $L(V,W)$
 
+```ad-def
+title: addition and SCAMUL
+
+
+
+```
 
 
 
