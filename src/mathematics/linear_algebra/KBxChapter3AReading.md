@@ -70,8 +70,8 @@ linear transformation like a `.map`?
 	- #question this is an example, but how do we define it as a transformation? or is giving an example in the general case the same thing as defining a transformation?
 
 - from $R^3 \to R^2$ ? #question what? how does this work?
+- #review how this dimension shift works..
 - 
-
 
 
 
