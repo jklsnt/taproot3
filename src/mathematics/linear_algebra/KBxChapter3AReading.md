@@ -32,9 +32,15 @@ title: learning objectives
 
 # The vector space of linear maps
 
+**key definition!**
 
-
-
+```ad-def
+title: linear map
+a *linear map* from $V$ to $W$ is a function $T:V \to W$ with the following properties:
+**additivity**
+$T(v+v) = Tu+Tv$ for all $u, v \in V$
+**homogeneity**
+T(\lambda
 
 
 
