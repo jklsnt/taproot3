@@ -17,10 +17,20 @@ no one get's excited about vector spaces -axler
 
 the interesting part: linear maps!
 
+```ad-abstract
+title: learning objectives
+- fundementals theorem of linear maps
+- matrix of linear map w.r.t. given bases
+- isomorphic vec spaces
+- product spaces
+- quotient spaces
+- duals spaces
+	- vector space
+	- linear map
+```
 
 
-
-
+# The vector space of linear maps
 
 
 
