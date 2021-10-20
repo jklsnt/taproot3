@@ -90,7 +90,8 @@ we can uniquely map between the basis of a subspace and a list of equal len in a
 ```ad-def
 title: addition and SCAMUL
 
-
+Suppose $S,T \in L(V,W)$ and $\lambda \in F$. The *sum* of $S+T$ and the *product* $\lambda T$ are the linear maps from $V$ to $W$ defined by
+$$(S+T)(v) = Sv + Tv$$ and $$(\lambda T)(v) = \lambda (Tv)$$
 
 ```
 
