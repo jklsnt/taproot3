@@ -92,13 +92,52 @@ title: addition and SCAMUL
 
 Suppose $S,T \in L(V,W)$ and $\lambda \in F$. The *sum* of $S+T$ and the *product* $\lambda T$ are the linear maps from $V$ to $W$ defined by
 $$(S+T)(v) = Sv + Tv$$ and $$(\lambda T)(v) = \lambda (Tv)$$
+for all $v \in V$
 
 ```
 
+oh jeez.. 
+
+```ad-def
+title: $L(V,W)$ is a vector space!
+with the operations of addition and SCAMUL as defined aboce, $L(V,W)$ is a [[KBe20math530refVectorSpace]]
+```
+
+and another one.
+
+```ad-def
+title: product of linear maps
+if $T \in L(U,V)$ and $S \in L(V,W)$, then the *product* $ST \in L(U,W)$ is defined by 
+$$(ST)(u)=S(Tu)$$
+for all $u \in U$.
+```
+
+S dot T?? what is this symbol?
 
 
+```ad-def
+title: albraic props of products of linear maps
+- associative
+- idenity
+- distributive properties
+```
+
+multiplication of linear maps is not commutative!
+ie. $ST = TS$ isn't always true.
 
 
+```ad-def
+title: linear maps take 0 to 0
+suppose $T$ is a linear map from $V$ to $W$. Then $T(0) = 0$
+```
+
+
+```ad-reflection
+#review this chapter... 
+bassically all just result blocks and nothing else
+i don't have an intuitive understanding of the concept of a map. perhaps look into 3b1b vid on linear transformations, or maybe professor dave.
+
+```
 
 
 
