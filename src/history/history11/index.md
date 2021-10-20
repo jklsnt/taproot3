@@ -40,7 +40,4 @@ the next assignment: historigraphical in nature. synthesithing multiple argument
 - [[KBxSchoolOfThoughOnAmericanRevolutionInClassPrezs]]
 - [[KBxThePathtoRevolution]]
 - [[KBxAmericanRevolutionHistoriographyEssayPrep]]
-
-
-
 - [[KBhPostRevolution]] 

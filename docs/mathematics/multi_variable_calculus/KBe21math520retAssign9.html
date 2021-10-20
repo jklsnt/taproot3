@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-15 Fri 14:13 -->
+<!-- 2021-10-19 Tue 14:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Assignment 9: Vectors Part 2</title>
@@ -261,17 +261,18 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Assignment 9: Vectors Part 2</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-10-15 Fri 14:13</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Assignment 9: Vectors Part 2</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-10-19 Tue 14:07</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orga52ee4a">1. boatman problem</a></li>
+<li><a href="#org96bfef4">1. boatman problem</a></li>
+<li><a href="#org5477cd3">2. </a></li>
 </ul>
 </div></div>
 </div>
-<div id="outline-container-orga52ee4a" class="outline-2">
-<h2 id="orga52ee4a"><span class="section-number-2">1</span> boatman problem</h2>
+<div id="outline-container-org96bfef4" class="outline-2">
+<h2 id="org96bfef4"><span class="section-number-2">1</span> boatman problem</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Target displacement: \(\langle 3 \text{km}, 2 \text{km} \rangle\)
@@ -291,6 +292,82 @@ We are working with the velocities of the boat and the river. The velocity of th
 <p>
 Where the trip will take \(\lambda\) hours
 </p>
+
+<p>
+\[\begin{aligned}
+  v_x ^2 + v_y ^2 = 13^2\\
+  \lambda ( v_x + 0 ) = 3\\
+  \lambda ( v_y + -3.5 ) = 2\\\\
+  v_x &= \frac{3}{\lambda}\\
+  v_y &= \frac{2}{\lambda } + 3.5\\
+  \frac{3^2}{\lambda^2} + \left(\frac{2}{\lambda } + 3.5\right)^2 &= 13^2\\
+  \frac{3^2}{\lambda^2} + \frac{2^2}{\lambda^2} + 3.5^2 + \frac{4(3.5)}{\lambda} &= 13^2\\
+  \frac{3^2 + 2^2}{\lambda^2} + \frac{4(3.5)}{\lambda} &= 13^2 - 3.5^2\\
+  3^2+2^2 + 4(3.5)\lambda  &= \lambda^2 \left(13^2 - 3.5^2\right)\\
+  13 + 4(3.5)\lambda  &= \lambda^2 \left(156.75\right)\\
+  -156.75 \lambda ^2 + 14^2 + 13 &= 0\\
+  \frac{-14 \pm \sqrt{14^2 + 4(13)156.75}}{-2(156.75)}\\
+  \frac{-14 + \sqrt{14^2 + 4(13)156.75}}{-2(156.75)}=-0.24676847741\\
+  \frac{-14 - \sqrt{14^2 + 4(13)156.75}}{-2(156.75)}=0.336082671987\\
+  \end{aligned}\]
+</p>
+
+<p>
+Maybe it's time to do it geometrically
+</p>
+
+\begin{tikzpicture}
+\draw[black, thick, ->] (0, 0) -- (3, 2);
+\draw[black, thick, ->] (0, 0) -- (0, -3.5)    node[above right] {m/s}
+\end{tikzpicture}
+
+<p>
+Let \(\theta\) be the angle difference that you paddle at, and \(\phi\) be the angle that you are aiming for.
+</p>
+
+
+<p>
+\[\begin{aligned}
+ 3.5^2\lambda^2 &= 13 + 13\lambda - 2(13)13\lambda \cos \theta \\
+ \tan \phi    &= \frac{3}{2}\\
+ \sin (\theta + \phi)  &= \frac{3.5 \lambda + 2}{13 \lambda}\\
+\end{aligned}\]
+</p>
+
+
+<p>
+attempt 3: after getting help from leonard
+</p>
+
+<p>
+\[\begin{aligned}
+\beta &= \alpha + \frac{\pi}{2} = \tan ^- \frac{2}{3} = 2.158\\
+\frac{\sin \beta}{|v|} &= \frac{\sin  \gamma}{3.5}\\
+\frac{\sin \left( 2.158 \right)}{13} &= \frac{\sin  \gamma}{3.5}\\
+3.5\frac{\sin \left( 2.158 \right)}{13} &= \sin  \gamma\\
+\gamma &= 3.5\frac{\sin \left( 2.158 \right)}{13} = 0.2241\\
+\alpha  + \gamma &= 0.588 + 0.2241 = 0.8121 \text{ radians}
+\end{aligned}\]
+</p>
+
+<p>
+The speed
+</p>
+
+<p>
+\[\begin{aligned}
+\frac{3}{13 \cos 0.812} = 0.3353 \text{ hours}
+\end{aligned}\]
+</p>
+
+<p>
+dang it i was actually right the first time. apparently math isn't a democracy.
+</p>
+</div>
+</div>
+<div id="outline-container-org5477cd3" class="outline-2">
+<h2 id="org5477cd3"><span class="section-number-2">2</span> </h2>
+<div class="outline-text-2" id="text-2">
 </div>
 </div>
 </div>

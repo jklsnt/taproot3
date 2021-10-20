@@ -40,6 +40,9 @@ source:  #index
 	- [[KBxDimensionInClass]]
 	- [[KBx2C14ProofPrez]]
 	- [[KBx2Band2Cproofs]]
+
+#### Chapter 3
+- [[KBxChapter3AReading]]
 	
 #### Midterms
 - [[KBxLinAlgApplicationInterests]]
