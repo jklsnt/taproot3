@@ -107,9 +107,6 @@ $$dim(U_1+U_2) = dim U_1 +dim U_2 - dim(U_1\cap U_2)$$
 
 
 
- 
-
-
 
 
 

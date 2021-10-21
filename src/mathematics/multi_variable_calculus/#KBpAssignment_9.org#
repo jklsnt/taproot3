@@ -1,0 +1,104 @@
+#+TITLE: Assignment 9
+#+AUTHOR: Peter Choi
+
+* Problem 1
+** a)
+Inorder for the boat to be going in the right direction we know that $\vec C+\vec S=\alpha\vec D$, where $\vec C$ is the current of the river, $\vec S$ is the speed of the boat, $\alpha$ is some scalar and $\vec D$ is the vector that goes from the boatman's starting point to their desired endpoint.
+
+We can set the boatman's start point as $(0,0)$, and thus $\vec D=\langle3,2\rangle$. We also know that $\vec C= \langle0,-3.5\rangle$. Lastly, $\vec S=\langle13\sin(\theta),13\cos(\theta)\rangle$, where $\theta$ is the angle between the side of the river and $\vec S$.
+
+We can then plug in these values into the equation written above:
+
+$\vec C + \vec S = \alpha\vec D\newline\Rightarrow \langle 0,-3.5\rangle+\langle13\sin(\theta),13\cos(\theta)\rangle=\alpha\langle3,2\rangle\newline\Rightarrow\langle13\sin(\theta),-3.5+13\cos(\theta)\rangle=\langle\alpha3,\alpha2\rangle\newline\Rightarrow13\sin(\theta)=\alpha3,-3.5+13\cos(\theta)=\alpha2\newline\Rightarrow6\alpha=26\sin(\theta),6\alpha=-10.5+39\cos(\theta)\newline\Rightarrow26\sin(\theta)=-10.5+39\cos(\theta)$
+
+plug it into wolfram alpha:
+
+$\theta \approx0.75686$ radians or $\approx 43.36^{\circ}$
+** b)
+The net velocity of the boat is $\vec S+\vec C=\langle13\sin(\theta),13\cos(\theta)-3.5\rangle$, where $\theta$ is the answer to part a. To get the speed of the boat we find the magnitude of this vector:
+
+$|\vec S+\vec C|=\sqrt{(13\sin(\theta))^2+(13\cos(\theta)-3.5)}\approx10.7282$ km/h
+
+Now we need to find the distance traveled by the boat, which should be the magnitude of $\vec D$:
+
+$|\vec D|=\sqrt{2^2+3^2}=\sqrt{4+9}=\sqrt{13}\approx 3.60555$ km
+
+To get the time it took to take the trip we divide the distace by the speed:
+
+${3.60555\over10.7282}=0.336$ hours, which is $20.2$ minutes
+
+* Problem 2
+** a)
+$\vec r(t)=(R\cos(\omega_ot),R\sin(\omega_ot))$
+
+This is because the x coordinate is defined as $r\cos(\theta)$ and the y coordinate is defined as $r\sin(\theta)$. In this case $r$ or the radius is $R$ and $\theta$ is $\omega_ot$, because $\omega_o=\frac{\theta}{t}$ (definition of angular velocity.
+
+** b)
+$\vec v(t)=\vec r'(t)=(\frac{d}{dt}R\cos(\omega_ot),\frac{d}{dt}R\sin(\omega_ot))=(-R\omega_o\sin(\omega_ot),R\omega_o\cos(\omega_ot))$
+
+Answer: $\vec v(t)=(-R\omega_o\sin(\omega_ot),R\omega_o\cos(\omega_ot))$
+
+** c)
+$\vec a(t)=\vec r''(t)=(\frac{d}{dt}(-R\omega_o\sin(\omega_ot)),\frac{d}{dt}R\omega_o\cos(\omega_ot))=(-R\omega_o^2\cos(\omega_ot),-R\omega_o^2\sin(\omega_ot))$
+
+Answer: $\vec a(t)=(-R\omega_o^2\cos(\omega_ot),-R\omega_o^2\sin(\omega_ot))$
+
+** d)
+The tangent:
+
+Because $\vec v(t)$ is a vector it can be placed anywhere on the plane, so the only requierment for $\vec v(t)$ is that it has to be perpendicular to $\vec r(t)$, which is the radius of the circle. This means that the slope of $\vec v(t)$ has to be the opposite reciprocol of $\vec r(t)$:
+
+Slope of $\vec r(t)=\frac{\Delta y}{\Delta x}=\frac{R\sin(\omega_ot)-0}{R\cos(\omega_ot)-0}=\frac{\sin(\omega_ot)}{\cos(\omega_ot)}$
+
+Slope of $\vec v(t)=\frac{\Delta y}{\Delta x}=\frac{R\omega_o\cos(\omega_ot)-0}{-R\omega_o\sin(\omega_ot)-0}=-\frac{\cos(\omega_ot)}{\sin(\omega_ot)}$
+
+The slopes are opposite reciprocols, thus $\vec v(t)$ is perpendicular to $\vec r(t)$, thus $\vec v(t)$ is tangent to the circle.
+
+
+The magnitude:
+
+$|\vec v(t)|=\sqrt{(-R\omega_o\cos(\omega_ot))^2+(R\omega_o\sin(\omega_ot))^2}=\sqrt{R^2\omega_o^2\cos^2(\omega_ot+R^2\omega_o^2\sin^2(\omega_ot)}=\sqrt{R^2\omega_o^2(\cos^2(\omega_ot)+\sin^2(\omega_ot)}=\sqrt{R^2\omega_o^2(1)}=\sqrt{R^2\omega_o^2}=R\omega_o$
+
+** e)
+Point towards the center of the circle:
+
+$\vec a(t)$ is a scalar multiple of $\vec r(t)$: $\vec a(t)=-\omega_o^2\cdot\vec r(t)=-\omega_o^2(R\cos(\omega_ot),R\sin(\omega_ot))=$
+$(-R\omega^2\cos(\omega_ot),-R\omega_o^2\sin(\omega_ot))=\vec a(t)$
+
+because the scalar multiple is negative $\vec v(t)$ points in the opposite direction of $\vec r(t)$, which is towards the center of the circle because $\vec r(t)$ points from the center of the circle outwards.
+
+The magnitude:
+
+$|\vec a(t)|=\sqrt{(-R\omega^2\cos(\omega_ot))^2+(-R\omega_o^2\sin(\omega_ot))^2}=\sqrt{R^2\omega_o^4\cos^2(\omega_ot)+R^2\omega_o^4\sin^2(\omega_ot)}=\sqrt{R^2\omega_o^4(\cos^2(\omega_ot)+\sin^2(\omega_ot))}=\sqrt{R^2\omega_o^4(1)}=\sqrt{R^2\omega_o^4}=R\omega_o^2$
+
+$\frac{|\vec v(t)|^2}{R}=\frac{(R\omega_o)^2}{R}=\frac{R^2\omega_o^2}{R}=R\omega_o^2$
+
+** f)
+$\theta'(t)=\int\theta''(t)dt=\int\alpha_odt=\alpha_ot+c$, where $c$ is the constant of integration
+
+Answer: $\alpha_ot+c$
+
+** g)
+$\theta(t)=\int\theta'(t)dt=\int (\alpha_ot+c)dt=\int\alpha_otdt+\int cdt=\frac{\alpha_ot^2}{2}+ct+c'$ where c' is another constant of integration.
+
+Answer: $\frac{\alpha_ot^2}{2}+ct+c'$
+
+** h)
+For simplicity's sake, I am going to assume that $c = 0$ and $c'=0$:
+
+$\vec r(t)=(R\cos(\frac{\alpha_ot^2}{2}),R\sin(\frac{\alpha_ot^2}{2}))$
+
+** i)
+$\vec v(t)=\frac{d}{dt}\vec r(t)=(\frac{d}{dt}R\cos(\frac{\alpha_ot^2}{2},\frac{d}{dt}R\sin(\frac{\alpha_ot^2}{2}))=(-R\alpha_ot\sin(\frac{\alpha_ot^2}{2}),R\alpha_ot\cos(\frac{\alpha_ot^2}{2}))$
+
+Answer: $\vec v(t)=(-R\alpha_ot\sin(\frac{\alpha_ot^2}{2}),R\alpha_ot\cos(\frac{\alpha_ot^2}{2}))$
+
+** j)
+$\vec a(t)=\vec r''(t)=(\frac{d}{dt}-R\alpha_ot\sin(\frac{\alpha_ot^2}{2}),\frac{d}{dt}R\alpha_ot\cos(\frac{\alpha_ot^2}{2}))$
+
+It will be easier to visualize by doing the math in it's x and y component:
+
+x component:
+$\frac{d}{dt}-R\alpha_ot\sin(\frac{\alpha_ot^2}{2})=-R\alpha_o(\sin(\frac{\alpha_ot^2}{2})+\alpha_ot^2\cos(\frac{\alpha_ot^2}{2}))=-R\alpha_o\sin(\frac{\alpha_ot^2}{2})-R\alpha_o^2t^2\cos(\frac{\alpha_ot^2}{2})$
+y component:
+$\frac{d}{dt}R\alpha_ot\cos(\frac{\alpha_ot^2}{2})=R\alpha_o(\cos(\frac{\alpha_ot^2}{2})-\alpha_ot^2\sin(\frac{\alpha_ot^2}{2}))=R\alpha_o\cos(\frac{\alpha_ot^2}{2})-R\alpha_o^2t^2\sin(\frac{\alpha_ot^2}{2})$

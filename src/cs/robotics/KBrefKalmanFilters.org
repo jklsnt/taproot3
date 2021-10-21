@@ -1,0 +1,33 @@
+#+TITLE: Kalman Filters Derivations
+* covariance matrices
+** expected value properties
+   
+   \[\begin{aligned}
+   E[X + Y] = E[X] + E[Y]
+   E[\lambda X] = \lambda E[X]
+   \end{aligned}\]
+
+** variance
+   
+   \[\begin{aligned}
+   E[(X - E[X])^2] & &&\quad \text{mean squared error}\\
+   E[(X - E[X])^2] &= E[X^2 + E[X]^2 - 2XE[X]] &&\quad \text{expand}\\
+   &= E[X^2] + E[E[X]^2] - E[2XE[X]] &&\quad \text{additivity}\\
+   &= E[X^2] + E[X]^2 - E[2XE[X]] &&\quad \text{expected value of a scalar}\\
+   &= E[X^2] + E[X]^2 - 2E[X]E[X] &&\quad \text{homogeneity}\\
+   &= E[X^2] + \cancel{E[X]^2} - \cancel{2}E[X]^2 &&\quad \text{expected value of a scalar}\\
+   &= E[X^2] - E[X]^2 &&\quad \text{combine like terms}\\
+   \end{aligned}\]
+
+** covarience
+   The same thing, just with $X, Y$ instead of $X, X$.
+
+   \[\begin{aligned}
+   E[(X - E[X])(Y - E[Y])] & &&\quad \text{covarience}\\
+   E[(X - E[X])(Y - E[Y])] &= E[XY - XE[Y] - YE[X] + E[X]E[Y]] &&\quad \text{expand}\\
+   &= E[XY] - E[XE[Y]] - E[YE[X]] + E[E[X]E[Y]] &&\quad \text{additivity}\\
+   &= E[XY] - E[Y]E[X] - E[X]E[Y] + E[E[X]E[Y]] &&\quad \text{homogeneity}\\
+   &= E[XY] - E[Y]E[X] \cancel{- E[X]E[Y] + E[X]E[Y]} &&\quad \text{expected value of a scalar}\\
+   &= E[XY] - E[X]E[Y] &&\quad \text{combine like terms}\\
+   \end{aligned}\]
+

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-19 Tue 14:07 -->
+<!-- 2021-10-20 Wed 15:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Assignment 9: Vectors Part 2</title>
@@ -261,18 +261,26 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Assignment 9: Vectors Part 2</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-10-19 Tue 14:07</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Assignment 9: Vectors Part 2</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-10-20 Wed 15:09</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org96bfef4">1. boatman problem</a></li>
-<li><a href="#org5477cd3">2. </a></li>
+<li><a href="#org138ba71">1. boatman problem</a></li>
+<li><a href="#orgead1bb5">2. circular motion</a>
+<ul>
+<li><a href="#orgc7cb5e8">2.1. position</a></li>
+<li><a href="#org6dad348">2.2. velocity</a></li>
+<li><a href="#org0f77159">2.3. acceleration</a></li>
+<li><a href="#org67da571">2.4. perpendicular</a></li>
+<li><a href="#org9b0d8eb">2.5. acceleration</a></li>
+</ul>
+</li>
 </ul>
 </div></div>
 </div>
-<div id="outline-container-org96bfef4" class="outline-2">
-<h2 id="org96bfef4"><span class="section-number-2">1</span> boatman problem</h2>
+<div id="outline-container-org138ba71" class="outline-2">
+<h2 id="org138ba71"><span class="section-number-2">1</span> boatman problem</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Target displacement: \(\langle 3 \text{km}, 2 \text{km} \rangle\)
@@ -365,9 +373,91 @@ dang it i was actually right the first time. apparently math isn't a democracy.
 </p>
 </div>
 </div>
-<div id="outline-container-org5477cd3" class="outline-2">
-<h2 id="org5477cd3"><span class="section-number-2">2</span> </h2>
+<div id="outline-container-orgead1bb5" class="outline-2">
+<h2 id="orgead1bb5"><span class="section-number-2">2</span> circular motion</h2>
 <div class="outline-text-2" id="text-2">
+<p>
+\[\begin{aligned}
+  \theta'(t) &= \omega_0\\
+  \theta (t) &=  \int \omega _0 dt &= \omega _0 t + \theta _0
+  \end{aligned}\]
+</p>
+</div>
+
+<div id="outline-container-orgc7cb5e8" class="outline-3">
+<h3 id="orgc7cb5e8"><span class="section-number-3">2.1</span> position</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+\[\begin{aligned}
+   \vec{r}(t) &= ( R \cos  \theta (t), R \sin \theta (t))\\
+   &= \left( R \cos \left(\omega_0t + \theta _0 \right), R \sin \left( \omega_0t + \theta _0 \right) \right)\\
+   \end{aligned}\]
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org6dad348" class="outline-3">
+<h3 id="org6dad348"><span class="section-number-3">2.2</span> velocity</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+\[\begin{aligned}
+   \vec{v}'(t) &= \left( -\omega _0 R \sin \left(  \omega_0 t + \theta _0 \right) ,   \omega _0 R \cos  \left( \omega _0 t + \theta _0 \right)  \right)
+   \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0f77159" class="outline-3">
+<h3 id="org0f77159"><span class="section-number-3">2.3</span> acceleration</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+\[\begin{aligned}
+   \vec{a}(t) &= \vec{v}'(t)\\
+   &= \frac{d}{dt}\left( -\omega _0 R \sin \left(  \omega_0 t + \theta _0 \right) ,   \omega _0 R \cos  \left( \omega _0 t + \theta _0 \right)  \right)\\
+   &= \left( -\omega _0^2 R \cos \left(  \omega_0 t + \theta _0 \right) ,  -\omega _0^2 R \sin  \left( \omega _0 t + \theta _0 \right)  \right)\\
+   \end{aligned}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org67da571" class="outline-3">
+<h3 id="org67da571"><span class="section-number-3">2.4</span> perpendicular</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+\[\begin{aligned}
+   \text{pos: }&\frac{\cancel{R}\sin (\omega _0t + \theta _0)}{\cancel{R} \cos  \left( \omega _0 t + \theta _0 \right)  }\\
+   \text{vel: }&\frac{\cancel{\omega _0 R }\cos ( \omega _0 t + \theta _0 )}{-\cancel{\omega _0 R }\sin  (\omega _0 t + \theta _0)}
+   \end{aligned}\]
+See? They are negative reciprocals of eachother.
+</p>
+
+<p>
+\[\begin{aligned}
+   \left| \vec{v} \right| &= \sqrt{\omega _0^2 R^2 \sin ^2(\omega _0 t + \theta _0) + \omega_0 ^2 R^2 \cos  ^2 ( \omega _0 t + \theta 0 )}\\
+   &= \omega _0 R \sqrt{\sin ^2(\omega _0 t + \theta _0) + \cos  ^2 ( \omega _0 t + \theta 0 )}\\
+   &= \omega _0 R \sqrt{1}\\
+   &= \omega _0 R\\
+   \end{aligned}\]
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org9b0d8eb" class="outline-3">
+<h3 id="org9b0d8eb"><span class="section-number-3">2.5</span> acceleration</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+\[\begin{aligned}
+   \text{accl }&= -\omega _0 ^2 R \left( \cos  (\omega _0 t + \theta _0), \sin  (\omega _0 t + \theta _0) \right)  \\
+    \text{pos  }&= R \left( \cos  ( \omega _0 t + \theta _0) + \sin  (\omega _0 t + \theta _0 ) \right)  
+   \end{aligned}\]
+</p>
+
+<p>
+The acceleration is a negative scalar multiple of the position, and thus points towards the center.
+</p>
+</div>
 </div>
 </div>
 </div>

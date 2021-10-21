@@ -1,0 +1,142 @@
+:PROPERTIES:
+:ID:       6980B56F-3B94-4DAA-B85B-48B20E6CC16D
+:END:
+#+title: MVC PS#14
+#+author: Houjun Liu
+
+* nth-derivatives
+#+begin_quote
+Find all of the first, second, and third partial derivatives of this function (including the mixed ones):
+
+\begin{equation}
+    f(x,y) = 4x^2y^5+3x^3y^2
+\end{equation}
+
+#+end_quote
+
+\begin{align}
+    f_{x} =& 8xy^5 + 9x^2y^2 \\
+    f_{y} =& 20x^2y^4 + 6x^3y \\
+    f_{xx} =& 8y^5 + 18xy^2 \\
+    f_{yy} =& 80x^2y^3 + 6x^3 \\
+    f_{xy} =& 40xy^4 + 18x^2y \\
+    f_{xxx} =& 18y^2 \\
+    f_{yyy} =& 240x^2y^2 \\
+    f_{xxy} =& 40y^4 + 36xy \\
+    f_{yyx} =& 160xy^3 + 18x^2 
+\end{align}
+
+* Jacobian Derivative Matrix 
+
+** $f(x,y) = \frac{xy}{x^2+y^2}$
+\begin{equation}
+    \frac{\partial f}{\partial x} = \frac{(x^2+y^2) y - xy(2x)}{(x^2+y^2)^2}
+\end{equation}
+
+\begin{equation}
+    \frac{\partial f}{\partial y} = \frac{(x^2+y^2)x - xy(2y)}{(x^2+y^2)^2}
+\end{equation}
+
+\begin{equation}
+    f'(x,y) = \begin{bmatrix}
+\frac{(x^2+y^2) y - xy(2x)}{(x^2+y^2)^2} \\
+\frac{(x^2+y^2)x - xy(2y)}{(x^2+y^2)^2}
+\end{bmatrix}
+\end{equation}
+
+** $f(x,y,z) = [xy+2yz,2x^2y^2]$
+\begin{equation}
+    \frac{\partial f^0}{\partial x} = y
+\end{equation}
+
+\begin{equation}
+    \frac{\partial f^1}{\partial x} = 4xy^2
+\end{equation}
+
+\begin{equation}
+    \frac{\partial f^0}{\partial y} = x+2z
+\end{equation}
+
+\begin{equation}
+    \frac{\partial f^1}{\partial y} = 4yx^2
+\end{equation}
+
+\begin{equation}
+    f'(x,y,z) = \begin{bmatrix}
+y & x+2z \\
+4xy^2 & 4yx^2 
+\end{bmatrix}
+\end{equation}
+
+* Total First Derivatives
+#+begin_quote
+Suppose you have a function $\mathbb{R}^2 \to \mathbb{R}^1$, how many total first partial derivatives does it have? What about second partial derivatives? ... What about k'th partial derivatives.
+#+end_quote
+
+For a function $\mathbb{R}^2 \to \mathbb{R}^1$, it has $2$ first partial derivatives, $3$ second partial derivatives, $4$ third partial derivatives, and $k+1$ k-th partial derivatives.
+
+* Multi-Variable Slopes
+\begin{equation}
+    f(x,y) = 7x+2x^2y^3+10y^2
+\end{equation}
+
+Plot of the manifold:
+
+#+DOWNLOADED: screenshot @ 2021-10-20 12:03:43
+[[file:2021-10-20_12-03-43_screenshot.png]]
+
+Plot of the contours:
+
+#+DOWNLOADED: screenshot @ 2021-10-20 12:04:24
+[[file:2021-10-20_12-04-24_screenshot.png]]
+
+#+DOWNLOADED: screenshot @ 2021-10-20 14:30:08
+[[file:2021-10-20_14-30-08_screenshot.png]]
+
+\begin{equation}
+    f_x = 7+4xy^3
+\end{equation}
+
+\begin{equation}
+    f_y = 6x^2y^2 + 20y
+\end{equation}
+
+
+** Steepness of function at $[-\frac{\sqrt{3}}{2}, \frac{1}{2}]$
+The gradient at the origin, as a vector, is $[7, 0]$
+
+*** Steepness of the Function at Point
+Projecting that unto the direction of $[-\frac{\sqrt{3}}{2}, \frac{1}{2}]$ would result in:
+
+\begin{equation}
+\begin{bmatrix}
+7 \\ 0
+\end{bmatrix} \cdot
+\begin{bmatrix}
+-\frac{\sqrt{3}}{2}\\ \frac{1}{2}
+\end{bmatrix} = 
+-\frac{7\sqrt{3}}{2}
+\end{equation}
+
+Hence, $\frac{-7\sqrt{3}}{2}$ is the "slope" of the function at $(0,0)$ facing $[-\frac{\sqrt{3}}{2}, \frac{1}{2}]$. The angle of which the slope represents, therefore, would be $arctan(\frac{-7\sqrt{3}}{2}) \approx -80^{\circ}$. 
+
+** Optimizing for steepness
+We want to figure an angle $\theta$ such that the gradient would be most steep, that is, a $\theta$ such that...
+
+\begin{equation}
+    7\cos{\theta}
+\end{equation}
+
+is maximized. As the $max(cos(\theta)) = 1$ for any $\theta$, and such a value exists at $\theta = 0$, we deduce that at $\theta = 0$ the steepness would be maximized.
+
+To maximize the steepness of the function in the other direction, we simply reverse the value of $\theta$ by $\pi = 180^{\circ}$, making the steepest direction to turn in $\theta = \pi$.
+
+** Optimizing for flatness
+Similar to before, we want to figure an angle $\theta$ such that the value of the slope at that point would be $0$, that is:
+
+\begin{equation}
+    7cos\theta = 0
+\end{equation}
+
+We know that $cos(\frac{\pi}{2}) = 0$, meaning that we could deduct the angle at which the function would have no steepness would therefore be $\theta = \frac{\pi}{2} = 90^{\circ}$.
+

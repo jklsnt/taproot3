@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-05 Tue 16:28 -->
+<!-- 2021-10-20 Wed 11:19 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 2C Reading</title>
@@ -217,15 +217,64 @@
     /*]]>*///-->
 // @license-end
 </script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Chapter 2C Reading</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-10-05 Tue 16:28</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Chapter 2C Reading</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-10-20 Wed 11:19</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBxDimensionInClass.html'>Dimension Inclass</a></li> <li><a class='backlink' href='index.html'>Linear Algebra Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#dimension">1. Dimension</a></li>
+<li><a href="#dimension">1. Dimension</a>
+<ul>
+<li>
+<ul>
+<li><a href="#formula-for-dimension-of-sum-of-two-subspaces">1.0.1. formula for dimension of sum of two subspaces</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div></div>
 </div>
@@ -242,9 +291,125 @@
 <li>how should we define dimension?
 
 <ul class="org-ul">
-<li></li>
+<li>should make the dimension of \(F^n=n\)</li>
+<li>nice to define as the length of a basis
+
+<ul class="org-ul">
+<li>all basis of a given vector space have the same length</li>
+</ul></li>
 </ul></li>
 </ul>
+
+<pre class="example" id="org03a486c">
+basis len does not on basis
+-&gt; any two bases of a finite-dimension vector space have the same length
+</pre>
+
+<p>
+<i>cool proof!</i>
+</p>
+
+<ul class="org-ul">
+<li>V is finite dimensional</li>
+<li>\(B_1\) and \(B_2\) both bases of \(V\).</li>
+<li>Thus, \(B_1\) is linearly independent in \(V\) and \(B_2\) spans \(V\)
+
+<ul class="org-ul">
+<li>by @axler-2.23 (len of lin indepedent list \(\leq\) len of spanning
+list)</li>
+<li>len(\(B_1\)) \(\leq\) len(\(B_2\))</li>
+<li>swap \(B_1\) and \(B_2\)
+
+<ul class="org-ul">
+<li>len(\(B_2\)) \(\leq\) len(\(B_1\))<br /></li>
+<li>therefore, \(B_1\) and \(B_2\) need to be of equal len.</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<pre class="example" id="org4bba0ec">
+title: dimension
+the *dimension* of a finite-dimensional vector space is the len of any basis of the vector space.
+denoted as dim $V$ if V is finite-dimensional
+</pre>
+
+<ul class="org-ul">
+<li>which are all the same!</li>
+</ul>
+
+<pre class="example" id="orgfcc0d3b">
+title: dimension of a subspace @2.38
+if $V$ is finite-dimensional and $U$ is a subspace of $V$, then dim $U\leq$ dim $V$.
+</pre>
+
+<ul class="org-ul">
+<li>linearly independent list of the right length is a basis</li>
+</ul>
+
+<pre class="example" id="org0314607">
+title: linearly independant list of the right length is a basis @2.39
+suppose $V$ if finite-dimensional. Then very linearly indepedent list of vectors in $V$ with length dim $V$ is a basis $V$
+</pre>
+
+<ul class="org-ul">
+<li>makes sense, because linearly independent list with the len of the
+dimension has to include all the info, and thus it spans, and thus it
+is a basis.
+
+<ul class="org-ul">
+<li>we don't need to check that it spans!
+
+<ul class="org-ul">
+<li>instead, we just need to check that it is linearly independent and
+that it has the same len as the dim</li>
+</ul></li>
+</ul></li>
+
+<li>why does the list being linearly independent mean that its dim is &gt;=
+3? #question @axler-2.41</li>
+<li>what??? #question what is happening at the end of @axler-2.41</li>
+</ul>
+
+<pre class="example" id="org5f0f0f4">
+title: spanning list of the right length is a basis @2.42
+suppose $V$ is finite-dimensional. Then every spanning list of vectors in $V$ with length dim $V$ is a basis of $V$.
+</pre>
+
+<ul class="org-ul">
+<li>every list of vecs which both spans and is the same len as the dim is
+a basis.
+
+<ul class="org-ul">
+<li>because in order to span, you need all the info</li>
+<li>and to be the len of the dim, you can't have repeat info</li>
+<li>so it's a basis.</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-formula-for-dimension-of-sum-of-two-subspaces" class="outline-4">
+<h4 id="formula-for-dimension-of-sum-of-two-subspaces"><span class="section-number-4">1.0.1</span> formula for dimension of sum of two subspaces</h4>
+<div class="outline-text-4" id="text-formula-for-dimension-of-sum-of-two-subspaces">
+<p>
+<i>in a finite-dimensional vector space.</i>
+</p>
+
+<p>
+like counting formula: - the num of elems in the union of two finite
+sets is the num of elems in the first set + the number of elems in the
+second set - the overlap (intersection)
+</p>
+
+<pre class="example" id="orga9d4443">
+title: dimension of a sum @2.43
+if $U_1$ and $U_2$ are subspaces of a finite-dimensional vector space, then 
+$$dim(U_1+U_2) = dim U_1 +dim U_2 - dim(U_1\cap U_2)$$
+</pre>
+
+<p>
+#review the ending proof.
+</p>
+</div>
 </div>
 </div>
 </div>
