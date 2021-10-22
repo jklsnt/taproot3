@@ -48,10 +48,7 @@ $T(\lambda v) = \lambda(Tv)$ for all $\lambda \in F$ and $v \in V$.
 the functional notation T(V) is the same as the notation Tv when talking about linear maps.
 
 
-```ad-def
-title: notation -- $L(V,W)$
-the set of all linear maps from $V$ to $W$.
-```
+![[KBxL(VcmW)]]
 
 ### examples of linear maps
 - 0?
@@ -73,6 +70,7 @@ linear transformation like a `.map`?
 - #review how this dimension shift works..
 
 
+##### linear maps and basis of domain
 ```ad-def
 title: linear maps and basis of domain
 Suppose $v_1, \dots , v_n$ is a basis of $V$ and $w_1, \dots , w_n \in W$. Then there exists a unique linear map $T:V \to W$ such that
@@ -105,6 +103,7 @@ with the operations of addition and SCAMUL as defined aboce, $L(V,W)$ is a [[KBe
 
 and another one.
 
+##### product of linear maps
 ```ad-def
 title: product of linear maps
 if $T \in L(U,V)$ and $S \in L(V,W)$, then the *product* $ST \in L(U,W)$ is defined by 
@@ -113,6 +112,8 @@ for all $u \in U$.
 ```
 
 S dot T?? what is this symbol?
+it's a composition sign!!
+`\circ` -> $\circ$ 
 
 
 ```ad-def

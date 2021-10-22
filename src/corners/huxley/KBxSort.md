@@ -1,6 +1,10 @@
 n
 ***
 
+ would love to buy some silicon, either [this](https://www.amazon.com/Silicon-Metal-99-999-Pure/dp/B08FVLJM8L) or [this.](https://www.amazon.com/Silicon-Wafer-Single-Sided-Polish/dp/B08RZ5ZYNF/)
+
+***
+
  config! https://github.com/sainnhe/tmux-fzf
 
 ***

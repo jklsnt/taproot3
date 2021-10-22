@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-10-21 Thu 11:11 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Silicon and Doping!</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley Marvit" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Silicon and Doping!</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-10-21 Thu 11:11</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>Physics Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#silicon">1. silicon!</a>
+<ul>
+<li>
+<ul>
+<li><a href="#why-we-care-about-junctions">1.0.1. why we care about junctions</a></li>
+<li><a href="#types-of-transistors">1.0.2. types of transistors</a></li>
+<li><a href="#switches">1.0.3. switches!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<p>
+#flo #inclass
+</p>
+
+<hr />
+
+<div id="outline-container-silicon" class="outline-2">
+<h2 id="silicon"><span class="section-number-2">1</span> silicon!</h2>
+<div class="outline-text-2" id="text-silicon">
+<p>
+<i>kinda dope, bro.</i>
+</p>
+
+<p>
+n: stands for negative! BUT THE ACTUAL SILICON IS NEUTRAL - there is a
+free electron, but it's not overall negative - extra electron electron
+can move around - but the extra element ALSO has an extra proton, so it
+cancels
+</p>
+
+<p>
+p: stand for positive! BUT it's also neutral - cus the things just
+cancel - same as n-type but opposite
+</p>
+
+<p>
+n-type: electrons free to migrate p-type: crystal structure need
+electrons to fill hole
+</p>
+
+<p>
+put them next to eachother, u get a diffusion force as the electrons
+from n move to fill the holes in p
+</p>
+
+<p>
+space charge region: where the junction between the p-doped and n-doped
+meet, and cancel. not very conductive! virtually, not even doped?
+</p>
+
+<p>
+why is this useful? IDK.
+</p>
+</div>
+
+<div id="outline-container-why-we-care-about-junctions" class="outline-4">
+<h4 id="why-we-care-about-junctions"><span class="section-number-4">1.0.1</span> why we care about junctions</h4>
+<div class="outline-text-4" id="text-why-we-care-about-junctions">
+<p>
+<i>between p and n dopes regions</i> application of external voltage to a
+junction:
+</p>
+
+<p>
+base case: <code>[p] [--] [n]</code> if you put, <code>+ [p] [-] [n] -</code> then the neutral
+region shrinks, because the charges on both ends "push" the electrons.
+this is called <b>forward bias</b> where bias is the external voltage from
+say a battery
+</p>
+
+<p>
+the other direction, <b>reverse bias</b> <code>- [p] [-] [n] +</code> the neutral region
+expands!
+</p>
+
+<pre class="example" id="org21b498a">
+title: AKA
+nuetral region, depletion region, all the same.
+</pre>
+
+<p>
+<b>this means, current can flow one direction, but NOT THE OTHER WAY!</b>
+like, a diode! from LEDs.
+</p>
+
+<ul class="org-ul">
+<li>forward bias: reduce depletion region</li>
+<li>reverse bias: expand depletion region</li>
+</ul>
+
+<p>
+forward bias is non-linera! there's a threshold where current jumps way
+up scale of forward and reverse bias are not the same!
+</p>
+
+<p>
+#question : avalanch breakdown vs zener breakdown. what are they? I
+don't know! neither does mark! #review
+</p>
+
+<p>
+<a href="https://www.amazon.com/Silicon-Metal-99-999-Pure/dp/B08FVLJM8L">i want
+one!</a>
+</p>
+
+<pre class="example" id="org122f9ff">
+title: a junction
+an n-type and a p-type next to eachother
+</pre>
+</div>
+</div>
+
+<div id="outline-container-types-of-transistors" class="outline-4">
+<h4 id="types-of-transistors"><span class="section-number-4">1.0.2</span> types of transistors</h4>
+<div class="outline-text-4" id="text-types-of-transistors">
+</div>
+<ol class="org-ol">
+<li><a id="npn-bjt"></a>NPN BJT<br />
+<div class="outline-text-5" id="text-npn-bjt">
+<p>
+<i>n-type, p-type, n-type bipolar junction transistor</i>
+</p>
+
+<p>
+-[N,P,N]- - | -bat-| +
+</p>
+
+<p>
+this cant conduct, because their will nessasarily be forward bias in one
+direction and reverese bias in the other
+</p>
+
+<pre class="example" id="orgb8f2bfb">
+positive to the p is forward bias -mark
+</pre>
+
+<p>
+so how do we get current to flow?
+</p>
+
+<p>
+BJT has: - base, collector, emitter - base - coming back to this..
+because it's hard to understand - voltage into the base relates to
+current?
+</p>
+</div>
+</li>
+
+<li><a id="mosfet"></a>MOSFET<br />
+<div class="outline-text-5" id="text-mosfet">
+<p>
+<b>metal&#x2013;oxide&#x2013;semiconductor field-effect transistor</b>
+</p>
+
+<p>
+<a href="MOSFET.png|400.html">MOSFET.png|400</a> the idea is that u can
+bridge these two n-regions? #review this..
+</p>
+
+<p>
+can seperate n's with a capacitor, then u can charge the capacitor to
+connect the n-regions
+</p>
+
+<pre class="example" id="org93504b1">
+**the point of transistors**:
+tiny signals can be used to control much bigger signals.
+</pre>
+
+<p>
+effectively, on off switches, or, weak signal controlling strong signal
+</p>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-switches" class="outline-4">
+<h4 id="switches"><span class="section-number-4">1.0.3</span> switches!</h4>
+<div class="outline-text-4" id="text-switches">
+<p>
+so far, they have been physical! you gotta make the things touch! but
+these arn't physical. and we have millions and millions inside our
+devices
+</p>
+
+<p>
+and they can store info
+</p>
+
+<p>
+<a href="https://www.amazon.com/Silicon-Wafer-Single-Sided-Polish/dp/B08RZ5ZYNF/">also
+wanna get this!</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -25,13 +25,76 @@ There exists 3 =actions=: read, write, and execute. The authorization =rules= ar
 This systems does not have permission dependencies nor exceptions, group grants and are the only batch executor available.
 
 ** AFS
-jack
+Access control lists first act separately upon directory resources and file resources. Hence, there are two groups of =actions= available: those that apply to directories and those that apply to files.
+
+Apart from these permissions, groups/batch executors are applied via lookup and literal expressions-based batched execution by the =agent=. =rules=, like PAM, are singletons that only grant or remove specific =actions=.
 
 ** Amazon IAM
+Because IAM is the backbone of the Amazon AWS infrastructure, every single lockable AWS permission is considered an =action=. =actions= could be grouped into presents named "roles", and =rules= could either apply a role (batched =actions=) or a specific =action= to a group.
+
+Inheritance, therefore, could be applied via the creation of groups, applying those permissions to groups, and editing the groups; to prevent conflicts
 
 ** Microsoft Graph Permissions
+Microsoft Graph Permissions grants grouped =actions= to specific users. Each =action= have any number (or no) dependencies; hence, when the =agent= applies any =action= in the group to a users, all of the dependents =action= is simultaneously applied.
+
+Similar to PAM, permission groups could be binned and =rules= applied together. However, there are still no user-level dependency.
 
 ** OAuth
+The OAuth =model= allows for authorization of third party =resources= without the =users= credentials.
+
+OAuth creates access tokens which are then passed to third party  =models= which use the access token to access =resources= hosted by the resource server.
+
+These temporary access tokens then expire, allowing for a third party to be authenticated without ever giving it credentials and vise versa.
+
+Because of the generalization and lack of =model= of OAuth, there is no hard restriction to permission inheritance
+
+
+* New System Proposal
+** compiled features
+- PAM is simple!
+    - few =actions=
+    - groups -> arbitrary user level granularity
+ - AFS
+   - Top down from =resources=
+   - =resource= dependent =actions= // we dont have this!
+     - lack of redundant =actions=  // but, we do have this!
+- IAM
+    -  roles
+      - =actions= are abstracted from entities they apply to
+- Microsoft Graphs
+   - =actions= can have dependencies on other =actions=
+     - simplicity -> ease of use
+ - OAuth
+   - =actions= are arbitrary
+   - authurization is arbitrary
+     - auth is abstracted, thus we can protect credentials
+
+** New
+- from OAuth: LEGITIMIZE
+  - credential server
+  - resource server
+  - token access in third party
+  
+- tree structure of roles, where each node contains
+  - { add, sub, connections } 
+  - given a user at a node, we DFS through the tree and append actions to a list
+- user contains:
+   - n roles which generate a final action list (through dfs applied above)
+   
+- superuser gets root node
+  
+
+[executer] -> [exucture]
+[editor] -> [ [read], [write] ]
+
+
+
+
+
+
+
+
+
 
 
 
