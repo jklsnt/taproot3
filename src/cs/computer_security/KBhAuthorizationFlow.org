@@ -1,3 +1,6 @@
+:PROPERTIES:
+:ID:       6676EC30-B15E-41C1-AD8B-B7FF6AA2BA84
+:END:
 #+TITLE: Authorization Flow Design
 #+AUTHOR: Houjun Liu and Huxley Marvit
 
@@ -50,14 +53,14 @@ Because of the generalization and lack of =model= of OAuth, there is no hard res
 
 
 * New System Proposal
-** compiled features
+** Compiled Features
 - PAM is simple!
     - few =actions=
     - groups -> arbitrary user level granularity
  - AFS
    - Top down from =resources=
-   - =resource= dependent =actions= // we dont have this!
-     - lack of redundant =actions=  // but, we do have this!
+   - =resource= dependent =actions= (we dont have this!)
+     - lack of redundant =actions=  (but, we do have this!)
 - IAM
     -  roles
       - =actions= are abstracted from entities they apply to
@@ -69,32 +72,43 @@ Because of the generalization and lack of =model= of OAuth, there is no hard res
    - authurization is arbitrary
      - auth is abstracted, thus we can protect credentials
 
-** New
-- from OAuth: LEGITIMIZE
-  - credential server
-  - resource server
-  - token access in third party
+** New System Proposal
+Here we propose a new system for authorization that takes some of the most important features from each of the previous standards as highlighted above to create a novel system of authorization that --- while increasing slightly in complexity --- compensates in terms of its flexibility, elegance, and features.
+
+The core of the system extends the thematic construction of MS Graphs and AWS IAM. Instead of assigning =actions= or groups of =actions=, each =rule= is responsible for tagging a user with a "Role" or a group of Roles.
+
+Each Role is a permissions table containing an arbitrary-length, ordered combination three directives: Add, Subtract, and Link. The Add directive grants a single =action= to =users= tagged with that role, the Subtract directives removes a single =action= to =users= tagged, and the Link directive includes any other Role's permissions in the hierarchy location of the Link directive.
+
+To Link directive cannot link to any parent nodes, essentially making the chain of permissions of Roles an undirected, fully-connected Tree graph.
+
+When =agents= parse a =user='s =rules=, it reads its list of granted roles in sequential order and performed a DFS of the location to which the role point to on the permissions graph. The results of the DFS would therefore creates a series of new =rules= which will then be applied sequentially.
+
+The "root" =user= would therefore be granted the topmost role of the tree by default. Any subordinate users created by root would be manifest in roles which are subsets of the permissions of root by being granted roles that Link to the root role.
+
+This tree-based permissions model essentially implements both the competitive advantage of IAM and Graph. IAM's system of Roles are replicated entirely in this proposed system, except it has the added complexity of trees. Graph's action dependency can be replicated here easily: if two =actions= are dependent, simply create a Role that encapsulates a Grant for each =action=, and treating this Role (or inheriting it in other Actions) as the double-dependent =action=. 
+
+Similar to OAuth, all =actions= except the "Edit All Actions" ("root") =action= are arbitrarily defined. The =root=, and any other users who becomes delegated the power, can define =actions= that then externally becomes validated by the Authentication system (part of the =agent=) to lock =resource=.
+
+We have elected to not implement AFS' nature of =resource= dependent =actions=. If an =action= could not be performed upon a =resource=, the locking resource/status would simply raise a Fault if the =user= attempts to perform it: hence creating a hidden Authorization scheme.
+
+This scheme are unambiguous as all Grants and Links are fully ordered. An Action cannot be assigned twice in different locations as the permissions Graph is undirected. Groups, similar to the case of PAM, are created by a representative Role that Links to multiple behavioral Roles for the Group and assigning group members that Role.
+
+# -----
+
+# - from OAuth: LEGITIMIZE
+#   - credential server
+#   - resource server
+#   - token access in third party
   
-- tree structure of roles, where each node contains
-  - { add, sub, connections } 
-  - given a user at a node, we DFS through the tree and append actions to a list
-- user contains:
-   - n roles which generate a final action list (through dfs applied above)
+# - tree structure of roles, where each node contains
+#   - { add, sub, connections } 
+#   - given a user at a node, we DFS through the tree and append actions to a list
+# - user contains:
+#    - n roles which generate a final action list (through dfs applied above)
    
-- superuser gets root node
+# - superuser gets root node
   
 
-[executer] -> [exucture]
-[editor] -> [ [read], [write] ]
-
-
-
-
-
-
-
-
-
-
-
+# [executer] -> [exucture]
+# [editor] -> [ [read], [write] ]
 

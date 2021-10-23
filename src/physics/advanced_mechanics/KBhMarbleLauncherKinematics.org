@@ -247,9 +247,21 @@ Instead of setting that equivalent to simply kinetic energy, we now revise it wi
     \Rightarrow \vec{v_0} =& \sqrt{\frac{10}{7} g(H-h_0)}
 \end{align}
 
-The transnational velocity at the point of launch, with consideration to rotational kinetic energy, is shown to be slower than that without consideration to rotation by ($(\sqrt{2}-\sqrt{\frac{10}{7}})(g(H-h_0))$).
+The translational velocity at the point of launch, with consideration to rotational kinetic energy, is shown to be slower than that without consideration to rotation by ($(\sqrt{2}-\sqrt{\frac{10}{7}})(g(H-h_0))$).
 
-This decrease would, also, therefore result a slightly shorter total launch distance --- though the effect would be reasonably minimal (by a factor of $(\sqrt{2}-\sqrt{\frac{10}{7}}) \approx 0.21898$.
+This decrease would, also, therefore result a slightly shorter total launch distance --- though the effect would be reasonably minimal (by a value of $(\sqrt{2}-\sqrt{\frac{10}{7}}) \approx 0.21898$.
+
+Given the value of error in $\vec{v_0}$, we could then isolate impact of the error in $h_0$ by simply solving for it in the expression for $\vec{v_0}$ as all other variables in the system is treated constantly. We use the "original" expression for ${\vec{v_0}}$ here as the optimal $h_0$ is deducted using that value.
+
+\begin{align}
+    \vec{v_0} =& \sqrt{2g(H-h_0)} \\
+\Rightarrow 0.219 =& \sqrt{2g(H-h_0)} \\
+\Rightarrow 0.048 =& 2g(H-h_0) \\
+\Rightarrow 2.446 \times 10^{-3} =& (H-h_0) \\
+\Rightarrow -2.446 \times 10^{-3} =& h_0 
+\end{align}
+
+Hence, we note that --- as we consider the rotational inertia --- the value that results for $h_0$ would require a correction to be $-2.446$ centimeters shorter.
 
 
 * Additional Figures
@@ -268,3 +280,30 @@ This figure is rendered in an [[https://www.desmos.com/calculator/ajlwiizwom][In
 This figure is rendered in another [[https://www.desmos.com/calculator/p7wlzpuonf][Interactive Desmos Plot]], the initial launch height, $H$, is again fixed at an arbitrary non-zero value of $2$.
 
 As one could see, a parabolic relationship could be seen such that the most optimal value is at exactly $\frac{1}{2}H$.
+
+* Error Analysis 
+We have derived the fact that:
+
+\begin{equation}
+    x_f = \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}h^2}
+\end{equation}
+
+To deduct an expression for the potential sources of error, we take the partial derivatives of $x_f$ w.r.t. $H$ and $h_0$.
+
+\begin{align}
+    \frac{\partial x_f}{\partial H} = \frac{-(\frac{200}{49}H-\frac{60}{49}h_0)}{2 \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2}} 
+\end{align}
+
+
+\begin{align}
+    \frac{\partial x_f}{\partial h_0} = \frac{-(-\frac{60}{49}H - \frac{80}{49}h_0)}{2 \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2}} 
+\end{align}
+
+
+Therefore, we could deduct that...
+
+\begin{align}
+    \Delta x_f =& \sqrt{(\frac{\partial x_f}{\partial H} \Delta H)^2 + (\frac{\partial x_f}{\partial h_0} \Delta h_0)^2} \\
+=& \sqrt{(\frac{-(\frac{200}{49}H-\frac{60}{49}h_0)}{2 \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2}} \Delta H)^2 + (\frac{-(-\frac{60}{49}H - \frac{80}{49}h_0)}{2 \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2}}  \Delta h_0)^2} \\
+=& \sqrt{\frac{(\frac{200}{49}H-\frac{60}{49}h_0)^2}{4 (\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2)} (\Delta H)^2 + \frac{(\frac{60}{49}H + \frac{80}{49}h_0)^2}{4 (\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2)} (\Delta h_0)^2} 
+\end{align}

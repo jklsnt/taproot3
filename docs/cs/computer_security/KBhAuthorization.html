@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-18 Mon 14:14 -->
+<!-- 2021-10-22 Fri 15:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Authorization</title>
@@ -220,17 +220,17 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Authorization</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-10-18 Mon 14:14</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Authorization</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-10-22 Fri 15:30</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>CS240 Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org18f69a7">1. Principles of Authorization</a>
+<li><a href="#orgd6ad805">1. Principles of Authorization</a>
 <ul>
-<li><a href="#org64efe85">1.1. Separate privileges and have users request specific privileges</a></li>
-<li><a href="#org0aaeb3f">1.2. If asking a human to authorize something, make it clear what they are requesting</a></li>
-<li><a href="#orgf28ceed">1.3. Check authentication and authorization</a></li>
-<li><a href="#orgeb290bc">1.4. Be careful about ordering allow and deny detectives</a></li>
+<li><a href="#orgbec6d69">1.1. Separate privileges and have users request specific privileges</a></li>
+<li><a href="#org076927c">1.2. If asking a human to authorize something, make it clear what they are requesting</a></li>
+<li><a href="#orgbd3a7cf">1.3. Check authentication and authorization</a></li>
+<li><a href="#org9074373">1.4. Be careful about ordering allow and deny detectives</a></li>
 </ul>
 </li>
 </ul>
@@ -240,12 +240,12 @@
 <b><b>Authorization</b></b> is the decisions by which one decides what an entity should be able to do once we authenticated what group they are in. This is done by giving <b><b>ACLs</b></b>: Access Control Lists.
 </p>
 
-<div id="outline-container-org18f69a7" class="outline-2">
-<h2 id="org18f69a7"><span class="section-number-2">1</span> Principles of Authorization</h2>
+<div id="outline-container-orgd6ad805" class="outline-2">
+<h2 id="orgd6ad805"><span class="section-number-2">1</span> Principles of Authorization</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org64efe85" class="outline-3">
-<h3 id="org64efe85"><span class="section-number-3">1.1</span> Separate privileges and have users request specific privileges</h3>
+<div id="outline-container-orgbec6d69" class="outline-3">
+<h3 id="orgbec6d69"><span class="section-number-3">1.1</span> Separate privileges and have users request specific privileges</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 The more things someone has access to, the more opportunities they/someone have to attack the system. This is, of course a balance: if two privileges are often used together, maybe its appropriate to bundle them.
@@ -253,8 +253,8 @@ The more things someone has access to, the more opportunities they/someone have 
 </div>
 </div>
 
-<div id="outline-container-org0aaeb3f" class="outline-3">
-<h3 id="org0aaeb3f"><span class="section-number-3">1.2</span> If asking a human to authorize something, make it clear what they are requesting</h3>
+<div id="outline-container-org076927c" class="outline-3">
+<h3 id="org076927c"><span class="section-number-3">1.2</span> If asking a human to authorize something, make it clear what they are requesting</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 If users don't understand what you are asking, they may end up just not doing what they want to do, or, worse, they may begin to turn off the security checks entirely.
@@ -262,8 +262,8 @@ If users don't understand what you are asking, they may end up just not doing wh
 </div>
 </div>
 
-<div id="outline-container-orgf28ceed" class="outline-3">
-<h3 id="orgf28ceed"><span class="section-number-3">1.3</span> Check authentication and authorization</h3>
+<div id="outline-container-orgbd3a7cf" class="outline-3">
+<h3 id="orgbd3a7cf"><span class="section-number-3">1.3</span> Check authentication and authorization</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Its easy to remember to check at a begin of a system, but every time that a privileged action is needed, check both auths again just in case the user swapped/logged out.
@@ -271,8 +271,8 @@ Its easy to remember to check at a begin of a system, but every time that a priv
 </div>
 </div>
 
-<div id="outline-container-orgeb290bc" class="outline-3">
-<h3 id="orgeb290bc"><span class="section-number-3">1.4</span> Be careful about ordering allow and deny detectives</h3>
+<div id="outline-container-org9074373" class="outline-3">
+<h3 id="org9074373"><span class="section-number-3">1.4</span> Be careful about ordering allow and deny detectives</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 The orderings of authorization directives matter. For instance, we could have permissions for "deny all, allow specific group", which is very different from "allow specific group, deny all".

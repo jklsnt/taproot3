@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-21 Thu 15:50 -->
+<!-- 2021-10-22 Fri 16:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Authorization Flow Design</title>
@@ -220,32 +220,32 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Authorization Flow Design</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu and Huxley Marvit</span> <span class="date">2021-10-21 Thu 15:49</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Authorization Flow Design</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu and Huxley Marvit</span> <span class="date">2021-10-22 Fri 16:46</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>CS240 Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org8c7b6b0">1. Understanding Authorization</a>
+<li><a href="#orgfcdc135">1. Understanding Authorization</a>
 <ul>
-<li><a href="#org566590a">1.1. UNIX/BSD PAM</a></li>
-<li><a href="#org3d677f5">1.2. AFS</a></li>
-<li><a href="#orge919ac1">1.3. Amazon IAM</a></li>
-<li><a href="#org6efbea3">1.4. Microsoft Graph Permissions</a></li>
-<li><a href="#org5f6d4aa">1.5. OAuth</a></li>
+<li><a href="#orgf7cf4ca">1.1. UNIX/BSD PAM</a></li>
+<li><a href="#org88e5df0">1.2. AFS</a></li>
+<li><a href="#orgefce6d6">1.3. Amazon IAM</a></li>
+<li><a href="#orgd9622ce">1.4. Microsoft Graph Permissions</a></li>
+<li><a href="#org5d32948">1.5. OAuth</a></li>
 </ul>
 </li>
-<li><a href="#orga03505f">2. New System Proposal</a>
+<li><a href="#orgd5e2f3a">2. New System Proposal</a>
 <ul>
-<li><a href="#org728c305">2.1. compiled features</a></li>
-<li><a href="#orgec6eacd">2.2. New</a></li>
+<li><a href="#orge58c105">2.1. Compiled Features</a></li>
+<li><a href="#orgd8b8f3f">2.2. New System Proposal</a></li>
 </ul>
 </li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org8c7b6b0" class="outline-2">
-<h2 id="org8c7b6b0"><span class="section-number-2">1</span> Understanding Authorization</h2>
+<div id="outline-container-orgfcdc135" class="outline-2">
+<h2 id="orgfcdc135"><span class="section-number-2">1</span> Understanding Authorization</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 To be able to model and create intuitive and understandable authorization flows, one must understand the basis of authorization flows and the elements by which they are made successful.
@@ -269,8 +269,8 @@ To begin this discussion, we will aim to describe a few terms:
 </ul>
 </div>
 
-<div id="outline-container-org566590a" class="outline-3">
-<h3 id="org566590a"><span class="section-number-3">1.1</span> UNIX/BSD PAM</h3>
+<div id="outline-container-orgf7cf4ca" class="outline-3">
+<h3 id="orgf7cf4ca"><span class="section-number-3">1.1</span> UNIX/BSD PAM</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 The PAM authentications model, manifested in the <code>/etc/shadows</code> files on most *nix systems, is one of the most familiar system of authentication to most.
@@ -290,8 +290,8 @@ This systems does not have permission dependencies nor exceptions, group grants 
 </div>
 </div>
 
-<div id="outline-container-org3d677f5" class="outline-3">
-<h3 id="org3d677f5"><span class="section-number-3">1.2</span> AFS</h3>
+<div id="outline-container-org88e5df0" class="outline-3">
+<h3 id="org88e5df0"><span class="section-number-3">1.2</span> AFS</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Access control lists first act separately upon directory resources and file resources. Hence, there are two groups of <code>actions</code> available: those that apply to directories and those that apply to files.
@@ -303,8 +303,8 @@ Apart from these permissions, groups/batch executors are applied via lookup and 
 </div>
 </div>
 
-<div id="outline-container-orge919ac1" class="outline-3">
-<h3 id="orge919ac1"><span class="section-number-3">1.3</span> Amazon IAM</h3>
+<div id="outline-container-orgefce6d6" class="outline-3">
+<h3 id="orgefce6d6"><span class="section-number-3">1.3</span> Amazon IAM</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Because IAM is the backbone of the Amazon AWS infrastructure, every single lockable AWS permission is considered an <code>action</code>. <code>actions</code> could be grouped into presents named "roles", and <code>rules</code> could either apply a role (batched <code>actions</code>) or a specific <code>action</code> to a group.
@@ -316,8 +316,8 @@ Inheritance, therefore, could be applied via the creation of groups, applying th
 </div>
 </div>
 
-<div id="outline-container-org6efbea3" class="outline-3">
-<h3 id="org6efbea3"><span class="section-number-3">1.4</span> Microsoft Graph Permissions</h3>
+<div id="outline-container-orgd9622ce" class="outline-3">
+<h3 id="orgd9622ce"><span class="section-number-3">1.4</span> Microsoft Graph Permissions</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Microsoft Graph Permissions grants grouped <code>actions</code> to specific users. Each <code>action</code> have any number (or no) dependencies; hence, when the <code>agent</code> applies any <code>action</code> in the group to a users, all of the dependents <code>action</code> is simultaneously applied.
@@ -329,8 +329,8 @@ Similar to PAM, permission groups could be binned and <code>rules</code> applied
 </div>
 </div>
 
-<div id="outline-container-org5f6d4aa" class="outline-3">
-<h3 id="org5f6d4aa"><span class="section-number-3">1.5</span> OAuth</h3>
+<div id="outline-container-org5d32948" class="outline-3">
+<h3 id="org5d32948"><span class="section-number-3">1.5</span> OAuth</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 The OAuth <code>model</code> allows for authorization of third party <code>resources</code> without the <code>users</code> credentials.
@@ -352,12 +352,12 @@ Because of the generalization and lack of <code>model</code> of OAuth, there is 
 </div>
 
 
-<div id="outline-container-orga03505f" class="outline-2">
-<h2 id="orga03505f"><span class="section-number-2">2</span> New System Proposal</h2>
+<div id="outline-container-orgd5e2f3a" class="outline-2">
+<h2 id="orgd5e2f3a"><span class="section-number-2">2</span> New System Proposal</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org728c305" class="outline-3">
-<h3 id="org728c305"><span class="section-number-3">2.1</span> compiled features</h3>
+<div id="outline-container-orge58c105" class="outline-3">
+<h3 id="orge58c105"><span class="section-number-3">2.1</span> Compiled Features</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li><p>
@@ -371,9 +371,9 @@ PAM is simple!
 <li>AFS
 <ul class="org-ul">
 <li>Top down from <code>resources</code></li>
-<li><code>resource</code> dependent <code>actions</code> // we dont have this!
+<li><code>resource</code> dependent <code>actions</code> (we dont have this!)
 <ul class="org-ul">
-<li>lack of redundant <code>actions</code>  // but, we do have this!</li>
+<li>lack of redundant <code>actions</code>  (but, we do have this!)</li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -407,34 +407,47 @@ Microsoft Graphs
 </div>
 </div>
 
-<div id="outline-container-orgec6eacd" class="outline-3">
-<h3 id="orgec6eacd"><span class="section-number-3">2.2</span> New</h3>
+<div id="outline-container-orgd8b8f3f" class="outline-3">
+<h3 id="orgd8b8f3f"><span class="section-number-3">2.2</span> New System Proposal</h3>
 <div class="outline-text-3" id="text-2-2">
-<ul class="org-ul">
-<li>from OAuth: LEGITIMIZE
-<ul class="org-ul">
-<li>credential server</li>
-<li>resource server</li>
-<li>token access in third party</li>
-</ul></li>
-
-<li>tree structure of roles, where each node contains
-<ul class="org-ul">
-<li>{ add, sub, connections }</li>
-<li>given a user at a node, we DFS through the tree and append actions to a list</li>
-</ul></li>
-<li>user contains:
-<ul class="org-ul">
-<li>n roles which generate a final action list (through dfs applied above)</li>
-</ul></li>
-
-<li>superuser gets root node</li>
-</ul>
-
+<p>
+Here we propose a new system for authorization that takes some of the most important features from each of the previous standards as highlighted above to create a novel system of authorization that &#x2014; while increasing slightly in complexity &#x2014; compensates in terms of its flexibility, elegance, and features.
+</p>
 
 <p>
-[executer] -&gt; [exucture]
-[editor] -&gt; [ [read], [write] ]
+The core of the system extends the thematic construction of MS Graphs and AWS IAM. Instead of assigning <code>actions</code> or groups of <code>actions</code>, each <code>rule</code> is responsible for tagging a user with a "Role" or a group of Roles.
+</p>
+
+<p>
+Each Role is a permissions table containing an arbitrary-length, ordered combination three directives: Add, Subtract, and Link. The Add directive grants a single <code>action</code> to <code>users</code> tagged with that role, the Subtract directives removes a single <code>action</code> to <code>users</code> tagged, and the Link directive includes any other Role's permissions in the hierarchy location of the Link directive.
+</p>
+
+<p>
+To Link directive cannot link to any parent nodes, essentially making the chain of permissions of Roles an undirected, fully-connected Tree graph.
+</p>
+
+<p>
+When <code>agents</code> parse a <code>user</code>'s <code>rules</code>, it reads its list of granted roles in sequential order and performed a DFS of the location to which the role point to on the permissions graph. The results of the DFS would therefore creates a series of new <code>rules</code> which will then be applied sequentially.
+</p>
+
+<p>
+The "root" <code>user</code> would therefore be granted the topmost role of the tree by default. Any subordinate users created by root would be manifest in roles which are subsets of the permissions of root by being granted roles that Link to the root role.
+</p>
+
+<p>
+This tree-based permissions model essentially implements both the competitive advantage of IAM and Graph. IAM's system of Roles are replicated entirely in this proposed system, except it has the added complexity of trees. Graph's action dependency can be replicated here easily: if two <code>actions</code> are dependent, simply create a Role that encapsulates a Grant for each <code>action</code>, and treating this Role (or inheriting it in other Actions) as the double-dependent <code>action</code>. 
+</p>
+
+<p>
+Similar to OAuth, all <code>actions</code> except the "Edit All Actions" ("root") <code>action</code> are arbitrarily defined. The <code>root</code>, and any other users who becomes delegated the power, can define <code>actions</code> that then externally becomes validated by the Authentication system (part of the <code>agent</code>) to lock <code>resource</code>.
+</p>
+
+<p>
+We have elected to not implement AFS' nature of <code>resource</code> dependent <code>actions</code>. If an <code>action</code> could not be performed upon a <code>resource</code>, the locking resource/status would simply raise a Fault if the <code>user</code> attempts to perform it: hence creating a hidden Authorization scheme.
+</p>
+
+<p>
+This scheme are unambiguous as all Grants and Links are fully ordered. An Action cannot be assigned twice in different locations as the permissions Graph is undirected. Groups, similar to the case of PAM, are created by a representative Role that Links to multiple behavioral Roles for the Group and assigning group members that Role.
 </p>
 </div>
 </div>
