@@ -40,7 +40,7 @@ Inheritance, therefore, could be applied via the creation of groups, applying th
 ** Microsoft Graph Permissions
 Microsoft Graph Permissions grants grouped =actions= to specific users. Each =action= have any number (or no) dependencies; hence, when the =agent= applies any =action= in the group to a users, all of the dependents =action= is simultaneously applied.
 
-Similar to PAM, permission groups could be binned and =rules= applied together. However, there are still no user-level dependency.
+Similar to PAM, permission groups could be binned and =rules= applied together. However, there are still no user-level dependencys.
 
 ** OAuth
 The OAuth =model= allows for authorization of third party =resources= without the =users= credentials.
@@ -55,33 +55,34 @@ Because of the generalization and lack of =model= of OAuth, there is no hard res
 * New System Proposal
 ** Compiled Features
 - PAM is simple!
-    - few =actions=
-    - groups -> arbitrary user level granularity
+    - Few =actions=
+    - Groups $\to$ arbitrary user level granularity
  - AFS
    - Top down from =resources=
-   - =resource= dependent =actions= (we dont have this!)
-     - lack of redundant =actions=  (but, we do have this!)
+   - =Resource= dependent =actions= (we dont have this!)
+     - Lack of redundant =actions=  (but, we do have this!)
 - IAM
-    -  roles
-      - =actions= are abstracted from entities they apply to
+    -  Roles
+      - =Actions= are abstracted from entities they apply to
 - Microsoft Graphs
-   - =actions= can have dependencies on other =actions=
-     - simplicity -> ease of use
+   - =Actions= can have dependencies on other =actions=
+     - Simplicity $\to$ ease of use
  - OAuth
-   - =actions= are arbitrary
-   - authurization is arbitrary
-     - auth is abstracted, thus we can protect credentials
+   - =Actions= are arbitrary
+   - Auth is arbitrary
+     - Auth is abstracted, thus we can protect credentials
+     - Model agnostic
 
 ** New System Proposal
 Here we propose a new system for authorization that takes some of the most important features from each of the previous standards as highlighted above to create a novel system of authorization that --- while increasing slightly in complexity --- compensates in terms of its flexibility, elegance, and features.
 
 The core of the system extends the thematic construction of MS Graphs and AWS IAM. Instead of assigning =actions= or groups of =actions=, each =rule= is responsible for tagging a user with a "Role" or a group of Roles.
 
-Each Role is a permissions table containing an arbitrary-length, ordered combination three directives: Add, Subtract, and Link. The Add directive grants a single =action= to =users= tagged with that role, the Subtract directives removes a single =action= to =users= tagged, and the Link directive includes any other Role's permissions in the hierarchy location of the Link directive.
+Each Role is a permissions table containing an arbitrary-length, ordered combination of three directives: Add, Subtract, and Link. The Add directive grants a single =action= to =users= tagged with that role, the Subtract directive removes a single =action= to =users= tagged, and the Link directive includes any other Role's permissions in the hierarchy location of the Link directive.
 
 To Link directive cannot link to any parent nodes, essentially making the chain of permissions of Roles an undirected, fully-connected Tree graph.
 
-When =agents= parse a =user='s =rules=, it reads its list of granted roles in sequential order and performed a DFS of the location to which the role point to on the permissions graph. The results of the DFS would therefore creates a series of new =rules= which will then be applied sequentially.
+When =agents= parse a =user='s =rules=, it reads its list of granted roles in sequential order and performs a DFS of the location to which the role points to on the permissions graph. The results of the DFS would therefore creates a series of new =rules= which will then be applied sequentially.
 
 The "root" =user= would therefore be granted the topmost role of the tree by default. Any subordinate users created by root would be manifest in roles which are subsets of the permissions of root by being granted roles that Link to the root role.
 

@@ -43,6 +43,7 @@ source: #index
 - [[KBhPHYS201Silicon]]
 - Base Conversion [[KBhPHYS201DigitalLogic]]
 - [[KBxSiliconAndDoping]]
+- [[KBxSiliconRunNotes]]
 
 # Magnetism
 - [[KBhPHYS201MagneticSolids]]
