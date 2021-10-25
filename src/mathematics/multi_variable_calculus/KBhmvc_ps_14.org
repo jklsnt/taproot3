@@ -103,40 +103,64 @@ Plot of the contours:
 
 
 ** Steepness of function at $[-\frac{\sqrt{3}}{2}, \frac{1}{2}]$
-The gradient at the origin, as a vector, is $[7, 0]$
+The gradient at the $(1,2)$, as a vector, is $[39, 64]$
 
 *** Steepness of the Function at Point
-Projecting that unto the direction of $[-\frac{\sqrt{3}}{2}, \frac{1}{2}]$ would result in:
+Projecting that onto the direction of $[-\frac{\sqrt{3}}{2}, \frac{1}{2}]$ would result in:
 
 \begin{equation}
 \begin{bmatrix}
-7 \\ 0
+39 \\ 64
 \end{bmatrix} \cdot
 \begin{bmatrix}
 -\frac{\sqrt{3}}{2}\\ \frac{1}{2}
 \end{bmatrix} = 
--\frac{7\sqrt{3}}{2}
+\frac{64-39\sqrt{3}}{2}
 \end{equation}
 
-Hence, $\frac{-7\sqrt{3}}{2}$ is the "slope" of the function at $(0,0)$ facing $[-\frac{\sqrt{3}}{2}, \frac{1}{2}]$. The angle of which the slope represents, therefore, would be $arctan(\frac{-7\sqrt{3}}{2}) \approx -80^{\circ}$. 
+Hence, $\frac{64-39\sqrt{3}}{2}$ is the "slope" of the function at $(1,2)$ facing $[-\frac{\sqrt{3}}{2}, \frac{1}{2}]$. The angle of which the slope represents, therefore, would be $arctan(\frac{64-39\sqrt{3}}{2}) \approx -60.60^{\circ}$. 
 
 ** Optimizing for steepness
 We want to figure an angle $\theta$ such that the gradient would be most steep, that is, a $\theta$ such that...
 
 \begin{equation}
-    7\cos{\theta}
+    39cos{\theta} + 64sin{\theta}
 \end{equation}
 
-is maximized. As the $max(cos(\theta)) = 1$ for any $\theta$, and such a value exists at $\theta = 0$, we deduce that at $\theta = 0$ the steepness would be maximized.
+is maximized. We know that there exists a $\theta_{max}$ such that this expression would be maximized, meaning that if there exists a critical point for this expression we would arrive as such an optima.
 
-To maximize the steepness of the function in the other direction, we simply reverse the value of $\theta$ by $\pi = 180^{\circ}$, making the steepest direction to turn in $\theta = \pi$.
+The derivative w.r.t. $\theta$ of the expression above is
+
+\begin{equation}
+   -39 sin \theta + 64 cos \theta
+\end{equation}
+
+Solving for a value of that expression at $0$ to arrive at a critical point,
+
+\begin{align}
+   & 64 cos \theta = 0 \\
+   \Rightarrow\ &64 cos \theta = 39 sin \theta  \\
+   \Rightarrow\ &\frac{64}{39} = \frac{sin \theta}{cos \theta} \\
+   \Rightarrow\ &\frac{64}{39} = tan \theta \\
+   \Rightarrow\ &\theta = arctan (\frac{64}{39}) \approx 58.64^{\circ}
+\end{align}
+
+Hence, the angle at which the steepness would be optimized would be $58.64^{\circ}$.
 
 ** Optimizing for flatness
 Similar to before, we want to figure an angle $\theta$ such that the value of the slope at that point would be $0$, that is:
 
 \begin{equation}
-    7cos\theta = 0
+    39cos{\theta} + 64sin{\theta} = 0
 \end{equation}
 
-We know that $cos(\frac{\pi}{2}) = 0$, meaning that we could deduct the angle at which the function would have no steepness would therefore be $\theta = \frac{\pi}{2} = 90^{\circ}$.
+Solving for the value of $\theta$ in this expression:
 
+\begin{align}
+    & 39cos{\theta} + 64sin{\theta} = 0 \\
+\Rightarrow\ & 64sin{\theta} = -39cos{\theta} \\
+\Rightarrow\ & tan{\theta} = \frac{-39}{64} \\
+\Rightarrow\ & \theta = arctan(\frac{-39}{64}) \approx -31.36^{\circ} 
+\end{align}
+
+Hence, the angle at which the steepness would be minimized would be $-31.36^{\circ}$.
