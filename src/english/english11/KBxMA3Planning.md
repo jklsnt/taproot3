@@ -18,7 +18,11 @@ idea:
 - old tabbaco / sugar industry
 
 
+### Meta Outline
 
+- **Write** a one-page, double-spaced pitch for the play
+- **Write** two or three paragraphs of stage directions that indicate one of the play’s settings
+- **Write** three paragraphs of prose introduction that discuss a particular character and then go on to illuminate key elements of the play’s history
 
 
 
