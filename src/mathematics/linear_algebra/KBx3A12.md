@@ -43,14 +43,24 @@ we can show that an inf len transformation works, and prove that therefore the w
 
 
 
+```ad-def
+inf dimensional:
+if there is no spanning set
+```
 
 
 
+len list LID <= len span list
+
+prove that every new vec is linearly indpendent 
+inf list of LID lists
 
 
 
-
-
+2.15: def inf dimensional
+2.10: finite dimensional
+2.23: len of LID list <= len spanning list
+2.17: linearly indipendent
 
 
 
