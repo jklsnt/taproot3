@@ -4,8 +4,6 @@
 #+title: Statistics!
 #+author: Houjun Liu
 
-
-
 * Introduction to Probability
 :PROPERTIES:
 :ID:       E171D73A-8F0D-4D3B-8E35-18F4632CD634
@@ -158,5 +156,32 @@ We need to figure, therefore, the standard deviation squared of the sample.
 This is the squared, mean distance between the mean of the sample population vs. each sample. Squared distance from the center.
 
 **Why squared?** 1) This function has a well-behaved derivative vs. the absolute value distance. 2) You are biasing for the extremes as they are more far out.
+
+* How to do the actual comparison
+** Getting the Measured Variables
+First, let's define the random variable we are interested in.
+
+\begin{equation}
+    \bar{\bar{x}} = \frac{\sum^{n=launchers}_{i=1} \bar{x_1i}}{n}
+\end{equation}
+
+So our random variable is x-bar-bar: the mean of the launchers.
+
+Therefore, the variants measured from the original variants are:
+
+\begin{equation}
+    \sigma = \sqrt{{\sigma_1}^2+{\sigma_2}^2+{\sigma_3}^2+\ldots}
+\end{equation}
+
+** Finding Statistical Significance
+\begin{equation}
+    Y = \bar{\bar{x_1}} - \bar{\bar{x_0}}
+\end{equation}
+
+Our null hypothesis is that $\mathbb{Y} = 0$, the two distributions have no difference. The distribution of $\mathbb{Y}$ is likely going to be normal, with some $\sigma_{\bar{\bar{x_1}} - \bar{\bar{x_0}}}$ as its width.
+
+The significance of a given $y_0$ appearing in the distribution, therefore, is the integral of the normal curve between the normalized $y_0$ and infinity ("the probability of something being more "extreme").
+
+For all normal curves, the area under $n\%$ of standard deviation is the same. Therefore, all you have to know is how many standard deviations away is $y_0$.
 
 

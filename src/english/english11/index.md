@@ -33,7 +33,7 @@ It's time for... American lit!
 - [[KBhCrucibleDiscussion]] 
 - [[KBxCruciblePlayExemplarReading]]
 - [[KBxInClassMA2Notes]]
-- [[KBxMA3Planning]]
+- [[KBxMA3PitchAPlayPlanning]]
 - [[KBhpitch_a_play_research]]   
 
 ## Fences

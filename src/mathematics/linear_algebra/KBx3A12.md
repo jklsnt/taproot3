@@ -63,15 +63,33 @@ inf list of LID lists
 2.17: linearly indipendent
 
 
+define a transformation 
+- prove inf dimensional
+- prove not finite dimensional
+- prove that there isnt a spanning list
+- len LID <= len spanning list, inf len LID list means no spanning list
+- thus, we can say it's inf dimensional
 
 
 
+$∀𝑥((𝑥∈𝑆∧𝑥≠𝑎)→⋯)$
 
+for all b except 
 
+if 
+where b_k = a_1 and 
 
+all b = 0, b_k 
+b = 0, 
+for all b_j, b = 0. 
+if  = k, b = a_1
 
+all b except b_k = 0. b_k = a_1
+$$\forall b\ |\ b \in (b_1, b_2, \dots) ∧ b \neq b_k,\ b = 0.\ b_k = a_1$$
+b_j = 0
+if j = k, b_j = a_1
 
+{{b_1, b_2, b_3, \cdots | b_i = \begin{cases} { 0 & \ a_1 & i = k} }}
 
-
-
+$$\{b_1, b_2, \cdots | b_j = \left\{\begin{array}{lr} a_1 & \text{if }j=k \\ 0 & \text{otherwise} \\ \end{array}\right\}\}$$
 

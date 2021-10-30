@@ -46,19 +46,9 @@ the next assignment: historigraphical in nature. synthesithing multiple argument
 - [[KBhPostRevolution]] 
 - [[KBxAntiAndFederalistPapers]]
 	- [[KBxFederalismInClass]]
+- [[KBhAntebellum]] 
 
-
-
-
-
-
-
-
-
-
-
-
-
+- [[KBxTheCelebrationOfCommerce]]
 
 
 
