@@ -91,5 +91,7 @@ if j = k, b_j = a_1
 
 {{b_1, b_2, b_3, \cdots | b_i = \begin{cases} { 0 & \ a_1 & i = k} }}
 
+
 $$\{b_1, b_2, \cdots | b_j = \left\{\begin{array}{lr} a_1 & \text{if }j=k \\ 0 & \text{otherwise} \\ \end{array}\right\}\}$$
+
 

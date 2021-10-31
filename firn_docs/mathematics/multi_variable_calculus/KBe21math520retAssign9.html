@@ -90,7 +90,8 @@
    \vec{r}(t) &= (R \cos  \theta (t), R \sin  \theta (t))\\
    &= \left(  R \cos \left( \frac{1}{2} a_0 t^2 \right)  , R \sin  \left( \frac{1}{2} a_0 t^2 \right)  \right)  
    \end{aligned}\]</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="velocity"><span class="firn-headline-text"><span>velocity</span></span></h2><section><p><span>   \[\begin{aligned}
-   \vec{v}(t) = R \left(-\sin  \left( \frac{1}{2} a_0 t^2 \right) a_0 t, \cos  \left( \frac{1}{2} a_0 t^2 \right)  a_0 t \right)
+   \vec{v}(t) &= R \left(-\sin  \left( \frac{1}{2} a_0 t^2 \right) a_0 t, \cos  \left( \frac{1}{2} a_0 t^2 \right)  a_0 t \right)\\
+   &=  R a_0 t \left(-\sin  \left( \frac{1}{2} a_0 t^2 \right), \cos  \left( \frac{1}{2} a_0 t^2 \right) \right)\\
    \end{aligned}\]</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="acceleration"><span class="firn-headline-text"><span>acceleration</span></span></h2><section><p><span>   \[\begin{aligned}
    \vec{a}(t) = a_0 R \left( - \cos  \left(  \frac{1}{2} a_0 t^2 \right) a_0 t^2 - \sin  \left( \frac{1}{2} a_0 t^2 \right)  ,\\-\sin  \left( \frac{1}{2} a_0 t^2 \right)  a_0 t  ^2 + \cos  \left( \frac{1}{2} a_0 t^2 \right)  \right)  
    \end{aligned}\]</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="velocity-vector"><span class="firn-headline-text"><span>velocity vector</span></span></h2><section><p><span>   Both magnitudes are non-zero, so we can use the dot product to show that the position and velocity are perpendicular. 
@@ -102,5 +103,26 @@
    = R a_0 t \sqrt{1} = R a_0 t = R \theta ' (t)
    \end{aligned}\]</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="acceleration"><span class="firn-headline-text"><span>acceleration</span></span></h2><section><p><span>   We can split it up because we know the $\left| \vec{v} \right|^2$ term is the one with $a_0^2t^2$</span></p><p><span>   \[\begin{aligned}
    \vec{a}(t) &= R \left( -a_0^2 t^2 \left( \cos  \left(\frac{1}{2} a_0 t^2 \right), \sin  \left( \frac{1}{2} a_0 t^2 \right)  \right) + a_0 \left(- \sin  \left( \frac{1}{2} a_0 t^2 \right),  \cos  \left( \frac{1}{2} a_0 t ^2 \right)   \right)  \right)  \\
-   &= R \left( - \frac{\left| \vec{v} \right| ^2}{R^2} 
-   \end{aligned}\]</span></p></section></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#boatman-problem">boatman problem</a></li><li><a href="#circular-motion">circular motion</a><ol><li><a href="#position">position</a></li><li><a href="#velocity">velocity</a></li><li><a href="#acceleration">acceleration</a></li><li><a href="#perpendicular">perpendicular</a></li><li><a href="#acceleration">acceleration</a></li><li><a href="#non-uniform-motion">non uniform motion</a></li><li><a href="#angular-position">angular position</a></li><li><a href="#position">position</a></li><li><a href="#velocity">velocity</a></li><li><a href="#acceleration">acceleration</a></li><li><a href="#velocity-vector">velocity vector</a></li><li><a href="#acceleration">acceleration</a></li></ol></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>
+   &= R \left( - \frac{\left| \vec{v} \right| ^2}{R^2} \frac{\vec{r}}{R} \right) + R a_0 \frac{\vec{v}}{| \vec{v} |}\\
+   &= \left( - \frac{\left| \vec{v} \right| }{R^2} \frac{\vec{r}}{R} \right) + R a_0 \frac{\vec{v}}{| \vec{v} |}\\
+   \end{aligned}\]</span></p></section></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="derivative-distribution"><span class="firn-headline-text"><span>derivative distribution</span></span></h1><section><p><span>  \[\begin{aligned}
+  \frac{d \vec{A}}{dt} &= \lim_{h \to  0} \frac{\vec{A}(t + h) - \vec{A}(t)}{h}\\
+  &= \lim_{h \to 0} \frac{ \left( A_x (t+h), A_y (t+h), A_z (t+h) \right)  - \left( A_x(t), A_y(t), A_z(t) \right)  }{h}\\
+  &= \lim_{h \to 0} \frac{ \left( A_x (t+h) - A_x(t), A_y (t+h) - A_y(t), A_z (t+h) - A_z(t) \right)  }{h}\\
+  &= \lim_{h \to 0} \left( \frac{ A_x (t+h) - A_x(t)}{h}, \frac{ A_y (t+h) - A_y(t)}{h}, \frac{ A_z (t+h) - A_z(t) }{h} \right) \\
+  &= \left( \lim_{h \to 0} \frac{ A_x (t+h) - A_x(t)}{h}, \lim_{h \to 0} \frac{ A_y (t+h) - A_y(t)}{h}, \lim_{h \to 0} \frac{ A_z (t+h) - A_z(t) }{h} \right) \\
+  &= \left( \frac{d A_x(t)}{dt}, \frac{d A_y(t)}{dt}, \frac{d A_z(t)}{dt} \right) \\
+  \end{aligned}\]</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="derivative-linearity"><span class="firn-headline-text"><span>derivative linearity</span></span></h1><section><p><span>  \[\begin{aligned}
+  \frac{d}{dt}  \left(  \alpha \vec{A} (t) + \beta \vec{B} (t) \right)   &= \frac{d}{dt}  \left(\alpha A_x(t), \alpha  A_y(t) \right) + \left(\beta  B_x(t),\beta  B_y(t) \right)  \right)  \\
+  &= \frac{d}{dt}  \left(\alpha A_x(t) + \beta B_x(t), \alpha  A_y(t) + \beta B_y(t) \right)\\
+  &= \left(\frac{d}{dt}  \left(   \alpha A_x(t) + \beta B_x(t) \right), \frac{d}{dt} \left( \alpha  A_y(t) + \beta B_y(t) \right) \right)\\
+  &= \left(\left(   \alpha \frac{d}{dt} A_x(t) + \beta \frac{d}{dt} B_x(t) \right), \left( \alpha \frac{d}{dt} A_y(t) + \beta \frac{d}{dt} B_y(t) \right) \right)\\
+  &= \left(\left(   \alpha \frac{d}{dt} A_x(t),  \alpha \frac{d}{dt} A_y(t) \right)+\left(\beta \frac{d}{dt} B_x(t), \beta \frac{d}{dt} B_y(t) \right) \right)\\
+  &= \alpha \frac{d}{dt}\left(A_x(t),  A_y(t) \right)+ \beta \frac{d}{dt} \left(B_x(t), B_y(t) \right)\\
+  &= \alpha \frac{d \vec{A}(t)}{dt} + \beta \frac{d \vec{B}(t)}{dt}\\
+  \end{aligned}\]</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="chain-rule-for-derivatives"><span class="firn-headline-text"><span>chain rule for derivatives</span></span></h1><section><p><span>  \[\begin{aligned}
+  \frac{d}{dt} \vec{A}(u(t)) &= \left( \frac{d}{dt} A_x(u(t)), \frac{d}{dt} A_y(u(t)) \right)  \\
+  &= \left( \frac{dA_x(u)}{du} \frac{du}{dt}, \frac{dA_y(u)}{du}\frac{du}{dt} \right)  \\
+  &= \left( \frac{dA_x(u)}{du}, \frac{dA_y(u)}{du}\right)  \frac{du}{dt} \\
+  &= \frac{d \vec{A}(u)}{du}\frac{du}{dt} \\
+  \end{aligned}\]</span></p></section></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#boatman-problem">boatman problem</a></li><li><a href="#circular-motion">circular motion</a><ol><li><a href="#position">position</a></li><li><a href="#velocity">velocity</a></li><li><a href="#acceleration">acceleration</a></li><li><a href="#perpendicular">perpendicular</a></li><li><a href="#acceleration">acceleration</a></li><li><a href="#non-uniform-motion">non uniform motion</a></li><li><a href="#angular-position">angular position</a></li><li><a href="#position">position</a></li><li><a href="#velocity">velocity</a></li><li><a href="#acceleration">acceleration</a></li><li><a href="#velocity-vector">velocity vector</a></li><li><a href="#acceleration">acceleration</a></li></ol></li><li><a href="#derivative-distribution">derivative distribution</a></li><li><a href="#derivative-linearity">derivative linearity</a></li><li><a href="#chain-rule-for-derivatives">chain rule for derivatives</a></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>

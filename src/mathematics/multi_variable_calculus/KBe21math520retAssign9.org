@@ -154,7 +154,8 @@ dang it i was actually right the first time. apparently math isn't a democracy.
 
    
    \[\begin{aligned}
-   \vec{v}(t) = R \left(-\sin  \left( \frac{1}{2} a_0 t^2 \right) a_0 t, \cos  \left( \frac{1}{2} a_0 t^2 \right)  a_0 t \right)
+   \vec{v}(t) &= R \left(-\sin  \left( \frac{1}{2} a_0 t^2 \right) a_0 t, \cos  \left( \frac{1}{2} a_0 t^2 \right)  a_0 t \right)\\
+   &=  R a_0 t \left(-\sin  \left( \frac{1}{2} a_0 t^2 \right), \cos  \left( \frac{1}{2} a_0 t^2 \right) \right)\\
    \end{aligned}\]
    
    
@@ -189,6 +190,43 @@ dang it i was actually right the first time. apparently math isn't a democracy.
    
    \[\begin{aligned}
    \vec{a}(t) &= R \left( -a_0^2 t^2 \left( \cos  \left(\frac{1}{2} a_0 t^2 \right), \sin  \left( \frac{1}{2} a_0 t^2 \right)  \right) + a_0 \left(- \sin  \left( \frac{1}{2} a_0 t^2 \right),  \cos  \left( \frac{1}{2} a_0 t ^2 \right)   \right)  \right)  \\
-   &= R \left( - \frac{\left| \vec{v} \right| ^2}{R^2} 
+   &= R \left( - \frac{\left| \vec{v} \right| ^2}{R^2} \frac{\vec{r}}{R} \right) + R a_0 \frac{\vec{v}}{| \vec{v} |}\\
+   &= \left( - \frac{\left| \vec{v} \right| }{R^2} \frac{\vec{r}}{R} \right) + R a_0 \frac{\vec{v}}{| \vec{v} |}\\
    \end{aligned}\]
+
+   
+* derivative distribution
+  
+  \[\begin{aligned}
+  \frac{d \vec{A}}{dt} &= \lim_{h \to  0} \frac{\vec{A}(t + h) - \vec{A}(t)}{h}\\
+  &= \lim_{h \to 0} \frac{ \left( A_x (t+h), A_y (t+h), A_z (t+h) \right)  - \left( A_x(t), A_y(t), A_z(t) \right)  }{h}\\
+  &= \lim_{h \to 0} \frac{ \left( A_x (t+h) - A_x(t), A_y (t+h) - A_y(t), A_z (t+h) - A_z(t) \right)  }{h}\\
+  &= \lim_{h \to 0} \left( \frac{ A_x (t+h) - A_x(t)}{h}, \frac{ A_y (t+h) - A_y(t)}{h}, \frac{ A_z (t+h) - A_z(t) }{h} \right) \\
+  &= \left( \lim_{h \to 0} \frac{ A_x (t+h) - A_x(t)}{h}, \lim_{h \to 0} \frac{ A_y (t+h) - A_y(t)}{h}, \lim_{h \to 0} \frac{ A_z (t+h) - A_z(t) }{h} \right) \\
+  &= \left( \frac{d A_x(t)}{dt}, \frac{d A_y(t)}{dt}, \frac{d A_z(t)}{dt} \right) \\
+  \end{aligned}\]
+
+  
+* derivative linearity
+  
+  \[\begin{aligned}
+  \frac{d}{dt}  \left(  \alpha \vec{A} (t) + \beta \vec{B} (t) \right)   &= \frac{d}{dt}  \left(\alpha A_x(t), \alpha  A_y(t) \right) + \left(\beta  B_x(t),\beta  B_y(t) \right)  \right)  \\
+  &= \frac{d}{dt}  \left(\alpha A_x(t) + \beta B_x(t), \alpha  A_y(t) + \beta B_y(t) \right)\\
+  &= \left(\frac{d}{dt}  \left(   \alpha A_x(t) + \beta B_x(t) \right), \frac{d}{dt} \left( \alpha  A_y(t) + \beta B_y(t) \right) \right)\\
+  &= \left(\left(   \alpha \frac{d}{dt} A_x(t) + \beta \frac{d}{dt} B_x(t) \right), \left( \alpha \frac{d}{dt} A_y(t) + \beta \frac{d}{dt} B_y(t) \right) \right)\\
+  &= \left(\left(   \alpha \frac{d}{dt} A_x(t),  \alpha \frac{d}{dt} A_y(t) \right)+\left(\beta \frac{d}{dt} B_x(t), \beta \frac{d}{dt} B_y(t) \right) \right)\\
+  &= \alpha \frac{d}{dt}\left(A_x(t),  A_y(t) \right)+ \beta \frac{d}{dt} \left(B_x(t), B_y(t) \right)\\
+  &= \alpha \frac{d \vec{A}(t)}{dt} + \beta \frac{d \vec{B}(t)}{dt}\\
+  \end{aligned}\]
+
+  
+* chain rule for derivatives
+  
+  \[\begin{aligned}
+  \frac{d}{dt} \vec{A}(u(t)) &= \left( \frac{d}{dt} A_x(u(t)), \frac{d}{dt} A_y(u(t)) \right)  \\
+  &= \left( \frac{dA_x(u)}{du} \frac{du}{dt}, \frac{dA_y(u)}{du}\frac{du}{dt} \right)  \\
+  &= \left( \frac{dA_x(u)}{du}, \frac{dA_y(u)}{du}\right)  \frac{du}{dt} \\
+  &= \frac{d \vec{A}(u)}{du}\frac{du}{dt} \\
+  \end{aligned}\]
+
 
