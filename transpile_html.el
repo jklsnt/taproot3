@@ -16,6 +16,7 @@
 
 (setq org-html-preamble t)
 (setq org-html-postamble nil)
+(setq org-export-with-broken-links t)
 (setq org-src-fontify-natively t)
 (setq org-html-htmlize-output-type 'css)
 (org-id-locations-load)

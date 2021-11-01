@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-02 Sat 12:00 -->
+<!-- 2021-10-31 Sun 12:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>User Input Validation</title>
@@ -220,16 +220,16 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">User Input Validation</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-10-02 Sat 10:57</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">User Input Validation</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-10-31 Sun 12:33</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='cs240-index.html'>CS240 Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org30541d4">1. <code>eval()</code></a></li>
-<li><a href="#org1020bf9">2. Cross-site scripting</a></li>
-<li><a href="#orga56519d">3. Database Injection</a></li>
-<li><a href="#org7854663">4. Buffer Overflows</a></li>
-<li><a href="#orgeb9a5a5">5. Fixes</a></li>
+<li><a href="#orge12f7d9">1. <code>eval()</code></a></li>
+<li><a href="#org7038d5d">2. Cross-site scripting</a></li>
+<li><a href="#org0c24bac">3. Database Injection</a></li>
+<li><a href="#orgaf7be37">4. Buffer Overflows</a></li>
+<li><a href="#orgf2abe21">5. Fixes</a></li>
 </ul>
 </div></div>
 </div>
@@ -237,8 +237,8 @@
 Refers to the practice of checking for malignant input that can exploit a system.
 </p>
 
-<div id="outline-container-org30541d4" class="outline-2">
-<h2 id="org30541d4"><span class="section-number-2">1</span> <code>eval()</code></h2>
+<div id="outline-container-orge12f7d9" class="outline-2">
+<h2 id="orge12f7d9"><span class="section-number-2">1</span> <code>eval()</code></h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Eval takes user input and runs it as code, and this could easily be used to .
@@ -246,8 +246,8 @@ Eval takes user input and runs it as code, and this could easily be used to .
 </div>
 </div>
 
-<div id="outline-container-org1020bf9" class="outline-2">
-<h2 id="org1020bf9"><span class="section-number-2">2</span> Cross-site scripting</h2>
+<div id="outline-container-org7038d5d" class="outline-2">
+<h2 id="org7038d5d"><span class="section-number-2">2</span> Cross-site scripting</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 If a user gives a website HTML code and the website doesn't sanitiize it, the user could embed JS that could even run on other users computers (i.e. like in a comment where the JS is loaded when it's viewed)? 
@@ -255,8 +255,8 @@ If a user gives a website HTML code and the website doesn't sanitiize it, the us
 </div>
 </div>
 
-<div id="outline-container-orga56519d" class="outline-2">
-<h2 id="orga56519d"><span class="section-number-2">3</span> Database Injection</h2>
+<div id="outline-container-org0c24bac" class="outline-2">
+<h2 id="org0c24bac"><span class="section-number-2">3</span> Database Injection</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Semicolons end SQL commands, so if you're reading user input to make a SQL query they could put a quote and semicolon in their input followed by arbitrary SQL lookup.
@@ -264,8 +264,8 @@ Semicolons end SQL commands, so if you're reading user input to make a SQL query
 </div>
 </div>
 
-<div id="outline-container-org7854663" class="outline-2">
-<h2 id="org7854663"><span class="section-number-2">4</span> Buffer Overflows</h2>
+<div id="outline-container-orgaf7be37" class="outline-2">
+<h2 id="orgaf7be37"><span class="section-number-2">4</span> Buffer Overflows</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 By writing past the length of a buffer in memory you can overwrite other memory that a user could own. 
@@ -273,8 +273,8 @@ By writing past the length of a buffer in memory you can overwrite other memory 
 </div>
 </div>
 
-<div id="outline-container-orgeb9a5a5" class="outline-2">
-<h2 id="orgeb9a5a5"><span class="section-number-2">5</span> Fixes</h2>
+<div id="outline-container-orgf2abe21" class="outline-2">
+<h2 id="orgf2abe21"><span class="section-number-2">5</span> Fixes</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Always check user input</li>

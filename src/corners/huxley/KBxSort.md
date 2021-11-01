@@ -1,6 +1,14 @@
 n
 ***
 
+ atlas by bicep: sick music video, would love to replicate the effect.
+
+***
+
+ quick proj idea: GAN to generate kanji! dataset, here: https://www.kaggle.com/nmamdbts/yumincho-kanji 
+
+***
+
  predictability horizon! cool concept
  
 ***

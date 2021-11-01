@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-02 Sat 12:00 -->
+<!-- 2021-10-31 Sun 12:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Low-Level Programming</title>
@@ -220,43 +220,43 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Low-Level Programming</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-10-02 Sat 10:57</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Low-Level Programming</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-10-31 Sun 12:33</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='data-oriented.html'>Data-Oriented Design and C++</a></li> <li><a class='backlink' href='compilers.html'>Compilers</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org8ecc69f">1. Low Level Programming</a></li>
-<li><a href="#orgd2a550b">2. Basic Computer Architecture</a>
+<li><a href="#org32c2dff">1. Low Level Programming</a></li>
+<li><a href="#org099277b">2. Basic Computer Architecture</a>
 <ul>
-<li><a href="#org00a3a36">2.1. Core Architecture</a></li>
-<li><a href="#orgaa2b3c7">2.2. Evolution</a></li>
-<li><a href="#orgc92017d">2.3. Registers</a></li>
-<li><a href="#orga67de46">2.4. Protection Rings</a></li>
-<li><a href="#orge20e3f1">2.5. Hardware Stack</a></li>
-<li><a href="#org7e69f9a">2.6. Summary</a></li>
+<li><a href="#org8f81afc">2.1. Core Architecture</a></li>
+<li><a href="#orgd020f72">2.2. Evolution</a></li>
+<li><a href="#org73e20a7">2.3. Registers</a></li>
+<li><a href="#org8a2794e">2.4. Protection Rings</a></li>
+<li><a href="#org94e5829">2.5. Hardware Stack</a></li>
+<li><a href="#org783c6f7">2.6. Summary</a></li>
 </ul>
 </li>
-<li><a href="#org366e737">3. Assembly Language</a></li>
-<li><a href="#org1ca5d5b">4. Legacy Modes</a></li>
-<li><a href="#orgd9bbc13">5. Virtual Memory</a></li>
-<li><a href="#orgf1fcd1c">6. Compilation Pipeline</a></li>
-<li><a href="#org94a0053">7. Interrupts and System Calls</a></li>
-<li><a href="#orgd1170e0">8. Models of Computation</a></li>
+<li><a href="#orge174006">3. Assembly Language</a></li>
+<li><a href="#org79148f6">4. Legacy Modes</a></li>
+<li><a href="#org6715eed">5. Virtual Memory</a></li>
+<li><a href="#org66de541">6. Compilation Pipeline</a></li>
+<li><a href="#org2d94209">7. Interrupts and System Calls</a></li>
+<li><a href="#orgddf2363">8. Models of Computation</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org8ecc69f" class="outline-2">
-<h2 id="org8ecc69f"><span class="section-number-2">1</span> Low Level Programming</h2>
+<div id="outline-container-org32c2dff" class="outline-2">
+<h2 id="org32c2dff"><span class="section-number-2">1</span> Low Level Programming</h2>
 </div>
 
 
-<div id="outline-container-orgd2a550b" class="outline-2">
-<h2 id="orgd2a550b"><span class="section-number-2">2</span> Basic Computer Architecture</h2>
+<div id="outline-container-org099277b" class="outline-2">
+<h2 id="org099277b"><span class="section-number-2">2</span> Basic Computer Architecture</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org00a3a36" class="outline-3">
-<h3 id="org00a3a36"><span class="section-number-3">2.1</span> Core Architecture</h3>
+<div id="outline-container-org8f81afc" class="outline-3">
+<h3 id="org8f81afc"><span class="section-number-3">2.1</span> Core Architecture</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Before computers existed, research was put into designing methods of automating calculations: notable examples being Lambda calculus, the Turing machine, and the von Neumann architecture. The von Neumann architecture won out due to its ease of programmability and robustness.
@@ -272,8 +272,8 @@ Programs are a series of instructions fetched sequentially (except when JMP inst
 </div>
 </div>
 
-<div id="outline-container-orgaa2b3c7" class="outline-3">
-<h3 id="orgaa2b3c7"><span class="section-number-3">2.2</span> Evolution</h3>
+<div id="outline-container-orgd020f72" class="outline-3">
+<h3 id="orgd020f72"><span class="section-number-3">2.2</span> Evolution</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 There are some problems with the above design model:
@@ -298,42 +298,42 @@ The Intel 64 architecture addresses these problems with extensions to von Neuman
 </div>
 </div>
 
-<div id="outline-container-orgc92017d" class="outline-3">
-<h3 id="orgc92017d"><span class="section-number-3">2.3</span> Registers</h3>
+<div id="outline-container-org73e20a7" class="outline-3">
+<h3 id="org73e20a7"><span class="section-number-3">2.3</span> Registers</h3>
 </div>
-<div id="outline-container-orga67de46" class="outline-3">
-<h3 id="orga67de46"><span class="section-number-3">2.4</span> Protection Rings</h3>
+<div id="outline-container-org8a2794e" class="outline-3">
+<h3 id="org8a2794e"><span class="section-number-3">2.4</span> Protection Rings</h3>
 </div>
-<div id="outline-container-orge20e3f1" class="outline-3">
-<h3 id="orge20e3f1"><span class="section-number-3">2.5</span> Hardware Stack</h3>
+<div id="outline-container-org94e5829" class="outline-3">
+<h3 id="org94e5829"><span class="section-number-3">2.5</span> Hardware Stack</h3>
 </div>
-<div id="outline-container-org7e69f9a" class="outline-3">
-<h3 id="org7e69f9a"><span class="section-number-3">2.6</span> Summary</h3>
+<div id="outline-container-org783c6f7" class="outline-3">
+<h3 id="org783c6f7"><span class="section-number-3">2.6</span> Summary</h3>
 </div>
-</div>
-
-<div id="outline-container-org366e737" class="outline-2">
-<h2 id="org366e737"><span class="section-number-2">3</span> Assembly Language</h2>
 </div>
 
-<div id="outline-container-org1ca5d5b" class="outline-2">
-<h2 id="org1ca5d5b"><span class="section-number-2">4</span> Legacy Modes</h2>
+<div id="outline-container-orge174006" class="outline-2">
+<h2 id="orge174006"><span class="section-number-2">3</span> Assembly Language</h2>
 </div>
 
-<div id="outline-container-orgd9bbc13" class="outline-2">
-<h2 id="orgd9bbc13"><span class="section-number-2">5</span> Virtual Memory</h2>
+<div id="outline-container-org79148f6" class="outline-2">
+<h2 id="org79148f6"><span class="section-number-2">4</span> Legacy Modes</h2>
 </div>
 
-<div id="outline-container-orgf1fcd1c" class="outline-2">
-<h2 id="orgf1fcd1c"><span class="section-number-2">6</span> Compilation Pipeline</h2>
+<div id="outline-container-org6715eed" class="outline-2">
+<h2 id="org6715eed"><span class="section-number-2">5</span> Virtual Memory</h2>
 </div>
 
-<div id="outline-container-org94a0053" class="outline-2">
-<h2 id="org94a0053"><span class="section-number-2">7</span> Interrupts and System Calls</h2>
+<div id="outline-container-org66de541" class="outline-2">
+<h2 id="org66de541"><span class="section-number-2">6</span> Compilation Pipeline</h2>
 </div>
 
-<div id="outline-container-orgd1170e0" class="outline-2">
-<h2 id="orgd1170e0"><span class="section-number-2">8</span> Models of Computation</h2>
+<div id="outline-container-org2d94209" class="outline-2">
+<h2 id="org2d94209"><span class="section-number-2">7</span> Interrupts and System Calls</h2>
+</div>
+
+<div id="outline-container-orgddf2363" class="outline-2">
+<h2 id="orgddf2363"><span class="section-number-2">8</span> Models of Computation</h2>
 <div class="outline-text-2" id="text-8">
 </div>
 </div>

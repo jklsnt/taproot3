@@ -1,0 +1,58 @@
+#+title: Lens Quiz Prep
+#+COURSE: PHYS220
+#+LATEX_HEADER: \usepackage[total={6in, 10in}, right=2in]{geometry}
+#+LATEX_HEADER: \setlength{\parindent}{0pt}
+#+LATEX_HEADER: \thispagestyle{empty}
+#+LATEX_HEADER: \let\tempone\itemize
+#+LATEX_HEADER: \let\temptwo\enditemize
+#+LATEX_HEADER: \renewenvironment{itemize}{\tempone\addtolength{\itemsep}{-0.5\baselineskip}}{\temptwo}
+
+*** [[id:2CF94571-B530-44E8-A710-786A27C9B2F6][Lenses]]
+- Rays that go in parallel come out through focal point
+- Rays that go in through focal point come out parallel
+- Rays that come in through $2f$ comes ou through $2f$
+- Thin Lens Equation: $\frac{1}{f} = \frac{1}{d_o} + \frac{1}{d_i}$
+- For a thin lens in air: $\frac{1}{f} = (n-1)\left[ \frac{1}{R_1} - \frac{1}{R_2}\right]$ where $R_1$ and $R_2$ are the radii of curvature for each face of the lens and $n$ the index of refraction of the lens. If $R_1 = R_2$ (like some crescent shape) the light wouldn't focus (or it'd focus at infinity).
+
+$h_i = -\frac{d_i}{d_o}h_o$
+# TODO Rule for height of image
+
+*** [[id:67DABFB5-6F9A-4ACD-97AE-A2CF9DF0AC24][Cameras]]
+- ISO: Range is usually from 100-25600. High ISO: noise (overall signal is lower so noise is higher relative to signal) 
+- Aperture: /f-stop/ is the _inverse_ of the aperture. Aperture is $f$ over the f-stop. At a f-stop of 2, aperture is $\frac{50\text{mm}}{2} = 25\text{mm}$. Each f-stop lets in twice as much light as the previous.
+- Shutter speed: Longer exposure lets more light hit the sensor. Higher exposure can capture more movement and vice versa. You can handhold 1/focal length and still get a sharp picture. 
+- Sensor size: Larger sensor size is better image (more light can be captured, less noise). Large is expensive. Large also means no need to enlarge photo.
+- Histogram: Bins that represent how much of the image is how bright (rightmost is maxed out, leftmost is no light). If there's a spike on the left that means that a lot of the image is dark, and vice versa. 
+*** [[id:667E8B1B-DE8A-4E31-B5E7-8C808CCCA0CD][Color]]
+- Color spaces
+  - RGB: Red, green, and blue components on a scale from 0-255.
+  - CMYK: Cyan, magenta, yellow, black components on a scale from 0-100.
+  - HSV: Hue (color), saturation (vibrancy), value (darkness). Hue is a rainbow wrapped into a circle, so is 0-360 degrees. S and V are from 0 to 1.
+  - LAB: Perception-based: scale of red-green and blue-yellow and perceptual brightness.
+- *Additive/subtractive colors*: in an /additive/ space like RGB you start at black and adding more color brings you towards white, and in a /subtractive/ space like CMYK you start at white and more colors darkens it towards black (not exactly, so K component).
+- *Color solids*: map color scales to dimensions of a solid. RGB cube, HSL cylinder.
+- *Color temperature*: temperature at which an ideal blackbody would emit that color. Blackbodies of different temperatures produce different spectrums, with high temp ones being spikier and bluer and low temp ones being flatter and redder. Human perception is very good at interpreting the true color of objects under tinted light, so cameras use shift color temperature (or "white balance") to attempt to match the colors to it.
+- *Color in film*: Layers of material sensitive to specific colors: blue sensitive gets yellow, green-sensitive magenta, red-sensitive cyan. Negatives produced are the opposite colors.
+- *Color in digital*: not every sensor gets all colors, instead use a grid with mostly green, some red, and some blue, and determine color value from neighbors (which assumes color is constant over small angular scales).
+
+# * Detectors
+# - Digital FIXME
+# - Film FIXME
+
+* Prism dispersion
+- Refracted internal beam forms a triangle with the prism (which has known angles), allowing calculation via
+- $\arcsin\left(\sin\left(90-\left(180 - \left(\sin^{-1}\left(\frac{\sin(x)}{n}\right)+60\right)\right)n\right)$
+- Literally just use Snell's Law ($\sin \theta_1 n_1 = \sin \theta_2 n_2$) and geometry.
+
+* Aberration
+Ideally all rays from a point converge at a single image point - anything that stops this from happening is an /aberration/. Chromatic aberrations are due to the fact that lenses focus colors differently since its focal length is dependent on index of reflection (see Lensmaker's Eq) which varies w/ wavelength. There are a variety of other aberrations caused by slightly imparallel rays, lens defects, etc. Aberrations are counteracted by multi-lens systems.
+
+* Magnification
+- $h_i/h_o$ is /spatial/ magnification
+- Ratio of image on aided to retina to unaided retina is /angular/ magnification.
+  - This is equivalent to the powerful lens / weaker lens in a two lens system? I think?
+  - Size of image in eye is directly proportional to angle subtended from object, so becomes unaided subtended angle $\alpha$ over aided subtended angle $\beta$.
+  - $\alpha = \frac{h}{F_o}$ and $\beta = \frac{h}{F_e}$, where $h$ is height of internal real image, $F_e$ focal length of eyepiece, and $F_o$ focal length of objective lens. $M = \frac{\beta}{\alpha} = \frac{F_o}{F_e}$. Alternatively, this can be thought of as the lower power lens over the higher power lens (where /power/ is the inverse of the focal length and measured in inv meters aka diopters).
+  
+* DoF
+- Choose an object of arbitary distance to focus at, set the $d_i$, and then for objects of different $d_o$ compare their $d_i$, set up similar triangles to get blur.

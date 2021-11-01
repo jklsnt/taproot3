@@ -925,8 +925,6 @@ blur: {
                                                   ("#+end_questionable" . "―")
                                                   ("#+begin_problem" .  "")
                                                   ("#+end_problem" . "―")
-                                                  (":PROPERTIES:" . "\n")
-                                                  (":END:" . "―")
                                                   ("#+STARTUP:" . "")
                                                   ("#+TITLE: " . "")
                                                   ("#+title: " . "")
@@ -974,10 +972,8 @@ blur: {
                                            (msg (format
                                                           (concat
                                                             "org-cycle-hide-drawers:  "
-                                                            "`:END:`"
                                                             " line missing at position %s")
                                                           (1+ start))))
-                                  (if (re-search-forward "^[ \t]*:END:" limit t)
                                     (outline-flag-region start (point-at-eol) t)
                                     (user-error msg))))))))))
    (add-hook 'org-mode-hook (lambda () (org-cycle-hide-drawers 'all)))
@@ -1059,7 +1055,6 @@ blur: {
             (concat "\\("
                     "[\n\t]" ;; blank
                     "\\|^#\\+[[:alpha:]_]+:.*$" ;; org-mode metadata
-                    "\\|^:PROPERTIES:\n\\(.+\n\\)+:END:\n"
                     "\\)")))
 
 </code></pre></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="taproot-specific"><span class="firn-headline-text"><span>Taproot-specific</span></span></h2><section><pre class="language-emacs-lisp"><code class="language-emacs-lisp">(defvar taproot-dir (concat (getenv "HOME") "/taproot3"))
@@ -1076,10 +1071,6 @@ blur: {
 	(call-process-shell-command (concat sed " -i \"s/id:" (car pair)
 					    "/file:" (substring (car (cdr pair)) (length in-path))
 					    "/g\" " out-path "*.org")))
-      (message (concat sed " -i \"/:PROPERTIES:/d\" " out-path "*.org"))
-      (call-process-shell-command (concat sed " -i \"/:PROPERTIES:/d\" " out-path "*.org"))
-      (call-process-shell-command (concat sed " -i \"/:ID:/d\" " out-path "*.org"))
-      (call-process-shell-command (concat sed " -i \"/:END:/d\" " out-path "*.org")))))
 </code></pre><p><span>And a function to open in Taproot:</span></p><pre class="language-emacs-lisp"><code class="language-emacs-lisp">  (defun org-roam-open-in-taproot ()
     (interactive)
     (if (not (eq (buffer-file-name) nil))

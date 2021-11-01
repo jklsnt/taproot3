@@ -1090,8 +1090,6 @@ There are a variety of useful packages that make Org look nicer:
                                                   ("#+end_questionable" . "―")
                                                   ("#+begin_problem" .  "")
                                                   ("#+end_problem" . "―")
-                                                  (":PROPERTIES:" . "\n")
-                                                  (":END:" . "―")
                                                   ("#+STARTUP:" . "")
                                                   ("#+TITLE: " . "")
                                                   ("#+title: " . "")
@@ -1143,10 +1141,8 @@ There are a variety of useful packages that make Org look nicer:
                                            (msg (format
                                                           (concat
                                                             "org-cycle-hide-drawers:  "
-                                                            "`:END:`"
                                                             " line missing at position %s")
                                                           (1+ start))))
-                                  (if (re-search-forward "^[ \t]*:END:" limit t)
                                     (outline-flag-region start (point-at-eol) t)
                                     (user-error msg))))))))))
    (add-hook 'org-mode-hook (lambda () (org-cycle-hide-drawers 'all)))
@@ -1236,7 +1232,6 @@ There are a variety of useful packages that make Org look nicer:
             (concat "\\("
                     "[\n\t]" ;; blank
                     "\\|^#\\+[[:alpha:]_]+:.*$" ;; org-mode metadata
-                    "\\|^:PROPERTIES:\n\\(.+\n\\)+:END:\n"
                     "\\)")))
 
    #+end_src
@@ -1264,10 +1259,6 @@ Also, a function to convert to file-based links would be nice.
 	(call-process-shell-command (concat sed " -i \"s/id:" (car pair)
 					    "/file:" (substring (car (cdr pair)) (length in-path))
 					    "/g\" " out-path "*.org")))
-      (message (concat sed " -i \"/:PROPERTIES:/d\" " out-path "*.org"))
-      (call-process-shell-command (concat sed " -i \"/:PROPERTIES:/d\" " out-path "*.org"))
-      (call-process-shell-command (concat sed " -i \"/:ID:/d\" " out-path "*.org"))
-      (call-process-shell-command (concat sed " -i \"/:END:/d\" " out-path "*.org")))))
 #+end_src
 
 And a function to open in Taproot:

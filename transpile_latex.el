@@ -3,6 +3,8 @@
 (setq user-full-name "Taproot")
 (setq user-mail-address "services@sanity.gq")
 
+(setq org-export-with-broken-links t)
+
 (require 'org-id)
 (org-id-locations-load)
 (find-file (car argv))
