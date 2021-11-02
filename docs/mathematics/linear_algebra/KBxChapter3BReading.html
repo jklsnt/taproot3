@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-11-01 Mon 15:14 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chapter 3B Reading</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley Marvit" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Chapter 3B Reading</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-11-01 Mon 15:14</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>Linear Algebra Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#null-spaces-and-ranges">1. Null Spaces and Ranges</a>
+<ul>
+<li>
+<ul>
+<li><a href="#examples-of-null-space">1.0.1. examples of null space</a></li>
+<li><a href="#as-a-subspace">1.0.2. as a subspace</a></li>
+<li><a href="#injective">1.0.3. injective</a></li>
+<li><a href="#range-and-surjectivity">1.0.4. Range and Surjectivity</a></li>
+<li><a href="#fundemental-theorem">1.0.5. Fundemental theorem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<p>
+#flo #hw
+</p>
+
+<hr />
+
+<div id="outline-container-null-spaces-and-ranges" class="outline-2">
+<h2 id="null-spaces-and-ranges"><span class="section-number-2">1</span> Null Spaces and Ranges</h2>
+<div class="outline-text-2" id="text-null-spaces-and-ranges">
+<p>
+Two subspaces that are connected with every linear map
+</p>
+
+<p>
+The set of vectors that get mapped to 0 is called the
+</p>
+
+<pre class="example" id="orga9439c2">
+title: null space, null T, AKA kernel
+for $T \in$ [[file:KBxL(VcmW).org][KBxL(VcmW)]], the *null space* of $T$, denoted null $T$, is the subset of $V$ consisting of those vectors that $T$ maps to 0:
+$$ 
+null\ T = {v \in V : Tv = 0}. 
+$$
+</pre>
+</div>
+
+<div id="outline-container-examples-of-null-space" class="outline-4">
+<h4 id="examples-of-null-space"><span class="section-number-4">1.0.1</span> examples of null space</h4>
+<div class="outline-text-4" id="text-examples-of-null-space">
+<ul class="org-ul">
+<li>The zero map! ie, \(Tv=0\) then \(\textrm{null}\ T = V\)</li>
+
+<li>\(D \in L(P(R), P(R))\) where \(Dp=p'\), then the constant funcs are
+gonna go to 0.
+
+<ul class="org-ul">
+<li>ie. null space of \(D\) equals the set of constant functions.</li>
+</ul></li>
+
+<li>backwards shift by one, \(\textrm{null}\ T = {(a, 0,0,...)}\)</li>
+
+<li>null space of each linear transformation is a subspace of the domain?
+
+<ul class="org-ul">
+<li>ie, the kernel is a subspace.. oh boy</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-as-a-subspace" class="outline-4">
+<h4 id="as-a-subspace"><span class="section-number-4">1.0.2</span> as a subspace</h4>
+<div class="outline-text-4" id="text-as-a-subspace">
+<pre class="example" id="org6372110">
+title: the null space is a subspace
+Suppose $T \in L(V,W)$. Then $\textrm{null}\ T$ is a subspace of $V$
+</pre>
+
+<p>
+trivial proof, just plug in zeros.
+</p>
+
+<p>
+ooh, and now we get,
+</p>
+</div>
+</div>
+
+<div id="outline-container-injective" class="outline-4">
+<h4 id="injective"><span class="section-number-4">1.0.3</span> injective</h4>
+<div class="outline-text-4" id="text-injective">
+<pre class="example" id="orgccd3a9b">
+title: injective
+a function $T: V \to W$ is called *injective* if $Tu = Tv$ implies $u=v$
+</pre>
+
+<p>
+#question what does "implies" mean here?
+</p>
+
+<p>
+he calls this, <b>one-to-one</b>, but this only works one way. else, it's
+bijective!
+</p>
+
+<p>
+this means, that T is injective if it maps <b>distinct inputs to distinct
+outputs</b>
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="checking-injection"></a>checking injection<br />
+<div class="outline-text-5" id="text-checking-injection">
+<p>
+check if 0 is the only vec that gets mapped to 0.
+</p>
+
+<pre class="example" id="orgfa7adb3">
+title: injetivity is equivelent to null space equals equals {0}
+let $T \in L(V,W)$. Then $T$ is injective iff null $T = \{0\}$ 
+</pre>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-range-and-surjectivity" class="outline-4">
+<h4 id="range-and-surjectivity"><span class="section-number-4">1.0.4</span> Range and Surjectivity</h4>
+<div class="outline-text-4" id="text-range-and-surjectivity">
+<p>
+time to define, range!
+</p>
+
+<pre class="example" id="org7b00202">
+title: range AKA image
+for $T$ a function from $V$ to $W$, the *range* of $T$ is the subset of $W$ consisting of those vectors that are of the form of $Tv$ for some $v \in V$: 
+$$
+\textrm{range} \ T = \{Tv: v \in V\}.
+$$
+</pre>
+
+<p>
+just the&#x2026; normal def of range.
+</p>
+
+<p>
+and some examples: - are in 3.18
+</p>
+
+<pre class="example" id="orgefc3814">
+title: the range is a subspace!
+If $T \in L(V,W),$ then range $T$ is a subspace $W$.
+</pre>
+
+<p>
+and ofc,
+</p>
+
+<pre class="example" id="org6339672">
+title: surjective AKA onto
+a function $T: V \to W$ is called *surjective* if its range equals $W$.
+</pre>
+
+<p>
+surjecitvity depends on the space we are mapping into
+</p>
+</div>
+</div>
+
+<div id="outline-container-fundemental-theorem" class="outline-4">
+<h4 id="fundemental-theorem"><span class="section-number-4">1.0.5</span> Fundemental theorem</h4>
+<div class="outline-text-4" id="text-fundemental-theorem">
+<p>
+this is <b>important!</b> that's why the name is dramatic.
+</p>
+
+<pre class="example" id="org084e45f">
+title: Fundemental theorem of linear maps
+Suppose $V$ is finite-dimensional $T \in L(V,W).$ Then range $T$ is finite-dimensional and 
+$$\dim V = \dim null \ T + \dim range \ T$$
+</pre>
+
+<p>
+uh..
+</p>
+
+<p>
+def of a smaller vec space is one with less a smaller dim
+</p>
+
+<p>
+we can say that no linear transformation from a finite-dimensional vec
+space to a smaller vec space can be injective which makes sense! because
+you need the repeat elements, otherwise it woudnt be smaller.
+</p>
+
+<pre class="example" id="org9719194">
+title: A map to a smaller dimensinal space is not injective
+Suppose $V$ and $W$ are finite-dimensional vector spaces such that $\dim V &gt; \dim W$. Then no linear map from $V$ to $W$ is injective.
+</pre>
+
+<p>
+#review to make this intuitive.
+</p>
+
+<p>
+then we can show that no map from finite-dim vec space to a bigger vec
+space can be surjective
+</p>
+
+<p>
+wait no this one doesnt make sense. cus two elements can map to one,
+right? #question noo! it doesnt, cus then u would need to have a single
+function output multiple things to make up for it which functions can't
+do.
+</p>
+
+<pre class="example" id="orgee4f049">
+title: A map to a larger dimensional space is not surjective
+Suppose $V$ and $W$ are finite-dimensional vector spaces such that $\dim V &lt; \dim W$. Then no linear map from $V$ to $W$ is surjective.
+</pre>
+
+<p>
+these have imporant conseqneces! in linear equation theory.
+</p>
+
+<p>
+idea: express questions about systems of linear equations in terms of
+linear maps
+</p>
+
+<p>
+ie. use linear transformation to represent querys about linear equations
+</p>
+
+<p>
+3.25.. what the hell?? #review #question srry i don't have enough brain
+space to interpret this right now.
+</p>
+
+<pre class="example" id="org9d886f9">
+title: homogenous system of linear equations
+A homogenous system of linear equations with more variables than equations has nonzero solutions.
+</pre>
+
+<p>
+oh, here, we get to define the concept of <b>free variables</b>
+</p>
+
+<pre class="example" id="orgdf8cf2a">
+title: Inhomogenous system of linear equations
+An inhomogenous system of linear equations with more equations than variables has no solution for some choice of the constant terms.
+</pre>
+
+<p>
+these can be proved using gaussian elim!
+</p>
+
+<pre class="example" id="orgff04ed1">
+this one needs a reflection! need to watch another vid on the concept of null space and range ect. then take notes on that as well. seek 3b1b for intutive understanding here.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

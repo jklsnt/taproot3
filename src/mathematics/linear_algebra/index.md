@@ -46,6 +46,8 @@ source:  #index
 	%%- [[KBxDimension3b1b]]%%
 	- [[KBxLinearMapsInClass]]
 	- [[KBx3A12]]
+		- [[KBx3AproofsInClass]]
+- [[KBxChapter3BReading]]
 	
 #### Midterms
 - [[KBxLinAlgApplicationInterests]]
