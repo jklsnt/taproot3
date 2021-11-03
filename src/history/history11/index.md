@@ -49,6 +49,10 @@ the next assignment: historigraphical in nature. synthesithing multiple argument
 - [[KBhAntebellum]] 
 - [[KBxTheCelebrationOfCommerce]]
 - [[KBxAntebellumIntro]]
+- [[KBxJacksonianPolitics]]
+
+# The National Period
+- [[KBhNationalPeriod]] 
 
 
 

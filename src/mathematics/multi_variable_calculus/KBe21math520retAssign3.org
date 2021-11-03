@@ -95,8 +95,6 @@
    \frac{dy^2}{dx^2} &= \frac{\dot{x}\ddot{y} - \ddot{x}\dot{y}}{\dot{x}^3} = \frac{ \frac{\sqrt{3}}{2} 3\frac{\sqrt{3}}{2} + \frac{5}{2} \frac{3}{2} }{\left(\frac{\sqrt{3}}{2}\right)^3}\\
    &= \frac{\frac{9}{4}+\frac{15}{4}}{\frac{3\sqrt{3}}{8}} &= \frac{24}{4} \frac{8}{3\sqrt{3}} = -\frac{16}{\sqrt{3}}
    \end{aligned}\]
-
-
    
 ** points where tangent is horizontal or vertical
    
@@ -117,9 +115,21 @@
     \cos  \theta  &= \frac{-1 \pm \sqrt{1+4(4)2}}{8} = \frac{-1 \pm \sqrt{33}}{8}
     \end{aligned}\]
 
+    
+    \[\begin{aligned}
+    \theta &= \cos  ^{-1} \left( \frac{-1 + \sqrt{33}}{8} \right), \cos  ^{-1} \left( \frac{-1-\sqrt{33}}{8} \right)  \\
+    &= 0.936, 3.709, 2.574, 5.347\\
+    &= (1.296, 1.76), (0.579, 0.369), (0.579, 0.369), (1.296, -1.76)
+    \end{aligned}\]
 
     
 *** vertical
+
+    
+    \[\begin{aligned}
+    \frac{dx}{dy} &= \frac{ \sin  \theta  + 2 \sin  2 \theta }{\cos  \theta  + 2 \cos  2 \theta }\\
+    \implies  &\ \quad \sin  \theta  + 2 \sin  2 \theta = 0
+    \end{aligned}\]
 
     Make sure the top isn't also zero when the bottom is zero. Otherwise, by L'hospital rule that $\frac{0}{0}$ could be anything in the world. 
     
@@ -134,8 +144,10 @@
     \[\begin{aligned}
     0 &= 1+4 \cos  \theta \\
     -\frac{1}{4} &= \cos  \theta \\
+    \theta &= 1.823, 4.46\\
     \end{aligned}\]
 
+    The locations are at $(1, 0), (3, 0), (-0.125, -0.4847), (-0.125, 0.4847)$.
     
 ** tangent line
    
@@ -150,11 +162,27 @@
   S = \int_{C} ds = \lim_{n \to  \infty} \sum_{i=1}^{n}  \sqrt{\Delta x_i^2 + \Delta  y_i^2}
   \end{aligned}\]
 
+  Also note that 
+  \[\begin{aligned}
+  \boxed{\frac{dy}{dx} \triangleq \lim_{\Delta x \to  0} \frac{\delta y}{\delta x}}
+  \end{aligned}\]
+
+
   
 ** if $y = f(x)$
    
    \[\begin{aligned}
-    \lim_{n \to  \infty} \sum_{i=1}^{n} \sqrt{??}  
+   S &= \lim_{n \to  \infty} \sum_{i=1}^{n} \sqrt{ \left( \frac{dx^2}{dx^2} + \frac{dy^2}{dx^2} \right) dx^2 }  \\
+   &= \lim_{n \to  \infty} \sum_{i=1}^{n} \sqrt{\frac{dx^2}{dx^2} + \frac{dy^2}{dx^2}} dx \\
+   &= \lim_{n \to  \infty} \sum_{i=1}^{n} \sqrt{1 + \left( \frac{dy}{dx} \right)  ^2} dx \\
+   \end{aligned}\]
+
+** if $y = y(t), x = x(t)$
+   
+   \[\begin{aligned}
+   \Delta S &= \sqrt{\Delta x^2 + \Delta y^2} \frac{\Delta t}{\Delta t}\\
+   \implies & \ \quad \sqrt{\frac{\Delta x^2}{\Delta t^2} + \frac{\Delta y^2}{\Delta t^2}} \Delta t\\
+   \implies & \ \quad  \int \sqrt{\frac{dx^2}{dt^2} + \frac{dy^2}{dt^2}} dt
    \end{aligned}\]
 
 

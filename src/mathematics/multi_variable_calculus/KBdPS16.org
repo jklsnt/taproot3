@@ -1,0 +1,62 @@
+#+TITLE: PS#16
+#+AUTHOR: Dylan Wallace
+
+* Integral of ln(x)
+\begin{aligned}
+\int\! \ln(x) \,dx &= \int\! 1 \cdot \ln(x) \,dx \\
+&= x \cdot \ln(x) - \int\! x \cdot \frac{1}{x} dx \\
+&= x \cdot \ln(x) - \int\! 1 dx \\
+&= x \cdot \ln(x) - x + C
+\end{aligned}
+* Integral of $x^5 \sin{(x)}$
+\begin{aligned}
+\int\! x^5 \sin{(x)} \,dx &= -x^5 \cos{(x)} - \int\! -5x^4 \cos{(x)} \,dx \\
+&= -x^5 \cos{(x)} + 5x^4 \sin{(x)} + \int\! -20x^3 \sin{(x)} \,dx \\
+&= -x^5 \cos{(x)} + 5x^4 \sin{(x)} + 20x^3 \cos{(x)} - \int\! 60x^2 \cos{(x)} \,dx \\
+&= -x^5 \cos{(x)} + 5x^4 \sin{(x)} + 20x^3 \cos{(x)} - 60x^2 \sin{(x)} \\
+&\,\,\,\,\,\,\,+ \int\! 120x \sin{(x)} \,dx \\
+&= -x^5 \cos{(x)} + 5x^4 \sin{(x)} + 20x^3 \cos{(x)} - 60x^2 \sin{(x)} \\
+&\,\,\,\,\,\,\,- 120x \cos{(x)} - \int\! -120 \cos{(x)} \,dx \\
+&= -x^5 \cos{(x)} + 5x^4 \sin{(x)} + 20x^3 \cos{(x)} - 60x^2 \sin{(x)} \\
+&\,\,\,\,\,\,\,- 120x \cos{(x)} + 120\sin{(x)} \\
+\end{aligned}
+
+* Diff in High Dimensions
+** 9)
+\begin{aligned}
+\nabla f(x, y) &= \begin{bmatrix}\tan{(y)} \\ \frac{x}{\sec^2{(y)}}\end{bmatrix} \\
+\end{aligned}
+** 12)
+\begin{aligned}
+\nabla f(x, y, z) &= \begin{bmatrix}2x \\ 7z \\ 7y\end{bmatrix}
+\end{aligned}
+* $e^x\cos{(y)}$
+First, we find the derivative of $f(x, y)$:
+
+\begin{equation}
+\nabla f(x, y) &= \begin{bmatrix}e^x\cos{(y)} \\ -e^x\sin{(y)}\end{bmatrix}
+\end{equation}
+
+Then, we can find the derivative of $f(x, y)$ at point $(1, \frac{\pi}{4})$:
+
+\begin{aligned}
+\nabla f(1, \frac{\pi}{4}) &= \begin{bmatrix}e^{(1)}\cos{(\frac{\pi}{4})} \\ -e^{(1)}\sin{(\frac{\pi}{4})}\end{bmatrix}
+&= \begin{bmatrix}\frac{e}{\sqrt{2}} \\ -\frac{e}{\sqrt{2}}\end{bmatrix}
+\end{aligned}
+
+Armed with this knowledge, we can get the slope in a particular direction. The equation for this is
+
+\begin{equation}
+f'(\theta) &= \frac{\partial}{\partial x}f\cdot \cos{(\theta)} + \frac{\partial}{\partial y}f\cdot \sin{(\theta)} \\
+\end{equation}
+
+We know that  $\theta = \frac{\pi}{6}$, so we can plug this in to $f'$ to get:
+
+\begin{aligned}
+f'(\theta) &= f'(\frac{\pi}{6}) = \frac{\partial}{\partial x} f \cdot \cos{\left(\frac{\pi}{6}\right)} + \frac{\partial}{\partial y} f\cdot \sin{\left(\frac{\pi}{6}\right)} \\
+&= \frac{e}{\sqrt{2}}\cdot \frac{\sqrt{3}}{2} - \frac{e}{\sqrt{2}}\cdot \frac{1}{2} \\
+&= \frac{\sqrt{3}e}{2\sqrt{2}} - \frac{e}{2\sqrt{2}} \\
+&= \frac{(\sqrt{3} - 1)}{2\sqrt{2}}e \\
+\end{aligned}
+
+

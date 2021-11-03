@@ -36,6 +36,7 @@ source:  #index
 - [[KBx2Aref]]
 - [[KBxChapter2BReading]]
 	- [[KBxBasisInclass]]
+	- [[KBxBasesQuizCorrections]]
 - [[KBxChapter2CReading]]
 	- [[KBxDimensionInClass]]
 	- [[KBx2C14ProofPrez]]

@@ -1,6 +1,10 @@
 n
 ***
 
+ #cool word: beleaguered!
+
+***
+
  atlas by bicep: sick music video, would love to replicate the effect.
 
 ***
@@ -9,7 +13,7 @@ n
 
 ***
 
- predictability horizon! cool concept
+ predictability horizon! #cool concept
  
 ***
 
@@ -21,7 +25,7 @@ n
 
 ***
 
-[category theory](https://ncatlab.org/nlab/show/category+theory). to review
+[category theory](https://ncatlab.org/nlab/show/category+theory). to #review
 
 ***
 
@@ -50,7 +54,7 @@ mechanical pencils!
 
 ***
 
- simplex: simplileft geometric shape in a given dimension? cool concept
+ simplex: simplileft geometric shape in a given dimension? #cool concept
 
 ***
 
@@ -81,7 +85,7 @@ graph theory! i wanna take it. ~"most likely will exist next year" ~exr0n
 
 ***
 
-cool name: orhac
+#cool name: orhac
 
 ***
 
@@ -99,7 +103,7 @@ https://jasonwarta.github.io/latex-matrix/ is very useful
 
 ***
 
-lemma sort is cool!
+lemma sort is #cool!
 
 ***
 
