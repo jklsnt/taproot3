@@ -15,3 +15,5 @@ source:  #index
 - [[KBxSupertangrams]]
 - [[KBxCOMAPPracticeProb]]
 - [[KBxMidgesPracticeProb]]
+
+- [[KBxCOMAPIndex]]

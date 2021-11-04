@@ -27,14 +27,32 @@ $\begin{equation*}
 \end{equation*}$
 
 * Problem 4:
-The vector component of $\tilde A$ onto the vector perpendicular to $\tilde B$ is the $\vec{proj}_{\perp\tilde B}\tilde A$, where $\perp\tilde B$ is a vector perpendicular to $\tilde B$. If we set $\tilde B$ as the x axis, then the y axis would be $\perp\tilde B$ and the "y component of A" would be $\vec{proj}_{\perp\tilde B}\tilde A$. Thus:
+Because of vector addition we know that:
 
-$\tilde A_{\perp\tilde B}=\vec{proj}_{\perp\tilde B}\tilde A=\tilde A\sin(\theta)$ where $\theta$ is the angle between $\tilde A$ and $\tilde B$.
+$$\vec A_{\perp\vec B}=\vec A-\vec A_{\parallel\vec B}$$
 
-To prove that this is perpendicular we can take the dot product of $\tilde A_{\perp\tilde B}$ and $\tilde B$:
+and thus:
 
-$\begin{equation*}|\tilde A_{\perp\tilde B}||\tilde B|\cos(\theta_1)=|\tilde A_{\perp\tilde B}||\tilde B|\cos(\frac{\pi}{2})=|\tilde A_{\perp\tilde B}||\tilde B|\cdot0=0
-\end {equation*}$
+$\begin{equation*}
+=\vec A-|\vec A|\cos(\theta)\hat B\\
+=\vec A-\frac{|\vec A|\cos(\theta)}{|\vec B|}\vec B\\
+=\vec A-\frac{\vec A\cdot\vec B}{|\vec B|^2}\vec B
+\end{equation*}$
+
+We can check this by taking the dot product of the vector above and $\vec B$. If the dot product equals zero then the two vectors apre perpendicular:
+
+$$\vec B\cdot\vec A_{\perp\vec B}=\vec B\cdot(\vec A-\frac{\vec A\cdot\vec B}{|\vec B|^2}\vec B)$$
+
+from problem 7 we know that the dot product is distributive, and thus:
+
+$\begin{equation*}
+=\vec A\cdot\vec B-\vec A\cdot\vec B\frac{1}{|\vec B|^2}\cdot\vec B\cdot\vec B\\
+=\vec A\cdot\vec B-\vec A\cdot\vec B\frac{1}{|\vec B|^2}\cdot|\vec B||\vec B|\cos(0)\\
+=\vec A\cdot\vec B-\vec A\cdot\vec B\frac{1}{|\vec B|^2}\cdot|\vec B|^2\\
+=\vec A\cdot\vec B-\vec A\cdot\vec B\frac{|\vec B|^2}{|\vec B|^2}\\
+=\vec A\cdot\vec B-\vec A\cdot\vec B\\
+=0
+\end{equation*}$
 
 * Problem 5:
 The dot product is defined as:
@@ -82,10 +100,61 @@ this scales to the third dimention, because in a sense the diagram is the projec
 * Problem 7:
 $\begin{equation*}
 \vec A \cdot\vec B = (A_x\hat i+A_y\hat j+A_z\hat k)\cdot(B_x\hat i+B_y\hat j+ B_z\hat k)\\
-= A_x\hat i\cdot B_x\hat i+ A_x\hat i\cdot B_y\hat j+A_x\hat i\cdot B_z\hat k+A_y\hat j\cdot B_x\hat i+ A_y\hat j\cdot B_y\hat j+A_y\hat j\cdot B_z\hat k+A_z\hat k\cdot B_x\hat i+ A_z\hat k\cdot B_y\hat j+A_z\hat k\cdot B_z\hat k
+= A_x\hat i\cdot B_x\hat i+ A_x\hat i\cdot B_y\hat j+ A_x\hat i\cdot B_z\hat k+A_y\hat j\cdot B_x\hat i+ A_y\hat j\cdot B_y\hat j+A_y\hat j\cdot B_z\hat k+A_z\hat k\cdot B_x\hat i+ A_z\hat k\cdot B_y\hat j+A_z\hat k\cdot B_z\hat k
 \end{equation*}$
 
 the dot product between $A_x\hat i\cdot B_x\hat i$ would be: $|A_x||B_x|\cos(0)$, because the angle between $\hat i$ and $\hat i$ is $0$ (they have the same direction), $\cos(0)=1$, and thus the dot product equals $A_xB_x$. However, the dot product between and two unit vectors that are not the same would yield a theta of $\pi\over2$, which means $\cos({\pi\over2}) = 0$ and thus that term would equal zero. This can be generalized as, if the two unit vectors are the same then it will yield a term equal to the product of their two coefficients, and if the two unit vectors are different, then the resulting term would be equal to zero. Therefore:
 
 $\begin{equation*}=A_xB_x+0+0+A_yB_y+0+0+A_zB_z+0+0\\
 =A_xB_x+A_yB_y+A_zB_z\end{equation*}$
+
+* Problem 8:
+$$\{\vec r=\vec P_o+t(\vec v_o),t\in\mathbb{R}\}$$
+
+this works because the $\vec P_o$ term will position the vector so that the line passes through the point $\vec P_o$, and then the $t(\vec v_o)$ term will add and subtract and infinite amount of vectors in the direction and of the magnitude of $t(\vec v_o)$ from $\vec P_o$, thus creating a line that passes through $\vec P_o$ 
+
+* Problem 9:
+This is pretty similar to problem 8, the only differenc is that the $\vec P_o$ now equals one of the give vectors, and $\vec v_o$ is the vector between the two points:
+
+$\begin{equation*}
+\{\vec r=\langle2,-5,-3\rangle+t\langle1,-9,-4\rangle,t\in\mathbb{R}\}=\{\vec r=\langle2,-5,-3\rangle+\langle t,-9t,-4t\rangle,t\in\mathbb{R}\}\\
+= \{\vec r=\langle2+t,-5-9t,-3-4t\rangle,t\in\mathbb{R}\}
+\end{equation*}$
+
+* Problem 10:
+The law of cosines is as follows:
+
+$$c^2=a^2+b^2-2ab\cos(\theta)$$
+
+If the vectors $\vec c, \vec a$ and $\vec b$ are the legs of the triangle then $c,a$ and $b$ are the magnitudes of the vectors respectively, and $\theta$ is the angle between vectors $\vec a$ and $\vec b$ tail to tail
+
+
+#+DOWNLOADED: screenshot @ 2021-11-03 19:42:01
+[[file:2021-11-03_19-42-01_screenshot.png]]
+
+
+looking at the image above we see that:
+
+$\begin{equation*}\vec c=\vec a-\vec b\\
+\Rightarrow \langle c_x,c_y,c_z\rangle=\langle a_x,a_y,a_z\rangle-\langle b_x,b_y,b_z\rangle\\
+\Rightarrow \langel c_x,c_y,c_z\ranle=\langle a_x-b_x,a_y-b_y,a_z-b_z\rangle
+\end{equation}$
+
+We also know that by the definition of a vector:
+
+$$\vec a=\langle a_x,a_y,a_z\rangle$$
+
+$$\vec b=\langle b_x,b_y,b_z\rangle$$
+
+We can use these numbers and plug them into the the law of cosines:
+
+$\begin{equation*}
+c^2=a^2+b^2-2ab\cos(\theta)\\
+\Rightarrow|\vec c|=|\vec a|^2+|\vec b|^2-2|\vec a||\vec b|\cos(\theta)\\
+\Rightarrow c_x^2+c_y^2+c_z^2=a_x^2+a_y^2+a_z^2+b_x^2+b_y^2+b_z^2-2|\vec a||\vec b|\cos(\theta)\\
+\Rightarrow (a_x-b_x)^2+(a_y-b_y)^2+(a_z-b_z)^2=a_x^2+a_y^2+a_z^2+b_x^2+b_y^2+b_z^2-2|\vec a||\vec b|\cos(\theta)\\
+\Rightarrow a_x^2-2a_xb_x+bx^2+a_y^2-2a_yb_y+b_y^2+a_z^2+2a_zb_z+b_z^2=a_x^2+a_y^2+a_z^2+b_x^2+b_y^2+b_z^2-2|\vec a||\vec b|\cos(\theta)\\
+\Rightarrow -2a_xb_x-2a_yb_y-2a_zb_z=-2|\vec a||\vec b|\cos(\theta)\\
+\Rightarrow -2(a_xb_x+a_yb_y+a_zb_z)=-2|\vec a||\vec b|\cos(\theta)\\
+\Rightarrow a_xb_x+a_yb_y+a_zb_z=|\vec a||\vec b|\cos(\theta)
+\end{equation*}$

@@ -1,6 +1,14 @@
 n
 ***
 
+ Google X Moonshot. Dream job?
+
+***
+
+ surreal numbering system: completely ordered class of the reals and the infinite and infinitesamal, coined by knuth and proven using conways game of life and combinatorial game theory! #cool
+
+***
+
  #cool word: beleaguered!
 
 ***
