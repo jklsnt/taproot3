@@ -1,11 +1,89 @@
 #+TITLE: Assignment 10: Vectors Part 3
 * vectors at an angle
   
+** a sketch
  
 \begin{tikzpicture}
     \draw[black, thick, ->] (1, 0) -- (0, 1.73205080757) node[above right] {$\vec{A}$};
-    \draw[black, thick, ->] (1, 0) -- (0, 0) node[above left] {$\text{proj}_B\vec{A}$};
+    \draw[black, thick, ->] (1, 0) -- (0, 0) node[above left] {$\text{proj}_\vec{B}\vec{A}$};
     \draw[black, thick, ->] (1, 0) -- (7, 0) node[above right] {\( \vec{B} \)};
+    \draw[black, thick, ->] (1, 0) -- (2.598, -1.5) node[above left] {$\text{proj}_\vec{B}\vec{A}$};
 \end{tikzpicture}
 
- 
+scratch work:
+length: 6 cos 60
+width: -6 cos 60 sin 60
+height: 6 cos^2 60
+** components
+   
+   \[\begin{aligned}
+   \text{comp} _{\vec{A}} \vec{B} &= 6 \cos  120\\
+   \text{comp} _{\vec{B}} \vec{A} &= 2 \cos  120\\
+   \end{aligned}\]
+
+** dot product
+
+   
+   \[\begin{aligned}
+   \vec{A} \cdot \vec{B} &= |A| |B| \cos  \theta \\
+   &= 2 \cdot 6 \cdot \cos  120 = -3
+   \end{aligned}\]
+   
+* proving expression for component 
+  
+  Lets redefine the coordinate axis so that $\vec{A}$ lies along the x-axis. Then,
+  \[\begin{aligned}
+  \text{comp}_{\vec{A}} \vec{B} &= |\vec{B}| \cos  \theta \\
+  &= \frac{ |\vec{A}| |\vec{B}| \cos  \theta }{| \vec{A}|}\\
+  &= \frac{ \vec{A} \cdot \vec{B}}{|\vec{A}|}
+  \end{aligned}\]
+  
+* expression for projection
+
+  The projection is just a vector with length $\text{comp}_{\vec{A}} \vec{B}$ in the direction of $\vec A$.
+  
+  \[\begin{aligned}
+  \left( \frac{\vec{A} \cdot \vec{B}}{|\vec{A}|} \right)  \frac{\vec{A}}{|\vec{A}|}
+  \end{aligned}\]
+  
+* expression for perpendicular
+  The part of $\vec{A}$ that is perpendicular to $\vec B$ is just the whole vector minus the part that is parallel:
+  
+  \[\begin{aligned}
+  \vec{A}_{\perp  \vec{B}} &= \vec{A} - \text{proj}_{\vec{B}} \vec{A}\\
+  &= \vec{A} - \left( \frac{ \vec{A} \cdot \vec{B} }{|\vec{B}|^2} \right)  \vec{B}\\
+  \end{aligned}\]
+
+  Checking using the dot product:
+
+  
+  \[\begin{aligned}
+  \left(  \vec{A} - \left( \frac{ \vec{A} \cdot \vec{B} }{|\vec{B}|^2} \right)  \vec{B} \right)  \cdot \vec{B} &= \vec{A} \cdot \vec{B} - \left( \frac{ \vec{A} \cdot \vec{B} }{|\vec{B}|^2} \right)  \vec{B} \cdot \vec{B}\\
+  &= \vec{A} \cdot \vec{B} - \left( \frac{ \vec{A} \cdot \vec{B} }{|\vec{B}|^2} \right)  |\vec{B}|^2\\
+  &= \vec{A} \cdot \vec{B} - \vec{A} \cdot \vec{B} \\
+  &= 0
+  \end{aligned}\]
+
+  
+* find angle using dot product
+  
+  Well, the dot product already includes the angle, so let's just solve for that
+  \[\begin{aligned}
+  \theta &= \cos ^- \left( \frac{ \vec{A} \cdot \vec{B} }{|\vec{A}| |\vec{B}|} \right)  
+  \end{aligned}\]
+
+  The angle between:
+  
+  \[\begin{aligned}
+  \theta &= \cos  ^- \left( \frac{3 + 2 - 4}{\sqrt{1^2 + 2^2 + 2^2} \sqrt{3^2 + 1^2 + 2^2}}\right)  \\
+  &= \cos  ^-  \left( (3 + 2 - 4) / (3 * \sqrt{14}) \right)= \cos  ^- ( 0.08908708 ) &\approx 84.8 ^\circ
+  \end{aligned}\]
+
+  
+* dot product distribution over vector addition
+  
+  \[\begin{aligned}
+  \vec{A} \cdot \left( \vec{B} + \vec{C} \right)  &= |A|
+  \end{aligned}\]
+
+

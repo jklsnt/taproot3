@@ -50,7 +50,7 @@ and now, https://www.youtube.com/watch?v=cX-LU24eVOU&ab_channel=altEStore
 next up, https://www.youtube.com/watch?v=ZC-6N5vhk1w&ab_channel=altEStore !
 ***
 
-
+- charging deep cycle!
 
 
 
