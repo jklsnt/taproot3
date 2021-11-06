@@ -1,0 +1,46 @@
+<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Houjun Liu" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Inertial Circular Motion</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        'displayAlign': 'center',
+        'displayIndent': '0em',
+        'extensions': ['tex2jax.js'],
+        'tex2jax': {
+        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
+        'processEscapes': true
+        },
+        'HTML-CSS': { scale: 100,
+                        linebreaks: { automatic: 'false' },
+                        webFont: 'TeX'
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: 'false' },
+              font: 'TeX'},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: 'AMS'},
+               MultLineWidth: '85%',
+               TagSide: 'right',
+               TagIndent: '.8em'
+             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Inertial Circular Motion</h1></div><div class="metamble"><span><span>Written by </span><span>Houjun Liu</span></span></div><div class="notebody"><div><section><p><span>In this problem, we aim to determine functions $f_1$, $f_2$, that represents the velocity and acceleration vectors respectively of a circularly movable reference frame.</span></p></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="defining-first-principles"><span class="firn-headline-text"><span>Defining First Principles</span></span></h1><section><p><span>We begin by defining $\vec{r}$, the vector representing the radius of the rotating frame, as follows:</span></p><p><span>\begin{equation}
+   \vec{r} = r \cos(\theta) \hat{i} + r \sin{\theta} \hat{j} 
+\end{equation}</span></p><p><span>We define $\theta$ as the angle up from the horizontal at which $\vec{r}$ is located, and therefore the vector $\vec{r}$ is simply the magnitude thereof $r$ projected upon that angle $(\cos\theta, \sin\theta)$ into a vector.</span></p><p><span>Furthermore, we define a unit vector in the direction of $\vec{r}$ as $\hat{r}$. That is:</span></p><p><span>\begin{equation}
+   \hat{r} =  \cos(\theta) \hat{i} + \sin{\theta} \hat{j} 
+\end{equation}</span></p><p><span>Lastly, we define a vector $\hat{\theta}$, a unit vector orthogonal to $\vec{r}$. It is defined as such as the direction of $\vec{\theta}$ would, at any given instance, be perpendicular to the direction of $\vec{r}$ and parallel to the direction to its movement.</span></p><p><span>\begin{equation}
+\hat{\theta} = -\sin{\theta}\hat{i} + \cos{\theta}\hat{j}
+\end{equation}</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="determining-changes-in-direction"><span class="firn-headline-text"><span>Determining changes in direction</span></span></h1><section><p><span>We now create definitions for changes in "direction" --- the changes present in $\hat{r}$ and $\hat{\theta}$ --- which we will leverage later.</span></p><p><span>\begin{align}
+    \frac{d\hat{r}}{dt} &= \frac{d}{dt}(\cos{\theta}\hat{i} + \sin{\theta}\hat{j}) \\
+&= -\dot{\theta} \sin{\theta}\hat{i} + \dot{\theta}\cos{\theta}\hat{j} \\
+&= \dot{\theta} (-\sin{\theta}\hat{i} + \cos{\theta}\hat{j}) \\
+&= \dot{\theta}\hat{\theta}
+\end{align}</span></p><p><span>Hence, the change in the direction of $\hat{r}$, aptly and intuitively, could be modeled by the change in the angle $\theta$ times the direction of $\theta$.</span></p><p><span>\begin{align}
+\frac{d\hat{\theta}}{dt} &= \frac{d}{dt}(-\sin\theta \hat{i} + \cos\theta \hat{j}) \\
+&= -\dot{\theta}\cos{\theta} \hat{i} - \dot{\theta}\sin\theta\hat{j} \\
+&= -\dot{\theta} (\cos\theta\hat{i} + \sin\theta\hat{j}) \\
+&= -\dot{\theta}\hat{r}
+\end{align}</span></p><p><span>We now note that, indeed, the change in the direction of $\theta$ is modeled by the direction at which $\vec{r}$ exists, and the angle of $\theta$ as $\theta$ must be orthogonal to $\vec{r}$.</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="solving-for-$f_1-=-\vec{v}$"><span class="firn-headline-text"><span>Solving for $f_1 = \vec{v}$</span></span></h1><section><p><span>We now begin to solve for a function $f_1(\hat{r},\hat{\theta},\dot{r},\dot{\theta},r) = \vec{v}$. We know that the velocity of the frame as a whole could be modeled by the following expression:</span></p><p><span>\begin{align}
+    \vec{v} &= r \frac{d\hat{r}}{dt} + \hat{r} \frac{dr}{dt} \\
+&= r \dot{\theta}\hat{\theta} + \hat{r}\dot{r}
+\end{align}</span></p><p><span>The derivation of this expression simply follows variable substitution to result in the expression modeling velocity: that the velocity of the point is determined by the radius-scaled velocity in the angle of the object (how fast it spins), plus the velocity of the radius itself (how fast it grows.)</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="solving-for-$f_2-=-\vec{a}$"><span class="firn-headline-text"><span>Solving for $f_2 = \vec{a}$.</span></span></h1><section><p><span>We here wish to determine a function $f_2(\hat{r},\hat{\theta},\dot{r},\dot{\theta},\ddot{r},\ddot{\theta},r) = \vec{a} = \frac{d}{dt}\vec{v}$</span></p><p><span>Deriving the value of this expression, therefore, simply acts as a matter of taking the derivative of the top-derived expression and performing variable substitution for $\dot{\hat{r}}$ and $\dot{\hat{\theta}}$ as determined above as needed.</span></p><p><span>\begin{align}
+    \vec{a} &= \frac{d}{dt} (r\dot{\theta}\hat{\theta} + \hat{r}\dot{r}) \\
+&= ((\frac{d}{dt}r) \dot{\theta}\hat{\theta} + ((\frac{d}{dt} \dot{\theta})\hat{\theta} + (\frac{d}{dt} \hat{\theta})\dot{\theta})r) + ((\frac{d}{dt}\hat{r})\dot{r} + (\frac{d}{dt}\dot{r})\hat{r}) \\
+=& ((\dot{r})\dot{\theta}\hat{\theta} + ((\ddot{\theta})\hat{\theta} + (-\dot{\theta}\hat{i})\dot{\theta})r) + ((\dot{\theta}\hat{\theta})\dot{r} + (\ddot{r})\hat{r}) \\
+=& (\dot{r}\dot{\theta}\hat{\theta} + \ddot{\theta}\hat{\theta}r - \dot{\theta}^2 \hat{r}r) + (\dot{\theta}\hat{\theta}\dot{r} + \ddot{r} \hat{r}) \\
+=& \hat{\theta}(2\dot{r}\dot{\theta} + \ddot{\theta}r) + \hat{r} (\ddot{r} - \dot{\theta}^2r)
+\end{align}</span></p><p><span>We could now figure that acceleration is actually four terms, scaled by their respective directions ($\hat{\theta}$ and $\hat{r}$). That is:</span></p><ul><li><p><span>$2\dot{r}\dot{\theta}$ is a term representing the coriolis effect: a fictitious force pushing objects as either of radius change or spin speed changes</span></p></li><li><p><span>$\ddot{\theta}r$ is a term that models the tangential acceleration: how quickly does the object accelerates at a direction tangent to the spin</span></p></li><li><p><span>$\ddot{r}$ is a term that models the acceleration of the radius, as it evidently shows</span></p></li><li><p><span>$\dot{\theta}^2 r$ is a term that models the inward acceleration that maintains the shape of the circle. It is $\dot{\theta}^2 r = \omega^2 r$</span></p></li></ul></section></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#defining-first-principles">Defining First Principles</a></li><li><a href="#determining-changes-in-direction">Determining changes in direction</a></li><li><a href="#solving-for-$f_1-=-\vec{v}$">Solving for $f_1 = \vec{v}$</a></li><li><a href="#solving-for-$f_2-=-\vec{a}$">Solving for $f_2 = \vec{a}$.</a></li></ol><div class="metalabel">Backlinks</div><ul class="firn-backlinks"><li class="firn-backlink"><a href="/physics/advanced_mechanics/index">Advanced Mechanics Master Index</a></li></ul></div></main></body></html>

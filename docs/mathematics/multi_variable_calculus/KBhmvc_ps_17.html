@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-04 Thu 23:14 -->
+<!-- 2021-11-05 Fri 11:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MVC PS#17</title>
@@ -261,30 +261,40 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC PS#17</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-11-04 Thu 23:14</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC PS#17</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-11-05 Fri 11:23</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb2baace">1. Taylor Series in \(e^x\)</a></li>
-<li><a href="#org3138d5d">2. Diff. in Higher Dimensions</a>
+<li><a href="#org5f1fdd3">1. Taylor Series in \(e^x\)</a></li>
+<li><a href="#orgea10a84">2. Diff. in Higher Dimensions</a>
 <ul>
-<li><a href="#org6ccab51">2.1. Derivative Matrix 14</a></li>
+<li><a href="#orge10d85e">2.1. Derivative Matrix 14</a></li>
+<li><a href="#org035480b">2.2. Facing an Arbitrary Direction</a>
+<ul>
+<li><a href="#org57e861b">2.2.1. Slope at point \(\theta\)</a></li>
+<li><a href="#org0c27f98">2.2.2. Greatest slope Upwards</a></li>
+<li><a href="#org9ecb7e3">2.2.3. Greatest slope Downwards</a></li>
+<li><a href="#org484401e">2.2.4. Angle of Flat Slope</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org4c4e0de">3. Sand Dunes</a>
+<ul>
+<li><a href="#org49f3be6">3.1. Make a Picture of the Situation</a></li>
+<li><a href="#orgf018fa9">3.2. What is your elevation</a></li>
+<li><a href="#org587918c">3.3. What does your hike look like?</a></li>
+<li><a href="#org6420a9d">3.4. What's the function for the slope along your hike?</a></li>
+<li><a href="#org0282ce9">3.5. How steep is the sand dune at the point you're standing (in the direction you're hiking)?</a></li>
 </ul>
 </li>
 </ul>
 </div></div>
 </div>
-\begin{enumerate}
-\item Make a picture/graph of this situation, using your favorite technological 3D visualizer.
-\item What's your elevation?
-\item From your perspective, what does your hike look like? Meaning: your hike is some sort of one-dimensional path---what's the equation for it, and what does it look like (i.e., draw/make a picture)?
-\item What's the function for the slope along your hike? (Draw a picture, too.)
-\item How steep is the sand dune at the point you're standing (in the direction you're hiking)? Give the answer both in slope units, and as an angle up from the horizontal.
-\end{enumerate}
 
-<div id="outline-container-orgb2baace" class="outline-2">
-<h2 id="orgb2baace"><span class="section-number-2">1</span> Taylor Series in \(e^x\)</h2>
+<div id="outline-container-org5f1fdd3" class="outline-2">
+<h2 id="org5f1fdd3"><span class="section-number-2">1</span> Taylor Series in \(e^x\)</h2>
 <div class="outline-text-2" id="text-1">
 <blockquote>
 <p>
@@ -298,12 +308,12 @@ Calculate, from the big scary formula, the Taylor series for \(e^x\), centered a
 </div>
 </div>
 
-<div id="outline-container-org3138d5d" class="outline-2">
-<h2 id="org3138d5d"><span class="section-number-2">2</span> Diff. in Higher Dimensions</h2>
+<div id="outline-container-orgea10a84" class="outline-2">
+<h2 id="orgea10a84"><span class="section-number-2">2</span> Diff. in Higher Dimensions</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org6ccab51" class="outline-3">
-<h3 id="org6ccab51"><span class="section-number-3">2.1</span> Derivative Matrix 14</h3>
+<div id="outline-container-orge10d85e" class="outline-3">
+<h3 id="orge10d85e"><span class="section-number-3">2.1</span> Derivative Matrix 14</h3>
 <div class="outline-text-3" id="text-2-1">
 <blockquote>
 <p>
@@ -320,6 +330,192 @@ x_1 x_3 \\
 \end{bmatrix}
 \end{equation}
 </blockquote>
+
+\begin{equation}
+\begin{bmatrix}
+x_3 & 0 & x_1 & 0\\
+0 & 0 & 0 & \sec^2(x_4)\\
+0 & \frac{-1}{x_2} & 0 & 0\\
+12(3x_1-2)^3 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{bmatrix}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org035480b" class="outline-3">
+<h3 id="org035480b"><span class="section-number-3">2.2</span> Facing an Arbitrary Direction</h3>
+<div class="outline-text-3" id="text-2-2">
+<blockquote>
+<p>
+Suppose you have a function \(f(x,y); f:\mathbb{R}^2 \to \mathbb{R}^1\). Imagine you are standing at this function, at the point \((x,y)\), facing \(\theta\). What is the slope? For what value is the slope greatest? Upwards? Downwards? Flat?
+</p>
+</blockquote>
+</div>
+
+<div id="outline-container-org57e861b" class="outline-4">
+<h4 id="org57e861b"><span class="section-number-4">2.2.1</span> Slope at point \(\theta\)</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+The slope at point \(\theta\) is as follows:
+</p>
+
+\begin{equation}
+f_x (x,y) \cos(\theta) + f_y (x,y) \sin(\theta)
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org0c27f98" class="outline-4">
+<h4 id="org0c27f98"><span class="section-number-4">2.2.2</span> Greatest slope Upwards</h4>
+<div class="outline-text-4" id="text-2-2-2">
+\begin{equation}
+max.\ \frac{d}{d\theta}( f_x (x,y) \cos(\theta) + f_y (x,y) \sin(\theta))
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org9ecb7e3" class="outline-4">
+<h4 id="org9ecb7e3"><span class="section-number-4">2.2.3</span> Greatest slope Downwards</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<p>
+Given the max \(\theta\) as derived above:
+</p>
+
+\begin{equation}
+\pi  - \theta
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org484401e" class="outline-4">
+<h4 id="org484401e"><span class="section-number-4">2.2.4</span> Angle of Flat Slope</h4>
+<div class="outline-text-4" id="text-2-2-4">
+\begin{equation}
+\theta = \arctan(\frac{-f_x (x,y)}{f_y (x,y)})
+\end{equation}
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4c4e0de" class="outline-2">
+<h2 id="org4c4e0de"><span class="section-number-2">3</span> Sand Dunes</h2>
+<div class="outline-text-2" id="text-3">
+<blockquote>
+<p>
+You are trudging across a field of sand dunes, which the prevailing winds have blown into perfect, parallel, straight lines (or straight ridges, rather). You know that if you walk directly north-northeast, you'll make it to the oasis city of Iskendrebad. The landscape follows the function \(f(x,y) = \sin(x)\); you're at the point with \(x\) coordinate \(23\pi/3\) and \(y\) coordinate \(37\).
+</p>
+</blockquote>
+</div>
+
+<div id="outline-container-org49f3be6" class="outline-3">
+<h3 id="org49f3be6"><span class="section-number-3">3.1</span> Make a Picture of the Situation</h3>
+<div class="outline-text-3" id="text-3-1">
+
+<div id="orga0b2a88" class="figure">
+<p><img src="2021-11-05_08-31-26_screenshot.png" alt="2021-11-05_08-31-26_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf018fa9" class="outline-3">
+<h3 id="orgf018fa9"><span class="section-number-3">3.2</span> What is your elevation</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+At that point, you are at an elevation of \(\sin(\frac{23 \pi}{3}) = \frac{-\sqrt{3}}{2}\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org587918c" class="outline-3">
+<h3 id="org587918c"><span class="section-number-3">3.3</span> What does your hike look like?</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+"North-northeast" could translate an angle of roughly \(68^{\circ} \approx 0.0174533\ rad\). Slicing though the manifold with a line \(y=2.475x\), which represents the same angle&#x2026;
+</p>
+
+<p>
+We first parameterize the slice equation as follows:
+</p>
+
+\begin{align*}
+y = 2.475t \\
+x = t
+\end{align*}
+
+<p>
+The function at \(f(t,2.475t)\), therefore, is:
+</p>
+
+\begin{equation}
+   f(t,t) = \sin(t) 
+\end{equation}
+
+<p>
+Hence, the hike will also behave as \(f(t) = \sin(t)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6420a9d" class="outline-3">
+<h3 id="org6420a9d"><span class="section-number-3">3.4</span> What's the function for the slope along your hike?</h3>
+<div class="outline-text-3" id="text-3-4">
+\begin{equation}
+    f(t) = \cos(t)
+\end{equation}
+
+
+<div id="org058ba06" class="figure">
+<p><img src="2021-11-05_11-02-50_screenshot.png" alt="2021-11-05_11-02-50_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0282ce9" class="outline-3">
+<h3 id="org0282ce9"><span class="section-number-3">3.5</span> How steep is the sand dune at the point you're standing (in the direction you're hiking)?</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+As per above, the direction in which we are standing is at \(68^{\circ}\). This would represent a direction vector of:
+</p>
+
+\begin{equation}
+   \begin{bmatrix}
+0.374606 \\ 
+0.927183 
+   \end{bmatrix}
+\end{equation}
+
+<p>
+The gradient of the function at point at \((\frac{23\pi}{3}, 37)\):
+</p>
+
+\begin{equation}
+\begin{bmatrix}
+-\frac{1}{2} \\
+0
+\end{bmatrix}
+\end{equation}
+
+<p>
+Therefore, the slope at that point is:
+</p>
+
+\begin{equation}
+   \begin{bmatrix}
+0.374606 \\ 
+0.927183 
+   \end{bmatrix} \cdot \begin{bmatrix}
+-\frac{1}{2} \\
+0
+\end{bmatrix} = -0.1873032967
+\end{equation}
+
+<p>
+This would amount to a slope of \(\arctan(-0.1873032967) \approx -10.609^{\circ}\)
+</p>
 </div>
 </div>
 </div>
