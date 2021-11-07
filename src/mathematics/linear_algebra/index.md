@@ -42,6 +42,11 @@ source:  #index
 	- [[KBx2C14ProofPrez]]
 	- [[KBx2Band2Cproofs]]
 
+#### Midterms
+- [[KBxLinAlgApplicationInterests]]
+- [[KBxLinAlgSelfAssesmentMidterm]]
+- [[KBxLinAlgMidtermReview]]
+
 #### Chapter 3
 - [[KBxChapter3AReading]]
 	%%- [[KBxDimension3b1b]]%%
@@ -49,11 +54,8 @@ source:  #index
 	- [[KBx3A12]]
 		- [[KBx3AproofsInClass]]
 - [[KBxChapter3BReading]]
+- [[KBxLongBlockReviewHW]]
 	
-#### Midterms
-- [[KBxLinAlgApplicationInterests]]
-- [[KBxLinAlgSelfAssesmentMidterm]]
-- [[KBxLinAlgMidtermReview]]
 
 
 

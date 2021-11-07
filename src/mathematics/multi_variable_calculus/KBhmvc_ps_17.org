@@ -10,7 +10,7 @@ Calculate, from the big scary formula, the Taylor series for $e^x$, centered aro
 #+end_quote
 
 \begin{equation}
-   f(x) = e^x = e^2 + e^2(x-2) + \frac{e^2(x-2)^2}{2} + \frac{e^2(x-2)^3}{3} \cdots + \frac{e^2(x-2)^n}{n} 
+   f(x) = e^x = e^2 + e^2(x-2) + \frac{e^2(x-2)^2}{2!} + \frac{e^2(x-2)^3}{3!} \cdots + \frac{e^2(x-2)^n}{n!} 
 \end{equation}
 
 * Diff. in Higher Dimensions
@@ -31,6 +31,7 @@ x_1 x_3 \\
 #+end_quote
 
 \begin{equation}
+f'(x_1,x_2,x_3,x_4) =
 \begin{bmatrix}
 x_3 & 0 & x_1 & 0\\
 0 & 0 & 0 & \sec^2(x_4)\\
@@ -46,17 +47,22 @@ Suppose you have a function $f(x,y); f:\mathbb{R}^2 \to \mathbb{R}^1$. Imagine y
 #+end_quote
 
 *** Slope at point $\theta$
-The slope at point $\theta$ is as follows:
+The slope at angle $\theta$ is as follows:
 
 \begin{equation}
 f_x (x,y) \cos(\theta) + f_y (x,y) \sin(\theta)
 \end{equation}
 
+This simply acts to project the components of the gradient of $f$ upon its axis $x$ and $y$ -- $\cos(\theta)$ and $\sin(\theta)$ respectively -- and sum them into one scalar value.
+
 *** Greatest slope Upwards
+The process to find the angle $\theta$ at which to maximize the slope requires optimizing the above-derived expression. As we know that there exists a $\theta$ such that the slope would be maximized, we could perform this by solving for $\theta$ on the following expression:
 
 \begin{equation}
-max.\ \frac{d}{d\theta}( f_x (x,y) \cos(\theta) + f_y (x,y) \sin(\theta))
+\frac{d}{d\theta}( f_x (x,y) \cos(\theta) + f_y (x,y) \sin(\theta)) = 0
 \end{equation}
+
+Solution of this expression would therefore be the angle at which the slope is maximized.
 
 *** Greatest slope Downwards
 
@@ -66,11 +72,19 @@ Given the max $\theta$ as derived above:
 \pi  - \theta
 \end{equation}
 
+The vector orthogonal to the vector direction representing the maximum slope will represent the smallest slope.
+
 *** Angle of Flat Slope
 
-\begin{equation}
-\theta = \arctan(\frac{-f_x (x,y)}{f_y (x,y)})
-\end{equation}
+To figure the angle at which a flat slope exists, we simply solve for an expression for $\theta$ while setting the above-derived expression for slope-at-angle at $0$ as that would represent a flat slope.
+
+\begin{align}
+& f_x (x,y) \cos(\theta) + f_y (x,y) \sin(\theta) = 0 \\
+& \Rightarrow f_y (x,y) \sin(\theta) = -f_x (x,y) \cos(\theta) \\
+& \Rightarrow \frac{-f_x (x,y)}{f_y (x,y)} = \frac{\sin(\theta)}{\cos(\theta)} \\
+& \Rightarrow \frac{-f_x (x,y)}{f_y (x,y)} = \tan(\theta) \\
+& \Rightarrow \theta = \arctan{\frac{-f_x (x,y)}{f_y (x,y)}}
+\end{align}
 
 * Sand Dunes
 
@@ -92,26 +106,27 @@ At that point, you are at an elevation of $\sin(\frac{23 \pi}{3}) = \frac{-\sqrt
 We first parameterize the slice equation as follows:
 
 \begin{align*}
-y = 2.475t \\
-x = t
+&y = t \\
+&x = \frac{1}{2.475} t
 \end{align*}
 
-The function at $f(t,2.475t)$, therefore, is:
+The function at $f(\frac{t}{2.475},t)$, therefore, is:
 
 \begin{equation}
-   f(t,t) = \sin(t) 
+   f(\frac{t}{2.475},t) = \sin(\frac{t}{2.475}) 
 \end{equation}
 
-Hence, the hike will also behave as $f(t) = \sin(t)$.
+Hence, the hike will also behave as $f(t) = \sin(\frac{t}{2.475})$.
 
 ** What's the function for the slope along your hike?
+The function for the slope along the hike is the single-variable derivative of the parametrized function above; that is:
 
 \begin{equation}
-    f(t) = \cos(t)
+    f'(t) = \frac{d}{dt} \sin(\frac{t}{2.475}) = \frac{1}{2.475} \cos(\frac{t}{2.475})
 \end{equation}
 
-#+DOWNLOADED: screenshot @ 2021-11-05 11:02:50
-[[file:2021-11-05_11-02-50_screenshot.png]]
+#+DOWNLOADED: screenshot @ 2021-11-06 22:00:26
+[[file:2021-11-06_22-00-26_screenshot.png]]
 
 ** How steep is the sand dune at the point you're standing (in the direction you're hiking)?
 As per above, the direction in which we are standing is at $68^{\circ}$. This would represent a direction vector of:

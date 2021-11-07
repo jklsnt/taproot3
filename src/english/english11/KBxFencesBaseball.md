@@ -2,8 +2,7 @@
 title:   Fences and Baseball
 context: eng11
 author:  Huxley Marvit
-date: 2021-10-15
----
+date: 2021-10-15 ---
 
 #flo  #inclass 
 

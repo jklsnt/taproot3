@@ -37,7 +37,7 @@ date: 2021-11-02
 	- calls it, anachronistic, deceptive, distorted.
 
 ```ad-important
-"The idea, for example, that there has always been a pro-big government party and a laissez-faire party, and that presidents can be judged by which they adhere to, is as useless in interpreting the politics of the 1830s as it is for interpreting our own time."
+"The idea, for example, [the assertion?] that there has always been a pro-big government party and a laissez-faire party, and that presidents can be judged by which they adhere to, is as useless in interpreting the politics of the 1830s as it is for interpreting our own time."
 ```
 
 - parties have always blended the small and big gov policies
@@ -80,7 +80,7 @@ END, start of page 6
 
 why we care: argues that coming to terms with jackson is crucial to the understanding of american hist
 
-- historians rate prez at the top, washintion lincoln and FRD all were during the "three great political revolutions that defined the american experience"
+- historians rate prez at the top, washintion lincoln and FDR all were during the "three great political revolutions that defined the american experience"
 	- US rev + constitution, 
 	- civil war, 
 	- new deal

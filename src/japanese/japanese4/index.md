@@ -7,42 +7,7 @@ source: #index
 
 - [[KBxIKindlyDidWritingHomework]]
 - [[KBxJapaneseConvoPrep]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [[KBxIMustYouDontHaveToPrezPrep]]
 
 
 
