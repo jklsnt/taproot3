@@ -10,7 +10,7 @@ date: 2021-11-03
 ***
 
 # Comap Index
-*we win these*
+*we win these.*
 
 
 

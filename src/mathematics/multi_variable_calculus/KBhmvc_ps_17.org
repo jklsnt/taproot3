@@ -62,7 +62,25 @@ The process to find the angle $\theta$ at which to maximize the slope requires o
 \frac{d}{d\theta}( f_x (x,y) \cos(\theta) + f_y (x,y) \sin(\theta)) = 0
 \end{equation}
 
-Solution of this expression would therefore be the angle at which the slope is maximized.
+Solution of this expression would therefore be the angle at which the slope is maximized. Hence, we solve for $\theta$ in the above expression.
+
+\begin{align}
+&\frac{d}{d\theta}( f_x (x,y) \cos(\theta) + f_y (x,y) \sin(\theta)) = 0 \\
+\Rightarrow &-f_x(x,y) \sin(\theta) + f_y (x,y) \cos(\theta) = 0 \\
+\Rightarrow & f_y (x,y) \cos(\theta) = f_x(x,y) \sin(\theta)  \\
+\Rightarrow & \frac{f_y (x,y)}{f_x(x,y)} = \frac{\sin(\theta)}{\tan(\theta)} \\
+\Rightarrow & \frac{f_y (x,y)}{f_x(x,y)} = \tan(\theta) \\
+\Rightarrow & \theta = \arctan(\frac{f_y (x,y)}{f_x(x,y)})
+\end{align}
+
+The unit direction vector representing this slope, therefore, would be:
+
+\begin{equation}
+   \begin{bmatrix} 
+   \frac{f_x(x,y)}{\sqrt{{f_x}^2(x,y)+{f_y}^2(x,y)}} \\
+   \frac{f_y(x,y)}{\sqrt{{f_x}^2(x,y)+{f_y}^2(x,y)}} \\
+   \end{bmatrix} 
+\end{equation}
 
 *** Greatest slope Downwards
 
@@ -73,6 +91,15 @@ Given the max $\theta$ as derived above:
 \end{equation}
 
 The vector orthogonal to the vector direction representing the maximum slope will represent the smallest slope.
+
+The vector representing this expression, therefore, would be
+
+\begin{equation}
+\begin{bmatrix}
+    \cos(\pi - \theta) \\
+    \sin(\pi - \theta) \\
+\end{bmatrix}
+\end{equation}
 
 *** Angle of Flat Slope
 
@@ -117,6 +144,14 @@ The function at $f(\frac{t}{2.475},t)$, therefore, is:
 \end{equation}
 
 Hence, the hike will also behave as $f(t) = \sin(\frac{t}{2.475})$.
+
+This could also be understood as the line at which $y=2.475x$ intersects with $z = \sin(x)$. We could solve for the expression w.r.t. setting $x$ values equal.
+
+\begin{align}
+   y=2.475x \\
+\Rightarrow x = \frac{y}{2.475} \\
+\Rightarrow z = \sin(\frac{y}{2.475})
+\end{align}
 
 ** What's the function for the slope along your hike?
 The function for the slope along the hike is the single-variable derivative of the parametrized function above; that is:
