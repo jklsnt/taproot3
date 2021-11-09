@@ -1,0 +1,86 @@
+#+TITLE: PS#17
+#+AUTHOR: Dylan Wallace
+
+* Differentiation in high dimensions
+** 14)
+\begin{aligned}
+\nabla f &=
+\begin{bmatrix}
+
+x_3 & 0 & x_1 & 0 \\
+0 & 0 & 0 & \frac{1}{\sec^2{(x_2)}} \\
+0 & -\frac{1}{x_2} & 0 & 0 \\
+12(x_1 - 2)^3 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+\end{bmatrix}
+\end{aligned}
+** 23)
+The slope, given a function $f$ at a point $(x, y)$, in the direction $\theta$, is given by
+
+\begin{aligned}
+s(\theta) &= \frac{\partial}{\partial x}f(x, y)\cdot \cos{(\theta)} + \frac{\partial}{\partial y}f(x, y)\cdot \sin{(\theta)} \\
+\end{aligned}
+
+Note that both $\frac{\partial}{\partial x} f(x, y)$ and $\frac{\partial}{\partial y} f(x, y)$ are constants and will be treated as constants, because $x$ and $y$ stay constant.
+
+Given this function, we can find the value of theta that maximizes this function:
+
+$max(s)$ = $\theta$ for which $s'(\theta) = 0$ and $s''(\theta) < 0$
+
+We need to know the derivative of $s(\theta)$ of the first and second degree:
+\begin{aligned}
+s'(\theta) &= -\frac{\partial}{\partial x}f(x, y)\cdot \sin{(\theta)} + \frac{\partial}{\partial y}f(x, y)\cdot \cos{(\theta)} \\
+s''(\theta) &= -\frac{\partial}{\partial x}f(x, y)\cdot \cos{(\theta)} - \frac{\partial}{\partial y}f(x, y)\cdot \sin{(\theta)} \\
+\end{aligned}
+
+We can now set $s'(\theta) = 0$ and solve for $\theta$:
+
+\begin{aligned}
+s'(\theta) &= 0 = -\frac{\partial}{\partial x}f(x, y)\cdot \sin{(\theta)} + \frac{\partial}{\partial y} f(x, y)\cdot \cos{(\theta)} \\
+\frac{\partial}{\partial x}f(x, y) \cdot \sin{(\theta)} &= \frac{\partial}{\partial y}f(x, y)\cdot \cos{(\theta)} \\
+\frac{\sin{(\theta)}}{\cos{(\theta)}} &= \frac{\partial x}{\partial y} \\
+\tan{(\theta)} &= \fac{\partial x}{\partial y} \\
+\theta &= \tan^{-1}{\left(\frac{\partial x}{\partial y}\right)} \\
+\end{aligned}
+Note that $\frac{\partial x}{\partial y}$ is just $\frac{\frac{\partial}{\partial x}f(x, y)}{\frac{\partial}{\partial y}f(x, y)}$.
+
+
+
+* Sand Dunes
+
+Our function for the sand dunes is $f(x, y) = \sin{(x)}$. The oasis city is directly north-northeast, which means that, given that the vector $\hat{i}$ is pointing in the east direction, the angle of north-northeast will be $\theta = \frac{3\pi}{8}$. We also know that we are at the coordinate $(\frac{23\pi}{3}, 32)$.
+Based on this, the gradient of $f(x, y)$ can be given by:
+\begin{equation}
+\nabla f(x, y) &= \begin{bmatrix}\cos{(x)} \\ 0 \end{bmatrix}
+\end{equation}
+The slope of $f(x, y)$ in the direction $\theta$ can be modeled as:
+\begin{equation}
+s(x, y) &= -\sin{\left(\frac{3\pi}{8}\right)}\cos{(x)} \\
+\end{equation}
+We essentially have a derivative of the sand dunes in 3D. We want to turn this into a 2D function (as in, R1 -> R1). We can do this by rewriting the equation as a function of $x$, integrating, and then multiplying by a constant to reflect the additional distance we are covering (because we are moving in a diagonal trajectory).
+\begin{aligned}
+s(x) &= -\sin{\left(\frac{3\pi}{8}\right)}\cos{(x)} \\
+S_{proto}(x) &= -\sin{\left(\frac{3\pi}{8}\right)}\sin{(x)} + C \\
+\end{aligned}
+We know that our initial position (on the sand dunes) was at $(\frac{23\pi}{3}, 32)$, and $f(\frac{23\pi}{3}, 32) &= -\frac{\sqrt{3}}{2}$. That means that $S_{proto}(\frac{23\pi}{3}) = -\frac{\sqrt{3}}{2}$, or it should, ideally. We can tweak $C$ to be that way:
+
+\begin{aligned}
+-\frac{\sqrt{3}}{2} &= -\sin{\left(\frac{3\pi}{8}\right)}\sin{\left(\frac{23\pi}{3}\right)} + C \\
+-\frac{\sqrt{3}}{2} &= -\frac{\sqrt{3}}{2} \cdot -\frac{\sqrt{2 + \sqrt{2}}}{2} + C \\
+C &= -\frac{1}{4}\sqrt{3}\left(2 + \sqrt{2 + \sqrt{2}}\right) \\
+\end{aligned}
+With $S_{proto}(x)$, we are assuming that our initial position in the sand dune is $x=\frac{23\pi}{3}$. Instead, we should model the initial position as being  $x=0$:
+\begin{aligned}
+S_{proto}(x) &= -\sin{\left(\frac{3\pi}{8}\right)}\sin{\left(x - \frac{23\pi}{3}\right)} - \frac{1}{4}\sqrt{3}\left(2 + \sqrt{2 + \sqrt{2}}\right) \\
+\end{aligned}
+We are almost at the end. Currently, $x$, is in the direction of $\hat{i}$. Instead, it should be in the direction of $\theta$. We can change this! We just need to divide $x$ by $(\cos{\theta)}\, \left(= \cos{(\frac{3\pi}{8})}\right)$. Simple as.
+
+\begin{aligned}
+S(x) &= -\sin{\left(\frac{3\pi}{8}\right)}\sin{\left(\frac{1}{\cos{\left(\frac{3\pi}{8}\right)}}\left(x - \frac{23\pi}{3}\right)\right)} - \frac{1}{4}\sqrt{3}\left(2 + \sqrt{2 + \sqrt{2}}\right) \\
+\end{aligned}
+
+This is really complicated and is probably wrong, but it is good enough for me.
+
+
+
+

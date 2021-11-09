@@ -30,7 +30,7 @@ How did the political medium shift due to the emergence of "party politics" shif
 
 
 
-
+when policies become about swaying the masses, how does that change their behavior / policies?
 
 
 

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-04 Thu 13:56 -->
+<!-- 2021-11-08 Mon 15:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Steganography</title>
@@ -220,16 +220,144 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Steganography</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-11-04 Thu 13:56</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Steganography</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-11-08 Mon 15:28</date></div>
 </div>
 <div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#orgb28df71">1. Common Stegnography Techniques</a>
+<ul>
+<li><a href="#org76b7e65">1.1. Lowest Noisy Bit</a></li>
+<li><a href="#org74c6079">1.2. Chaffing and Winnowing</a></li>
+<li><a href="#orge570473">1.3. BPCS Steg</a></li>
+</ul>
+</li>
+<li><a href="#org3fb6430">2. Threat Model Relating to Steganography</a>
+<ul>
+<li><a href="#orgc0b9cba">2.1. Specifically, what are we protecting?</a></li>
+<li><a href="#org82c2524">2.2. Who are we protecting it from, and what are their motivations?</a></li>
+<li><a href="#org51d1aef">2.3. What methods of attack do we prevent? What are types of attacks that we don't prevent?</a></li>
+<li><a href="#org4b3942e">2.4. What are the possible effects of these attacks?</a></li>
+<li><a href="#org37e9aad">2.5. What are the resources of attackers?</a></li>
+<li><a href="#org17e95ea">2.6. What are our resources?</a></li>
+<li><a href="#org7f2dbd5">2.7. What should we do?</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
 <p>
 Steganography ("steg") is the practice of concealing information within other, more innocuous piece of information. Such techniques allow for both a mild form of encryption &#x2014; though, it is necessarily noted that the fundamental concepts of steg, inherently, does not provide adequate encryption &#x2014; and the deniability for having sent a piece of information.
 </p>
 
 <p>
-A majority of the steg systems is centered around the hiding of data inside images because of the fact that subtle sub-pixel alterations could be made. 
+A majority of the steg systems is centered around the hiding of data inside images because of the fact that subtle sub-pixel alterations could be made to an image without influencing the general shape or design of the image. 
 </p>
+
+<p>
+The actual act of mixing data within images is not practically difficult. However, the process of decoding &#x2014; once received &#x2014; which of the mixed assortment of data contained the modified bits is much more difficult. It is additionally difficult to perform the act highlighted above without betraying that an image has indeed be modified.
+</p>
+
+
+<div id="outline-container-orgb28df71" class="outline-2">
+<h2 id="orgb28df71"><span class="section-number-2">1</span> Common Stegnography Techniques</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org76b7e65" class="outline-3">
+<h3 id="org76b7e65"><span class="section-number-3">1.1</span> Lowest Noisy Bit</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+In a reasonably noisy image, one it is possible to identify the lowest bits in the image (black spots) and alter them to encode information. As long as the darkest bits remain dark, one could simply switch their color completely and use, for instance, color distance from black, as the encoded information.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org74c6079" class="outline-3">
+<h3 id="org74c6079"><span class="section-number-3">1.2</span> Chaffing and Winnowing</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Chaffing and Winnowing is a transmission technique that leverages traditional authentication techniques to perform stenography. With every encoded message, an arbitrary amount of miscellaneous bits are intermixed with failing check bits. Via simple async-key encryption, only the intended recipient who would be capable of verifying the check bits would be able to figure the intended bits.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge570473" class="outline-3">
+<h3 id="orge570473"><span class="section-number-3">1.3</span> BPCS Steg</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Leveraging the visual property that large, complexly ragged areas is usually perceived as somewhat uniform (i.e. a beach etc.), BPCS steg identifies and swaps these complex or noisy areas in a specific way &#x2014; mostly by simplifying it into less complex geometries &#x2014; and uses the shades of those to encode information
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3fb6430" class="outline-2">
+<h2 id="org3fb6430"><span class="section-number-2">2</span> Threat Model Relating to Steganography</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgc0b9cba" class="outline-3">
+<h3 id="orgc0b9cba"><span class="section-number-3">2.1</span> Specifically, what are we protecting?</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+We are protecting a generic, trusted public communications system against stenography. Specifically, we are aiming to protect against the main goals of stenography: inserting additional information into existing data and hiding the marks of tampering the existing data. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org82c2524" class="outline-3">
+<h3 id="org82c2524"><span class="section-number-3">2.2</span> Who are we protecting it from, and what are their motivations?</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+We are protecting the data against small groups of activism or corporate espionage: which typically is the use case of stenography. However, we do not aim to protect against nation-states or large-scale attacks as it is only practical to protect against variations of common stenography techniques. Furthermore, nation-states would have further (and likely more "legal") processes in place to gain access to privileged information already.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org51d1aef" class="outline-3">
+<h3 id="org51d1aef"><span class="section-number-3">2.3</span> What methods of attack do we prevent? What are types of attacks that we don't prevent?</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+For this threat model specifically, we aim to protect against most common steganography techniques. Any processes independent of information extraction and obfuscation is out of scope for this threat model. See above for examples of common stenography techniques.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4b3942e" class="outline-3">
+<h3 id="org4b3942e"><span class="section-number-3">2.4</span> What are the possible effects of these attacks?</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+The unauthorized extraction or publication of information is the most major consequence of steganographical attacks. The sender &#x2014; in well-designed steg systems &#x2014; would additionally have the capability to exhibit deniability for leaking the information.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org37e9aad" class="outline-3">
+<h3 id="org37e9aad"><span class="section-number-3">2.5</span> What are the resources of attackers?</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+Current steg systems are mostly open-source and widely available. As such, given we are protecting against common techniques (or variations thereof), we could limit ourselves to the resources that someone without a background in information theory could develop or use in a reasonable amount time. Such systems often come in the form of "binaries" which attackers could simply download and apply; other techniques could be implemented easily manually.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org17e95ea" class="outline-3">
+<h3 id="org17e95ea"><span class="section-number-3">2.6</span> What are our resources?</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+Given we are assuming that the attacker's resources are mostly open source and publically available, we have the ability to reverse-engineer (or similar reverse-engineering tools already exist) to subvert the commonly-existing techniques. The only consideration is to prevent the existence of variants or otherwise manual-implemented "hacks"/changes which subvert typicaly detection systems. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7f2dbd5" class="outline-3">
+<h3 id="org7f2dbd5"><span class="section-number-3">2.7</span> What should we do?</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+It is first important to collect a large sample of stenographical techniques which maybe used by attackers. When information is being passed, check for stenographical signatures that would be typical to the common techniques. Were there potential signs, it is possible to leverage existing reverse-engineering tools to extract the hidden information. Were the technique used be a variant of an existing technique, there likely is only small changes to the data structure which brute-force methods likely will provide an efficient mechanism to discover the changes. 
+</p>
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>

@@ -1,0 +1,35 @@
+#+TITLE: Vector plane equation
+#+AUTHOR: Peter Choi
+#+DATE: 11/8/2021
+
+* Definitions of normal in math
+- normal: perpendicular
+- normalized: to turn something into a single unit
+  - for example: a normalized vetor is the unit vector
+
+* Defining a plane (that passes through the origin) with vectors:
+- you can say that a plane is all of the vectors perpendicular to one vector, and pass through the origin.
+- the "one vector" is called the normal vector
+- the question is, how do you say this in math
+- you can use the fact that if two vectors are perpendicular then their dot product is zero so:
+- so then this should work: $\vec r=\{\vec r: \vec r \cdot \vec n=0, \vec n \in \mathbb{R}^3\}=plane\perp\vec n$ passing through the origin
+  - to show that this works we need to show that all of the vectors in $\vec r$ are in $plane\perp\vec n$ passing through the origin and that all vectors in $plane\perp\vec n$ passing through the origin are in $\vec r$
+  - to show that this is true we can pick a generic vector in $\vec r$ and show thath that same vector is in $plane\perp\vec n$ passing through the origin and vice versa. 
+
+* Defining a plane (that might not pass thourgh the origin) with vectors:
+ - because you want to shift all of the vectors in the plane by $\vec P_o$, then you can subtract $\vec r$ by $\vec P_o$. This gives you:
+   - $\{\vec r:(\vec r-\vec P_o)\cdot \vec n=0,\vec n\in\mathbb{R}^3,\vec P_o \in\mathbb{R}^3\}=plane \perp\vec n$ passing through the point $\vec P_o$
+
+* Converting this definition of a plane into a cartisian definition:
+- First we can defined:
+  - $\vec n = (n_x,n_y,n_z)$
+  - $\vec P_o=(P_{ox}, P_{oy}, P_{oz})$
+  - $\vec r = (x,y,z)$
+- then we can evaluate: $(\vec r-\vec P_o)\cdot \vec n=0$:
+  $\begin{equation*}
+  (\vec r-\vec P_o)\cdot \vec n=0\\
+  \Rightarrow \vec r\cdot\vec n-\vec P_o\cdot\vec n=0\\
+  \Rightarrow \vec r\cdot\vec n=\vec P_o\cdot\vec n\\
+  \Rightarrow xn_x+yn_y+zn_z=P_{ox}n_x+P_{oy}n_y+P_{oz}n_z
+  \end{equation*}$
+- so we see that the cartisian definition of a plane is: $xn_x+yn_y+zn_z=P_{ox}n_x+P_{oy}n_y+P_{oz}n_z$

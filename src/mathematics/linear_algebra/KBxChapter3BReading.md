@@ -106,14 +106,14 @@ title: Fundemental theorem of linear maps
 Suppose $V$ is finite-dimensional $T \in L(V,W).$ Then range $T$ is finite-dimensional and 
 $$\dim V = \dim null \ T + \dim range \ T$$
 ```
+### 
 
 uh..
 
 def of a smaller vec space is one with less a smaller dim
 
 we can say that no linear transformation from a finite-dimensional vec space to a smaller vec space can be injective
-which makes sense! because you need the repeat elements, otherwise it woudnt be smaller.
-
+which makes sense! because you need the repeat elements, otherwise it woudnt be smaller. 
 ```ad-def
 title: A map to a smaller dimensinal space is not injective
 Suppose $V$ and $W$ are finite-dimensional vector spaces such that $\dim V > \dim W$. Then no linear map from $V$ to $W$ is injective.
