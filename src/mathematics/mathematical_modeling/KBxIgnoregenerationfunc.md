@@ -37,10 +37,10 @@ this is because the other stuff will be consistent, and we aren't recommending a
 
 solar irradiance: power per unit area (W/m^2)
 integrated over time gives us: insolation (j/m^2)
+solar irradiance aka solar flux: power per unit area!
 
 TSI: total solar irradiance. when the sun is perpendicular! over a sqaure meter. this is just a constant
 
-solar irradiance aka solar flux: power per unit area!
 
 zenith angle: angle between suns rays and vertical direction (of earth).
 "local normal to earths surface" and sun rays (line between point on earth surface and sun)
@@ -58,3 +58,9 @@ A cos zenith angle is the area of sunlight recieved per area on earth AKA how mu
 ### helpful relations
 
 spherical law of cosines!
+
+
+
+
+Q¯day=S0πd¯d2[h0 sinϕ sin δ+cosϕ cos δ sin h0]
+

@@ -3,6 +3,12 @@
 
 In this problem, we aim to determine functions $f_1$, $f_2$, that represents the velocity and acceleration vectors respectively of a circularly movable reference frame.
 
+Here's the situation:
+
+#+DOWNLOADED: screenshot @ 2021-11-09 14:10:19
+[[file:2021-11-09_14-10-19_screenshot.png]]
+
+
 * Defining First Principles
 We begin by defining $\vec{r}$, the vector representing the radius of the rotating frame, as follows:
 
@@ -53,9 +59,12 @@ We now begin to solve for a function $f_1(\hat{r},\hat{\theta},\dot{r},\dot{\the
 &= r \dot{\theta}\hat{\theta} + \hat{r}\dot{r}
 \end{align}
 
-The derivation of this expression simply follows variable substitution to result in the expression modeling velocity: that the velocity of the point is determined by the radius-scaled velocity in the angle of the object (how fast it spins), plus the velocity of the radius itself (how fast it grows.)
+The derivation of this expression simply follows variable substitution to result in the expression modeling velocity: that the velocity of the point is determined by the radius-scaled velocity in the angle of the object (the velocity that's tangent to the radius), plus the velocity of the radius itself (how fast it grows, the radial velocity.)
 
 * Solving for $f_2 = \vec{a}$. 
+:PROPERTIES:
+:ID:       9F39A1A8-5CEC-48CC-8154-89FA0D1D09BE
+:END:
 We here wish to determine a function $f_2(\hat{r},\hat{\theta},\dot{r},\dot{\theta},\ddot{r},\ddot{\theta},r) = \vec{a} = \frac{d}{dt}\vec{v}$
 
 Deriving the value of this expression, therefore, simply acts as a matter of taking the derivative of the top-derived expression and performing variable substitution for $\dot{\hat{r}}$ and $\dot{\hat{\theta}}$ as determined above as needed. 
@@ -70,14 +79,43 @@ Deriving the value of this expression, therefore, simply acts as a matter of tak
 
 We could now figure that acceleration is actually four terms, scaled by their respective directions ($\hat{\theta}$ and $\hat{r}$). That is:
 
-- $2\dot{r}\dot{\theta}$ is a term representing the coriolis effect: a fictitious force pushing objects as either of radius change or spin speed changes
-- $\ddot{\theta}r$ is a term that models the tangential acceleration: how quickly does the object accelerates at a direction tangent to the spin
-- $\ddot{r}$ is a term that models the acceleration of the radius, as it evidently shows
-- $\dot{\theta}^2 r$ is a term that models the inward acceleration that maintains the shape of the circle. It is $\dot{\theta}^2 r = \omega^2 r$
+- $2\dot{r}\dot{\theta}$ is a term representing the coriolis effect: a fictitious force pushing objects as either of radius change or spin speed changes. See [[id:17445589-484F-4E6F-A7F3-F7DFAC2617DC][More on the Cornelius effect]] 
+- $\ddot{\theta}r$ is a term that models the tangential acceleration: how quickly does the object accelerates at a direction tangent to the spin. The "tangential acceleration." We could see this if $\ddot{r} = \dot{\theta} = 0$.
+- $\ddot{r}$ is a term that models the acceleration of the radius, as it evidently shows. The "radial acceleration". We could see this if $\dot{\theta} = \ddot{\theta} = 0$.
+- $\dot{\theta}^2 r$ is a term that models the inward acceleration that maintains the shape of the circle. It is $\dot{\theta}^2 r = \omega^2 r$, the "centripetal acceleration." We could see this if $\dot{r} = \ddot{r} = \ddot{\theta} = 0$
 
 
+#+DOWNLOADED: screenshot @ 2021-11-09 14:28:46
+[[file:2021-11-09_14-28-46_screenshot.png]]
+
+For a point to stay on the circle, you have to have components of acceleration INTO the circle as well to prevent the side spin from making it fly off. Hence, "tangential acceleration" + "centripetal acceleration."
+
+** More on the Cornelius Acceleration
+:PROPERTIES:
+:ID:       17445589-484F-4E6F-A7F3-F7DFAC2617DC
+:END:
+
+Say you have something like a small circle.
 
 
+#+DOWNLOADED: screenshot @ 2021-11-09 14:39:22
+[[file:2021-11-09_14-39-22_screenshot.png]]
+
+As $r$ increases, we could see that there is more "ground" to cover. Hence, to maintain the same spin, as $r$ increases (i.e. $\exists \dot{r}$), there needs to be a faster acceleration.
+
+*** Pseudo-Forces
+Let's think about centrifugal and centripetal forces.
+
+Say you are in a bit of a car. The car turns. Weee! You are still being accelerated forwards (intertia is in a straight line).
+
+The car has an centripetal acceleration towards the center of the radius of the turn, you feel pressed against the side of the car as the car is actually pushing against your mass' wish to simply move forward.
+
+*** The Corelius Force
+
+#+DOWNLOADED: screenshot @ 2021-11-09 14:58:05
+[[file:2021-11-09_14-58-05_screenshot.png]]
 
 
+Think about this rotation as you. If your center of mass is not on the floor (which usually is the case, when you are standing), you "feet" will be taken away from you in the direction of $\dot{\theta} = \omega$, but your center of mass stays in place. This will make you fall "downwards" or against the direction of $\omega$.
 
+If you are a ball, you will similarly roll "downwards" by the same token.

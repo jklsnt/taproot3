@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-08 Mon 15:40 -->
+<!-- 2021-11-09 Tue 13:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Assignment 10: Vectors Part 3</title>
@@ -261,51 +261,45 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Assignment 10: Vectors Part 3</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-11-08 Mon 15:39</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Assignment 10: Vectors Part 3</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-11-09 Tue 13:26</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc1ceeef">1. vectors at an angle</a>
+<li><a href="#orgf180354">1. vectors at an angle</a>
 <ul>
-<li><a href="#orgdc3396f">1.1. a sketch</a></li>
-<li><a href="#org4d25c0e">1.2. components</a></li>
-<li><a href="#org533f3c8">1.3. dot product</a></li>
+<li><a href="#orgfd63b20">1.1. a sketch</a></li>
+<li><a href="#org0f9590d">1.2. components</a></li>
+<li><a href="#orgada8bd8">1.3. dot product</a></li>
 </ul>
 </li>
-<li><a href="#orgdba7ebe">2. proving expression for component</a></li>
-<li><a href="#org8936cc0">3. expression for projection</a></li>
-<li><a href="#org1606d7f">4. expression for perpendicular</a></li>
-<li><a href="#orgb400e10">5. find angle using dot product</a></li>
-<li><a href="#orgca652b0">6. problems 6-8</a></li>
-<li><a href="#orgaf387e4">7. vector equation that passes through the points</a></li>
+<li><a href="#org7fedd41">2. proving expression for component</a></li>
+<li><a href="#org9fe5a62">3. expression for projection</a></li>
+<li><a href="#orgd6a24c9">4. expression for perpendicular</a></li>
+<li><a href="#org71bde31">5. find angle using dot product</a></li>
+<li><a href="#org9aa5c2e">6. problems 6-8</a></li>
+<li><a href="#org31c18bc">7. vector equation that passes through the points</a></li>
 </ul>
 </div></div>
 </div>
-<div id="outline-container-orgc1ceeef" class="outline-2">
-<h2 id="orgc1ceeef"><span class="section-number-2">1</span> vectors at an angle</h2>
+<div id="outline-container-orgf180354" class="outline-2">
+<h2 id="orgf180354"><span class="section-number-2">1</span> vectors at an angle</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgdc3396f" class="outline-3">
-<h3 id="orgdc3396f"><span class="section-number-3">1.1</span> a sketch</h3>
+<div id="outline-container-orgfd63b20" class="outline-3">
+<h3 id="orgfd63b20"><span class="section-number-3">1.1</span> a sketch</h3>
 <div class="outline-text-3" id="text-1-1">
 \begin{tikzpicture}
     \draw[black, thick, ->] (1, 0) -- (0, 1.73205080757) node[above right] {$\vec{A}$};
     \draw[black, thick, ->] (1, 0) -- (0, 0) node[above left] {$\text{proj}_\vec{B}\vec{A}$};
     \draw[black, thick, ->] (1, 0) -- (7, 0) node[above right] {\( \vec{B} \)};
-    \draw[black, thick, ->] (1, 0) -- (2.598, -1.5) node[above right] {$\text{proj}_\vec{B}\vec{A}$};
+    \draw[black, thick, ->] (1, 0) -- (2.5, -2.598) node[above right] {$\text{proj}_\vec{B}\vec{A}$};
 \end{tikzpicture}
+</div>
+</div>
 
-<p>
-scratch work:
-length: 6 cos 60
-width: -6 cos 60 sin 60
-height: 6 cos<sup>2</sup> 60
-</p>
-</div>
-</div>
-<div id="outline-container-org4d25c0e" class="outline-3">
-<h3 id="org4d25c0e"><span class="section-number-3">1.2</span> components</h3>
+<div id="outline-container-org0f9590d" class="outline-3">
+<h3 id="org0f9590d"><span class="section-number-3">1.2</span> components</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 \[\begin{aligned}
@@ -316,8 +310,8 @@ height: 6 cos<sup>2</sup> 60
 </div>
 </div>
 
-<div id="outline-container-org533f3c8" class="outline-3">
-<h3 id="org533f3c8"><span class="section-number-3">1.3</span> dot product</h3>
+<div id="outline-container-orgada8bd8" class="outline-3">
+<h3 id="orgada8bd8"><span class="section-number-3">1.3</span> dot product</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 \[\begin{aligned}
@@ -329,8 +323,8 @@ height: 6 cos<sup>2</sup> 60
 </div>
 </div>
 
-<div id="outline-container-orgdba7ebe" class="outline-2">
-<h2 id="orgdba7ebe"><span class="section-number-2">2</span> proving expression for component</h2>
+<div id="outline-container-org7fedd41" class="outline-2">
+<h2 id="org7fedd41"><span class="section-number-2">2</span> proving expression for component</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Lets redefine the coordinate axis so that \(\vec{A}\) lies along the x-axis. Then,
@@ -343,8 +337,8 @@ Lets redefine the coordinate axis so that \(\vec{A}\) lies along the x-axis. The
 </div>
 </div>
 
-<div id="outline-container-org8936cc0" class="outline-2">
-<h2 id="org8936cc0"><span class="section-number-2">3</span> expression for projection</h2>
+<div id="outline-container-org9fe5a62" class="outline-2">
+<h2 id="org9fe5a62"><span class="section-number-2">3</span> expression for projection</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The projection is just a vector with length \(\text{comp}_{\vec{A}} \vec{B}\) in the direction of \(\vec A\).
@@ -358,8 +352,8 @@ The projection is just a vector with length \(\text{comp}_{\vec{A}} \vec{B}\) in
 </div>
 </div>
 
-<div id="outline-container-org1606d7f" class="outline-2">
-<h2 id="org1606d7f"><span class="section-number-2">4</span> expression for perpendicular</h2>
+<div id="outline-container-orgd6a24c9" class="outline-2">
+<h2 id="orgd6a24c9"><span class="section-number-2">4</span> expression for perpendicular</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 The part of \(\vec{A}\) that is perpendicular to \(\vec B\) is just the whole vector minus the part that is parallel:
@@ -389,8 +383,8 @@ Checking using the dot product:
 </div>
 
 
-<div id="outline-container-orgb400e10" class="outline-2">
-<h2 id="orgb400e10"><span class="section-number-2">5</span> find angle using dot product</h2>
+<div id="outline-container-org71bde31" class="outline-2">
+<h2 id="org71bde31"><span class="section-number-2">5</span> find angle using dot product</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Well, the dot product already includes the angle, so let's just solve for that
@@ -413,25 +407,17 @@ The angle between:
 </div>
 
 
-<div id="outline-container-orgca652b0" class="outline-2">
-<h2 id="orgca652b0"><span class="section-number-2">6</span> problems 6-8</h2>
+<div id="outline-container-org9aa5c2e" class="outline-2">
+<h2 id="org9aa5c2e"><span class="section-number-2">6</span> problems 6-8</h2>
 <div class="outline-text-2" id="text-6">
-
-<div id="org751da61" class="figure">
-<p><img src="KBe21math520retAssign10p6.JPG" alt="KBe21math520retAssign10p6.JPG" />
-</p>
-</div>
-
-
-<div id="orga225831" class="figure">
-<p><img src="KBe21math520retAssign10p7.JPG" alt="KBe21math520retAssign10p7.JPG" />
+<p>
+See other files in the Canvas comments.
 </p>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgaf387e4" class="outline-2">
-<h2 id="orgaf387e4"><span class="section-number-2">7</span> vector equation that passes through the points</h2>
+<div id="outline-container-org31c18bc" class="outline-2">
+<h2 id="org31c18bc"><span class="section-number-2">7</span> vector equation that passes through the points</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 The vectors are 
