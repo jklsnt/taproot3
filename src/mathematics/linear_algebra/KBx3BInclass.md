@@ -81,6 +81,23 @@ things that don't get sent to zero induce a basis of the range?
 
 [to watch later.](https://www.youtube.com/watch?v=GWgj5rKBHOk)
 
+*** 
+*part 2!*
+
+homogenous system of equations means the constant terms are all 0
+
+therefore letting everything be 0 is always a solution
+if it has another solution then it can't be injective
+
+more variables than equations means u cant be injective
+
+under-determined system, and over-determined system
+
+injective and surjective -> bijective
+
+
+
+
 
 
 

@@ -47,6 +47,7 @@ source: #index
 
 # Magnetism
 - [[KBhPHYS201MagneticSolids]]
+- [[KBxMagnetism]]
 
 # Nuclear Physics
 - [[KBhPHYS201NuclearPhysics]] 

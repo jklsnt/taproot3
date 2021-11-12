@@ -136,8 +136,45 @@ theoretical daily average insolation at the top of the atmosphere as a function 
 
 
 
-
-
-
 ![[Pasted image 20211110172859.png]]
 equator, summer solstice
+
+
+
+
+
+$\theta_s$
+
+
+### Writing!
+Assumption: the earths orbit is circular
+
+- {JUSTIFICATION}
+	- Given our assumption that the total generation over a year is equal to our total consumption over a year, all that needs to be determined is the distribution of this generation. We can then scale this distribution to match our yearly consumption.
+
+We can model this generated power distribution over a day based on latitude and time of year.
+
+
+Given our house attributes as inputs, 
+
+- We can model the generation function over a day as such
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

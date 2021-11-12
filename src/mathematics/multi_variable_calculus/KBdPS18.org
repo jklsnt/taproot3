@@ -1,0 +1,93 @@
+#+TITLE: PS#18
+#+AUTHOR: Dylan Wallace
+
+* Tangent to equation
+We get an equation of which we need to find the tangent plane at $(1, 1, 3)$. The equation is as follows:
+
+\begin{equation}
+x^2 - 3y^2 + z^2 = 7
+\end{equation}
+
+Based on this, we can isolate $z^2$ and then take the square root (keeping in mind that $(1, 1, 3)$ is a solution to the equation) in order to create a function $z(x, y)$:
+
+\begin{aligned}
+z^2 &= -x^2 + 3y^2 + 7 \\
+z &= \pm \sqrt{-x^2 + 3y^2 + 7}\\
+3 &= \sqrt{-(1) + 3(1) + 7} \\
+z(x, y) &= \sqrt{-x^2 + 3y^2 + 7} \\
+\end{aligned}
+
+It turns out that we didn't really need to think about the sign so much because we know that $3$ is positive.
+We can now take the gradient of $z(x, y)$.
+
+\begin{equation}
+\nabla z(x, y) &= \begin{bmatrix}-\frac{x}{\sqrt{-x^2 + 3y^2 + 7}} \\ \frac{3y}{\sqrt{-x^2 + 3y^2 + 7}}\end{bmatrix}
+\end{equation}
+
+We can plug in $(1, 1)$ to get the derivative "vector":
+
+\begin{aligned}
+\nabla z(1, 1) &= \begin{bmatrix}-\frac{(1)}{\sqrt{-(1)^2 + 3(1)^2 + 7}} \\ \frac{3(1)}{\sqrt{-(1)^2 + 3(1)^2 + 7}}\end{bmatrix} \\
+&= \begin{bmatrix}-\frac{1}{3} \\ 1\end{bmatrix}
+\end{aligned}
+Given these vectors in the directions $\hat{i}$ and $\hat{j}$, we can find the plane that is spanned by these two points (and through the point $(1, 1, 3)$.
+
+The equation for the plane is given by
+
+\begin{equation}
+-\frac{\partial z}{\partial x}x - \frac{\partial z}{\partial y}y + z + \frac{\partial z}{\partial x}P_x + \frac{\partial z}{\partial y}P_y - P_z = 0
+\end{equation}
+
+Where the point "anchoring" the plane is given by $(P_x, P_y, P_z)$.
+This gives us the following equation:
+
+\begin{aligned}
+-\left(-\frac{1}{3}\right)x - (1)y + z + \left(-\frac{1}{3}\right)(1) + (1)(1) - (3) = 0 \\
+\frac{1}{3}x - y + z - \frac{7}{3} = 0 \\
+\end{aligned}
+
+
+* 1D
+
+We are given a function $f(x) = x^4 - 9x^2$.
+Taking the derivative, we get the following:
+
+\begin{equation}
+f'(x) &= 4x^3 - 18x \\
+\end{equation}
+
+We can factor this to get the following:
+
+\begin{aligned}
+f'(x) &= 4(x)(x + \frac{3}{\sqrt{2}})(x - \frac{3}{\sqrt{2}}) \\
+\end{aligned}
+We know that there are either maxima or minima at $x=0, \frac{3}{\sqrt{2}}, -\frac{3}{\sqrt{2}}$.
+We can go further, and see which are maxima and which are minima by taking the second derivative:
+
+\begin{aligned}
+f''(x) &= 12x^2 - 18 \\
+\end{aligned}
+
+At $x=0$, $f''(x) = -18$, so we know that $f(x)$ at $x = 0$ is a maximum.
+Similarly, at $x=\frac{3}{\sqrt{2}$ and $x = -\frac{3}{\sqrt{2}}$, $f''(x) &= 48$, so we know that $f(x)$ at $x = \frac{3}{\sqrt{2}}, -\frac{3}{\sqrt{2}}$ is a minimum.
+
+We can do the same with the function $f(x) = x^5 - x^4 - 6x^3$. This time I won't explain the steps.
+
+\begin{aligned}
+f'(x) &= 5x^4 - 4x^3 - 18x^2 \\
+&= (x^2)\left(x - \frac{2 - \sqrt{94}}{5}\right)\left(x + \frac{2 + \sqrt{94}}{5}\right) \\
+x &= 0, \frac{2 - \sqrt{94}}{5}, \frac{2 + \sqrt{94}}{5} \\
+f''(x) &= 20x^3 - 12x^2 - 36x \\
+f''(0) &= 0 \\
+f''(\frac{2 - \sqrt{94}}{5}) &= -45.931... \\
+f''(\frac{2 + \sqrt{94}}{5}) &= 106.092... \\
+\end{aligned}
+
+Therefore:
+$x=0$ is an inflection point
+$x = \frac{2 - \sqrt{94}}{5}$ is a maximum
+$x = \frac{2 + \sqrt{94}}{5}$ is a minimum
+
+
+:)
+
