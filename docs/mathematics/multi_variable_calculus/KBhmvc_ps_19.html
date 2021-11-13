@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-11-12 Fri 23:10 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MVC PS#19</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC PS#19</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-11-12 Fri 23:10</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhHomeworkIndex.html'>MVC Homework Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#orge73fb2f">1. Roofs Number 2</a>
+<ul>
+<li><a href="#org6ac00d7">1.1. Slope in the middle in various directions</a>
+<ul>
+<li><a href="#orgece00da">1.1.1. Facing directly down</a></li>
+<li><a href="#orgd66c99d">1.1.2. Facing towards one of the shorter sides</a></li>
+<li><a href="#org855870e">1.1.3. Facing towards the highest point</a></li>
+<li><a href="#orga2fd4fc">1.1.4. Facing an Arbitrary Slope</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orga1acee2">2. High Dimensional Taylor Series</a>
+<ul>
+<li><a href="#org1e49e79">2.1. Constant Term</a></li>
+<li><a href="#org5546357">2.2. \(xx\) term</a></li>
+<li><a href="#org7f751be">2.3. \(yy\) term</a></li>
+</ul>
+</li>
+<li><a href="#org7d24828">3. Optimization without Optimization</a></li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-orge73fb2f" class="outline-2">
+<h2 id="orge73fb2f"><span class="section-number-2">1</span> Roofs Number 2</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Based on the setup of the problem, we could derive the following figure.
+</p>
+
+
+<div id="org391b7ca" class="figure">
+<p><img src="2021-11-12_21-35-05_screenshot.png" alt="2021-11-12_21-35-05_screenshot.png" />
+</p>
+</div>
+
+
+<p>
+Based on the labelled axis, and therefore the derived distances, we could pick the following three points to describe this plane:
+</p>
+
+\begin{equation}
+\begin{cases}
+(0,0,10) \\
+(0,\sqrt{20^2-5^2},15) \\
+(\sqrt{30^2-10^2},\frac{5\sqrt{20^2-12^2}}{6},10) \\
+\end{cases}
+\end{equation}
+
+<p>
+Most of the points are explanatory by observing the supplements drawn above, though the last point requires some additional attention. To deduct the second point &#x2014; a point with different \(x\) and \(y\) values than the first, though with the same \(z\) value &#x2014; we needed to leverage similar triangles on the "right" edge of the building.
+</p>
+
+<p>
+We draw a chord on the right edge (as drawn in the figure above), setting its \(z\) value (i.e. length) to be \(10\). Then, we leverage the similar triangle between it and the larger right triangle that forms the whole side to result in the following ratio for its bottom-length (\(y\) value):
+</p>
+
+\begin{equation}
+    \frac{small\ triangle}{large\ triangle} = \frac{10}{12} = \frac{x}{\sqrt{20^2-12^2}}
+\end{equation}
+
+<p>
+We therefore apply the cross-product, solve, and simplify to result in the \(y\) value of the third point.
+</p>
+
+<p>
+Finally, we calculate the slope of the roof. Along the \(yz\) direction, the slope is \(\frac{5}{\sqrt{20^2 - 5^2}}\) by leveraging the first of the two points in the set. Along the \(xy\) direction, the slope is \(\frac{5\sqrt{20^2-12^2}}{6\sqrt{30^2-10^2}}\). Furthermore, the y-intercept of the function (value at \((0,y,0)\)) is \(y=10\) as indicated clearly by the figure.
+</p>
+
+<p>
+Hence, the following would therefore be the equation for the roof
+</p>
+
+\begin{equation}
+    z = x\frac{5\sqrt{20^2-12^2}}{6\sqrt{30^2-10^2}} + y\frac{5}{\sqrt{20^2 - 5^2}} + 10 =  \frac{40}{3\sqrt{30^2-10^2}} + y\frac{5}{\sqrt{20^2 - 5^2}} + 10 
+\end{equation}
+</div>
+
+<div id="outline-container-org6ac00d7" class="outline-3">
+<h3 id="org6ac00d7"><span class="section-number-3">1.1</span> Slope in the middle in various directions</h3>
+<div class="outline-text-3" id="text-1-1">
+<blockquote>
+<p>
+Then, standing on the roof, directly in the middle
+</p>
+</blockquote>
+
+<p>
+As the function we are modeling is a plane, the gradient is the same in all directions. As such the gradient of the function is as follows:
+</p>
+
+\begin{equation}
+\begin{bmatrix}
+\frac{40}{3\sqrt{30^2-10^2}} \\
+\frac{5}{\sqrt{20^2-5^2}} \\
+\end{bmatrix}
+\end{equation}
+</div>
+
+<div id="outline-container-orgece00da" class="outline-4">
+<h4 id="orgece00da"><span class="section-number-4">1.1.1</span> Facing directly down</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+Facing directly down (towards the front), we dot the direction vector down versus the gradient deducted above.
+</p>
+
+\begin{equation}
+\begin{bmatrix}
+\frac{40}{3\sqrt{30^2-10^2}} \\
+\frac{5}{\sqrt{20^2-5^2}} \\ \end{bmatrix}
+\cdot \begin{bmatrix}
+0 \\ -1
+\end{bmatrix} = \frac{-5}{\sqrt{20^2-5^2}}
+\end{equation}
+
+<p>
+The slope at this direction is therefore \(\frac{-5}{\sqrt{20^2-5^2}} \approx -14.47^{\circ}\) 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd66c99d" class="outline-4">
+<h4 id="orgd66c99d"><span class="section-number-4">1.1.2</span> Facing towards one of the shorter sides</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+Facing towards the "left" on the above figure (i.e. the short side shared by \(10\) and \(15\)), we again dot the direction vector with the gradient above.
+</p>
+
+\begin{equation}
+\begin{bmatrix}
+\frac{40}{3\sqrt{30^2-10^2}} \\
+\frac{5}{\sqrt{20^2-5^2}} \\ \end{bmatrix}
+\cdot \begin{bmatrix}
+-1 \\ 0
+\end{bmatrix} = \frac{-40}{3\sqrt{30^2-10^2}}
+\end{equation}
+
+<p>
+The slope at this direction is therefore \(\frac{-40}{3\sqrt{30^2-10^2}} \approx -25.24^{\circ}\) 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org855870e" class="outline-4">
+<h4 id="org855870e"><span class="section-number-4">1.1.3</span> Facing towards the highest point</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+To figure this result, we first need to deduct the points between the center and the highest point. The highest point is located at \((0,16)\), as demonstrated on the figure. This is simply the projection of that point to the flat plane deducted using trigonometry.
+</p>
+
+<p>
+The location that we are standing on (the "middle") is simply half of the side lengths. That is: \((\frac{\sqrt{30^2-10^2}}{2}, 8)\). 
+</p>
+
+<p>
+We then proceed to find the vector pointing from the center to the high point by subtracting the two coordinates and normalizing.
+</p>
+
+<p>
+The unnormalized vector is:
+</p>
+
+\begin{equation}
+    \begin{bmatrix}
+\frac{-\sqrt{30^2-10^2}}{2} \\
+8
+    \end{bmatrix}=\begin{bmatrix}
+-10\sqrt{2} \\
+8
+    \end{bmatrix}
+\end{equation}
+
+<p>
+Its magnitude is: \(\sqrt{264} = 2\sqrt{66}\).
+</p>
+
+<p>
+Therefore, normalizing the vector, we result in:
+</p>
+
+\begin{equation}
+   \begin{bmatrix} 
+\frac{-5}{\sqrt{33}} \\
+\frac{4}{\sqrt{66}} \\
+   \end{bmatrix} 
+\end{equation}
+
+<p>
+as the direction vector.
+</p>
+
+<p>
+We finally, then, dot the original gradient with this vector to result in the incline.
+</p>
+
+\begin{equation}
+\begin{bmatrix}
+\frac{40}{3\sqrt{30^2-10^2}} \\
+\frac{5}{\sqrt{20^2-5^2}} \\ \end{bmatrix}
+\cdot \begin{bmatrix} 
+\frac{-5}{\sqrt{33}} \\
+\frac{4}{\sqrt{66}} \\
+   \end{bmatrix} = \frac{4}{3\sqrt{110}}-\frac{10}{3\sqrt{66}}
+\end{equation}
+
+<p>
+The slope at this direction is therefore \(\frac{4}{3\sqrt{110}}-\frac{10}{3\sqrt{66}} = 15.82^{\circ}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga2fd4fc" class="outline-4">
+<h4 id="orga2fd4fc"><span class="section-number-4">1.1.4</span> Facing an Arbitrary Slope</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<p>
+We set the desired slope to be \(\theta^{\circ}\). Therefore, the desired slope value we wish to achieve would be \(\tan(\theta)\).
+</p>
+
+<p>
+Meaning, we wish for the following equality
+</p>
+
+\begin{equation}
+\begin{bmatrix}
+\frac{40}{3\sqrt{30^2-10^2}} \\
+\frac{5}{\sqrt{20^2-5^2}} \\ \end{bmatrix}
+\cdot \begin{bmatrix} 
+\cos(\phi) \\
+\sin(\phi) \\
+   \end{bmatrix} = \frac{40}{3\sqrt{30^2-10^2}}\cos(\phi) + \frac{5}{\sqrt{20^2-5^2}}\sin(\phi) = \tan{\theta}
+\end{equation}
+
+<p>
+Therefore, taking the second part of this expression and solving a statement for \(\phi\) for \(\theta\):
+</p>
+
+\begin{align}
+    \frac{40}{3\sqrt{30^2-10^2}}\cos(\phi) + \frac{5}{\sqrt{20^2-5^2}}\sin(\phi) = \tan{\theta}
+\end{align}
+
+<p>
+For ease of computation, we set:
+</p>
+
+\begin{equation}
+   \begin{cases} 
+A=    \frac{40}{3\sqrt{30^2-10^2}}\\ 
+B= \frac{5}{\sqrt{20^2-5^2}}\\
+C = \tan{\theta}
+   \end{cases} 
+\end{equation}
+
+<p>
+This expression could therefore be simplified to:
+</p>
+
+\begin{align}
+   &A\cos(\phi) + B\sin(\phi) = C\\
+\Rightarrow\, &\frac{A\cos(\phi) + B\sin(\phi)}{\sqrt{A^2+B^2}} = \frac{C}{\sqrt{A^2+B^2}} \\
+\Rightarrow\, &\frac{A\cos(\phi)}{\sqrt{A^2+B^2}} + \frac{B\sin(\phi)}{\sqrt{A^2+B^2}} = \frac{C}{\sqrt{A^2+B^2}}
+\end{align}
+
+<p>
+Based on the following trig identity:
+</p>
+
+\begin{equation}
+   \sin(X+Y) = \sin(X)\cos(Y) + \sin(Y)\cos(X)
+\end{equation}
+
+<p>
+And setting \(Y = \phi\), \(\sin(X) = \frac{A}{\sqrt{A^2+B^2}}\), \(\cos(X) = \frac{B}{\sqrt{A^2+B^2}}\):
+</p>
+
+\begin{equation}
+    \sin(X+Y) = \frac{A\cos(\phi)}{\sqrt{A^2+B^2}} + \frac{B\sin(\phi)}{\sqrt{A^2+B^2}} = \frac{C}{\sqrt{A^2+B^2}}
+\end{equation}
+
+<p>
+Solving for \(Y\), therefore:
+</p>
+
+\begin{align}
+    &\sin(X+Y) = \frac{A\cos(\phi)}{\sqrt{A^2+B^2}} + \frac{B\sin(\phi)}{\sqrt{A^2+B^2}} = \frac{C}{\sqrt{A^2+B^2}}\\
+\Rightarrow &\, X+Y = \arcsin(\frac{C}{\sqrt{A^2+B^2}}) \\
+\Rightarrow &\, Y = \arcsin(\frac{C}{\sqrt{A^2+B^2}}) - X \\
+\Rightarrow &\, Y = \phi = \arcsin(\frac{C}{\sqrt{A^2+B^2}}) - \arcsin(\frac{A}{\sqrt{A^2+B^2}})
+\end{align}
+
+<p>
+For the resulting expression, we then answer the two sub-questions:
+</p>
+
+<ul class="org-ul">
+<li>For \(\theta = 9^{\circ}\), we must turn to angle of \(\approx -44.15^{\circ}\).</li>
+<li>For \(\theta = 10^{\circ}\), we must turn to angle of \(\approx -42.14^{\circ}\).</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga1acee2" class="outline-2">
+<h2 id="orga1acee2"><span class="section-number-2">2</span> High Dimensional Taylor Series</h2>
+<div class="outline-text-2" id="text-2">
+<blockquote>
+<p>
+Do a 2D Taylor Series!
+</p>
+
+\begin{align}
+    f: \mathbb{R}^2 \to \mathbb{R}^1 \\
+    f(x,y) = \cos(x)\cos(3y)
+\end{align}
+</blockquote>
+
+<p>
+This function is shaped similar to an slightly upscaled (by \(3\), on the y-direction) egg-carton. 
+</p>
+
+<p>
+We first figure all the necessary first, second, and third order derivatives of the function \(f\) in anticipation of growing the Taylor series.
+</p>
+
+\begin{align}
+f_x &= -\sin(x)\cos(3y)\\
+f_y &= -3\sin(3y)\cos(x) \\
+f_{xx} &= -\cos(x)\cos(3y) \\
+f_{yy} &= -9\cos(3y)\cos(x) \\
+f_{xy} &= 3\sin(3y)\sin(x) \\
+f_{xxx} &= \sin(x)\cos(3y) \\
+f_{yyy} &= 27\sin(3y)\cos(x) \\
+f_{xxy} &= 3\cos(x)\sin(3y) \\
+f_{yyx} &= 9\cos(3y)\sin(x)
+\end{align}
+
+<p>
+We then calculate the value of these expressions at the point \((0,0)\), at which our Taylor series will be centered.
+</p>
+
+\begin{align}
+f_x(0,0) &= 0\\
+f_y(0,0) &= 0 \\
+f_{xx}(0,0) &= -1 \\
+f_{yy}(0,0) &= -9 \\
+f_{xy}(0,0) &= 0 \\
+f_{xxx}(0,0) &= 0 \\
+f_{yyy}(0,0) &= 0 \\
+f_{xxy}(0,0) &= 0 \\
+f_{yyx}(0,0) &= 0
+\end{align}
+
+<p>
+Therefore, up to the third degree, there is only three non-zero terms of the Taylor series: the constant term, the $xx$-term, the $yy$-term.
+</p>
+
+<p>
+We will now proceed to grow the Taylor series based on the non-zero terms as deducted above.
+</p>
+</div>
+
+<div id="outline-container-org1e49e79" class="outline-3">
+<h3 id="org1e49e79"><span class="section-number-3">2.1</span> Constant Term</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+\(f(x,y) \approx P(x,y) = f(0,0) = 1\) 
+</p>
+
+
+<div id="orgaac7588" class="figure">
+<p><img src="2021-11-12_14-15-51_screenshot.png" alt="2021-11-12_14-15-51_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5546357" class="outline-3">
+<h3 id="org5546357"><span class="section-number-3">2.2</span> \(xx\) term</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+\(f(x,y) \approx P(x,y) = f(0,0) + \frac{f_xx(0,0)(x-0)^2}{2!} = 1 - \frac{x^2}{2}\) 
+</p>
+
+
+
+<div id="org2fb73f5" class="figure">
+<p><img src="2021-11-12_14-17-39_screenshot.png" alt="2021-11-12_14-17-39_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7f751be" class="outline-3">
+<h3 id="org7f751be"><span class="section-number-3">2.3</span> \(yy\) term</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+\(f(x,y) \approx P(x,y) = f(0,0) + \frac{f_xx(0,0)(x-0)^2}{2!} + \frac{f_yy(0,0)(y-0)^2}{2!} = 1 - \frac{x^2}{2} - \frac{9y^2}{2}\) 
+</p>
+
+
+<div id="org29151cb" class="figure">
+<p><img src="2021-11-12_14-20-07_screenshot.png" alt="2021-11-12_14-20-07_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7d24828" class="outline-2">
+<h2 id="org7d24828"><span class="section-number-2">3</span> Optimization without Optimization</h2>
+<div class="outline-text-2" id="text-3">
+<blockquote>
+<p>
+Consider the function:
+</p>
+
+\begin{align}
+    g: \mathbb{R}^2 \to \mathbb{R}^1 \\
+    g(x,y) = x^2 - 6xy + y^2
+\end{align}
+
+<p>
+and the point on that function given by the \((x,y)\) coordinates \((0,0)\) and the corresponding third coordinate. At \((0,0)\), both the partial derivative of this function are zero (work this out), and both the second partial derivatives are positive (work this out.) So that point is a minimum, right?
+</p>
+
+<p>
+Convince me.
+</p>
+</blockquote>
+
+
+<div id="org4774f6f" class="figure">
+<p><img src="2021-11-12_14-00-26_screenshot.png" alt="2021-11-12_14-00-26_screenshot.png" />
+</p>
+</div>
+
+<p>
+We first take the derivatives of this function to verify the gradient values as prescribed.
+</p>
+
+\begin{equation}
+    g'(x,y) = \begin{bmatrix}
+2x - 6y \\
+-6x + 2y \\
+\end{bmatrix}
+\end{equation}
+
+<p>
+At point \((0,0)\), therefore, we could claim that the gradient is as follows:
+</p>
+
+\begin{equation}
+   g'(0,0) = \begin{bmatrix}
+0 \\
+0
+\end{bmatrix}
+\end{equation}
+
+<p>
+And furthermore, we take the second partial derivative of the above expression.
+</p>
+
+\begin{align}
+g_{xx} &= 2 \\
+g_{xy} &= -6 \\
+g_{yy} &= 2 
+\end{align}
+
+<p>
+In this expression, the second derivative in the same direction as that of the slope's component is positive: meaning that in any scenario in which we travel <i>along</i> the axis the value of the function will grow. However, if we travel in an alternate direction, the slope will decrease. Therefore, the point could be a minima along the axis as all travel in along an axis (or components thereof) would grow instead of decrease.
+</p>
+
+<p>
+However, when viewing the point diagonally, it would be instead a maxima, as travel along those axes would result in a negative second-order difference.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

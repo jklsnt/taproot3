@@ -48,6 +48,7 @@ source: #index
 # Magnetism
 - [[KBhPHYS201MagneticSolids]]
 - [[KBxMagnetism]]
+- [[KBxWhyIsEarthMagnetizedAndVenusNot]]
 
 # Nuclear Physics
 - [[KBhPHYS201NuclearPhysics]] 

@@ -1,0 +1,133 @@
+#+TITLE: Assignment 11: MVC vectors part 4
+* vector equation for a point and normal
+  
+  \[\begin{aligned}
+  \vec{r} : ( \vec{r} - \vec{P_0}) \cdot \vec{n} = 0\\
+  \end{aligned}\]
+* normal vectors
+  In cartesian form:
+  
+  \[\begin{aligned}
+  xn_x - p_x n_x + y n_y -p_y n_y + z n_z - p_z n_z &= 0\\
+  xn_x + y n_y + z n_z &=  p_x n_x +p_y n_y + p_z n_z \\
+  xn_x + y n_y + z n_z &= \vec{p} \cdot \vec{n}
+  \end{aligned}\]
+
+  Thus, the normal vector to the equation 
+  \[\begin{aligned}
+  Ax + By + Cz = D
+  \end{aligned}\]
+
+  is 
+  \[\begin{aligned}
+  \vec{n} = \langle A, B, C \rangle 
+  \end{aligned}\]
+
+
+* verify that $\vec n \cdot \vec{r} = D$ is a plane
+  
+  \[\begin{aligned}
+  \vec{n} \cdot \vec{r} &= D\\
+  n_x x + n_y y + n_z z &= D
+  \end{aligned}\]
+
+  Thus, $\vec{n}$ is a vector normal to the plane, and $D = \vec{P_0} \cdot \vec{n}$ where $\vec P_0$ is the offset from the origin.
+
+* find the distance from the origin
+
+  The distance vector is some multiple of the normal (because the distance is perpendicular to the plane)
+  
+  Thus, we just need to find the magnitude of some $\lambda \vec{n}$ such that $\lambda \vec{n}$ lies in the plane. In other words, find 
+  \[\begin{aligned}
+  \lambda \vec{n} : (\lambda \vec{n} - \vec{p_0}) \cdot \vec{n}
+  \end{aligned}\]
+
+  We can solve for $\lambda$ like so:
+  
+  \[\begin{aligned}
+  \lambda \vec{n} \cdot \vec{n} - \vec{p_0} \cdot \vec{n} &= 0\\
+  \lambda \vec{n} \cdot \vec{n} &= \vec{p_0} \cdot \vec{n}\\
+  \lambda  &= \frac{\vec{p_0} \cdot \vec{n}}{\vec{n} \cdot \vec{n}}\\
+  \lambda  &= \frac{\vec{p_0} \cdot \vec{n}}{ | \vec{n} | ^2}\\
+  \end{aligned}\]
+
+  Finally, we need to multiply by the magnitude of $\vec{n}$:
+
+  \[\begin{aligned}
+  d &= \lambda | \vec{n} |\\
+  &= \frac{\vec{p_0} \cdot \vec{n}}{|\vec{n}|}\\
+  \end{aligned}\]
+
+  In the original equation, $4 = \vec{n} \cdot \vec{P_0}$ so we can just divide it by the magnitude of the normal
+  \[\begin{aligned}
+  d = \frac{4}{|\vec{n}|} = \frac{4}{\sqrt{1+4+9}} = \frac{4}{\sqrt{14}}
+  \end{aligned}\]
+
+* the distance
+  Let $\vec P$ be a vector that represents the displacement of the plane from the origin. We are looking for the distance from the plane to 
+  \[\begin{aligned}
+  \vec{P_0} = \langle x_0, y_0, z_0 \rangle
+  \end{aligned}\]
+  which is some other, arbitrary point.
+
+  We know the equation for the distance from the origin to the plane is the component of the displacement of the plane $\vec P$ on the normal vector $\vec n$
+  \[\begin{aligned}
+  d_{\text{origin}} &= \text{comp}_{\vec{n}} \vec{P} = \frac{\vec{P} \cdot \vec{n}}{|\vec{n}|}
+  \end{aligned}\]
+
+  We can take the same approach by looking for the projection of the displacement of the point to the plane onto the normal. We know $\vec P_0 - \vec{P}$ is the displacement from the point to the plane because $\vec P + (\vec{P_0} - \vec{P}) = \vec{P_0}$
+  
+  \[\begin{aligned}
+  d &= \text{comp}_{\vec{n}} \vec{P_0} - \vec{P}\\
+  &= \frac{\vec{n} \cdot ( \vec{P_0} - \vec{P} ) }{|\vec{n}|}\\
+  &= \frac{\vec{n} \cdot \vec{P_0} - \vec{n} \cdot \vec{P} }{|\vec{n}|}\\
+  &= \frac{(n_x P_{0x} + n_y P_{0y} + n_z P_{0z}) - D }{|\vec{n}|}\\
+  &= \frac{A x_0 + B y_0 + C z_0 - D }{|\vec{n}|}\\
+  \end{aligned}\]
+
+  
+* show the product rule for vector functions
+  
+  \[\begin{aligned}
+  \frac{d}{dt}  \left( \vec{A}(t) \cdot \vec{B}(t) \right)  &= \frac{d}{dt} \left( \vec{A}(t)_x \vec{B}(t)_x + \vec{A}(t)_y \vec{B}(t)_y + \vec{A}(t)_z \vec{B}(t)_z \right)  \\
+  &= \frac{d}{dt} \left(\vec{A}(t)_x \vec{B}(t)_x \right) + \frac{d}{dt} \left(\vec{A}(t)_y \vec{B}(t)_y \right) +
+  \frac{d}{dt} \left(\vec{A}(t)_z \vec{B}(t)_z \right)\\
+  &= \left(\vec{A}'(t)_x \vec{B}(t)_x + \vec{A}(t)_x \vec{B}'(t)_x\right) + \left(\vec{A}'(t)_y \vec{B}(t)_y + \vec{A}(t)_y \vec{B}'(t)_y\right) + \left(\vec{A}'(t)_z \vec{B}(t)_z \vec{A}(t)_z \vec{B}'(t)_z\right)\\
+  &=  \left( \vec{A}'(t)_x \vec{B}(t)_x + \vec{A}'(t)_y \vec{B}(t)_y + \vec{A}'(t)_z \vec{B}(t)_z \right) + \left( \vec{A}(t)_x \vec{B}'(t)_x + \vec{A}(t)_y \vec{B}'(t)_y + \vec{A}(t)_z \vec{B}'(t)_z\right)\\
+  &= \frac{d}{dt} \vec{A}(t) \cdot \vec{B}(t) + \vec{A} \cdot \frac{d}{dt} \vec{B}(t)
+  \end{aligned}\]
+
+  
+* a space curve with a time parameter
+  Let $\vec{r} = \vec{r}(t)$ 
+  
+  \[\begin{aligned}
+  \frac{d\vec{r}}{dt} &= \frac{d}{dt} ( |\vec{r}| \hat{r} )\\
+  &=  \left( \frac{d}{dt} |\vec{r}| \right)   \hat{r} + |\vec{r}| \left( \frac{d}{dt}  \hat{r}  \right)&& \quad \text{quotient rule}\\
+  \end{aligned}\]
+
+  Now, we have all the parts that we need
+  
+  \[\begin{aligned}
+ \frac{d\vec{r}}{dt} &= \vec{r}\ '(t) \\
+\frac{1}{|\vec{r}(t)|} \vec{r}(t) &= \hat{r}\\
+\frac{d}{dt} \left| \vec{r}(t) \right| &= \frac{d}{dt} |\vec{r}|
+  \end{aligned}\]
+
+
+  So we have an expression for $\vec{r}\ '(t)$, and we want to know what it's equal to when we dot it with $\hat{r}$. Hopefully, we get $\frac{d}{dt} |\vec{r}(t)|$
+  
+  \[\begin{aligned}
+  \hat{r} \cdot \frac{d}{dt} \vec{r}(t) &=  \left( \frac{d}{dt} |\vec{r}| \right)  \hat{r} \cdot \hat{r} + |\vec{r}| \left( \frac{d}{dt} \hat{r} \right)  \hat{r} \\
+  &= \frac{d}{dt} |\vec{r}| (1) + |\vec{r}| 0
+  \end{aligned}\]
+  We know that $\hat{r} \cdot \frac{d \hat{r}}{dt} = 0$ because any change in $\hat r$ must maintain $|\hat r| = 1$. Thus, there must be no component in $\frac{d \hat r}{dt}$ in the same direction of $\hat r$.
+
+  Thus,
+  
+  \[\begin{aligned}
+  \hat{r} \cdot \frac{d}{dt} \vec{r} &= \frac{d}{dt} |\vec{r}|\\
+  \end{aligned}\]
+
+
+  
