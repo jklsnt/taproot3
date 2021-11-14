@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-11-13 Sat 22:44 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Assignment 11</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Peter Choi" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Assignment 11</h1> <h2 class="subtitle"></h2> <span class="author">Peter Choi</span> <span class="date">2021-11-13 Sat 22:44</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org362806c">1. Problem 1</a></li>
+<li><a href="#org7043891">2. Problem 2</a></li>
+<li><a href="#org0959b49">3. Problem 3</a></li>
+<li><a href="#org9c96496">4. Problem 4</a></li>
+<li><a href="#org0077a81">5. Problem 5</a>
+<ul>
+<li><a href="#org5d63379">5.1. Finding length of \(\vec P_o\)</a></li>
+<li><a href="#org895abe2">5.2. Finding the length of \(\vec P_1\)</a></li>
+<li><a href="#org15d5e00">5.3. Subtratcting the two:</a></li>
+</ul>
+</li>
+<li><a href="#orga9b0c76">6. Problem 6</a></li>
+<li><a href="#org5727063">7. Problem 7</a></li>
+<li><a href="#org9ed78e3">8. Problem 8</a></li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-org362806c" class="outline-2">
+<h2 id="org362806c"><span class="section-number-2">1</span> Problem 1</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The plane that passes through the vector \(\vec P_o\) and is perpenducilar to \(\vec n\) is defined by:
+</p>
+
+<p>
+\[\{\vec r: (\vec r -\vec P_o)\cdot \vec n = 0,\vec P_o\in\mathbb{R},\vec n\in\mathbb{R}\}\]
+</p>
+
+<p>
+This works because:
+</p>
+<ul class="org-ul">
+<li>The \((\vec r-\vec P_o)\) term is similar to when you subtract some value from x (in a cartisian plane) to shift it over to the right. In a senes, here you are subtracting the postition vector from every single vector on the plane defined by \(\vec r\), thus shifting the plane to \(\vec P_o\).</li>
+<li>Setting the dot product between the term above and \(\vec n\) to 0, ensures that the plane is perpendicular to the normal vector \(\vec n\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7043891" class="outline-2">
+<h2 id="org7043891"><span class="section-number-2">2</span> Problem 2</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+First we can defined:
+</p>
+<ul class="org-ul">
+<li>\(\vec n = (n_x,n_y,n_z)\)</li>
+<li>\(\vec P_o=(P_{ox}, P_{oy}, P_{oz})\)</li>
+<li>\(\vec r = (x,y,z)\)</li>
+</ul>
+
+<p>
+Then we can evaluate: \((\vec r-\vec P_o)\cdot \vec n=0\):
+</p>
+
+<p>
+\(\begin{equation*}
+  (\vec r-\vec P_o)\cdot \vec n=0\\
+  \Rightarrow \vec r\cdot\vec n-\vec P_o\cdot\vec n=0\\
+  \Rightarrow \vec r\cdot\vec n=\vec P_o\cdot\vec n\\
+  \Rightarrow xn_x+yn_y+zn_z=P_{ox}n_x+P_{oy}n_y+P_{oz}n_z
+  \end{equation*}\)
+</p>
+
+<p>
+so we see that the cartisian definition of a plane is: \(xn_x+yn_y+zn_z=P_{ox}n_x+P_{oy}n_y+P_{oz}n_z\)
+</p>
+
+<p>
+From this we see:
+</p>
+<ul class="org-ul">
+<li>\(A=n_x\)</li>
+<li>\(B=n_y\)</li>
+<li>\(C=n_z\)</li>
+<li>\(D=P_{ox}n_x+P_{oy}n_y+P_{oz}n_z\)</li>
+</ul>
+
+<p>
+Therefore, the normal vector is \((A,B,C)\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0959b49" class="outline-2">
+<h2 id="org0959b49"><span class="section-number-2">3</span> Problem 3</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+First we can define:
+</p>
+<ul class="org-ul">
+<li>\(\hat n =\frac{\vec n}{|\vec n|} = \langle \frac{n_x}{|\vec n|},\frac{n_y}{|\vec n|},\frac{n_z}{|\vec n|}\rangle\)</li>
+<li>\(\vec r = \langle x,y,z\rangle\)</li>
+</ul>
+
+<p>
+Then we can evaluate the equation:
+</p>
+
+<p>
+\(\begin{equation*}
+\hat n \cdot \vec r=D\\
+\Rightarrow \langle \frac{n_x}{|\vec n|},\frac{n_y}{|\vec n|},\frac{n_z}{|\vec n|}\rangle\cdot\langle x,y,z\rangle=D\\
+\Rightarrow \frac{n_x}{|\vec n|}x+\frac{n_y}{|\vec n|}y+\frac{n_z}{|\vec n|}z=D
+\end{equation*}\)
+</p>
+
+<p>
+This is the equation for a cartisian definition of a plane, with \(\hat n\) representing the normal vector and \(D\) representing \(\frac{\vec P_o\cdot \vec n}{|\vec n|}\) which is the distance from the origin to the plane.
+</p>
+
+<p>
+The value of \(D\) is found by starting with the orginal vector definition of a plane:
+</p>
+
+<p>
+\(\begin{equation*}
+(\vec r-\vec P_o)\cdot\vec n= 0\\
+\Rightarrow\vec r\cdot\vec n-\vec P_o\cdot\vec n=0\\
+\Rightarrow\vec r\cdot\vec n = \vec P_o\cdot\vec n\\
+\Rightarrow\frac{\vec r\cdot \vec n}{|\vec n|}=\frac{\vec P_o\cdot\vec n}{|\vec n|}\\
+\Rightarrow\vec r\cdot\hat n=\frac{\vec P_o\cdot\vec n}{|\vec n|}\\
+\Rightarrow D = \frac{\vec P_o\cdot\vec n}{|\vec n|}
+\end{equatino*}\)
+</p>
+
+<p>
+Looking at problem 4 we see that this is the distance from the plane to the origin.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9c96496" class="outline-2">
+<h2 id="org9c96496"><span class="section-number-2">4</span> Problem 4</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+We can start with this drawing:
+</p>
+
+<p>
+IMAGE
+</p>
+
+<p>
+In the image we see that there are multple "point \(\vec P_o\)'s" that go from point \(P_o\) to the plane. We are trying to solve for \(d\) which is the shortest distance from the plane to the point, it can also be defined as the length of the \(\vec P_o\) that is perpendiclar to the plane. Because all of the \(\vec P_o\)'s come from the same point and \(\vec n\) is perpendicular to the plane we can find \(d\) by finding \(comp_{\hat n}\vec P_o\):
+</p>
+
+<p>
+\(\begin{equation*}
+d = comp_{\hat n}\vec P_o = 1\cdot|\vec P_o|\cos(\theta)\\
+= |\hat n||\vec P_o|\cos(\theta)\\
+=\vec P_o\cdot\hat n\\
+=\frac{\vec P_o\cdot\vec n}{|\vec n|}
+\end{equation*}\)
+</p>
+
+<p>
+From problem 2 we know that \(\vec P_o\cdot \vec n=4\) and that \(\vec n=\langle 1,2,3\rangle\) and thus:
+</p>
+
+<p>
+\[d=\frac{4}{\sqrt{14}}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0077a81" class="outline-2">
+<h2 id="org0077a81"><span class="section-number-2">5</span> Problem 5</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+We can do something similar to what was done in the problem above in which the \(\hat n\) component of \(\vec P_o\) can be used as the distance \(d\), but because \(\vec P_o\) is center at the origin and the plane may not pass through the origin, the postion vector of the plane, we'll call it \(\vec P_1\), has to be subtracted from \(\vec P_o\). To find the length of \(\vec P_1\) we can do what we did in problem 4.
+</p>
+
+<p>
+We'll break this problem into three parts: 1) finding the length of \(\vec P_o\) parallel to \(\hat n\) 2) findng the distance of \(\vec P_1\) parallel to \(\hat n\) 3) subtracting the two:
+</p>
+</div>
+
+<div id="outline-container-org5d63379" class="outline-3">
+<h3 id="org5d63379"><span class="section-number-3">5.1</span> Finding length of \(\vec P_o\)</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+From problem 2 we know that \(\vec n=\langle A, B, C\rangle\). From problem 4 we know that we can find the length of \(\vec P_o\) parallel to \(\hat n\) by:
+</p>
+
+<p>
+\(\begin{equation*}
+\vec P_o\cdot\hat n=\frac{\vec P_o\cdot\vec n}{|\vec n|}\\
+=\frac{\langle x_o,y_o,z_o \rangle\cdot\langle A,B,C \rangle}{|\langle A,B,C \rangle|}\\
+= \frac{Ax_o+By_o+Cz_o}{\sqrt{A^2+B^2+C^2}}
+\end{equation*}\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org895abe2" class="outline-3">
+<h3 id="org895abe2"><span class="section-number-3">5.2</span> Finding the length of \(\vec P_1\)</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+From problem 2 we know that \(\vec n=\langle A, B, C\rangle\). From problem 4 we know that we can find the length of \(\vec P_1\) parallel to \(\hat n\) by:
+</p>
+
+<p>
+\[\vec P_1\cdot\hat n=\frac{\vec P_1\cdot\vec n}{|\vec n|}\]
+</p>
+
+<p>
+From problem 2 we know that the dot product between the position vector and the noraml vector is \(D\). Thus:
+</p>
+
+<p>
+\(\begin{equation*}
+\text{length of} \vec P_1=\vec P_1\cdot \hat n\\
+=\frac{\vec P_1\cdot\vec n}{|\vec n|}\\
+=\frac{D}{|\vec n|}\\
+=\frac{D}{|\langle A,B,C\rangle|}\\
+=\frac{D}{\sqrt{A^2+B^2+C^2}}
+\end{equation*}\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org15d5e00" class="outline-3">
+<h3 id="org15d5e00"><span class="section-number-3">5.3</span> Subtratcting the two:</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+\(\begin{equation*}
+d=\vec P_o-\vec P_1\\
+=\frac{Ax_o+By_o+Cz_o}{\sqrt{A^2+B^2+C^2}}-\frac{D}{\sqrt{A^2+B^2+C^2}}\\
+=\frac{Ax_o+By_o+Cz_o-D}{\sqrt{A^2+B^2+C^2}}
+\end{equation*}\)
+</p>
+
+<p>
+Lastly, you would take the absolute value of the numorator because distances are positive (and the denominator is already positive due to the squaring of A, B, and C). Thus:
+</p>
+
+<p>
+\[d=\frac{|Ax_o+By_o+Cz_o-D|}{\sqrt{A^2+B^2+C^2}}\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga9b0c76" class="outline-2">
+<h2 id="orga9b0c76"><span class="section-number-2">6</span> Problem 6</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+First we can define:
+</p>
+<ul class="org-ul">
+<li>\(\vec A(t)=A_x(t)\hat i+A_y(t)\hat j+A_z(t)\hat k\)</li>
+<li>\(\vec B(t)=B_x(t)\hat i+B_y(t)\hat j+B_z(t)\hat k\)</li>
+</ul>
+
+<p>
+Thus:
+</p>
+
+<p>
+\(\begin{equation*}
+\frac{d}{dt}(\vec A(t)\cdot\vec B(t))=\frac{d}{dt}(A_x(t)B_x(t)+A_y(t)B_y(t)+A_z(t)B_z(t))\\
+=\frac{d}{dt}(A_x(t)B_x(t))+\frac{d}{dt}(A_y(t)B_y(t))+\frac{d}{dt}(A_z(t)B_z(t))\\
+=A_x'(t)B_x(t)+A_x(t)B_x'(t)+A_y'(t)B_y(t)+A_y(t)B_y'(t)+A_z'(t)B_z(t)+A_z(t)B_z'(t)\\
+= (A_x'(t)B_x(t)+A_y'(t)B_y(t)+A_z'(t)B_z(t))+(A_x(t)B_y'(t)+A_y(t)B_y'(t)+A_z(t)+B_z'(t))\\
+=\vec A'(t)\cdot \vec B(t)+\vec A(t)\cdot\vec B'(t)\\
+=\frac{d\vec A(t)}{dt}\cdot \vec B+\vec A\cdot\frac{d\vec B(t)}{dt}
+\end{equation*}\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5727063" class="outline-2">
+<h2 id="org5727063"><span class="section-number-2">7</span> Problem 7</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+First we can define:
+</p>
+<ul class="org-ul">
+<li>\(\vec r=|\vec r|\hat r\)
+<ul class="org-ul">
+<li>this works because the unit vector \(\hat r = \frac{\vec r}{|\vec r|}\), and so you can multiply both sides by \(|\vec r|\)</li>
+</ul></li>
+</ul>
+
+<p>
+We can start by finding the derivative of \(\vec r\) with the definition above:
+</p>
+
+<p>
+\(\begin{equation*}
+\frac{d}{dt}\vec r(t)=\frac{d}{dt}(|\vec r(t)|\hat r(t))\\
+=(\frac{d}{dt}|\vec r(t)|)\hat r(t)+|\vec r(t)|(\frac{d}{dt}\hat r(t))
+\end{equation*}\)
+</p>
+
+
+<p>
+We can take this equation and solve for \(\frac{d}{dt}|\vec r(t)|\):
+</p>
+
+<p>
+\(\begin{equation*}
+\frac{d}{dt}\vec r(t)=(\frac{d}{dt}|\vec r(t)|)\hat r(t)+|\vec r(t)|(\frac{d}{dt}\hat r(t))\\
+\Rightarrow \frac{d}{dt}\vec r(t)\cdot \hat r(t)=(\frac{d}{dt}|\vec r(t)|)\hat r(t)\cdot\hat r(t)+ |\vec r(t)|(\frac{d}{dt}\hat r(t))\cdot \hat r(t)\\
+\Rightarrow \frac{d}{dt}\vec r(t)\cdot \frac{\vec r(t)}{|\vec r(t)|}=(\frac{d}{dt}|\vec r(t)|)\cdot 1+|\vec r(t)|\cdot 0\\
+\Rightarrow  \frac{1}{|\vec r(t)|}\vec r(t)\cdot \vec r'(t)= \frac{d}{dt}|\vec r(t)|
+\end{equation*}\)
+</p>
+
+<p>
+This proof relied on the fact that the dot product between a vector and it's derivative is zero. This is true because:
+</p>
+
+<p>
+\(\vec r(t)\cdot\vec r(t)=|\vec r(t)|^2=C\), where \(C\) is some constant.
+</p>
+
+<p>
+If we differentiate this then we get:
+</p>
+
+<p>
+\(\begin{equation*}
+\frac{d}{dt}\vec r(t)^2=\frac{d}{dt}C\\
+\Rightarrow 2\vec r(t)\cdot \vec r'(t)=0\\
+\Rightarrow \vec r(t)\cdot\vec r'(t)=0
+\end{equation*}\)
+</p>
+
+<p>
+The chain rule appiles to vectors (show in a different assignment.
+</p>
+
+<p>
+Note: for this problem, I got Albert's help with the initial proof, and then I used this source to help with proving that the dot product between a vector and it's derivative is zero: <a href="https://www.reddit.com/r/askmath/comments/aticz8/why_is_a_vector_of_constant_magnitude_always/?scrlybrkr=5f034675">https://www.reddit.com/r/askmath/comments/aticz8/why_is_a_vector_of_constant_magnitude_always/?scrlybrkr=5f034675</a>. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9ed78e3" class="outline-2">
+<h2 id="org9ed78e3"><span class="section-number-2">8</span> Problem 8</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+If we start with the vector equation for a 3D line we get:
+</p>
+
+<p>
+\[(x,y,z)=(x_o,y_o,z_o)+t(a,b,c)=(x_o+ta,y_o+tb,z_o+tc)\]
+</p>
+
+<p>
+Where \((x_o,y_o,z_o)\) is the position vector of the line (the line passes through this point), and \((a,b,c)\) is the direction in which the line is traveling.
+</p>
+
+<p>
+We can take the x, y and z components of the vector form and convert them into the parametric form of the equation of a 3D line:
+</p>
+
+<p>
+\(\begin{equation*}
+(x,y,z)=(x_o+ta,y_o+tb,z_o+tc)\\
+\Rightarrow x=x_o+ta\\
+\Rightarrow y=y_o+tb\\
+\Rightarrow z=z_o+tc
+\end{equation*}\)
+</p>
+
+<p>
+Lastly, we can solve each of the parameterized components for t and set them equal to each other to get the symmetric form:
+</p>
+
+<p>
+\(\begin{equation*}
+\Rightarrow t=\frac{x-x_o}{a}\\
+\Rightarrow t=\frac{y-y_o}{b}\\
+\Rightarrow t=\frac{z-z_o}{c}\\
+\Rightarrow \frac{x-x_o}{a}=\frac{y-y_o}{b}=\frac{z-z_o}{c}
+\end{equation*}\)
+</p>
+
+<p>
+With this in mind we can look at the given symmetric equation:
+</p>
+
+<p>
+\(\begin{equation*}
+\frac{x-2}{2}=\frac{y-1}{3}=2-z\\
+\Rightarrow \frac{x-2}{2}=\frac{y-1}{3}=\frac{z-2}{-1}
+\end{equation*}\)
+</p>
+
+<p>
+From this we see that the position vector is \((2,1,2)\) and the direction of the line is the same direction as  \((2,3,-1)\)
+</p>
+
+<p>
+Note: for this problem I used this source to see what the different forms of the equation for a 3D line: but I proved that the vector form equaled the symmetric form myself: <a href="https://math.stackexchange.com/questions/404440/what-is-the-equation-for-a-3d-line">https://math.stackexchange.com/questions/404440/what-is-the-equation-for-a-3d-line</a>. 
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Peter Choi" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Assignment 11</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        'displayAlign': 'center',
+        'displayIndent': '0em',
+        'extensions': ['tex2jax.js'],
+        'tex2jax': {
+        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
+        'processEscapes': true
+        },
+        'HTML-CSS': { scale: 100,
+                        linebreaks: { automatic: 'false' },
+                        webFont: 'TeX'
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: 'false' },
+              font: 'TeX'},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: 'AMS'},
+               MultLineWidth: '85%',
+               TagSide: 'right',
+               TagIndent: '.8em'
+             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Assignment 11</h1></div><div class="metamble"><span><span>Written by </span><span>Peter Choi</span></span></div><div class="notebody"><div><section></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="problem-1"><span class="firn-headline-text"><span>Problem 1</span></span></h1><section><p><span>The plane that passes through the vector $\vec P_o$ and is perpenducilar to $\vec n$ is defined by:</span></p><p><span>$$\{\vec r: (\vec r -\vec P_o)\cdot \vec n = 0,\vec P_o\in\mathbb{R},\vec n\in\mathbb{R}\}$$</span></p><p><span>This works because:</span></p><ul><li><p><span>The $(\vec r-\vec P_o)$ term is similar to when you subtract some value from x (in a cartisian plane) to shift it over to the right. In a senes, here you are subtracting the postition vector from every single vector on the plane defined by $\vec r$, thus shifting the plane to $\vec P_o$.</span></p></li><li><p><span>Setting the dot product between the term above and $\vec n$ to 0, ensures that the plane is perpendicular to the normal vector $\vec n$</span></p></li></ul></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="problem-2"><span class="firn-headline-text"><span>Problem 2</span></span></h1><section><p><span>First we can defined:</span></p><ul><li><p><span>$\vec n = (n_x,n_y,n_z)$</span></p></li><li><p><span>$\vec P_o=(P_{ox}, P_{oy}, P_{oz})$</span></p></li><li><p><span>$\vec r = (x,y,z)$</span></p></li></ul><p><span>Then we can evaluate: $(\vec r-\vec P_o)\cdot \vec n=0$:</span></p><p><span>$\begin{equation*}
+  (\vec r-\vec P_o)\cdot \vec n=0\\
+  \Rightarrow \vec r\cdot\vec n-\vec P_o\cdot\vec n=0\\
+  \Rightarrow \vec r\cdot\vec n=\vec P_o\cdot\vec n\\
+  \Rightarrow xn_x+yn_y+zn_z=P_{ox}n_x+P_{oy}n_y+P_{oz}n_z
+  \end{equation*}$</span></p><p><span>so we see that the cartisian definition of a plane is: $xn_x+yn_y+zn_z=P_{ox}n_x+P_{oy}n_y+P_{oz}n_z$</span></p><p><span>From this we see:</span></p><ul><li><p><span>$A=n_x$</span></p></li><li><p><span>$B=n_y$</span></p></li><li><p><span>$C=n_z$</span></p></li><li><p><span>$D=P_{ox}n_x+P_{oy}n_y+P_{oz}n_z$</span></p></li></ul><p><span>Therefore, the normal vector is $(A,B,C)$</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="problem-3"><span class="firn-headline-text"><span>Problem 3</span></span></h1><section><p><span>First we can define:</span></p><ul><li><p><span>$\hat n =\frac{\vec n}{|\vec n|} = \langle \frac{n_x}{|\vec n|},\frac{n_y}{|\vec n|},\frac{n_z}{|\vec n|}\rangle$</span></p></li><li><p><span>$\vec r = \langle x,y,z\rangle$</span></p></li></ul><p><span>Then we can evaluate the equation:</span></p><p><span>$\begin{equation*}
+\hat n \cdot \vec r=D\\
+\Rightarrow \langle \frac{n_x}{|\vec n|},\frac{n_y}{|\vec n|},\frac{n_z}{|\vec n|}\rangle\cdot\langle x,y,z\rangle=D\\
+\Rightarrow \frac{n_x}{|\vec n|}x+\frac{n_y}{|\vec n|}y+\frac{n_z}{|\vec n|}z=D
+\end{equation*}$</span></p><p><span>This is the equation for a cartisian definition of a plane, with $\hat n$ representing the normal vector and $D$ representing $\frac{\vec P_o\cdot \vec n}{|\vec n|}$ which is the distance from the origin to the plane.</span></p><p><span>The value of $D$ is found by starting with the orginal vector definition of a plane:</span></p><p><span>$\begin{equation*}
+(\vec r-\vec P_o)\cdot\vec n= 0\\
+\Rightarrow\vec r\cdot\vec n-\vec P_o\cdot\vec n=0\\
+\Rightarrow\vec r\cdot\vec n = \vec P_o\cdot\vec n\\
+\Rightarrow\frac{\vec r\cdot \vec n}{|\vec n|}=\frac{\vec P_o\cdot\vec n}{|\vec n|}\\
+\Rightarrow\vec r\cdot\hat n=\frac{\vec P_o\cdot\vec n}{|\vec n|}\\
+\Rightarrow D = \frac{\vec P_o\cdot\vec n}{|\vec n|}
+\end{equatino*}$</span></p><p><span>Looking at problem 4 we see that this is the distance from the plane to the origin.</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="problem-4"><span class="firn-headline-text"><span>Problem 4</span></span></h1><section><p><span>We can start with this drawing:</span></p><p><span>IMAGE</span></p><p><span>In the image we see that there are multple "point $\vec P_o$'s" that go from point $P_o$ to the plane. We are trying to solve for $d$ which is the shortest distance from the plane to the point, it can also be defined as the length of the $\vec P_o$ that is perpendiclar to the plane. Because all of the $\vec P_o$'s come from the same point and $\vec n$ is perpendicular to the plane we can find $d$ by finding $comp_{\hat n}\vec P_o$:</span></p><p><span>$\begin{equation*}
+d = comp_{\hat n}\vec P_o = 1\cdot|\vec P_o|\cos(\theta)\\
+= |\hat n||\vec P_o|\cos(\theta)\\
+=\vec P_o\cdot\hat n\\
+=\frac{\vec P_o\cdot\vec n}{|\vec n|}
+\end{equation*}$</span></p><p><span>From problem 2 we know that $\vec P_o\cdot \vec n=4$ and that $\vec n=\langle 1,2,3\rangle$ and thus:</span></p><p><span>$$d=\frac{4}{\sqrt{14}}$$</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="problem-5"><span class="firn-headline-text"><span>Problem 5</span></span></h1><section><p><span>We can do something similar to what was done in the problem above in which the $\hat n$ component of $\vec P_o$ can be used as the distance $d$, but because $\vec P_o$ is center at the origin and the plane may not pass through the origin, the postion vector of the plane, we'll call it $\vec P_1$, has to be subtracted from $\vec P_o$. To find the length of $\vec P_1$ we can do what we did in problem 4.</span></p><p><span>We'll break this problem into three parts: 1) finding the length of $\vec P_o$ parallel to $\hat n$ 2) findng the distance of $\vec P_1$ parallel to $\hat n$ 3) subtracting the two:</span></p></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="finding-length-of-$\vec-p_o$"><span class="firn-headline-text"><span>Finding length of $\vec P_o$</span></span></h2><section><p><span>From problem 2 we know that $\vec n=\langle A, B, C\rangle$. From problem 4 we know that we can find the length of $\vec P_o$ parallel to $\hat n$ by:</span></p><p><span>$\begin{equation*}
+\vec P_o\cdot\hat n=\frac{\vec P_o\cdot\vec n}{|\vec n|}\\
+=\frac{\langle x_o,y_o,z_o \rangle\cdot\langle A,B,C \rangle}{|\langle A,B,C \rangle|}\\
+= \frac{Ax_o+By_o+Cz_o}{\sqrt{A^2+B^2+C^2}}
+\end{equation*}$</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="finding-the-length-of-$\vec-p_1$"><span class="firn-headline-text"><span>Finding the length of $\vec P_1$</span></span></h2><section><p><span>From problem 2 we know that $\vec n=\langle A, B, C\rangle$. From problem 4 we know that we can find the length of $\vec P_1$ parallel to $\hat n$ by:</span></p><p><span>$$\vec P_1\cdot\hat n=\frac{\vec P_1\cdot\vec n}{|\vec n|}$$</span></p><p><span>From problem 2 we know that the dot product between the position vector and the noraml vector is $D$. Thus:</span></p><p><span>$\begin{equation*}
+\text{length of} \vec P_1=\vec P_1\cdot \hat n\\
+=\frac{\vec P_1\cdot\vec n}{|\vec n|}\\
+=\frac{D}{|\vec n|}\\
+=\frac{D}{|\langle A,B,C\rangle|}\\
+=\frac{D}{\sqrt{A^2+B^2+C^2}}
+\end{equation*}$</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="subtratcting-the-two:"><span class="firn-headline-text"><span>Subtratcting the two:</span></span></h2><section><p><span>$\begin{equation*}
+d=\vec P_o-\vec P_1\\
+=\frac{Ax_o+By_o+Cz_o}{\sqrt{A^2+B^2+C^2}}-\frac{D}{\sqrt{A^2+B^2+C^2}}\\
+=\frac{Ax_o+By_o+Cz_o-D}{\sqrt{A^2+B^2+C^2}}
+\end{equation*}$</span></p><p><span>Lastly, you would take the absolute value of the numorator because distances are positive (and the denominator is already positive due to the squaring of A, B, and C). Thus:</span></p><p><span>$$d=\frac{|Ax_o+By_o+Cz_o-D|}{\sqrt{A^2+B^2+C^2}}$$</span></p></section></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="problem-6"><span class="firn-headline-text"><span>Problem 6</span></span></h1><section><p><span>First we can define:</span></p><ul><li><p><span>$\vec A(t)=A_x(t)\hat i+A_y(t)\hat j+A_z(t)\hat k$</span></p></li><li><p><span>$\vec B(t)=B_x(t)\hat i+B_y(t)\hat j+B_z(t)\hat k$</span></p></li></ul><p><span>Thus:</span></p><p><span>$\begin{equation*}
+\frac{d}{dt}(\vec A(t)\cdot\vec B(t))=\frac{d}{dt}(A_x(t)B_x(t)+A_y(t)B_y(t)+A_z(t)B_z(t))\\
+=\frac{d}{dt}(A_x(t)B_x(t))+\frac{d}{dt}(A_y(t)B_y(t))+\frac{d}{dt}(A_z(t)B_z(t))\\
+=A_x'(t)B_x(t)+A_x(t)B_x'(t)+A_y'(t)B_y(t)+A_y(t)B_y'(t)+A_z'(t)B_z(t)+A_z(t)B_z'(t)\\
+= (A_x'(t)B_x(t)+A_y'(t)B_y(t)+A_z'(t)B_z(t))+(A_x(t)B_y'(t)+A_y(t)B_y'(t)+A_z(t)+B_z'(t))\\
+=\vec A'(t)\cdot \vec B(t)+\vec A(t)\cdot\vec B'(t)\\
+=\frac{d\vec A(t)}{dt}\cdot \vec B+\vec A\cdot\frac{d\vec B(t)}{dt}
+\end{equation*}$</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="problem-7"><span class="firn-headline-text"><span>Problem 7</span></span></h1><section><p><span>First we can define:</span></p><ul><li><p><span>$\vec r=|\vec r|\hat r$</span></p><ul><li><p><span>this works because the unit vector $\hat r = \frac{\vec r}{|\vec r|}$, and so you can multiply both sides by $|\vec r|$</span></p></li></ul></li></ul><p><span>We can start by finding the derivative of $\vec r$ with the definition above:</span></p><p><span>$\begin{equation*}
+\frac{d}{dt}\vec r(t)=\frac{d}{dt}(|\vec r(t)|\hat r(t))\\
+=(\frac{d}{dt}|\vec r(t)|)\hat r(t)+|\vec r(t)|(\frac{d}{dt}\hat r(t))
+\end{equation*}$</span></p><p><span>We can take this equation and solve for $\frac{d}{dt}|\vec r(t)|$:</span></p><p><span>$\begin{equation*}
+\frac{d}{dt}\vec r(t)=(\frac{d}{dt}|\vec r(t)|)\hat r(t)+|\vec r(t)|(\frac{d}{dt}\hat r(t))\\
+\Rightarrow \frac{d}{dt}\vec r(t)\cdot \hat r(t)=(\frac{d}{dt}|\vec r(t)|)\hat r(t)\cdot\hat r(t)+ |\vec r(t)|(\frac{d}{dt}\hat r(t))\cdot \hat r(t)\\
+\Rightarrow \frac{d}{dt}\vec r(t)\cdot \frac{\vec r(t)}{|\vec r(t)|}=(\frac{d}{dt}|\vec r(t)|)\cdot 1+|\vec r(t)|\cdot 0\\
+\Rightarrow  \frac{1}{|\vec r(t)|}\vec r(t)\cdot \vec r'(t)= \frac{d}{dt}|\vec r(t)|
+\end{equation*}$</span></p><p><span>This proof relied on the fact that the dot product between a vector and it's derivative is zero. This is true because:</span></p><p><span>$\vec r(t)\cdot\vec r(t)=|\vec r(t)|^2=C$, where $C$ is some constant.</span></p><p><span>If we differentiate this then we get:</span></p><p><span>$\begin{equation*}
+\frac{d}{dt}\vec r(t)^2=\frac{d}{dt}C\\
+\Rightarrow 2\vec r(t)\cdot \vec r'(t)=0\\
+\Rightarrow \vec r(t)\cdot\vec r'(t)=0
+\end{equation*}$</span></p><p><span>The chain rule appiles to vectors (show in a different assignment.</span></p><p><span>Note: for this problem, I got Albert's help with the initial proof, and then I used this source to help with proving that the dot product between a vector and it's derivative is zero: https://www.reddit.com/r/askmath/comments/aticz8/why_is_a_vector_of_constant_magnitude_always/?scrlybrkr=5f034675.</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="problem-8"><span class="firn-headline-text"><span>Problem 8</span></span></h1><section><p><span>If we start with the vector equation for a 3D line we get:</span></p><p><span>$$(x,y,z)=(x_o,y_o,z_o)+t(a,b,c)=(x_o+ta,y_o+tb,z_o+tc)$$</span></p><p><span>Where $(x_o,y_o,z_o)$ is the position vector of the line (the line passes through this point), and $(a,b,c)$ is the direction in which the line is traveling.</span></p><p><span>We can take the x, y and z components of the vector form and convert them into the parametric form of the equation of a 3D line:</span></p><p><span>$\begin{equation*}
+(x,y,z)=(x_o+ta,y_o+tb,z_o+tc)\\
+\Rightarrow x=x_o+ta\\
+\Rightarrow y=y_o+tb\\
+\Rightarrow z=z_o+tc
+\end{equation*}$</span></p><p><span>Lastly, we can solve each of the parameterized components for t and set them equal to each other to get the symmetric form:</span></p><p><span>$\begin{equation*}
+\Rightarrow t=\frac{x-x_o}{a}\\
+\Rightarrow t=\frac{y-y_o}{b}\\
+\Rightarrow t=\frac{z-z_o}{c}\\
+\Rightarrow \frac{x-x_o}{a}=\frac{y-y_o}{b}=\frac{z-z_o}{c}
+\end{equation*}$</span></p><p><span>With this in mind we can look at the given symmetric equation:</span></p><p><span>$\begin{equation*}
+\frac{x-2}{2}=\frac{y-1}{3}=2-z\\
+\Rightarrow \frac{x-2}{2}=\frac{y-1}{3}=\frac{z-2}{-1}
+\end{equation*}$</span></p><p><span>From this we see that the position vector is $(2,1,2)$ and the direction of the line is the same direction as  $(2,3,-1)$</span></p><p><span>Note: for this problem I used this source to see what the different forms of the equation for a 3D line: but I proved that the vector form equaled the symmetric form myself: https://math.stackexchange.com/questions/404440/what-is-the-equation-for-a-3d-line.</span></p></section></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#problem-1">Problem 1</a></li><li><a href="#problem-2">Problem 2</a></li><li><a href="#problem-3">Problem 3</a></li><li><a href="#problem-4">Problem 4</a></li><li><a href="#problem-5">Problem 5</a><ol><li><a href="#finding-length-of-$\vec-p_o$">Finding length of $\vec P_o$</a></li><li><a href="#finding-the-length-of-$\vec-p_1$">Finding the length of $\vec P_1$</a></li><li><a href="#subtratcting-the-two:">Subtratcting the two:</a></li></ol></li><li><a href="#problem-6">Problem 6</a></li><li><a href="#problem-7">Problem 7</a></li><li><a href="#problem-8">Problem 8</a></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>
