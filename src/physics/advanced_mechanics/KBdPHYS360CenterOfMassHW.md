@@ -8,6 +8,7 @@ source: KBPHYS360MasterIndex
 # Problem 1
 
 ## $(1a)$
+
 $$
 \begin{aligned}
 PE &= -W \\

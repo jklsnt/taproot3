@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-15 Mon 14:53 -->
+<!-- 2021-11-15 Mon 23:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Adv Mech Center Of Mass HW</title>
+<title>Rotating Chain Experiment</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Dylan Wallace" />
+<meta name="author" content="Houjun Liu" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -217,197 +217,248 @@
     /*]]>*///-->
 // @license-end
 </script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/javascript">
-<!--/*--><![CDATA[/*><!--*/
-    MathJax.Hub.Config({
-        jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
-        showProcessingMessages: true,
-        displayAlign: "center",
-        displayIndent: "2em",
-
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
-             }
-        }
-    });
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Adv Mech Center Of Mass HW</h1> <h2 class="subtitle"></h2> <span class="author">Dylan Wallace</span> <span class="date">2021-11-15 Mon 14:53</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-11-15 Mon 23:12</date></div>
 </div>
 <div id="content">
-<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
-<ul>
-<li><a href="#problem-1">1. Problem 1</a>
-<ul>
-<li><a href="#a">1.1. \((1a)\)</a></li>
-<li><a href="#b">1.2. \((1b)\)</a></li>
-<li><a href="#c">1.3. \((1c)\)</a></li>
-</ul>
-</li>
-<li><a href="#problem-2">2. Problem 2</a></li>
-<li><a href="#problem-3">3. Problem 3</a></li>
-<li><a href="#problem-4">4. Problem 4</a></li>
-</ul>
-</div></div>
+<p>
+We first set up the basic assumptions and variables.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">GRAV &lt;- 9.8 # gravity (m/s^2)
+MASS &lt;- 1 # mass (kg)
+I_ROT &lt;- 1 # roational inertia (kg m^2)
+L1 &lt;- 0.5 # distance from rotation point to CoM (m)
+L2 &lt;- 1 # distance from rotation ponit to tension (m)
+PHI &lt;- 0.1 # angle of Ft relative to floor (rad)
+FT &lt;- 11 # tension force (N)
+OMEGA &lt;- 0.1 # angle of floor relative to gravity (rad) (because shifted axis)
+</pre>
+</div>
+
+<p>
+Additionally, we set the time interval and seed values for time and theta (distance from flat):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">dt &lt;- 0.05
+t_max &lt;- 5
+
+theta &lt;- 0
+time &lt;- 0
+</pre>
+</div>
+
+<p>
+First, let's create a function for torque in terms of theta (and the constants above:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">net_torque &lt;- function(theta) {
+    return(L2 * FT * cos(theta + PHI) - L1 * MASS * GRAV * cos(theta - OMEGA))
+}
+</pre>
+</div>
+
+<p>
+Great. Let's start generating the table! We essentially write a for loop to appends to a few different vectors. Variables appended with <code>c</code> reflect the column vectors that we will put together.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">cTime = NULL
+cTheta = NULL
+cDDTheta = NULL
+cDTheta = NULL
+cTorqueNet = NULL
+cAccelX = NULL
+cAccelY = NULL
+cFFriction = NULL
+cFNormal = NULL
+cMuStatic = NULL
+</pre>
+</div>
+
+<p>
+Awesome. Let's now run a lovely little for loop to actually populate the values recursively.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">for (i in 0:(t_max/dt)) {
+    # We first populate the time column with the time, theta column with theta
+    cTime[i] = time
+    cTheta[i] = theta
+
+    torque &lt;- net_torque(theta)
+    # Given the theta value, we calculate the net torque and set that
+    cTorqueNet[i] = torque
+    # Now that we know the net torque, we could know how much the angular
+    # acceleration is by just dividing out the rotational inertia
+    thetadotdot &lt;- torque/I_ROT
+    cDDTheta[i] = thetadotdot
+    # We could also multiply the theta acceleration by time to get the
+    # velocity at that point
+    thetadot &lt;- dt*thetadotdot
+    cDTheta[i] = thetadot
+    # We could therefore component-ize the acceleration in theta into
+    # ax and ay
+    ax &lt;- -1 * L1 * sin(theta) * thetadotdot
+    cAccelX[i] = ax
+    ay &lt;- L1 * cos(theta) * thetadotdot
+    cAccelY[i] = ay # @mark isn't sin and cos backwards?
+
+    # Based on these accelerations, we therefore could calculate the relative
+    # force of friction and normal force by subtracting the force in that direction
+    # out of net
+    ffriction &lt;- FT*sin(PHI) + MASS*GRAV*sin(OMEGA)-MASS*ax
+    fnormal &lt;- MASS*ay-FT*cos(PHI)+MASS*GRAV*cos(OMEGA)
+
+    cFFriction[i] = ffriction
+    cFNormal[i] = fnormal
+
+    # Dividing the friction force by the normal force, of course, will result in
+    # the (min?) friction coeff
+    cMuStatic[i] = ffriction/fnormal
+
+    # We incriment the time and also increment theta by multiplying the velocity
+    # by dt to get change in the next increment
+    time &lt;- dt + time
+    theta &lt;- dt*thetadot + theta
+}
+</pre>
+</div>
+
+<p>
+We now put all of this together in a dataframe.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">rotating_link &lt;- data.frame(cTime,
+			    cTheta,
+			    cDTheta,
+			    cDDTheta,
+			    cTorqueNet,
+			    cAccelX,
+			    cAccelY,
+			    cFFriction,
+			    cFNormal,
+			    cMuStatic)
+
+names(rotating_link) &lt;- c("time",
+			  "theta",
+			  "d.theta",
+			  "dd.theta",
+			  "net.torque",
+			  "accel.x",
+			  "accel.y",
+			  "friction.force",
+			  "normal.force",
+			  "friction.coeff")
+</pre>
+</div>
+
+<p>
+Let's import some visualization tools, etc.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">library(tidyverse)
+</pre>
+</div>
+
+<p>
+Let's first see the head of this table:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">head(rotating_link)
+</pre>
+</div>
+
+<pre class="example">
+0.05	0.0151738135204899	0.30223707175546	6.0447414351092	6.0447414351092	-0.0458591298077288	3.02202278193676	2.12239419606175	1.82801778360313	1.16103585812956
+0.1	0.0302856671082629	0.300933771294696	6.01867542589393	6.01867542589393	-0.0911258682635535	3.00795770360856	2.16766093451758	1.81395270527493	1.19499308235219
+0.15	0.0453323556729977	0.299567811961869	5.99135623923738	5.99135623923738	-0.135754638378239	2.99260055378612	2.21228970463226	1.79859555545248	1.23000954713007
+0.2	0.0603107462710912	0.298140691681283	5.96281383362567	5.96281383362567	-0.17970188898338	2.97598629612356	2.25623695523741	1.78198129778993	1.2661395257266
+0.25	0.0752177808551553	0.296653959525594	5.93307919051187	5.93307919051187	-0.222926177559487	2.95815163397348	2.29946124381351	1.76414663563985	1.30344110708207
+0.3	0.090050478831435	0.295109211808371	5.90218423616742	5.90218423616742	-0.265388242554654	2.93913486763189	2.34192330880868	1.74512986929826	1.34197651991963
+</pre>
+
+
+<p>
+Before we start graphing, let's set a common graph there.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">default.theme &lt;- theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0)))
+</pre>
+</div>
+
+<p>
+Cool! We could first graph a function for theta over time.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">rotating_link %&gt;% ggplot() + geom_line(aes(x=time, y=theta)) + default.theme
+</pre>
 </div>
 
 
-<div id="outline-container-problem-1" class="outline-2">
-<h2 id="problem-1"><span class="section-number-2">1</span> Problem 1</h2>
-<div class="outline-text-2" id="text-problem-1">
-</div>
-<div id="outline-container-a" class="outline-3">
-<h3 id="a"><span class="section-number-3">1.1</span> \((1a)\)</h3>
-<div class="outline-text-3" id="text-a">
-<p>
-\[
+<div id="org69715f3" class="figure">
+<p><img src="./chainrot_time_theta.png" alt="chainrot_time_theta.png" />
 </p>
-\begin{aligned}
-PE &= -W \\
-W &= \int_{R_e}^\infty F(r) \,dr \\
-\end{aligned}
-<p>
-\] We know that the force applied to a point mass \(m\) by the
-gravitational field of the earth (with mass \(M_e\)) with distance \(x\)
-is modeled by \[F(r) = \frac{GmM_e}{r^2}\]. Therefore, our work integral
-can be modified to be \[
-</p>
-\begin{aligned}
-W &= \int_{R_e}^\infty \frac{GmM_e}{r^2}\,dr \\
-&= GmM_e \int_{R_e}^\infty \frac{1}{r^2} \,dr \\
-&= GmM_e [-\frac{1}{r}]_{R_e}^\infty \\
-&= -\frac{GmM_e}{R_e} \\
-PE &= \frac{GmM_e}{R_e}
-\end{aligned}
-<p>
-\]
-</p>
-</div>
 </div>
 
-<div id="outline-container-b" class="outline-3">
-<h3 id="b"><span class="section-number-3">1.2</span> \((1b)\)</h3>
-<div class="outline-text-3" id="text-b">
 <p>
-\[
-</p>
-\begin{aligned}
-KE &= \frac{1}{2}mv^2 \\
-KE &= PE \\
-\frac{1}{2}mv^2 &= \frac{GmM_e}{R_e} \\
-v &= \sqrt{\frac{2GM_e}{R_e}}
-\end{aligned}
-<p>
-\]
-</p>
-</div>
-</div>
-
-<div id="outline-container-c" class="outline-3">
-<h3 id="c"><span class="section-number-3">1.3</span> \((1c)\)</h3>
-<div class="outline-text-3" id="text-c">
-<p>
-\[
-</p>
-\begin{aligned}
-v &= \sqrt{\frac{2GM_e}{R_e}} \\
-&= \sqrt{\frac{2\cdot 6.674 \cdot 10^{-11} \cdot 5.972 × 10^{24}}{6.371\cdot 10^{6}}} \\
-&= 11185.7 m/s \\
-&= 25020.1 mph \\
-\end{aligned}
-<p>
-\]
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-problem-2" class="outline-2">
-<h2 id="problem-2"><span class="section-number-2">2</span> Problem 2</h2>
-<div class="outline-text-2" id="text-problem-2">
-<p>
-\[
-</p>
-\begin{aligned}
-\sum_{i=1}^{n} \vec{F}_{net,i} &= (\sum_{i=1}^{n} m_i) \ddot{\vec{r}}_{CM} \\
-\sum_{i=1}^{n} m_i \ddot{\vec{r}}_{i} &= (\sum_{i=1}^{n} m_i) \ddot{\vec{r}}_{CM} \\
-\int \int \sum_{i=1}^{n} m_i \ddot{\vec{r}}_{i} \,dt\,dt &= \int \int (\sum_{i=1}^{n} m_i) \ddot{\vec{r}}_{CM} \,dt\,dt \\
-\int \sum_{i=1}^{n} m_i \dot{\vec{r}}_{i} \,dt + C_1 &= \int (\sum_{i=1}^{n} m_i) \dot{\vec{r}}_{CM} \,dt + C_1 \\
-\sum_{i=1}^{n} m_i \vec{r}_{i} + C_1t + C_2 &= (\sum_{i=1}^{n} m_i) \vec{r}_{CM} + C_1t + C_2 \\
-\end{aligned}
-<p>
-\] Both constants are the same constant on both sides of the equation so
-they will cancel out. The sum of all mass is just \(M\). \[
-</p>
-\begin{aligned}
-\vec{r}_{CM} &= \frac{1}{M} \sum_{i=1}^{n} m_i \vec{r}_{i} \\
-\end{aligned}
-<p>
-\]
-</p>
-</div>
-</div>
-
-<div id="outline-container-problem-3" class="outline-2">
-<h2 id="problem-3"><span class="section-number-2">3</span> Problem 3</h2>
-<div class="outline-text-2" id="text-problem-3">
-<p>
-Any force within a system will have an opposite force applied as well
-(Newton's 3rd law). Therefore, forces within a system will cancel out
-and will have no effect on the center of mass.
-</p>
-</div>
-</div>
-
-<div id="outline-container-problem-4" class="outline-2">
-<h2 id="problem-4"><span class="section-number-2">4</span> Problem 4</h2>
-<div class="outline-text-2" id="text-problem-4">
-<p>
-\[
-</p>
-\begin{aligned}
-\vec{v} &= \frac{<1, −4, 1> + 2<−3, −2, 6> + 3<2, 5, −3> + 4<−2, 4, 6>}{1 + 2 + 3 + 4} \\
-&= <-0.7, 2.3, 2.8> \\
-\end{aligned}
-<p>
-\]
+And, similarly, we will graph <code>ax</code> and <code>ay</code> on top of each other:
 </p>
 
-<p>
-<a href="Screen Shot 2021-09-05 at 7.09.00 PM.png.html">Screen Shot
-2021-09-05 at 7.09.00 PM.png</a>
+<div class="org-src-container">
+<pre class="src src-R">rotating_link %&gt;% ggplot() + geom_line(aes(x=time, y=accel.x, colour="X Acceleration")) + geom_line(aes(x=time, y=accel.y, colour="Y Acceleration")) + scale_colour_manual("", breaks = c("X Acceleration", "Y Acceleration"), values = c("red", "dark green")) + ylab("acceleration") + default.theme
+</pre>
+</div>
+
+
+<div id="orga92be8b" class="figure">
+<p><img src="./chainrot_time_accels.png" alt="chainrot_time_accels.png" />
 </p>
 </div>
+
+<p>
+Let's also plot torque as well.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">rotating_link %&gt;% ggplot() + geom_line(aes(x=time, y=net.torque)) + default.theme
+</pre>
 </div>
+
+
+<div id="orgfb618de" class="figure">
+<p><img src="./chainrot_torque.png" alt="chainrot_torque.png" />
+</p>
+</div>
+
+<p>
+And. <b>Most importantly!</b> Let's plot the normal force.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">rotating_link %&gt;% ggplot() + geom_line(aes(x=time, y=normal.force)) + default.theme
+</pre>
+</div>
+
+
+<div id="org8a075a6" class="figure">
+<p><img src="./chainrot_normal.png" alt="chainrot_normal.png" />
+</p>
+</div>
+
+<p>
+Obviously, after the normal force becomes negative, this graph stops being useful.
+</p>
 </div>
 </body>
 </html>
