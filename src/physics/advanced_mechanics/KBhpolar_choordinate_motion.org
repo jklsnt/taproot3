@@ -77,12 +77,15 @@ We could now figure that acceleration is actually four terms, scaled by their re
 - $2\dot{r}\dot{\theta}$ is a term representing the coriolis force: a fictitious force pushing objects as either of radius change or spin speed changes.
 - $\ddot{\theta}r$ is a term that models the tangential acceleration: how quickly does the object accelerates at a direction tangent to the spin. The "tangential acceleration." We could see this if $\ddot{r} = \dot{\theta} = 0$.
 - $\ddot{r}$ is a term that models the acceleration of the radius, as it evidently shows. The "radial acceleration". We could see this if $\dot{\theta} = \ddot{\theta} = 0$.
-- $\dot{\theta}^2 r$ is a term that models the inward acceleration that maintains the shape of the circle. It is $\dot{\theta}^2 r = \omega^2 r$, the "centripetal acceleration." We could see this if $\dot{r} = \ddot{r} = \ddot{\theta} = 0$
+- $\dot{\theta}^2 r$ is a term that models the inward acceleration that maintains the shape of the circle. It is $\dot{\theta}^2 r = \omega^2 r = r \frac{v^2}{r^2} = \frac{v^2}{r}$, the "centripetal acceleration." We could see this if $\dot{r} = \ddot{r} = \ddot{\theta} = 0$
 
 For a point to stay on the circle, you have to have components of acceleration INTO the circle as well to prevent the side spin from making it fly off. Hence, "tangential acceleration" + "centripetal acceleration."
 
 * Mass in a Cone
-For this problem, we deduct the fact, given the uniform velocity $v_0$ and the uniform path in which the particle exists, that the object is indeed in uniform circular motion. As such, there is only one main source of acceleration --- that of centripetal acceleration. Furthermore, it is only influenced by forces normal and gravitational. This situation could therefore be modeled in the manner shown below:
+For this problem, we deduct the fact, given the uniform velocity $v_0$ and the uniform path in which the particle exists, that the object is indeed in uniform circular motion. As such, there is 
+
+
+only one main source of acceleration --- that of centripetal acceleration. Furthermore, it is only influenced by forces normal and gravitational. This situation could therefore be modeled in the manner shown below:
 
 #+DOWNLOADED: screenshot @ 2021-11-11 20:51:03
 [[file:2021-11-11_20-51-03_screenshot.png]]
@@ -102,30 +105,60 @@ Therefore, to solve for $r$, we simply equate the two expression by $a$ and solv
 
 \begin{align}
     &\frac{g}{\tan{\theta}} = \frac{{v_0}^2}{r} \\
-\Rightarrow &\, r = \frac{{v_0}^2 \tan{\theta}}{rg}
+\Rightarrow &\, r = \frac{{v_0}^2 \tan{\theta}}{g}
 \end{align}
 
 * Whirling Block
-In this case of the whiling block, we could treat the behavior of the block as the behavior of the /radial/ component of the spin: as the force of tension acting upon the block $B$ could necessarily translate to forces acting in the radial-direction upon mass $m$. 
 
-We therefore are concerned with the following expression:
+#+DOWNLOADED: screenshot @ 2021-11-16 14:43:55
+[[file:2021-11-16_14-43-55_screenshot.png]]
+
+We first write a statement for the net force of block $B$:
+
+\begin{align}
+    F_{{net}_b} &= T - F_g_b \\
+m_B a_B &= T - m_B g
+\end{align}
+
+To figure the tension on the block, we leverage the expression for the net force upon block $A$:
+
+\begin{align}
+F_{{net}_a} = T \hat{r}
+\end{align}
+
+As the mass of $A$ is rotating in a circle, we know that its acceleration (in the radial component, as the acceleration in the tangential component is 0), must be $\ddot{r} - \omega^2R$. Therefore, we could claim that:
 
 \begin{equation}
-    a_r = \ddot{r} - \omega^2r
+    T\hat{r} = m_A(\ddot{r} - \omega^2R )
 \end{equation}
 
-Therefore, $a_r$ the acceleration of $m$ in the radial direction (and therefore, the acceleration of $B$) is a variable that could be modeled by $\ddot{r}$, the radial acceleration (which, because the position of $B$ directly affects the radius of the circular payload per the tension of the string, is also the acceleration by gravity of $B$) and $\omega$ given.
+We further know that, due to the uncompressability and masslessness of the string, the radial acceleration is simply how much the block $B$ is accelerating: that $\ddot{r} = a_B$. 
 
-Substituting the above statements and deductions in symbolic form into the previous expression:
+Therefore:
 
 \begin{equation}
-    a_r = g + \omega^2 R
+   T = -m_A(a_B - \omega^2R)
 \end{equation}
+
+Substituting $T$ into the expression for $F_{{net}_b}$ derived above... 
+
+\begin{align}
+   m_Ba_B &=  -m_A(a_B - \omega^2R) - m_Bg \\
+   m_Ba_B &=  -m_Aa_B + m_A\omega^2R - m_Bg \\
+   m_Ba_B + m_Aa_B &= m_A\omega^2R - m_Bg \\
+   (m_B-m_A)a_B &= m_A\omega^2R - m_Bg \\
+   a_B &= \frac{m_A\omega^2R - m_Bg}{m_B+m_A}
+\end{align}
 
 * Loop The Loop
 Analysing the situation of the problem, we could first make a simplifying deduction: that the loop-de-loop's completion without loss of contact can be simplified to the successful counteraction of the force of gravity at the /top/ of the loop-de-loop. This is due to the fact that, at any other angle at which the object could be at, a ($x$-direction) component of the acceleration of gravity would be in the direction along the track: which would not cause lost of contact. It is only at the top of the loop that all of the acceleration of gravity is applied directly towards the direction that would cause the object to loose contact.
 
 Hence, as long as the velocity at entry is high enough such that the whole of gravitation force is counteracted, the object will stay on the track. This is also equivalent so saying that we wish to solve for where our normal force to be exactly 0 (point where "contact" is lost, that, based on the expression for uniform circular motion, $mg+N = ma = \frac{mv^2}{R}, N=0$.
+
+Therefore:
+
+#+DOWNLOADED: screenshot @ 2021-11-16 15:07:57
+[[file:2021-11-16_15-07-57_screenshot.png]]
 
 We therefore proceed to solve for $v^2$ (as, for the second part of this problem, $v^2$ would be more easily treated) based on this expression.
 

@@ -1,0 +1,100 @@
+:PROPERTIES:
+:ID:       010338E6-D890-4E79-9381-2E8A58666650
+:END:
+#+title: MVC PS#20
+#+author: Houjun Liu
+
+* High-Dimensional Optimization
+#+begin_quote
+Here's a non-hyperbolic parabaloid:
+
+\begin{align}
+   &h: \mathbb{R}^2 \to \mathbb{R}^1 \\
+   &h(x,y) = x^2+y^2+2x-6y+5
+\end{align}
+
+The point $(-1,3,h(-1,3))$ is a minimum of this function! Prove this! In two ways.
+#+end_quote
+
+At $h(-1,3) = -5$, the function $h$ experiences a minimum.
+
+** Non-Calculus "Proof"
+We first begin by completing the square upon the expression. To achieve this, we will first need to re-write the expression in terms of $z$, the height of the expression, than performing a typical completion of squares.
+
+\begin{align}
+    &h(x,y) =x^2+y^2+2x-6y+5 \\
+\Rightarrow &z =x^2+y^2+2x-6y+5 \\
+\Rightarrow &z = (x+1)^2-1+(y-3)^2-9+5 \\
+\Rightarrow &z = (x+1)^2+(y-3)^2-5 \\
+\Rightarrow &z+5 = (x+1)^2+(y-3)^2 
+\end{align}
+
+We could therefore see that the expression for this function is a set of concentric circles stacked atop each other. We further notice that, as $z$ increases, the radius of the circles would increase.
+
+Therefore, to find the lowest point upon the function, we could essentially find the point at which the radius would be $0$, that:
+
+\begin{equation}
+   z+5 = 0 
+\end{equation}
+
+Evidently, the $z$ value at which this would take place is $z=-5$, of which the point $(-1,3)$ achieves as demonstrated above. Therefore, the point aforementioned, where $z=-5$, is a minimum for this function.
+
+** Second Partial Derivative Test
+The actual proof involves first finding the gradient and all derivatives of this function.
+
+\begin{align}
+   h_x &= 2x + 2\\ 
+   h_y &= 2y - 6 \\ 
+   h_{xx} &= 2 \\
+   h_{yy} &= 2 \\
+   h_{xy} &= 0 
+\end{align}
+
+We first verify that $\nabla h(-1,3) = 0$.
+
+\begin{align}
+    \nabla h(-1,3) &= (2 \times -1 + 2) + (2\times 3 - 6) \\
+&= 0 + 0 \\
+&= 0
+\end{align}
+
+We then find $H$, the value with which to perform the second-partial derivative test:
+
+\begin{align}
+    H &= h_{xx}(-1,3)h_{yy}(-1,3) - (h_{xy}(-1,3))^2 \\
+    &= 2\times 2 - 0 \\
+    &= 4 
+\end{align}
+
+As $H = 4 > 0$, we deduct that the point $(-1,3)$ must be a maximum or a minimum.
+
+Furthermore, as we review that $h_{xx}$ and $h_{yy}$ both are $>0$, we realize that any direction of travel along the two axis will result in an increase in slope. As the point is not a saddle point, we could safely claim that the point is therefore a minimum as any travel away from it would result in increase in slope.
+
+* Killing Baby Seals and Foxes
+#+begin_quote
+Suppose the quantity of seal pelts demanded, $q_s$, and the quantity of fox pelts demanded, $q_f$, depend on their relative prices, $p_s$ and $p_f$, respectively, in the following way:
+
+quantity of seal pelts demanded: $q_s=150−2p_s−p_f$
+ 
+quantity of fox pelts demanded: $q_f=200−p_s−3p_f$
+ 
+How much should you sell seal and fox pelts for in order to maximize your revenue?
+#+end_quote
+
+To begin to maximize the revenue, we first need calculate the expression for revenue. As the revenue is simply quantity sold times price, and the total revenue is the sum of revenue from both of the subsets of being sold. That:
+
+\begin{equation}
+   R = q_s p_s + q_f p_f 
+\end{equation}
+
+Substituting the expression for $q_s$ and $q_f$ with the expressions given above...
+
+\begin{align}
+   R &= (1502p_sp_f)p_s + (200p_s3p_f)p_f \\
+   &= (1502p_sp_f)p_s + (600p_sp_f)p_f \\
+   &= 1502(p_s)^2p_f + (600p_sp_f)p_f \\
+\end{align}
+
+
+
+

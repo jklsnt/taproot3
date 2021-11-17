@@ -86,6 +86,46 @@ lifetime score = cycle count * usable capacity
 
 
 
+### inputs for a place!
+
+- location
+- num people
+- size
+- yearly average tempature
+- standard dev of yearly average temp
+- days of autonomy 
+- AHP matrix
+
+
+$$
+
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+    \hline
+        name & in\_rack & racks & total\_count & ag\_env & ag\_cost & volume & ag\_weight & maintenance & safety & lifetime\_score \\ \hline
+        Discover AES 7.4 kWh & 1 & 9 & 9 & 1.088888888888889 & 58302 & 32552.415 & 1728 & 1 & 10 & 29600 \\ \hline
+    \end{tabular}
+\end{table}
+
+
+
+$$
+
+
+
+
+
+
+
+
+- smt
+	- smt
+
+
+
+
 
 
 

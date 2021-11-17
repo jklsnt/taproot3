@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-11-16 Tue 12:01 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MVC PS#20</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC PS#20</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-11-16 Tue 12:01</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org09f8833">1. High-Dimensional Optimization</a>
+<ul>
+<li><a href="#org1b064fc">1.1. Non-Calculus "Proof"</a></li>
+<li><a href="#org7cbde0f">1.2. Second Partial Derivative Test</a></li>
+</ul>
+</li>
+<li><a href="#orgfc4d930">2. Killing Baby Seals and Foxes</a></li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-org09f8833" class="outline-2">
+<h2 id="org09f8833"><span class="section-number-2">1</span> High-Dimensional Optimization</h2>
+<div class="outline-text-2" id="text-1">
+<blockquote>
+<p>
+Here's a non-hyperbolic parabaloid:
+</p>
+
+\begin{align}
+   &h: \mathbb{R}^2 \to \mathbb{R}^1 \\
+   &h(x,y) = x^2+y^2+2x-6y+5
+\end{align}
+
+<p>
+The point \((-1,3,h(-1,3))\) is a minimum of this function! Prove this! In two ways.
+</p>
+</blockquote>
+
+<p>
+At \(h(-1,3) = -5\), the function \(h\) experiences a minimum.
+</p>
+</div>
+
+<div id="outline-container-org1b064fc" class="outline-3">
+<h3 id="org1b064fc"><span class="section-number-3">1.1</span> Non-Calculus "Proof"</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+We first begin by completing the square upon the expression. To achieve this, we will first need to re-write the expression in terms of \(z\), the height of the expression, than performing a typical completion of squares.
+</p>
+
+\begin{align}
+    &h(x,y) =x^2+y^2+2x-6y+5 \\
+\Rightarrow &z =x^2+y^2+2x-6y+5 \\
+\Rightarrow &z = (x+1)^2-1+(y-3)^2-9+5 \\
+\Rightarrow &z = (x+1)^2+(y-3)^2-5 \\
+\Rightarrow &z+5 = (x+1)^2+(y-3)^2 
+\end{align}
+
+<p>
+We could therefore see that the expression for this function is a set of concentric circles stacked atop each other. We further notice that, as \(z\) increases, the radius of the circles would increase.
+</p>
+
+<p>
+Therefore, to find the lowest point upon the function, we could essentially find the point at which the radius would be \(0\), that:
+</p>
+
+\begin{equation}
+   z+5 = 0 
+\end{equation}
+
+<p>
+Evidently, the \(z\) value at which this would take place is \(z=-5\), of which the point \((-1,3)\) achieves as demonstrated above. Therefore, the point aforementioned, where \(z=-5\), is a minimum for this function.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7cbde0f" class="outline-3">
+<h3 id="org7cbde0f"><span class="section-number-3">1.2</span> Second Partial Derivative Test</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+The actual proof involves first finding the gradient and all derivatives of this function.
+</p>
+
+\begin{align}
+   h_x &= 2x + 2\\ 
+   h_y &= 2y - 6 \\ 
+   h_{xx} &= 2 \\
+   h_{yy} &= 2 \\
+   h_{xy} &= 0 
+\end{align}
+
+<p>
+We first verify that \(\nabla h(-1,3) = 0\).
+</p>
+
+\begin{align}
+    \nabla h(-1,3) &= (2 \times -1 + 2) + (2\times 3 - 6) \\
+&= 0 + 0 \\
+&= 0
+\end{align}
+
+<p>
+We then find \(H\), the value with which to perform the second-partial derivative test:
+</p>
+
+\begin{align}
+    H &= h_{xx}(-1,3)h_{yy}(-1,3) - (h_{xy}(-1,3))^2 \\
+    &= 2\times 2 - 0 \\
+    &= 4 
+\end{align}
+
+<p>
+As \(H = 4 > 0\), we deduct that the point \((-1,3)\) must be a maximum or a minimum.
+</p>
+
+<p>
+Furthermore, as we review that \(h_{xx}\) and \(h_{yy}\) both are \(>0\), we realize that any direction of travel along the two axis will result in an increase in slope. As the point is not a saddle point, we could safely claim that the point is therefore a minimum as any travel away from it would result in increase in slope.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfc4d930" class="outline-2">
+<h2 id="orgfc4d930"><span class="section-number-2">2</span> Killing Baby Seals and Foxes</h2>
+<div class="outline-text-2" id="text-2">
+<blockquote>
+<p>
+Suppose the quantity of seal pelts demanded, \(q_s\), and the quantity of fox pelts demanded, \(q_f\), depend on their relative prices, \(p_s\) and \(p_f\), respectively, in the following way:
+</p>
+
+<p>
+quantity of seal pelts demanded: \(q_s=150 - 2p_s - p_f\)
+</p>
+
+<p>
+quantity of fox pelts demanded: \(q_f=200 - p_s - 3p_f\)
+</p>
+
+<p>
+How much should you sell seal and fox pelts for in order to maximize your revenue?
+</p>
+</blockquote>
+
+<p>
+To begin to maximize the revenue, we first need calculate the expression for revenue. As the revenue is simply quantity sold times price, and the total revenue is the sum of revenue from both of the subsets of being sold. That:
+</p>
+
+\begin{equation}
+   R = q_s p_s + q_f p_f 
+\end{equation}
+
+<p>
+Substituting the expression for \(q_s\) and \(q_f\) with the expressions given above&#x2026;
+</p>
+
+\begin{align}
+   R(p_s,p_f) &= (150 - 2p_s - p_f)p_s + (200 - p_s - 3p_f)p_f \\
+   &= 150p_s - 2{p_s}^2 - p_fp_s + 200p_f - p_sp_f - 3{p_f}^2 \\
+   &= 150p_s - 2{p_s}^2 - 2p_fp_s + 200p_f - 3{p_f}^2 
+\end{align}
+
+<p>
+We again leverage the second partial derivative test to figure the most optimal revenue.
+</p>
+
+<p>
+We begin by figuring the expression for the gradient of this function w.r.t. \(p_s\) and \(p_f\)
+</p>
+
+\begin{equation}
+   R' = \begin{bmatrix}
+150 - 4p_s - 2p_f \\
+-2 p_s + 200 -6p_f
+\end{bmatrix}
+\end{equation}
+
+<p>
+To figure the points at which \(R\) is maximised (i.e. critical points of \(R\)), we need to figure where \(\nabla R = 0\), the solutions to the above system of linear equations. We will perform this by leveraging a matrix representing the system, whose first column represents \(p_s\) and the second column represents \(p_f\). 
+</p>
+
+\begin{equation}
+\left[
+\begin{array}{cc|c}
+4 & 2 & 150 \\
+2 & 6 & 200 \\
+\end{array}
+\right]
+\end{equation}
+
+<p>
+Putting this expression into reduced row echelon form, we arrive at:
+</p>
+
+\begin{equation}
+\left[
+\begin{array}{cc|c}
+1 & 0 & 25 \\
+0 & 1 & 25 \\
+\end{array}
+\right]
+\end{equation}
+
+<p>
+Therefore, \((25,25)\) is the unique critical point where there may exist a max, min, or saddle point.
+</p>
+
+<p>
+To verify this, we take the second partial derivatives of \(R\):
+</p>
+
+\begin{align}
+R_{p_s p_s} &= -4\\
+R_{p_f p_f} &= -6 \\
+R_{p_s p_f} &= -2 
+\end{align}
+
+<p>
+Leveraging these values for the second partials of \(R\), we then derive an expression for \(H\):
+</p>
+
+\begin{align}
+    H &= -4 \times -6 + 2 \\
+H &= 26 
+\end{align}
+
+<p>
+Given \(H>0\) consistently, we derive that the critical point \((25,25)\) as derived above is a maximum or minimum.
+</p>
+
+<p>
+Furthermore, as \(R_{p_fp_f}\) and \(R_{p_sp_S}\) both \(<0\), we arrive at the fact that any deviations from \((25,25)\) will result in a decrease in value. Hence, it is a maximum point.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
