@@ -1,0 +1,66 @@
+#+TITLE: Assignment 2 Revisions
+#+AUTHOR: Dylan Wallace
+
+
+* Problem 1
+** a)
+We know that the difference in potential energy between two locations is equal to the negative of the work required to move an object from one position to the other:
+
+\begin{aligned}
+\Delta PE &= -W
+\end{aligned}
+
+We also know that to leave the earth's gravitational field, we must do an amount of work equal to the sum of the gravitational force exerted at every point along the way:
+
+\begin{aligned}
+W &= \int_{R_{e}}^{\infty} F(r) dr
+\end{aligned}
+(Where $R_e$ is the radius of the earth and $F(r)$ is the force exerted by the earth)
+
+We know that the force of gravity is equal to $\frac{GmM_e}{r^2}$. However, this force is in the direction pointing towards the earth. Therefore, $F(r) = -\frac{GmM_{e}}{r^2}$.
+As a result, we get
+
+\begin{aligned}
+W  &= \int_{R_e}^{\infty} -\frac{GmM_e}{r^2} dr \\
+&= -GmM_e \int_{R_e}^{\infty} r^{-2} dr \\
+&= -GmM_e \left[-\frac{1}{r}\right]_{R_e}^{\infty} \\
+&= -GmM_e \left(0 - \left(-\frac{1}{R_e}\right)\right) \\
+&= -\frac{GmM_e}{R_e} \\
+\end{aligned}
+
+The difference in potential energy (i.e. $PE_{\infty} - PE_{R_e}$) is equal to $-W$.
+We know $PE_{\infty} = 0$, so $W = PE_{R_e}$.
+
+To conclude, we know that $PE = -\frac{GmM_e}{R_e}$.
+** b)
+
+We know $KE=\frac{1}{2}mv^2$.
+We also know that the sum of energy of a system in one state is equal to the sum in another state. Therefore, $PE_{a} + KE_{a} = PE_{b} + KE_{b}$ and $\Delta PE = -\Delta KE$.
+At $r=\infty$, $PE = 0$ and $KE = 0$ (because velocity would be 0). Therefore, $PE_{Earth} = -KE_{Earth}$.
+We can solve for velocity at launch (i.e. escape velocity) now.
+\begin{aligned}
+KE &= \frac{1}{2}mv^2 \\
+PE &= -\frac{GmM_e}{R_e} \\
+-\frac{1}{2}mv^2 &= -\frac{GmM_e}{R_e} \\
+v^2 &= \frac{2GM_e}{R_e} \\
+v &= \sqrt{\frac{2GM_e}{R_e}} \\
+\end{aligned}
+** c)
+We can now plug in values into the equation in b. This section has been omitted for brevity.
+
+* Problem 2
+\begin{aligned}
+\sum_{i=1}^{n} \vec{F}_{net,i} &= (\sum_{i=1}^{n} m_{i}) \ddot{\vec{r}}_{CM} \\
+\sum_{i=1}^{n} m_{i}\ddot{\vec{r}}_{i} &= (\sum_{i=1}^{n} m_{i}) \ddot{\vec{r}}_{CM} \\
+\int \sum_{i=1}^{n} m_{i}\ddot{\vec{r}}_{i} \,dt &= \int (\sum_{i=1}^{n} m_{i}) \ddot{\vec{r}}_{CM} \,dt \\
+\sum_{i=1}^{n} m_{i}\dot{\vec{r}}_{i} + C_1 &= (\sum_{i=1}^{n} m_{i}) \dot{\vec{r}}_{CM} \\
+\int \sum_{i=1}^{n} m_{i}\dot{\vec{r}}_{i} + C_1 \,dt &= \int (\sum_{i=1}^{n} m_{i}) \dot{\vec{r}}_{CM} \,dt \\
+\sum_{i=1}^{n} m_{i} \vec{r}_{i} + C_{1}t + C_2 &= (\sum_{i=1}^{n} m_{i}) \vec{r}_{CM} \\
+\end{aligned}
+
+We can set $C_1$ and $C_2$ by looking at hypothetical scenarios.
+We can create a hypothetical scenario where we try to find the center of mass of a point mass. At $t=0$, the constant $C_1$ will be disregarded by the equation, so we will evaluate the equation at $t=0$ to isolate $C_2$. In the case of a point mass, the center of mass of the mass will be the same as the position vector of the point mass. This is because that is the only location where there is mass on the object. Therefore, $C_2$ must be $0$. We also know that even when the point mass is moving, the center of mass will remain the position vector of the point mass. Therefore, $C_1$ will also be equal to $0$.
+We end up at the end with the following equation:
+\begin{aligned}
+\sum_{i=1}^{n} m_{i}\vec{r}_{i} &= (\sum_{i=1}^{n} m_{i})\vec{r}_{CM} \\
+\end{aligned}
