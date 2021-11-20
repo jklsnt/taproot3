@@ -1,0 +1,31 @@
+:PROPERTIES:
+:ID:       DF6B626B-4FA9-412A-BF08-772C7B5AD7C3
+:END:
+#+title: Rotating Chain Experiment: No Floor
+#+author: Houjun Liu
+
+#+PROPERTY: header-args :tangle rotating_chain.r :results verbatim :exports both :session processing_image
+
+We first set up the same set of basic assumptions and variables.
+
+#+begin_src R :results none
+GRAV <- 9.8 # gravity (m/s^2)
+MASS <- 1 # mass (kg)
+I_ROT <- 1 # roational inertia (kg m^2)
+L1 <- 0.5 # distance from rotation point to CoM (m)
+L2 <- 1 # distance from rotation ponit to tension (m)
+PHI <- 0.1 # angle of Ft relative to floor (rad)
+FT <- 11 # tension force (N)
+OMEGA <- 0.1 # angle of floor relative to gravity (rad) (because shifted axis)
+#+end_src
+
+Additionally, we set the time interval and seed values for time and theta (distance from flat):
+
+#+begin_src R :results none
+dt <- 0.05
+t_max <- 5
+
+theta <- 0
+time <- 0
+#+end_src
+

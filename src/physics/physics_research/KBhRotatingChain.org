@@ -1,7 +1,7 @@
 :PROPERTIES:
 :ID:       4A1B9911-C32C-4085-BB6A-400B47D30331
 :END:
-#+TITLE: Rotating Chain Experiment
+#+TITLE: Rotating Chain Experiment: Floor
 #+AUTHOR: Houjun Liu
 
 #+PROPERTY: header-args :tangle rotating_chain.r :results verbatim :exports both :session processing_image
@@ -14,18 +14,22 @@ MASS <- 1 # mass (kg)
 I_ROT <- 1 # roational inertia (kg m^2)
 L1 <- 0.5 # distance from rotation point to CoM (m)
 L2 <- 1 # distance from rotation ponit to tension (m)
-PHI <- 0.1 # angle of Ft relative to floor (rad)
+PHI <- 0 # angle of Ft relative to floor orthogoal (rad)
 FT <- 11 # tension force (N)
-OMEGA <- 0.1 # angle of floor relative to gravity (rad) (because shifted axis)
+OMEGA <- 0 # angle of line orthogonal to floor relative to gravity (rad) (because shifted axis)
 #+end_src
 
 Additionally, we set the time interval and seed values for time and theta (distance from flat):
 
 #+begin_src R :results none
-dt <- 0.05
-t_max <- 5
+dt <- 0.0001
+t_max <- 5 
+
+vx <- 0
+vy <- 0
 
 theta <- 0
+thetadot <- 0
 time <- 0
 #+end_src
 
@@ -47,9 +51,19 @@ cDTheta = NULL
 cTorqueNet = NULL
 cAccelX = NULL
 cAccelY = NULL
+cVelX = NULL
+cVelY = NULL
 cFFriction = NULL
 cFNormal = NULL
+
+# debugging values
+cFNetY = NULL
+cFTensionPhiComponent = NULL
+cFGravityPhiComponent = NULL
+
 cMuStatic = NULL
+cKERot = NULL
+cKETrans = NULL
 #+end_src
 
 Awesome. Let's now run a lovely little for loop to actually populate the values recursively.
@@ -69,7 +83,7 @@ for (i in 0:(t_max/dt)) {
     cDDTheta[i] = thetadotdot
     # We could also multiply the theta acceleration by time to get the
     # velocity at that point
-    thetadot <- dt*thetadotdot
+    thetadot <- dt*thetadotdot + thetadot
     cDTheta[i] = thetadot
     # We could therefore component-ize the acceleration in theta into
     # ax and ay
@@ -77,6 +91,9 @@ for (i in 0:(t_max/dt)) {
     cAccelX[i] = ax
     ay <- L1 * cos(theta) * thetadotdot
     cAccelY[i] = ay # @mark isn't sin and cos backwards?
+    # We also tally the components seperately for velocity
+    vx <- ax*dt + vx
+    vy <- ay*dt + vy
 
     # Based on these accelerations, we therefore could calculate the relative
     # force of friction and normal force by subtracting the force in that direction
@@ -84,8 +101,16 @@ for (i in 0:(t_max/dt)) {
     ffriction <- FT*sin(PHI) + MASS*GRAV*sin(OMEGA)-MASS*ax
     fnormal <- MASS*ay-FT*cos(PHI)+MASS*GRAV*cos(OMEGA)
 
+    cFNetY[i] = MASS*ay
+    cFTensionPhiComponent[i] = FT*cos(PHI)
+    cFGravityPhiComponent[i] = -MASS*GRAV*cos(OMEGA)
+
     cFFriction[i] = ffriction
     cFNormal[i] = fnormal
+
+    # Then, we calculate the energies
+    cKERot[i] = 0.5 * I_ROT * thetadot^2
+    cKETrans[i] = 0.5 * MASS * (vx^2+vy^2)
 
     # Dividing the friction force by the normal force, of course, will result in
     # the (min?) friction coeff
@@ -110,7 +135,9 @@ rotating_link <- data.frame(cTime,
                             cAccelY,
                             cFFriction,
                             cFNormal,
-                            cMuStatic)
+                            cMuStatic,
+                            cKERot,
+                            cKETrans)
 
 names(rotating_link) <- c("time",
                           "theta",
@@ -121,7 +148,9 @@ names(rotating_link) <- c("time",
                           "accel.y",
                           "friction.force",
                           "normal.force",
-                          "friction.coeff")
+                          "friction.coeff",
+                          "ke.rot",
+                          "ke.trans")
 #+end_src
 
 Let's import some visualization tools, etc.
@@ -137,12 +166,12 @@ head(rotating_link)
 #+end_src
 
 #+RESULTS:
-: 0.05	0.0151738135204899	0.30223707175546	6.0447414351092	6.0447414351092	-0.0458591298077288	3.02202278193676	2.12239419606175	1.82801778360313	1.16103585812956
-: 0.1	0.0302856671082629	0.300933771294696	6.01867542589393	6.01867542589393	-0.0911258682635535	3.00795770360856	2.16766093451758	1.81395270527493	1.19499308235219
-: 0.15	0.0453323556729977	0.299567811961869	5.99135623923738	5.99135623923738	-0.135754638378239	2.99260055378612	2.21228970463226	1.79859555545248	1.23000954713007
-: 0.2	0.0603107462710912	0.298140691681283	5.96281383362567	5.96281383362567	-0.17970188898338	2.97598629612356	2.25623695523741	1.78198129778993	1.2661395257266
-: 0.25	0.0752177808551553	0.296653959525594	5.93307919051187	5.93307919051187	-0.222926177559487	2.95815163397348	2.29946124381351	1.76414663563985	1.30344110708207
-: 0.3	0.090050478831435	0.295109211808371	5.90218423616742	5.90218423616742	-0.265388242554654	2.93913486763189	2.34192330880868	1.74512986929826	1.34197651991963
+: 1e-04	6.1e-08	0.00122	6.09999999999999	6.09999999999999	-1.8605e-07	3.04999999999999	1.8605e-07	1.84999999999999	1.00567567567568e-07	7.44199999999999e-07	1.86049999999999e-07
+: 2e-04	1.83e-07	0.00182999999999999	6.0999999999999	6.0999999999999	-5.58149999999987e-07	3.0499999999999	5.58149999999987e-07	1.8499999999999	3.01702702702712e-07	1.67444999999998e-06	4.18612499999992e-07
+: 3e-04	3.65999999999999e-07	0.00243999999999995	6.09999999999959	6.09999999999959	-1.1162999999999e-06	3.04999999999959	1.1162999999999e-06	1.84999999999959	6.03405405405483e-07	2.97679999999987e-06	7.44199999999953e-07
+: 4e-04	6.09999999999994e-07	0.00304999999999983	6.09999999999887	6.09999999999887	-1.86049999999952e-06	3.04999999999887	1.86049999999952e-06	1.84999999999887	1.00567567567603e-06	4.65124999999949e-06	1.16281249999982e-06
+: 5e-04	9.14999999999977e-07	0.00365999999999958	6.09999999999745	6.09999999999745	-2.79074999999837e-06	3.04999999999745	2.79074999999837e-06	1.84999999999745	1.50851351351472e-06	6.69779999999846e-06	1.67444999999944e-06
+: 6e-04	1.28099999999993e-06	0.00426999999999908	6.09999999999499	6.09999999999499	-3.90704999999553e-06	3.04999999999499	3.90704999999553e-06	1.849999999995	2.11191891892221e-06	9.11644999999606e-06	2.27911249999858e-06
 
 Before we start graphing, let's set a common graph there.
 
@@ -191,3 +220,23 @@ rotating_link %>% ggplot() + geom_line(aes(x=time, y=normal.force)) + default.th
 [[./chainrot_normal.png]]
 
 Obviously, after the normal force becomes negative, this graph stops being useful.
+
+Theta dot atop theta:
+
+#+begin_src R :results output graphics :file chainrot_thetadot_theta.png :width 852 :height 480
+rotating_link %>% ggplot() + geom_line(aes(x=time, y=theta, colour="theta")) + geom_line(aes(x=time, y=d.theta, colour="theta dot")) + scale_colour_manual("", breaks = c("theta", "theta dot"), values = c("blue", "brown")) + ylab("radians") + default.theme
+#+end_src
+
+#+RESULTS:
+
+[[./chainrot_thetadot_theta.png]]
+
+We finally, plot KE rotation and translation
+
+#+begin_src R :results output graphics :file chainrot_ke.png :width 852 :height 480
+rotating_link %>% ggplot() + geom_line(aes(x=time, y=ke.rot, colour="ke rotation")) + geom_line(aes(x=time, y=ke.trans, colour="ke translation")) + scale_colour_manual("", breaks = c("ke rotation", "ke translation"), values = c("blue", "brown")) + ylab("joules") + default.theme
+#+end_src
+
+#+RESULTS:
+
+[[./chainrot_ke.png]]

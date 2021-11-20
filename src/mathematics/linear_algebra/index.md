@@ -58,9 +58,9 @@ source:  #index
 - [[KBxLongBlockReviewHW]]
 - [[KBx3BProof]]
 - [[KBxChapter3CReading]]
+	- [[KBx3CInclass]]
 	
 
-{{s:
 
 
 

@@ -116,7 +116,7 @@ Therefore, to solve for $r$, we simply equate the two expression by $a$ and solv
 We first write a statement for the net force of block $B$:
 
 \begin{align}
-    F_{{net}_b} &= T - F_g_b \\
+    F_{{net}_b} &= T - {F_g}_b \\
 m_B a_B &= T - m_B g
 \end{align}
 
@@ -126,7 +126,7 @@ To figure the tension on the block, we leverage the expression for the net force
 F_{{net}_a} = T \hat{r}
 \end{align}
 
-As the mass of $A$ is rotating in a circle, we know that its acceleration (in the radial component, as the acceleration in the tangential component is 0), must be $\ddot{r} - \omega^2R$. Therefore, we could claim that:
+As the mass of $A$ is rotating in a circle, we know that its acceleration (in the radial component, as the acceleration in the tangential component would take no influence on the radial string as it is directly orthogonal to that component), must be $\ddot{r} - \omega^2R$. Therefore, we could claim that:
 
 \begin{equation}
     T\hat{r} = m_A(\ddot{r} - \omega^2R )
@@ -153,7 +153,7 @@ Substituting $T$ into the expression for $F_{{net}_b}$ derived above...
 * Loop The Loop
 Analysing the situation of the problem, we could first make a simplifying deduction: that the loop-de-loop's completion without loss of contact can be simplified to the successful counteraction of the force of gravity at the /top/ of the loop-de-loop. This is due to the fact that, at any other angle at which the object could be at, a ($x$-direction) component of the acceleration of gravity would be in the direction along the track: which would not cause lost of contact. It is only at the top of the loop that all of the acceleration of gravity is applied directly towards the direction that would cause the object to loose contact.
 
-Hence, as long as the velocity at entry is high enough such that the whole of gravitation force is counteracted, the object will stay on the track. This is also equivalent so saying that we wish to solve for where our normal force to be exactly 0 (point where "contact" is lost, that, based on the expression for uniform circular motion, $mg+N = ma = \frac{mv^2}{R}, N=0$.
+Hence, as long as the velocity at entry is high enough such that the whole of gravitation force is counteracted, the object will stay on the track. This is also equivalent so saying that we wish to solve for where our normal force to be exactly 0 (point where "contact" is lost, that, based on the expression for uniform circular motion, $mg-N = F_{net} = ma = \frac{mv^2}{R}, N=0$. (i.e. we inherently define our coordinate system such that the "down" direction is defined as being positive. 
 
 Therefore:
 
@@ -200,22 +200,26 @@ Similarly, a southern-hemisphere hurricane originating from the south would be b
 * Mission Impossible
 
 ** Which side of the Banister should Hunt stand on?
-The coriolis acceleration is applied towards the $\hat{\theta}$ direction ($\hat{\theta}2\dot{r}\dot{\theta}$). As such, to ensure that, once accelerated, Hunt would be leaned /against/ the banister instead of pushed away from it, he should stand on $-\theta$ side of the banister such that, when he is accelerated in towards $\hat{\theta}$, he collides into the banister and hence keep his stance.
+The coriolis acceleration is applied towards the $\hat{\theta}$ direction ($\hat{\theta}2\dot{r}\dot{\theta}$). As such, to ensure that, once accelerated, Hunt would be leaned /against/ the banister instead of pushed away from it, he should stand on $\theta$ side of the banister such that, when he is accelerated in towards $\hat{\theta}$, he collides into the banister ("caught up" by the banister) and hence keep his stance.
 
 ** Gripping the banister?
+
+#+DOWNLOADED: screenshot @ 2021-11-18 22:38:47
+[[file:2021-11-18_22-38-47_screenshot.png]]
+
 We first deduct $\omega$, the pace at which the platform is rotating. We are given that the platform rotates at 1 revolution per minute --- completing $2\pi$ of rotation in every minute.
 
 Hence, in radians per second, we derive that the angular velocity at which the platform is rotating is $\omega = \frac{2\pi}{60} = \frac{\pi}{30}$.
 
-The maximum force which Hunt may apply to the banister is $2.0N$, meaning he must accelerate, at maximum $\frac{2.0N}{80kg} = 0.025 \frac{m}{s^2}$ tangent to the banister. Furthermore, we determine that he has a constant radial speed (meaning, no radial acceleration.)
+The maximum force which Hunt may apply to the banister tangentially is $2.0N$, meaning he must accelerate, at maximum $\frac{2.0N}{80kg} = 0.025 \frac{m}{s^2}$ tangent to the banister. Furthermore, we determine that he has a constant radial speed (meaning, no radial acceleration.)
 
-As such, we could determine that the force Hunt would apply to the banister (orthogonal to the radius, in $\hat{\theta}$ direction), is as follows:
+As such, we could determine that the force Hunt would apply to the banister (orthogonal to the radius, in $\hat{\theta}$ direction, as --- per the diagram above --- the tangential component of the net force of Hunt is equal to the normal force), is as follows:
 
 \begin{equation}
 a_{tangent} = 2\dot{r}\dot{\theta} = 2\dot{r}\omega
 \end{equation}
 
-We therefore perform variable substitution upon $\omega$ and $a_{tangent}$ as discussed above to figure the optimal $\dot{r}$ that would exert exactly the maximum allowable force. 
+We therefore perform variable substitution upon $\omega$ and $a_{tangent}$ as discussed above to figure the optimal (and, per the setup of the problem, constant) $\dot{r}$ that would exert exactly the maximum allowable force. 
 
 \begin{align}
    &a_{tangent} = 2\dot{r}\omega \\
@@ -224,3 +228,20 @@ We therefore perform variable substitution upon $\omega$ and $a_{tangent}$ as di
 \end{align}
 
 Sliding at this rate, we determine that Hunt would maximally be able to traverse the 10 metre rotating disk at $10/0.119 \approx 84$ seconds. 
+
+** Acceleration Sans Grip
+Were Hunt not to grip the banister and exert a force, we could realize that the $\hat{r}$ component of the net force would therefore be $0$ as there are literally no forces that could actually cause a component of force in the radial direction. Therefore, for hunt:
+
+\begin{equation}
+    \ddot{r} - \omega^2r = 0
+\end{equation}
+
+Solving for $\ddot{r}$, therefore:
+
+\begin{equation}
+    \ddot{r} = \omega^2r
+\end{equation}
+
+Given we know that he is on a platform with existant (non-zero) $\omega$ and $r$, we know that $\ddot{r}$ is additionally non-zero as well. Therefore, he would accelerate radially.
+
+

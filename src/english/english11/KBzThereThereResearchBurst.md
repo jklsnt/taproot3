@@ -16,6 +16,5 @@ source: #KBMasterIndexEng301
 	- This created a lot of fear which helped create the circumstances under which this novel was written
 		- Arthur Miller himself was Subpoenad, but he managed to avoid it until 3 years after his book premiered
 		- He feared prosecution
-	- 
 
 

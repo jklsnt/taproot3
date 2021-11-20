@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-15 Mon 23:12 -->
+<!-- 2021-11-18 Thu 10:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Rotating Chain Experiment</title>
+<title>Rotating Chain Experiment: Floor</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Houjun Liu" />
 <style type="text/css">
@@ -220,7 +220,7 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-11-15 Mon 23:12</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-11-18 Thu 10:01</date></div>
 </div>
 <div id="content">
 <p>
@@ -233,9 +233,9 @@ MASS &lt;- 1 # mass (kg)
 I_ROT &lt;- 1 # roational inertia (kg m^2)
 L1 &lt;- 0.5 # distance from rotation point to CoM (m)
 L2 &lt;- 1 # distance from rotation ponit to tension (m)
-PHI &lt;- 0.1 # angle of Ft relative to floor (rad)
+PHI &lt;- 0 # angle of Ft relative to floor orthogoal (rad)
 FT &lt;- 11 # tension force (N)
-OMEGA &lt;- 0.1 # angle of floor relative to gravity (rad) (because shifted axis)
+OMEGA &lt;- 0 # angle of line orthogonal to floor relative to gravity (rad) (because shifted axis)
 </pre>
 </div>
 
@@ -244,10 +244,14 @@ Additionally, we set the time interval and seed values for time and theta (dista
 </p>
 
 <div class="org-src-container">
-<pre class="src src-R">dt &lt;- 0.05
-t_max &lt;- 5
+<pre class="src src-R">dt &lt;- 0.0001
+t_max &lt;- 5 
+
+vx &lt;- 0
+vy &lt;- 0
 
 theta &lt;- 0
+thetadot &lt;- 0
 time &lt;- 0
 </pre>
 </div>
@@ -275,9 +279,19 @@ cDTheta = NULL
 cTorqueNet = NULL
 cAccelX = NULL
 cAccelY = NULL
+cVelX = NULL
+cVelY = NULL
 cFFriction = NULL
 cFNormal = NULL
+
+# debugging values
+cFNetY = NULL
+cFTensionPhiComponent = NULL
+cFGravityPhiComponent = NULL
+
 cMuStatic = NULL
+cKERot = NULL
+cKETrans = NULL
 </pre>
 </div>
 
@@ -300,7 +314,7 @@ Awesome. Let's now run a lovely little for loop to actually populate the values 
     cDDTheta[i] = thetadotdot
     # We could also multiply the theta acceleration by time to get the
     # velocity at that point
-    thetadot &lt;- dt*thetadotdot
+    thetadot &lt;- dt*thetadotdot + thetadot
     cDTheta[i] = thetadot
     # We could therefore component-ize the acceleration in theta into
     # ax and ay
@@ -308,6 +322,9 @@ Awesome. Let's now run a lovely little for loop to actually populate the values 
     cAccelX[i] = ax
     ay &lt;- L1 * cos(theta) * thetadotdot
     cAccelY[i] = ay # @mark isn't sin and cos backwards?
+    # We also tally the components seperately for velocity
+    vx &lt;- ax*dt + vx
+    vy &lt;- ay*dt + vy
 
     # Based on these accelerations, we therefore could calculate the relative
     # force of friction and normal force by subtracting the force in that direction
@@ -315,8 +332,16 @@ Awesome. Let's now run a lovely little for loop to actually populate the values 
     ffriction &lt;- FT*sin(PHI) + MASS*GRAV*sin(OMEGA)-MASS*ax
     fnormal &lt;- MASS*ay-FT*cos(PHI)+MASS*GRAV*cos(OMEGA)
 
+    cFNetY[i] = MASS*ay
+    cFTensionPhiComponent[i] = FT*cos(PHI)
+    cFGravityPhiComponent[i] = -MASS*GRAV*cos(OMEGA)
+
     cFFriction[i] = ffriction
     cFNormal[i] = fnormal
+
+    # Then, we calculate the energies
+    cKERot[i] = 0.5 * I_ROT * thetadot^2
+    cKETrans[i] = 0.5 * MASS * (vx^2+vy^2)
 
     # Dividing the friction force by the normal force, of course, will result in
     # the (min?) friction coeff
@@ -344,7 +369,9 @@ We now put all of this together in a dataframe.
 			    cAccelY,
 			    cFFriction,
 			    cFNormal,
-			    cMuStatic)
+			    cMuStatic,
+			    cKERot,
+			    cKETrans)
 
 names(rotating_link) &lt;- c("time",
 			  "theta",
@@ -355,7 +382,9 @@ names(rotating_link) &lt;- c("time",
 			  "accel.y",
 			  "friction.force",
 			  "normal.force",
-			  "friction.coeff")
+			  "friction.coeff",
+			  "ke.rot",
+			  "ke.trans")
 </pre>
 </div>
 
@@ -378,12 +407,12 @@ Let's first see the head of this table:
 </div>
 
 <pre class="example">
-0.05	0.0151738135204899	0.30223707175546	6.0447414351092	6.0447414351092	-0.0458591298077288	3.02202278193676	2.12239419606175	1.82801778360313	1.16103585812956
-0.1	0.0302856671082629	0.300933771294696	6.01867542589393	6.01867542589393	-0.0911258682635535	3.00795770360856	2.16766093451758	1.81395270527493	1.19499308235219
-0.15	0.0453323556729977	0.299567811961869	5.99135623923738	5.99135623923738	-0.135754638378239	2.99260055378612	2.21228970463226	1.79859555545248	1.23000954713007
-0.2	0.0603107462710912	0.298140691681283	5.96281383362567	5.96281383362567	-0.17970188898338	2.97598629612356	2.25623695523741	1.78198129778993	1.2661395257266
-0.25	0.0752177808551553	0.296653959525594	5.93307919051187	5.93307919051187	-0.222926177559487	2.95815163397348	2.29946124381351	1.76414663563985	1.30344110708207
-0.3	0.090050478831435	0.295109211808371	5.90218423616742	5.90218423616742	-0.265388242554654	2.93913486763189	2.34192330880868	1.74512986929826	1.34197651991963
+1e-04	6.1e-08	0.00122	6.09999999999999	6.09999999999999	-1.8605e-07	3.04999999999999	1.8605e-07	1.84999999999999	1.00567567567568e-07	7.44199999999999e-07	1.86049999999999e-07
+2e-04	1.83e-07	0.00182999999999999	6.0999999999999	6.0999999999999	-5.58149999999987e-07	3.0499999999999	5.58149999999987e-07	1.8499999999999	3.01702702702712e-07	1.67444999999998e-06	4.18612499999992e-07
+3e-04	3.65999999999999e-07	0.00243999999999995	6.09999999999959	6.09999999999959	-1.1162999999999e-06	3.04999999999959	1.1162999999999e-06	1.84999999999959	6.03405405405483e-07	2.97679999999987e-06	7.44199999999953e-07
+4e-04	6.09999999999994e-07	0.00304999999999983	6.09999999999887	6.09999999999887	-1.86049999999952e-06	3.04999999999887	1.86049999999952e-06	1.84999999999887	1.00567567567603e-06	4.65124999999949e-06	1.16281249999982e-06
+5e-04	9.14999999999977e-07	0.00365999999999958	6.09999999999745	6.09999999999745	-2.79074999999837e-06	3.04999999999745	2.79074999999837e-06	1.84999999999745	1.50851351351472e-06	6.69779999999846e-06	1.67444999999944e-06
+6e-04	1.28099999999993e-06	0.00426999999999908	6.09999999999499	6.09999999999499	-3.90704999999553e-06	3.04999999999499	3.90704999999553e-06	1.849999999995	2.11191891892221e-06	9.11644999999606e-06	2.27911249999858e-06
 </pre>
 
 
@@ -406,7 +435,7 @@ Cool! We could first graph a function for theta over time.
 </div>
 
 
-<div id="org69715f3" class="figure">
+<div id="orgf309ba8" class="figure">
 <p><img src="./chainrot_time_theta.png" alt="chainrot_time_theta.png" />
 </p>
 </div>
@@ -421,7 +450,7 @@ And, similarly, we will graph <code>ax</code> and <code>ay</code> on top of each
 </div>
 
 
-<div id="orga92be8b" class="figure">
+<div id="org64d4080" class="figure">
 <p><img src="./chainrot_time_accels.png" alt="chainrot_time_accels.png" />
 </p>
 </div>
@@ -436,7 +465,7 @@ Let's also plot torque as well.
 </div>
 
 
-<div id="orgfb618de" class="figure">
+<div id="orgc94464d" class="figure">
 <p><img src="./chainrot_torque.png" alt="chainrot_torque.png" />
 </p>
 </div>
@@ -451,7 +480,7 @@ And. <b>Most importantly!</b> Let's plot the normal force.
 </div>
 
 
-<div id="org8a075a6" class="figure">
+<div id="org8a7fdad" class="figure">
 <p><img src="./chainrot_normal.png" alt="chainrot_normal.png" />
 </p>
 </div>
@@ -459,6 +488,36 @@ And. <b>Most importantly!</b> Let's plot the normal force.
 <p>
 Obviously, after the normal force becomes negative, this graph stops being useful.
 </p>
+
+<p>
+Theta dot atop theta:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">rotating_link %&gt;% ggplot() + geom_line(aes(x=time, y=theta, colour="theta")) + geom_line(aes(x=time, y=d.theta, colour="theta dot")) + scale_colour_manual("", breaks = c("theta", "theta dot"), values = c("blue", "brown")) + ylab("radians") + default.theme
+</pre>
+</div>
+
+
+<div id="org4a0b4fa" class="figure">
+<p><img src="./chainrot_thetadot_theta.png" alt="chainrot_thetadot_theta.png" />
+</p>
+</div>
+
+<p>
+We finally, plot KE rotation and translation
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">rotating_link %&gt;% ggplot() + geom_line(aes(x=time, y=ke.rot, colour="ke rotation")) + geom_line(aes(x=time, y=ke.trans, colour="ke translation")) + scale_colour_manual("", breaks = c("ke rotation", "ke translation"), values = c("blue", "brown")) + ylab("joules") + default.theme
+</pre>
+</div>
+
+
+<div id="org4262897" class="figure">
+<p><img src="./chainrot_ke.png" alt="chainrot_ke.png" />
+</p>
+</div>
 </div>
 </body>
 </html>
