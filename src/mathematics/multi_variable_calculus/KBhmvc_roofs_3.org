@@ -13,7 +13,6 @@ One possible design for one side of the roof would be a simple cubic function; t
 #+DOWNLOADED: screenshot @ 2021-11-19 10:45:57
 [[file:2021-11-19_10-45-57_screenshot.png]]
 
-
 * Slope in Middle
 The "middle" of the roof, therefore, is the location $(2,0)$, as indicated by the blue dot above.
 
@@ -61,9 +60,53 @@ We first determine a vector that originates from the center of the roof, and fac
 
 \begin{equation}
    \begin{bmatrix} 
+4 \\
+5
+   \end{bmatrix} - \begin{bmatrix}
+2 \\
+0
+\end{bmatrix} = \begin{bmatrix}
+2 \\
+5
+\end{bmatrix} 
+\end{equation}
+
+Normalizing this vector, we arrive at:
+
+\begin{equation}
+   \begin{bmatrix} 
+\frac{2}{\sqrt{29}} \\
+\frac{5}{\sqrt{29}} \\
    \end{bmatrix} 
 \end{equation}
 
+We will then project the gradient at the center point atop this vector:
 
+\begin{equation}
+    \begin{bmatrix} 
+\frac{2}{\sqrt{29}} \\
+\frac{5}{\sqrt{29}} \\
+   \end{bmatrix} \cdot \begin{bmatrix}
+6 \\
+0
+\end{bmatrix} = \frac{12}{\sqrt{29}}
+\end{equation}
 
+Therefore, the slope as indicated is $\frac{12}{\sqrt{29}} \approx 65.83^{\circ}$.
 
+* Maximizing the Angle
+To face in the steepest direction, we will need to face the direction of the gradient. As the gradient is
+
+\begin{equation}
+   \begin{bmatrix} 
+6 \\0
+   \end{bmatrix} 
+\end{equation}
+
+the direction is: 
+
+\begin{equation}
+   \begin{bmatrix} 
+1 \\0
+   \end{bmatrix} 
+\end{equation}

@@ -1,0 +1,185 @@
+:PROPERTIES:
+:ID:       B7C0625B-655D-4DD7-9000-46629FBFD695
+:END:
+#+TITLE: Thanksgiving Axler Bonanza
+#+AUTHOR: Houjun Liu
+
+Hello, fellow person that comes across this. I have had one brief exposure with Linear Algebra following MATH 21-1 at UCSC. However, Axler is just so cool, so I am trying to learn a bit of linalg on the side to supplement my much more traditional linalg experience at the UC.
+
+A few things of note. This whole thing is very "partial": in the sense that its contents contain many a parts of things omitted which I feel like I have a very good grasp on from 21-1 such that I don't need to be reminded again; I only include things that maybe useful to me later either b/c I don't know it or I want to be reminded of it. As such, I don't think this will be helpful for most people.
+
+* 1.A
+
+** Things of Note
+- $\lambda \in \mathbb{F}$ is called a "scalar". I mean duh but still.
+
+*** Defining a list
+A list of length $n$ is a collection of $n$ elements (any mathematical object?) separated by commas.
+
+"Identical" lists are established when lists have:
+
+- the same length
+- same elements
+- in the same order.
+
+Its also called a $n$-tuple.
+
+$n$ must be a finite non-negative value. Therefore, an "infinitely long list" is not a list.
+
+*** Sets vs Lists
+Lists have order and repetition. In sets, order and repetitions don't matter.
+
+*** $\mathbb{F}$ 
+- A set
+- Containing 2 elements $0$, $1$
+- Operators of "addition" and "multiplication" that satisfy the following properties
+
+**** Properties of $\mathbb{F}$
+That, with $\alpha, \beta, \lambda \in \mathbb{F}$:
+
+- **Commutativity** $\alpha + \beta = \beta + \alpha$ and $\alpha \beta = \beta \alpha$
+- **Associativity** $(\alpha + \beta) + \lambda = \alpha + (\beta + \lambda)$ and $(\alpha\beta)\lambda = \alpha(\beta\lambda)$
+- **Existence of Identities** $\lambda + 0 = \lambda$ and $\lambda 1 = \lambda$
+- **Additive Inverse** for every $\alpha$, $\exists \beta$ s.t. $\alpha + \beta = 0$
+- **Multiplicative Inverse** for every $\alpha \neq 0$, $\exists \beta$ s.t. $\alpha \beta = 1$
+- **Distribution** $\lambda(\alpha + \beta) = \lambda \alpha + \lambda \beta$
+
+*** $\mathbb{F}^n$
+\begin{equation}
+  \mathbb{F}^n = \{(x_1, \ldots, x_n) : x_j \in \mathbb{F}\ for\ j=1,\ldots,n\}  
+\end{equation}
+
+We say $x_j$ is the $j^{th}$ coordinate of $(x_1, \dots,x_n)$.
+
+In $\mathbb{F}^n$...
+
+**** Addition
+\begin{equation}
+   (x_1,\dots,x_n) + (y_1,\ldots,y_n) = (x_1+y_1,\ldots,x_n+y_n) 
+\end{equation}
+
+**** Zero
+\begin{equation}
+   0=(0,\ldots,0)
+\end{equation}
+
+**** Additive Inverse
+...of $x \in \mathbb{F}^n$:
+
+\begin{equation}
+   x+(-x) = 0
+\end{equation}
+
+That:
+
+\begin{equation}
+   x=(x_1, \ldots,x_n), -x=(-x_1,\ldots,-x_n) 
+\end{equation}
+
+**** Scalar Multiplication
+\begin{equation}
+    \lambda(x_1,\ldots,x_n) = (\lambda x_1, \ldots, \lambda x_n)
+\end{equation}
+
+** In-Text Exercises
+
+*** Verify that $i^2 = -1$
+$(0+1i)(0+1i) = (0 + 0 + 0 + i i) = -1$
+
+*** Defining subtraction and division
+$\alpha, \beta \in \mathbb{C}$
+
+Subtraction could be defined in that:
+
+- Let $-\alpha$ be defined as the additive inverse of $\alpha$
+- Subtraction, therefore, is defined $\beta - \alpha = \beta + (-\alpha)$
+
+Division could be defined in that:
+
+- Let $1/\alpha$ be defined as the multiplicative inverse of $\alpha$
+- Subtraction, therefore, is defined $\beta/\alpha = \beta(1/\alpha)$
+
+** Actual Exercises
+
+#+begin_quote
+1: Suppose $a, b \in \mathbb{R}$, $a,b \neq 0$, find $c,d \in \mathbb{R}$ s.t. $\frac{1}{(a+bi)} = c+di$
+#+end_quote
+
+\begin{align}
+    \frac{1}{(a+bi)} &= \frac{(a-bi)}{(a+bi)(a-bi)} =  \\
+\Rightarrow & \frac{a-bi}{a^2-(bi)^2} = c+di \\
+\Rightarrow & \frac{a-bi}{a^2+b^2} = c+di \\
+\Rightarrow & \frac{a}{a^2+b^2}-\frac{bi}{a^2+b^2} = c+di 
+\end{align}
+
+
+Therefore:
+
+\begin{equation}
+    c = \frac{a}{a^2+b^2}
+\end{equation}
+
+\begin{equation}
+    d = \frac{-b}{a^2+b^2}
+\end{equation}
+
+#+begin_quote
+2: Show that $\frac{-1+\sqrt{3}i}{2}$ is the cube root of 1.
+#+end_quote
+
+\begin{align}
+    &(\frac{-1+\sqrt{3}i}{2})^3 \\
+\Rightarrow &(\frac{-1+\sqrt{3}i}{2})(\frac{-1+\sqrt{3}i}{2})(\frac{-1+\sqrt{3}i}{2})  \\
+\Rightarrow &\frac{(-1+\sqrt{3}i)(-1+\sqrt{3}i)(-1+\sqrt{3}i)}{8}  \\
+\Rightarrow &\frac{(1-2\sqrt{3}i-3)(-1+\sqrt{3}i)}{8} \\
+\Rightarrow &\frac{(1-2\sqrt{3}i-3)(-1+\sqrt{3}i)}{8} \\
+\Rightarrow &\frac{8}{8} = 1
+\end{align}
+
+#+begin_quote
+3: Find two distinct square roots of $i$
+#+end_quote
+
+?
+
+#+begin_quote
+4: Show that $\alpha + \beta = \beta + \alpha, \forall \alpha,\beta \in \mathBB{C}$  
+#+end_quote
+
+Let:
+
+$\forall a,b,c,d \in \mathbb{R}$
+
+- $\alpha = (a+bi)$
+- $\beta = (c+di)$
+
+\begin{align}
+   \alpha + \beta &= (a+bi) + (c+di) \\
+&=(a+c) + (b+d)i \\
+&=(c+a) + (d+b)i \\
+&=(c+di) + (a+bi) \\
+&=\beta + \alpha\ \blacksquare 
+\end{align}
+
+#+begin_quote
+5: Show that $(\alpha + \beta) + \lambda = \alpha + (\beta+\lambda), \forall \alpha,\beta,\lambda \in \mathbb{C}$
+#+end_quote
+
+Let:
+
+$\forall a,b,c,d,e,f \in \mathbb{R}$
+
+- $\alpha = (a+bi)$
+- $\beta = (c+di)$
+- $\lambda = (e+fi)$
+
+\begin{align}
+   (\alpha + \beta)+\lambda &= ((a+bi) + (c+di))+(e+fi) \\
+&=((a+c)+(b+d)i)+(e+fi) \\
+&=(a+c+e)+(b+d+f)i \\
+&=(a+(c+e))+(b+(d+f))i \\
+&=(a+bi)+(c+e)+(d+f)i \\
+&=(a+bi)+((c+di)+(e+fi)) \\
+&=\alpha+(\beta+\lambda)\ \blacksquare 
+\end{align}
+
