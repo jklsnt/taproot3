@@ -40,7 +40,7 @@ title: CS240 Master Index
 ## Forensics
 
 - [[KBxForensicsRet]]
-
+- [[KBxForensicsRetpt2]]
 
 
 

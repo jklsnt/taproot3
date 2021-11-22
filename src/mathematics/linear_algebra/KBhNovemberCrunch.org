@@ -6,7 +6,7 @@
 
 Hello, fellow person that comes across this. I have had one brief exposure with Linear Algebra following MATH 21-1 at UCSC. However, Axler is just so cool, so I am trying to learn a bit of linalg on the side to supplement my much more traditional linalg experience at the UC.
 
-A few things of note. This whole thing is very "partial": in the sense that its contents contain many a parts of things omitted which I feel like I have a very good grasp on from 21-1 such that I don't need to be reminded again; I only include things that maybe useful to me later either b/c I don't know it or I want to be reminded of it. As such, I don't think this will be helpful for most people.
+A few things of note. This whole thing is very "partial": in the sense that its contents contain many a parts of things omitted which I feel like I have a good grasp on from 21-1 such that I don't need to be reminded again; I only include things that maybe useful to me later either b/c I don't know it or I want to be reminded of it. As such, I don't think this will be helpful for most people.
 
 * 1.A
 
@@ -58,6 +58,11 @@ In $\mathbb{F}^n$...
    (x_1,\dots,x_n) + (y_1,\ldots,y_n) = (x_1+y_1,\ldots,x_n+y_n) 
 \end{equation}
 
+**** Scalar Multiplication
+\begin{equation}
+    \lambda(x_1,\ldots,x_n) = (\lambda x_1, \ldots, \lambda x_n)
+\end{equation}
+
 **** Zero
 \begin{equation}
    0=(0,\ldots,0)
@@ -74,11 +79,6 @@ That:
 
 \begin{equation}
    x=(x_1, \ldots,x_n), -x=(-x_1,\ldots,-x_n) 
-\end{equation}
-
-**** Scalar Multiplication
-\begin{equation}
-    \lambda(x_1,\ldots,x_n) = (\lambda x_1, \ldots, \lambda x_n)
 \end{equation}
 
 ** In-Text Exercises
@@ -183,3 +183,161 @@ $\forall a,b,c,d,e,f \in \mathbb{R}$
 &=\alpha+(\beta+\lambda)\ \blacksquare 
 \end{align}
 
+* 1.B
+
+** Things of Note
+
+*** Vector Spaces $V$
+
+A "vector"/"point" is a member of a vector space. The exact nature of scalar multiplication depends on which $\mathbb{F}$ we are working it; hence, when being precise, we say that $V$ is a vector space "over $\mathbb{F}$".
+
+**** Motivation
+- Addition is commutative, associative, and has identity
+- Every element has additive inverse
+- Scalar multiplication is associative
+- Addition and scalar multiplication is connected by distribution
+
+**** Basic Operators
+- **Addition** on set $V$ is a function that assigns $u+v \in V$ to each pair $u,v \in V$
+- **Scalar Multiplication** on set V is a function that assigns $\lambda v \in V$ to each $\lambda \in \mathbb{F}$ and $v \in V$. Note that this is different than a field, because if you can't multiply two different things in and out of the field and expect it to remain. But you could multiply an element in field $\mathbb{F}$ and a vector in vector space $V$ and expect it to stay in $V$.
+
+Note also "Multiplication" is not defined as 1) there are two and 2) they behave very differently.
+
+**** Properties
+For $u,v,w \in V$ and $a,b \in \mathbb{F}$.
+
+- **Commutativity** $u+v = v+u$
+- **Associativity** $(u+v)+w = u+(v+w)$ and $(ab)v=a(bv)$. 
+- **Additive Identity** $\exists 0\in V\ s.t.\ v+0 = v, \forall v\in V$
+- **Additive Inverse** $\forall v \in V, \exists w\in V\ s.t.\ v+w=0$
+- **Multiplicative Identity** $1v=v$ 
+- **Distribution** $a(u+v) = au+av$ and $(a+b)v = av+bv$
+
+**** Unique Additive Identity
+The additive identity ("zero") in a vector space must be unique. (i.e. there cannot be two distinct zeros $0$ and $0'$ which both are $\in V$). This is because:
+
+\begin{equation}
+    0 = 0 + 0' = 0'+0 = 0'
+\end{equation}
+
+That --- if both $0$ and $0'$ are additive identities, $0=0'$.
+
+**** Unique Additive Inverse
+Every element in a vector space has an unique additive inverse (i.e. there cannot be two distinct additive inverses of $v \in V$ $w$ and $w'$ which both are $\in V$). 
+
+Suppose $w$ and $w'$ are both additive inverses of $v$, then it holds that:
+
+\begin{equation}
+w = w+0 = w+(v+w') = (w+v)+w' = 0+w' = w'
+\end{equation}
+
+That --- if both $w$ and $w'$ exists in $V$, $w = w'$.
+
+**** Zero and Vectors
+$0v = 0$ for $v \in V$. $a\vec{0}=\vec{0}$ for $a \in \mathbb{F}$.
+
+*** $\mathbb{F}^{\infty}$
+Wait but aren't $\mathbb{F}^n$ supposed to be made of lists, which has finite length?
+
+I guess its just sequences of all of everything in $F$.
+
+\begin{equation}
+   \mathbb{F}^{\infty} = \{(x_1, x_2,\ldots):x_j\in \mathbb{F}\ for\ j=1,2,\ldots \} 
+\end{equation}
+
+*** $\mathbb{F}^S$
+$\mathbb{F}^S$ is defined as the set of functions that maps elements in set $S$ to $\mathbb{F}$. It is a vector space.
+
+**** Addition
+Addition between $f,g \in \mathbb{F}^S$ is defined by:
+
+\begin{equation}
+   (f+g)(x) = f(x)+g(x),\ \forall x \in S
+\end{equation}
+
+**** Scalar Multiplication
+Multiplication between $\lambda \in \mathbb{F}$ and $f \in \mathbb{F}^s$, $\lambda f \in \mathbb{F}^s$ is defined as:
+
+\begin{equation}
+    (\lambda f)(x) = \lambda f(x),\ \forall x \in S
+\end{equation}
+
+**** $\mathbb{F}^n$ and $\mathbb{F}^\infty$ are special cases of $\mathbb{F}^s$
+...this is because a list $\{x_1, x_2, x_3, \ldots, x_n\}$ is actually a bijective mapping between $\{1,2,3,\ldots,n\}$ (the indexes) and the values of the list, which are all $\in \mathbb{F}$. so :tada:!
+
+** In-Text Exercises
+
+*** Verify that $\mathbb{F}^n$ is a vector space over $\mathbb{F}$
+Not going to write this one out, but:
+
+- Commutativity: via rules addition, commutation (in $\mathbb{F}$), then undoing addition
+- Associativity: addition, communication, then undoing addition
+- Additive Identity: addition + definition of "zero" in $\mathbb{F}^n$
+- Additive Inverse: addition + additive inverse (in $\mathbb{F}$)
+- Multiplicative Identity: scalar multiplication (by 1) and then identity (in $\mathbb{F}$)
+- Distribution: definition of addition in $\mathbb{F}^n$, scalar multiplication, undoing definition of addition again
+
+** Actual Exercises
+
+#+begin_quote
+1: Proof that $-(-v) = v,\ \forall v \in V$
+#+end_quote
+
+| Step                 | Explanation          |
+|----------------------+----------------------|
+| $v = v+0$            | Additive identity    |
+| $v = v+(-v+-(-v))$   | Additive inverse     |
+| $v = (v+-v) + -(-v)$ | Associative property |
+| $v = 0 + -(-v)$      | Additive inverse     |
+| $v = -(-v)\ \blacksquare$        | Additive Identity    |
+
+#+begin_quote
+2: Suppose $a \in \mathbb{F}, v\in V$, and $av=0$. Proof $a=0$ or $v=0$.
+#+end_quote
+
+Let $a \neq 0$. We define the multiplicative inverse of $a$ as $a^{-1}$.
+
+| Step                 | Explanation             |
+|----------------------+-------------------------|
+| $v = 1v$             | Multiplicative identity |
+| $v = a a^{-1} v$     | Multiplicative inverse  |
+| $v = av a^{-1}$      | Commutativity           |
+| $v = 0 a^{-1}$       | Given                   |
+| $v = 0\ \blacksquare$ | Number times 0          |
+
+If $a=0$, $\blacksquare$.
+
+#+begin_quote
+3: Suppose $v,w \in V$, explain why $\exists$ unique $x\in V$ s.t. $v+3x = w$ 
+#+end_quote
+
+Let $x = \frac{1}{3}(w-v)$; by addition and scalar multiplication, $\exists x \in V$.
+
+| Step                          | Explanation                    |
+| $v + 3x = w$                  | Given                          |
+| $v + 3(\frac{1}{3}(w-v)) = w$ | Defined                        |
+| $v + (w - v) = w$             | Multiplication in $\mathbb{F}$ |
+| $v - v + w = w$               | Commutativity                  |
+| $w = w\ \blacksquare$       | Additive Inverse               |
+
+Therefore, $\exists x \in V$ that satisfies the needed property.
+
+Suppose there exists more than 1 $x$ which satisfies this property. We call them $x$ and $x'$. This would tell us the following equalities:
+
+$v + 3x = w$, $v+3x' = w$.
+
+It follows from the equalities that:
+
+$3x = w-v$, $3x' = w-v$
+
+Then, it follows that
+
+$3x = 3x'$
+
+Therefore:
+
+\begin{equation}
+x = x'
+\end{equation}
+
+Hence, if given that there exists $v + 3x = w$, $v+3x' = w$, $x=x'$. Hence, there is only one unique $x$ such that $v+3x = w$.

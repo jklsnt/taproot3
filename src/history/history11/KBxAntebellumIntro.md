@@ -159,7 +159,66 @@ IMPACTS
 
 ### sources
 
-[Andrew Jackson and the Age of Democratic Revolution (2005)](https://docs.google.com/document/d/1GWy08V60Mx3v9lukPhQOMsciFQe1XNkxrx3Ek-q4OWo/edit)
+- [Andrew Jackson and the Age of Democratic Revolution (2005)](https://docs.google.com/document/d/1GWy08V60Mx3v9lukPhQOMsciFQe1XNkxrx3Ek-q4OWo/edit)
+- Legacies of Andrew Jackson
+
+
+### annotes
+
+##### the tyranny of the majority
+talks about elevation of the common man
+due to the advent of politiclal democarcy in the 1820s
+specter of popular opression get's 'raised anew'
+
+- idea of democracy is founded on the idea that
+	- wisdom of many men united is more than of one alone
+- if one man with omnipotence is bad, then why isnt the same thing true for a majority?
+- lack of a garuntee against tyranny
+- tyranny of majority more dangerous than tyranny of a monarch
+- tyranny of the majority acts on wills!
+
+- "in america the majority draws a formidible circle around thought."
+- cannot confuse stability with force
+
+Communicates the fear of the tyranny of majority. Argues that, since tyranny from a single man is rejected, tyranny from multiple shouldn't be treated differently. Says that America has no guarantee against tyranny, and that tyranny of the majority is more dangerous than conventional tyranny as it acts on wills instead of just actions. Creates a sense of impending doom due to the tyranny of the majority.
+
+From Harvey C. Mansfield and Delba Winthrop, ed., *Democracy in America.* Copyright (c) 2000 by the University of Chicago Press. Reprinted by permission of the University of Chicago Press.
+
+#####  The Election of 1836
+
+- depicts the election as a (fist)fight, in a comic
+- 
+
+
+#####  South Carolina Ordinance of Nullification (1832)
+- 
+
+
+
+
+### annotated bib
+**Andrew Jackson and the Age of Democratic Revolution (2005).**
+Gives background on Andrew Jackson, but more importantly communicates nuanced modern day perspectives of Andrew Jackson. Talks about Jackson's early life and rise to power, namely the slash on his head. Explores supposed paradoxes in Jackson's actions.
+
+**The Tyranny of the Majority. Source:  From Harvey C. Mansfield and Delba Winthrop, ed., *Democracy in America.* Copyright (c) 2000 by the University of Chicago Press. Reprinted by permission of the University of Chicago Press.**
+Communicates the fear of the tyranny of majority. Argues that, since tyranny from a single man is rejected, tyranny from multiple shouldn't be treated differently. Says that America has no guarantee against tyranny, and that tyranny of the majority is more dangerous than conventional tyranny as it acts on wills instead of just actions. Creates a sense of impending doom due to the tyranny of the majority.
+
+
+**The Election of 1836. Source: Library of Congress, Washington, D.C.**
+Uses a comic to depict the election as a fistfight, and communicates the relationships between the different candidates.
+
+
+**South Carolina Ordinance of Nullification (1832). Source: Paul Leicester Ford, *The Federalist: A Commentary on the Constitution of the United States* (New York: Henry Holt, 1898), 150-152.**
+South Carolina's response to the tariffs. Gives explanation of why Jackson had to pass the force act, and how he was viewed as a dictator.
+
+
+
+
+
+
+
+
+
 
 
 
