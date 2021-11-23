@@ -341,3 +341,128 @@ x = x'
 \end{equation}
 
 Hence, if given that there exists $v + 3x = w$, $v+3x' = w$, $x=x'$. Hence, there is only one unique $x$ such that $v+3x = w$.
+
+* 1.C
+Axler, in his infinite wisdom, has crammed everything that's interesting to note in Chapter 1.c.
+
+** Things of Note
+
+*** Subspaces
+(Woo hoo!)
+
+A subset $U \subset V$ is called a "subspace of $V$" if $U$ is also a vector space using the same addition and scalar multiplication operators.
+
+**** Checking for Subspaces
+Check for three conditions:
+
+For $U \subset V$
+
+- **Additive Identity** $0 \in U$. (also could be defined as "set is nonempty", b/c if nonempty, and its closed under scalar multiplication, multiplying any element by $0$ will do the trick. But often showing $0$ is in it is actually simpler.)
+- **Closed Under Addition** $u,w \in U$ implies $u+w \in U$
+- **Closed Under Scalar Multiplication** $a \in \mathbb{F}$ and $u \in U$ implies $au \in U$
+
+*** Summing Subsets
+Suppose $U_1,\ldots,U_m$ are subsets of $V$. The "sum" of the subsets ($U_1 + \cdots + U_m$) is the set of all possible sums of elements in $U_1, \lodts, U_m$. That is:
+
+\begin{equation}
+   U_1 + \cdots + U_m = \{u_1 + \cdots + u_m : u_1 \in U_1, \ldots, u_m \in U_m \} 
+\end{equation}
+
+**** Properties of the Sums of Subspaces
+Suppose $U_1, \ldots, U_m$ are subspaces of $V$. $U_1 + \cdots + U_m$ is the smallest subspace of $V$ containing all of $U_1,\ldots,U_m$.
+
+*** Direct Sum
+
+Suppose $U_1, \ldots, U_m$ are subspaces of $V$
+
+- Sum $U_1 + \cdots + U_m$ is a direct sum if $U_1 + \cdots + U_m$ can be only written only one way as a sum $u_1 + \cdots + u_m$
+- Direct sum is noted as $U_1 \oplus \cdots \oplus U_m$ 
+
+"Sums is the union, direct sums is the disjoint union".
+
+**** Checking for Direct Sums
+Suppose $U_1, \ldots, U_m$ are subspaces of $V$. $U_1 + \cdots + U_m$ is a direct sum iff the only way to write $0$ as a sum $u_1 + \cdots + u_m$ is by taking each $u_j$ equaling to 0. This could be implied from the definition of a direct sum: that there is only one way to write a $0$ as $u_1 + \cdots + u_m$, and being closed scalar multiplication means that you could multiply $0$ to each subspace individually and they still have to add up to $0$. 
+
+**** Direct Sum of Two Subspaces
+Suppose $U,W$ are subspaces of $V$.
+
+$U+W$ is a direct sum iff $U \cap W = \{0\}$. 
+
+** In-Text Excercises
+
+*** Summing Subspaces, an Example
+Suppose $U = \{(x,x,y,y) \in \mathbb{F}^4: x,y \in \mathbb{F}\}$ and $W= \{(x,x,x,y) \in \mathbb{F}^4 : x,y \in \mathbb{F}\}$. Then:
+
+\begin{equation}
+    U+W = \{(x,x,y,z) \in \mathbb{F}^4 : x,y,z \in \mathbb{F}\}
+\end{equation}
+
+We verify this by writing out the sum.
+
+\begin{align}
+    U + W &= \{(x_u,x_u,y_u,y_u) + (x_w,x_w,x_w,y_w) : x_u, y_u \in U, x_w, y_w \in W\} \\
+&= \{(x_u+x_w,x_u+x_w,y_u+x_w,y_u+y_w) : x_u, y_u \in U, x_w, y_w \in W\} \\
+&= \{\left(\underbrace{x}_{x_u+x_w},x,\underbrace{y}_{y_u+x_w},\underbrace{z}_{y_u+y_w}\right) : x,y,z \in \mathbb{F}\}
+\end{align}
+
+*** Verify sums equal to spaces
+Suppose $U,W$ are subspaces of $\mathbb{F}^3$.
+
+\begin{align}
+    U =&\,\{(x,y,0) \in \mathbb{F}^3:x,y \in \mathbb{F}\} \\
+    W =&\,\{(0,0,z) \in \mathbb{F}^3: z \in \mathbb{F}\}
+\end{align}
+
+Verify $\mathbb{F}^3 = U \oplus W$
+
+\begin{equation}
+  U + W = \{(x,y,z) \in \mathb{F}^3 : x,y,z \in \mathhb{F}\} = \mathbb{F}^3
+\end{equation}
+
+:tada:?
+
+** Actual Excercises
+
+#+begin_quote
+1: For each of the following subsets of $\mathbb{F}^3$, determine if it is a subspace of $\mathbb{F}^3$.
+#+end_quote
+
+\begin{equation}
+  U = \{(x_1, x_2, x_3) \in \mathbb{F}^3:x_1+2x_2+3x_3 = 0\}  
+\end{equation}
+
+We could see that $(0,0,0) \in U$.
+
+Let $u_1 = (x_1, x_2, \frac{-x_1 - 2x_2}{3}}), u_2 = (x_3, x_4, \frac{-x_3 - 2x_4}{3}}). u_1, u_2 \in U$.
+
+$u_1 + u_2 = (x_1+x_3,x_2+x_4,\frac{-(x_1+x_3)-2(x_2+x_4)}{3})$. Define $x_1 + x_3 = x$, $x_2+x_4 = y$. Therefore: $u_1 + u_2 = (x,y,\frac{-x-2y}{3})$.
+
+$x+2y-x-2y = 0$.
+
+Therefore, $U$ is closed under addition.
+
+Let $u_1 = (x_1, x_2, \frac{-x_1 - 2x_2}{3}})$. We scale each element by scalar factor $\lambda$.
+
+$\lambda u_1 = (\lambda x_1, \lambda x_2, \lambda \frac{-x_1 - 2x_2}{3}})$.
+
+$\lambda x_1 + 2\lambda x_2 - \lambda x_1 -2 \lambda x_2 = 0$. Therefore, $U$ is closed under scalar multiplication.
+
+Therefore, it is a subspace of $\mathbb{F}^3$.
+
+#+begin_quote
+10: Suppose that $U_1$ and $U_2$ are subspaces of $V$. Prove that the intersection $U_1 \cap U_2$ is a subspace of $V$. 
+#+end_quote
+
+Given $U_1$ and $U_2$ are both subspaces, $0$ must be in both subsets hence it must be in their intersection.
+
+Let $u_1 = (x_1,y_1,z_1)$. Let $u_2 = (x_2,y_2,z_2)$. Finally, let $u_1,u_2 \in U_1 \cap U_2$. By this last fact, we could derive the fact that $u1,u2 \in U_1, U_2$.
+
+As $U_1$ is a subspace, $U_1$ closed under addition. Since $u_1,u_2 \in U_1$, $u_1 + u_2 \in U_1$. As $U_2$ is a subspace, $U_2$ closed under addition. Since $u_1,u_2 \in U_2$, $u_1 + u_2 \in U_2$.
+
+As $u_1 + u_2 \in U_1,U_2$, it is additionally $u_1 + u_2 \in U_1 \cap U_2$. $U_1 \cap U_2$ is therefore closed under addition.
+
+By the same token....
+
+As $U_1$ is a subspace, $U_1$ is closed under scalar multiplication. Since $u_1 \in U_1$, $\lambda u_1 \in U_1$. As $U_2$ is a subspace, $U_2$ is closed under scalar multiplication. Since $u_1 \in U_2$, $\lambda u_1 \in U_2$.
+
+Therefore, as $\lambda u_1 \in U_1, U_2$, it is additionally true that $\lamba u_1 \in U_1 \cap U_2$, it is therefore closed under multiplication.
