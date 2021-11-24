@@ -190,7 +190,7 @@ See 'feh --help' or 'man feh' for detailed usage information
 ```
 or simply a malformed image, which had some cool properties. Namely, an entirely non-interactive chunk of space in Discord when sent.
 ![[Pasted image 20211123234017.png||300]] ![[Pasted image 20211123234127.png||300]] ![[Pasted image 20211123234142.png||300]]
-I also tried simply converting the output to values between 0-255, then graphing the values based on their original y location. I also learned about then messed with adding in the magic bytes that feh said was missing manually. Neither of these methods worked at all. After talking with @david on a walk today, I realized that the bits outputted from our LSB decryption, if they were a `.png`, would most likely have all the information of the `.png` included, magic bytes and all. With this knowledge in mind, any many hours with no hidden message to show for, I went back to the drawing board.
+I also tried simply converting the output to values between 0-255, then graphing the values based on their original y location. I also learned about then messed with adding in the magic bytes that feh said was missing manually. Neither of these methods worked at all. After talking with @david on a walk today, I realized that the bits outputted from our LSB decryption, if they were a `.png`, would most likely have all the information of the `.png` included, magic bytes and all. Thus, I shound't have to mess with wrapping my bits specially or anything of the sort. With this knowledge in mind, any many hours with no hidden message to show for, I went back to the drawing board.
 
 ### New Revelations
 
@@ -198,9 +198,62 @@ Poking around back through stegsolve, I noticed something new.
 Following are the zero'th plane of each of the color channels.
 ![[Pasted image 20211123235055.png||200]] ![[Pasted image 20211123235105.png||200]] ![[Pasted image 20211123235118.png||200]] ![[Pasted image 20211123235136.png||200]]
 *Plane 0 from stegsolve of the red, green, blue, and alpha channels.*
-If you look closely at the third image -- the blue plane -- there is a little white spot under the right ear and the new block.
+If you look closely at the third image -- the blue plane, and *only* the blue plane -- there is a little white spot under the right ear and the new block.
 ![[Pasted image 20211123235431.png]]
-With this discovery, I realized that not all the image nessasarily had a message encoded. Instead, only a segment could have an encoded message.
+With this discovery, I realized that not all the image necessarily had a message encoded. Instead, only a segment could have an encoded message. Admittedly, in hindsight, this realization seems quite obvious.
+
+Next was to find the location of the encoded section and separate it from the rest of the image. I crudely attempted this by simply measuring how many pixels down the bottom of the white dot I found under the right ear was from the top of the image. I got a measurement of 191. Multiplying this by our width, 480, we get 91680. Thus, if all else is correct, we know that the encoded region only starts after 91680 pixels. Once again, armed with new knowledge, I went back to decoding.
+
+With a new [bit-processing](https://stackoverflow.com/questions/21220916/writing-bits-to-a-binary-file) function, which simply wrote the bytes to a file,
+```py
+with open("lsb.png", "wb") as f:
+	f.write(int(bits[::-1], 2).to_bytes(len(bits)//8, 'little'))
+
+```
+and a modified decoding algorithm which started at the 91680'th pixel,
+```py
+for i in range(91680, px, 1):
+```
+
+I finally created a new file. Opening this file gave us, *drumroll please, again*: 
+```bash
+❯ feh test.png
+feh WARNING: bitsout.png - Does not look like an image (magic bytes missing)
+feh: No loadable images specified.
+See 'feh --help' or 'man feh' for detailed usage information
+```
+the exact same output as before. To look more closely at what was going on, I opened the file with vim:
+
+```bash
+❯ vim test.png
+��pt��f{��q��]4����r�n/�������ȍ�6��� `�Vj����K�6�
+��?�8�����;$7�m+U�68?'��v�lM�j���=5���eR�]�����_;��PNG�
+
+
+
+   !!
+!"""###$$$%%%&&&'''((()))***+++,,,---...///00011122233344455566677788
+8999:::;;;<<<===>>>???@@@AAABBBCCCDDDEEEFFF
+GGGHHHIIIJJJKKKLLLMMMNNNOOOPPPQQQRRRSSSTTTUUUVVVWWWX
+XXYYYZZZ[[[\\\]]]^^^___```aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnnoooppp
+qqqrrrssstttuuuvvvwwwxxxyy
+```
+And, alas, hope! PNG was in the file! I was doing *something* right. After many more iterations and shot-in-the-dark attempts, I finally simply went into the generated file, deleted things before what I guessed were the magic bytes, and opened the file again. 
+
+
+```bash
+❯ feh lsb.png
+||
+```
+And finally! After many, many hours, the image finally opened. 
+![[test.png||500]]
+And voila! The message is found. ***Finally.*** No sweat.
+
+
+
+
+
+
 
 
 
