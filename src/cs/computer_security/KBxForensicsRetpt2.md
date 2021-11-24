@@ -190,10 +190,14 @@ See 'feh --help' or 'man feh' for detailed usage information
 ```
 or simply a malformed image, which had some cool properties. Namely, an entirely non-interactive chunk of space in Discord when sent.
 ![[Pasted image 20211123234017.png||300]] ![[Pasted image 20211123234127.png||300]] ![[Pasted image 20211123234142.png||300]]
+I also tried simply converting the output to values between 0-255, then graphing the values based on their original y location. I also learned about then messed with adding in the magic bytes that feh said was missing manually. Neither of these methods worked at all. After talking with @david on a walk today, I realized that the bits outputted from our LSB decryption, if they were a `.png`, would most likely have all the information of the `.png` included, magic bytes and all. With this knowledge in mind, any many hours with no hidden message to show for, I went back to the drawing board.
 
+### New Revelations
 
-
-
+Poking around back through stegsolve, I noticed something new.
+Following are the zero'th plane of each of the color channels.
+![[Pasted image 20211123235055.png||200]] ![[Pasted image 20211123235105.png||200]] ![[Pasted image 20211123235118.png||200]] ![[Pasted image 20211123235136.png||200]]
+*Plane 0 from stegsolve of the red, green, blue, and alpha channels.*
 
 
 
