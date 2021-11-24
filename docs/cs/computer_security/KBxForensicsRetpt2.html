@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-22 Mon 22:41 -->
+<!-- 2021-11-23 Tue 22:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Forensics, pt2.</title>
@@ -220,12 +220,17 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Forensics, pt2.</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-11-22 Mon 22:41</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Forensics, pt2.</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-11-23 Tue 22:17</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>CS240 Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
 <li><a href="#forensics">1. Forensics!</a></li>
+<li><a href="#forensics-pt.-2.">2. Forensics! :: pt. 2.</a>
+<ul>
+<li><a href="#the-problem">2.1. The Problem</a></li>
+</ul>
+</li>
 </ul>
 </div></div>
 </div>
@@ -247,7 +252,7 @@ stegsolve, try at home. tried janky implimentation of lsb, outputs
 nonsense.
 </p>
 
-<pre class="example" id="org0949267">
+<pre class="example" id="org6a9086b">
 from PIL import Image
 import base64
 im = Image.open('./fc13_images_pkg1/IMG_0447.png')
@@ -271,6 +276,82 @@ perhaps look at solutions, or look for help from other people. #review
 </p>
 
 <hr />
+
+<p>
+stegsolve! bit planes!
+</p>
+
+<p>
+seperating out the bit planes to bit plane zero for each color gives us
+something fishy.
+</p>
+
+<p>
+as we decrease the bit planes, the image gets less legible. makes sense,
+because the significance of the bit is decreasing. now we just gotta
+find the hidden message.
+</p>
+
+<p>
+size of image:
+</p>
+
+<p>
+480 x 343
+</p>
+
+<p>
+we can seperate it out, the message starts at the 191th pixel on the
+image multiplying this by our width we get 91680, the pixel where the
+encoded message starts.
+</p>
+</div>
+</div>
+
+<div id="outline-container-forensics-pt.-2." class="outline-2">
+<h2 id="forensics-pt.-2."><span class="section-number-2">2</span> Forensics! :: pt. 2.</h2>
+<div class="outline-text-2" id="text-forensics-pt.-2.">
+<pre class="example" id="org6bd45ea">
+By working on this, for many hours, I have learned that forensics is hard. When it comes to forensics, I have absolutely no idea what I am doing. What follows is my process for trying to get things done with absolutely no background.
+</pre>
+</div>
+
+<div id="outline-container-the-problem" class="outline-3">
+<h3 id="the-problem"><span class="section-number-3">2.1</span> The Problem</h3>
+<div class="outline-text-3" id="text-the-problem">
+<p>
+I chose to solve
+<a href="https://www.honeynet.org/challenges/forensic-challenge-13-a-message-in-a-picture/">this
+problem</a> from the Honeynet Project essentially at random. Next time, I
+think I will put more effort into choosing a problem.
+</p>
+
+<p>
+Along with a <code>.zip</code> file containing three packs of images, this is all
+the information we get about the problem.
+</p>
+
+<pre class="example" id="org2bff356">
+title: Problem Information
+Communication using hidden channels ==(steganography)== is one way to protect that communication from third parties. You are a law enforcement agent in the forensics unit. In a recent raid, the agency has been able to obtain the ==three attached packages of images== from a suspected command and control server. These images could ==potentially== contain hidden messages that will be relayed to a powerful botnet army that could destroy earth. Obviously a high priority item! While your colleagues try to reverse the botnet code, you are tasked with analyzing the images directly and ==extract the hidden messages.==
+
+When analyzing these images, develop tools that take advantage of the full spectrum of steganalysis – statistical methods, visual attacks, machine learning, visualization – and make them available as open-source so your colleagues can take advantage of your work without needing to reinvent the wheel.
+
+Note that we received a tip from a mole that ==none of the images utilize encryption== in addition to steganography. Lucky us. Lets get to it!
+</pre>
+
+<p>
+Looking at the images with the naked eye, all I saw were dogs.
+</p>
+
+<p>
+<a href="IMG_0549.png.html">IMG<sub>0549.png</sub></a>
+</p>
+
+<p>
+After fumbling for many hours,
+</p>
+</div>
 </div>
 </div>
 </div>

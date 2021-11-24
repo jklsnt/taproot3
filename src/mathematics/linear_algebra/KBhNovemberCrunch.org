@@ -466,3 +466,114 @@ By the same token....
 As $U_1$ is a subspace, $U_1$ is closed under scalar multiplication. Since $u_1 \in U_1$, $\lambda u_1 \in U_1$. As $U_2$ is a subspace, $U_2$ is closed under scalar multiplication. Since $u_1 \in U_2$, $\lambda u_1 \in U_2$.
 
 Therefore, as $\lambda u_1 \in U_1, U_2$, it is additionally true that $\lamba u_1 \in U_1 \cap U_2$, it is therefore closed under multiplication.
+
+* 2.A 
+What's with the balancing of these chapters? Like Span and Linear Independence is squished in one, but then Bases gets a whole chapter and so does dimension.
+
+** Things of Note
+- Lists of vectors are usually denoted as a list without parentheses 
+
+*** Linear Combination
+A linear combination of a list is a sum of vectors in the form:
+
+\begin{equation}
+   a_1 v_1 + \cdots + a_m v_m
+\end{equation}
+
+where, $a_1, \ldots, a_m \in \mathbb{F}$.
+
+**** Verifying Linear Combinations
+You could note that a linear combination is actually just a linear system of equations. That:
+
+To check $(x,y,z)$ is a linear combination of $(v_1, v_2, v_3)$, $(w_1, w_2, w_3)$, figure if there exists a pair $(a_1, a_2)$ such that...
+
+\begin{equation}
+    \begin{cases}
+x = a_1v_1 + a_2w_1 \\
+y = a_1v_2 + a_2w_2 \\
+z = a_1v_3 + a_2w_3 \\
+    \end{cases}
+\end{equation}
+
+If so, there exists the requisite scalars such that the linear combination is possible.
+
+*** Linear Span
+The span is the set of all linear combinations of a list of vector.  That:
+
+\begin{equation}
+   span(v_1, \ldots, v_m) = \{a_1v_1 + \cdots + a_mv_m : a_1, \ldots, a_m \in \mathbb{F}\} 
+\end{equation}
+
+The span of an empty list of vectors $()$ is defined to be $\{0\}$. Due to the fact that any subspace must be closed under scalar multiplication + addition, the span of a list of vectors in $V$ is the smallest subspace of $V$ containing all the vectors in that list.
+
+**** Spanning List
+If $span(v_1, \ldots, v_m) = V$, we say that $v_1, \ldots, v_m$ spans $V$.
+
+**** Finite-Dimensional Vector Space
+A vector space is "finite-dimensional" if some list of vector in it could span the space. i.e. there exists a list of vectors that span the space. Otherwise, it is called "infinite dimensional".
+
+Every subspace of a finite dimentional vector space is finite dimentional.
+
+*** Polynomials
+We quickly recap the definition of a polynomial. A function $p: \mathbb{F} \to \mathbb{F}$ is called a polynomial if $\exists a_0, \ldots, a_m \in \mathbb{F}$ s.t.
+
+\begin{equation}
+   p(z) = a_0 + a_1 z + a_2 z ^2 + \cdots + a_mz^m, \forall z \in \mathbb{F}
+\end{equation}
+
+By the same token, $\mathcal{P}(\mathbb{F)$ is the set of all polynomials whereby the coefficients are in $\mathbb{F}$. This is a subspace of $\mathbb{F}^{\mathbb{F}}$, as verified below.
+
+**** Degree of a Polynomial
+A polynomial $p \in \mathcal{P}(\mathbb{F})$ has degree m if $\exists a_0, a_1, \ldots, a_m \in \mathbb{F}$ with $a_m \neq 0$ such that...
+
+\begin{equation}
+    p(z) = a_0 + a_1z + \cdots + a_mz^m, \forall z \in \mathbb{F} 
+\end{equation}
+
+If $p$ has degree $m$, we write $deg\ p = m$. A zero-polynomial is said to have degree $-\infty$.
+
+**** $\mathcal{P}_m(\mathbb{F})$
+For a non-negative integer $m$, $\mathcal{P}_m(\mathbb{F})$ is defined as the set of all polynomials with coefficients in $\mathbb{F}$ and degree at most $m$.
+
+You will therefore notice, then, that:
+
+\begin{equation}
+    \mathcal{P}_m(\mathbb{F}) = span(1, z, \ldots, z^m)
+\end{equation}
+
+*** Linear Independence
+Linear independence exists by a only /unique/ choice of scalars $a_1, \ldots, a_m$ to form any given $v \in span(v_1, \ldots, v_m)$. This could also be stated as that:
+
+that the only choice $a_1, \ldots, a_m \in \mathbb{F}$  that makes $a_1v_1+ \cdots + a_mv_m = 0$ is the "trivial" case whereby $a_1 = \cdots = a_m = 0$.
+
+The empty set is also defined as linearly independent.
+
+*** Linear Dependence
+A list of vectors in $V$ is linearly dependent if its not linearly independent.
+
+A list $v_1, \ldots, v_m$ of vectors is linearly dependent if there exist $a_1, \ldots, a_m \in \mathbb{F}$ that's not all $0$, such that $a_1v_1 + \cdots + a_m v_m = 0$.
+
+**** Linear Dependence Lemma
+Suppose $v_1, \ldots, v_m$ is an linearly dependent list in $V$. Then, exists a $j \in \{1,2,\ldots, m\}$ such that:
+
+1. $v_j \in span(v_1, \ldots, v_{j-1})$
+2. If the $j^{th}$ term is removed, the span remains the same
+
+**** Lengths of Lin. Indp List
+In a finite-dimentional vector space, the length of every linearly independent list is less than or equal to the length of every spanning list.
+
+** In-Text Excercises
+
+*** $\mathcal{P}(\mathbb{F})$ is a subspace of $\mathbb{F}^{\mathbb{F}}$
+Zero exists in the set as, for a polynomial, $(a_0, \ldots, a_m) = (0, \ldots, 0)$ would create a function $f: \mathbb{F} \to 0$.
+
+Due to commutativity, we could group and factor-out input-variable $z$ such that the sum of two polynomials become $(a_0_a + a_0_b) + (a_1_a + a_1_b)z + \cdots + (a_m_a + a_m_b)z^m$, which would be another polynomial. This would be closed under addition.
+
+Due to distribution, a scalar $\lambda$ multiplied to a polynomial would just scale every value by $\lambda$ resulting in $\lambda a_0 + \lambda a_1 z + \cdots + \lambda a_m z^m$, which would be another polynomial. This would be closed under scalar multiplication. 
+
+Therefore, the set of polynomials in $\mathbb{F}$ is as subspace.
+
+*** Show that $\mathcal{P}(\mathbb{F})$ in infinite-dimensional
+Any list $U \subset \mathcal{P}(\mathbb{F})$ would contain the highest-degree polynomial with degree $m$. Therefore, the element $z^{m+1} \in \mathcal{P}(\mathbb{F})$ would not be in the span of the list: making the list not span the entire space. Therefore, there could not be a list that spans $\mathcal{P}(\mathbb{F})$, making it infinite-dimentional.
+
+
