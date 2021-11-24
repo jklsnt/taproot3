@@ -198,8 +198,9 @@ Poking around back through stegsolve, I noticed something new.
 Following are the zero'th plane of each of the color channels.
 ![[Pasted image 20211123235055.png||200]] ![[Pasted image 20211123235105.png||200]] ![[Pasted image 20211123235118.png||200]] ![[Pasted image 20211123235136.png||200]]
 *Plane 0 from stegsolve of the red, green, blue, and alpha channels.*
-
-
+If you look closely at the third image -- the blue plane -- there is a little white spot under the right ear and the new block.
+![[Pasted image 20211123235431.png]]
+With this discovery, I realized that not all the image nessasarily had a message encoded. Instead, only a segment could have an encoded message.
 
 
 
