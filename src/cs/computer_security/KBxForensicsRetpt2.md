@@ -143,19 +143,53 @@ def lsb(src):
 src = "./fc13_images_pkg1/IMG_0406.png" # define our path
 lsb(src) # and call the function.
 ```
-Running this code outputted gibberish.
+Running this code outputted, *drumroll please*: 
+```bash
+❯ vim out.txt
+*Pr&"VâWßU6¾7$Ç64ÿ5ÂÇtNº°,¦jî§BõS8î¯ÅI)HêLNõú©ÿ®¶h¢Ë­G ¨ÞK6åþ\0¿R:ª
+ý4·Ð«>bgIÙ_®TÄøtÅÇtaLÌ×wG®ÏUé¥³ZbvóíkóTprv3Fg#r_²HÿéI]Î±âZÑq^íÍqïÂÙ\...
 ```
-*Pr&"VâWßU6¾7$Ç64ÿ5ÂÇtNº°,¦jî§BõS8î¯ÅI)HêLNõú©ÿ®¶h¢Ë­G ¨ÞK6åþ\0¿R:ª ý4·Ð«>bgIÙ_®TÄøtÅÇtaLÌ×wG®ÏUé¥³ZbvóíkóTprv3Fg#r_²HÿéI]Î±âZÑq^íÍqïÂÙ\
+gibberish. Absolute gibberish. The same was true for many, many, similar iterations of the code. After quite a bit of messing about, I realized that the message wasn't necessarily encoded in text. The next obvious format was a `.png`.
+
+```ad-comment
+title: Many more iterations were spent trying to convert the output to a png...
+```py
+bits = [bits[i:i+8] for i in range(0, len(bits), 8)]
+out = ""
+for i in range(len(bits)):
+    out += chr(int(bits[i], 2))
+
+with open('out.png', 'w') as f:
+    with redirect_stdout(f):
+        print(out)
+
+bits = [[int(y) for y in x] for x in bits]
+
+out_bits = np.array(bits)
+out_bytes = np.packbits(out_bits)
+
+imageStream = io.BytesIO(out_bytes)
+
+im = Image.fromarray(np.array(out_bytes).astype("uint16"))
+im.save("out.png")
+
+png.from_array(out_bits, 'L').save('out.png')
+
+imageFile = Image.open(out_bytes)
+out_img = Image.fromarray(out_bytes)
+out_img.save("out.png")
+out_bytes.tofile("out.png")
 ```
 
-
-
-
-
-
-
-
-
+These attempts were met with 
+```bash
+❯ feh bitsout.png
+feh WARNING: bitsout.png - Does not look like an image (magic bytes missing)
+feh: No loadable images specified.
+See 'feh --help' or 'man feh' for detailed usage information
+```
+or simply a malformed image, which had some cool properties. Namely, an entirely non-interactive chunk of space in Discord when sent.
+![[Pasted image 20211123234017.png||300]] ![[Pasted image 20211123234127.png||300]] ![[Pasted image 20211123234142.png||300]]
 
 
 
