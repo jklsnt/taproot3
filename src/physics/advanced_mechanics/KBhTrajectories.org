@@ -206,6 +206,21 @@ Due to the fact that we know $m_1$ is aimed towards the object, we know that the
     \end{cases}
 \end{equation}
 
+Given we are leveraging an compound trignometric expression in this statement, we leverage the following identity:
+
+#+DOWNLOADED: screenshot @ 2021-11-24 09:22:37
+[[file:2021-11-24_09-22-37_screenshot.png]]
+
+As the arbitrary right triangle models the sides from which the $arctan$ expression could be constructed, which we then leverage to figure its values for $sin$ and $cos$.
+
+In this case, $x = h_0$, $y = x_0$. Therefore, the expression could be simplified to:
+
+\begin{equation}
+    \begin{cases}
+        x(t_1) = \frac{v_0t_1x_0}{\sqrt{{h_0}^2 + {x_0}^2}} \\
+        y(t_1) = \frac{-1}{2}g {t_1}^2 + \frac{v_0t_1h_0}{\sqrt{{h_0}^2 + {x_0}^2}} 
+    \end{cases}
+\end{equation}
 
 *** To model $m_2$....
 As similar to before, we begin with the equations of kinematics for $m_2$'s situation:
@@ -233,8 +248,8 @@ Given the two systems determined for $m_1$ and $m_2$ respectively:
 
 \begin{equation}
     \begin{cases}
-        x(t_1) = v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))t_1 \\
-        y(t_1) = \frac{-1}{2}g {t_1}^2 + v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) t_1
+        x(t_1) = \frac{v_0t_1x_0}{\sqrt{{h_0}^2 + {x_0}^2}} \\
+        y(t_1) = \frac{-1}{2}g {t_1}^2 + \frac{v_0t_1h_0}{\sqrt{{h_0}^2 + {x_0}^2}} 
     \end{cases}
 \end{equation}
 
@@ -245,43 +260,22 @@ Given the two systems determined for $m_1$ and $m_2$ respectively:
     \end{cases}
 \end{equation}
 
-For the objects to collide, these two systems must equal to each other. Setting them so...
+We first focus on the expression for $m_1$. Provided the setup of the problem, we understand that the launcher is being launched in a constant velocity.
+
+Therefore, the expression $v_0 t_1$ models the expression for the direct distance of travel of the projectile over the time span. This could also be understood as the hypotenuse of the triangle formed by $x_0$ --- the horizontal component of the travel of the projectile --- and $h_0$, the vertical component of the travel.
+
+Hence, $v_0t_1 = \sqrt{{h_0}^2 + {x_0}^2}$, leveraging pythagoras. Therefore, $\frac{v_0t_1}{\sqrt{{h_0}^2+{x_0}^2}} = 1$ at the point of collision.
+
+Substituting this expression onto that of the $m_1$, we derive that
 
 \begin{equation}
     \begin{cases}
-        x_0 = v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))t_1\\
-        \frac{-1}{2}g{t_1}^2 + h_0 = \frac{-1}{2}g {t_1}^2 + v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) t_1
+        x(t_1) = 1x_0 \\
+        y(t_1) = \frac{-1}{2}g {t_1}^2 + 1h_0
     \end{cases}
 \end{equation}
 
-which, after simplification, results in...
-
-\begin{equation}
-    \begin{cases}
-        x_0 = v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))t_1\\
-        h_0 = v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) t_1
-    \end{cases}
-\end{equation}
-
-We could now perform variable substitution upon $v_0$ to figure a general solution for this expression.
-
-We first prepare for substitution by transforming the former statement w.r.t. $v_0$.
-
-\begin{align}
-    x_0 =& v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))t_1 \\
-\Rightarrow v_0 =& \frac{x_0}{\cos(\tan^{-1}(\frac{h_0}{x_0}))t_1} 
-\end{align}
-
-Substituting $v_0$ into the latter expression, therefore, would result in...
-
-\begin{align}
-& h_0 = \frac{x_0}{\cos(\tan^{-1}(\frac{h_0}{x_0}))t_1}\sin(\tan^{-1}(\frac{h_0}{x_0})) t_1 \\
-& \Rightarrow h_0 = x_0 \tan(\tan^{-1}(\frac{h_0}{x_0})) \\
-& \Rightarrow h_0 = x_0 \frac{h_0}{x_0} \\
-& \Rightarrow h_0 = h_0,\ an\ identity
-\end{align}
-
-Hence, by replicating the problem setup --- though in entire generality --- we could verify that, given the conditions outlined, $m_1$ and $m_2$ will inevitably intersect in position.
+Which is equivalent to the expression for both $x$ and $y$ components of $m_2$. Hence the proof of collision is complete.
 
 ** Height of Collision
 
@@ -289,8 +283,8 @@ To figure the height of collision $h$, we need to leverage the following above-d
 
 \begin{equation}
     \begin{cases}
-        x(t_1) = v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))t_1 \\
-        y(t_1) = \frac{-1}{2}g {t_1}^2 + v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) t_1
+        x(t_1) = \frac{v_0t_1x_0}{\sqrt{{h_0}^2 + {x_0}^2}} \\
+        y(t_1) = \frac{-1}{2}g {t_1}^2 + \frac{v_0t_1h_0}{\sqrt{{h_0}^2 + {x_0}^2}} 
     \end{cases}
 \end{equation}
 
@@ -304,75 +298,76 @@ To figure the height of collision $h$, we need to leverage the following above-d
 We begin by leveraging the former equation of the former system to isolate a value for $t_1$. As the position of collision happens at $x_0$ when at $t_1$, we could set $x(t_1) = x_1$ when at $t_1$, we could set $x(t_1) = x_0$
 
 \begin{align}
-    & x_0 = v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))t_1 \\
-    & \Rightarrow t_1 = \frac{x_0}{v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))}
+    & x_0 = \frac{v_0t_1x_0}{\sqrt{{h_0}^2 + {x_0}^2}} \\
+    & \Rightarrow t_1 = \frac{\sqrt{{h_0}^2 + {x_0}^2}}{v_0} 
 \end{align}
 
 The height of collision $h$, therefore, is the y-component of the location of $m_2$ at $t_1$, that is, $y(t_1)$ per the second system of position equations.
 
 Performing variable substitution of $t_1$ on the latter equation of the aforementioned system, we could deduct that:
 
-\begin{equation}
-    h(v_0, x_0, h_0) = \frac{-1}{2}g{\frac{x_0}{v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))}}^2 + h_0
-\end{equation}
-
-* Collision problem, with Initial Velocity
-We begin by revising the state definition of $m_2$ with consideration to the newfound initial velocity $v_1$. We continue to define the projectile as $m_1$ and the falling projectile as $m_2$; the distance between the two objects as $x_0$, the initial height of the falling object is $h_0$.
-
-At the moment of collision, we define time at $t_1$, and the height the two objects are at as $y(t_1) = h$.
-
-** Setup, again
-For $m_1$, nothing of substance changes:
-
-\begin{equation}
-    \begin{cases}
-        x(t_1) = v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))t_1 \\
-        y(t_1) = \frac{-1}{2}g {t_1}^2 + v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) t_1
-    \end{cases}
-\end{equation}
-
-However, for $m_2$, we now add an additional $v_1$ coefficient
-
-\begin{equation}
-    \begin{cases}
-        x(t_1) = x_0 \\
-        y(t_1) = \frac{-1}{2}g{t_1}^2 + v_1t_1 + h_0
-    \end{cases}
-\end{equation}
-
-We therefore repeat the derivations given these conditions to figure a new, acceptable values of $x(t_1)$ and $y(t_1)$
-
-** Establishing the equality
-At the time of collision, we know that the $x(t_1)$ and $y(t_1)$ values of the both objects must match to achieve collision. Hence, the following equality is true:
-
-\begin{equation}
-    \begin{cases}
-        x(t_1) = x_0 = v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))t_1 \\
-        y(t_1) = \frac{-1}{2}g{t_1}^2 + v_1t_1 + h_0 = \frac{-1}{2}g {t_1}^2 + v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) t_1
-    \end{cases}
-\end{equation}
-
-
-** Figuring the Angle
-To figure an acceptable range for $x$ and $y$, we perform variable substitution upon $t_1$.
-
-In preparation, we first simplify the expression for $y(t_1)$.
-
 \begin{align}
-    \frac{-1}{2}g{t_1}^2 + v_1t_1 + h_0 =& \frac{-1}{2}g {t_1}^2 + v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) t_1 \\
-\Rightarrow v_1t_1 + h_0 =& v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) t_1  \\
-\Rightarrow h_0 =& v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) t_1 - v_1t_1  \\
-\Rightarrow h_0 =& t_1 (v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) - v_1)  \\
-\Rightarrow t_1 =& \frac{h_0}{v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) - v_1}  \\
+    h(v_0, x_0, h_0) &= \frac{-1}{2}g(\frac{\sqrt{{h_0}^2 + {x_0}^2}}{v_0})^2 + h_0 \\
+&= \frac{-1}{2}g\frac{({h_0}^2 + {x_0}^2)}{{v_0}^2} + h_0
 \end{align}
 
-With this statement, we perform the actual substitution of $t_1$ unto $x(t_1)$.
+# * Collision problem, with Initial Velocity
+# We begin by revising the state definition of $m_2$ with consideration to the newfound initial velocity $v_1$. We continue to define the projectile as $m_1$ and the falling projectile as $m_2$; the distance between the two objects as $x_0$, the initial height of the falling object is $h_0$.
 
-\begin{align}
-    x_0 =& v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))t_1 \\   
-    \Rightarrow x_0 =& v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))\frac{h_0}{v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) - v_1} \\   
-    \Rightarrow x_0 (v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) - v_1) =& v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))h_0\\   
-    \Rightarrow v_0\sin(\tan^{-1}(\frac{h_0}{x_0}))x_0 - v_1x_0 =& v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))h_0\\   
-    \Rightarrow v_1x_0 =& v_0\sin(\tan^{-1}(\frac{h_0}{x_0}))x_0 - v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))h_0\\
-\end{align}
+# At the moment of collision, we define time at $t_1$, and the height the two objects are at as $y(t_1) = h$.
+
+# ** Setup, again
+# For $m_1$, nothing of substance changes:
+
+# \begin{equation}
+#     \begin{cases}
+#         x(t_1) = v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))t_1 \\
+#         y(t_1) = \frac{-1}{2}g {t_1}^2 + v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) t_1
+#     \end{cases}
+# \end{equation}
+
+# However, for $m_2$, we now add an additional $v_1$ coefficient
+
+# \begin{equation}
+#     \begin{cases}
+#         x(t_1) = x_0 \\
+#         y(t_1) = \frac{-1}{2}g{t_1}^2 + v_1t_1 + h_0
+#     \end{cases}
+# \end{equation}
+
+# We therefore repeat the derivations given these conditions to figure a new, acceptable values of $x(t_1)$ and $y(t_1)$
+
+# ** Establishing the equality
+# At the time of collision, we know that the $x(t_1)$ and $y(t_1)$ values of the both objects must match to achieve collision. Hence, the following equality is true:
+
+# \begin{equation}
+#     \begin{cases}
+#         x(t_1) = x_0 = v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))t_1 \\
+#         y(t_1) = \frac{-1}{2}g{t_1}^2 + v_1t_1 + h_0 = \frac{-1}{2}g {t_1}^2 + v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) t_1
+#     \end{cases}
+# \end{equation}
+
+
+# ** Figuring the Angle
+# To figure an acceptable range for $x$ and $y$, we perform variable substitution upon $t_1$.
+
+# In preparation, we first simplify the expression for $y(t_1)$.
+
+# \begin{align}
+#     \frac{-1}{2}g{t_1}^2 + v_1t_1 + h_0 =& \frac{-1}{2}g {t_1}^2 + v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) t_1 \\
+# \Rightarrow v_1t_1 + h_0 =& v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) t_1  \\
+# \Rightarrow h_0 =& v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) t_1 - v_1t_1  \\
+# \Rightarrow h_0 =& t_1 (v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) - v_1)  \\
+# \Rightarrow t_1 =& \frac{h_0}{v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) - v_1}  \\
+# \end{align}
+
+# With this statement, we perform the actual substitution of $t_1$ unto $x(t_1)$.
+
+# \begin{align}
+#     x_0 =& v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))t_1 \\   
+#     \Rightarrow x_0 =& v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))\frac{h_0}{v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) - v_1} \\   
+#     \Rightarrow x_0 (v_0\sin(\tan^{-1}(\frac{h_0}{x_0})) - v_1) =& v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))h_0\\   
+#     \Rightarrow v_0\sin(\tan^{-1}(\frac{h_0}{x_0}))x_0 - v_1x_0 =& v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))h_0\\   
+#     \Rightarrow v_1x_0 =& v_0\sin(\tan^{-1}(\frac{h_0}{x_0}))x_0 - v_0\cos(\tan^{-1}(\frac{h_0}{x_0}))h_0\\
+# \end{align}
 

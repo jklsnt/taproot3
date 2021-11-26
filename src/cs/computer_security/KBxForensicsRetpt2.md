@@ -5,10 +5,10 @@ author:  Huxley Marvit
 date: 2021-11-17
 ---
 
-#ret  #hw  #incomplete
+#ret  #hw 
 
 ***
-
+<!---
 # Forensics!
 forensics. 
 
@@ -56,7 +56,7 @@ size of image:
 
 we can seperate it out, the message starts at the 191th pixel on the image
 multiplying this by our width we get 91680, the pixel where the encoded message starts.
-
+-->
 # Forensics! :: pt. 2.
 
 ```ad-note
@@ -81,10 +81,12 @@ Note that we received a tip from a mole that ==none of the images utilize encryp
 Looking at the images with the naked eye, all I saw were dogs.
 
 ![[IMG_0549.png||500]]
+%%![IMG_0549](IMG_0549.png "yeeeeet")%%
 While I am not opposed to dogs, I was not satisfied with this. However, I had no idea where to go, where to look, or even if any given image I was working with was one with a hidden message.
 
 After fumbling for many hours, I ended up plugging the images into [stegsolve](https://github.com/zardus/ctf-tools/tree/master/stegsolve). After lots of clicking around, and getting images like this:
-![[Pasted image 20211123222525.png||500]]
+%%![[Pasted image 20211123222525.png||500]]%%
+![[Pasted image 20211124150828.png||500]]
  I finally found a lead.
 
 ### A Lead
@@ -188,9 +190,9 @@ feh WARNING: bitsout.png - Does not look like an image (magic bytes missing)
 feh: No loadable images specified.
 See 'feh --help' or 'man feh' for detailed usage information
 ```
-or simply a malformed image, which had some cool properties. Namely, an entirely non-interactive chunk of space in Discord when sent.
+or simply a malformed image, which had some cool properties. Namely, an entirely non-interactive chunk of space when sent in Discord.
 ![[Pasted image 20211123234017.png||300]] ![[Pasted image 20211123234127.png||300]] ![[Pasted image 20211123234142.png||300]]
-I also tried simply converting the output to values between 0-255, then graphing the values based on their original y location. I also learned about then messed with adding in the magic bytes that feh said was missing manually. Neither of these methods worked at all. After talking with @david on a walk today, I realized that the bits outputted from our LSB decryption, if they were a `.png`, would most likely have all the information of the `.png` included, magic bytes and all. Thus, I shound't have to mess with wrapping my bits specially or anything of the sort. With this knowledge in mind, any many hours with no hidden message to show for, I went back to the drawing board.
+I also tried simply converting the output to values between 0-255, then graphing the values based on their original y location. I also learned about then messed with adding in the magic bytes that feh said was missing manually. Neither of these methods worked at all. After talking with @david on a walk today, I realized that the bits outputted from our LSB decryption, if they were a `.png`, would most likely have all the information of the `.png` included, magic bytes and all. Thus, I shouldn't have to mess with wrapping my bits specially or anything of the sort. With this knowledge in mind, any many hours with no hidden message to show for, I went back to the drawing board.
 
 ### New Revelations
 
@@ -200,9 +202,9 @@ Following are the zero'th plane of each of the color channels.
 *Plane 0 from stegsolve of the red, green, blue, and alpha channels.*
 If you look closely at the third image -- the blue plane, and *only* the blue plane -- there is a little white spot under the right ear and the new block.
 ![[Pasted image 20211123235431.png]]
-With this discovery, I realized that not all the image necessarily had a message encoded. Instead, only a segment could have an encoded message. Admittedly, in hindsight, this realization seems quite obvious.
+With this discovery, I realized that not all of the image necessarily had a message encoded. Instead, only a segment could have an encoded message. Admittedly, in hindsight, this realization seems quite obvious.
 
-Next was to find the location of the encoded section and separate it from the rest of the image. I crudely attempted this by simply measuring how many pixels down the bottom of the white dot I found under the right ear was from the top of the image. I got a measurement of 191. Multiplying this by our width, 480, we get 91680. Thus, if all else is correct, we know that the encoded region only starts after 91680 pixels. Once again, armed with new knowledge, I went back to decoding.
+Next was to find the location of the encoded section and separate it from the rest of the image. I crudely attempted this by simply measuring how many pixels down from the top the bottom of the white dot I found under the right ear was. I got a measurement of 191. Multiplying this by our width, 480, we get 91680. Thus, if all else is correct, we know that the encoded region only starts after 91680 pixels. Once again, armed with new knowledge, I went back to decoding.
 
 With a new [bit-processing](https://stackoverflow.com/questions/21220916/writing-bits-to-a-binary-file) function, which simply wrote the bytes to a file,
 ```py
@@ -238,7 +240,7 @@ GGGHHHIIIJJJKKKLLLMMMNNNOOOPPPQQQRRRSSSTTTUUUVVVWWWX
 XXYYYZZZ[[[\\\]]]^^^___```aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnnoooppp
 qqqrrrssstttuuuvvvwwwxxxyy
 ```
-And, alas, hope! PNG was in the file! I was doing *something* right. After many more iterations and shot-in-the-dark attempts, I finally simply went into the generated file, deleted things before what I guessed were the magic bytes, and opened the file again. 
+And, alas, hope! The letters `PNG` were in the file! I was doing *something* right. After many more iterations and shot-in-the-dark attempts, I finally simply went into the generated file, deleted things before what I guessed were the magic bytes, and opened the file again. 
 
 
 ```bash
@@ -247,11 +249,38 @@ And, alas, hope! PNG was in the file! I was doing *something* right. After many 
 ```
 And finally! After many, many hours, the image finally opened. 
 ![[test.png||500]]
-And voila! The message is found. ***Finally.*** No sweat.
+And voila! The message is found. ***Finally.*** No sweat :)
 
+## Wrapping Up
 
+Final code:
+```python
+# our imports
+import numpy as np
+from PIL import Image
 
+def lsb(src): 
+    img = Image.open(src, 'r') # get the image
+    d = np.array(list(img.getdata())) # get the data from it 
+    px = (d.size // 4) # find the total pixel count
 
+    bits = "" # our bits
+    for i in range(91680, px, 1): # loop through our pixels,
+	# starting at the 'right' place
+        for j in range(0, 3): # loop through our channels
+			# and do our conversions
+            bits += (bin(d[i][j])[2:][-1])
+			
+	# write our output to a file
+    with open("test.png", "wb") as f:
+		# convert, then write the bytes	
+        f.write(int(bits[::-1], 2).to_bytes(len(bits)//8, 'little'))
+
+src = "./fc13_images_pkg1/IMG_0406.png" # define our path
+lsb(src) # and call the func!
+```
+
+While the message wasn't the most interesting (definitely not going to 2013 Dubai), I actually managed to find it! This assignment felt like a lot of shots-in-the-dark and fumbling around with no clear direction or guarantee of progress. That was what made it so hard. This lack of guarantee may be inherent in this type of problem, or it may be because I was completely new to this entire field. Regardless, I found a message. I also found some other fishy stuff with some other images, and I'm sure there are more hidden messages, but my sister just came home from college and I've already spent quite a few hours on this assignment instead of being with my family (right now I'm missing the beginning of the new Marvel movie!). I failed at this assignment earlier, and I was determined to remedy that, and I think I've done so. Thus, I'm gonna call it here. 
 
 
 

@@ -3,13 +3,17 @@
 ; bad!
 ; (add-to-list 'load-path "~/.emacs.d/elpa/")
 
+(load-file "./resources/s.el")
+(load-file "./resources/dash.el")
+(load-file "./resources/lf.el")
 (load-file "./resources/htmlize.el")
-; (load-file "./resources/org-special-block-extras.el")
+(load-file "./resources/org-special-block-extras.el")
 
 (require 'org)
 (require 'org-id)
 (require 'htmlize)
-; (require 'org-special-block-extras)
+(require 'org-special-block-extras)
+(add-hook #'org-mode-hook #'org-special-block-extras-mode)
 
 (setq user-full-name "Taproot")
 (setq user-mail-address "services@sanity.gq")
@@ -20,6 +24,10 @@
 (setq org-src-fontify-natively t)
 (setq org-html-htmlize-output-type 'css)
 (org-id-locations-load)
+
+(o-defblock aside (title "") (contents "")
+				   (format
+				    "<div class=\"admonition\" style=\"--admonition-color: 173, 173, 173;\"><div class=\"admonition-title\"><div class=\"admonition-title-content\"><div class=\"admonition-title-icon\"><i class=\"fas fa-quote-left\" aria-hidden=\"true\"></i></div><div class=\"admonition-title-markdown\">%s</div></div></div><div class=\"admonition-content-holder\"><div class=\"admonition-content\">%s</div></div></div>" title contents))
 
 (setq org-html-preamble-format '(("en" "<div class=\"header\"><span class=\"site\"><a href=\"https://taproot3.sanity.gq\">TR3.5</a></span></div><div class=\"datarow\"><h1 class=\"title\">%t</h1> <h2 class=\"subtitle\">%s</h2> <span class=\"author\">%a</span> <span class=\"date\">%C</date></div>")))
 

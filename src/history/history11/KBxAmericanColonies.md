@@ -72,14 +72,6 @@ if everyone can do their own thing, why dont we get anarcho-canabalism?
 	- have to be able to support yourself or else you lose that virtue
 - jefferson: no one should be a wage earner, they should be able to support themselves
 	- his def of freedom
-- 
-
-
-
-
-
-
-
 
 
 

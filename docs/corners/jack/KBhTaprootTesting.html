@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-18 Mon 22:41 -->
+<!-- 2021-11-25 Thu 15:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Taproot Testing</title>
@@ -195,6 +195,8 @@
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
 <link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -220,22 +222,22 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Taproot Testing</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-10-18 Mon 22:41</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Taproot Testing</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-11-25 Thu 15:14</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>Jack's Personal Space</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org05ea4df">1. Notes!</a>
+<li><a href="#org7adde1c">1. Notes!</a>
 <ul>
-<li><a href="#orgdc88880">1.1. ha</a></li>
-<li><a href="#orgde64e93">1.2. thaoansotehu</a></li>
-<li><a href="#org95594b8">1.3. test</a></li>
-<li><a href="#org350cede">1.4. aoeu</a></li>
-<li><a href="#org2f6b518">1.5. what is life, anyways</a></li>
-<li><a href="#org9436bf3">1.6. cool</a></li>
-<li><a href="#org9074ad7">1.7. Skeleton</a>
+<li><a href="#org545738f">1.1. ha</a></li>
+<li><a href="#org31441a8">1.2. thaoansotehu</a></li>
+<li><a href="#orgc5dcd8b">1.3. test</a></li>
+<li><a href="#orgac52dce">1.4. aoeu</a></li>
+<li><a href="#orgd852ca2">1.5. what is life, anyways</a></li>
+<li><a href="#orgf8e33b2">1.6. cool</a></li>
+<li><a href="#orgdd52a90">1.7. Skeleton</a>
 <ul>
-<li><a href="#orgae00c67">1.7.1. Highlight on page 1</a></li>
+<li><a href="#org1d75373">1.7.1. Highlight on page 1</a></li>
 </ul>
 </li>
 </ul>
@@ -243,6 +245,61 @@
 </ul>
 </div></div>
 </div>
+<div style="column-rule-style: none;column-count: 2;">
+<p>
+<span style="color:orange;">Are you excited to learn some Lisp?</span> <span style="color:blue;">Yes!</span>
+</p>
+
+<p>
+Pop-quiz: How does <abbr class="tooltip" title="Call FUNCTION with our remaining args, using our last arg as list of args.<br>Then return the value FUNCTION returns.<br>With a single argument, call the argument’s first element using the<br>other elements as args.<br>Thus, (apply '+ 1 2 '(3 4)) returns 10.<br><br>(fn FUNCTION &rest ARGUMENTS)">apply</abbr> work?
+</p>
+
+</div>
+
+<details class="code-details"
+                 style ="padding: 1em;
+                          background-color: #e5f5e5;
+                          /* background-color: pink; */
+                          border-radius: 15px;
+                          color: hsl(157 75%);
+                          font-size: 0.9em;
+                          box-shadow: 0.05em 0.1em 5px 0.01em  #00000057;">
+                  <summary>
+                    <strong>
+                      <font face="Courier" size="3" color="green">
+                         Answer
+                      </font>
+                    </strong>
+                  </summary>
+<p>
+<a class="anchor" aria-hidden="true" id="solution" href="#solution"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16
+   16" width="16" height="16"><path fill-rule="evenodd"
+   d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69
+   3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10
+   5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0
+   2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5
+   0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55
+   13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>
+Syntactically, <code>(apply f '(x0 ... xN)) = (f x0 ... xN)</code>.
+</p>
+
+<p>
+<p style="color: black;"><span style="border-width:1px;border-style:solid;padding:5px"><strong>[Musa:</strong></span> Ain't that cool?  <span style="border-width:1px;border-style:solid;padding:5px"><strong>]</strong></span></p>
+</p>
+
+<style> #g0 {color: aqua; background-color:aqua;}
+       #g0:hover {color: black; background-color:white;} </style>
+<p>
+That is, <span style="color:magenta;">we can <span id="g0"> apply </span> a function to a list of arguments!</span>
+</p>
+
+
+
+
+
+</details>
+
+
 <p>
 Hi I am like a page to test Taproot
 </p>
@@ -279,7 +336,7 @@ this is some more changes. <a href="haoeu.svg">ha</a> Cool! Yeah. Bomp humph. Tr
 I am cool. Yeah! Bom! AAAAH. COOOOL! Because of the pixels.
 </p>
 
-<div class="arbuturary" id="org42519f7">
+<div class="arbuturary" id="org9f1fde3">
 <p>
 how to fontify this?
 </p>
@@ -291,62 +348,62 @@ how to fontify this?
 </p>
 
 
-<div id="outline-container-org05ea4df" class="outline-2">
-<h2 id="org05ea4df"><span class="section-number-2">1</span> Notes!</h2>
+<div id="outline-container-org7adde1c" class="outline-2">
+<h2 id="org7adde1c"><span class="section-number-2">1</span> Notes!</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>whaoeu</li>
 </ul>
 </div>
-<div id="outline-container-orgdc88880" class="outline-3">
-<h3 id="orgdc88880"><span class="section-number-3">1.1</span> ha</h3>
+<div id="outline-container-org545738f" class="outline-3">
+<h3 id="org545738f"><span class="section-number-3">1.1</span> ha</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
 </div>
 
-<div id="outline-container-orgde64e93" class="outline-3">
-<h3 id="orgde64e93"><span class="section-number-3">1.2</span> thaoansotehu</h3>
+<div id="outline-container-org31441a8" class="outline-3">
+<h3 id="org31441a8"><span class="section-number-3">1.2</span> thaoansotehu</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
 </div>
 
-<div id="outline-container-org95594b8" class="outline-3">
-<h3 id="org95594b8"><span class="section-number-3">1.3</span> test</h3>
+<div id="outline-container-orgc5dcd8b" class="outline-3">
+<h3 id="orgc5dcd8b"><span class="section-number-3">1.3</span> test</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 this is cool
 </p>
 </div>
 </div>
-<div id="outline-container-org350cede" class="outline-3">
-<h3 id="org350cede"><span class="section-number-3">1.4</span> aoeu</h3>
+<div id="outline-container-orgac52dce" class="outline-3">
+<h3 id="orgac52dce"><span class="section-number-3">1.4</span> aoeu</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
 </div>
-<div id="outline-container-org2f6b518" class="outline-3">
-<h3 id="org2f6b518"><span class="section-number-3">1.5</span> what is life, anyways</h3>
+<div id="outline-container-orgd852ca2" class="outline-3">
+<h3 id="orgd852ca2"><span class="section-number-3">1.5</span> what is life, anyways</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 what is it?
 </p>
 </div>
 </div>
-<div id="outline-container-org9436bf3" class="outline-3">
-<h3 id="org9436bf3"><span class="section-number-3">1.6</span> cool</h3>
+<div id="outline-container-orgf8e33b2" class="outline-3">
+<h3 id="orgf8e33b2"><span class="section-number-3">1.6</span> cool</h3>
 <div class="outline-text-3" id="text-1-6">
 </div>
 </div>
 
-<div id="outline-container-org9074ad7" class="outline-3">
-<h3 id="org9074ad7"><span class="section-number-3">1.7</span> Skeleton</h3>
+<div id="outline-container-orgdd52a90" class="outline-3">
+<h3 id="orgdd52a90"><span class="section-number-3">1.7</span> Skeleton</h3>
 <div class="outline-text-3" id="text-1-7">
 </div>
-<div id="outline-container-orgae00c67" class="outline-4">
-<h4 id="orgae00c67"><span class="section-number-4">1.7.1</span> Highlight on page 1</h4>
+<div id="outline-container-org1d75373" class="outline-4">
+<h4 id="org1d75373"><span class="section-number-4">1.7.1</span> Highlight on page 1</h4>
 <div class="outline-text-4" id="text-1-7-1">
 </div>
 <ol class="org-ol">
-<li><a id="orge01a794"></a>Contents<br />
+<li><a id="org6c2f1d9"></a>Contents<br />
 <div class="outline-text-5" id="text-1-7-1-1">
 <p>
 d groups, and that they had so little impact on their environment that even
@@ -355,7 +412,7 @@ same ideas at his schools
 </p>
 </div>
 </li>
-<li><a id="org7dddbe2"></a>Comment<br />
+<li><a id="orgba69658"></a>Comment<br />
 <div class="outline-text-5" id="text-1-7-1-2">
 <p>
 snotihsaonethusaoeu

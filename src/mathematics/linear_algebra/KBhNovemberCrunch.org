@@ -375,7 +375,7 @@ Suppose $U_1, \ldots, U_m$ are subspaces of $V$. $U_1 + \cdots + U_m$ is the sma
 
 Suppose $U_1, \ldots, U_m$ are subspaces of $V$
 
-- Sum $U_1 + \cdots + U_m$ is a direct sum if $U_1 + \cdots + U_m$ can be only written only one way as a sum $u_1 + \cdots + u_m$
+- Sum $U_1 + \cdots + U_m$ is a direct sum if every element $u \in U_1 + \cdots + U_m$ can be only written only one way as a sum $u_1 + \cdots + u_m$
 - Direct sum is noted as $U_1 \oplus \cdots \oplus U_m$ 
 
 "Sums is the union, direct sums is the disjoint union".
@@ -510,7 +510,7 @@ The span of an empty list of vectors $()$ is defined to be $\{0\}$. Due to the f
 If $span(v_1, \ldots, v_m) = V$, we say that $v_1, \ldots, v_m$ spans $V$.
 
 **** Finite-Dimensional Vector Space
-A vector space is "finite-dimensional" if some list of vector in it could span the space. i.e. there exists a list of vectors that span the space. Otherwise, it is called "infinite dimensional".
+A vector space is "finite-dimensional" if some list of vectors in it could span the space. i.e. there exists a list of vectors that span the space. Otherwise, it is called "infinite dimensional".
 
 Every subspace of a finite dimentional vector space is finite dimentional.
 
@@ -574,6 +574,76 @@ Due to distribution, a scalar $\lambda$ multiplied to a polynomial would just sc
 Therefore, the set of polynomials in $\mathbb{F}$ is as subspace.
 
 *** Show that $\mathcal{P}(\mathbb{F})$ in infinite-dimensional
-Any list $U \subset \mathcal{P}(\mathbb{F})$ would contain the highest-degree polynomial with degree $m$. Therefore, the element $z^{m+1} \in \mathcal{P}(\mathbb{F})$ would not be in the span of the list: making the list not span the entire space. Therefore, there could not be a list that spans $\mathcal{P}(\mathbb{F})$, making it infinite-dimentional.
+Any list $U \subset \mathcal{P}(\mathbb{F})$ would contain a highest-degree polynomial with degree $m$. Therefore, the element $z^{m+1} \in \mathcal{P}(\mathbb{F})$ would not be in the span of the list: making the list not span the entire space. Therefore, there could not be a list that spans $\mathcal{P}(\mathbb{F})$, making it infinite-dimentional.
 
+* 2.B
 
+** Things of Note
+
+(wow that was short.)
+
+*** Bases
+A basis of $V$ is a list of vectors in $V$ that's linearly independent *and* spans $V$. A list $v_1, \ldots, v_n$ could only be a basis if and only if every vector $v \in V$ could be written as a linear combination of $v_1, \ldots, v_n$ uniquely. The "uniquely" part makes linear independence, the "could be written" part makes span.
+
+**** Reducing a Basis
+Every spanning list in a vector space could be reduced to a basis of the vector space. Basically by removing everything that makes the span linearly dependent.
+
+And therefore, every finite-dimentional vector space has a basis. Because you could just get a span of the space and keep reducing.
+
+**** Building a Basis
+The dual of the previous condition is also true. Take a linearly independent list, keep adding vectors that still maintains the linearly independent-ness of the list, and at some point you will get a basis.
+
+As an correlary to this, we could claim that any subspace $U$ of $V$ is part of the a direct sum that adds up to $V$. This is because we could expand ("pad") $u_1, \ldots, u_m \in U$ with vectors $w_1,\ldots, w_n$ until we form a basis of $V$. We could see that $V = U+W$ because the collection of the vectors that make them up is the basis of $V$. And also because of that they are linearly independent.
+
+because they are linearly independent, there is only one way to write $u_1, \ldots, u_m$ and $w_1, \ldots, w_n$ as a linear combination, making it a direct sum.
+
+** In-Text Exercises
+
+*** The list $1,z,\ldots,z^m$ is a basis for $\mathcal{P}_m(\mathbb{F})$
+We proof first that the sequence spans $\mathcal{P}_m(\mathbb{F})$. This is easy to see, because, definitionally, a polynomial in $\mathcal{P}_m(\mathbb{F})$ a made of a linear combination of $1,z,\ldots,z^m$.
+
+This list is furthermore linearly independent as, the only set of scalars $a_1, \ldots, a_{m+1}$ by which $1,z,\ldots,z^m$ could be scaled to be $0$ is in the case by which all scalars are $0$, making this list linearly independent.
+
+* 2.C
+
+** Things of Note
+
+*** Dimension!
+$dim\ V$ of a finite-dimentional vector space is the length of any basis of the space. Because the length of linear independent list must be $\leq$ spanning list, there is only one length that's possible in a space such that a list is a basis (linear independent AND spanning.)
+
+- $dim\ \mathbb{F}^n = n$ because the standard basis $\mathbb{F}^n$ as length $n$
+- $dim\ \mathcal{P}_m(\mathbb{F}) = m+1$ because the basis of the space $1,z,\ldots,z^m$ has $m+1$ elements
+
+**** Subspace Dimension
+If $V$ has a finite dimension + if $U$ is a subspace of $V$, $dim\ U \leq dim \ V$.
+
+**** A John McHugh Special: "Half is good enough"
+Linearly independent and/or spanning lists of vectors in $V$ with length $dim\ V$ is a basis of $V$. So proving two (length, basis, linearly indep., spanning) proves all four.
+
+**** Dimension of a Sum
+If $U_1$ and $U_2$ are finite-dimentional, then:
+
+\begin{equation}
+  dim(U_1 + U_2) = dim\ U_1 + dim\ U_2 - dim(U_1 \cap U_2) 
+\end{equation}
+
+** In-Text Excercises
+
+*** Show that $1$, $(x-5)^2$, $(x-5)^3$ is a basis of the subspace $U$ of $\mathcal{P}_3 (\mathbb{R})$
+Define $U$, as given by the question:
+
+\begin{equation}
+U = \{p \in \mathcal{P}_3(\mathbb{R}) : p'(5) = 0\}    
+\end{equation}
+
+By thinking a little hard, we could see that $1, (x-5)^2, (x-5)^3 \in U$. A linear combination of these elements are shown:
+
+\begin{equation}
+    a + b(x-5)^2 + c(x-5)^3 = 0
+\end{equation}
+
+We could see that the degree of $0$ is $0$. Therefore the coefficient for the $x^3$ term is $0$. As the 3rd-degree term in the left expression is $cx^3$, we therefore deduct that $c=0$. We repeat this to find $b=0, a=0$. Therefore, the list as prescribed is linearly independent. Furthermore, we could see that the dimension of $U$ would have to be $\geq 3$ as the length of this linearly independent list is $3$. As $U$ is a subspace of $\mathcal{P}_3$, $U$ has a dimension $\leq 4$ as the dimension of $\mathcal{P}_3$ is $4$ (bases $1, z, \ldots, z^3$).
+
+We further show that, due to the fact that $U \neq \mathcal{P}_3(\mathbb{R})$ (i.e. for instance, $x^2 \in \mathcal{P}_3(\mathbb{R}), x^2 \not\in U$), and if $dim\ U = 4$, extending the bases of $U$ towards that for $\mathcal{P}_3(\mathbb{R})$ would exceed $dim\ \mathcal{P}_3(\mathbb{R})$. Therefore, $dim\ U = 3$.
+
+Given the list as given is an linearly independent list with a length of $3$ in a subspace of dimension 3, the list is a basis of $\mathcal{P}_3 (\mathbb{R})$.

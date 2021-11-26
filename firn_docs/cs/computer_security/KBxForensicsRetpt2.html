@@ -18,13 +18,158 @@
                MultLineWidth: '85%',
                TagSide: 'right',
                TagIndent: '.8em'
-             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Forensics, pt2.</h1></div><div class="metamble"><span><span>Written by </span><span>Huxley Marvit</span></span></div><div class="notebody"><div><section><p><span>#ret #hw #incomplete</span></p><hr /></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="forensics!"><span class="firn-headline-text"><span>Forensics!</span></span></h1><section><p><span>forensics.</span></p><p><span>stegsolve, try at home. tried janky implimentation of lsb, outputs
-nonsense.</span></p><p><span>perhaps look at solutions, or look for help from other people. #review</span></p><hr /><p><span>stegsolve! bit planes!</span></p><p><span>seperating out the bit planes to bit plane zero for each color gives us
-something fishy.</span></p><p><span>as we decrease the bit planes, the image gets less legible. makes sense,
-because the significance of the bit is decreasing. now we just gotta
-find the hidden message.</span></p><p><span>size of image:</span></p><p><span>480 x 343</span></p><p><span>we can seperate it out, the message starts at the 191th pixel on the
-image multiplying this by our width we get 91680, the pixel where the
-encoded message starts.</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="forensics!-::-pt 2"><span class="firn-headline-text"><span>Forensics! :: pt. 2.</span></span></h1><section></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="the-problem"><span class="firn-headline-text"><span>The Problem</span></span></h2><section><p><span>I chose to solve</span><a class="firn-external" href="https://www.honeynet.org/challenges/forensic-challenge-13-a-message-in-a-picture/" target="_blank">this
+             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Forensics, pt2.</h1></div><div class="metamble"><span><span>Written by </span><span>Huxley Marvit</span></span></div><div class="notebody"><div><section><p><span>#ret #hw</span></p><hr /><div class="html"><p><span>  <!---</span></p><p><span>  forensics.</span></p><p><span>  stegsolve, try at home.
+  tried janky implimentation of lsb, outputs nonsense.
+  ```py
+  from PIL import Image
+  import base64
+  im = Image.open('./fc13_images_pkg1/IMG_0447.png')
+  pixels = list(im.getdata())
+  bs = ''</span></p><p><span>  def bits2a(b):</span></p><p><span>      return str(base64.b16decode(hex(int(b, base=2))[2:],casefold=True))[2:-1]</span></p><p><span>  for i in pixels:
+      for j in i[:3]:
+          bs += bin(j)[-1]</span></p><p><span>  print(bits2a(bs))</span></p><p><span>  ```</span></p><p><span>  perhaps look at solutions, or look for help from other people.
+  #review</span></p><p><span>  </span><strong><span>*</span></strong></p><p><span>  stegsolve! bit planes!</span></p><p><span>  seperating out the bit planes to bit plane zero for each color gives us something fishy.</span></p><p><span>  as we decrease the bit planes, the image gets less legible. makes sense, because the significance of the bit is decreasing.
+  now we just gotta find the hidden message.</span></p><p><span>  size of image:</span></p><p><span>  480 x 343</span></p><p><span>  we can seperate it out, the message starts at the 191th pixel on the image
+  multiplying this by our width we get 91680, the pixel where the encoded message starts.
+  --></span></p></div></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="forensics!-::-pt 2"><span class="firn-headline-text"><span>Forensics! :: pt. 2.</span></span></h1><section></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="the-problem"><span class="firn-headline-text"><span>The Problem</span></span></h2><section><p><span>I chose to solve</span><a class="firn-external" href="https://www.honeynet.org/challenges/forensic-challenge-13-a-message-in-a-picture/" target="_blank">this
 problem</a><span> from the Honeynet Project essentially at random. Next time, I
 think I will put more effort into choosing a problem.</span></p><p><span>Along with a </span><code>.zip</code><span> file containing three packs of images, this is all
-the information we get about the problem.</span></p><p><span>Looking at the images with the naked eye, all I saw were dogs.</span></p><p><a class="firn-internal" href="/cs/computer_security/IMG_0549.png">IMG_0549.png</a></p><p><span>After fumbling for many hours,</span></p></section></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#forensics!">Forensics!</a></li><li><a href="#forensics!-::-pt 2">Forensics! :: pt. 2.</a><ol><li><a href="#the-problem">The Problem</a></li></ol></li></ol><div class="metalabel">Backlinks</div><ul class="firn-backlinks"><li class="firn-backlink"><a href="/cs/computer_security/index">CS240 Master Index</a></li></ul></div></main></body></html>
+the information we get about the problem.</span></p></section><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="fumbling"><span class="firn-headline-text"><span>Fumbling</span></span></h3><section><p><span>Looking at the images with the naked eye, all I saw were dogs.</span></p><p><a class="firn-internal" href="/cs/computer_security/IMG_0549.png||500">IMG_0549.png||500</a><span>
+%%</span><img src="/IMG_0549.png" /><span>%% While I am not opposed to dogs, I was not
+satisfied with this. However, I had no idea where to go, where to look,
+or even if any given image I was working with was one with a hidden
+message.</span></p><p><span>After fumbling for many hours, I ended up plugging the images into</span><a class="firn-external" href="https://github.com/zardus/ctf-tools/tree/master/stegsolve" target="_blank">stegsolve</a><span>.
+After lots of clicking around, and getting images like this:
+%%</span><a class="firn-internal" href="/cs/computer_security/Pasted image 20211123222525.png||500">Pasted image
+20211123222525.png||500</a><span>%% [[file:Pasted image
+20211124150828.png||500.org][Pasted image 20211124150828.png||500]] I
+finally found a lead.</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="a-lead"><span class="firn-headline-text"><span>A Lead</span></span></h3><section><p><code>IMG_0406</code><span> from pack 1,</span></p><p><a class="firn-internal" href="/cs/computer_security/IMG_0406.png||500">IMG_0406.png||500</a></p><p><span>had something fishy going on.</span></p><p><span>While all the </span><code>Plane x</code><span> settings in stegsolve roughly resembled the
+original image, switching to </span><code>Plane 0</code><span> of 7 revealed something
+different.</span></p><p><a class="firn-internal" href="/cs/computer_security/Pasted image 20211123223313.png||500">Pasted image
+20211123223313.png||500</a><span> </span><em><span>Plane 1</span></em><span> [[file:Pasted image
+20211123223412.png||500.org][Pasted image 20211123223412.png||500]]</span><em><span>Plane 0</span></em></p><p><span>A rectangle of noise appeared in the white space under the dogs ears.
+Having no idea what I was doing, I set out to figure out what this could
+mean.</span></p><p><span>Comparing the different planes, I noticed that the images got more noisy
+as the plane number decreased. [[file:Pasted image
+20211123223946.png||100.org][Pasted image 20211123223946.png||100]]</span><a class="firn-internal" href="/cs/computer_security/Pasted image 20211123224007.png||100">Pasted image
+20211123224007.png||100</a><span> [[file:Pasted image
+20211123224019.png||100.org][Pasted image 20211123224019.png||100]]</span><a class="firn-internal" href="/cs/computer_security/Pasted image 20211123224028.png||100">Pasted image
+20211123224028.png||100</a><span> [[file:Pasted image
+20211123224042.png||100.org][Pasted image 20211123224042.png||100]]</span><a class="firn-internal" href="/cs/computer_security/Pasted image 20211123224052.png||100">Pasted image
+20211123224052.png||100</a><span> [[file:Pasted image
+20211123224059.png||100.org][Pasted image 20211123224059.png||100]]</span><a class="firn-internal" href="/cs/computer_security/Pasted image 20211123224107.png||100">Pasted image
+20211123224107.png||100</a><span> </span><em><span>Planes 7-0</span></em><span> I also noticed that they were 8
+planes that stegsolve displayed regardless of the image, making me think
+that it was something related to bytes.</span></p><p><span>After doing more research, I figured out that what stegsolve was showing
+me were the binary values of a single bit from each byte encoding one of
+the colors at a given pixel -- looping from most significant to least
+significant, explaining why the fidelity of the image decreased with the
+plane number. Knowing that the hidden message seemed to be encoded in
+plane 0 -- the least significant bit -- I stumbled upon a method called
+LSB steganography.</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="lsb"><span class="firn-headline-text"><span>LSB</span></span></h3><section><p><span>Each pixel in a </span><code>.png</code><span> has to store a value for every color channel,
+RGBA. LSB works by changing the 8th bit of each of these values,
+allowing a message to be encoded in the image with minimal effect on how
+the image looks. Only when isolating the least significant bit can we
+see the impact of this method.</span></p><p><span>Armed with my new knowledge after reading</span><a class="firn-external" href="https://medium.com/swlh/lsb-image-steganography-using-python-2bbbee2c69a2" target="_blank">many
+articles</a><span>, I began trying to decode the image with this method.</span></p><p><span>Running this code outputted, </span><em><span>drumroll please</span></em><span>:</span></p><pre class="language-shell"><code class="language-shell">  ❯ vim out.txt
+  *Pr&"VâWßU6¾7$Ç64ÿ5ÂÇtNº°,¦jî§BõS8î¯ÅI)HêLNõú©ÿ®¶h¢Ë­G ¨ÞK6åþ\0¿R:ª
+  ý4·Ð«>bgIÙ_®TÄøtÅÇtaLÌ×wG®ÏUé¥³ZbvóíkóTprv3Fg#r_²HÿéI]Î±âZÑq^íÍqïÂÙ\...
+</code></pre><p><span>gibberish. Absolute gibberish. The same was true for many, many, similar
+iterations of the code. After quite a bit of messing about, I realized
+that the message wasn't necessarily encoded in text. The next obvious
+format was a </span><code>.png</code><span>.</span></p><p><span>These attempts were met with</span></p><pre class="language-shell"><code class="language-shell">  ❯ feh bitsout.png
+  feh WARNING: bitsout.png - Does not look like an image (magic bytes missing)
+  feh: No loadable images specified.
+  See 'feh --help' or 'man feh' for detailed usage information
+</code></pre><p><span>or simply a malformed image, which had some cool properties. Namely, an
+entirely non-interactive chunk of space when sent in Discord.</span><a class="firn-internal" href="/cs/computer_security/Pasted image 20211123234017.png||300">Pasted image
+20211123234017.png||300</a><span> [[file:Pasted image
+20211123234127.png||300.org][Pasted image 20211123234127.png||300]]</span><a class="firn-internal" href="/cs/computer_security/Pasted image 20211123234142.png||300">Pasted image
+20211123234142.png||300</a><span> I also tried simply converting the output to
+values between 0-255, then graphing the values based on their original y
+location. I also learned about then messed with adding in the magic
+bytes that feh said was missing manually. Neither of these methods
+worked at all. After talking with @david on a walk today, I realized
+that the bits outputted from our LSB decryption, if they were a </span><code>.png</code><span>,
+would most likely have all the information of the </span><code>.png</code><span> included, magic
+bytes and all. Thus, I shouldn't have to mess with wrapping my bits
+specially or anything of the sort. With this knowledge in mind, any many
+hours with no hidden message to show for, I went back to the drawing
+board.</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="new-revelations"><span class="firn-headline-text"><span>New Revelations</span></span></h3><section><p><span>Poking around back through stegsolve, I noticed something new. Following
+are the zero'th plane of each of the color channels. [[file:Pasted image
+20211123235055.png||200.org][Pasted image 20211123235055.png||200]]</span><a class="firn-internal" href="/cs/computer_security/Pasted image 20211123235105.png||200">Pasted image
+20211123235105.png||200</a><span> [[file:Pasted image
+20211123235118.png||200.org][Pasted image 20211123235118.png||200]]</span><a class="firn-internal" href="/cs/computer_security/Pasted image 20211123235136.png||200">Pasted image
+20211123235136.png||200</a><span> </span><em><span>Plane 0 from stegsolve of the red, green,
+blue, and alpha channels.</span></em><span> If you look closely at the third image -- the
+blue plane, and </span><em><span>only</span></em><span> the blue plane -- there is a little white spot
+under the right ear and the new block. [[file:Pasted image
+20211123235431.png.org][Pasted image 20211123235431.png]] With this
+discovery, I realized that not all of the image necessarily had a
+message encoded. Instead, only a segment could have an encoded message.
+Admittedly, in hindsight, this realization seems quite obvious.</span></p><p><span>Next was to find the location of the encoded section and separate it
+from the rest of the image. I crudely attempted this by simply measuring
+how many pixels down from the top the bottom of the white dot I found
+under the right ear was. I got a measurement of 191. Multiplying this by
+our width, 480, we get 91680. Thus, if all else is correct, we know that
+the encoded region only starts after 91680 pixels. Once again, armed
+with new knowledge, I went back to decoding.</span></p><p><span>With a new</span><a class="firn-external" href="https://stackoverflow.com/questions/21220916/writing-bits-to-a-binary-file" target="_blank">bit-processing</a><span>
+function, which simply wrote the bytes to a file,</span></p><p><span>and a modified decoding algorithm which started at the 91680'th pixel,</span></p><p><span>I finally created a new file. Opening this file gave us, </span><em><span>drumroll
+please, again</span></em><span>:</span></p><pre class="language-shell"><code class="language-shell">  ❯ feh test.png
+  feh WARNING: bitsout.png - Does not look like an image (magic bytes missing)
+  feh: No loadable images specified.
+  See 'feh --help' or 'man feh' for detailed usage information
+</code></pre><p><span>the exact same output as before. To look more closely at what was going
+on, I opened the file with vim:</span></p><pre class="language-shell"><code class="language-shell">  ❯ vim test.png
+  ��pt��f{��q��]4����r�n/�������ȍ�6��� `�Vj����K�6�
+  ��?�8�����;$7�m+U�68?'��v�lM�j���=5���eR�]�����_;��PNG�
+  
+
+
+     !!
+  !"""###$$$%%%&&&'''((()))***+++,,,---...///00011122233344455566677788
+  8999:::;;;<<<===>>>???@@@AAABBBCCCDDDEEEFFF
+  GGGHHHIIIJJJKKKLLLMMMNNNOOOPPPQQQRRRSSSTTTUUUVVVWWWX
+  XXYYYZZZ[[file:[\\\.org][[\\\]]]^^^___```aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnnoooppp
+  qqqrrrssstttuuuvvvwwwxxxyy
+</code></pre><p><span>And, alas, hope! The letters </span><code>PNG</code><span> were in the file! I was doing</span><em><span>something</span></em><span> right. After many more iterations and shot-in-the-dark
+attempts, I finally simply went into the generated file, deleted things
+before what I guessed were the magic bytes, and opened the file again.</span></p><pre class="language-shell"><code class="language-shell">  ❯ feh lsb.png
+  ||
+</code></pre><p><span>And finally! After many, many hours, the image finally opened.</span><a class="firn-internal" href="/cs/computer_security/test.png||500">test.png||500</a><span> And voila! The message is
+found. </span><strong><em><span>Finally.</span></em></strong><span> No sweat :)</span></p></section></div></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="wrapping-up"><span class="firn-headline-text"><span>Wrapping Up</span></span></h2><section><p><span>Final code:</span></p><pre class="language-python"><code class="language-python">  # our imports
+  import numpy as np
+  from PIL import Image
+
+  def lsb(src): 
+      img = Image.open(src, 'r') # get the image
+      d = np.array(list(img.getdata())) # get the data from it 
+      px = (d.size // 4) # find the total pixel count
+
+      bits = "" # our bits
+      for i in range(91680, px, 1): # loop through our pixels,
+      # starting at the 'right' place
+          for j in range(0, 3): # loop through our channels
+              # and do our conversions
+              bits += (bin(d[i][j])[2:][-1])
+              
+      # write our output to a file
+      with open("test.png", "wb") as f:
+          # convert, then write the bytes 
+          f.write(int(bits[::-1], 2).to_bytes(len(bits)//8, 'little'))
+
+  src = "./fc13_images_pkg1/IMG_0406.png" # define our path
+  lsb(src) # and call the func!
+</code></pre><p><span>While the message wasn't the most interesting (definitely not going to
+2013 Dubai), I actually managed to find it! This assignment felt like a
+lot of shots-in-the-dark and fumbling around with no clear direction or
+guarantee of progress. That was what made it so hard. This lack of
+guarantee may be inherent in this type of problem, or it may be because
+I was completely new to this entire field. Regardless, I found a
+message. I also found some other fishy stuff with some other images, and
+I'm sure there are more hidden messages, but my sister just came home
+from college and I've already spent quite a few hours on this assignment
+instead of being with my family (right now I'm missing the beginning of
+the new Marvel movie!). I failed at this assignment earlier, and I was
+determined to remedy that, and I think I've done so. Thus, I'm gonna
+call it here.</span></p></section></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#forensics!-::-pt 2">Forensics! :: pt. 2.</a><ol><li><a href="#the-problem">The Problem</a><ol><li><a href="#fumbling">Fumbling</a></li><li><a href="#a-lead">A Lead</a></li><li><a href="#lsb">LSB</a></li><li><a href="#new-revelations">New Revelations</a></li></ol></li><li><a href="#wrapping-up">Wrapping Up</a></li></ol></li></ol><div class="metalabel">Backlinks</div><ul class="firn-backlinks"><li class="firn-backlink"><a href="/cs/computer_security/index">CS240 Master Index</a></li></ul></div></main></body></html>

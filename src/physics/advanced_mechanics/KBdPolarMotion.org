@@ -1,0 +1,187 @@
+#+TITLE: Motion in Polar Coordinates Problemset
+#+AUTHOR: Dylan Wallace
+
+* 1. Deriving Acceleration and Velocity
+** Velocity
+
+\begin{aligned}
+\vec{r} &= r\hat{r} \\
+\vec{v} &= r\cdot \frac{d}{dt}\hat{r} + \dot{r}\hat{r}\\
+\end{aligned}
+
+Remember that $\theta$ is a function of $t$.
+
+\begin{aligned}
+\frac{d}{dt}\hat{r} &= \frac{d}{dt}\cos{\theta}\hat{i} + \frac{d}{dt}\sin{\theta}\hat{j} \\
+&= \,-\dot{\theta}\sin{\theta}\hat{i} + \dot{\theta}\cos{\theta}\hat{j} \\
+&= \dot{\theta}\hat{\theta}
+\end{aligned}
+
+Therefore,
+
+\begin{aligned}
+\vec{v} &= r\dot{\theta}\hat{\theta} + \dot{r}\hat{r} \\
+\end{aligned}
+
+** Acceleration
+
+\begin{aligned}
+\vec{a} &= \frac{d}{dt}\vec{v} \\
+&= \frac{d}{dt}[r\dot{\theta}\hat{\theta} + \dot{r}\hat{r}] \\
+\end{aligned}
+
+We'll do each term separately for the sake of simplicity.
+
+\begin{aligned}
+\frac{d}{dt} r\dot{\theta}\hat{\theta} &= \dot{r}(\dot{\theta}\hat{\theta}) + r\cdot \frac{d}{dt}[\dot{\theta}\hat{\theta}] \\
+&= \dot{r}\dot{\theta}\hat{\theta} + r\ddot{\theta}\hat{\theta} + r\dot{\theta}\dot{\hat{\theta}} \\
+\end{aligned}
+
+We now derive $\dot{\hat{\theta}}$:
+
+\begin{aligned}
+\frac{d}{dt}\hat{\theta} &= \,-\frac{d}{dt}\sin{\theta}\hat{i} + \frac{d}{dt}\cos{\theta}\hat{j} \\
+&= \,-\dot{\theta}\cos{\theta}\hat{i} - \dot{\theta}\sin{\theta}\hat{j} \\
+&= \,-\dot{\theta}\hat{r} \\
+\end{aligned}
+
+Therefore, $\frac{d}{dt}r\dot{\theta}\hat{\theta} = \dot{r}\dot{\theta}\hat{\theta} + r\ddot{\theta}\hat{\theta} - r\dot{\theta}^2\hat{r}$
+We can move on to the next term:
+
+\begin{aligned}
+\frac{d}{dt} \dot{r}\hat{r} &= \ddot{r}\hat{r} + \dot{r}\dot{\hat{r}} \\
+&= \ddot{r}\hat{r} + \dot{r}\dot{\theta}\hat{\theta} \\
+\end{aligned}
+
+We can now combine the two terms:
+
+\begin{aligned}
+\vec{a} &= \dot{r}\dot{\theta}\hat{\theta} + r\ddot{\theta}\hat{\theta} - r\dot{\theta}^2\hat{r} + \ddot{r}\hat{r} + \dot{r}\dot{\theta}\hat{\theta} \\
+&= 2\dot{r}\dot{\theta}\hat{\theta} + r\ddot{\theta}\hat{\theta} - r\dot{\theta}^2\hat{r} + \ddot{r}\hat{r} \\
+&= \hat{\theta}(2\dot{r}\dot{\theta} + \ddot{\theta}r) + \hat{r}(\ddot{r} - \dot{\theta}^2r) \\
+&= \hat{\theta}(2\dot{r}\omega + \alpha r) + \hat{r}(\ddot{r} - \omega^2r) \\
+\end{aligned}
+
+** Explanation
+- $2\dot{r}\omega$ is the coriolis effect. It can be observed when either the radius or speed of rotation changes.
+- $\alpha r$ is the tangential acceleration. We can see this if $\ddot{r} = \omega = 0$.
+- $\ddot{r}$ is the radial acceleration, or the acceleration of the radius. It can be seen if $\omega = 0$.
+- $\omega^2r$ is the acceleration from the centripital force. It is what keeps the object in a circular trajectory. It can be observed if $\dot{r} = \alpha=0$.
+* 2. Mass in a Cone
+
+The FBD and Hurwitz Diagram is attached (fig. 1).
+
+There are two forces acting on the particle when in the cone: Gravity (downwards) and the normal force of the particle on the cone (normal to the surface of the cone).
+We know that the particle in the cone follows a path in a horizontal plane, so we know that the vertical component of the normal force must cancel out the force of gravity.
+
+\begin{aligned}
+F_g &= mg \\
+F_g &= F_{normal,y} \\
+\end{aligned}
+
+We can write $F_{normal,x}$ in terms of $\theta$ and $F_{normal,y}$:
+
+\begin{aligned}
+F_{normal,x} &= \frac{1}{\tan{\theta}} F_{normal,y} \\
+\end{aligned}
+
+We also know that there is centripetal force acting on the particle, as it is moving in a circular motion. We know that this centripital force comes from the normal force of the particle, so
+
+$F_{centripetal} &= F_{normal,x}$
+
+We know that centripetal force is equal to $\frac{mv^2}{r}$, or $\frac{mv_0^2}{r}$ in our case (because we are given $v_0$).
+Therefore, we get
+
+\begin{aligned}
+F_{centripetal} &= F_{normal,x} = \frac{1}{\tan{\theta}}F_{normal,y} \\
+&= \frac{1}{\tan{\theta}}F_g \\
+&= \frac{mg}{\tan{\theta}} \\
+&= \frac{mv_0^2}{r} \\
+\frac{g}{\tan{\theta}} &= \frac{v_0^2}{r} \\
+r &= \frac{v_0^2\tan{(\theta)}}{g} \\
+\end{aligned}
+And so we get $r$.
+* 3. Spinny Block
+
+The FBD and Hurwitz Diagram is attached (fig. 2).
+
+We know that there is the forces acting on Block B are the force of gravity and the tension caused by the string. Therefore,
+
+\begin{aligned}
+F_{net,B} &= F_{tension} - F_{g,B} \\
+m_Ba_B &= F_{tension} - m_Bg \\
+\end{aligned}
+
+We know that when Block B is released, there is radial acceleration and centripetal force acting on Block A in the $\hat{r}$ direction. Therefore, the force acting on Block A is
+
+\begin{aligned}
+F_{net,A}\hat{r} &= m_A(\ddot{r} - r\omega^2)\hat{r} \\
+&= m_A(a_A - R\omega^2)\hat{r} \\
+F_{net,A} &= m_A(a_A - R\omega^2) \\
+\end{aligned}
+
+We know that $a_A$ is the same radial acceleration inwards caused by Block B falling, so $a_A = a_B$.
+
+We know that the force acting on Block A is from tension from the string, and that it is in the opposite direction, so $F_{tension} = -F_{net,A} = -m_A(a_B - R\omega^2)$.
+
+We can now plug this into our equation:
+
+\begin{aligned}
+m_Ba_B &= -m_A(a_B - R\omega^2) - m_Bg \\
+m_Ba_B &= -m_Aa_B + m_AR\omega^2 - m_Bg \\
+m_Ba_B + m_Aa_B &= m_AR\omega^2 - m_Bg \\
+(m_A + m_B)a_B &= m_AR\omega^2 - m_Bg \\
+a_B &= \frac{m_AR\omega^2 - m_Bg}{m_A + m_B} \\
+\end{aligned}
+
+* 4. Loop-The-Loop
+The FBD and Hurwitz Diagram is attached (fig. 3).
+
+There are two forces acting on the roller coaster: The force of gravity, and the normal force. Because the normal force is caused by gravity, we know that the normal force should be in the opposite direction as gravity. Therefore,
+
+\begin{aligned}
+F_{net} &= \,-F_g + F_N \\
+\end{aligned}
+
+For the roller coaster to complete the loop-the-loop, $F_{centripetal}$ must be equivalent to $F_{net}$ where $F_{net}$ is greatest. This is when $F_N = 0$, and intuitively when the roller coaster is at the top of the loop.
+We can now solve for the velocity needed for the roller coaster to complete the loop:
+
+\begin{aligned}
+||F_{centripetal}|| &= ||F_{net}|| = ||F_g|| \\
+\frac{mv^2}{R} &= mg \\
+\frac{v^2}{R} &= g \\
+v^2 &= gR \\
+\end{aligned}
+
+We now have an equation for the velocity. Now we must solve for $h_0$ in terms of the velocity.
+We can use energy to solve for this. We know what the velocity the roller coaster much reach at the top of the loop is, so we know that $\Delta h = h_0 - 2R$. (The $2R$ comes from the diameter of the loop.) Therefore, the potential energy needed is $mg(h_0 - 2R)$. We need to convert all the potential energy to kinetic energy at the bottom of the loop.
+Therefore:
+
+\begin{aligned}
+\frac{1}{2}mv^2 = mg(h_0 - 2R) \\
+v^2 = 2gh_0 - 4gR \\
+gR = 2gh_0 - 4gR \\
+2h_0 = 5R \\
+h_0 = \frac{5}{2}R \\
+\end{aligned}
+
+* 5. Coriolis effect
+The earth moves from west to east. The earth (and winds) near the equator spins at a faster speed than near the poles, due to the fact that the radius of the earth at the equator is greater than that near the poles. As winds move from the poles to the equator, it will conserve its speed, but in relation to the speed of the earth's rotation near the equator, the winds will "lag behind" in the reference frame of the earth. Conversely, as winds move from the equator towards the poles, the winds will be faster than the earth's rotation in the reference frame of the earth. Therefore, there will be a phantom coriolis force applying in the direction of the earth's rotation on winds moving from the equator towards the poles, and a force applying in the opposite direction for winds moving from the poles towards the equator. Tropical storms are caused by low pressure areas in the earth's atmosphere, to which winds are "attracted" (for lack of a better term). In the Northern Hemisphere, winds originating in the poles will come from the North and move towards the West, whereas winds originating near the equator will come from the South and move towards the East. This will create a counter-clockwise spin. Conversely, in the Southern Hemisphere, winds originating in the poles will come from the South and move towards the West, whereas winds originating near the equator will come from the North and move towards the East. This will create a clockwise spin.
+
+* 6. Mission Impossible
+** Banister
+If Hunt were to walk towards the edge of the platform from the center, then he would experience a coriolis force in the opposite direction to the direction of rotation. Therefore, Hunt must stand on the $\hat{\theta}$ side of the banister so that the coriolis force would be counteracted by the normal force of the banister.
+** Speed
+We know that the banister can handle a tangential force of $2N$. We also know that Hunt weighs 80kg. Therefore, the maximum acceleration that Hunt can "apply" in the tangential direction towards the banister is given by $\frac{2N}{80kg} &= 0.025m/s^2$. We also know that if Hunt slides towards the center, then the coriolis acceleration will be given by $2\dot{r}\omega$. We know that the platform spins at 1 rotation per minute, so we know $\omega = \frac{2\pi}{60} = \frac{\pi}{30}$.
+Therefore:
+
+\begin{aligned}
+a &= 2\dot{r}\omega \\
+\dot{r} &= \frac{a}{2\omega} \\
+&= 0.025\cdot \frac{30}{\pi} \cdot \frac{1}{2} \\
+&= 0.025\cdot \frac{15}{\pi} \\
+&= 0.119 m/s
+\end{aligned}
+
+We know that the radius of the platform is 10 meters, so the amount of time it takes to reach the center is $\frac{10}{0.119} = 84s$ (roughly).
+

@@ -268,10 +268,12 @@ final essay: https://docs.google.com/document/d/13kjHipLoFWtNgC34VILjlxv3iTuqMZC
 
 
 
+$$x\ =\ \frac{y}{2}+\ \int_{1}^{0}f\left(x\right)dx\ \theta$$
 
 
-
-
+| just | table | tingz |
+| ---- | ----- | ----- |
+| a    | b     | c     |
 
 
 

@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-11-25 Thu 15:06 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Motion in Polar Coordinates Problemset</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Dylan Wallace" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Motion in Polar Coordinates Problemset</h1> <h2 class="subtitle"></h2> <span class="author">Dylan Wallace</span> <span class="date">2021-11-25 Thu 15:05</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org2ca32ab">1. 1. Deriving Acceleration and Velocity</a>
+<ul>
+<li><a href="#orge7e901a">1.1. Velocity</a></li>
+<li><a href="#org5d5631b">1.2. Acceleration</a></li>
+<li><a href="#org2b7bd73">1.3. Explanation</a></li>
+</ul>
+</li>
+<li><a href="#org27560c8">2. 2. Mass in a Cone</a></li>
+<li><a href="#org6d9cfcd">3. 3. Spinny Block</a></li>
+<li><a href="#org2c64465">4. 4. Loop-The-Loop</a></li>
+<li><a href="#orgfc9dc2b">5. 5. Coriolis effect</a></li>
+<li><a href="#org5043eeb">6. 6. Mission Impossible</a>
+<ul>
+<li><a href="#org0d16d36">6.1. Banister</a></li>
+<li><a href="#orgeecebd7">6.2. Speed</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-org2ca32ab" class="outline-2">
+<h2 id="org2ca32ab"><span class="section-number-2">1</span> 1. Deriving Acceleration and Velocity</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orge7e901a" class="outline-3">
+<h3 id="orge7e901a"><span class="section-number-3">1.1</span> Velocity</h3>
+<div class="outline-text-3" id="text-1-1">
+\begin{aligned}
+\vec{r} &= r\hat{r} \\
+\vec{v} &= r\cdot \frac{d}{dt}\hat{r} + \dot{r}\hat{r}\\
+\end{aligned}
+
+<p>
+Remember that \(\theta\) is a function of \(t\).
+</p>
+
+\begin{aligned}
+\frac{d}{dt}\hat{r} &= \frac{d}{dt}\cos{\theta}\hat{i} + \frac{d}{dt}\sin{\theta}\hat{j} \\
+&= \,-\dot{\theta}\sin{\theta}\hat{i} + \dot{\theta}\cos{\theta}\hat{j} \\
+&= \dot{\theta}\hat{\theta}
+\end{aligned}
+
+<p>
+Therefore,
+</p>
+
+\begin{aligned}
+\vec{v} &= r\dot{\theta}\hat{\theta} + \dot{r}\hat{r} \\
+\end{aligned}
+</div>
+</div>
+
+<div id="outline-container-org5d5631b" class="outline-3">
+<h3 id="org5d5631b"><span class="section-number-3">1.2</span> Acceleration</h3>
+<div class="outline-text-3" id="text-1-2">
+\begin{aligned}
+\vec{a} &= \frac{d}{dt}\vec{v} \\
+&= \frac{d}{dt}[r\dot{\theta}\hat{\theta} + \dot{r}\hat{r}] \\
+\end{aligned}
+
+<p>
+We'll do each term separately for the sake of simplicity.
+</p>
+
+\begin{aligned}
+\frac{d}{dt} r\dot{\theta}\hat{\theta} &= \dot{r}(\dot{\theta}\hat{\theta}) + r\cdot \frac{d}{dt}[\dot{\theta}\hat{\theta}] \\
+&= \dot{r}\dot{\theta}\hat{\theta} + r\ddot{\theta}\hat{\theta} + r\dot{\theta}\dot{\hat{\theta}} \\
+\end{aligned}
+
+<p>
+We now derive \(\dot{\hat{\theta}}\):
+</p>
+
+\begin{aligned}
+\frac{d}{dt}\hat{\theta} &= \,-\frac{d}{dt}\sin{\theta}\hat{i} + \frac{d}{dt}\cos{\theta}\hat{j} \\
+&= \,-\dot{\theta}\cos{\theta}\hat{i} - \dot{\theta}\sin{\theta}\hat{j} \\
+&= \,-\dot{\theta}\hat{r} \\
+\end{aligned}
+
+<p>
+Therefore, \(\frac{d}{dt}r\dot{\theta}\hat{\theta} = \dot{r}\dot{\theta}\hat{\theta} + r\ddot{\theta}\hat{\theta} - r\dot{\theta}^2\hat{r}\)
+We can move on to the next term:
+</p>
+
+\begin{aligned}
+\frac{d}{dt} \dot{r}\hat{r} &= \ddot{r}\hat{r} + \dot{r}\dot{\hat{r}} \\
+&= \ddot{r}\hat{r} + \dot{r}\dot{\theta}\hat{\theta} \\
+\end{aligned}
+
+<p>
+We can now combine the two terms:
+</p>
+
+\begin{aligned}
+\vec{a} &= \dot{r}\dot{\theta}\hat{\theta} + r\ddot{\theta}\hat{\theta} - r\dot{\theta}^2\hat{r} + \ddot{r}\hat{r} + \dot{r}\dot{\theta}\hat{\theta} \\
+&= 2\dot{r}\dot{\theta}\hat{\theta} + r\ddot{\theta}\hat{\theta} - r\dot{\theta}^2\hat{r} + \ddot{r}\hat{r} \\
+&= \hat{\theta}(2\dot{r}\dot{\theta} + \ddot{\theta}r) + \hat{r}(\ddot{r} - \dot{\theta}^2r) \\
+&= \hat{\theta}(2\dot{r}\omega + \alpha r) + \hat{r}(\ddot{r} - \omega^2r) \\
+\end{aligned}
+</div>
+</div>
+
+<div id="outline-container-org2b7bd73" class="outline-3">
+<h3 id="org2b7bd73"><span class="section-number-3">1.3</span> Explanation</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>\(2\dot{r}\omega\) is the coriolis effect. It can be observed when either the radius or speed of rotation changes.</li>
+<li>\(\alpha r\) is the tangential acceleration. We can see this if \(\ddot{r} = \omega = 0\).</li>
+<li>\(\ddot{r}\) is the radial acceleration, or the acceleration of the radius. It can be seen if \(\omega = 0\).</li>
+<li>\(\omega^2r\) is the acceleration from the centripital force. It is what keeps the object in a circular trajectory. It can be observed if \(\dot{r} = \alpha=0\).</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org27560c8" class="outline-2">
+<h2 id="org27560c8"><span class="section-number-2">2</span> 2. Mass in a Cone</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The FBD and Hurwitz Diagram is attached (fig. 1).
+</p>
+
+<p>
+There are two forces acting on the particle when in the cone: Gravity (downwards) and the normal force of the particle on the cone (normal to the surface of the cone).
+We know that the particle in the cone follows a path in a horizontal plane, so we know that the vertical component of the normal force must cancel out the force of gravity.
+</p>
+
+\begin{aligned}
+F_g &= mg \\
+F_g &= F_{normal,y} \\
+\end{aligned}
+
+<p>
+We can write \(F_{normal,x}\) in terms of \(\theta\) and \(F_{normal,y}\):
+</p>
+
+\begin{aligned}
+F_{normal,x} &= \frac{1}{\tan{\theta}} F_{normal,y} \\
+\end{aligned}
+
+<p>
+We also know that there is centripetal force acting on the particle, as it is moving in a circular motion. We know that this centripital force comes from the normal force of the particle, so
+</p>
+
+<p>
+\(F_{centripetal} &= F_{normal,x}\)
+</p>
+
+<p>
+We know that centripetal force is equal to \(\frac{mv^2}{r}\), or \(\frac{mv_0^2}{r}\) in our case (because we are given \(v_0\)).
+Therefore, we get
+</p>
+
+\begin{aligned}
+F_{centripetal} &= F_{normal,x} = \frac{1}{\tan{\theta}}F_{normal,y} \\
+&= \frac{1}{\tan{\theta}}F_g \\
+&= \frac{mg}{\tan{\theta}} \\
+&= \frac{mv_0^2}{r} \\
+\frac{g}{\tan{\theta}} &= \frac{v_0^2}{r} \\
+r &= \frac{v_0^2\tan{(\theta)}}{g} \\
+\end{aligned}
+<p>
+And so we get \(r\).
+</p>
+</div>
+</div>
+<div id="outline-container-org6d9cfcd" class="outline-2">
+<h2 id="org6d9cfcd"><span class="section-number-2">3</span> 3. Spinny Block</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The FBD and Hurwitz Diagram is attached (fig. 2).
+</p>
+
+<p>
+We know that there is the forces acting on Block B are the force of gravity and the tension caused by the string. Therefore,
+</p>
+
+\begin{aligned}
+F_{net,B} &= F_{tension} - F_{g,B} \\
+m_Ba_B &= F_{tension} - m_Bg \\
+\end{aligned}
+
+<p>
+We know that when Block B is released, there is radial acceleration and centripetal force acting on Block A in the \(\hat{r}\) direction. Therefore, the force acting on Block A is
+</p>
+
+\begin{aligned}
+F_{net,A}\hat{r} &= m_A(\ddot{r} - r\omega^2)\hat{r} \\
+&= m_A(a_A - R\omega^2)\hat{r} \\
+F_{net,A} &= m_A(a_A - R\omega^2) \\
+\end{aligned}
+
+<p>
+We know that \(a_A\) is the same radial acceleration inwards caused by Block B falling, so \(a_A = a_B\).
+</p>
+
+<p>
+We know that the force acting on Block A is from tension from the string, and that it is in the opposite direction, so \(F_{tension} = -F_{net,A} = -m_A(a_B - R\omega^2)\).
+</p>
+
+<p>
+We can now plug this into our equation:
+</p>
+
+\begin{aligned}
+m_Ba_B &= -m_A(a_B - R\omega^2) - m_Bg \\
+m_Ba_B &= -m_Aa_B + m_AR\omega^2 - m_Bg \\
+m_Ba_B + m_Aa_B &= m_AR\omega^2 - m_Bg \\
+(m_A + m_B)a_B &= m_AR\omega^2 - m_Bg \\
+a_B &= \frac{m_AR\omega^2 - m_Bg}{m_A + m_B} \\
+\end{aligned}
+</div>
+</div>
+
+<div id="outline-container-org2c64465" class="outline-2">
+<h2 id="org2c64465"><span class="section-number-2">4</span> 4. Loop-The-Loop</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+The FBD and Hurwitz Diagram is attached (fig. 3).
+</p>
+
+<p>
+There are two forces acting on the roller coaster: The force of gravity, and the normal force. Because the normal force is caused by gravity, we know that the normal force should be in the opposite direction as gravity. Therefore,
+</p>
+
+\begin{aligned}
+F_{net} &= \,-F_g + F_N \\
+\end{aligned}
+
+<p>
+For the roller coaster to complete the loop-the-loop, \(F_{centripetal}\) must be equivalent to \(F_{net}\) where \(F_{net}\) is greatest. This is when \(F_N = 0\), and intuitively when the roller coaster is at the top of the loop.
+We can now solve for the velocity needed for the roller coaster to complete the loop:
+</p>
+
+\begin{aligned}
+||F_{centripetal}|| &= ||F_{net}|| = ||F_g|| \\
+\frac{mv^2}{R} &= mg \\
+\frac{v^2}{R} &= g \\
+v^2 &= gR \\
+\end{aligned}
+
+<p>
+We now have an equation for the velocity. Now we must solve for \(h_0\) in terms of the velocity.
+We can use energy to solve for this. We know what the velocity the roller coaster much reach at the top of the loop is, so we know that \(\Delta h = h_0 - 2R\). (The \(2R\) comes from the diameter of the loop.) Therefore, the potential energy needed is \(mg(h_0 - 2R)\). We need to convert all the potential energy to kinetic energy at the bottom of the loop.
+Therefore:
+</p>
+
+\begin{aligned}
+\frac{1}{2}mv^2 = mg(h_0 - 2R) \\
+v^2 = 2gh_0 - 4gR \\
+gR = 2gh_0 - 4gR \\
+2h_0 = 5R \\
+h_0 = \frac{5}{2}R \\
+\end{aligned}
+</div>
+</div>
+
+<div id="outline-container-orgfc9dc2b" class="outline-2">
+<h2 id="orgfc9dc2b"><span class="section-number-2">5</span> 5. Coriolis effect</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+The earth moves from west to east. The earth (and winds) near the equator spins at a faster speed than near the poles, due to the fact that the radius of the earth at the equator is greater than that near the poles. As winds move from the poles to the equator, it will conserve its speed, but in relation to the speed of the earth's rotation near the equator, the winds will "lag behind" in the reference frame of the earth. Conversely, as winds move from the equator towards the poles, the winds will be faster than the earth's rotation in the reference frame of the earth. Therefore, there will be a phantom coriolis force applying in the direction of the earth's rotation on winds moving from the equator towards the poles, and a force applying in the opposite direction for winds moving from the poles towards the equator. Tropical storms are caused by low pressure areas in the earth's atmosphere, to which winds are "attracted" (for lack of a better term). In the Northern Hemisphere, winds originating in the poles will come from the North and move towards the West, whereas winds originating near the equator will come from the South and move towards the East. This will create a counter-clockwise spin. Conversely, in the Southern Hemisphere, winds originating in the poles will come from the South and move towards the West, whereas winds originating near the equator will come from the North and move towards the East. This will create a clockwise spin.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5043eeb" class="outline-2">
+<h2 id="org5043eeb"><span class="section-number-2">6</span> 6. Mission Impossible</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org0d16d36" class="outline-3">
+<h3 id="org0d16d36"><span class="section-number-3">6.1</span> Banister</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+If Hunt were to walk towards the edge of the platform from the center, then he would experience a coriolis force in the opposite direction to the direction of rotation. Therefore, Hunt must stand on the \(\hat{\theta}\) side of the banister so that the coriolis force would be counteracted by the normal force of the banister.
+</p>
+</div>
+</div>
+<div id="outline-container-orgeecebd7" class="outline-3">
+<h3 id="orgeecebd7"><span class="section-number-3">6.2</span> Speed</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+We know that the banister can handle a tangential force of \(2N\). We also know that Hunt weighs 80kg. Therefore, the maximum acceleration that Hunt can "apply" in the tangential direction towards the banister is given by \(\frac{2N}{80kg} &= 0.025m/s^2\). We also know that if Hunt slides towards the center, then the coriolis acceleration will be given by \(2\dot{r}\omega\). We know that the platform spins at 1 rotation per minute, so we know \(\omega = \frac{2\pi}{60} = \frac{\pi}{30}\).
+Therefore:
+</p>
+
+\begin{aligned}
+a &= 2\dot{r}\omega \\
+\dot{r} &= \frac{a}{2\omega} \\
+&= 0.025\cdot \frac{30}{\pi} \cdot \frac{1}{2} \\
+&= 0.025\cdot \frac{15}{\pi} \\
+&= 0.119 m/s
+\end{aligned}
+
+<p>
+We know that the radius of the platform is 10 meters, so the amount of time it takes to reach the center is \(\frac{10}{0.119} = 84s\) (roughly).
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

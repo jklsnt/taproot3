@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="date" content='2021-11-17'>
+    <title>Forensics, pt2.</title>
+  </head>
+  <body>
+    <p>Date: 2021-11-17</p>
+<p>#ret #hw</p>
+<hr />
+<!---
+# Forensics!
+forensics. 
+
+stegsolve, try at home.
+tried janky implimentation of lsb, outputs nonsense.
+```py
+from PIL import Image
+import base64
+im = Image.open('./fc13_images_pkg1/IMG_0447.png')
+pixels = list(im.getdata())
+bs = ''
+
+def bits2a(b):
+    # return ''.join(chr(int(''.join(x), 2)) for x in zip(*[iter(b)]*8))
+    return str(base64.b16decode(hex(int(b, base=2))[2:],casefold=True))[2:-1]
+
+
+for i in pixels:
+    for j in i[:3]:
+        bs += bin(j)[-1]
+
+print(bits2a(bs))
+
+```
+
+perhaps look at solutions, or look for help from other people.
+#review
+
+
+
+***
+
+stegsolve! bit planes!
+
+seperating out the bit planes to bit plane zero for each color gives us something fishy.
+
+as we decrease the bit planes, the image gets less legible. makes sense, because the significance of the bit is decreasing.
+now we just gotta find the hidden message.
+
+
+
+size of image:
+
+480 x 343
+
+we can seperate it out, the message starts at the 191th pixel on the image
+multiplying this by our width we get 91680, the pixel where the encoded message starts.
+-->
+<h1 id="forensics-pt.-2.">Forensics! :: pt. 2.</h1>
+<pre class="ad-note"><code>By working on this, for many hours, I have learned that forensics is hard. When it comes to forensics, I have absolutely no idea what I am doing. What follows is my process for trying to get things done with absolutely no background.</code></pre>
+<h2 id="the-problem">The Problem</h2>
+<p>I chose to solve <a href="https://www.honeynet.org/challenges/forensic-challenge-13-a-message-in-a-picture/">this problem</a> from the Honeynet Project essentially at random. Next time, I think I will put more effort into choosing a problem.</p>
+<p>Along with a <code>.zip</code> file containing three packs of images, this is all the information we get about the problem.</p>
+<pre class="ad-abstract"><code>title: Problem Information
+Communication using hidden channels ==(steganography)== is one way to protect that communication from third parties. You are a law enforcement agent in the forensics unit. In a recent raid, the agency has been able to obtain the ==three attached packages of images== from a suspected command and control server. These images could ==potentially== contain hidden messages that will be relayed to a powerful botnet army that could destroy earth. Obviously a high priority item! While your colleagues try to reverse the botnet code, you are tasked with analyzing the images directly and ==extract the hidden messages.==
+
+When analyzing these images, develop tools that take advantage of the full spectrum of steganalysis – statistical methods, visual attacks, machine learning, visualization – and make them available as open-source so your colleagues can take advantage of your work without needing to reinvent the wheel.
+
+Note that we received a tip from a mole that ==none of the images utilize encryption== in addition to steganography. Lucky us. Lets get to it!</code></pre>
+<h3 id="fumbling">Fumbling</h3>
+<p>Looking at the images with the naked eye, all I saw were dogs.</p>
+<p>[[IMG_0549.png||500]] <img src="IMG_0549.png" title="yeeeeet" alt="IMG_0549" /> While I am not opposed to dogs, I was not satisfied with this. However, I had no idea where to go, where to look, or even if any given image I was working with was one with a hidden message.</p>
+<p>After fumbling for many hours, I ended up plugging the images into <a href="https://github.com/zardus/ctf-tools/tree/master/stegsolve">stegsolve</a>. After lots of clicking around, and getting images like this: %%[[Pasted image 20211123222525.png||500]]%% [[Pasted image 20211124150828.png||500]] I finally found a lead.</p>
+<h3 id="a-lead">A Lead</h3>
+<p><code>IMG_0406</code> from pack 1,</p>
+<p>[[IMG_0406.png||500]]</p>
+<p>had something fishy going on.</p>
+<p>While all the <code>Plane x</code> settings in stegsolve roughly resembled the original image, switching to <code>Plane 0</code> of 7 revealed something different.</p>
+<p>[[Pasted image 20211123223313.png||500]] <em>Plane 1</em> [[Pasted image 20211123223412.png||500]] <em>Plane 0</em></p>
+<p>A rectangle of noise appeared in the white space under the dogs ears. Having no idea what I was doing, I set out to figure out what this could mean.</p>
+<p>Comparing the different planes, I noticed that the images got more noisy as the plane number decreased. [[Pasted image 20211123223946.png||100]] [[Pasted image 20211123224007.png||100]] [[Pasted image 20211123224019.png||100]] [[Pasted image 20211123224028.png||100]] [[Pasted image 20211123224042.png||100]] [[Pasted image 20211123224052.png||100]] [[Pasted image 20211123224059.png||100]] [[Pasted image 20211123224107.png||100]] <em>Planes 7-0</em> I also noticed that they were 8 planes that stegsolve displayed regardless of the image, making me think that it was something related to bytes.</p>
+<p>After doing more research, I figured out that what stegsolve was showing me were the binary values of a single bit from each byte encoding one of the colors at a given pixel – looping from most significant to least significant, explaining why the fidelity of the image decreased with the plane number. Knowing that the hidden message seemed to be encoded in plane 0 – the least significant bit – I stumbled upon a method called LSB steganography.</p>
+<h3 id="lsb">LSB</h3>
+<p>Each pixel in a <code>.png</code> has to store a value for every color channel, RGBA. LSB works by changing the 8th bit of each of these values, allowing a message to be encoded in the image with minimal effect on how the image looks. Only when isolating the least significant bit can we see the impact of this method.</p>
+<p>Armed with my new knowledge after reading <a href="https://medium.com/swlh/lsb-image-steganography-using-python-2bbbee2c69a2">many articles</a>, I began trying to decode the image with this method.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> lsb(src):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> Image.<span class="bu">open</span>(src, <span class="st">&#39;r&#39;</span>) <span class="co"># get the image</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> np.array(<span class="bu">list</span>(img.getdata())) <span class="co"># get the data</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    px <span class="op">=</span> (d.size <span class="op">//</span> <span class="dv">4</span>) <span class="co"># get the px count, as the total size of our data array over 4 for RBGA</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    bits <span class="op">=</span> <span class="st">&quot;&quot;</span> <span class="co"># our bit array</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(px): <span class="co"># loop through our pixels</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">3</span>): <span class="co"># and loop through our color channels</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            bits <span class="op">+=</span> (<span class="bu">bin</span>(d[i][j])[<span class="dv">2</span>:][<span class="op">-</span><span class="dv">1</span>]) <span class="co"># and extract the bits</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    bits <span class="op">=</span> [bits[i:i<span class="op">+</span><span class="dv">8</span>] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(bits), <span class="dv">8</span>)] <span class="co"># convert our string into an array</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    enc <span class="op">=</span> <span class="st">&quot;&quot;</span> <span class="co"># our encoded string (hopefully)</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(bits)): <span class="co"># loop through our bits</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        enc <span class="op">+=</span> <span class="bu">chr</span>(<span class="bu">int</span>(bits[i], <span class="dv">2</span>)) <span class="co"># and convert to UTF-8</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;out.txt&#39;</span>, <span class="st">&#39;w&#39;</span>) <span class="im">as</span> f: <span class="co"># write our data to a file</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> redirect_stdout(f):</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(enc)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>src <span class="op">=</span> <span class="st">&quot;./fc13_images_pkg1/IMG_0406.png&quot;</span> <span class="co"># define our path</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>lsb(src) <span class="co"># and call the function.</span></span></code></pre></div>
+<p>Running this code outputted, <em>drumroll please</em>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">❯</span> vim out.txt</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*Pr</span><span class="kw">&amp;</span><span class="st">&quot;VâWßU6¾7$Ç64ÿ5ÂÇtNº°,¦jî§BõS8î¯ÅI)HêLNõú©ÿ®¶h¢Ë­G ¨ÞK6åþ\0¿R:ª</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="st">ý4·Ð«&gt;bgIÙ_®TÄøtÅÇtaLÌ×wG®ÏUé¥³ZbvóíkóTprv3Fg#r_²HÿéI]Î±âZÑq^íÍqïÂÙ\...</span></span></code></pre></div>
+<p>gibberish. Absolute gibberish. The same was true for many, many, similar iterations of the code. After quite a bit of messing about, I realized that the message wasn’t necessarily encoded in text. The next obvious format was a <code>.png</code>.</p>
+<pre class="ad-comment"><code>title: Many more iterations were spent trying to convert the output to a png...
+```py
+bits = [bits[i:i+8] for i in range(0, len(bits), 8)]
+out = &quot;&quot;
+for i in range(len(bits)):
+    out += chr(int(bits[i], 2))
+
+with open(&#39;out.png&#39;, &#39;w&#39;) as f:
+    with redirect_stdout(f):
+        print(out)
+
+bits = [[int(y) for y in x] for x in bits]
+
+out_bits = np.array(bits)
+out_bytes = np.packbits(out_bits)
+
+imageStream = io.BytesIO(out_bytes)
+
+im = Image.fromarray(np.array(out_bytes).astype(&quot;uint16&quot;))
+im.save(&quot;out.png&quot;)
+
+png.from_array(out_bits, &#39;L&#39;).save(&#39;out.png&#39;)
+
+imageFile = Image.open(out_bytes)
+out_img = Image.fromarray(out_bytes)
+out_img.save(&quot;out.png&quot;)
+out_bytes.tofile(&quot;out.png&quot;)</code></pre>
+<p>These attempts were met with</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">❯</span> feh bitsout.png</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">feh</span> WARNING: bitsout.png <span class="at">-</span> Does not look like an image <span class="er">(</span><span class="ex">magic</span> bytes missing<span class="kw">)</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">feh:</span> No loadable images specified.</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">See</span> <span class="st">&#39;feh --help&#39;</span> or <span class="st">&#39;man feh&#39;</span> for detailed usage information</span></code></pre></div>
+<p>or simply a malformed image, which had some cool properties. Namely, an entirely non-interactive chunk of space when sent in Discord. [[Pasted image 20211123234017.png||300]] [[Pasted image 20211123234127.png||300]] [[Pasted image 20211123234142.png||300]] I also tried simply converting the output to values between 0-255, then graphing the values based on their original y location. I also learned about then messed with adding in the magic bytes that feh said was missing manually. Neither of these methods worked at all. After talking with <span class="citation" data-cites="david">@david</span> on a walk today, I realized that the bits outputted from our LSB decryption, if they were a <code>.png</code>, would most likely have all the information of the <code>.png</code> included, magic bytes and all. Thus, I shouldn’t have to mess with wrapping my bits specially or anything of the sort. With this knowledge in mind, any many hours with no hidden message to show for, I went back to the drawing board.</p>
+<h3 id="new-revelations">New Revelations</h3>
+<p>Poking around back through stegsolve, I noticed something new. Following are the zero’th plane of each of the color channels. [[Pasted image 20211123235055.png||200]] [[Pasted image 20211123235105.png||200]] [[Pasted image 20211123235118.png||200]] [[Pasted image 20211123235136.png||200]] <em>Plane 0 from stegsolve of the red, green, blue, and alpha channels.</em> If you look closely at the third image – the blue plane, and <em>only</em> the blue plane – there is a little white spot under the right ear and the new block. [[Pasted image 20211123235431.png]] With this discovery, I realized that not all of the image necessarily had a message encoded. Instead, only a segment could have an encoded message. Admittedly, in hindsight, this realization seems quite obvious.</p>
+<p>Next was to find the location of the encoded section and separate it from the rest of the image. I crudely attempted this by simply measuring how many pixels down from the top the bottom of the white dot I found under the right ear was. I got a measurement of 191. Multiplying this by our width, 480, we get 91680. Thus, if all else is correct, we know that the encoded region only starts after 91680 pixels. Once again, armed with new knowledge, I went back to decoding.</p>
+<p>With a new <a href="https://stackoverflow.com/questions/21220916/writing-bits-to-a-binary-file">bit-processing</a> function, which simply wrote the bytes to a file,</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;lsb.png&quot;</span>, <span class="st">&quot;wb&quot;</span>) <span class="im">as</span> f:</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    f.write(<span class="bu">int</span>(bits[::<span class="op">-</span><span class="dv">1</span>], <span class="dv">2</span>).to_bytes(<span class="bu">len</span>(bits)<span class="op">//</span><span class="dv">8</span>, <span class="st">&#39;little&#39;</span>))</span></code></pre></div>
+<p>and a modified decoding algorithm which started at the 91680’th pixel,</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">91680</span>, px, <span class="dv">1</span>):</span></code></pre></div>
+<p>I finally created a new file. Opening this file gave us, <em>drumroll please, again</em>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">❯</span> feh test.png</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">feh</span> WARNING: bitsout.png <span class="at">-</span> Does not look like an image <span class="er">(</span><span class="ex">magic</span> bytes missing<span class="kw">)</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">feh:</span> No loadable images specified.</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="ex">See</span> <span class="st">&#39;feh --help&#39;</span> or <span class="st">&#39;man feh&#39;</span> for detailed usage information</span></code></pre></div>
+<p>the exact same output as before. To look more closely at what was going on, I opened the file with vim:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">❯</span> vim test.png</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">��pt��f{��q��]4����r�n/�������ȍ�6���</span> <span class="kw">`</span><span class="ex">�Vj����K�6�</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">��?�8�����</span><span class="kw">;</span><span class="va">$7</span><span class="ex">�m+U�68?</span><span class="st">&#39;��v�lM�j���=5���eR�]�����_;��PNG�</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="st"></span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="st">   !!</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="st">!&quot;&quot;&quot;###$$$%%%&amp;&amp;&amp;&#39;&#39;&#39;</span><span class="er">((</span>()<span class="kw">))</span><span class="ex">***+++,,,---...///00011122233344455566677788</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="ex">8999:::</span><span class="kw">;;;</span><span class="op">&lt;&lt;&lt;</span>===<span class="op">&gt;&gt;&gt;</span><span class="ex">???@@@AAABBBCCCDDDEEEFFF</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="ex">GGGHHHIIIJJJKKKLLLMMMNNNOOOPPPQQQRRRSSSTTTUUUVVVWWWX</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="va">XXYYYZZZ</span><span class="op">[</span>[[<span class="dt">\\\]</span><span class="op">]</span><span class="ex">]^^^___</span><span class="kw">```</span>aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnnoooppp</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="ex">qqqrrrssstttuuuvvvwwwxxxyy</span></span></code></pre></div>
+<p>And, alas, hope! The letters <code>PNG</code> were in the file! I was doing <em>something</em> right. After many more iterations and shot-in-the-dark attempts, I finally simply went into the generated file, deleted things before what I guessed were the magic bytes, and opened the file again.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">❯</span> feh lsb.png</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">||</span></span></code></pre></div>
+<p>And finally! After many, many hours, the image finally opened. [[test.png||500]] And voila! The message is found. <strong><em>Finally.</em></strong> No sweat :)</p>
+<h2 id="wrapping-up">Wrapping Up</h2>
+<p>While the message wasn’t the most interesting (definitely not going to 2013 Dubai), I actually managed to find it! This assignment felt like a lot of shots-in-the-dark and fumbling around with no clear direction or guarantee of progress. That was what made it so hard. This lack of guarantee may be inherent in this type of problem, or it may be because I was completely new to this entire field. Regardless, I found a message. I also found some other fishy stuff with some other images, and I’m sure there are more hidden messages, but my sister just came home from college and I’ve already spent quite a few hours on this assignment instead of being with my family (right now I’m missing the beginning on the new Marvel movie!). I failed at this assignment earlier, and I was determined to remedy that, and I think I’ve done so. Thus, I’m gonna call it here.</p>
+  </body>
+</html>

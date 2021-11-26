@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-23 Tue 22:17 -->
+<!-- 2021-11-24 Wed 16:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Forensics, pt2.</title>
@@ -220,77 +220,101 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Forensics, pt2.</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-11-23 Tue 22:17</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Forensics, pt2.</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-11-24 Wed 16:12</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='index.html'>CS240 Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#forensics">1. Forensics!</a></li>
-<li><a href="#forensics-pt.-2.">2. Forensics! :: pt. 2.</a>
+<li><a href="#forensics-pt.-2.">1. Forensics! :: pt. 2.</a>
 <ul>
-<li><a href="#the-problem">2.1. The Problem</a></li>
+<li><a href="#the-problem">1.1. The Problem</a>
+<ul>
+<li><a href="#fumbling">1.1.1. Fumbling</a></li>
+<li><a href="#a-lead">1.1.2. A Lead</a></li>
+<li><a href="#lsb">1.1.3. LSB</a></li>
+<li><a href="#new-revelations">1.1.4. New Revelations</a></li>
+</ul>
+</li>
+<li><a href="#wrapping-up">1.2. Wrapping Up</a></li>
 </ul>
 </li>
 </ul>
 </div></div>
 </div>
 <p>
-#ret #hw #incomplete
+#ret #hw
 </p>
 
 <hr />
 
-<div id="outline-container-forensics" class="outline-2">
-<h2 id="forensics"><span class="section-number-2">1</span> Forensics!</h2>
-<div class="outline-text-2" id="text-forensics">
+<div class="html" id="orga6e271d">
 <p>
-forensics.
+&lt;!&#x2014;
 </p>
 
 <p>
-stegsolve, try at home. tried janky implimentation of lsb, outputs
-nonsense.
+forensics. 
 </p>
 
-<pre class="example" id="org6a9086b">
+<p>
+stegsolve, try at home.
+tried janky implimentation of lsb, outputs nonsense.
+```py
 from PIL import Image
 import base64
-im = Image.open('./fc13_images_pkg1/IMG_0447.png')
+im = Image.open('./fc13<sub>images</sub><sub>pkg1</sub>/IMG<sub>0447.png</sub>')
 pixels = list(im.getdata())
 bs = ''
-
-def bits2a(b):
-    # return ''.join(chr(int(''.join(x), 2)) for x in zip(*[iter(b)]*8))
-    return str(base64.b16decode(hex(int(b, base=2))[2:],casefold=True))[2:-1]
-
-
-for i in pixels:
-    for j in i[:3]:
-        bs += bin(j)[-1]
-
-print(bits2a(bs))
-</pre>
-
-<p>
-perhaps look at solutions, or look for help from other people. #review
 </p>
 
-<hr />
+<p>
+def bits2a(b):
+</p>
+
+<p>
+return str(base64.b16decode(hex(int(b, base=2))[2:],casefold=True))[2:-1]
+</p>
+
+
+<p>
+for i in pixels:
+    for j in i[:3]:
+	bs += bin(j)[-1]
+</p>
+
+<p>
+print(bits2a(bs))
+</p>
+
+<p>
+```
+</p>
+
+<p>
+perhaps look at solutions, or look for help from other people.
+#review
+</p>
+
+
+
+<p>
+<b>*</b>
+</p>
 
 <p>
 stegsolve! bit planes!
 </p>
 
 <p>
-seperating out the bit planes to bit plane zero for each color gives us
-something fishy.
+seperating out the bit planes to bit plane zero for each color gives us something fishy.
 </p>
 
 <p>
-as we decrease the bit planes, the image gets less legible. makes sense,
-because the significance of the bit is decreasing. now we just gotta
-find the hidden message.
+as we decrease the bit planes, the image gets less legible. makes sense, because the significance of the bit is decreasing.
+now we just gotta find the hidden message.
 </p>
+
+
 
 <p>
 size of image:
@@ -301,23 +325,23 @@ size of image:
 </p>
 
 <p>
-we can seperate it out, the message starts at the 191th pixel on the
-image multiplying this by our width we get 91680, the pixel where the
-encoded message starts.
+we can seperate it out, the message starts at the 191th pixel on the image
+multiplying this by our width we get 91680, the pixel where the encoded message starts.
+&#x2013;&gt;
 </p>
-</div>
+
 </div>
 
 <div id="outline-container-forensics-pt.-2." class="outline-2">
-<h2 id="forensics-pt.-2."><span class="section-number-2">2</span> Forensics! :: pt. 2.</h2>
+<h2 id="forensics-pt.-2."><span class="section-number-2">1</span> Forensics! :: pt. 2.</h2>
 <div class="outline-text-2" id="text-forensics-pt.-2.">
-<pre class="example" id="org6bd45ea">
+<pre class="example" id="org7f5142e">
 By working on this, for many hours, I have learned that forensics is hard. When it comes to forensics, I have absolutely no idea what I am doing. What follows is my process for trying to get things done with absolutely no background.
 </pre>
 </div>
 
 <div id="outline-container-the-problem" class="outline-3">
-<h3 id="the-problem"><span class="section-number-3">2.1</span> The Problem</h3>
+<h3 id="the-problem"><span class="section-number-3">1.1</span> The Problem</h3>
 <div class="outline-text-3" id="text-the-problem">
 <p>
 I chose to solve
@@ -331,7 +355,7 @@ Along with a <code>.zip</code> file containing three packs of images, this is al
 the information we get about the problem.
 </p>
 
-<pre class="example" id="org2bff356">
+<pre class="example" id="org3a93c9b">
 title: Problem Information
 Communication using hidden channels ==(steganography)== is one way to protect that communication from third parties. You are a law enforcement agent in the forensics unit. In a recent raid, the agency has been able to obtain the ==three attached packages of images== from a suspected command and control server. These images could ==potentially== contain hidden messages that will be relayed to a powerful botnet army that could destroy earth. Obviously a high priority item! While your colleagues try to reverse the botnet code, you are tasked with analyzing the images directly and ==extract the hidden messages.==
 
@@ -339,17 +363,369 @@ When analyzing these images, develop tools that take advantage of the full spect
 
 Note that we received a tip from a mole that ==none of the images utilize encryption== in addition to steganography. Lucky us. Lets get to it!
 </pre>
+</div>
 
+<div id="outline-container-fumbling" class="outline-4">
+<h4 id="fumbling"><span class="section-number-4">1.1.1</span> Fumbling</h4>
+<div class="outline-text-4" id="text-fumbling">
 <p>
 Looking at the images with the naked eye, all I saw were dogs.
 </p>
 
 <p>
-<a href="IMG_0549.png.html">IMG<sub>0549.png</sub></a>
+<a href="IMG_0549.png||500.html">IMG<sub>0549.png</sub>||500</a>
+%%<img src="IMG_0549.png" alt="IMG_0549.png" />%% While I am not opposed to dogs, I was not
+satisfied with this. However, I had no idea where to go, where to look,
+or even if any given image I was working with was one with a hidden
+message.
 </p>
 
 <p>
-After fumbling for many hours,
+After fumbling for many hours, I ended up plugging the images into
+<a href="https://github.com/zardus/ctf-tools/tree/master/stegsolve">stegsolve</a>.
+After lots of clicking around, and getting images like this:
+%%<a href="Pasted image 20211123222525.png||500.html">Pasted image
+20211123222525.png||500</a>%% <a href="Pasted image 20211124150828.png||500.html">Pasted image 20211124150828.png||500</a> I
+finally found a lead.
+</p>
+</div>
+</div>
+
+<div id="outline-container-a-lead" class="outline-4">
+<h4 id="a-lead"><span class="section-number-4">1.1.2</span> A Lead</h4>
+<div class="outline-text-4" id="text-a-lead">
+<p>
+<code>IMG_0406</code> from pack 1,
+</p>
+
+<p>
+<a href="IMG_0406.png||500.html">IMG<sub>0406.png</sub>||500</a>
+</p>
+
+<p>
+had something fishy going on.
+</p>
+
+<p>
+While all the <code>Plane x</code> settings in stegsolve roughly resembled the
+original image, switching to <code>Plane 0</code> of 7 revealed something
+different.
+</p>
+
+<p>
+<a href="Pasted image 20211123223313.png||500.html">Pasted image
+20211123223313.png||500</a> <i>Plane 1</i> <a href="Pasted image 20211123223412.png||500.html">Pasted image 20211123223412.png||500</a>
+<i>Plane 0</i>
+</p>
+
+<p>
+A rectangle of noise appeared in the white space under the dogs ears.
+Having no idea what I was doing, I set out to figure out what this could
+mean.
+</p>
+
+<p>
+Comparing the different planes, I noticed that the images got more noisy
+as the plane number decreased. <a href="Pasted image 20211123223946.png||100.html">Pasted image 20211123223946.png||100</a>
+<a href="Pasted image 20211123224007.png||100.html">Pasted image
+20211123224007.png||100</a> <a href="Pasted image 20211123224019.png||100.html">Pasted image 20211123224019.png||100</a>
+<a href="Pasted image 20211123224028.png||100.html">Pasted image
+20211123224028.png||100</a> <a href="Pasted image 20211123224042.png||100.html">Pasted image 20211123224042.png||100</a>
+<a href="Pasted image 20211123224052.png||100.html">Pasted image
+20211123224052.png||100</a> <a href="Pasted image 20211123224059.png||100.html">Pasted image 20211123224059.png||100</a>
+<a href="Pasted image 20211123224107.png||100.html">Pasted image
+20211123224107.png||100</a> <i>Planes 7-0</i> I also noticed that they were 8
+planes that stegsolve displayed regardless of the image, making me think
+that it was something related to bytes.
+</p>
+
+<p>
+After doing more research, I figured out that what stegsolve was showing
+me were the binary values of a single bit from each byte encoding one of
+the colors at a given pixel &#x2013; looping from most significant to least
+significant, explaining why the fidelity of the image decreased with the
+plane number. Knowing that the hidden message seemed to be encoded in
+plane 0 &#x2013; the least significant bit &#x2013; I stumbled upon a method called
+LSB steganography.
+</p>
+</div>
+</div>
+
+<div id="outline-container-lsb" class="outline-4">
+<h4 id="lsb"><span class="section-number-4">1.1.3</span> LSB</h4>
+<div class="outline-text-4" id="text-lsb">
+<p>
+Each pixel in a <code>.png</code> has to store a value for every color channel,
+RGBA. LSB works by changing the 8th bit of each of these values,
+allowing a message to be encoded in the image with minimal effect on how
+the image looks. Only when isolating the least significant bit can we
+see the impact of this method.
+</p>
+
+<p>
+Armed with my new knowledge after reading
+<a href="https://medium.com/swlh/lsb-image-steganography-using-python-2bbbee2c69a2">many
+articles</a>, I began trying to decode the image with this method.
+</p>
+
+<pre class="example" id="org1a850cc">
+def lsb(src):
+    img = Image.open(src, 'r') # get the image
+    d = np.array(list(img.getdata())) # get the data
+    px = (d.size // 4) # get the px count, as the total size of our data array over 4 for RBGA
+
+    bits = "" # our bit array
+    for i in range(px): # loop through our pixels
+        for j in range(0, 3): # and loop through our color channels
+            bits += (bin(d[i][j])[2:][-1]) # and extract the bits
+
+    bits = [bits[i:i+8] for i in range(0, len(bits), 8)] # convert our string into an array
+
+    enc = "" # our encoded string (hopefully)
+    for i in range(len(bits)): # loop through our bits
+        enc += chr(int(bits[i], 2)) # and convert to UTF-8
+
+    with open('out.txt', 'w') as f: # write our data to a file
+        with redirect_stdout(f):
+            print(enc)
+
+
+src = "./fc13_images_pkg1/IMG_0406.png" # define our path
+lsb(src) # and call the function.
+</pre>
+
+<p>
+Running this code outputted, <i>drumroll please</i>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">&#10095; vim out.txt
+*&#22;Pr&amp;<span class="org-string">"&#140;V&#226;&#20;W&#12;&#28;&#223;U6&#190;7$&#199;64&#255;5&#194;&#199;&#139;tN&#186;&#176;,&#166;j&#28;&#238;&#132;&#134;&#167;B&#245;S&#130;&#21;8&#238;&#175;&#197;I&#149;)H&#234;LN&#245;&#18;&#250;&#169;&#255;&#25;&#174;&#182;h&#143;&#162;&#203;&#173;G&#25; &#168;&#222;K6&#229;&#254;\&#27;0&#5;&#191;R:&#132;&#170;</span>
+<span class="org-string">&#253;4&#183;&#208;&#171;&gt;b&#127;gI&#217;_&#174;T&#196;&#248;t&#197;&#199;t&#21;aL&#204;&#215;w&#147;G&#174;&#207;&#143;&#23;&#143;U&#233;&#165;&#179;Zbv&#243;&#237;k&#26;&#243;Tp&#155;rv3Fg#&#20;r_&#178;H&#255;&#233;I]&#206;&#177;&#226;Z&#209;q&#157;^&#237;&#136;&#3;&#205;&#144;q&#153;&#239;&#154;&#134;&#194;&#217;\&#8;...</span>
+</pre>
+</div>
+
+<p>
+gibberish. Absolute gibberish. The same was true for many, many, similar
+iterations of the code. After quite a bit of messing about, I realized
+that the message wasn't necessarily encoded in text. The next obvious
+format was a <code>.png</code>.
+</p>
+
+<pre class="example" id="org7a6bbde">
+title: Many more iterations were spent trying to convert the output to a png...
+```py
+bits = [bits[i:i+8] for i in range(0, len(bits), 8)]
+out = ""
+for i in range(len(bits)):
+    out += chr(int(bits[i], 2))
+
+with open('out.png', 'w') as f:
+    with redirect_stdout(f):
+        print(out)
+
+bits = [[int(y) for y in x] for x in bits]
+
+out_bits = np.array(bits)
+out_bytes = np.packbits(out_bits)
+
+imageStream = io.BytesIO(out_bytes)
+
+im = Image.fromarray(np.array(out_bytes).astype("uint16"))
+im.save("out.png")
+
+png.from_array(out_bits, 'L').save('out.png')
+
+imageFile = Image.open(out_bytes)
+out_img = Image.fromarray(out_bytes)
+out_img.save("out.png")
+out_bytes.tofile("out.png")
+</pre>
+
+<p>
+These attempts were met with
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">&#10095; feh bitsout.png
+feh WARNING: bitsout.png - Does not look like an image (magic bytes missing)
+feh: No loadable images specified.
+See <span class="org-string">'feh --help'</span> or <span class="org-string">'man feh'</span> for detailed usage information
+</pre>
+</div>
+
+<p>
+or simply a malformed image, which had some cool properties. Namely, an
+entirely non-interactive chunk of space when sent in Discord.
+<a href="Pasted image 20211123234017.png||300.html">Pasted image
+20211123234017.png||300</a> <a href="Pasted image 20211123234127.png||300.html">Pasted image 20211123234127.png||300</a>
+<a href="Pasted image 20211123234142.png||300.html">Pasted image
+20211123234142.png||300</a> I also tried simply converting the output to
+values between 0-255, then graphing the values based on their original y
+location. I also learned about then messed with adding in the magic
+bytes that feh said was missing manually. Neither of these methods
+worked at all. After talking with @david on a walk today, I realized
+that the bits outputted from our LSB decryption, if they were a <code>.png</code>,
+would most likely have all the information of the <code>.png</code> included, magic
+bytes and all. Thus, I shouldn't have to mess with wrapping my bits
+specially or anything of the sort. With this knowledge in mind, any many
+hours with no hidden message to show for, I went back to the drawing
+board.
+</p>
+</div>
+</div>
+
+<div id="outline-container-new-revelations" class="outline-4">
+<h4 id="new-revelations"><span class="section-number-4">1.1.4</span> New Revelations</h4>
+<div class="outline-text-4" id="text-new-revelations">
+<p>
+Poking around back through stegsolve, I noticed something new. Following
+are the zero'th plane of each of the color channels. <a href="Pasted image 20211123235055.png||200.html">Pasted image 20211123235055.png||200</a>
+<a href="Pasted image 20211123235105.png||200.html">Pasted image
+20211123235105.png||200</a> <a href="Pasted image 20211123235118.png||200.html">Pasted image 20211123235118.png||200</a>
+<a href="Pasted image 20211123235136.png||200.html">Pasted image
+20211123235136.png||200</a> <i>Plane 0 from stegsolve of the red, green,
+blue, and alpha channels.</i> If you look closely at the third image &#x2013; the
+blue plane, and <i>only</i> the blue plane &#x2013; there is a little white spot
+under the right ear and the new block. <a href="Pasted image 20211123235431.png.html">Pasted image 20211123235431.png</a> With this
+discovery, I realized that not all of the image necessarily had a
+message encoded. Instead, only a segment could have an encoded message.
+Admittedly, in hindsight, this realization seems quite obvious.
+</p>
+
+<p>
+Next was to find the location of the encoded section and separate it
+from the rest of the image. I crudely attempted this by simply measuring
+how many pixels down from the top the bottom of the white dot I found
+under the right ear was. I got a measurement of 191. Multiplying this by
+our width, 480, we get 91680. Thus, if all else is correct, we know that
+the encoded region only starts after 91680 pixels. Once again, armed
+with new knowledge, I went back to decoding.
+</p>
+
+<p>
+With a new
+<a href="https://stackoverflow.com/questions/21220916/writing-bits-to-a-binary-file">bit-processing</a>
+function, which simply wrote the bytes to a file,
+</p>
+
+<pre class="example" id="orgca69981">
+with open("lsb.png", "wb") as f:
+    f.write(int(bits[::-1], 2).to_bytes(len(bits)//8, 'little'))
+</pre>
+
+<p>
+and a modified decoding algorithm which started at the 91680'th pixel,
+</p>
+
+<pre class="example" id="org61241ee">
+for i in range(91680, px, 1):
+</pre>
+
+<p>
+I finally created a new file. Opening this file gave us, <i>drumroll
+please, again</i>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">&#10095; feh test.png
+feh WARNING: bitsout.png - Does not look like an image (magic bytes missing)
+feh: No loadable images specified.
+See <span class="org-string">'feh --help'</span> or <span class="org-string">'man feh'</span> for detailed usage information
+</pre>
+</div>
+
+<p>
+the exact same output as before. To look more closely at what was going
+on, I opened the file with vim:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">&#10095; vim test.png
+&#65533;&#65533;pt&#65533;&#22;&#65533;f{&#65533;&#65533;q&#65533;&#65533;]4&#2;&#65533;&#65533;&#65533;&#65533;r&#65533;&#20;n&#7;/&#65533;&#65533;&#65533;&#65533;&#65533;&#65533;&#65533;&#525;&#65533;6&#65533;&#65533;&#65533; <span class="org-sh-quoted-exec">`&#19;&#65533;Vj&#65533;&#65533;&#65533;&#65533;K&#65533;6&#65533;</span>
+<span class="org-sh-quoted-exec">&#28;&#65533;&#65533;?&#14;&#65533;8&#65533;&#65533;&#65533;&#65533;&#65533;&#28;&#25;;$7&#65533;m+U&#65533;6&#2;8&#14;&#28;?&#16;'&#65533;&#65533;v&#65533;lM&#8;&#65533;j&#65533;&#65533;&#65533;=5&#65533;&#65533;&#65533;eR&#65533;]&#65533;&#65533;&#65533;&#65533;&#65533;_&#18;;&#14;&#30;&#65533;&#65533;PNG&#1;&#65533;</span>
+<span class="org-sh-quoted-exec">&#11;&#11;&#11;&#12;&#12;&#12;</span>
+
+
+<span class="org-sh-quoted-exec">&#14;&#14;&#14;&#15;&#15;&#15;&#16;&#16;&#16;&#17;&#17;&#17;&#18;&#18;&#18;&#19;&#19;&#19;&#20;&#20;&#20;&#21;&#21;&#21;&#22;&#22;&#22;&#23;&#23;&#23;&#24;&#24;&#24;&#25;&#25;&#25;&#26;&#26;&#26;&#27;&#27;&#27;&#28;&#28;&#28;&#29;&#29;&#29;&#30;&#30;&#30;&#31;&#31;&#31;   !!</span>
+<span class="org-sh-quoted-exec">!"""###$$$%%%&amp;&amp;&amp;'''((()))***+++,,,---...///00011122233344455566677788</span>
+<span class="org-sh-quoted-exec">8999:::;;;&lt;&lt;&lt;===&gt;&gt;&gt;???@@@AAABBBCCCDDDEEEFFF</span>
+<span class="org-sh-quoted-exec">GGGHHHIIIJJJKKKLLLMMMNNNOOOPPPQQQRRRSSSTTTUUUVVVWWWX</span>
+<span class="org-sh-quoted-exec">XXYYYZZZ[[file:[\\\.org][[\\\]]]^^^___```</span>aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnnoooppp
+qqqrrrssstttuuuvvvwwwxxxyy
+</pre>
+</div>
+
+<p>
+And, alas, hope! The letters <code>PNG</code> were in the file! I was doing
+<i>something</i> right. After many more iterations and shot-in-the-dark
+attempts, I finally simply went into the generated file, deleted things
+before what I guessed were the magic bytes, and opened the file again.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">&#10095; feh lsb.png
+||
+</pre>
+</div>
+
+<p>
+And finally! After many, many hours, the image finally opened.
+<a href="test.png||500.html">test.png||500</a> And voila! The message is
+found. <b><i>Finally.</i></b> No sweat :)
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-wrapping-up" class="outline-3">
+<h3 id="wrapping-up"><span class="section-number-3">1.2</span> Wrapping Up</h3>
+<div class="outline-text-3" id="text-wrapping-up">
+<p>
+Final code:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-comment-delimiter"># </span><span class="org-comment">our imports</span>
+<span class="org-keyword">import</span> numpy <span class="org-keyword">as</span> np
+<span class="org-keyword">from</span> PIL <span class="org-keyword">import</span> Image
+
+<span class="org-keyword">def</span> <span class="org-function-name">lsb</span>(src): 
+    <span class="org-variable-name">img</span> = Image.<span class="org-builtin">open</span>(src, <span class="org-string">'r'</span>) <span class="org-comment-delimiter"># </span><span class="org-comment">get the image</span>
+    <span class="org-variable-name">d</span> = np.array(<span class="org-builtin">list</span>(img.getdata())) <span class="org-comment-delimiter"># </span><span class="org-comment">get the data from it </span>
+    <span class="org-variable-name">px</span> = (d.size // 4) <span class="org-comment-delimiter"># </span><span class="org-comment">find the total pixel count</span>
+
+    <span class="org-variable-name">bits</span> = <span class="org-string">""</span> <span class="org-comment-delimiter"># </span><span class="org-comment">our bits</span>
+    <span class="org-keyword">for</span> i <span class="org-keyword">in</span> <span class="org-builtin">range</span>(91680, px, 1): <span class="org-comment-delimiter"># </span><span class="org-comment">loop through our pixels,</span>
+    <span class="org-comment-delimiter"># </span><span class="org-comment">starting at the 'right' place</span>
+        <span class="org-keyword">for</span> j <span class="org-keyword">in</span> <span class="org-builtin">range</span>(0, 3): <span class="org-comment-delimiter"># </span><span class="org-comment">loop through our channels</span>
+            <span class="org-comment-delimiter"># </span><span class="org-comment">and do our conversions</span>
+            <span class="org-variable-name">bits</span> += (<span class="org-builtin">bin</span>(d[i][j])[2:][-1])
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">write our output to a file</span>
+    <span class="org-keyword">with</span> <span class="org-builtin">open</span>(<span class="org-string">"test.png"</span>, <span class="org-string">"wb"</span>) <span class="org-keyword">as</span> f:
+        <span class="org-comment-delimiter"># </span><span class="org-comment">convert, then write the bytes </span>
+        f.write(<span class="org-builtin">int</span>(bits[::-1], 2).to_bytes(<span class="org-builtin">len</span>(bits)//8, <span class="org-string">'little'</span>))
+
+<span class="org-variable-name">src</span> = <span class="org-string">"./fc13_images_pkg1/IMG_0406.png"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">define our path</span>
+lsb(src) <span class="org-comment-delimiter"># </span><span class="org-comment">and call the func!</span>
+</pre>
+</div>
+
+<p>
+While the message wasn't the most interesting (definitely not going to
+2013 Dubai), I actually managed to find it! This assignment felt like a
+lot of shots-in-the-dark and fumbling around with no clear direction or
+guarantee of progress. That was what made it so hard. This lack of
+guarantee may be inherent in this type of problem, or it may be because
+I was completely new to this entire field. Regardless, I found a
+message. I also found some other fishy stuff with some other images, and
+I'm sure there are more hidden messages, but my sister just came home
+from college and I've already spent quite a few hours on this assignment
+instead of being with my family (right now I'm missing the beginning of
+the new Marvel movie!). I failed at this assignment earlier, and I was
+determined to remedy that, and I think I've done so. Thus, I'm gonna
+call it here.
 </p>
 </div>
 </div>
