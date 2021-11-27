@@ -1,6 +1,14 @@
 n
 ***
 
+ name for something: etude. means, a peice of music for the point of demonstration.
+
+***
+
+ #cool word: grok. to understand something intuitively \\ truly
+
+***
+
  could be a name for smt: azimuth
 
 ***

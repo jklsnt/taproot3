@@ -4,28 +4,73 @@
 #+title: Rotating Chain Experiment: No Floor
 #+author: Houjun Liu
 
-#+PROPERTY: header-args :tangle rotating_chain.r :results verbatim :exports both :session processing_image
+#+PROPERTY: header-args :tangle rotating_chain_floorless.r :results verbatim :exports both :session processing_image
 
 We first set up the same set of basic assumptions and variables.
 
 #+begin_src R :results none
 GRAV <- 9.8 # gravity (m/s^2)
 MASS <- 1 # mass (kg)
-I_ROT <- 1 # roational inertia (kg m^2)
-L1 <- 0.5 # distance from rotation point to CoM (m)
-L2 <- 1 # distance from rotation ponit to tension (m)
+I_CM <- 1/12 # roational inertia (kg m^2)
 PHI <- 0.1 # angle of Ft relative to floor (rad)
+L <- 0.5 # distance from the center of mass (of rotation point) to tenson (m)
 FT <- 11 # tension force (N)
 OMEGA <- 0.1 # angle of floor relative to gravity (rad) (because shifted axis)
 #+end_src
 
-Additionally, we set the time interval and seed values for time and theta (distance from flat):
+Additionally, we set the time interval and seed values for all values that's tallied:
 
 #+begin_src R :results none
 dt <- 0.05
 t_max <- 5
 
-theta <- 0
 time <- 0
+theta <- 0
+thetadot <- 0
 #+end_src
 
+Great. Let's start writing the loop now by setting up a bunch of arrays and writing their values in.
+
+#+begin_src R :results none
+cTime = NULL
+cTorqueNet = NULL
+
+cDDTheta = NULL
+cDTheta = NULL
+cTheta = NULL
+cFNetX = NULL
+cFNetY = NULL
+#+end_src
+
+Awesome, we will start tallying, then!
+
+#+begin_src R :results none
+for (i in 0:(t_max/dt)) {
+    # write down standard values
+    cTime[i] = time
+    cTheta[i] = theta
+
+    # torque is calculated via the dot product between the vector of the radius projected out
+    # and also the angle at which the thing is at (so like theta + phi)
+    #
+    # note that, unlike the tabled version, L here represets distance from CoM to tension
+    # application
+    torque <- FT*L*cos(theta+PHI)
+    cTorqueNet[i] = torque
+
+    # from knowing the torque, we could divide out the rotational inertia to figure the
+    # acceleration of rotation
+    thetadotdot <- torque/I_CM
+    cDDTheta[i] <- thetadotdot
+
+    
+
+    # from this, we could of course tally for the velocity of theta as well
+    thetadot <- dt*thetadotdot + thetadot
+    cDTheta[i] <- thetadot
+
+    # We increment the time and theta based on the tallying variable
+    time <- dt + time
+    theta <- dt*thetadot + theta
+}
+#+end_src

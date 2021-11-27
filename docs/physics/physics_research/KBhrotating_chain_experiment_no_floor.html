@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-18 Thu 08:50 -->
+<!-- 2021-11-26 Fri 22:37 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rotating Chain Experiment: No Floor</title>
@@ -195,6 +195,8 @@
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
 <link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -220,7 +222,7 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: No Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-11-18 Thu 08:50</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: No Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-11-26 Fri 22:36</date></div>
 </div>
 <div id="content">
 <p>
@@ -230,25 +232,77 @@ We first set up the same set of basic assumptions and variables.
 <div class="org-src-container">
 <pre class="src src-R">GRAV &lt;- 9.8 # gravity (m/s^2)
 MASS &lt;- 1 # mass (kg)
-I_ROT &lt;- 1 # roational inertia (kg m^2)
-L1 &lt;- 0.5 # distance from rotation point to CoM (m)
-L2 &lt;- 1 # distance from rotation ponit to tension (m)
+I_CM &lt;- 1/12 # roational inertia (kg m^2)
 PHI &lt;- 0.1 # angle of Ft relative to floor (rad)
+L &lt;- 0.5 # distance from the center of mass (of rotation point) to tenson (m)
 FT &lt;- 11 # tension force (N)
 OMEGA &lt;- 0.1 # angle of floor relative to gravity (rad) (because shifted axis)
 </pre>
 </div>
 
 <p>
-Additionally, we set the time interval and seed values for time and theta (distance from flat):
+Additionally, we set the time interval and seed values for all values that's tallied:
 </p>
 
 <div class="org-src-container">
 <pre class="src src-R">dt &lt;- 0.05
 t_max &lt;- 5
 
-theta &lt;- 0
 time &lt;- 0
+theta &lt;- 0
+thetadot &lt;- 0
+</pre>
+</div>
+
+<p>
+Great. Let's start writing the loop now by setting up a bunch of arrays and writing their values in.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">cTime = NULL
+cTorqueNet = NULL
+
+cDDTheta = NULL
+cDTheta = NULL
+cTheta = NULL
+cFNetX = NULL
+cFNetY = NULL
+</pre>
+</div>
+
+<p>
+Awesome, we will start tallying, then!
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">for (i in 0:(t_max/dt)) {
+    # write down standard values
+    cTime[i] = time
+    cTheta[i] = theta
+
+    # torque is calculated via the dot product between the vector of the radius projected out
+    # and also the angle at which the thing is at (so like theta + phi)
+    #
+    # note that, unlike the tabled version, L here represets distance from CoM to tension
+    # application
+    torque &lt;- FT*L*cos(theta+PHI)
+    cTorqueNet[i] = torque
+
+    # from knowing the torque, we could divide out the rotational inertia to figure the
+    # acceleration of rotation
+    thetadotdot &lt;- torque/I_CM
+    cDDTheta[i] &lt;- thetadotdot
+
+
+
+    # from this, we could of course tally for the velocity of theta as well
+    thetadot &lt;- dt*thetadotdot + thetadot
+    cDTheta[i] &lt;- thetadot
+
+    # We increment the time and theta based on the tallying variable
+    time &lt;- dt + time
+    theta &lt;- dt*thetadot + theta
+}
 </pre>
 </div>
 </div>

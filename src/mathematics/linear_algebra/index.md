@@ -59,9 +59,9 @@ source:  #index
 - [[KBx3BProof]]
 - [[KBxChapter3CReading]]
 	- [[KBx3CInclass]]
+- [[KBxChapter3DReading]]
 	
 
-[[testin]]
 
 
 

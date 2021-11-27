@@ -646,4 +646,143 @@ We could see that the degree of $0$ is $0$. Therefore the coefficient for the $x
 
 We further show that, due to the fact that $U \neq \mathcal{P}_3(\mathbb{R})$ (i.e. for instance, $x^2 \in \mathcal{P}_3(\mathbb{R}), x^2 \not\in U$), and if $dim\ U = 4$, extending the bases of $U$ towards that for $\mathcal{P}_3(\mathbb{R})$ would exceed $dim\ \mathcal{P}_3(\mathbb{R})$. Therefore, $dim\ U = 3$.
 
-Given the list as given is an linearly independent list with a length of $3$ in a subspace of dimension 3, the list is a basis of $\mathcal{P}_3 (\mathbb{R})$.
+Given the list as given is an linearly independent list with a length of $3$ in a subspace of dimension 3, the list is a basis of $U$.
+
+* 3.A
+
+** Things of Note
+
+*** Linear Maps
+A linear map form $V$ to $W$ is a function $T: V \to W$ which holds...
+
+- **Commutativity**: $T(u+v) = Tu + Tv, \forall u,v \in V$
+- **Homogeneity** $T(\lambda v) = \lambda(Tv), \forall \lambda \in \mathbb{F}, v \in V$
+
+A set of all linear maps from $V \to W$ is denoted as $\mathcal{L}(V,W)$.
+
+**** Zero
+Let the symbol $0$, in the context of linear maps define a function that takes a element in $V$ and maps it to the additive identity in $W$. That is
+
+\begin{equation}
+    0v = 0
+\end{equation}
+
+**** Identity
+The identity map, denoted in $I$, is the function that maps each element to itself.
+
+\begin{equation}
+   Iv = v, I \in \mathcal{L}(V,V)
+\end{equation}
+
+Note that this only makes sense if $I$ maps from one vector space back to the same space.
+
+**** Differentiation
+Define a $D \in \mathcal{L}(\mathcal{P}(\mathbb{R}), \mathcal{P}(\mathbb{R}))$ such that...
+
+\begin{equation}
+Dp = p'    
+\end{equation}
+
+The map $D$ is therefore the map of "differentiation." Note that, because of linear maps' homogeneity and commutativity, we could therefore see the basic rules of differentiation ($(f+g)' = f'+g'$, $(\lambda f)' = \lambda f'$).
+
+**** Integration
+Define a $T \in \mathcal{L}(\mathcal{P}(\mathbb{R}), \mathbb{R})$ such that...
+
+\begin{equation}
+    Tp = \int^1_0 p(x) dx
+\end{equation}
+
+The same reasoning as above show the basic commutativity and homogeneity of integration.
+
+**** $\mathbb{F}^n \to \mathbb{F}^m$
+Let $\mathbb{F}^n$ and $\mathbb{F}^m$ be two spaces. Let $m$ and $n$ be positive integers, let $A_{j,k} \in \mathbb{F}$ for $j=1,\ldots,m$ and $k=1,\ldots, n$, and define $T \in \mathcal{L}(\mathbb{F}^n, \mathbb{F}^m)$ by:
+
+\begin{equation}
+    T(x_1, \ldots, x_n) = (A_{1,1}x_1+\cdots+A_{1,n}x_n,\ldots,A_{m,1}x_1+\cdots + A_{m,n}x_n)
+\end{equation}
+
+Every linear map for $\mathbb{F}^n$ to $\mathbb{F}^m$ look like this.
+
+*** $\mathcal{L}(V,W)$
+
+**** ...is a vector space
+Suppose that $S, T \in \mathcal{L}(V,W)$
+
+- $(S+T)(v) = Sv + Tv$
+- $(\lambda T)(v) = \lambda(Tv)$
+
+Which, after some wrangling which we will do below, shows that $\mathcal{L} (V,W)$ is a vector space. 
+
+**** ...has the "product" defined
+Suppose, now, that $T \in \mathcal{L}(V,W), M \in \mathcal{L}(W,V)$ 
+
+$(TM)(v) = T(Mv)$
+
+$TM$, therefore, is simply $T \circ M$ but when they are linear maps they are considered the "product"
+
+Linear map products are...
+
+- Associative $(T_1 T_2) T_3 = T_1 (T_2 T_3)$
+- Identitative $TI = IT = T$, if $I$ is the identity in the domain of $T$
+- Distributive $(S_1 + S_2)T = S_1 T S_2 T$, and visa versa
+
+**** Takes $0$ to $0$
+Suppose $T$ is a linear map $T: V \to W$, then $T(0) = 0$, as defined in both spaces.
+
+*** Linear Maps & Basis of the Domain
+Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $w_1, \ldots, w_n \in W$, then there exists a **unique** linear map $T: V \to W\ s.t.\ Tv_j = w_j$.
+
+That, if a list of vectors is a basis of the domain of linear maps, there exists a unique linear map by which any $n$ (length of the basis of domain) vectors in the codomain could be the output of the linear map applied to each basis.
+
+** In-Text Experiences
+
+*** Linear Map from Basis of Domain is Unique
+We first show that there is a linear map $T: V \to W$.
+
+Define:
+
+\begin{equation}
+    T(c_1 v_1 + \cdots + c_n v_n) = c_1 w_1 + \cdots + c_n w_n
+\end{equation}
+
+We could see that, because $v_1, \ldots, v_n$ is a basis of $V$, the entirety of $V$ is in domain for $T$ (as inputs to $T$ is a linear combination of all elements in $V$). $T$ is furthermore a function as every element in $V$ could be /uniquely/ written (as $v_1, \ldots, v_n$ is a basis) as a linear combination. Therefore, for the expression above, every $Tv_j =$ some $w_j$ by simply setting $c_j=1, j_{not\ j} = 0$.
+
+We now proof the function $T$ is a linear map.
+
+\begin{align}
+    T(u+v) &= T(a_1v_1 + \cdots + a_n v_n + c_1v_1 + \cdots + c_nv_n) \\
+&= T((a_1+c_1) v_1 + \cdots + (a_n+c_n) v_n) \\
+&= (a_1+c_1) w_1 + \cdots + (a_n+c_n) w_n \\
+&= a_1w_1 + \cdots + a_n w_n + c_1w_1 + \cdots + c_nw_n \\
+&= (a_1w_1 + \cdots + a_n w_n) + (c_1w_1 + \cdots + c_nw_n) \\
+&= T(a_1v_1 + \cdots + a_n v_n) + T(c_1v_1 + \cdots + c_nv_n) \\
+&= Tu + Tv 
+\end{align}
+
+Hence, the function is commutative.
+
+\begin{align}
+   T(\lambda v) &= T(\lambda c_1 v_1 + \cdots + \lambda c_n v_n) \\ 
+&= \lambda c_1 w_1 + \cdots + \lambda c_n w_n \\
+&= \lambda (c_1 w_1 + \cdots + c_n w_n) \\
+&= \lambda T(c_1 v_1 + \cdots + c_n v_n) \\
+&= \lambda Tv 
+\end{align}
+
+The function is therefore homogeneous. Therefore, the function $T$ is a linear map from $V$ to $W$. Any linear map $T$ such that $T v_j = w_j$ would, after each element $v_j$ be scaled by $c_j$ ($T(C-jv_j) = c_jw_j$) (homogeneity) and every $j=1,\ldots,n$ summed ($T(c_1 v_1 + \cdots + c_n v_n) = c_1 w_1 + \cdots + c_n w_n$)  (additivity), we arrive at the unique linear map $T$ as highlighted above.
+
+Hence, $T$ is uniquely determined upon $span(v_1, \ldots, v_n)$. As $v_1,\ldots,v_n$ is the basis of $V$, $T$ is unique upon $V$.
+
+*** Verifying that $\mathcal{L}(V,W)$ is a vector space 
+With the operations of scalar multiplication and addition defined, we could check that $\mathcal{L}(V,W)$ is a vector space.
+
+- **Commutativity** $(S+T)(v) = Sv + Tv =(vectors\ are\ commutative) = Tv+Sv = (T+S)(v)$
+- **Associativity** per the same token above, as associative property of vectors
+- **Additive Identity** $0 \in \mathcal{L}(V,W)$. $0v + Sv = 0 + Sv = Sv$
+- **Additive Inverse** Scalar multiplication by $-1$? #TODO
+- **Multiplicative Identity** Scalar multiplication by $1$
+- **Distribution** $\lambda((S+T)(V)) = \lambda(Sv + Tv) = \lambda Sv + \lambda Tv$
+
+# :tada!:
+
+

@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-17 Wed 17:57 -->
+<!-- 2021-11-26 Fri 22:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chapter 3C Reading</title>
+<title>3D Reading</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Huxley Marvit" />
 <style type="text/css">
@@ -195,6 +195,8 @@
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
 <link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -261,17 +263,20 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Chapter 3C Reading</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-11-17 Wed 17:57</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">3D Reading</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-11-26 Fri 22:34</date></div>
 </div>
 <div id="content">
-<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBxChapter3DReading.html'>3D Reading</a></li> <li><a class='backlink' href='index.html'>Linear Algebra Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBxChapter3CReading.html'>Chapter 3C Reading</a></li> <li><a class='backlink' href='index.html'>Linear Algebra Master Index</a></li> <li><a class='backlink' href='KBxLinearCombinations.html'>Linear Combinations</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#c">1. 3C!</a>
+<li><a href="#invertibility-and-isomorphic-vector-spaces">1. Invertibility and Isomorphic Vector Spaces</a>
 <ul>
 <li>
 <ul>
-<li><a href="#addition-and-scamul-of-matricies">1.0.1. addition and SCAMUL of matricies</a></li>
-<li><a href="#matrix-multiplication">1.0.2. matrix multiplication</a></li>
+<li><a href="#invertibility-and-relating-sets">1.0.1. invertibility and relating sets</a></li>
+<li><a href="#maps-that-are-not-invertible">1.0.2. maps that are not invertible</a></li>
+<li><a href="#isomorphic-vec-spaces">1.0.3. isomorphic vec spaces</a></li>
+<li><a href="#linear-maps-though-of-as-matrix-multiplication">1.0.4. linear maps though of as matrix multiplication</a></li>
+<li><a href="#operators">1.0.5. operators</a></li>
 </ul>
 </li>
 </ul>
@@ -285,256 +290,259 @@
 
 <hr />
 
-<div id="outline-container-c" class="outline-2">
-<h2 id="c"><span class="section-number-2">1</span> 3C!</h2>
-<div class="outline-text-2" id="text-c">
-<p>
-matricies as values of \(T_{vj}\) in terms of a a basis of \(W\)?
-</p>
-
-<pre class="example" id="orgffa9ee3">
-title: matrix, $A_{j,k}$
-Let $m$ and $n$ denote possitive integers. An $m-\text{by}-n$ matrix A is a rectangular array of elements of $F$ with $m$ rows and $n$ columns:
-
-$$
-A = \begin{bmatrix} 
- A_{1,1} \dots &amp; A_{1,n} \\
-
- \vdots &amp; \vdots \\
- A_{m,1} \dots &amp; A_{m,n}
- \end{bmatrix}.
-$$
-The notation $A-{j,k}$ denotes the entry in row $j$, column $k$ of $A$. In other words, the first index refers to the row number and the second index refers to the column number.
-</pre>
-
-<p>
-just defining a matrix simply. #question, what is a non-rectangular
-array? REMEBER :: this is 1-indexed! not 0-indexed!
-</p>
-
-<p>
-<b>key definition</b>
-</p>
-
-<pre class="example" id="org021c709">
-title: matrix of a linear map, $M(T)$
-Suppose $T \in L(V,W)$ and $v_1, \dots, v_n$ is a basis of $V$ and $w_1, \dots, w_n$ is a basis of $W$. The matrix of T with respect to these bases is the $m$-by-$n$ matrix $M(T)$ whos entries $A_{j,k}$ are defined by 
-
-$$
-T_{vk} = A_{1,k} w_1 + \dots + A_{m,k} w_m.
-$$
-If the bases are not clear from the context, then the notation 
-$M(T, (v_1, \dots, v_n), (w_1, \dots, w_n))$ is used.
-</pre>
-
-<p>
-the matrix which represents the linear map?
-</p>
-
-<p>
-constructing the matrix: <a href="Screen Shot 2021-11-17 at 1.17.40 PM.png||300.html">Screen Shot 2021-11-17 at 1.17.40 PM.png||300</a>
-</p>
-
-<p>
-if it maps from n-dim to m-dim, then the matrix is m-by-n.
-</p>
+<div id="outline-container-invertibility-and-isomorphic-vector-spaces" class="outline-2">
+<h2 id="invertibility-and-isomorphic-vector-spaces"><span class="section-number-2">1</span> Invertibility and Isomorphic Vector Spaces</h2>
+<div class="outline-text-2" id="text-invertibility-and-isomorphic-vector-spaces">
 </div>
+<div id="outline-container-invertibility-and-relating-sets" class="outline-4">
+<h4 id="invertibility-and-relating-sets"><span class="section-number-4">1.0.1</span> invertibility and relating sets</h4>
+<div class="outline-text-4" id="text-invertibility-and-relating-sets">
+<ul class="org-ul">
+<li>what does invertible mean w.r.t. linear maps?</li>
+</ul>
 
-<div id="outline-container-addition-and-scamul-of-matricies" class="outline-4">
-<h4 id="addition-and-scamul-of-matricies"><span class="section-number-4">1.0.1</span> addition and SCAMUL of matricies</h4>
-<div class="outline-text-4" id="text-addition-and-scamul-of-matricies">
-<p>
-<i>assume that V and W are finite-dim!</i>
-</p>
-
-<pre class="example" id="org5cc56b0">
-title: matrix addition
-The sum of two matricies of the same size is the amtric obtained by adding corresponding entries in the matricies.
-{the latex}.
-In other words, $(A+C)_{j,k} = A_{j,k} + C_{j,k}$.
+<pre class="example" id="org515a72f">
+title: invertible, inverse
+- A linear map $T \in L(V,W)$ is called *invertible* if there exists a linear map $S \in L(W,V)$ such that $ST$ equals the identity map on $V$ and $TS$ equals the identity map on $W$. 
+- A linear map $S \in L(W,V)$ satisfying $ST = I$ and $TS=I$ is called an *inverse* of $T$ (note that the first $I$ is the identity map on $V$ and the second $I$ is the identity map on $W$.
 </pre>
 
 <p>
-assuming that all the same bases are used for all three linear maps,
-\(S+T, S, T\),
+relates to injectivity and surjectivity.. #extract
 </p>
 
-<pre class="example" id="org856ea91">
-title: the matrix of the sum of linear maps
-Suppose $S,T \in L(V,W).$ Then $M(S+T) = M(S)+M(T)$.
+<pre class="example" id="org6781316">
+title: inverse is unique
+An invertible linear map has a unique inverse
 </pre>
 
 <p>
-and also,
+proof is just setting \[S_1 = S_1I = S_1(TS_2) ... = S_2\] long chain of
+equalitys based on the fact it acts as the inverse
 </p>
 
-<pre class="example" id="org9e69895">
-title: SCAMUL of a matrix
-The product of a scalar and a matrix is the matrix obtained by multiplying each entry in the matrix by the scalar
-{the latex}
-
-In other words, $(\lambda A)_{j,k} = \lambda(A_{j,k})$
-</pre>
-
-<pre class="example" id="orgbb056d4">
-title: The matrix of a scalar times a linear map
-Suppose $\lambda \in F$ and $T \in L(V,W)$. Then $M(\lambda T) = \lambda M(T).$
+<pre class="example" id="orgfcba8f8">
+title: $T^{-1}$
+If $T$ is invertible, then its inverse is denoted by $T^{-1}$. In other words, if $T \in L(V,W)$ is invertible, then $T^{-1}$ is the unique element of $L(W,V)$ such that $T^{-1}T=I$ and $TT^{-1}=I$.
 </pre>
 
 <p>
-and, ofc, more vector spaces
+Just the inverse. oh, and here we get the thing i was wondering about
+earlier
 </p>
 
-<pre class="example" id="org02ee2ee">
-title: $F^{m,n}$
-For $m$ and $n$ positive integers, the set of all $m$-by-$n$ matrices with intries in $F$ is denoted by $F^{m,n}$.
+<pre class="example" id="org8c896e2">
+title: invertibility is equivalent to injectivty and surjectivity
+A linear map is invertivle iff it is injective and surjective
 </pre>
 
 <p>
-sick.
+aka. bijective means invertible
 </p>
 
-<pre class="example" id="orgf163fda">
-title: $\dim F^{m,n} = mn$
-suppose $m$ and $n$ are positive integers. With addition and SCAMUL defined as above, $F^{m,n}$ is a vector space with dimension $mn$.
-</pre>
+<p>
+pretty simple proof, just using the definitions very closely.
+</p>
 </div>
 </div>
 
-<div id="outline-container-matrix-multiplication" class="outline-4">
-<h4 id="matrix-multiplication"><span class="section-number-4">1.0.2</span> matrix multiplication</h4>
-<div class="outline-text-4" id="text-matrix-multiplication">
+<div id="outline-container-maps-that-are-not-invertible" class="outline-4">
+<h4 id="maps-that-are-not-invertible"><span class="section-number-4">1.0.2</span> maps that are not invertible</h4>
+<div class="outline-text-4" id="text-maps-that-are-not-invertible">
+<ul class="org-ul">
+<li>multi by \(x^2\) from P(R) to P(R) cus not surjective. #extract
+
+<ul class="org-ul">
+<li>this is because 1 is not in the range.</li>
+</ul></li>
+
+<li>backwards shift from f<sup>infin</sup> to itself
+
+<ul class="org-ul">
+<li>not injective</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-isomorphic-vec-spaces" class="outline-4">
+<h4 id="isomorphic-vec-spaces"><span class="section-number-4">1.0.3</span> isomorphic vec spaces</h4>
+<div class="outline-text-4" id="text-isomorphic-vec-spaces">
 <p>
-<i>wait we are just getting to this? goddamn.</i>
+'essentially the same,' bar the names of the elems
+</p>
+
+<pre class="example" id="orgea1d534">
+title: isomorphism, isomorphic
+- An isomorphism is an invertible linear map
+- two vector spaces are called isomorphic if there is an isomorphism from one vector space onto the other one
+</pre>
+
+<p>
+which means they are bijective.
 </p>
 
 <p>
-'makes sense' means having the operations defined.
+essentially relabeling \(v\) as \(Tv\).
+</p>
+
+<pre class="example" id="org3d59bc7">
+isomorphic means equal shape in greek
+isos -&gt; equal, morph -&gt; shape
+</pre>
+
+<p>
+but people use isomprhism when they want to emphazise how two spaces can
+be essentially the same
+</p>
+
+<pre class="example" id="org5b50ed1">
+title: dimension shows whether vector spaces are isomorphic
+Two finite-dim vec spaces over **F** are isomorphic iff they have the same dimension
+</pre>
+
+<p>
+makes sense.
 </p>
 
 <p>
-this part doesn't make sense to me.
+uh,
+</p>
+
+<pre class="example" id="org7cf6d02">
+title: L(V,W) and $F^(m,n)$ are isomorphic
+Suppose $v_1, \dots, v_n$ is a basis of $V$ and $w_1, \dots, w_m$ is a basis of $W$. Then $M$ is an isomprhism between $L(V,W)$ and $F^{m,n}$.
+</pre>
+
+<p>
+amazing.
 </p>
 
 <p>
-we have a desired equation, \(M(ST)=M(S)M(T)\) and we want to define
-matrix multiplication as such that it holds. thus, we get,
+pluging in dimension results, we get
 </p>
 
-<pre class="example" id="org5345b3f">
-title: matrix multiplication
-Suppose A is an $m$-by-$n$ matrix and $C$ is an $n$-by-$p$ matrix. Then $AC$ is defined to be the $m$-by-$p$ matrix whose entry in row j, the column $k$ is given by the following equation:
+<pre class="example" id="orga32faf9">
+title: $\dim L(V,W)=(\dim V)(\dim W)$
+Suppose $V$ and $W$ are finite-dim. Then $L(V,W)$ is finite-dim and 
+$$\dim L(V,W)=(\dim V)(\dim W)$$
+</pre>
 
+<p>
+Amazing proof.
+</p>
+</div>
+</div>
+
+<div id="outline-container-linear-maps-though-of-as-matrix-multiplication" class="outline-4">
+<h4 id="linear-maps-though-of-as-matrix-multiplication"><span class="section-number-4">1.0.4</span> linear maps though of as matrix multiplication</h4>
+<div class="outline-text-4" id="text-linear-maps-though-of-as-matrix-multiplication">
+<p>
+not the matrix of a map like in
+<a href="KBxChapter3CReading.html">KBxChapter3CReading</a>, but the matrix of
+a vector.
+</p>
+
+<pre class="example" id="org6c94b5c">
+title: matrix of a vector, M(v)
+Suppose $v \in V$ and $v_1, \dots, v_n$ is a basis of $V$. The matrix of v w.r.t. this basis is the n-by-1 matrix 
 $$
-(AC)_{j,k} = \sum^{n}_{r=1}A_{j,r} C _{r,k}.
-$$
-In other words, the entry n row $j$, column $k$, of $AC$ is computed by taking row $j$ of A and column $k$ of C, multiply together corresponding entries, and then summing.
-</pre>
-
-<p>
-formally defining what we already know how to do. #cool!
-</p>
-
-<p>
-remember, this only works when the columns of the first matrix equals
-the number of rows of the second matrix.
-</p>
-
-<p>
-this is the motivation for the definition of matrix multiplication that
-we have been taught.
-</p>
-
-<p>
-intresting how cyclic this type of understanding is.
-</p>
-
-<p>
-anyways, It's not commutative!
-</p>
-
-<pre class="example" id="org11e00de">
-title: the matrix of the product of linear maps
-If $T\in L(U,V)$ and $S \in L(V,W)$, then $M(ST) = M(S)M(T)$.
-</pre>
-
-<p>
-vertically centered dot is a placeholder?
-</p>
-
-<pre class="example" id="orgd0545fa">
-title: $A_{j,.}, A_{.,k}$
-Suppose A is an $M$-by-$n$ matrix.
-
-- If 1 &lt;= j &lt;= m, then $A_{j,.}$ denotes the 1-by-$n$ matrix consisting of row j of A.
-- If 1 &lt;= k &lt;= n, then $A_{.,k}$ denotes the m-by-$1$ matrix consisting of column k of A.
-</pre>
-
-<p>
-what if it's less than one? does that mean the notation isn't defined?
-or is it like an index out of range err? #question
-</p>
-
-<p>
-another way to think about matrix multiplication, - entry in row j
-column k of AC = row j of A * column k of C - ooh, that is alot cleaner.
-</p>
-
-<pre class="example" id="org6815704">
-title: Entry of matrix product equals row times column
-Suppose A is an $m$-by-$n$ matrix and C is an $n$-by-$p$ matrix. Then 
-$$(AC)_{j,k} = A_{j,.}C_{.,k}$$
-for 1 &lt;= j &lt;= n and 1 &lt;= k &lt;= p.
-</pre>
-
-<p>
-wait, another one? the column of k of AC equals A times column k of C.
-</p>
-
-<pre class="example" id="orgb6c1f8a">
-title: column of matrix product equals matrix times column
-Suppose A is an $m$-by-$n$ matric and C is an $n$-by-$p$ matrix. Then 
-$$(AC)_{.,k} = AC_{.,k}$$
-for 1 &lt;= k &lt;= p.
-</pre>
-
-<p>
-final one, as a linear combination. \[
-\left[\begin{matrix}7\\19\\31\end{matrix}\right] = 5 \left[\begin{matrix}1\\3\\5\end{matrix}\right] + 1 \left[\begin{matrix}2\\4\\6\end{matrix}\right].
-\]
-</p>
-
-<p>
-what? this doesnt make sense.
-</p>
-
-<pre class="example" id="orge4b14c6">
-title: Linear combination of columns
-Suppose A is an $m$-by-$n$ matrix and $c = \begin{bmatrix} 
- c_1 \\ 
+M(v) = \begin{bmatrix} 
+c_1  \\ 
  \vdots \\ 
  c_n  
- \end{bmatrix}$ is an n-by-1 matrix. 
- Then 
- $$
- Ac = c_1 A_{.,1} + \dots + c_n A_{.,n}
- $$
+ \end{bmatrix}.
+$$
 
-In other words, $Ac$ is a linear combination of the columns of A, with the sclars that multiply the columns coming from c.
-
+where $c_1, \dots, c_n$ are the scalars such that
+$$ v = c_1 v_1 + \dots + c_n V_n. $$
 </pre>
 
 <p>
-wait but does that returns a matrix? #question
+again, about representing as a
+<a href="KBxLinearCombinations.html">KBxLinearCombinations</a> of the basis
+vecs.
+</p>
+
+<pre class="example" id="org47ccc94">
+title: $M(T)._{,k} = M(vk).$
+Suppose $T \in L(V,W)$ and $v_1, \dots, v_n$ is a basis of $V$ and $w_1, \dots, w_m$ is a basis of $W$. Let 1 &lt;= k &lt;= n. Then the $k^{th}$ column of $M(T)$, which is denoted by $M(T)._{,k}$ equals $M(vk)$.
+</pre>
+
+<p>
+takin their word for this one.
 </p>
 
 <p>
-haha, two more ways are given by exrs. 10 &amp; 11. amazing.
+now we fit together mat of lin map, mat of vec, and matmul.
 </p>
 
-<pre class="example" id="org093e8cd">
-this chapter was mostly about differnt ways we can think about, and thus define, matrix multiplication. 
-intrestng how we needed all this info which we understood through using matrix multiplication to understand why it is that matrix multiplication is defined as such.
+<pre class="example" id="org85ba1ee">
+title: linear maps act like matrix multiplication
+Suppose $T \in L(V,W)$ and $v \in V$. Suppose $v_1, \dots, v_n$ is a basis of $V$ and $w_1, \dots, w_m$ is a basis of $W$. Then 
+$$M(Tv) = M(T)M(v).$$
+</pre>
+
+<p>
+every m-by-n mat induces another linear map from \(F^{n,1}\) to
+\(F^{1,m}.\)
+</p>
+
+<p>
+with isomorphisms, we can think of linear maps as multiplicaions on
+\(F^{n,1}\) by some mat.
+</p>
+
+<p>
+axler focuses on linear maps as matricie and vise versa
+</p>
+</div>
+</div>
+
+<div id="outline-container-operators" class="outline-4">
+<h4 id="operators"><span class="section-number-4">1.0.5</span> operators</h4>
+<div class="outline-text-4" id="text-operators">
+<p>
+linear maps from a vector space to itself are <i>very</i> important
+</p>
+
+<p>
+we give them their own notation,
+</p>
+
+<pre class="example" id="org16bf852">
+title: operator, $L(V)$
+- A linear map from a vector space to itself is called an *operator.*
+- The notation $L(V)$ denotes the set of all operators on $V$. In other words, $L(V) = L(V,V).$
+</pre>
+
+<p>
+<b>THIS IS IMPORTANT!</b> says that the deepest and more important parts of
+linalg (and the rest of the book) deal with operators. #extract
+</p>
+
+<ul class="org-ul">
+<li>remember, neither injectivity nor surjectivity implies invertibility</li>
+<li>but it does for operators! normally, injectivity is easier so that is
+checked</li>
+</ul>
+
+<pre class="example" id="orgc11fce9">
+title: injectivity is equivalent to surjectivity in finite dimensions
+Suppose $V$ is finite-dim and $T \in L(V).$ Then the following are equivalent:
+
+a. T is invertible
+b. T is injective
+c. T is surjective
+</pre>
+
+<p>
+proof via multiple uses of fundemental theorem of linear algebra
+</p>
+
+<pre class="example" id="org5213db8">
+this seems like a very important chapter. need to do some extracting on this one.
+big concepts were isomorphism and operators. extract later!
 </pre>
 </div>
 </div>
