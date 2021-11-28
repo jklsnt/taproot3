@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-27 Sat 21:26 -->
+<!-- 2021-11-27 Sat 14:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Rotating Chain Experiment: No Floor</title>
+<title>valuenex plannin</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Houjun Liu" />
+<meta name="author" content="Huxley Marvit" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -222,248 +222,28 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: No Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-11-27 Sat 21:25</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">valuenex plannin</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-11-27 Sat 14:12</date></div>
 </div>
 <div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#valuenex">1. valuenex!</a></li>
+</ul>
+</div></div>
+</div>
 <p>
-We first set up the same set of basic assumptions and variables.
+#ref
 </p>
 
-<div class="org-src-container">
-<pre class="src src-R">GRAV &lt;- 9.8 # gravity (m/s^2)
-MASS &lt;- 1 # mass (kg)
-I_CM &lt;- 1/12 # roational inertia (kg m^2)
-PHI &lt;- 0.1 # angle of Ft relative to floor (parallel) (rad)
-L &lt;- 0.5 # distance from the center of mass (of rotation point) to tenson (m)
-FT &lt;- 11 # tension force (N)
-OMEGA &lt;- 0.1 # angle of line orthogonal to floor relative to gravity (rad) (because shifted axis)
-</pre>
+<hr />
+
+<div id="outline-container-valuenex" class="outline-2">
+<h2 id="valuenex"><span class="section-number-2">1</span> valuenex!</h2>
+<div class="outline-text-2" id="text-valuenex">
+<ul class="org-ul">
+<li>i need to get done</li>
+</ul>
 </div>
-
-<p>
-Additionally, we set the time interval and seed values for all values that's tallied:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-R">dt &lt;- 0.0001
-t_max &lt;- 5
-
-vx &lt;- 0
-vy &lt;- 0
-
-time &lt;- 0
-theta &lt;- 0
-thetadot &lt;- 0
-</pre>
-</div>
-
-<p>
-Great. Let's start writing the loop now by setting up a bunch of arrays and writing their values in.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-R">cTime = NULL
-cTorqueNet = NULL
-cDDTheta = NULL
-cDTheta = NULL
-cTheta = NULL
-
-cAccelX = NULL
-cAccelY = NULL
-cVelX = NULL
-cVelY = NULL
-
-cFNetX = NULL
-cFNetY = NULL
-
-cKERot = NULL
-cKETrans = NULL
-</pre>
-</div>
-
-<p>
-Awesome, we will start tallying, then! 
-</p>
-
-<div class="org-src-container">
-<pre class="src src-R">for (i in 0:(t_max/dt)) {
-    # write down standard values
-    cTime[i] = time
-    cTheta[i] = theta
-
-    # torque is calculated via the dot product between the vector of the radius projected out
-    # and also the angle at which the thing is at (so like theta + phi)
-    #
-    # note that, unlike the tabled version, L here represets distance from CoM to tension
-    # application
-    torque &lt;- FT*L*cos(theta+PHI)
-    cTorqueNet[i] = torque
-
-    # from knowing the torque, we could divide out the rotational inertia to figure the
-    # acceleration of rotation
-    thetadotdot &lt;- torque/I_CM
-    cDDTheta[i] &lt;- thetadotdot
-
-    # from this, we could of course tally for the velocity of theta as well
-    thetadot &lt;- dt*thetadotdot + thetadot
-    cDTheta[i] &lt;- thetadot
-
-    # After knowing the value for theta, we could use it to calculate the net forces in
-    # both components.
-    # we define up as +, down as -, right as +, left as -
-    fnet_x &lt;- FT*cos(PHI) + MASS*GRAV*sin(OMEGA)
-    fnet_y &lt;- FT*sin(PHI) - MASS*GRAV*cos(OMEGA)  
-    # "I think ax and ay will be constant with time" --- Mark
-
-    cFNetX[i] = fnet_x
-    cFNetY[i] = fnet_y
-
-    # Dividing the mass out, we could get accelerations
-    ax &lt;- fnet_x/MASS
-    ay &lt;- fnet_y/MASS
-
-    # We also tally the components seperately for velocity
-    vx &lt;- ax*dt + vx
-    vy &lt;- ay*dt + vy
-
-    # And we add them together to tally
-    cAccelX[i] = ax
-    cAccelY[i] = ay
-
-    cVelX[i] = ax
-    cVelY[i] = ay
-
-    cKERot[i] = 0.5 * I_CM * thetadot^2
-    cKETrans[i] = 0.5 * MASS * (vx^2+vy^2)
-
-    # We increment the time and theta based on the tallying variable
-    time &lt;- dt + time
-    theta &lt;- dt*thetadot + theta
-}
-</pre>
-</div>
-
-
-<div class="org-src-container">
-<pre class="src src-R">rotating_link &lt;- data.frame(cTime,
-			    cTheta,
-			    cDTheta,
-			    cDDTheta,
-			    cTorqueNet,
-			    cAccelX,
-			    cAccelY,
-			    cKERot,
-			    cKETrans)
-
-names(rotating_link) &lt;- c("time",
-			  "theta",
-			  "d.theta",
-			  "dd.theta",
-			  "net.torque",
-			  "accel.x",
-			  "accel.y",
-			  "ke.rot",
-			  "ke.trans")
-</pre>
-</div>
-
-<p>
-Let's import some visualization tools, etc.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-R">library(tidyverse)
-</pre>
-</div>
-
-<p>
-Let's first see the head of this table:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-R">head(rotating_link)
-</pre>
-</div>
-
-<pre class="example">
-1e-04	6.56702749083497e-07	0.0131340545489667	65.6702705813175	5.47252254844313	11.9234133011972	-8.65287323660954	7.18764120396806e-06	4.3408e-06
-2e-04	1.97010820398017e-06	0.0197010807416836	65.6702619271685	5.47252182726404	11.9234133011972	-8.65287323660954	1.61721909329306e-05	9.7668e-06
-3e-04	3.94021627814853e-06	0.0262681056362569	65.6702489457332	5.47252074547777	11.9234133011972	-8.65287323660954	2.87505572382313e-05	1.73632e-05
-4e-04	6.56702684177422e-06	0.0328351287999327	65.6702316367577	5.47251930306314	11.9234133011972	-8.65287323660954	4.4922736804507e-05	2.713e-05
-5e-04	9.85053972176748e-06	0.039402149799923	65.6702099999032	5.47251749999193	11.9234133011972	-8.65287323660954	6.46887253689821e-05	3.90672e-05
-6e-04	1.37907547017598e-05	0.0459691682033976	65.6701840347464	5.47251533622887	11.9234133011972	-8.65287323660954	8.80485177213443e-05	5.31748e-05
-</pre>
-
-
-
-<p>
-Before we start graphing, let's set a common graph theme.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-R">default.theme &lt;- theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0)))
-</pre>
-</div>
-
-<p>
-We will graph <code>ax</code> and <code>ay</code> on top of each other:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-R">rotating_link %&gt;% ggplot() + geom_line(aes(x=time, y=accel.x, colour="X Acceleration")) + geom_line(aes(x=time, y=accel.y, colour="Y Acceleration")) + scale_colour_manual("", breaks = c("X Acceleration", "Y Acceleration"), values = c("red", "dark green")) + ylab("acceleration") + default.theme
-</pre>
-</div>
-
-
-<div id="org816502c" class="figure">
-<p><img src="./chainrot_time_accels_notable.png" alt="chainrot_time_accels_notable.png" />
-</p>
-</div>
-
-
-<p>
-Theta dot atop theta:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-R">rotating_link %&gt;% ggplot() + geom_line(aes(x=time, y=theta, colour="theta")) + geom_line(aes(x=time, y=d.theta, colour="theta dot")) + scale_colour_manual("", breaks = c("theta", "theta dot"), values = c("blue", "brown")) + ylab("radians") + default.theme
-</pre>
-</div>
-
-
-<div id="org39f11da" class="figure">
-<p><img src="./chainrot_thetadot_theta_notable.png" alt="chainrot_thetadot_theta_notable.png" />
-</p>
-</div>
-
-<p>
-We finally, plot KE rotation and translation
-</p>
-
-<div class="org-src-container">
-<pre class="src src-R">rotating_link %&gt;% ggplot() + geom_line(aes(x=time, y=ke.rot, colour="ke rotation")) + geom_line(aes(x=time, y=ke.trans, colour="ke translation")) + scale_colour_manual("", breaks = c("ke rotation", "ke translation"), values = c("blue", "brown")) + ylab("joules") + default.theme
-</pre>
-</div>
-
-
-<div id="orgd2bbe40" class="figure">
-<p><img src="./chainrot_ke_notable.png" alt="chainrot_ke_notable.png" />
-</p>
-</div>
-
-<p>
-Let's also plot torque as well.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-R">rotating_link %&gt;% ggplot() + geom_line(aes(x=time, y=net.torque)) + default.theme
-</pre>
-</div>
-
-
-<div id="org71c7173" class="figure">
-<p><img src="./chainrot_torque_notable.png" alt="chainrot_torque_notable.png" />
-</p>
 </div>
 </div>
 </body>

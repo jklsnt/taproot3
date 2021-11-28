@@ -727,7 +727,7 @@ Linear map products are...
 - Distributive $(S_1 + S_2)T = S_1 T S_2 T$, and visa versa
 
 **** Takes $0$ to $0$
-Suppose $T$ is a linear map $T: V \to W$, then $T(0) = 0$, as defined in both spaces.
+Suppose $T$ is a linear map $T: V \to W$, then $T(0) = 0$, as defined in both spaces. So zeros stay zero.
 
 *** Linear Maps & Basis of the Domain
 Suppose $v_1, \ldots, v_n$ is a basis of $V$ and $w_1, \ldots, w_n \in W$, then there exists a **unique** linear map $T: V \to W\ s.t.\ Tv_j = w_j$.
@@ -783,6 +783,126 @@ With the operations of scalar multiplication and addition defined, we could chec
 - **Multiplicative Identity** Scalar multiplication by $1$
 - **Distribution** $\lambda((S+T)(V)) = \lambda(Sv + Tv) = \lambda Sv + \lambda Tv$
 
-# :tada!:
+* 3.B
 
+** Things of Note
 
+*** Null Space
+For a linear map $T \in \mathcal{L}(V,W)$, the /null space/ of $T$, denoted as $null\ T$, is the subset of $V$ containing vectors which $T$ has the ability to map to the $0$ in $W$. That:
+
+\begin{equation}
+    null\ T = \{v\in V: Tv = 0\}
+\end{equation}
+
+Axler's Noticings... 
+
+- Notably, if $T = 0$, then the entirety of $V$ is its null space
+- Suppose $D \in \mathcal{L}(\mathcal{P}(\mathbb{R}), \mathcal{P}(\mathbb{R}))$ is the differentiation map ($Dp = p'$). Only constants are going to have a derivative of $0$; therefore, the null space of $D$ is the set of constant functions
+- Suppose $T \in \mathcal{L}(\mathcal{P}(\mathbb{R}), \mathcal{P}(\mathbb{R}))$ is defined as the $x^2$ by $(Tp)(x) = x^2p(x)$, the only polynomial s.t. $x^2p(x) = 0, \forall x\in \mathbb{R}$ is the $0$; hence $null\ T = \{0\}$.
+
+**** Null Space is a Subspace
+Suppose $T \in \mathcal{L}(V,W)$, then $null\ T$ is a subspace of $V$.
+
+*** Injectivity
+A function $T: V \to W$ is "injective" if $Tu = Tv$ implies $u=v$. i.e. that each output corresponds to one unique input.
+
+So, if $T$ is "injective", $u\neq v$ implies that $Tu \neq Tv$.
+
+This would imply, of course, that the $null\ T$ of an injective function is simply $\{0\}$ --- because as each output corresponds to a unique input, and $T0 = 0$, so the null space is going to only contain $0$.
+
+*** Range
+A function $T$ from $V \to W$ has range defined as the subset of $W$ which takes the form $Tv$, that:
+
+\begin{equation}
+    range\ T = \{Tv : v \in V\}
+\end{equation}
+
+Based on some reasoning, you could see that the range of a function $T$ is a subspace of $W$.
+
+*** Surjectivity
+A function $T: V\to W$ is surjective if its range equals $W$. As in, the entirely of the output space has some input for which it is possible to map to it.
+
+*** **Fundamental Theorem of Linear Maps**
+This is kind of important. Because of the above results, we arrive that:
+
+Suppose $V$ is a finite-dimentional vector space and $T \in \mathcal{L}(V, W)$; then, $range\ T$ is finite-dimentional and:
+
+\begin{equation}
+    dim\ V = dim\ null\ T + dim\ range\ T
+\end{equation}
+
+"the rank-nullity theorem". It is proven below.
+
+*** Map to Smaller Space is not Injective; Map to Larger Space is not Surjective
+Suppose $V$ and $W$ are finite-dimentional s.t. $dim\ V > dim\ W$. There are therefore no linear map from $V$ to $W$ which is injective.
+
+Suppose $V$ and $W$ are finite-dimentional s.t. $dim\ V < dim\ W$. There are therefore no linera map from $V$ to $W$ that is surjective.
+
+*** Noticings about Linear Systems
+1. A homogenous linear system with more variables than equations has nonzero solutions
+2. A inhomogenous linear system with more equations than variables has no solution for some constant terms
+
+** In-Text Exercises
+
+*** Null Space is a Subspace
+Suppose $T \in \mathcal{L}(V,W)$. It has a zero (because $T(0) = 0$), and $0+0=0$ and $\lambda0 = 0$, and $0$, as we established a sentence earlier, is in $T$. Therefore, $null\ T$ is a subspace.
+
+*** Proving the Fundamental Theorem of Linear Maps
+Suppose $V$ is a finite-dimentional vector space and $T \in \mathcal{L}(V, W)$.
+
+Let $u_1, \ldots, u_m$ be a basis of $null\ T$, then $dim\ null\ T = m$. We know that the null space of $T$ is a subset of $V$, we could extend its basis to that of $V$: that $u_1, \ldots, u_m, v_1, \ldots, v_n$. Hence, $dim\ V = m + n$.
+
+The fact that the list $u_1, \ldots, u_m, v_1, \ldots, v_n$ represents the basis of $V$, we know that every $v \in V$ can be represented as:
+
+\begin{equation}
+    v = a_1u_1 + \cdots + a_m u_m + b_1 v_1 + \cdots + b_n v_n,\ where\ a_j,b_j \in \mathbb{F}
+\end{equation}
+
+Let's apply $T$ to both ends!
+
+\begin{align}
+    Tv &= T(a_1u_1 + \cdots + a_m u_m + b_1 v_1 + \cdots + b_n v_n) \\
+&= T(a_1u_1 + \cdots + a_m u_m) + T(b_1 v_1 + \cdots + b_n v_n)\ \text{commutivity} \\
+&= 0 + T(b_1 v_1 + \cdots + b_n v_n)\ \text{null space} \\
+&= b_1 Tv_1 + \cdots + b_n Tv_n\ \text{commutivity, homogenicity} 
+\end{align}
+
+Given this, we now know that $b_1 Tv_1 + \cdots + b_n Tv_n$ is a spanning set of the range of $T$ (as every input to $T$ (i.e. $v \in V$) could be represented as such.) To show that it is now a basis of $range\ T$, we need to show that its linearly independent.
+
+Suppose that there are a set of values $c_1, \ldots, c_n \in \mathbb{F}$ such that...
+
+\begin{equation}
+c_1 Tv_1 + \cdots + c_n Tv_n = 0
+\end{equation}
+
+Factoring out $T$ using commutivity, we arrive at that:
+
+\begin{equation}
+    T(c_1 v_1 + \cdots + c_n v_n) = 0
+\end{equation}
+
+Woah! $T$ maps this combination to $0$! Therefore:
+
+\begin{equation}
+    c_1 v_1 + \cdots + c_n v_n \in null\ T
+\end{equation}
+
+We know that, from the assumptions before, $u_1, \ldots, u_m$ is a basis of $null\ T$. Therefore, we could claim that:
+
+\begin{equation}
+    c_1 v_1 + \cdots + c_n v_n  = d_1 u_1 + \cdots + d_m u_m
+\end{equation}
+
+We know that, because they were all parts of bases of $V$, $u_1,\ldots, u_m,v_1,\ldots,v_n$ are all linearly independent. There is only one way to write each side as an equation of each other, and $c_1 = \cdots = c_n = d_1 \cdots = d_m = 0$ is one valid way to make this equation valid, therefore --- due to the linear independence --- it is the only way.
+
+Therefore, $c_1 = \cdots = c_n = d_1 \cdots = d_m = 0$. Plugging that allllll the way back to:
+
+\begin{equation}
+c_1 Tv_1 + \cdots + c_n Tv_n = 0
+\end{equation}
+
+We could now see that $T v_1, \ldots, T v_n$ is linearly independent. Therefore, it is a basis of the range of $T$ (as we established before it spans the range of $T$.)
+
+And lastly! We know that $dim\ V = m + n$. $m$ is the length of the basis of the null space, $n$ is the length of the basis of the range. Therefore $dim\ V = dim\ null\ T + dim\ range\ T\ \blacksquare$. 
+
+Phew.

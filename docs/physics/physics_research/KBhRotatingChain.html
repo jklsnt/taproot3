@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-21 Sun 22:38 -->
+<!-- 2021-11-27 Sat 21:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rotating Chain Experiment: Floor</title>
@@ -195,6 +195,8 @@
 </style>
 <link rel="stylesheet" href="/global.css" type="text/css"/>
 <link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -220,7 +222,7 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-11-21 Sun 22:38</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-11-27 Sat 21:19</date></div>
 </div>
 <div id="content">
 <p>
@@ -233,7 +235,7 @@ MASS &lt;- 1 # mass (kg)
 I_CM &lt;- 1/12 # roational inertia at the centre of gravity (kg m^2)
 L1 &lt;- 0.5 # distance from rotation point to CoM (m)
 L2 &lt;- 1 # distance from rotation point to tension (m)
-PHI &lt;- 0 # angle of Ft relative to floor orthogoal (rad)
+PHI &lt;- 0 # angle of Ft relative to floor (parallel) (rad)
 FT &lt;- 11 # tension force (N)
 OMEGA &lt;- 0 # angle of line orthogonal to floor relative to gravity (rad) (because shifted axis)
 </pre>
@@ -253,17 +255,6 @@ vy &lt;- 0
 theta &lt;- 0
 thetadot &lt;- 0
 time &lt;- 0
-</pre>
-</div>
-
-<p>
-First, let's create a function for torque in terms of theta (and the constants above:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-R">net_torque &lt;- function(theta) {
-    return(L2 * FT * cos(theta + PHI) - L1 * MASS * GRAV * cos(theta - OMEGA))
-}
 </pre>
 </div>
 
@@ -305,7 +296,10 @@ Awesome. Let's now run a lovely little for loop to actually populate the values 
     cTime[i] = time
     cTheta[i] = theta
 
-    torque &lt;- net_torque(theta)
+    I_ROT &lt;- I_CM + MASS * (L1*cos(theta))^2 # we calculate I_ROT using
+					     # the Parallel axis theorem
+
+    torque &lt;- L2 * FT * cos(theta + PHI) - L1 * MASS * GRAV * cos(theta - OMEGA)
     # Given the theta value, we calculate the net torque and set that
     cTorqueNet[i] = torque
     # Now that we know the net torque, we could know how much the angular
@@ -340,8 +334,6 @@ Awesome. Let's now run a lovely little for loop to actually populate the values 
     cFNormal[i] = fnormal
 
     # Then, we calculate the energies
-    I_ROT &lt;- I_CM + MASS * (L1*cos(theta))^2 # we calculate I_ROT using
-					     # the Parallel axis theorem
     cKERot[i] = 0.5 * I_ROT * thetadot^2
     cKETrans[i] = 0.5 * MASS * (vx^2+vy^2)
 
@@ -408,16 +400,6 @@ Let's first see the head of this table:
 </pre>
 </div>
 
-<pre class="example">
-1e-04	6.1e-08	0.00244	18.3	6.09999999999999	-5.58149999999999e-07	9.14999999999996	5.58149999999999e-07	7.94999999999996	7.02075471698115e-08	9.92266666666661e-07	7.44199999999997e-07
-2e-04	3.05e-07	0.00426999999999992	18.2999999999992	6.09999999999972	-2.79074999999983e-06	9.14999999999917	2.79074999999983e-06	7.94999999999918	3.51037735849072e-07	3.03881666666634e-06	2.27911249999987e-06
-3e-04	7.31999999999991e-07	0.00609999999999955	18.2999999999964	6.09999999999837	-6.697799999998e-06	9.14999999999574	6.697799999998e-06	7.94999999999574	8.42490566037935e-07	6.20166666666327e-06	4.65124999999894e-06
-4e-04	1.34199999999995e-06	0.00792999999999864	18.2999999999909	6.09999999999451	-1.22792999999897e-05	9.1499999999872	1.22792999999897e-05	7.9499999999872	1.54456603773704e-06	1.04808166666489e-05	7.86061249999539e-06
-5e-04	2.13499999999981e-06	0.00975999999999694	18.299999999983	6.0999999999861	-1.95352499999653e-05	9.14999999997065	1.95352499999653e-05	7.94999999997065	2.4572641509481e-06	1.58762666666024e-05	1.19071999999857e-05
-6e-04	3.1109999999995e-06	0.0115899999999943	18.299999999974	6.09999999997048	-2.84656499999091e-05	9.14999999994273	2.84656499999091e-05	7.94999999994273	3.58058490567474e-06	2.23880166664823e-05	1.67910124999642e-05
-</pre>
-
-
 <p>
 Before we start graphing, let's set a common graph there.
 </p>
@@ -437,7 +419,7 @@ Cool! We could first graph a function for theta over time.
 </div>
 
 
-<div id="orgbf58040" class="figure">
+<div id="orgf02211f" class="figure">
 <p><img src="./chainrot_time_theta.png" alt="chainrot_time_theta.png" />
 </p>
 </div>
@@ -452,7 +434,7 @@ And, similarly, we will graph <code>ax</code> and <code>ay</code> on top of each
 </div>
 
 
-<div id="org03b52ef" class="figure">
+<div id="org6e2e574" class="figure">
 <p><img src="./chainrot_time_accels.png" alt="chainrot_time_accels.png" />
 </p>
 </div>
@@ -467,7 +449,7 @@ Let's also plot torque as well.
 </div>
 
 
-<div id="orgd93a345" class="figure">
+<div id="orge87b9cb" class="figure">
 <p><img src="./chainrot_torque.png" alt="chainrot_torque.png" />
 </p>
 </div>
@@ -482,7 +464,7 @@ And. <b>Most importantly!</b> Let's plot the normal force.
 </div>
 
 
-<div id="orgc83f76f" class="figure">
+<div id="orgf7a2c2c" class="figure">
 <p><img src="./chainrot_normal.png" alt="chainrot_normal.png" />
 </p>
 </div>
@@ -501,7 +483,7 @@ Theta dot atop theta:
 </div>
 
 
-<div id="org4ac05f0" class="figure">
+<div id="org0765650" class="figure">
 <p><img src="./chainrot_thetadot_theta.png" alt="chainrot_thetadot_theta.png" />
 </p>
 </div>
@@ -516,7 +498,7 @@ We finally, plot KE rotation and translation
 </div>
 
 
-<div id="org0b90707" class="figure">
+<div id="orgc5a44af" class="figure">
 <p><img src="./chainrot_ke.png" alt="chainrot_ke.png" />
 </p>
 </div>
