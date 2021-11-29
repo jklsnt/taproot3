@@ -906,3 +906,85 @@ We could now see that $T v_1, \ldots, T v_n$ is linearly independent. Therefore,
 And lastly! We know that $dim\ V = m + n$. $m$ is the length of the basis of the null space, $n$ is the length of the basis of the range. Therefore $dim\ V = dim\ null\ T + dim\ range\ T\ \blacksquare$. 
 
 Phew.
+
+* 3.C
+
+** Things of Note
+Matrices are an efficient method of recording a linear transformation $T:V\to W$ in terms of the basis of $W$.
+
+*** Matrix $A_{j,k}$
+Let $m$ and $n$ denote positive integers. An $m$ by $n$ matrix $A$ is an array of elements of $\mathbb{F}$ with $m$ rows and $n$ columns.
+
+\begin{equation}
+    A = \begin{pmatrix}
+A_{1,1} & \ldots & A_{1,n} \\
+\vdots & & \vdots \\
+A_{m,1} & \ldots & A_{m,n} \\
+\end{pmatrix}
+\end{equation}
+
+We could see that, there is $m$ rows and $n$ columns. $A_{j,k}$ denotes the entry in row $j$, column $k$.
+
+*** Matrix as a Linear Map $\mathcal{M}(T)$
+Suppose $T \in \mathcal{L}(V,W)$ and $v_1, \ldots, v_n$ is a basis of $V$ and $w_1, \ldots, w_m$ is a basis of $W$. The "matrix of" $t$ w.r.t. these bases is the $m$ by $n$ matrix $\mathcal{M}(T)$ such that...
+
+\begin{equation}
+    T_{v_k} = A_{1,k} w_1 + \cdots + A_{m,k} w_m
+\end{equation}
+
+So you get each basis vector $v_k$ back from multiplying pairwise each row in the column $k$ with the corresponding basis vector $w_j$, then adding it up.
+
+If the bases used are not clear from the context, we say its a matrix $\mathcal{M}(T, (v_1, \ldots, v_n), (w_1, \ldots, w_m))$.
+
+When constructing a matrix from its basis, line the domain's basis up along the columns and the range's basis up along the rows. Fill in the values column-by-column based on what scalars such that the linear combinations of the basis vectors at the range would result in the value at the column.
+
+To figure what bases to use:
+
+- When working with $\mathbb{F}^n$, use the standard basis $(1,\ldots,0), \ldots, (0,\ldots,1)$
+- When working with $\mathcal{P}_m(\mathbb{F})$, use the standard basis $1,x,x^2,\ldots,x^m$
+
+**** Adding Matrices
+Matrices add in the way you'd expect. $(A+C)_{j,k} = A_{j,k} + C_{j,k}$. Suppose $S,T \in \mathcal{L}(V,W)$, then $\mathcal{M}(S+T) = \mathcal{M}(S) + \mathcal{M}(T)$.
+
+**** Scaling Matricies
+Matricies scale by a scalar also in the way you'd expect. $(\lambda A)_{j,k} = \lambda A_{j,k}$. Suppose $\lambda \in \mathbb{F}$ and $T \in \mathcal{L}(V,W)$, then $\mathcal{M}(\lambda T) = \lambda \mathcal{M}(T)$.
+
+**** OMG we defined adding and scaling
+First, here's a notation. $\mathbb{F}^{m,n}$ is the set of all $m$ by $n$ matrices with entries in $\mathbb{F}$. So it maps from a vector space with $dim\ n$ to $dim\ m$.
+
+Ladies and gentlemen, $\mathbb{F}^{m,n}$ is a vector space. Mind blown. Shock surprise. :tada:
+
+$dim\ \mathbb{F}^{m,n} = mn$
+
+*** Matrix Product
+The product of two matrices $A: m\to n$, $C: n \to p$ is defined as:
+
+\begin{equation}
+    (AC)_{j,k} = \sum^n_{r = 1} A_{j,r}C_{r,k}
+\end{equation}
+
+That is, the value at new matrix $j,k$ involves taking row $j$ from the first matrix and column $k$ from the second matrix, multiplying them together, then adding the resulting values.
+
+If $T \in \mathcal{L}(U,V)$ and $S \in \mathcal{L}(V,W)$, then $\mathcal{M}(ST) = \mathcal{M}(S) \mathcal{M}(T)$.
+
+**** Describing rows/columns
+Suppose $A$ is an $m$ by $n$ matrix.
+
+- $A_{j,\cdot}$ is row $j$ of the matrix --- a $1$ by $n$ matrix consisting of row $j$ of $A$
+- $A_{\cdot,k}$ is column $k$ of the matrix --- a $n$ by $1$ matrix consisting of column $k$ of $A$
+
+**** Revising the Product Statement
+Therefore, $(AC)_{j,k} = A_{j,\cdot}\cdot C_{\cdot,k}$, if treating $A$ and $C$ instead of as column/row vectors but as matrices.
+
+Furthermore, $(AC)_{\cdot,k} = A\cdot C_{\cdot,k}$: that each column in the output of a matrix multiplication is the whole of matrix $A$ multiplied upon the column $C_{\cdot,k}$.
+
+**** Scaling is a Linear Combination
+Suppose $A$ is an $m$ by $n$ matrix. $c = (c_1, \ldots, c_n)$ is an $n$ by $1$ (its a column but I dunno how to typeset it inline) matrix.
+
+Then, $Ac = c_1 A_{\cdot,1} + \cdots + c_n A_{\cdot,n}$.
+
+** In-Text Exercises
+
+*** Set of Matricies from $N$ to $M$ are Vector Space
+Its closed under addition adding does not change size, so in same space, scaling does not change size, its closed under scalar multiplication, identity is $0$ where $0$, commutivity and associativity comes from the fact that $\mathbb{F}$ is a field. 
+

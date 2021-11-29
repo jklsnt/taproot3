@@ -36,15 +36,38 @@ calculate the intensity
 - arr of all companies sorted by date
 	- how does this work??
 	- can we just do counting sort cus we know upper and lower date bounds?
+	- **Answer** we are just sorting by the publication date
 
 
 
 regardless, i need to:
 
-- get arr of companie objects :: now
+- get arr of companie objects :: nownot
 - make ui for sliders
 	- which allow setting of start date, end date, and increases at a set speed
 - export to video
+
+
+- **have**
+	- parsing data
+	- initializing clusters
+	- finding intensities  
+	- pass to shaders
+
+- **need**
+	- export to video
+	- sliders! (ui)
+	- stop when done (don't need)
+	- new softmax integration
+	- css!
+
+now :: initialization array, done!
+now :: match incriment of arr to incriment of dates?
+now :: sliders! (not-ui)
+now :: passing to shaders
+
+
+
 
 
 

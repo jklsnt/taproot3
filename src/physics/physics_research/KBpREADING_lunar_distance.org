@@ -1,19 +1,40 @@
-#+TITLE: Lunar distance
+#+TITLE: Lunar distance research
 #+AUTHOR: Peter Choi
 #+DATE: 11/23/2021
 
-Link to the article:
+* Resources:
+Longitude by the Method of Lunar Distance
+https://www.starpath.com/resources2/brunner-lunars.pdf
+
+GMT and Longitude by Lunar Distance: Two Methods Compared From a Practitioner's Point of View | The Journal of Navigation | Cambridge Core
+https://www.cambridge.org/core/journals/journal-of-navigation/article/gmt-and-longitude-by-lunar-distance-two-methods-compared-from-a-practitioners-point-of-view/264D429197D6182A7D04193FD95FDD7E?scrlybrkr=d38645ab
+
+Lunar distance (navigation) - Wikipedia
+https://en.wikipedia.org/wiki/Lunar_distance_(navigation)
 
 * What you need:
 - A sextant
   - metal is more accurate
 - A lunar almanac
-- A calculator
+- A calculator or some sort of table equivalent (for the cosines and the sines)
 
-* What you do:
-1) calibrate your sextant (not sure we can do this with john's sextant)
-2) use the sextant to find the shortest angle between the sun ad the moon (this is called the observed lunar distance)
-3) 
+* What lunar distance relies on (from wikipedia):
+- The method relies on the relatively quick movement of the moon across the background sky, completing a circuit of 360 degrees in 27.3 days (the sidereal month), or 13.2 degrees per day. In one hour it will move approximately half a degree,[1] roughly its own angular diameter, with respect to the background stars and the Sun.
 
-* Error:
-- 
+  Using a sextant, the navigator precisely measures the angle between the moon and another body.[1] That could be the Sun or one of a selected group of bright stars lying close to the Moon's path, near the ecliptic. At that moment, anyone on the surface of the earth who can see the same two bodies will, after correcting for parallax, observe the same angle. The navigator then consults a prepared table of lunar distances and the times at which they will occur.[1][7] By comparing the corrected lunar distance with the tabulated values, the navigator finds the Greenwich time for that observation. Knowing Greenwich time and local time, the navigator can work out longitude.[1]
+
+  Local time can be determined from a sextant observation of the altitude of the Sun or a star.[8][9] Then the longitude (relative to Greenwich) is readily calculated from the difference between local time and Greenwich Time, at 15 degrees per hour of difference.
+
+* Methods:
+- there are three different methods:
+  1) the classic method (look at the wikipedia source):
+     1) you find the lunar distance between the moon and some star (or the sun), as well as the altitude of both of the celestical bodies
+     2) you correct for parallax and atmospheric refraction, this step is known as "clearing"
+     3) look at the tables, use the lunar distance to find the GMT. Which then can be used, with the LMT, to find the longitude. 
+  2) Brunner's method (look at the brunner resource):
+     1) From an assumed position, and thus time, calculate a lunar distance
+     2) compare this calculated lunar distance with your observed lunar distance. Use the difference in the lunar distances to calculate the time difference between your assumed time and your observed lunar distance.
+     3) apply the correction to the assumed time, and then use that new assumed time to get a new assumed longitude. (every 4 minute increase in time is 1 degree west in longitude)
+     4) take the new assumed time and new assumed longitude and repeat. Keep on repeating until you have a difference between your calculated and observed lunar distance of less than meausment error. The resulting time should be GMT, and the resulting longitude should be your longitude. 
+  3) Stark's method (se the cambrigde resource):
+     - it is like the classic method, but it includeds more methods on how to reduce the error in your calculation by having your compare with calculated lunar distances before and after your observed lunar distance
