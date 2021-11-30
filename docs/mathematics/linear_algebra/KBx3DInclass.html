@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-11-29 Mon 09:55 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chapter 3D Inclass</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley Marvit" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Chapter 3D Inclass</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2021-11-29 Mon 09:55</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBxChapter3DReading.html'>3D Reading</a></li> <li><a class='backlink' href='index.html'>Linear Algebra Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#lets-review">1. Let's review</a>
+<ul>
+<li>
+<ul>
+<li><a href="#singularity">1.0.1. singularity</a></li>
+<li><a href="#isomorphism">1.0.2. isomorphism!</a></li>
+<li><a href="#operators">1.0.3. operators</a></li>
+<li><a href="#wrapping-up">1.0.4. wrapping up</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<p>
+#flo #inclass
+</p>
+
+<hr />
+
+<div id="outline-container-lets-review" class="outline-2">
+<h2 id="lets-review"><span class="section-number-2">1</span> Let's review</h2>
+<div class="outline-text-2" id="text-lets-review">
+<p>
+inclass notes on <a href="KBxChapter3DReading.html">KBxChapter3DReading</a>
+</p>
+</div>
+
+<div id="outline-container-singularity" class="outline-4">
+<h4 id="singularity"><span class="section-number-4">1.0.1</span> singularity</h4>
+<div class="outline-text-4" id="text-singularity">
+<dl class="org-dl">
+<dt>non-singular</dt><dd>has in inverse! it is not, singular.</dd>
+<dt>(no term)</dt><dd>lots of things are equivalent to invertibility, like
+
+<ul class="org-ul">
+<li>systems of equations,</li>
+<li>determinants (they do exists, axler!)
+
+<ul class="org-ul">
+<li>|A| != 0</li>
+</ul></li>
+
+<li>ect.</li>
+</ul></dd>
+</dl>
+
+<p>
+\(Ax = b\ \textrm{has only one solution} \leftrightarrow \textrm{A is nonsingular} \leftrightarrow \textrm{A has an inverse} \leftrightarrow |A| \neq 0 \to null A = {0}\)
+</p>
+
+<ul class="org-ul">
+<li>inverse of a matrix, pulls from ofc inverse of multiplication
+
+<ul class="org-ul">
+<li>cus 1/x is the multiplicative inverse</li>
+</ul></li>
+
+<li>invertibility is equal to bijectivity!
+
+<ul class="org-ul">
+<li>the proof:
+
+<ul class="org-ul">
+<li>assume invertible, show injective and surjective
+
+<ul class="org-ul">
+<li>use the inverse to make things equivalent</li>
+<li>prove injective and surjective</li>
+</ul></li>
+
+<li>other direction,
+
+<ul class="org-ul">
+<li>defines two identity maps, proves linearity</li>
+</ul></li>
+</ul></li>
+</ul></li>
+
+<li>#question : does bijectivity imply linearity? it should..
+
+<ul class="org-ul">
+<li>because, bijectivity means invertibility.. prove this later?</li>
+<li>supposedly it's an iff? no..</li>
+<li>NO! this is <b>WRONG</b>! smh. just make a peicewise function.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-isomorphism" class="outline-4">
+<h4 id="isomorphism"><span class="section-number-4">1.0.2</span> isomorphism!</h4>
+<div class="outline-text-4" id="text-isomorphism">
+<p>
+#extract
+</p>
+
+<ul class="org-ul">
+<li>strong, but not quite as strong as equal
+
+<ul class="org-ul">
+<li>not equal, cus can be diffs in formatting, but they <i>function</i> the
+same way &gt; practically equal</li>
+</ul></li>
+</ul>
+
+<p>
+#question is a vec space isomorphic to itself? ~nina yes, just follow
+the def!
+</p>
+
+<ul class="org-ul">
+<li>isomprhism is a superset of equal
+
+<ul class="org-ul">
+<li>any equal vec space is isomorphic, but isomorphic doesnt nessasarily
+mean equal</li>
+</ul></li>
+</ul>
+</div>
+
+<ol class="org-ol">
+<li><a id="isomorphism-relations"></a>isomorphism relations<br />
+<div class="outline-text-5" id="text-isomorphism-relations">
+<blockquote>
+<p>
+all we care about is whether they have the same dimension
+</p>
+</blockquote>
+
+<p>
+same dimension only shows that vec spaces are isomorphic if they are
+over the <i>same</i> field. otherwise, we don't know.
+</p>
+
+<p>
+\(L(V,W)\) and \(F^{m,n}\) are isomorphic the zero in \(M(T) = 0\) is
+the zero matrix, so an m*n matrix full of zzeerohws.
+</p>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-operators" class="outline-4">
+<h4 id="operators"><span class="section-number-4">1.0.3</span> operators</h4>
+<div class="outline-text-4" id="text-operators">
+<ul class="org-ul">
+<li>can be injective but not surjective and vise versa
+
+<ul class="org-ul">
+<li>on inf dim vec space?</li>
+</ul></li>
+
+<li>BUT! on finite dim vec spaces, either injectivity or surjectivity is
+enough.</li>
+<li>we already showed that bijective means invertible, now we only need
+one, and we can show that they are all equal</li>
+</ul>
+
+<pre class="example" id="orgad847f9">
+title: nullity
+dimension of the null space
+eg. "nullity of zero"
+</pre>
+
+<ul class="org-ul">
+<li>remember, 0 is not linearly independent! little bit wack
+
+<ul class="org-ul">
+<li>can take lots of non-trivial combos of 0 to get zero</li>
+</ul></li>
+
+<li>injectivity and sujectivity behave diff on operators</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-wrapping-up" class="outline-4">
+<h4 id="wrapping-up"><span class="section-number-4">1.0.4</span> wrapping up</h4>
+<div class="outline-text-4" id="text-wrapping-up">
+<p>
+we are not doing proof presentations, we are gonna work in small groups.
+and we get to choose!
+</p>
+
+<p>
+we should mostly be prepping for the <b>3 hour exam all of next week!</b>
+</p>
+
+<p>
+and make sure that we posted our proof presentations to the discussion
+page
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

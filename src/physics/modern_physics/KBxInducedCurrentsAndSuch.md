@@ -53,6 +53,63 @@ moving the graph gives us,
 __/\_	_____
 		  \/
 `
+![[image-1.png||500]]
+![[image.png||500]]
+
+
+***
+
+*welp, it's after 'break.'*
+### inductors!
+
+- inductance : 
+	- backwards MEF / rate of change of current
+		-  units of volts / Amps/sec or (V * S)/A, called a henry
+
+
+- inductance can be increased with a material inside just like a capacitor
+
+- {start} cap -- switch -- inductor {close} :: called an **inductor-capacitor**
+	- big surge of current, 
+
+**L** is used for inductance
+
+the energy alternates between the magnetic and the capacity? called a resonant circuit
+fundemental way of oscilating anything
+[LC circuit](https://en.wikipedia.org/wiki/LC_circuit)
+
+resonant is defined as
+$$ \displaystyle \omega _{0}={\frac {1}{\sqrt {LC}}} $$
+
+
+- magnetic field builds up in the coil as the capacitor discharges, then since the capacitor is discharged the magnetic field shrinks, which is changing flux, which charges the capacitor
+	- thus, it oscilates, 
+		- but the charging is changing flux as well... with no resistance tho, this isnt lossy
+		
+- transformers use inductance to change the voltage
+	- can be done by changing the number of 'wraps'
+	- ration is defined by $\frac{v_P}{v_S} = \frac{N_P}{N_S}$ where $v_P$ vs $v_S$ is the primary vs. secondary current, and $N_P$ vs $N_S$ is the primary vs. secondary turns
+
+#### solids!
+
+- diamagnetic
+	- most materials
+		- however, all materials have this characteristic
+		- but in other materials, other props overwhelm it
+	- no polarized particles, becomes aligned in the presence of magnetic field
+- paramagnetic
+	- polarized particles, magnetic field aligns them
+- and ferromagnetic
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -60,6 +60,7 @@ source:  #index
 - [[KBxChapter3CReading]]
 	- [[KBx3CInclass]]
 - [[KBxChapter3DReading]]
+	- [[KBx3DInclass]]
 	
 
 

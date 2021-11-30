@@ -14,9 +14,9 @@ MASS <- 1 # mass (kg)
 I_CM <- 1/12 # roational inertia at the centre of gravity (kg m^2)
 L1 <- 0.5 # distance from rotation point to CoM (m)
 L2 <- 1 # distance from rotation point to tension (m)
-PHI <- 0 # angle of Ft relative to floor (parallel) (rad)
-FT <- 11 # tension force (N)
-OMEGA <- 0 # angle of line orthogonal to floor relative to gravity (rad) (because shifted axis)
+PHI <- pi/6 # angle of Ft relative to floor (parallel) (rad)
+FT <- 12 # tension force (N)
+OMEGA <- 0.1 # angle of line orthogonal to floor relative to gravity (rad) (because shifted axis)
 #+end_src
 
 Additionally, we set the time interval and seed values for time and theta (distance from flat):
@@ -27,6 +27,9 @@ t_max <- 5
 
 vx <- 0
 vy <- 0
+
+x <- 0
+y <- 0
 
 theta <- 0
 thetadot <- 0
@@ -45,6 +48,8 @@ cAccelX = NULL
 cAccelY = NULL
 cVelX = NULL
 cVelY = NULL
+cPosX = NULL
+cPosY = NULL
 cFFriction = NULL
 cFNormal = NULL
 
@@ -90,6 +95,13 @@ for (i in 0:(t_max/dt)) {
     vx <- ax*dt + vx
     vy <- ay*dt + vy
 
+    # We finally tally the positions as well
+    x <- vx*dt + x
+    y <- vy*dt + y
+
+    cPosX[i] = x
+    cPosY[i] = y
+
     # Based on these accelerations, we therefore could calculate the relative
     # force of friction and normal force by subtracting the force in that direction
     # out of net
@@ -128,6 +140,8 @@ rotating_link <- data.frame(cTime,
                             cTorqueNet,
                             cAccelX,
                             cAccelY,
+                            cPosX,
+                            cPosY,
                             cFFriction,
                             cFNormal,
                             cMuStatic,
@@ -141,6 +155,8 @@ names(rotating_link) <- c("time",
                           "net.torque",
                           "accel.x",
                           "accel.y",
+                          "pos.x",
+                          "pos.y",
                           "friction.force",
                           "normal.force",
                           "friction.coeff",
@@ -161,12 +177,12 @@ head(rotating_link)
 #+end_src
 
 #+RESULTS:
-: 1e-04	1.83e-07	0.00366000000000002	18.3000000000001	6.0999999999999	-1.67445e-06	9.14999999999992	1.67445e-06	7.94999999999992	2.10622641509437e-07	2.23259999999996e-06	1.67445e-06
-: 2e-04	5.49000000000002e-07	0.00549000000000015	18.3000000000014	6.09999999999908	-5.02335000000014e-06	9.14999999999931	5.02335000000014e-06	7.94999999999931	6.31867924528374e-07	5.02334999999914e-06	3.76751250000002e-06
-: 3e-04	1.09800000000002e-06	0.0073200000000007	18.3000000000055	6.09999999999632	-1.00467000000012e-05	9.14999999999724	1.00467000000012e-05	7.94999999999724	1.26373584905719e-06	8.93039999999364e-06	6.69780000000011e-06
-: 4e-04	1.83000000000009e-06	0.00915000000000224	18.3000000000153	6.09999999998979	-1.67445000000055e-05	9.14999999999234	1.67445000000055e-05	7.94999999999234	2.10622641509706e-06	1.39537499999718e-05	1.04653125000005e-05
-: 5e-04	2.74500000000031e-06	0.0109800000000057	18.3000000000345	6.09999999997702	-2.51167500000186e-05	9.14999999998276	2.51167500000186e-05	7.94999999998276	3.1593396226507e-06	2.00933999999072e-05	1.50700500000016e-05
-: 6e-04	3.84300000000088e-06	0.0128100000000124	18.3000000000676	6.09999999995496	-3.51634500000513e-05	9.14999999996622	3.51634500000513e-05	7.94999999996622	4.42307547172336e-06	2.73493499997502e-05	2.05120125000041e-05
+: 1e-04	1.65503533066528e-07	0.00331007033913572	16.5503500847044	5.51678336156803	-1.36957070625324e-06	8.27517504235209	-1.36957070625324e-14	2.48255283490049e-07	6.97836885270962	7.63391101666348	0.91412761263225	1.82609427500431e-06	1.36957070625325e-06
+: 2e-04	4.965105669801e-07	0.00496510470321662	16.5503436408089	5.51678121360196	-4.1087102524066e-06	8.27517182040345	-6.84785166491308e-14	4.96510518650869e-07	6.97837159184917	7.63390779471484	0.914128357258976	4.10871078564987e-06	3.08153308923784e-06
+: 3e-04	9.93021037301762e-07	0.00662013810071352	16.550333974969	5.51677799165225	-8.21741490575579e-06	8.27516698748041	-2.05435475293287e-13	8.27517423686492e-07	6.97837570055382	7.6339029617918	0.914129474199641	7.30437141208106e-06	5.47827855906406e-06
+: 4e-04	1.65503484737311e-06	0.00827517020943236	16.5503210871885	5.51677369571816	-1.36956790672492e-05	8.2751605435829	-4.79349224609936e-13	1.24127593415794e-06	6.97838117881798	7.6338965178943	0.914130963454935	1.14130736658227e-05	8.55980524938151e-06
+: 5e-04	2.48255186831635e-06	0.00993020070717963	16.5503049774726	5.51676832579872	-2.0543495271494e-05	8.27515248871082	-9.58697926641525e-13	1.73778596951651e-06	6.97838802663419	7.63388846302222	0.914132825025777	1.64348143474025e-05	1.23261107605995e-05
+: 6e-04	3.47557193903431e-06	0.0115852292717624	16.550285645828	5.5167618818927	-2.87608541867632e-05	8.27514282286404	-1.72565517054075e-12	2.31704743310371e-06	6.9783962439931	7.63387879717543	0.91413505891332	2.23695895463475e-05	1.67771921598887e-05
 
 Before we start graphing, let's set a common graph theme.
 
@@ -235,3 +251,13 @@ rotating_link %>% ggplot() + geom_line(aes(x=time, y=ke.rot, colour="ke rotation
 #+RESULTS:
 
 [[./chainrot_ke.png]]
+
+
+#+begin_src R :results output graphics :file chainrot_x_y_pos.png :width 852 :height 480
+rotating_link %>% ggplot() + geom_line(aes(x=time, y=pos.x, colour="x position")) + geom_line(aes(x=time, y=pos.y, colour="y position")) + scale_colour_manual("", breaks = c("x position", "y position"), values = c("red", "dark green")) + ylab("metres") + default.theme
+#+end_src
+
+#+RESULTS:
+
+[[./chainrot_x_y_pos.png]]
+ 

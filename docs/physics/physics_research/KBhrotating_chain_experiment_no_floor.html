@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-27 Sat 21:26 -->
+<!-- 2021-11-29 Mon 15:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rotating Chain Experiment: No Floor</title>
@@ -222,7 +222,7 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: No Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-11-27 Sat 21:25</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: No Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-11-29 Mon 15:00</date></div>
 </div>
 <div id="content">
 <p>
@@ -233,9 +233,9 @@ We first set up the same set of basic assumptions and variables.
 <pre class="src src-R">GRAV &lt;- 9.8 # gravity (m/s^2)
 MASS &lt;- 1 # mass (kg)
 I_CM &lt;- 1/12 # roational inertia (kg m^2)
-PHI &lt;- 0.1 # angle of Ft relative to floor (parallel) (rad)
+PHI &lt;- pi/6 # angle of Ft relative to floor (parallel) (rad)
 L &lt;- 0.5 # distance from the center of mass (of rotation point) to tenson (m)
-FT &lt;- 11 # tension force (N)
+FT &lt;- 12 # tension force (N)
 OMEGA &lt;- 0.1 # angle of line orthogonal to floor relative to gravity (rad) (because shifted axis)
 </pre>
 </div>
@@ -250,6 +250,9 @@ t_max &lt;- 5
 
 vx &lt;- 0
 vy &lt;- 0
+
+x &lt;- 0 
+y &lt;- 0 
 
 time &lt;- 0
 theta &lt;- 0
@@ -272,6 +275,8 @@ cAccelX = NULL
 cAccelY = NULL
 cVelX = NULL
 cVelY = NULL
+cPosX = NULL
+cPosY = NULL
 
 cFNetX = NULL
 cFNetY = NULL
@@ -311,8 +316,8 @@ Awesome, we will start tallying, then!
     # After knowing the value for theta, we could use it to calculate the net forces in
     # both components.
     # we define up as +, down as -, right as +, left as -
-    fnet_x &lt;- FT*cos(PHI) + MASS*GRAV*sin(OMEGA)
-    fnet_y &lt;- FT*sin(PHI) - MASS*GRAV*cos(OMEGA)  
+    fnet_x &lt;- FT*sin(PHI) + MASS*GRAV*sin(OMEGA)
+    fnet_y &lt;- FT*cos(PHI) - MASS*GRAV*cos(OMEGA)  
     # "I think ax and ay will be constant with time" --- Mark
 
     cFNetX[i] = fnet_x
@@ -326,12 +331,19 @@ Awesome, we will start tallying, then!
     vx &lt;- ax*dt + vx
     vy &lt;- ay*dt + vy
 
+    # We finally tally the positions as well
+    x &lt;- vx*dt + x
+    y &lt;- vy*dt + y
+
     # And we add them together to tally
     cAccelX[i] = ax
     cAccelY[i] = ay
 
     cVelX[i] = ax
     cVelY[i] = ay
+
+    cPosX[i] = x
+    cPosY[i] = y
 
     cKERot[i] = 0.5 * I_CM * thetadot^2
     cKETrans[i] = 0.5 * MASS * (vx^2+vy^2)
@@ -352,6 +364,10 @@ Awesome, we will start tallying, then!
 			    cTorqueNet,
 			    cAccelX,
 			    cAccelY,
+			    cVelX,
+			    cVelY,
+			    cPosX,
+			    cPosY,
 			    cKERot,
 			    cKETrans)
 
@@ -362,6 +378,10 @@ names(rotating_link) &lt;- c("time",
 			  "net.torque",
 			  "accel.x",
 			  "accel.y",
+			  "vel.x",
+			  "vel.y",
+			  "pos.x",
+			  "pos.y",
 			  "ke.rot",
 			  "ke.trans")
 </pre>
@@ -386,12 +406,12 @@ Let's first see the head of this table:
 </div>
 
 <pre class="example">
-1e-04	6.56702749083497e-07	0.0131340545489667	65.6702705813175	5.47252254844313	11.9234133011972	-8.65287323660954	7.18764120396806e-06	4.3408e-06
-2e-04	1.97010820398017e-06	0.0197010807416836	65.6702619271685	5.47252182726404	11.9234133011972	-8.65287323660954	1.61721909329306e-05	9.7668e-06
-3e-04	3.94021627814853e-06	0.0262681056362569	65.6702489457332	5.47252074547777	11.9234133011972	-8.65287323660954	2.87505572382313e-05	1.73632e-05
-4e-04	6.56702684177422e-06	0.0328351287999327	65.6702316367577	5.47251930306314	11.9234133011972	-8.65287323660954	4.4922736804507e-05	2.713e-05
-5e-04	9.85053972176748e-06	0.039402149799923	65.6702099999032	5.47251749999193	11.9234133011972	-8.65287323660954	6.46887253689821e-05	3.90672e-05
-6e-04	1.37907547017598e-05	0.0459691682033976	65.6701840347464	5.47251533622887	11.9234133011972	-8.65287323660954	8.80485177213443e-05	5.31748e-05
+1e-04	6.23538290724796e-07	0.0124707635697569	62.353806625089	5.19615055209075	6.97836748313892	0.64126402568861	6.97836748313892	0.64126402568861	2.09351024494167e-07	1.92379207706583e-08	6.47999766719895e-06	9.82176645607458e-07
+2e-04	1.87061464770048e-06	0.0187061397427812	62.3537617302432	5.1961468108536	6.97836748313892	0.64126402568861	6.97836748313892	0.64126402568861	4.18702048988335e-07	3.84758415413166e-08	1.45799860031857e-05	2.20989745261678e-06
+3e-04	3.7412286219786e-06	0.0249415091815625	62.3536943878128	5.1961411989844	6.97836748313892	0.64126402568861	6.97836748313892	0.64126402568861	6.97836748313892e-07	6.4126402568861e-08	2.59199533439152e-05	3.92870658242983e-06
+4e-04	6.23537954013485e-06	0.0311768696413229	62.353604597604	5.196133716467	6.97836748313892	0.64126402568861	6.97836748313892	0.64126402568861	1.04675512247084e-06	9.61896038532915e-08	4.04998833596683e-05	6.13860403504662e-06
+5e-04	9.35306650426713e-06	0.0374122188772587	62.3534923593581	5.19612436327984	6.97836748313892	0.64126402568861	6.97836748313892	0.64126402568861	1.46545717145917e-06	1.34665445394608e-07	5.83197550549962e-05	8.83958981046713e-06
+6e-04	1.3094288391993e-05	0.0436475546445339	62.3533576727519	5.19611313939599	6.97836748313892	0.64126402568861	6.97836748313892	0.64126402568861	1.9539428952789e-06	1.79553927192811e-07	7.93795427686487e-05	1.20316639086914e-05
 </pre>
 
 
@@ -415,7 +435,7 @@ We will graph <code>ax</code> and <code>ay</code> on top of each other:
 </div>
 
 
-<div id="org816502c" class="figure">
+<div id="orgccd2447" class="figure">
 <p><img src="./chainrot_time_accels_notable.png" alt="chainrot_time_accels_notable.png" />
 </p>
 </div>
@@ -431,7 +451,7 @@ Theta dot atop theta:
 </div>
 
 
-<div id="org39f11da" class="figure">
+<div id="org53a66c5" class="figure">
 <p><img src="./chainrot_thetadot_theta_notable.png" alt="chainrot_thetadot_theta_notable.png" />
 </p>
 </div>
@@ -446,7 +466,7 @@ We finally, plot KE rotation and translation
 </div>
 
 
-<div id="orgd2bbe40" class="figure">
+<div id="org8da1103" class="figure">
 <p><img src="./chainrot_ke_notable.png" alt="chainrot_ke_notable.png" />
 </p>
 </div>
@@ -461,8 +481,23 @@ Let's also plot torque as well.
 </div>
 
 
-<div id="org71c7173" class="figure">
+<div id="org3a6d042" class="figure">
 <p><img src="./chainrot_torque_notable.png" alt="chainrot_torque_notable.png" />
+</p>
+</div>
+
+<p>
+Finally, let's plot velocity and position
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">rotating_link %&gt;% ggplot() + geom_line(aes(x=time, y=pos.x, colour="x position")) + geom_line(aes(x=time, y=pos.y, colour="y position")) + scale_colour_manual("", breaks = c("x position", "y position"), values = c("red", "dark green")) + ylab("metres") + default.theme
+</pre>
+</div>
+
+
+<div id="org1b0430b" class="figure">
+<p><img src="./chainrot_x_y_pos_notable.png" alt="chainrot_x_y_pos_notable.png" />
 </p>
 </div>
 </div>
