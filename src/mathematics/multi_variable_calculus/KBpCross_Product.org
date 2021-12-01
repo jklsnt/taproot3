@@ -25,6 +25,13 @@
 - Geometric Magnitude: $|\vec a||\vec b_{\perp \vec a}|$
 - Direction: perpendicular to the two vectors
   - by the right hand rule by rotating the first vector into the second vector
+- Albraic form: $\langle a_yb_z-a_zb_y,a_xb_z-a_zb_x,a_xb_y-a_yb_x\rangle$  
+- Algebraic properties:
+  - Anticommutative
+  - $\vec A\times\vec B=-\vec B\times\vec A$
+  - $(\vec A\times\vec B)\perp\vec A$
+  - $(\vec A\times\vec B)\perp\vec B$
+  - Antiassociative
 
 * Application of cross product:
 - In physics there is something called torque, notated $\tau$
@@ -38,3 +45,27 @@
 - Given these requirements we can make a formula:
   - $|\tau|=|\vec r||\vec F_{\perp\vec r}|$, where $\vec F$ is the force applied to the door, and $\vec r$ is the radius of the lever.
   - this, the right side of the equation, can be described using the dot product: $|\tau|=\vec r\times\vec F$
+
+* Derivation of cross product algebraic form:
+To start, we can define:
+
+$$\vec A =(A_x,A_y,A_z) = A_x\hat i+A_y\hat j+A_z\hat k$$
+
+$$\vec B=(B_x,B_y,B_z)=B_x\hat i+B_y\hat j+B_z\hat k$$
+
+Next we have to assume that the dot product is distributive across addition:
+
+$\begin{center*}
+\vec A\times\vec B=(A_x\hat i+A_y\hat j+A_Z\hat k)\times(B_x\hat i+B_y\hat j+B_z\hat k)\\
+= A_xB_x\hat i\times\hat i+A_xB_y\hat i\times\hat j+A_xB_z\hat i\times\hat k\\
++A_yB_x\hat j\times\hat i + A_yB_y\hat j\times\hat j +A_yB_z\hat j\times\hat k\\
++A_zB_x\hat k\times\hat i +A_zB_y\hat k\times\hat j + A_zB_z\hat k\times\hat k
+\end{center*}$
+
+From the definition of a cross product, we know that the cross product between any two vectors that are parallel is zero, thus:
+
+$\begin{center*}
+=A_xB_y\hat i\times\hat j+A_xB_z\hat i\times\hat k\\
++A_yB_x\hat j\times \hat i+A_yB_z\hat j\times \hat k\\
++A_zB_z\hat k\times \hat i+A_zB_z\hat k\times \hat j
+\end{center*}$
