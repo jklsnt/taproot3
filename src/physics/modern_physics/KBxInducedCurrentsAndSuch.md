@@ -106,7 +106,11 @@ $$ \displaystyle \omega _{0}={\frac {1}{\sqrt {LC}}} $$
 
 ## the experiment.
 
-
+#### ex1.
+- took three resistors in parrelel to make it work
+- taped down the magnetic field sensor right ontop of the wire
+- had a large wire loop far away from the sensor, w/ battery, resistors in parrelel, current sensor.
+- had a current probe and a magnetic field probe going into logger pro
 
 
 
