@@ -53,11 +53,15 @@ end, intro.
 back to tom
 
 
+```ad-def
+title: presantism
+ uncritical adherence to present-day attitudes, especially the tendency to interpret past events in terms of modern values and concepts.
+ ```
 
+modern day exploration is inherently shaped by the *needs* of the present
+> and that's just good history -tom
 
-
-
-
+the charge: be curious! what are the questions you have? pursue them!
 
 
 
