@@ -68,7 +68,7 @@ the charge: be curious! what are the questions you have? pursue them!
 
 ## the project!
 
-w/ @exr0n!!!!!! :))))
+w/ @exr0n!!!!!! :)))) !!! wuuu
 
 ```ad-abstract
 - Causes of the Civil War visualization 
