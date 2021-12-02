@@ -112,7 +112,14 @@ $$ \displaystyle \omega _{0}={\frac {1}{\sqrt {LC}}} $$
 - had a large wire loop far away from the sensor, w/ battery, resistors in parrelel, current sensor.
 - had a current probe and a magnetic field probe going into logger pro
 
+- we chaanged
+	- the resistence, from 2 resistors to 3.
 
+#### ex1
+- same thing as earlier, but we removed resistors
+	- this is because we don't care about being able to measure the current as long as it is consistent
+
+- then we 
 
 
 
