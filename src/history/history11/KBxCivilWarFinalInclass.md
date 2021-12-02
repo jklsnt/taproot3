@@ -64,6 +64,21 @@ modern day exploration is inherently shaped by the *needs* of the present
 the charge: be curious! what are the questions you have? pursue them!
 
 
+*** 
+
+## the project!
+
+w/ @exr0n!!!!!! :))))
+
+```ad-abstract
+- Causes of the Civil War visualization 
+	- Using some sort of visual organization (i.e. a flow chart), identify and track the major causal forces leading to the civil war. For this assignment the goal is less to single out one specific cause as the most prominent cause but instead to highlight the way different causal forces (economic, social, political, etc…) intersect with each other. You might also think about long term, structural causes (economic, demographic, social changes) and short term causes (policy decisions, key events, legal decisions) to present your image of the path to war.
+		- Will cover Content and Knowledge standards, argument, and use of evidence (optional) standards
+```
+
+
+
+
 
 
 
