@@ -31,7 +31,7 @@ date: 2021-12-02
 - end of slavery is emphasized
 - then we look at reconstruction, the era after the civil war
 - as well as the legacy of slavery and abolition
-
+end, intro.
 - this guy wrote a bunch of books
 - reconstruction **era**
 	- raised still v relevent questions
@@ -42,6 +42,24 @@ date: 2021-12-02
 	- what do we need to do to get racial equality
 	- terrorism? "homegrown" 
 - **civil war era issues are still prominent!**
+
+```ad-tip
+- what historians say has a practical impact, not just about some abstract debate
+```
+
+- second reconstruction, civil rights movement
+	- view of hist had "direct, practical, bearing"
+
+back to tom
+
+
+
+
+
+
+
+
+
 
 
 
