@@ -24,10 +24,16 @@ date: 2021-12-02
 		- social
 		- economic
 		- (cause)
+
+
+### a video!
+- we are starting in 1850, middle of 19th century
+- end of slavery is emphasized
+- then we look at reconstruction, the era after the civil war
+- as well as the legacy of slavery and abolition
+
+- this guy wrote a bunch of books
 - 
-
-
-
 
 
 
