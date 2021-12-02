@@ -102,6 +102,9 @@ $$ \displaystyle \omega _{0}={\frac {1}{\sqrt {LC}}} $$
 - and ferromagnetic
 
 
+***
+
+## the experiment.
 
 
 
