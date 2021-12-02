@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-02 Thu 12:16 -->
+<!-- 2021-12-02 Thu 14:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Marble Launcher</title>
@@ -263,48 +263,47 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Marble Launcher</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-12-02 Thu 12:15</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Marble Launcher</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-12-02 Thu 14:30</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhMarbleLauncherIndex.html'>Marble Launcher Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org3b58820">1. Setup</a></li>
-<li><a href="#orgd4877f1">2. Figuring the Velocity at \(t_1\)</a></li>
-<li><a href="#orga0e4cd4">3. Figuring the Maximum Possible Travel Distance</a>
+<li><a href="#org90275fd">1. Setup</a></li>
+<li><a href="#orgc754121">2. Figuring the Velocity at \(t_1\)</a></li>
+<li><a href="#org0d01524">3. Figuring the Maximum Possible Travel Distance</a>
 <ul>
-<li><a href="#org0dc080e">3.1. Setup for Kinematics</a></li>
-<li><a href="#org7174ca8">3.2. Setup for Solution</a></li>
-<li><a href="#org914df22">3.3. Solution at \(\theta_0 = 0\)</a>
+<li><a href="#org4890dd2">3.1. Setup for Kinematics</a></li>
+<li><a href="#org175d25e">3.2. Setup for Solution</a></li>
+<li><a href="#org2422d57">3.3. Solution at \(\theta_0 = 0\)</a>
 <ul>
-<li><a href="#orgfcac24b">3.3.1. Finding \(\frac{d{x_f}^2}{dh_0}\)</a></li>
-<li><a href="#orge602b74">3.3.2. Optimizing \(\frac{d{x_f}^2}{dh_0}\)</a></li>
+<li><a href="#org90252a1">3.3.1. Finding \(\frac{d{x_f}^2}{dh_0}\)</a></li>
+<li><a href="#org1a90889">3.3.2. Optimizing \(\frac{d{x_f}^2}{dh_0}\)</a></li>
 </ul>
 </li>
-<li><a href="#org5c424ef">3.4. Solution at arbitrary \(\theta_0\)</a>
+<li><a href="#org12b2189">3.4. Solution at arbitrary \(\theta_0\)</a>
 <ul>
-<li><a href="#org3cd1c0d">3.4.1. Solving and optimizing for \(\frac{dx_f}{d\theta_0}\)</a></li>
-<li><a href="#orga2ee2e6">3.4.2. Solving and optimizing for \(x_f\)</a></li>
-<li><a href="#org0788207">3.4.3. Solving for the Actual Optimum of \(\theta_0\)</a></li>
+<li><a href="#orga13944d">3.4.1. Solving and optimizing for \(\frac{dx_f}{d\theta_0}\)</a></li>
+<li><a href="#org4216838">3.4.2. Solving and optimizing for \(x_f\)</a></li>
+<li><a href="#org0152266">3.4.3. Solving for the Actual Optimum of \(\theta_0\)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org9992a9c">4. Pure Roll</a></li>
-<li><a href="#org7491d8c">5. Kinematics Considering Rotation</a></li>
-<li><a href="#org0348f0d">6. Additional Figures</a>
+<li><a href="#org317123a">4. Pure Roll</a></li>
+<li><a href="#org1cd00c8">5. Kinematics Considering Rotation</a></li>
+<li><a href="#orgee461ff">6. Additional Figures</a>
 <ul>
-<li><a href="#org9d05bb3">6.1. Projected Range w.r.t. varying \(h_0\) at optimal \(\theta_0\)</a></li>
-<li><a href="#orgf6bb26c">6.2. Projected Range w.r.t. varying \(h_0\) at \(\theta_0 = 0\)</a></li>
-<li><a href="#org50e8f2b">6.3. Optimal \(\theta\) changes w.r.t \(h\)</a></li>
+<li><a href="#orgb75d273">6.1. Projected Range w.r.t. varying \(h_0\) at optimal \(\theta_0\)</a></li>
+<li><a href="#org62897ad">6.2. Projected Range w.r.t. varying \(h_0\) at \(\theta_0 = 0\)</a></li>
+<li><a href="#org017f69c">6.3. Optimal \(\theta\) changes w.r.t \(h\)</a></li>
 </ul>
 </li>
-<li><a href="#org7bd0c0d">7. Error Analysis</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org3b58820" class="outline-2">
-<h2 id="org3b58820"><span class="section-number-2">1</span> Setup</h2>
+<div id="outline-container-org90275fd" class="outline-2">
+<h2 id="org90275fd"><span class="section-number-2">1</span> Setup</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The ball launcher problem involves an energetic optimization to figure, given the situation as shown in the above image, the parameters \(h_0\) and \(\theta_0\) that would best create a maximum launch distance \(x_f\).
@@ -320,8 +319,8 @@ We define the start of the experiment as time \(t_0\), the moment the marble lea
 </div>
 </div>
 
-<div id="outline-container-orgd4877f1" class="outline-2">
-<h2 id="orgd4877f1"><span class="section-number-2">2</span> Figuring the Velocity at \(t_1\)</h2>
+<div id="outline-container-orgc754121" class="outline-2">
+<h2 id="orgc754121"><span class="section-number-2">2</span> Figuring the Velocity at \(t_1\)</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 In order to expedite the process of derivation, we will leverage an energetic argument instead of that of kinematics for figuring the velocity at launch. The change-in-height that \(m_0\) experiences before \(t_1\) is \(\Delta h = H-h_0\). Therefore, the potential energy expenditure is \(\Delta PE_{grav} = mg\Delta h = m_0 g (H - h_0)\). Assuming that the marble starts out with 0 kinetic energy, we deduct that, at the moment of it finishing its descent, it will possess kinetic energy \(KE = 0+m_0 g (H - h_0) = m_0 g (H - h_0)\).
@@ -353,16 +352,16 @@ This velocity vector could be easily split into its two constituent parts. Namel
 </div>
 </div>
 
-<div id="outline-container-orga0e4cd4" class="outline-2">
-<h2 id="orga0e4cd4"><span class="section-number-2">3</span> Figuring the Maximum Possible Travel Distance</h2>
+<div id="outline-container-org0d01524" class="outline-2">
+<h2 id="org0d01524"><span class="section-number-2">3</span> Figuring the Maximum Possible Travel Distance</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Here, we devise an function for \(x_f\) w.r.t. \(\vec{v_0_y}\), \(\vec{v_0_x}\), \(h_0\), \(m_0\).
 </p>
 </div>
 
-<div id="outline-container-org0dc080e" class="outline-3">
-<h3 id="org0dc080e"><span class="section-number-3">3.1</span> Setup for Kinematics</h3>
+<div id="outline-container-org4890dd2" class="outline-3">
+<h3 id="org4890dd2"><span class="section-number-3">3.1</span> Setup for Kinematics</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 We first will leverage the parametric equations for position in kinematics in order to ultimately result in a function for \(x_f\).
@@ -395,8 +394,8 @@ as,
 </div>
 </div>
 
-<div id="outline-container-org7174ca8" class="outline-3">
-<h3 id="org7174ca8"><span class="section-number-3">3.2</span> Setup for Solution</h3>
+<div id="outline-container-org175d25e" class="outline-3">
+<h3 id="org175d25e"><span class="section-number-3">3.2</span> Setup for Solution</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 We first create a set of equations modeling the location of the marble at \(t_f\).
@@ -435,8 +434,8 @@ We will now proceed to simplify the expression further
 </div>
 </div>
 
-<div id="outline-container-org914df22" class="outline-3">
-<h3 id="org914df22"><span class="section-number-3">3.3</span> Solution at \(\theta_0 = 0\)</h3>
+<div id="outline-container-org2422d57" class="outline-3">
+<h3 id="org2422d57"><span class="section-number-3">3.3</span> Solution at \(\theta_0 = 0\)</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 We begin by first solving for the expression for \({x_f}^2\) at \(\theta_0 = 0\).
@@ -451,8 +450,8 @@ We begin by first solving for the expression for \({x_f}^2\) at \(\theta_0 = 0\)
 \end{align}
 </div>
 
-<div id="outline-container-orgfcac24b" class="outline-4">
-<h4 id="orgfcac24b"><span class="section-number-4">3.3.1</span> Finding \(\frac{d{x_f}^2}{dh_0}\)</h4>
+<div id="outline-container-org90252a1" class="outline-4">
+<h4 id="org90252a1"><span class="section-number-4">3.3.1</span> Finding \(\frac{d{x_f}^2}{dh_0}\)</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <p>
 Remember, given the setup of the problem, \(x_f\) is optimized when \({x_f}^2\) is optimized. This is due to the fact that \(x_f\) could not be negative, and it is representing a maximum travel distance. Hence, we will optimized \({x_f}^2\) for ease of calculation.
@@ -469,8 +468,8 @@ Remember, given the setup of the problem, \(x_f\) is optimized when \({x_f}^2\) 
 </div>
 </div>
 
-<div id="outline-container-orge602b74" class="outline-4">
-<h4 id="orge602b74"><span class="section-number-4">3.3.2</span> Optimizing \(\frac{d{x_f}^2}{dh_0}\)</h4>
+<div id="outline-container-org1a90889" class="outline-4">
+<h4 id="org1a90889"><span class="section-number-4">3.3.2</span> Optimizing \(\frac{d{x_f}^2}{dh_0}\)</h4>
 <div class="outline-text-4" id="text-3-3-2">
 <p>
 The optimization of this statement is fairly simple. We set \(\frac{d{x_f}^2}{dh_0}=0\), and solve for \(h_0\).
@@ -490,12 +489,12 @@ Hence, the most optimal height at which to launch the marble launcher, given a h
 </div>
 </div>
 
-<div id="outline-container-org5c424ef" class="outline-3">
-<h3 id="org5c424ef"><span class="section-number-3">3.4</span> Solution at arbitrary \(\theta_0\)</h3>
+<div id="outline-container-org12b2189" class="outline-3">
+<h3 id="org12b2189"><span class="section-number-3">3.4</span> Solution at arbitrary \(\theta_0\)</h3>
 <div class="outline-text-3" id="text-3-4">
 </div>
-<div id="outline-container-org3cd1c0d" class="outline-4">
-<h4 id="org3cd1c0d"><span class="section-number-4">3.4.1</span> Solving and optimizing for \(\frac{dx_f}{d\theta_0}\)</h4>
+<div id="outline-container-orga13944d" class="outline-4">
+<h4 id="orga13944d"><span class="section-number-4">3.4.1</span> Solving and optimizing for \(\frac{dx_f}{d\theta_0}\)</h4>
 <div class="outline-text-4" id="text-3-4-1">
 <p>
 We need to maximize \(\frac{dx_f}{d\theta_0}\) as one out of two components to optimize for. Once we figure that value, we then supply the corresponding maximum value then optimize again for \(\frac{h_0}{d\theta_0}\). The position equations above could be leveraged to figure a value for \(x_f\). 
@@ -503,7 +502,7 @@ We need to maximize \(\frac{dx_f}{d\theta_0}\) as one out of two components to o
 </div>
 
 <ol class="org-ol">
-<li><a id="org814ed03"></a>Finding \(\frac{dx_f}{d\theta_0}\)<br />
+<li><a id="org054fec7"></a>Finding \(\frac{dx_f}{d\theta_0}\)<br />
 <div class="outline-text-5" id="text-3-4-1-1">
 <p>
 We leverage implicit differentiation to figure a value for \(\frac{dx_f}{d\theta_0}\). We set \(x_f\) as a differentiable function, and \(h_0\) and \(H\) as both constants.
@@ -524,7 +523,7 @@ We leverage implicit differentiation to figure a value for \(\frac{dx_f}{d\theta
 </div>
 </li>
 
-<li><a id="orgdc9304e"></a>Optimizing for \(x_f\) for \(\theta_0\) via \(\frac{dx_f}{d\theta_0}\)<br />
+<li><a id="org34b551b"></a>Optimizing for \(x_f\) for \(\theta_0\) via \(\frac{dx_f}{d\theta_0}\)<br />
 <div class="outline-text-5" id="text-3-4-1-2">
 <p>
 We now set \(\frac{dx_f}{d\theta_0}=0\) in order to figure critical points for the value of \(x_f\).
@@ -552,8 +551,8 @@ As there is one critical point per the range, and that there must be at least on
 </ol>
 </div>
 
-<div id="outline-container-orga2ee2e6" class="outline-4">
-<h4 id="orga2ee2e6"><span class="section-number-4">3.4.2</span> Solving and optimizing for \(x_f\)</h4>
+<div id="outline-container-org4216838" class="outline-4">
+<h4 id="org4216838"><span class="section-number-4">3.4.2</span> Solving and optimizing for \(x_f\)</h4>
 <div class="outline-text-4" id="text-3-4-2">
 <p>
 We will now return to our original expression for the final y-position (\(=0\)) to create an expression for \(x_f\).
@@ -561,7 +560,7 @@ We will now return to our original expression for the final y-position (\(=0\)) 
 </div>
 
 <ol class="org-ol">
-<li><a id="orge3e6bb6"></a>Solving for \(x_f\)<br />
+<li><a id="org03b36f6"></a>Solving for \(x_f\)<br />
 <div class="outline-text-5" id="text-3-4-2-1">
 <p>
 We first take the previous expression for \(x_f\) and supply the expression for \(\theta_0\).
@@ -582,7 +581,7 @@ We first take the previous expression for \(x_f\) and supply the expression for 
 </div>
 </li>
 
-<li><a id="orgd9a53aa"></a>Finding \(\frac{d{x_f}^2}{dh_0}\)<br />
+<li><a id="org063ffe0"></a>Finding \(\frac{d{x_f}^2}{dh_0}\)<br />
 <div class="outline-text-5" id="text-3-4-2-2">
 <p>
 We know that, by optimizing for \({x_f}^2\), \(x_f\) is optimized due to the setup of the problem of the behavior of the length of line.
@@ -606,7 +605,7 @@ Hence, we take the <i>first</i> derivative, though of \({x_f}^2\) w.r.t. \(h_0\)
 </div>
 </li>
 
-<li><a id="org378209b"></a>Optimizing for \(x_f\)<br />
+<li><a id="orgebedb5e"></a>Optimizing for \(x_f\)<br />
 <div class="outline-text-5" id="text-3-4-2-3">
 <p>
 The optimization of \(x_f\) requires a little bit more thinking of the scenario of the problem. \(H\) must be a positive number, and the expression for \({x_f}^2\) appears to be a straight line with slope \(-4H\).
@@ -620,8 +619,8 @@ Given \(H>0\), \(-4H<0\), and the slope of \({x_f}^2\) is negative &#x2014; as \
 </ol>
 </div>
 
-<div id="outline-container-org0788207" class="outline-4">
-<h4 id="org0788207"><span class="section-number-4">3.4.3</span> Solving for the Actual Optimum of \(\theta_0\)</h4>
+<div id="outline-container-org0152266" class="outline-4">
+<h4 id="org0152266"><span class="section-number-4">3.4.3</span> Solving for the Actual Optimum of \(\theta_0\)</h4>
 <div class="outline-text-4" id="text-3-4-3">
 <p>
 We return to following statement:
@@ -660,8 +659,8 @@ And hence, given an arbitrary angle and an arbitrary height to launch, the most 
 </div>
 </div>
 
-<div id="outline-container-org9992a9c" class="outline-2">
-<h2 id="org9992a9c"><span class="section-number-2">4</span> Pure Roll</h2>
+<div id="outline-container-org317123a" class="outline-2">
+<h2 id="org317123a"><span class="section-number-2">4</span> Pure Roll</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Distance by which the center of mass moves is the same distance that is traversed in the circumference. The conventional model of friction does not work to a rolling object.
@@ -669,8 +668,8 @@ Distance by which the center of mass moves is the same distance that is traverse
 </div>
 </div>
 
-<div id="outline-container-org7491d8c" class="outline-2">
-<h2 id="org7491d8c"><span class="section-number-2">5</span> Kinematics Considering Rotation</h2>
+<div id="outline-container-org1cd00c8" class="outline-2">
+<h2 id="org1cd00c8"><span class="section-number-2">5</span> Kinematics Considering Rotation</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 We know, for a sphere, the rotational inertia is \(I = \frac{2}{5} M R^2\). And hence, actually considering the fact that the marble rolls down the initial ramp, and some energy from the height change is actually contributed to the process of roll.
@@ -721,15 +720,15 @@ Hence, we note that &#x2014; as we consider the rotational inertia &#x2014; the 
 </div>
 
 
-<div id="outline-container-org0348f0d" class="outline-2">
-<h2 id="org0348f0d"><span class="section-number-2">6</span> Additional Figures</h2>
+<div id="outline-container-orgee461ff" class="outline-2">
+<h2 id="orgee461ff"><span class="section-number-2">6</span> Additional Figures</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org9d05bb3" class="outline-3">
-<h3 id="org9d05bb3"><span class="section-number-3">6.1</span> Projected Range w.r.t. varying \(h_0\) at optimal \(\theta_0\)</h3>
+<div id="outline-container-orgb75d273" class="outline-3">
+<h3 id="orgb75d273"><span class="section-number-3">6.1</span> Projected Range w.r.t. varying \(h_0\) at optimal \(\theta_0\)</h3>
 <div class="outline-text-3" id="text-6-1">
 
-<div id="org148f790" class="figure">
+<div id="orgdf642c0" class="figure">
 <p><img src="2021-09-26_18-23-48_screenshot.png" alt="2021-09-26_18-23-48_screenshot.png" />
 </p>
 </div>
@@ -740,11 +739,11 @@ This figure is rendered in an <a href="https://www.desmos.com/calculator/ajlwiiz
 </div>
 </div>
 
-<div id="outline-container-orgf6bb26c" class="outline-3">
-<h3 id="orgf6bb26c"><span class="section-number-3">6.2</span> Projected Range w.r.t. varying \(h_0\) at \(\theta_0 = 0\)</h3>
+<div id="outline-container-org62897ad" class="outline-3">
+<h3 id="org62897ad"><span class="section-number-3">6.2</span> Projected Range w.r.t. varying \(h_0\) at \(\theta_0 = 0\)</h3>
 <div class="outline-text-3" id="text-6-2">
 
-<div id="org57743a8" class="figure">
+<div id="orgc4056b7" class="figure">
 <p><img src="2021-09-26_18-31-45_screenshot.png" alt="2021-09-26_18-31-45_screenshot.png" />
 </p>
 </div>
@@ -759,8 +758,8 @@ As one could see, a parabolic relationship could be seen such that the most opti
 </div>
 </div>
 
-<div id="outline-container-org50e8f2b" class="outline-3">
-<h3 id="org50e8f2b"><span class="section-number-3">6.3</span> Optimal \(\theta\) changes w.r.t \(h\)</h3>
+<div id="outline-container-org017f69c" class="outline-3">
+<h3 id="org017f69c"><span class="section-number-3">6.3</span> Optimal \(\theta\) changes w.r.t \(h\)</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 We quickly return to the following, optmized, expression for \(x_f\):
@@ -776,50 +775,11 @@ We graph the expression for optimal \(\theta = arctan(\frac{\sqrt{2g(H-h_0)}}{\s
 
 
 
-<div id="org8b5cc8d" class="figure">
+<div id="org1b7e088" class="figure">
 <p><img src="2021-12-02_12-15-27_screenshot.png" alt="2021-12-02_12-15-27_screenshot.png" />
 </p>
 </div>
 </div>
-</div>
-</div>
-
-
-
-<div id="outline-container-org7bd0c0d" class="outline-2">
-<h2 id="org7bd0c0d"><span class="section-number-2">7</span> Error Analysis</h2>
-<div class="outline-text-2" id="text-7">
-<p>
-We have derived the fact that:
-</p>
-
-\begin{equation}
-    x_f = \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}h^2}
-\end{equation}
-
-<p>
-To deduct an expression for the potential sources of error, we take the partial derivatives of \(x_f\) w.r.t. \(H\) and \(h_0\).
-</p>
-
-\begin{align}
-    \frac{\partial x_f}{\partial H} = \frac{-(\frac{200}{49}H-\frac{60}{49}h_0)}{2 \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2}} 
-\end{align}
-
-
-\begin{align}
-    \frac{\partial x_f}{\partial h_0} = \frac{-(-\frac{60}{49}H - \frac{80}{49}h_0)}{2 \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2}} 
-\end{align}
-
-
-<p>
-Therefore, we could deduct that&#x2026;
-</p>
-
-\begin{align}
-    \Delta x_f =& \sqrt{(\frac{\partial x_f}{\partial H} \Delta H)^2 + (\frac{\partial x_f}{\partial h_0} \Delta h_0)^2} \\
-=& \sqrt{(\frac{-(\frac{200}{49}H-\frac{60}{49}h_0)}{2 \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2}} \Delta H)^2 + (\frac{-(-\frac{60}{49}H - \frac{80}{49}h_0)}{2 \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2}}  \Delta h_0)^2} \\
-=& \sqrt{\frac{(\frac{200}{49}H-\frac{60}{49}h_0)^2}{4 (\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2)} (\Delta H)^2 + \frac{(\frac{60}{49}H + \frac{80}{49}h_0)^2}{4 (\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2)} (\Delta h_0)^2} 
-\end{align}
 </div>
 </div>
 </div>
