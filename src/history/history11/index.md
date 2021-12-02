@@ -58,3 +58,6 @@ the next assignment: historigraphical in nature. synthesithing multiple argument
 # Civil War
 - [[KBxCivilWarIntro]]
 - [[KBhCivilWar]] 
+- [[KBdEricFonerNotes]]
+
+
