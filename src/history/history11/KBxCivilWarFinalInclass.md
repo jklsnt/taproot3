@@ -33,9 +33,15 @@ date: 2021-12-02
 - as well as the legacy of slavery and abolition
 
 - this guy wrote a bunch of books
-- 
-
-
+- reconstruction **era**
+	- raised still v relevent questions
+	- what is the def of freedom and equality?
+		- force vs. consent in social change
+		- what are the rights of the individual vs. security?
+	- who is an american?
+	- what do we need to do to get racial equality
+	- terrorism? "homegrown" 
+- **civil war era issues are still prominent!**
 
 
 
