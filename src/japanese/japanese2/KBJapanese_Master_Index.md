@@ -17,3 +17,4 @@ source: #index
 [[KBxGRME]]
 [[KBxAdviceColumn]]
 [[KBxJapFInalProj]]
+[[KBxJapaneseSpeakingPrep]]
