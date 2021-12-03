@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-12-02 Thu 20:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>First lab meeting and protocol aquisition readings notes</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Peter Choi" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">First lab meeting and protocol aquisition readings notes</h1> <h2 class="subtitle"></h2> <span class="author">Peter Choi</span> <span class="date">2021-12-02 Thu 20:14</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org5ed2c97">1. Prep for first lab meeting:</a></li>
+<li><a href="#orgdf57f04">2. XRT L1 protocol aquisition: ExDe Bible</a>
+<ul>
+<li><a href="#orgeb2ce0a">2.1. The goal of protocol aquisition:</a></li>
+<li><a href="#orgb5b639c">2.2. The steps to learning a protocol:</a></li>
+<li><a href="#org0fffb45">2.3. Visual protocols:</a></li>
+<li><a href="#org69be4c4">2.4. Starts and stops:</a></li>
+<li><a href="#orge383413">2.5. Timers and watches:</a></li>
+<li><a href="#org6c46e36">2.6. Prep for the dry run and the dry run:</a></li>
+<li><a href="#org672eaca">2.7. Recording your data and using your protocol:</a></li>
+</ul>
+</li>
+<li><a href="#orgec6b6cd">3. Lab meeting prompt:</a></li>
+<li><a href="#org0743a11">4. Lab Meeting Notebook Guidelines: ExDe Bible</a></li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-org5ed2c97" class="outline-2">
+<h2 id="org5ed2c97"><span class="section-number-2">1</span> Prep for first lab meeting:</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Link: <a href="https://docs.google.com/document/d/1Ig07u3_womf5xr-lkCM3up9aM9NKSAIKRNgZWnARaMI/edit">https://docs.google.com/document/d/1Ig07u3_womf5xr-lkCM3up9aM9NKSAIKRNgZWnARaMI/edit</a>
+</p>
+
+<ul class="org-ul">
+<li>be comfortable admitting mistakes to De and Paul</li>
+<li>De and Paul do not care that you make mistakes, they care that you learn from your mistakes</li>
+<li>What a lab meeting should have:
+<ol class="org-ol">
+<li>"the conversation"</li>
+<li>documentation of your process</li>
+<li>data presentation</li>
+</ol></li>
+<li>for now we just need:
+<ol class="org-ol">
+<li>clear goals and deliverables on asana</li>
+<li>visual protocol/protocol aquisition stuff</li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgdf57f04" class="outline-2">
+<h2 id="orgdf57f04"><span class="section-number-2">2</span> XRT L1 protocol aquisition: ExDe Bible</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Link: <a href="https://docs.google.com/document/d/1n_tRw0m1lnigpB5yBji58lQQhU6VgIKb7sXDryQkuoY/edit">https://docs.google.com/document/d/1n_tRw0m1lnigpB5yBji58lQQhU6VgIKb7sXDryQkuoY/edit</a>
+</p>
+</div>
+
+<div id="outline-container-orgeb2ce0a" class="outline-3">
+<h3 id="orgeb2ce0a"><span class="section-number-3">2.1</span> The goal of protocol aquisition:</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>to learn how to deo a new protocol in the most effective and efficient way</li>
+<li>finding all of the things you need to do a protocol</li>
+<li>finding all of the things that the protocol itself does not describe</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb5b639c" class="outline-3">
+<h3 id="orgb5b639c"><span class="section-number-3">2.2</span> The steps to learning a protocol:</h3>
+<div class="outline-text-3" id="text-2-2">
+<ol class="org-ol">
+<li>Do it with someone who has done the protocol before.
+<ul class="org-ul">
+<li>as they do it, write down a basic protocol, and then watch them again, predicting what they are going to do at ecah step</li>
+<li>then try the protocol yourself, make sure to note the materials you use</li>
+<li>See one, do one, teach one</li>
+</ul></li>
+<li>What it &amp; tech support
+<ul class="org-ul">
+<li>can use JOVE (the youtbe of protocols) inorder to get you "see one"</li>
+</ul></li>
+<li>Work off of mulitple protocols
+<ul class="org-ul">
+<li>this will let you know what steps need to be done the same way every time and what steps you can fudge a little.</li>
+<li>gives you fuller understanding of the protocol</li>
+</ul></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org0fffb45" class="outline-3">
+<h3 id="org0fffb45"><span class="section-number-3">2.3</span> Visual protocols:</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>Why: makes you think about what you are going to need to do and going to need for the protocol before you try to do it yourself. It also serves as visual landmarks for when you are actually doing the protocol.</li>
+<li>What: you draw out the steps of your protocol</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org69be4c4" class="outline-3">
+<h3 id="org69be4c4"><span class="section-number-3">2.4</span> Starts and stops:</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>After you draw, identify where you can take a break throughout your protocol</li>
+<li>knowing when you can rest (stops) is important because then you know when you can take a break and do more of the protocol on another day</li>
+<li>sometimes before you start you have to turn things on so they warm up in time</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge383413" class="outline-3">
+<h3 id="orge383413"><span class="section-number-3">2.5</span> Timers and watches:</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li>put a timer on all of the things you need to time so that you remember</li>
+<li>write the times of the start and stop instead of the run time so that you can reference later (ex: 17:00-19:00, is better than 2 hours)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6c46e36" class="outline-3">
+<h3 id="org6c46e36"><span class="section-number-3">2.6</span> Prep for the dry run and the dry run:</h3>
+<div class="outline-text-3" id="text-2-6">
+<ul class="org-ul">
+<li>Look through your protocol and sort things into:
+<ol class="org-ol">
+<li>Consumables</li>
+<li>Equipment</li>
+<li>Need to premake</li>
+<li>stops</li>
+<li>Day 0 prep</li>
+</ol></li>
+<li>Stand in the place that you are going to do your protocol and do a dry run where, you make sure that you have all of the materials and machines that you need to do, you have enough space, and try to minimize the amout of steps you need to take</li>
+<li>notify de or paul and your L3 mentor when you are doing your dry run</li>
+<li>then reserve the needed machines (stick note)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org672eaca" class="outline-3">
+<h3 id="org672eaca"><span class="section-number-3">2.7</span> Recording your data and using your protocol:</h3>
+<div class="outline-text-3" id="text-2-7">
+<ul class="org-ul">
+<li>when using your protocol take notes of the places you messed up or the places that you fudged a little so that you can collect data for better understanding</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgec6b6cd" class="outline-2">
+<h2 id="orgec6b6cd"><span class="section-number-2">3</span> Lab meeting prompt:</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Link: <a href="https://docs.google.com/document/d/15UBTrF7qsT8H8CG41oziknZWhsuJRoimHV0Dg98UDTQ/edit">https://docs.google.com/document/d/15UBTrF7qsT8H8CG41oziknZWhsuJRoimHV0Dg98UDTQ/edit</a>
+</p>
+
+<p>
+Questions to consider (copied from the doc):
+</p>
+
+<p>
+Check-in questions: To be asked by Oversight at the beginning of the meeting.
+</p>
+<ol class="org-ol">
+<li>Was everyone here this week?</li>
+<li>Is your lab space clean?</li>
+<li>Is there any new business that we need to put on the agenda?</li>
+</ol>
+
+
+<p>
+Big Picture
+</p>
+<ol class="org-ol">
+<li>Pull up a slide show</li>
+<li>Schedule the next lab meeting</li>
+<li>What is your overarching question?</li>
+<li>What is the current question?</li>
+<li>What method of quantification are you headed towards.</li>
+</ol>
+
+<p>
+Big Questions
+</p>
+<ol class="org-ol">
+<li>What was done.  Present data.</li>
+<li>What do you want to do?</li>
+<li>What future problems do you think you are going to need help with.</li>
+</ol>
+
+<p>
+Leadership/Oversight (To be answered by oversight)
+</p>
+<ol class="org-ol">
+<li>What problems are you trying to figure out how to navigate?</li>
+<li>What has been a personal difficulty?</li>
+<li>What is the current feeling of the group?</li>
+</ol>
+
+
+<p>
+Check-in every day with the rest of your team:
+</p>
+<ol class="org-ol">
+<li>Do you have a current task?  Does everyone know what it is?  Does your task have a deadline?</li>
+<li>Do you have at least one to-do per person in Asana.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org0743a11" class="outline-2">
+<h2 id="org0743a11"><span class="section-number-2">4</span> Lab Meeting Notebook Guidelines: ExDe Bible</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Link: <a href="https://docs.google.com/document/d/1kXrR6r9tIkao_delhirxaH1ugUTIWkd0sPFMEWfgKjc/edit#heading=h.ek02jxnh9scd">https://docs.google.com/document/d/1kXrR6r9tIkao_delhirxaH1ugUTIWkd0sPFMEWfgKjc/edit#heading=h.ek02jxnh9scd</a>
+</p>
+
+<ul class="org-ul">
+<li>Every week you should write an answer to each on of the prompts in your lab notebook
+<ol class="org-ol">
+<li>Guiding question</li>
+<li>response to feedback</li>
+<li>Acomplished this week</li>
+<li>What I am having trouble with</li>
+<li>Meeting notes:</li>
+<li>Goals and deliverables</li>
+</ol></li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>
