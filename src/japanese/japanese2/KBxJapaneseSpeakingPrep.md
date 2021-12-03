@@ -22,10 +22,15 @@ Things you will do or you did over the weekend/holiday.
 
 chrismasu desuga?
 
+### some stuff
 - kazoku ga aimasu
-	- 
+	- darega aimasu?
+	
+- obasan to ojisann ha aimasu
 
+- ane ga kimasu
 
+- 
 
 
 
