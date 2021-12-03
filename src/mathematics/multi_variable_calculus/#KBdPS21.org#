@@ -63,10 +63,32 @@ max(a) &= \sqrt{4 + 144} \\
 We have no units so I can't tell if I can survive this or not.
 
 ** 7)
-To get the distance travelled, we need to get the length of the parametric function. We'll try to adapt arc length for parametric equations:
+To get the distance travelled, we need to get the length of the parametric function. We'll try to adapt arc length for parametric equations.
+We know that the distance between two really close points can be modeled as:
 
 \begin{aligned}
 |P_{i-1}P_i| &= \sqrt{\Delta x^2 + \Delta y^2} \\
 \end{aligned}
 
-Thisi
+Of course, both $x$ and $y$ are functions of $t$.
+Using the MVT, we can condense this down to 
+
+\begin{aligned}
+|P_{i-1}P_i| &= \sqrt{f_x'(t_i^{*})^2\Delta t^2 + f_y'(t_i^{*})^2\Delta t^2} \\
+&= \sqrt{f_x'(t_i^{*})^2 + f_y'(t_i^{*})^2}\Delta t \\
+\end{aligned}
+
+Then, the length of the curve is
+
+\begin{aligned}
+L &= \sum_{i=0}^n |P_{i - 1}P_i| \\
+&= \sum_{i=0}^n \sqrt{f_x'(t_i^{*})^2 + f_y'(t_i^{*})^2}\Delta t \\
+&= \int_a^b \sqrt{f_x'(t)^2 + f_y'(t)^2} \,dt \\
+\end{aligned}
+
+But wait... This is just integrating $v(t)$ from $a$ to $b$! We know what $v(t)$ is, so we can easily do that:
+
+\begin{aligned}
+L &= \int_{-2\pi}^{3\pi} \sqrt{v_x(t)^2 + v_y(t)^2} \,dt \\
+&= 
+\end{aligned}
