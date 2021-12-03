@@ -20,11 +20,10 @@ ni ban.
 
 Things you will do or you did over the weekend/holiday.
 
+chrismasu desuga?
 
-
-
-
-
+- kazoku ga aimasu
+	- 
 
 
 
