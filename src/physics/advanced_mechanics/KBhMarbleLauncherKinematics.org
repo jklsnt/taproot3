@@ -281,29 +281,44 @@ This figure is rendered in another [[https://www.desmos.com/calculator/p7wlzpuon
 
 As one could see, a parabolic relationship could be seen such that the most optimal value is at exactly $\frac{1}{2}H$.
 
-* Error Analysis 
-We have derived the fact that:
+** Optimal $\theta$ changes w.r.t $h$
+We quickly return to the following, optmized, expression for $x_f$:
 
-\begin{equation}
-    x_f = \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}h^2}
-\end{equation}
-
-To deduct an expression for the potential sources of error, we take the partial derivatives of $x_f$ w.r.t. $H$ and $h_0$.
-
+We graph the expression for optimal $\theta = arctan(\frac{\sqrt{2g(H-h_0)}}{\sqrt{2gH}})$
 \begin{align}
-    \frac{\partial x_f}{\partial H} = \frac{-(\frac{200}{49}H-\frac{60}{49}h_0)}{2 \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2}} 
+\theta &= arctan(\frac{\sqrt{2g(H-h_0)}}{\sqrt{2gH}})\\
+&=arctan(\frac{\sqrt{H-h_0}}{\sqrt{H}})
 \end{align}
 
 
-\begin{align}
-    \frac{\partial x_f}{\partial h_0} = \frac{-(-\frac{60}{49}H - \frac{80}{49}h_0)}{2 \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2}} 
-\end{align}
+#+DOWNLOADED: screenshot @ 2021-12-02 12:15:27
+[[file:2021-12-02_12-15-27_screenshot.png]]
 
 
-Therefore, we could deduct that...
 
-\begin{align}
-    \Delta x_f =& \sqrt{(\frac{\partial x_f}{\partial H} \Delta H)^2 + (\frac{\partial x_f}{\partial h_0} \Delta h_0)^2} \\
-=& \sqrt{(\frac{-(\frac{200}{49}H-\frac{60}{49}h_0)}{2 \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2}} \Delta H)^2 + (\frac{-(-\frac{60}{49}H - \frac{80}{49}h_0)}{2 \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2}}  \Delta h_0)^2} \\
-=& \sqrt{\frac{(\frac{200}{49}H-\frac{60}{49}h_0)^2}{4 (\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2)} (\Delta H)^2 + \frac{(\frac{60}{49}H + \frac{80}{49}h_0)^2}{4 (\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2)} (\Delta h_0)^2} 
-\end{align}
+# * Error Analysis 
+# We have derived the fact that:
+
+# \begin{equation}
+#     x_f = \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}h^2}
+# \end{equation}
+
+# To deduct an expression for the potential sources of error, we take the partial derivatives of $x_f$ w.r.t. $H$ and $h_0$.
+
+# \begin{align}
+#     \frac{\partial x_f}{\partial H} = \frac{-(\frac{200}{49}H-\frac{60}{49}h_0)}{2 \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2}} 
+# \end{align}
+
+
+# \begin{align}
+#     \frac{\partial x_f}{\partial h_0} = \frac{-(-\frac{60}{49}H - \frac{80}{49}h_0)}{2 \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2}} 
+# \end{align}
+
+
+# Therefore, we could deduct that...
+
+# \begin{align}
+#     \Delta x_f =& \sqrt{(\frac{\partial x_f}{\partial H} \Delta H)^2 + (\frac{\partial x_f}{\partial h_0} \Delta h_0)^2} \\
+# =& \sqrt{(\frac{-(\frac{200}{49}H-\frac{60}{49}h_0)}{2 \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2}} \Delta H)^2 + (\frac{-(-\frac{60}{49}H - \frac{80}{49}h_0)}{2 \sqrt{\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2}}  \Delta h_0)^2} \\
+# =& \sqrt{\frac{(\frac{200}{49}H-\frac{60}{49}h_0)^2}{4 (\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2)} (\Delta H)^2 + \frac{(\frac{60}{49}H + \frac{80}{49}h_0)^2}{4 (\frac{100}{49}H^2 - \frac{60}{49}H h_0 - \frac{40}{49}{h_0}^2)} (\Delta h_0)^2} 
+# \end{align}

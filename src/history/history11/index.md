@@ -59,5 +59,5 @@ the next assignment: historigraphical in nature. synthesithing multiple argument
 - [[KBxCivilWarIntro]]
 - [[KBhCivilWar]] 
 - [[KBdEricFonerNotes]]
-
+- [[KBxCivilWarFinalInclass]]
 
