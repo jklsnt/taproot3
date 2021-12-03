@@ -32,9 +32,13 @@ chrismasu desuga?
 
 - shiyukudai o shinakudemoiidesu. // dont have to do hw
 - chrismasu ga suki desu. // i like chrismas
+
 - ame ga furu soudesu. // i **heard** it was gonna rain
+- ame ga fu tala, ureshiidesu.
 - ame ga daisuki desu. // i really like rain
-- takusan 
+- takusan tabemono ga arimasu // there will be lots of food
+	- tabemono ga oishi desu
+
 
 
 ### forms we just learned
