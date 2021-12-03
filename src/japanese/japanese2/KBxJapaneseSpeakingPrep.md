@@ -34,7 +34,7 @@ chrismasu desuga?
 - chrismasu ga suki desu. // i like chrismas
 
 - ame ga furu soudesu. // i **heard** it was gonna rain
-- ame ga fu tala, ureshiidesu.
+- ame ga fu tala, ureshiidesu. // if it rains, i will be happy
 - ame ga daisuki desu. // i really like rain
 - takusan tabemono ga arimasu // there will be lots of food
 	- tabemono ga oishi desu
