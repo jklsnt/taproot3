@@ -30,12 +30,17 @@ chrismasu desuga?
 
 - ane ga kimasu
 
-- 
+- shiyukudai o shinakudemoiidesu. // dont have to do hw
+- chrismasu ga suki desu. // i like chrismas
+- amega
 
 ### forms we just learned
 - nakutemo iidesu
 	- what you do not need to do
-- 
+	- neg te form
+- soudesu
+	- i heard
+	- plain form
 
 
 
