@@ -32,6 +32,11 @@ chrismasu desuga?
 
 - 
 
+### forms we just learned
+- nakutemo iidesu
+	- what you do not need to do
+- 
+
 
 
 
