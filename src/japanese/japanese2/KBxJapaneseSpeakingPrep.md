@@ -32,17 +32,24 @@ chrismasu desuga?
 
 - shiyukudai o shinakudemoiidesu. // dont have to do hw
 - chrismasu ga suki desu. // i like chrismas
-- amega
+- ame ga furu soudesu. // i **heard** it was gonna rain
+- ame ga daisuki desu. // i really like rain
+- takusan 
+
 
 ### forms we just learned
 - nakutemo iidesu
 	- what you do not need to do
 	- neg te form
+	
 - soudesu
 	- i heard
 	- plain form
 
-
+- ta ra
+	- if x, then y
+		- y tala x
+	- ta form :: te form but w/ ta
 
 
 
