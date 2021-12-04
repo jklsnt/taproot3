@@ -26,7 +26,7 @@ chrismasu desuga?
 - kazoku ga aimasu
 	- darega aimasu?
 	
-- obasan to ojisann ha aimasu
+- obasan to ojisann wa aimasu
 
 - ane ga kimasu
 
@@ -54,6 +54,21 @@ chrismasu desuga?
 	- if x, then y
 		- y tala x
 	- ta form :: te form but w/ ta
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

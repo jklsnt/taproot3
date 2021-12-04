@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-12-03 Fri 12:37 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MVC PS#22</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC PS#22</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-12-03 Fri 12:37</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org16d0b7f">1. Roofs Number 3</a>
+<ul>
+<li><a href="#org8dd4440">1.1. Slope in Middle</a></li>
+<li><a href="#orga6cd216">1.2. Facing the Peak</a></li>
+<li><a href="#orgac49493">1.3. Maximizing the Angle</a></li>
+</ul>
+</li>
+<li><a href="#orgf4db99d">2. Spinning Coffee Cups</a>
+<ul>
+<li><a href="#orgd4ef2c3">2.1. Deriving Velocity</a></li>
+<li><a href="#orgf60619d">2.2. Deriving Position</a></li>
+</ul>
+</li>
+<li><a href="#org6704b10">3. Optimizing a Function</a>
+<ul>
+<li><a href="#org4b75cf0">3.1. Optimizing Along a Dimention</a></li>
+<li><a href="#org293e8c5">3.2. Optimizing for Magnitude</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-org16d0b7f" class="outline-2">
+<h2 id="org16d0b7f"><span class="section-number-2">1</span> Roofs Number 3</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+One possible design for one side of the roof would be a simple cubic function; that:
+</p>
+
+\begin{equation}
+    f(x,y) = \frac{1}{8} x^3 \{0 \leq x \leq 4, -5 \leq y \leq 5\}
+\end{equation}
+
+
+<div id="org5be36c9" class="figure">
+<p><img src="2021-11-19_10-45-57_screenshot.png" alt="2021-11-19_10-45-57_screenshot.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8dd4440" class="outline-3">
+<h3 id="org8dd4440"><span class="section-number-3">1.1</span> Slope in Middle</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+The "middle" of the roof, therefore, is the location \((2,0)\), as indicated by the blue dot above.
+</p>
+
+<p>
+Standing in the middle, and facing the "ridge" (\(+x\)) direction, we could calculate the slope of the roof.
+</p>
+
+<p>
+The vector facing the ridge of the roof, to the positive \(x\) direction, is represented by
+</p>
+
+\begin{equation} \begin{bmatrix}
+1 \\
+0
+\end{bmatrix}
+\end{equation}
+
+<p>
+the gradient of this function is represented by:
+</p>
+
+\begin{equation} \begin{bmatrix}
+\frac{3}{8}x^2 \\
+0
+\end{bmatrix}
+\end{equation}
+
+<p>
+Therefore, at the center point as indicated, the gradient is:
+</p>
+
+\begin{equation} \begin{bmatrix}
+6 \\
+0
+\end{bmatrix}
+\end{equation}
+
+<p>
+Computing the dot product of the direction and the gradient as found, we arrive that &#x2014; at the center &#x2014; the slope is:
+</p>
+
+\begin{equation} \begin{bmatrix}
+1 \\
+0
+\end{bmatrix} \cdot \begin{bmatrix}
+6 \\
+0
+\end{bmatrix} = 6
+\end{equation}
+
+<p>
+Therefore, the slope as indicated is \(6 \approx 80.5^{\circ}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga6cd216" class="outline-3">
+<h3 id="orga6cd216"><span class="section-number-3">1.2</span> Facing the Peak</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+We first determine a vector that originates from the center of the roof, and facing towards one of the ridges; that:
+</p>
+
+\begin{equation}
+   \begin{bmatrix} 
+4 \\
+5
+   \end{bmatrix} - \begin{bmatrix}
+2 \\
+0
+\end{bmatrix} = \begin{bmatrix}
+2 \\
+5
+\end{bmatrix} 
+\end{equation}
+
+<p>
+Normalizing this vector, we arrive at:
+</p>
+
+\begin{equation}
+   \begin{bmatrix} 
+\frac{2}{\sqrt{29}} \\
+\frac{5}{\sqrt{29}} \\
+   \end{bmatrix} 
+\end{equation}
+
+<p>
+We will then project the gradient at the center point atop this vector:
+</p>
+
+\begin{equation}
+    \begin{bmatrix} 
+\frac{2}{\sqrt{29}} \\
+\frac{5}{\sqrt{29}} \\
+   \end{bmatrix} \cdot \begin{bmatrix}
+6 \\
+0
+\end{bmatrix} = \frac{12}{\sqrt{29}}
+\end{equation}
+
+<p>
+Therefore, the slope as indicated is \(\frac{12}{\sqrt{29}} \approx 65.83^{\circ}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgac49493" class="outline-3">
+<h3 id="orgac49493"><span class="section-number-3">1.3</span> Maximizing the Angle</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+To face in the steepest direction, we will need to face the direction of the gradient. As the gradient is
+</p>
+
+\begin{equation}
+   \begin{bmatrix} 
+6 \\0
+   \end{bmatrix} 
+\end{equation}
+
+<p>
+as derived above, the direction of the gradient is therefore: 
+</p>
+
+\begin{equation}
+   \begin{bmatrix} 
+\frac{6}{6} \\0
+   \end{bmatrix} = \begin{bmatrix} 
+1 \\0
+   \end{bmatrix} 
+\end{equation}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf4db99d" class="outline-2">
+<h2 id="orgf4db99d"><span class="section-number-2">2</span> Spinning Coffee Cups</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgd4ef2c3" class="outline-3">
+<h3 id="orgd4ef2c3"><span class="section-number-3">2.1</span> Deriving Velocity</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+The process of acceleration is modeled by the following expression:
+</p>
+
+\begin{equation}
+    a(t) = -3 cos(t)\hat{i} - 2 sin(t) \hat{j} + 0 \hat{k}
+\end{equation}
+
+<p>
+We begin by taking an indefinite integral in each component to result in the expression for velocity.
+</p>
+
+\begin{align}
+    \int a(t) dt &= \int -3 cos(t)\hat{i} - 2 sin(t) \hat{j} + 0 \hat{k}\ dt \\
+    &= (-3 sin(t) + C_1) \hat{i} + (2 cos(t) + C_2) \hat{j} + C_3 \hat{k}\ dt 
+\end{align}
+
+<p>
+Though this expression, we supply the base state \((0,2.1,1)\) at \(t=0\) to solve for the constants. 
+</p>
+
+\begin{equation}
+    (0, 2.1, 1) &= C_1 \hat{i} + (2+C_2) \hat{j} + C_3 \hat{k}\ 
+\end{equation}
+
+<p>
+Therefore, we could deduct that \(C_1 = 0\), \(C_2 = 2.1\), \(C_3 = 1\). Hence:
+</p>
+
+\begin{equation}
+    v(t) &= (-3 sin(t)) \hat{i} + (2 cos(t) + 0.1) \hat{j} + 1 \hat{k}
+\end{equation}
+
+<p>
+We could proceed to graph this expression:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">f(t) = (-3*sin(t), 2*cos(t)+0.1, 1)
+parametric_plot(f, (t, -5, 5), thickness=5)
+</pre>
+</div>
+
+
+<div id="orgcf7c92e" class="figure">
+<p><img src="2021-12-03_12-35-07_screenshot.png" alt="2021-12-03_12-35-07_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgf60619d" class="outline-3">
+<h3 id="orgf60619d"><span class="section-number-3">2.2</span> Deriving Position</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+The process of position is the indefinite integral of the velocity expression:
+</p>
+
+\begin{align}
+    \int v(t) dt &= -3 sin(t) \hat{i} + (2 cos(t) + 0.1) \hat{j} + \hat{k}\ dt\\
+&= (3cos(t)+C_1) \hat{i} + (2 sin(t) + 0.1t + C_2) \hat{j} + (t + C_3) \hat{k}
+\end{align}
+
+<p>
+Again, we supply the base state \((3,0,12)\) at \(t=0\) to solve for the constants.
+</p>
+
+\begin{equation}
+    (3,0,12) = (3+C_1) \hat{i} + C_2 \hat{j} + C_3 \hat{k}
+\end{equation}
+
+<p>
+Therefore, we deduct that \(C_1=0\), \(C_2 = 0\), \(C_3 = 12\). Hence:
+</p>
+
+\begin{equation}
+x(t) = 3cos(t) \hat{i} + (2 sin(t) + 0.1t ) \hat{j} + (t + 12) \hat{k}   
+\end{equation}
+
+<p>
+We could proceed to graph this expression:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">f(t) = (3*cos(t), (2*sin(t)+0.1*t), t+12)
+parametric_plot(f, (t, -5, 5), thickness=5)
+</pre>
+</div>
+
+
+<div id="orgb022323" class="figure">
+<p><img src="2021-12-03_12-34-50_screenshot.png" alt="2021-12-03_12-34-50_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org6704b10" class="outline-2">
+<h2 id="org6704b10"><span class="section-number-2">3</span> Optimizing a Function</h2>
+<div class="outline-text-2" id="text-3">
+\begin{equation}
+    h(x,y) = (x^2-2y+7) \hat{i} + (x^2 + y^2) \hat{j}
+\end{equation}
+
+<p>
+Optimizing a function \(h: \mathbb{R}^2 \to \mathbb{R}^2\) requires maximizing-minimizing various dimensions of output. It is possible to optimize along a direction &#x2014; thereby turning the problem onto one which involves the optimization of two functions \(\mathbb{R}^2 \to \mathbb{R}^1\). Or, it is possible to optimize the magnitude.
+</p>
+</div>
+
+<div id="outline-container-org4b75cf0" class="outline-3">
+<h3 id="org4b75cf0"><span class="section-number-3">3.1</span> Optimizing Along a Dimention</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+For optimizing the output along \(\hat{i}\), we create an expression \(g:\mathbb{R}^2 \to \mathbb{R}^1\) such that:
+</p>
+
+\begin{equation}
+g(x,y) = (x^2-2y+7)
+\end{equation}
+
+<p>
+Taking all the first and second derivatives of this expression, therefore, would be:
+</p>
+
+\begin{align}
+    g_x = 2x \\
+    g_y = -2 \\
+    g_xx = 2 \\
+    g_yy = 0 \\
+    g_xy = 0 
+\end{align}
+
+<p>
+Evidently, there is no zeros in \((g_x, g_y)\), meaning there are no minima or maxima in this dimension. Optimizing in the other dimention would follow the same procedure. 
+</p>
+
+<p>
+For optimizing along \(\hat{j}\), we repeat the same procedure. We create an \(f: \mathbb{R}^2 \to \mathbb{R}^1\) such that:
+</p>
+
+\begin{equation}
+   f(x,y) = x^2 + y^2
+\end{equation}
+
+<p>
+Taking, again, all derivatives of this expression:
+</p>
+
+\begin{align}
+    f_x = 2x \\
+    f_y = 2x \\
+    f_{xx} = 2 \\
+    f_{yy} = 2 \\
+    f_{xy} = 0 
+\end{align}
+
+<p>
+We could see that, at \((0,0)\), \(\nabla g = 0\). Applying the second partial derivative test at this point, we deduct that:
+</p>
+
+\begin{equation}
+    h = 4 - 0 = 4
+\end{equation}
+
+<p>
+As \(h\) is positive, and both \(f_{xx}\) and \(f_{yy}\) is positive, we deduct that the point \((0,0)\) is a local minimum in the \(\hat{j}\) dimension.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org293e8c5" class="outline-3">
+<h3 id="org293e8c5"><span class="section-number-3">3.2</span> Optimizing for Magnitude</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+The magnitude of the output space of this function, therefore, is:
+</p>
+
+\begin{equation}
+|h(x,y)| = \sqrt{(x^2-2y+7)^2 + (x^2 + y^2)^2}
+\end{equation}
+
+<p>
+Of course, we could see that, as the output of the square root function is always positive, optimizing this function would be functionally the same as optimizing for \((x^2-2y+7)^2 + (x^2 + y^2)^2\). 
+</p>
+
+<p>
+We first expand this expression by expanding all squares of expressions:
+</p>
+
+\begin{equation}
+2x^4 + 2x^2y^2 + y^4 - 4x^2y + 14x^2 + 4y^2 - 28y + 49
+\end{equation}
+
+<p>
+We then proceed to optimize a function \(g: \mathbb{R}^2 \to \mathbb{R}^1\) defined by this expression using the traditional second partial derivative test:
+</p>
+
+\begin{equation}
+   g(x,y) =  2x^4 + 2x^2y^2 + y^4 - 4x^2y + 14x^2 + 4y^2 - 28y + 49
+\end{equation}
+
+<p>
+To begin with this task, we first take the first and second partial derivatives of this expression:
+</p>
+
+\begin{align}
+   g_x &= 8x^3 + 4xy^2 - 8xy + 28x \\
+   g_y &= 4x^2y + 4y^3 -4x^2 + 8y - 28 \\
+   g_{xx} &= 24x^2 + 4y^2 -8y +28\\
+   g_{yy} &= 4x^2 + 12y^2 + 8 \\
+   g_{xy} &= 8xy - 8x
+\end{align}
+
+<p>
+To figure the critical points of this expression, we must solve for all values such that:
+</p>
+
+\begin{align}
+8x^3 + 4xy^2 - 8xy + 28x &= 0 \\
+4x^2y + 4y^3 -4x^2 + 8y - 28 &= 0 
+\end{align}
+
+<p>
+Leveraging the first expression, we hold \(x\) constant and solve a quadratic expression in \(y\):
+</p>
+
+\begin{equation}
+    y = \pm \sqrt{ -2x^2 - 6 } +1
+\end{equation}
+
+<p>
+Substituting this expression for \(y\) onto that below for \(x\), we derive an expression in \(x\) for the zero.
+</p>
+
+\begin{equation}
+    
+\pm 4x^2(\sqrt{ -2x^2 - 6 } + 1) \pm 4(\sqrt{ -2x^2 - 6 } +1)^3 -4x^2 \pm 8 (\sqrt{ -2x^2 - 6 } +1) - 28 &= 0 
+\end{equation}
+
+<p>
+At this point, we could solve for expressions for \(x\) for each combinations of \(\pm\) to figure critical points, then apply the second derivative test to figure the optimized points of magnitude. However, this expression, per discussion, is computationally much complex to optimize.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
