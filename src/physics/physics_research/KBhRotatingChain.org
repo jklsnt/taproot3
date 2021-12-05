@@ -74,7 +74,6 @@ Awesome. Let's now run a lovely little for loop to actually populate the values 
 for (i in 0:(t_max/dt)) {
     # We first populate the time column with the time, theta column with theta
     cTime[i] = time
-    cTheta[i] = theta
 
     # Given the theta value, we calculate the net torque and set that
     I_ROT <- I_CM + MASS * (L1*cos(theta))^2 # we calculate I_ROT using
@@ -90,6 +89,11 @@ for (i in 0:(t_max/dt)) {
     # velocity at that point
     thetadot <- dt*thetadotdot + thetadot
     cDTheta[i] = thetadot
+
+    # we then tally the theta value
+    theta <- dt*thetadot + theta
+    cTheta[i] = theta
+
     # We could therefore component-ize the acceleration in theta, times 
     # the length of the object until com, to figure the acceleratinos
     # of the com
@@ -132,7 +136,6 @@ for (i in 0:(t_max/dt)) {
     # We incriment the time and also increment theta by multiplying the velocity
     # by dt to get change in the next increment
     time <- dt + time
-    theta <- dt*thetadot + theta
 }
 #+end_src
 
