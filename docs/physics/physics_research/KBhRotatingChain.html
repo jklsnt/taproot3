@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-04 Sat 23:36 -->
+<!-- 2021-12-04 Sat 23:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rotating Chain Experiment: Floor</title>
@@ -222,7 +222,7 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-12-04 Sat 23:36</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-12-04 Sat 23:38</date></div>
 </div>
 <div id="content">
 <p>
@@ -230,7 +230,7 @@ Let's draw a picture of this situation!
 </p>
 
 
-<div id="org24a72f3" class="figure">
+<div id="orgaf769df" class="figure">
 <p><img src="2021-12-04_23-02-31_screenshot.png" alt="2021-12-04_23-02-31_screenshot.png" />
 </p>
 </div>
@@ -332,9 +332,10 @@ Awesome. Let's now run a lovely little for loop to actually populate the values 
     # We could therefore component-ize the acceleration in theta, times 
     # the length of the object until com, to figure the acceleratinos
     # of the com
-    ax &lt;- -1 * L1 * sin(theta) * thetadotdot
+    ## ax &lt;- -1 * L1 * sin(theta) * thetadotdot
+    ax &lt;- (-1*sin(theta)*thetadot^2+cos(theta)*thetadotdot)*L1
     cAccelX[i] = ax
-    ay &lt;- L1 * cos(theta) * thetadotdot
+    ## ay &lt;- L1 * cos(theta) * thetadotdot
     cAccelY[i] = ay # @mark isn't sin and cos backwards?
     # We also tally the components seperately for velocity
     vx &lt;- ax*dt + vx
@@ -459,7 +460,7 @@ Cool! We could first graph a function for theta over time.
 </div>
 
 
-<div id="org7568834" class="figure">
+<div id="org41fa192" class="figure">
 <p><img src="./chainrot_time_theta.png" alt="chainrot_time_theta.png" />
 </p>
 </div>
@@ -474,7 +475,7 @@ And, similarly, we will graph <code>ax</code> and <code>ay</code> on top of each
 </div>
 
 
-<div id="org70d6c55" class="figure">
+<div id="org82b5753" class="figure">
 <p><img src="./chainrot_time_accels.png" alt="chainrot_time_accels.png" />
 </p>
 </div>
@@ -489,7 +490,7 @@ Let's also plot torque as well.
 </div>
 
 
-<div id="org3c6ec17" class="figure">
+<div id="orgf8f3cfb" class="figure">
 <p><img src="./chainrot_torque.png" alt="chainrot_torque.png" />
 </p>
 </div>
@@ -504,7 +505,7 @@ And. <b>Most importantly!</b> Let's plot the normal force.
 </div>
 
 
-<div id="org85bf3bb" class="figure">
+<div id="org1658f1a" class="figure">
 <p><img src="./chainrot_normal.png" alt="chainrot_normal.png" />
 </p>
 </div>
@@ -523,7 +524,7 @@ Theta dot atop theta:
 </div>
 
 
-<div id="org5ce614e" class="figure">
+<div id="org1fd53c4" class="figure">
 <p><img src="./chainrot_thetadot_theta.png" alt="chainrot_thetadot_theta.png" />
 </p>
 </div>
@@ -538,7 +539,7 @@ We finally, plot KE rotation and translation
 </div>
 
 
-<div id="org9f1312f" class="figure">
+<div id="org7e601bf" class="figure">
 <p><img src="./chainrot_ke.png" alt="chainrot_ke.png" />
 </p>
 </div>
@@ -550,7 +551,7 @@ We finally, plot KE rotation and translation
 </div>
 
 
-<div id="org7094041" class="figure">
+<div id="org6356bb7" class="figure">
 <p><img src="./chainrot_x_y_pos.png" alt="chainrot_x_y_pos.png" />
 </p>
 </div>
