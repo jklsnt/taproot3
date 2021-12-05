@@ -6,7 +6,10 @@
 
 #+PROPERTY: header-args :tangle rotating_chain.r :results verbatim :exports both :session processing_image
 
-10 beads, 0.311 grams
+Let's draw a picture of this situation!
+
+#+DOWNLOADED: screenshot @ 2021-12-04 23:02:31
+[[file:2021-12-04_23-02-31_screenshot.png]]
 
 We first set up the basic assumptions and variables.
 
@@ -73,11 +76,11 @@ for (i in 0:(t_max/dt)) {
     cTime[i] = time
     cTheta[i] = theta
 
+    # Given the theta value, we calculate the net torque and set that
     I_ROT <- I_CM + MASS * (L1*cos(theta))^2 # we calculate I_ROT using
                                              # the Parallel axis theorem
 
     torque <- L2 * FT * cos(theta + PHI) - L1 * MASS * GRAV * cos(theta - OMEGA)
-    # Given the theta value, we calculate the net torque and set that
     cTorqueNet[i] = torque
     # Now that we know the net torque, we could know how much the angular
     # acceleration is by just dividing out the rotational inertia
@@ -87,8 +90,9 @@ for (i in 0:(t_max/dt)) {
     # velocity at that point
     thetadot <- dt*thetadotdot + thetadot
     cDTheta[i] = thetadot
-    # We could therefore component-ize the acceleration in theta into
-    # ax and ay
+    # We could therefore component-ize the acceleration in theta, times 
+    # the length of the object until com, to figure the acceleratinos
+    # of the com
     ax <- -1 * L1 * sin(theta) * thetadotdot
     cAccelX[i] = ax
     ay <- L1 * cos(theta) * thetadotdot

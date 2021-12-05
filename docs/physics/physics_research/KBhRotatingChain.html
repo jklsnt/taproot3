@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-02 Thu 09:52 -->
+<!-- 2021-12-04 Sat 23:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rotating Chain Experiment: Floor</title>
@@ -222,12 +222,18 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-12-02 Thu 09:52</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-12-04 Sat 23:16</date></div>
 </div>
 <div id="content">
 <p>
-10 beads, 0.311 grams
+Let's draw a picture of this situation!
 </p>
+
+
+<div id="org09e1e0a" class="figure">
+<p><img src="2021-12-04_23-02-31_screenshot.png" alt="2021-12-04_23-02-31_screenshot.png" />
+</p>
+</div>
 
 <p>
 We first set up the basic assumptions and variables.
@@ -305,11 +311,11 @@ Awesome. Let's now run a lovely little for loop to actually populate the values 
     cTime[i] = time
     cTheta[i] = theta
 
+    # Given the theta value, we calculate the net torque and set that
     I_ROT &lt;- I_CM + MASS * (L1*cos(theta))^2 # we calculate I_ROT using
 					     # the Parallel axis theorem
 
     torque &lt;- L2 * FT * cos(theta + PHI) - L1 * MASS * GRAV * cos(theta - OMEGA)
-    # Given the theta value, we calculate the net torque and set that
     cTorqueNet[i] = torque
     # Now that we know the net torque, we could know how much the angular
     # acceleration is by just dividing out the rotational inertia
@@ -319,8 +325,9 @@ Awesome. Let's now run a lovely little for loop to actually populate the values 
     # velocity at that point
     thetadot &lt;- dt*thetadotdot + thetadot
     cDTheta[i] = thetadot
-    # We could therefore component-ize the acceleration in theta into
-    # ax and ay
+    # We could therefore component-ize the acceleration in theta, times 
+    # the length of the object until com, to figure the acceleratinos
+    # of the com
     ax &lt;- -1 * L1 * sin(theta) * thetadotdot
     cAccelX[i] = ax
     ay &lt;- L1 * cos(theta) * thetadotdot
@@ -449,7 +456,7 @@ Cool! We could first graph a function for theta over time.
 </div>
 
 
-<div id="org79a64ab" class="figure">
+<div id="org15dca55" class="figure">
 <p><img src="./chainrot_time_theta.png" alt="chainrot_time_theta.png" />
 </p>
 </div>
@@ -464,7 +471,7 @@ And, similarly, we will graph <code>ax</code> and <code>ay</code> on top of each
 </div>
 
 
-<div id="org394af5a" class="figure">
+<div id="orga349aac" class="figure">
 <p><img src="./chainrot_time_accels.png" alt="chainrot_time_accels.png" />
 </p>
 </div>
@@ -479,7 +486,7 @@ Let's also plot torque as well.
 </div>
 
 
-<div id="org0250e39" class="figure">
+<div id="orga16e308" class="figure">
 <p><img src="./chainrot_torque.png" alt="chainrot_torque.png" />
 </p>
 </div>
@@ -494,7 +501,7 @@ And. <b>Most importantly!</b> Let's plot the normal force.
 </div>
 
 
-<div id="org64560ea" class="figure">
+<div id="org9ee21a0" class="figure">
 <p><img src="./chainrot_normal.png" alt="chainrot_normal.png" />
 </p>
 </div>
@@ -513,7 +520,7 @@ Theta dot atop theta:
 </div>
 
 
-<div id="org5c3b3c4" class="figure">
+<div id="org1fcb73f" class="figure">
 <p><img src="./chainrot_thetadot_theta.png" alt="chainrot_thetadot_theta.png" />
 </p>
 </div>
@@ -528,7 +535,7 @@ We finally, plot KE rotation and translation
 </div>
 
 
-<div id="org8663b21" class="figure">
+<div id="orgcafcf61" class="figure">
 <p><img src="./chainrot_ke.png" alt="chainrot_ke.png" />
 </p>
 </div>
@@ -540,7 +547,7 @@ We finally, plot KE rotation and translation
 </div>
 
 
-<div id="orga60b3e7" class="figure">
+<div id="org82de000" class="figure">
 <p><img src="./chainrot_x_y_pos.png" alt="chainrot_x_y_pos.png" />
 </p>
 </div>
