@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-02 Thu 09:48 -->
+<!-- 2021-12-05 Sun 20:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rotating Chain Experiment: No Floor</title>
@@ -222,7 +222,7 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: No Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-12-02 Thu 09:48</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: No Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-12-05 Sun 20:44</date></div>
 </div>
 <div id="content">
 <p>
@@ -234,9 +234,9 @@ We first set up the same set of basic assumptions and variables.
 MASS &lt;- 3.11*10^(-5) # mass (kg)
 I_CM &lt;- 9.85*10^(-5) # roational inertia (kg m^2)
 PHI &lt;- pi/6 # angle of Ft relative to floor (parallel) (rad)
-L &lt;- 0.5 # distance from the center of mass (of rotation point) to tenson (m)
-FT &lt;- 12 # tension force (N)
-OMEGA &lt;- 0.1 # angle of line orthogonal to floor relative to gravity (rad) (because shifted axis)
+L &lt;-0.0017 # distance from the center of mass (of rotation point) to tenson (m)
+FT &lt;- 5*10^(-4) # tension force (N)
+OMEGA &lt;- 0 # angle of line orthogonal to floor relative to gravity (rad) (because shifted axis)
 </pre>
 </div>
 
@@ -406,12 +406,12 @@ Let's first see the head of this table:
 </div>
 
 <pre class="example">
-1e-04	6.23538290724796e-07	0.0124707635697569	62.353806625089	5.19615055209075	6.97836748313892	0.64126402568861	6.97836748313892	0.64126402568861	2.09351024494167e-07	1.92379207706583e-08	6.47999766719895e-06	9.82176645607458e-07
-2e-04	1.87061464770048e-06	0.0187061397427812	62.3537617302432	5.1961468108536	6.97836748313892	0.64126402568861	6.97836748313892	0.64126402568861	4.18702048988335e-07	3.84758415413166e-08	1.45799860031857e-05	2.20989745261678e-06
-3e-04	3.7412286219786e-06	0.0249415091815625	62.3536943878128	5.1961411989844	6.97836748313892	0.64126402568861	6.97836748313892	0.64126402568861	6.97836748313892e-07	6.4126402568861e-08	2.59199533439152e-05	3.92870658242983e-06
-4e-04	6.23537954013485e-06	0.0311768696413229	62.353604597604	5.196133716467	6.97836748313892	0.64126402568861	6.97836748313892	0.64126402568861	1.04675512247084e-06	9.61896038532915e-08	4.04998833596683e-05	6.13860403504662e-06
-5e-04	9.35306650426713e-06	0.0374122188772587	62.3534923593581	5.19612436327984	6.97836748313892	0.64126402568861	6.97836748313892	0.64126402568861	1.46545717145917e-06	1.34665445394608e-07	5.83197550549962e-05	8.83958981046713e-06
-6e-04	1.3094288391993e-05	0.0436475546445339	62.3533576727519	5.19611313939599	6.97836748313892	0.64126402568861	6.97836748313892	0.64126402568861	1.9539428952789e-06	1.79553927192811e-07	7.93795427686487e-05	1.20316639086914e-05
+1e-04	7.47331566717536e-11	1.49466313340283e-06	0.00747331566685291	7.36121593185011e-07	8.03858520900321	4.12323800296525	8.03858520900321	4.12323800296525	2.41157556270096e-07	1.23697140088958e-07	1.10025380705913e-16	5.07676050383143e-11
+2e-04	2.24199470012036e-10	2.24199470002363e-06	0.007473315666208	7.36121593121488e-07	8.03858520900321	4.12323800296525	8.03858520900321	4.12323800296525	4.82315112540193e-07	2.47394280177915e-07	2.47557106570501e-16	1.14227111336207e-10
+3e-04	4.48398940014399e-10	2.98932626654769e-06	0.00747331566524064	7.36121593026203e-07	8.03858520900321	4.12323800296525	8.03858520900321	4.12323800296525	8.03858520900321e-07	4.12323800296525e-07	4.40101522747694e-16	2.03070420153257e-10
+4e-04	7.47331566669168e-10	3.73665783294277e-06	0.00747331566395083	7.36121592899157e-07	8.03858520900321	4.12323800296525	8.03858520900321	4.12323800296525	1.20578778135048e-06	6.18485700444788e-07	6.8765862920426e-16	3.17297531489464e-10
+5e-04	1.12099734996345e-09	4.48398939917663e-06	0.00747331566233857	7.36121592740349e-07	8.03858520900321	4.12323800296525	8.03858520900321	4.12323800296525	1.68810289389067e-06	8.65879980622703e-07	9.90228425897474e-16	4.56908445344829e-10
+6e-04	1.56939628988111e-09	5.23132096521702e-06	0.00747331566040385	7.3612159254978e-07	8.03858520900321	4.12323800296525	8.03858520900321	4.12323800296525	2.2508038585209e-06	1.15450664083027e-06	1.34781091277512e-15	6.2190316171935e-10
 </pre>
 
 
@@ -435,7 +435,7 @@ We will graph <code>ax</code> and <code>ay</code> on top of each other:
 </div>
 
 
-<div id="orgdd9aba2" class="figure">
+<div id="org1eee015" class="figure">
 <p><img src="./chainrot_time_accels_notable.png" alt="chainrot_time_accels_notable.png" />
 </p>
 </div>
@@ -451,7 +451,7 @@ Theta dot atop theta:
 </div>
 
 
-<div id="org05c8361" class="figure">
+<div id="orge2837e1" class="figure">
 <p><img src="./chainrot_thetadot_theta_notable.png" alt="chainrot_thetadot_theta_notable.png" />
 </p>
 </div>
@@ -466,7 +466,7 @@ We finally, plot KE rotation and translation
 </div>
 
 
-<div id="orgd0c1be9" class="figure">
+<div id="org5d7a24d" class="figure">
 <p><img src="./chainrot_ke_notable.png" alt="chainrot_ke_notable.png" />
 </p>
 </div>
@@ -481,7 +481,7 @@ Let's also plot torque as well.
 </div>
 
 
-<div id="org1aefdd6" class="figure">
+<div id="org6128291" class="figure">
 <p><img src="./chainrot_torque_notable.png" alt="chainrot_torque_notable.png" />
 </p>
 </div>
@@ -496,10 +496,14 @@ Finally, let's plot velocity and position
 </div>
 
 
-<div id="org000d1e8" class="figure">
+<div id="org5afaf79" class="figure">
 <p><img src="./chainrot_x_y_pos_notable.png" alt="chainrot_x_y_pos_notable.png" />
 </p>
 </div>
+
+<p>
+<b><b>no floor</b></b>
+</p>
 </div>
 </body>
 </html>

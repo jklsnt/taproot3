@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-04 Sat 23:39 -->
+<!-- 2021-12-05 Sun 21:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rotating Chain Experiment: Floor</title>
@@ -222,7 +222,7 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-12-04 Sat 23:38</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-12-05 Sun 21:07</date></div>
 </div>
 <div id="content">
 <p>
@@ -230,7 +230,7 @@ Let's draw a picture of this situation!
 </p>
 
 
-<div id="orgaf769df" class="figure">
+<div id="org194caaf" class="figure">
 <p><img src="2021-12-04_23-02-31_screenshot.png" alt="2021-12-04_23-02-31_screenshot.png" />
 </p>
 </div>
@@ -241,13 +241,13 @@ We first set up the basic assumptions and variables.
 
 <div class="org-src-container">
 <pre class="src src-R">GRAV &lt;- 9.8 # gravity (m/s^2)
-MASS &lt;- 1 # mass (kg)
-I_CM &lt;- 1/12 # roational inertia at the centre of gravity (kg m^2)
-L1 &lt;- 0.5 # distance from rotation point to CoM (m)
-L2 &lt;- 1 # distance from rotation point to tension (m)
-PHI &lt;- pi/6 # angle of Ft relative to floor (parallel) (rad)
-FT &lt;- 12 # tension force (N)
-OMEGA &lt;- 0.1 # angle of line orthogonal to floor relative to gravity (rad) (because shifted axis)
+MASS &lt;- 3.11*10^(-5) # mass (kg)
+I_CM &lt;- 9.85*10^(-5) # roational inertia at the centre of gravity (kg m^2)
+L1 &lt;- 0.0017 # distance from rotation point to CoM (m)
+L2 &lt;- 0.0034 # distance from rotation point to tension (m)
+PHI &lt;- pi/6 # angle of Ft relative to floor (orthogonal) (rad)
+FT &lt;- 5*10^(-4) # tension force (N)
+OMEGA &lt;- 0 # angle of line orthogonal to floor relative to gravity (rad) (because shifted axis)
 </pre>
 </div>
 
@@ -257,7 +257,7 @@ Additionally, we set the time interval and seed values for time and theta (dista
 
 <div class="org-src-container">
 <pre class="src src-R">dt &lt;- 0.0001
-t_max &lt;- 5 
+t_max &lt;- 1 
 
 vx &lt;- 0
 vy &lt;- 0
@@ -285,8 +285,13 @@ cAccelX = NULL
 cAccelY = NULL
 cVelX = NULL
 cVelY = NULL
+
 cPosX = NULL
 cPosY = NULL
+
+cPosPX = NULL
+cPosPY = NULL
+
 cFFriction = NULL
 cFNormal = NULL
 
@@ -305,14 +310,15 @@ cKETrans = NULL
 Awesome. Let's now run a lovely little for loop to actually populate the values recursively.
 </p>
 
+
 <div class="org-src-container">
 <pre class="src src-R">for (i in 0:(t_max/dt)) {
     # We first populate the time column with the time, theta column with theta
     cTime[i] = time
 
     # Given the theta value, we calculate the net torque and set that
-    I_ROT &lt;- I_CM + MASS * (L1*cos(theta))^2 # we calculate I_ROT using
-					     # the Parallel axis theorem
+    I_ROT &lt;- I_CM + MASS * L1^2 # we calculate I_ROT using
+				# the Parallel axis theorem
 
     torque &lt;- L2 * FT * cos(theta + PHI) - L1 * MASS * GRAV * cos(theta - OMEGA)
     cTorqueNet[i] = torque
@@ -332,11 +338,15 @@ Awesome. Let's now run a lovely little for loop to actually populate the values 
     # We could therefore component-ize the acceleration in theta, times 
     # the length of the object until com, to figure the acceleratinos
     # of the com
-    ## ax &lt;- -1 * L1 * sin(theta) * thetadotdot
-    ax &lt;- (-1*sin(theta)*thetadot^2+cos(theta)*thetadotdot)*L1
+    ax &lt;- -1 * L1 * sin(theta) * thetadotdot
     cAccelX[i] = ax
-    ## ay &lt;- L1 * cos(theta) * thetadotdot
+    ay &lt;- L1 * cos(theta) * thetadotdot
     cAccelY[i] = ay # @mark isn't sin and cos backwards?
+
+    # "position prime": calculated positino
+    cPosPX[i] = cos(theta)*L1
+    cPosPY[i] = sin(theta)*L1
+
     # We also tally the components seperately for velocity
     vx &lt;- ax*dt + vx
     vy &lt;- ay*dt + vy
@@ -390,6 +400,8 @@ We now put all of this together in a dataframe.
 			    cAccelY,
 			    cPosX,
 			    cPosY,
+			    cPosPX,
+			    cPosPY,
 			    cFFriction,
 			    cFNormal,
 			    cMuStatic,
@@ -405,6 +417,8 @@ names(rotating_link) &lt;- c("time",
 			  "accel.y",
 			  "pos.x",
 			  "pos.y",
+			  "pos.p.x",
+			  "pos.p.y",
 			  "friction.force",
 			  "normal.force",
 			  "friction.coeff",
@@ -432,12 +446,12 @@ Let's first see the head of this table:
 </div>
 
 <pre class="example">
-1e-04	1.65503533066528e-07	0.00331007033913572	16.5503500847044	5.51678336156803	-1.36957070625324e-06	8.27517504235209	-1.36957070625324e-14	2.48255283490049e-07	6.97836885270962	7.63391101666348	0.91412761263225	1.82609427500431e-06	1.36957070625325e-06
-2e-04	4.965105669801e-07	0.00496510470321662	16.5503436408089	5.51678121360196	-4.1087102524066e-06	8.27517182040345	-6.84785166491308e-14	4.96510518650869e-07	6.97837159184917	7.63390779471484	0.914128357258976	4.10871078564987e-06	3.08153308923784e-06
-3e-04	9.93021037301762e-07	0.00662013810071352	16.550333974969	5.51677799165225	-8.21741490575579e-06	8.27516698748041	-2.05435475293287e-13	8.27517423686492e-07	6.97837570055382	7.6339029617918	0.914129474199641	7.30437141208106e-06	5.47827855906406e-06
-4e-04	1.65503484737311e-06	0.00827517020943236	16.5503210871885	5.51677369571816	-1.36956790672492e-05	8.2751605435829	-4.79349224609936e-13	1.24127593415794e-06	6.97838117881798	7.6338965178943	0.914130963454935	1.14130736658227e-05	8.55980524938151e-06
-5e-04	2.48255186831635e-06	0.00993020070717963	16.5503049774726	5.51676832579872	-2.0543495271494e-05	8.27515248871082	-9.58697926641525e-13	1.73778596951651e-06	6.97838802663419	7.63388846302222	0.914132825025777	1.64348143474025e-05	1.23261107605995e-05
-6e-04	3.47557193903431e-06	0.0115852292717624	16.550285645828	5.5167618818927	-2.87608541867632e-05	8.27514282286404	-1.72565517054075e-12	2.31704743310371e-06	6.9783962439931	7.63387879717543	0.91413505891332	2.23695895463475e-05	1.67771921598887e-05
+1e-04	2.9059380176551e-10	1.9372920117422e-06	0.00968646005829307	9.54117186351211e-07	-4.78520293178154e-15	1.64669820990982e-05	-7.97533822000296e-23	4.94009463001366e-13	0.0017	4.94009463001367e-13	0.00025	-0.000128232189769076	-1.94958848047598	1.8484036034639e-16	1.68662452673712e-22
+2e-04	5.81187603505943e-10	2.90593801740433e-06	0.0096864600566213	9.54117186186541e-07	-9.57040586149841e-15	1.64669820962562e-05	-2.39260146573936e-22	9.88018925960103e-13	0.0017	9.88018925960103e-13	0.00025	-0.000128232189769076	-1.94958848047598	4.15890810719562e-16	3.79490518461272e-22
+3e-04	9.68646005787513e-10	3.8745840228157e-06	0.00968646005411363	9.54117185939536e-07	-1.59506764307837e-14	1.64669820919932e-05	-5.5827367525568e-22	1.64669820983877e-12	0.0017	1.64669820983877e-12	0.00025	-0.000128232189769076	-1.94958848047598	7.39361441130349e-16	6.74649810461973e-22
+4e-04	1.45296900857678e-09	4.8432300278927e-06	0.00968646005077009	9.54117185610197e-07	-2.39260146361963e-14	1.64669820863092e-05	-1.11654735029939e-21	2.47004731458053e-12	0.0017	2.47004731458053e-12	0.000250000000000001	-0.000128232189769076	-1.94958848047598	1.1552522514671e-15	1.05414032857393e-21
+5e-04	2.03415661183196e-09	5.81187603255177e-06	0.00968646004659066	9.54117185198522e-07	-3.34964204733314e-14	1.64669820792041e-05	-2.00978523007641e-21	3.45806624011433e-12	0.0017	3.45806624011433e-12	0.000250000000000001	-0.000128232189769077	-1.94958848047597	1.66356324158625e-15	1.51796207266616e-21
+6e-04	2.71220881550289e-09	6.7805220367093e-06	0.00968646004157534	9.54117184704513e-07	-4.46618939368211e-14	1.64669820706781e-05	-3.34964204922164e-21	4.61075498635491e-12	0.0017	4.61075498635491e-12	0.000250000000000001	-0.000128232189769077	-1.94958848047597	2.26429441131234e-15	2.06611504257856e-21
 </pre>
 
 
@@ -460,7 +474,7 @@ Cool! We could first graph a function for theta over time.
 </div>
 
 
-<div id="org41fa192" class="figure">
+<div id="org1d03d32" class="figure">
 <p><img src="./chainrot_time_theta.png" alt="chainrot_time_theta.png" />
 </p>
 </div>
@@ -475,7 +489,7 @@ And, similarly, we will graph <code>ax</code> and <code>ay</code> on top of each
 </div>
 
 
-<div id="org82b5753" class="figure">
+<div id="org8bdf8f6" class="figure">
 <p><img src="./chainrot_time_accels.png" alt="chainrot_time_accels.png" />
 </p>
 </div>
@@ -490,7 +504,7 @@ Let's also plot torque as well.
 </div>
 
 
-<div id="orgf8f3cfb" class="figure">
+<div id="org0d86943" class="figure">
 <p><img src="./chainrot_torque.png" alt="chainrot_torque.png" />
 </p>
 </div>
@@ -505,7 +519,7 @@ And. <b>Most importantly!</b> Let's plot the normal force.
 </div>
 
 
-<div id="org1658f1a" class="figure">
+<div id="org3045a56" class="figure">
 <p><img src="./chainrot_normal.png" alt="chainrot_normal.png" />
 </p>
 </div>
@@ -518,17 +532,6 @@ Obviously, after the normal force becomes negative, this graph stops being usefu
 Theta dot atop theta:
 </p>
 
-<div class="org-src-container">
-<pre class="src src-R">rotating_link %&gt;% ggplot() + geom_line(aes(x=time, y=theta, colour="theta")) + geom_line(aes(x=time, y=d.theta, colour="theta dot")) + scale_colour_manual("", breaks = c("theta", "theta dot"), values = c("blue", "brown")) + ylab("radians") + default.theme
-</pre>
-</div>
-
-
-<div id="org1fd53c4" class="figure">
-<p><img src="./chainrot_thetadot_theta.png" alt="chainrot_thetadot_theta.png" />
-</p>
-</div>
-
 <p>
 We finally, plot KE rotation and translation
 </p>
@@ -539,7 +542,7 @@ We finally, plot KE rotation and translation
 </div>
 
 
-<div id="org7e601bf" class="figure">
+<div id="orgbaca9fd" class="figure">
 <p><img src="./chainrot_ke.png" alt="chainrot_ke.png" />
 </p>
 </div>
@@ -551,9 +554,40 @@ We finally, plot KE rotation and translation
 </div>
 
 
-<div id="org6356bb7" class="figure">
+<div id="org9a656cb" class="figure">
 <p><img src="./chainrot_x_y_pos.png" alt="chainrot_x_y_pos.png" />
 </p>
+</div>
+
+<p>
+<b><b>floor</b></b>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">rotating_link %&gt;% ggplot() + geom_line(aes(x=time, y=pos.p.x, colour="x position")) + geom_line(aes(x=time, y=pos.p.y, colour="y position")) + scale_colour_manual("", breaks = c("x position", "y position"), values = c("red", "dark green")) + ylab("metres") + default.theme
+</pre>
+</div>
+
+
+<div id="orgc22b045" class="figure">
+<p><img src="./chainrot_x_y_pos_p.png" alt="chainrot_x_y_pos_p.png" />
+</p>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-R">rotating_link %&gt;% ggplot() + geom_line(aes(x=time, y=theta, colour="theta")) + geom_line(aes(x=time, y=d.theta, colour="theta dot")) + scale_colour_manual("", breaks = c("theta", "theta dot"), values = c("blue", "brown")) + ylab("radians") + default.theme
+</pre>
+</div>
+
+
+<div id="org798155a" class="figure">
+<p><img src="./chainrot_thetadot_theta.png" alt="chainrot_thetadot_theta.png" />
+</p>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-R">rotating_link %&gt;% ggplot() + geom_line(aes(x=time, y=dd.theta, colour="thetadd")) + scale_colour_manual("", breaks = c("theta"), values = c("blue")) + ylab("radians") + default.theme
+</pre>
 </div>
 </div>
 </body>
