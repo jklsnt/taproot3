@@ -106,7 +106,7 @@ $$ \displaystyle \omega _{0}={\frac {1}{\sqrt {LC}}} $$
 
 ## the experiment.
 
-#### ex1
+#### ex2.pt1
 - took three resistors in parrelel to make it work
 - taped down the magnetic field sensor right ontop of the wire
 - had a large wire loop far away from the sensor, w/ battery, resistors in parrelel, current sensor.
@@ -115,7 +115,7 @@ $$ \displaystyle \omega _{0}={\frac {1}{\sqrt {LC}}} $$
 - we changed
 	- the resistence, from 2 resistors to 3.
 
-#### ex2
+#### ex2.pt2
 - same thing as earlier, but we removed resistors
 	- this is because we don't care about being able to measure the current as long as it is consistent
 
@@ -125,12 +125,21 @@ $$ \displaystyle \omega _{0}={\frac {1}{\sqrt {LC}}} $$
 		- the r = 1/4 in
 		
 #### ex3 
-- I was doing AP stuff!
+- loop the coil, tape it down
+	- 3 loops
+	- diameter 3 1/8 inch
+- current is too high to be measured
+	- maintain current, change distance
 
+something missing here!!
 
+changed current with resistor, kept distance the same
+z distance was equal to height of end of sensor
+- roughly one centimeter
 
-
-
+diameter
+8 coils, 3/2 cm 
+8 coils, 10 cm
 
 
 

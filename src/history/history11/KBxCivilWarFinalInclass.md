@@ -79,12 +79,13 @@ w/ @exr0n!!!!!! :)))) !!! wuuu
 
 something cool with threejs or blender.
 
+***
+*inclass, pt2*
 
 
-
-
-
-
+![[IMG_4806.jpg||800]]
+![[IMG_4807.jpg]]
+![[IMG_4808.jpg]]
 
 
 

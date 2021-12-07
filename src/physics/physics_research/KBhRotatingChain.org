@@ -15,25 +15,36 @@ We first set up the basic assumptions and variables.
 
 #+begin_src R :results none
 GRAV <- 9.8 # gravity (m/s^2)
-MASS <- 3.11*10^(-5) # mass (kg)
-I_CM <- 9.85*10^(-5) # roational inertia at the centre of gravity (kg m^2)
-L1 <- 0.0017 # distance from rotation point to CoM (m)
-L2 <- 0.0034 # distance from rotation point to tension (m)
-PHI <- pi/6 # angle of Ft relative to floor (orthogonal) (rad)
-FT <- 5*10^(-4) # tension force (N)
+MASS <- 1 # mass (kg)
+I_CM <- 1/12 # roational inertia at the centre of gravity (kg m^2)
+L1 <- 0.5 # distance from rotation point to CoM (m)
+L2 <- 1 # distance from rotation point to tension (m)
+PHI <- 0 # angle of Ft relative to floor (orthogonal) (rad)
+FT <- 11 # tension force (N)
 OMEGA <- 0 # angle of line orthogonal to floor relative to gravity (rad) (because shifted axis)
 #+end_src
+
+# #+begin_src R :results none
+# GRAV <- 9.8 # gravity (m/s^2)
+# MASS <- 3.11*10^(-5) # mass (kg)
+# I_CM <- 9.85*10^(-5) # roational inertia at the centre of gravity (kg m^2)
+# L1 <- 0.0017 # distance from rotation point to CoM (m)
+# L2 <- 0.0034 # distance from rotation point to tension (m)
+# PHI <- 0 # angle of Ft relative to floor (orthogonal) (rad)
+# FT <- 1*10^(-2) # tension force (N)
+# OMEGA <- 0 # angle of line orthogonal to floor relative to gravity (rad) (because shifted axis)
+# #+end_src
 
 Additionally, we set the time interval and seed values for time and theta (distance from flat):
 
 #+begin_src R :results none
-dt <- 0.0001
-t_max <- 1 
+dt <- 0.00001
+t_max <- 0.5
 
 vx <- 0
 vy <- 0
 
-x <- 0
+x <- L1 # initial x is L1 because that's the Rotation Point => CoM distance, and rot point is 0
 y <- 0
 
 theta <- 0
@@ -201,12 +212,12 @@ head(rotating_link)
 #+end_src
 
 #+RESULTS:
-: 1e-04	2.9059380176551e-10	1.9372920117422e-06	0.00968646005829307	9.54117186351211e-07	-4.78520293178154e-15	1.64669820990982e-05	-7.97533822000296e-23	4.94009463001366e-13	0.0017	4.94009463001367e-13	0.00025	-0.000128232189769076	-1.94958848047598	1.8484036034639e-16	1.68662452673712e-22
-: 2e-04	5.81187603505943e-10	2.90593801740433e-06	0.0096864600566213	9.54117186186541e-07	-9.57040586149841e-15	1.64669820962562e-05	-2.39260146573936e-22	9.88018925960103e-13	0.0017	9.88018925960103e-13	0.00025	-0.000128232189769076	-1.94958848047598	4.15890810719562e-16	3.79490518461272e-22
-: 3e-04	9.68646005787513e-10	3.8745840228157e-06	0.00968646005411363	9.54117185939536e-07	-1.59506764307837e-14	1.64669820919932e-05	-5.5827367525568e-22	1.64669820983877e-12	0.0017	1.64669820983877e-12	0.00025	-0.000128232189769076	-1.94958848047598	7.39361441130349e-16	6.74649810461973e-22
-: 4e-04	1.45296900857678e-09	4.8432300278927e-06	0.00968646005077009	9.54117185610197e-07	-2.39260146361963e-14	1.64669820863092e-05	-1.11654735029939e-21	2.47004731458053e-12	0.0017	2.47004731458053e-12	0.000250000000000001	-0.000128232189769076	-1.94958848047598	1.1552522514671e-15	1.05414032857393e-21
-: 5e-04	2.03415661183196e-09	5.81187603255177e-06	0.00968646004659066	9.54117185198522e-07	-3.34964204733314e-14	1.64669820792041e-05	-2.00978523007641e-21	3.45806624011433e-12	0.0017	3.45806624011433e-12	0.000250000000000001	-0.000128232189769077	-1.94958848047597	1.66356324158625e-15	1.51796207266616e-21
-: 6e-04	2.71220881550289e-09	6.7805220367093e-06	0.00968646004157534	9.54117184704513e-07	-4.46618939368211e-14	1.64669820706781e-05	-3.34964204922164e-21	4.61075498635491e-12	0.0017	4.61075498635491e-12	0.000250000000000001	-0.000128232189769077	-1.94958848047597	2.26429441131234e-15	2.06611504257856e-21
+: 1e-05	5.49e-09	0.000366	18.3	6.1	-5.02335e-08	9.15	0.5	2.745e-09	0.5	2.745e-09	5.02335e-08	7.95	6.31867924528302e-09	2.2326e-08	1.67445e-08
+: 2e-05	1.098e-08	0.000549	18.3	6.1	-1.00467e-07	9.15	0.5	5.49e-09	0.5	5.49e-09	1.00467e-07	7.95	1.2637358490566e-08	5.02335e-08	3.7675125e-08
+: 3e-05	1.83e-08	0.000732	18.3	6.1	-1.67445e-07	9.15	0.5	9.15e-09	0.5	9.15e-09	1.67445e-07	7.95	2.10622641509434e-08	8.9304e-08	6.6978e-08
+: 4e-05	2.745e-08	0.000915	18.3	6.1	-2.511675e-07	9.15	0.5	1.3725e-08	0.5	1.3725e-08	2.511675e-07	7.95	3.15933962264151e-08	1.395375e-07	1.04653125e-07
+: 5e-05	3.843e-08	0.001098	18.3	6.1	-3.516345e-07	9.14999999999999	0.5	1.9215e-08	0.5	1.9215e-08	3.516345e-07	7.94999999999999	4.42307547169812e-08	2.00934e-07	1.507005e-07
+: 6e-05	5.124e-08	0.001281	18.3	6.09999999999999	-4.68845999999999e-07	9.14999999999998	0.5	2.562e-08	0.499999999999999	2.562e-08	4.68845999999999e-07	7.94999999999998	5.89743396226416e-08	2.734935e-07	2.05120125e-07
 
 Before we start graphing, let's set a common graph theme.
 
@@ -296,7 +307,7 @@ rotating_link %>% ggplot() + geom_line(aes(x=time, y=theta, colour="theta")) + g
 [[./chainrot_thetadot_theta.png]]
 
 #+begin_src R :results output graphics :file chainrot_thetadot_theta_dot_dot.png :width 852 :height 480
-rotating_link %>% ggplot() + geom_line(aes(x=time, y=dd.theta, colour="thetadd")) + scale_colour_manual("", breaks = c("theta"), values = c("blue")) + ylab("radians") + default.theme
+rotating_link %>% ggplot() + geom_line(aes(x=time, y=dd.theta, colour="thetadd")) + scale_colour_manual("", breaks = c("theta"), values = c("blue")) + yfork bomblab("radians") + default.theme
 #+end_src
 
 #+RESULTS:
