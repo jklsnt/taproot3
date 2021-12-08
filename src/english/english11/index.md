@@ -42,9 +42,9 @@ It's time for... American lit!
 - [[KBxPickAPage]]
 
 
+## Douglass // Jacobs
 
-
-
+- [[KBxSlaveNarrativesEssayPlanning]]
 
 
 

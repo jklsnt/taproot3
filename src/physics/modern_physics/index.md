@@ -50,6 +50,7 @@ source: #index
 - [[KBxMagnetism]]
 - [[KBxWhyIsEarthMagnetizedAndVenusNot]]
 - [[KBxInducedCurrentsAndSuch]]
+- [[KBxInducedCurrentLabPrep]]
 
 # Nuclear Physics
 - [[KBhPHYS201NuclearPhysics]] 

@@ -18,3 +18,4 @@ source: #index
 [[KBxAdviceColumn]]
 [[KBxJapFInalProj]]
 [[KBxJapaneseSpeakingPrep]]
+[[KBxPrezFinalJapanese]]
