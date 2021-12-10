@@ -1,6 +1,6 @@
 ---
-title:   
-context: 
+title:   induced currents and such
+context: modphys
 author:  Huxley Marvit
 date: 2021-11-18
 ---

@@ -1,0 +1,145 @@
+#+TITLE: Assignment 12
+#+AUTHOR: Peter Choi
+
+* Probelem 1
+** 1-1
+Because all of the terms $\vec A\times \vec B$, $\vec A\times \vec C$, and $\vec A\times(\vec B+\vec C)$ are all crossed with $\vec A$, all of the vectors are in the same plane which is perpendicular to $\vec A$. If we set $\vec A = (0,0,A_z)$ to be on the z axis, then $\vec A\times \vec B$, $\vec A\times \vec C$, and $\vec A\times(\vec B+\vec C)$ would all be in the xy plane.
+** 1-2
+Because $\vec B_{\perp\vec A}$, $\vec C_{\perp\vec A}$, $(\vec B+\vec C)_{\perp\vec A}$ all are perpendicular to $\vec A$, they all must be coplaner, in the plane that is perpendicular to $\vec A$, which happens to be in the same plane as $\vec A\times \vec B$, $\vec A\times \vec C$, and $\vec A\times(\vec B+\vec C)$.
+** 1-3
+Because of the definition of the cross product, we know that:
+
+$$(\vec A\times\vec B)\perp\vec B$$
+
+$$(\vec A\times\vec C)\perp\vec C$$
+
+$$(\vec A\times (\vec B+\vec C))\perp(\vec B+\vec C)$$
+
+In tandem with the information form part 1-1 (all of the terms are perpendicular to $\vec A$), we know that:
+
+$(\vec A\times\vec B)\perp\vec A\vec B$ plane
+
+$(\vec A\times\vec C)\perp\vec A\vec C$ plane
+
+$(\vec A\times(\vec B+\vec C))\perp\vec A(\vec B+\vec C)$ plane
+
+Thus, if we want to show that:
+
+$$(\vec A\times \vec B)\perp(\vec B_{\perp\vec A})$$
+
+$$(\vec A\times\vec C)\perp(\vec C_{\perp\vec A})$$
+
+$$(\vec A\times(\vec B+\vec C))\perp(\vec B+\vec C)_{\perp\vec A}$$
+
+Then you need to show that:
+
+$(\vec B_{\perp\vec A})\in\vec A\vec B$ plane
+
+$(\vec C_{\perp\vec A})\in\vec A\vec C$ plane
+
+$(\vec B+\vec C)_{\perp\vec A}\in\vec A(\vec B+\vec C)$ plane
+
+To do this we can use the linear algebra definition of a plane. This definition states that a plane is defined as the locus of points that can be described by the linear combinatition of two vectors. In this case the two vectors are:
+
+$\vec A$ and $\vec B$
+
+$\vec A$ and $\vec C$
+
+$\vec A$ and $(\vec B+\vec C)$
+
+We have defined:
+
+$$\vec A = (0,0,A_z)$$
+
+And can define:
+
+$$\vec B = (B_x,B_y,B_z)$$
+
+$$\vec C=(C_x,C_y,C_z)$$
+
+Thus:
+
+$$(\vec B+\vec C)=(B_x+C_x,B_y+C_y,B_z+C_z)$$
+
+Because $\vec B_{\perp\vec A}$, $\vec C_{\perp\vec A}$, and $(\vec B+\vec C)_{\perp\vec A}$ are the projections of $\vec B$, $\vec C$, and $(\vec B+\vec C)$ onto xy plane, respectively, they are defined as:
+
+$$\vec B_{\perp\vec A}=(B_x,B_y,0)=(B_x,B_y,B_z)+n(0,0,A_z)=\vec B+n\vec A$$
+
+$$\vec C_{\perp\vec A}=(C_x,C_y,0)=(C_x,C_y,C_z)+m(0,0,A_z)=\vec C+m\vec A$$
+
+$\begin{center*}(\vec B+\vec C)_{\perp\vec A}=(B_x+C_x,B_y+C_y,0)\\
+=(B_x+C_x,B_y+C_y,B_z+C_z)+p(0,0,A_z)=(\vec B+\vec C)+p\vec A\end{center*}$
+
+Thus, by the linear algebra definition of a plane:
+
+$(\vec B_{\perp\vec A})\in\vec A\vec B$ plane
+
+$(\vec C_{\perp\vec A})\in\vec A\vec C$ plane
+
+$(\vec B+\vec C)_{\perp\vec A}\in\vec A(\vec B+\vec C)$ plane
+
+Therefore:
+
+$$(\vec A\times \vec B)\perp(\vec B_{\perp\vec A})$$
+
+$$(\vec A\times\vec C)\perp(\vec C_{\perp\vec A})$$
+
+$$(\vec A\times(\vec B+\vec C))\perp(\vec B+\vec C)_{\perp\vec A}$$
+** 1-4
+$(\vec A\times\vec B)$ points in the direction of $\vec R_{90^{\circ}}(\vec B_{\perp\vec A})$
+
+$(\vec A\times\vec C)$ points in the direction of $\vec R_{90^{\circ}}(\vec C_{\perp\vec A})$
+
+$\vec A\times(\vec B+\vec C)$ points in the direction of $\vec R_{90^{\circ}}(\vec B+\vec C)_{\perp\vec A}$
+** 1-5
+$$\vec A\times\vec B=|\vec A||\vec B|\sin(\theta)\cdot\frac{\vec R_{90^{\circ}}(\vec B_{\perp\vec A})}{|\vec R_{90^{\circ}}(\vec B_{\perp\vec A})|}$$
+
+The last "term" is there just to set the direction (from part 1-4).
+
+The middle part, $|\vec B|\sin(\theta)$ is magnitude of component of of $\vec B$ that is perpendicular to $\vec A$.
+
+We know that $\vec B_{\perp \vec A}$ is component of $\vec B$ that is perpendicular to $\vec A$ from the definition of projection and the facts that:
+- $\vec B_{\perp\vec A}$ is in the xy plane
+- $\vec A$ is perpendicular to the xy plane
+
+Thus we know that:
+
+$$|\vec B|\sin(\theta)=|\vec B_{\perp\vec A}|$$
+
+Because $R_{90^{\circ}}()$ rotates the vector by 90 degrees:
+
+$|\vec B_{\perp\vec A}|=|\vec R_{90^\circ}(\vec B_{\perp\vec A})|$
+
+Therefore:
+
+$$\vec A\times\vec B=|\vec A||\vec B|\sin(\theta)\cdot\frac{\vec R_{90^{\circ}}(\vec B_{\perp\vec A})}{|\vec R_{90^{\circ}}(\vec B_{\perp\vec A})|}=|\vec A|\vec R_{90^\circ}(\vec B_{\perp\vec A})$$
+** 1-6
+As stated in problem 1-5:
+
+$$\vec B_{\perp\vec A}=(B_x,B_y,0)$$
+
+$$\vec C_{\perp\vec A}=(C_x,C_y,0)$$
+
+$$(\vec B+\vec C)_{\perp\vec A}=(B_x+C_x,B_y,C_y,0)$$
+
+This works by definition of projection, and the fact that the x values cannot influence the y or z values of a vector:
+
+Therefore:
+
+$$\vec B_{\perp\vec A}+\vec C_{\perp\vec A}=(\vec B+\vec C)_{\perp\vec A}$$
+** 1-7
+IMAGE
+
+The rotation opperation is defined as:
+
+$\vec t=(x,y, 0)$
+
+$$\vec R_{90^\circ}(\vec t) = (-y,x,0)$$
+
+Where $\vec t$ is rotated 90 degrees counter clockwise in the xy plane.
+
+Thus:
+
+$$$$$$\vec R_{90^\circ}(\vec B_{\perp\vec A})=(-B_y,B_x,0)$$
+
+$$\vec R_{90^\circ}(\vec C_{\perp\vec A})=(-C_y, C_x, 0)$$

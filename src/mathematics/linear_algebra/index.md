@@ -65,6 +65,7 @@ source:  #index
 #### Finals!	
 - [[KBxFinalSelfAssesment]]
 - [[KBxFinalStudying]]
+- [[KBxIndividualAssesmentPlanning]]
 
 
 

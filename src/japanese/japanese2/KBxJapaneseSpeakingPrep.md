@@ -56,15 +56,44 @@ chrismasu desuga?
 	- ta form :: te form but w/ ta
 
 
+# part 2. (3?)
+
+ji kann ga a ri masuka?
+
+topic: food!
+
+### sentences
+
+nihon lioli ga suki desuka?
+ -> sukidesu
+ 
+dona nihonlioli ga ichiban suki desuka? // what is your favorite japanese food?
+
+dona tabemono ga ichiban suki desuka? // what is your favorite food?
 
 
 
 
 
-
-
-
-
+### question words
+- dona
+	- what kind 
+- dono 
+	- which one
+- nani
+	- what
+- nansai
+	- what age
+- nango / ikura
+	- how many
+- nanji
+	- when
+- dare
+	- who
+- doko 
+	- where
+- doyatte
+	- how
 
 
 

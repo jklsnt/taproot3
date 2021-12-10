@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-08 Wed 15:37 -->
+<!-- 2021-12-09 Thu 09:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rotating Chain Experiment: No Floor</title>
@@ -222,7 +222,7 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: No Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-12-08 Wed 15:36</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: No Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-12-09 Thu 09:05</date></div>
 </div>
 <div id="content">
 <p>
@@ -234,7 +234,7 @@ We first set up the same set of basic assumptions and variables.
 MASS &lt;- 1 # mass (kg)
 I_CM &lt;- 1/12 # roational inertia (kg m^2)
 PHI &lt;- 0 # angle of Ft relative to floor (parallel) (rad)
-L &lt; 0.5 # distance from the center of mass (of rotation point) to tenson (m)
+L &lt;- 0.5 # distance from the center of mass (of rotation point) to tenson (m)
 FT &lt;- 11 # tension force (N)
 OMEGA &lt;- 0 # angle of line orthogonal to floor relative to gravity (rad) (because shifted axis)
 </pre>
@@ -251,7 +251,7 @@ t_max &lt;- 0.5
 vx &lt;- 0
 vy &lt;- 0
 
-x &lt;- 0 
+x &lt;- L
 y &lt;- 0 
 
 time &lt;- 0
@@ -406,15 +406,22 @@ Let's first see the head of this table:
 </pre>
 </div>
 
-<pre class="example">
-1e-05	2.244e-11	4.488e-06	0.2244	0.0187	0	1.2	0	1.2	0	3.6e-10	8.39256e-13	2.88e-10
-2e-05	6.732e-11	6.732e-06	0.2244	0.0187	0	1.2	0	1.2	0	7.2e-10	1.888326e-12	6.47999999999999e-10
-3e-05	1.3464e-10	8.976e-06	0.2244	0.0187	0	1.2	0	1.2	0	1.2e-09	3.357024e-12	1.152e-09
-4e-05	2.244e-10	1.122e-05	0.2244	0.0187	0	1.2	0	1.2	0	1.8e-09	5.24535e-12	1.8e-09
-5e-05	3.366e-10	1.3464e-05	0.2244	0.0187	0	1.2	0	1.2	0	2.52e-09	7.553304e-12	2.592e-09
-6e-05	4.7124e-10	1.5708e-05	0.2244	0.0187	0	1.2	0	1.2	0	3.36e-09	1.0280886e-11	3.528e-09
+<pre class="example" id="orge4374e7">
+   time     theta d.theta dd.theta net.torque accel.x accel.y vel.x vel.y pos.x
+1 1e-05 6.600e-09 0.00132       66        5.5       0     1.2     0   1.2   0.5
+2 2e-05 1.980e-08 0.00198       66        5.5       0     1.2     0   1.2   0.5
+3 3e-05 3.960e-08 0.00264       66        5.5       0     1.2     0   1.2   0.5
+4 4e-05 6.600e-08 0.00330       66        5.5       0     1.2     0   1.2   0.5
+5 5e-05 9.900e-08 0.00396       66        5.5       0     1.2     0   1.2   0.5
+6 6e-05 1.386e-07 0.00462       66        5.5       0     1.2     0   1.2   0.5
+     pos.y     ke.rot  ke.trans
+1 3.60e-10 7.2600e-08 2.880e-10
+2 7.20e-10 1.6335e-07 6.480e-10
+3 1.20e-09 2.9040e-07 1.152e-09
+4 1.80e-09 4.5375e-07 1.800e-09
+5 2.52e-09 6.5340e-07 2.592e-09
+6 3.36e-09 8.8935e-07 3.528e-09
 </pre>
-
 
 
 <p>
@@ -436,7 +443,7 @@ We will graph <code>ax</code> and <code>ay</code> on top of each other:
 </div>
 
 
-<div id="org59c3ff4" class="figure">
+<div id="orge1b773c" class="figure">
 <p><img src="./chainrot_time_accels_notable.png" alt="chainrot_time_accels_notable.png" />
 </p>
 </div>
@@ -452,7 +459,7 @@ Theta dot atop theta:
 </div>
 
 
-<div id="org7c6c94b" class="figure">
+<div id="orga3ed3b1" class="figure">
 <p><img src="./chainrot_thetadot_theta_notable.png" alt="chainrot_thetadot_theta_notable.png" />
 </p>
 </div>
@@ -467,7 +474,7 @@ We finally, plot KE rotation and translation
 </div>
 
 
-<div id="org6db9a6e" class="figure">
+<div id="org1d36dff" class="figure">
 <p><img src="./chainrot_ke_notable.png" alt="chainrot_ke_notable.png" />
 </p>
 </div>
@@ -482,7 +489,7 @@ Let's also plot torque as well.
 </div>
 
 
-<div id="org942b2df" class="figure">
+<div id="org4e75381" class="figure">
 <p><img src="./chainrot_torque_notable.png" alt="chainrot_torque_notable.png" />
 </p>
 </div>
@@ -497,7 +504,7 @@ Finally, let's plot velocity and position
 </div>
 
 
-<div id="org6ca8de0" class="figure">
+<div id="org7786af7" class="figure">
 <p><img src="./chainrot_x_y_pos_notable.png" alt="chainrot_x_y_pos_notable.png" />
 </p>
 </div>

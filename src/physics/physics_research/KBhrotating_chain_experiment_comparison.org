@@ -1,0 +1,83 @@
+:PROPERTIES:
+:ID:       5A8BEFEA-E6F4-4BBA-AD08-232BC65744FA
+:END:
+#+title: Rotating Chain Experiment: Comparison
+#+author: Houjun Liu
+
+#+PROPERTY: header-args :tangle rotating_chain_comparison.r :results verbatim :exports both :session processing_image_2
+
+#+begin_src R :results none
+library(tidyverse)
+library(ggplot2)
+#+end_src
+
+We load the datasets:
+
+#+begin_src R :results none
+df_table = read.csv("./chainrot_table.csv")
+df_notable = read.csv("./chainrot_notable.csv")
+#+end_src
+
+We declare a theme:
+
+#+begin_src R :results none
+default.theme <- theme(text = element_text(size=20), axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 20)), axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 20, l = 0)))
+#+end_src
+
+#+begin_src R
+names(df_table)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+time
+theta
+d.theta
+dd.theta
+net.torque
+accel.x
+accel.y
+pos.x
+pos.y
+pos.p.x
+pos.p.y
+friction.force
+normal.force
+friction.coeff
+ke.rot
+ke.trans
+#+end_example
+
+And now we plot various things atop each other.
+
+#+begin_src R :results output graphics :file chainrot_x_comparison.png :width 800 :height 500
+ggplot() + geom_line(aes(x=time, y=pos.x, colour="table"), data=df_table) + geom_line(aes(x=time, y=pos.x, colour="no table"), data=df_notable) + scale_colour_manual("", breaks = c("table", "no table"), values = c("blue", "dark green")) + ylab("metres (x)") + default.theme
+#+end_src
+
+#+RESULTS:
+
+[[./chainrot_x_comparison.png]]
+
+#+begin_src R :results output graphics :file chainrot_y_comparison.png :width 800 :height 500
+ggplot() + geom_line(aes(x=time, y=pos.y, colour="table"), data=df_table) + geom_line(aes(x=time, y=pos.y, colour="no table"), data=df_notable) + scale_colour_manual("", breaks = c("table", "no table"), values = c("blue", "dark green")) + ylab("metres (y)") + default.theme
+#+end_src
+
+#+RESULTS:
+
+[[./chainrot_y_comparison.png]]
+
+#+begin_src R :results output graphics :file chainrot_accelx_comparison.png :width 800 :height 500
+ggplot() + geom_line(aes(x=time, y=accel.x, colour="table"), data=df_table) + geom_line(aes(x=time, y=accel.x, colour="no table"), data=df_notable) + scale_colour_manual("", breaks = c("table", "no table"), values = c("blue", "dark green")) + ylab("metres/s^2 (x)") + default.theme
+#+end_src
+
+#+RESULTS:
+
+[[./chainrot_accelx_comparison.png]]
+
+#+begin_src R :results output graphics :file chainrot_accely_comparison.png :width 800 :height 500
+ggplot() + geom_line(aes(x=time, y=accel.y, colour="table"), data=df_table) + geom_line(aes(x=time, y=accel.y, colour="no table"), data=df_notable) + scale_colour_manual("", breaks = c("table", "no table"), values = c("blue", "dark green")) + ylab("metres/s^2 (y)") + default.theme
+#+end_src
+
+#+RESULTS:
+
+[[./chainrot_accely_comparison.png]]
