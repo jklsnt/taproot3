@@ -120,7 +120,7 @@ $$\vec B_{\perp\vec A}=(B_x,B_y,0)$$
 
 $$\vec C_{\perp\vec A}=(C_x,C_y,0)$$
 
-$$(\vec B+\vec C)_{\perp\vec A}=(B_x+C_x,B_y,C_y,0)$$
+$$(\vec B+\vec C)_{\perp\vec A}=(B_x+C_x,B_y+C_y,0)$$
 
 This works by definition of projection, and the fact that the x values cannot influence the y or z values of a vector:
 
@@ -143,3 +143,221 @@ Thus:
 $$$$$$\vec R_{90^\circ}(\vec B_{\perp\vec A})=(-B_y,B_x,0)$$
 
 $$\vec R_{90^\circ}(\vec C_{\perp\vec A})=(-C_y, C_x, 0)$$
+
+$$\vec R_{90^\circ}((\vec B+\vce C)_{\perp\vec A})=(-(B_y+C_y),B_x+C_x,0)=(-B_y-C_y,B_x+C_x,0)$$
+
+From this we see that:
+
+$$\vec R_{90^\circ}(\vec B_{\perp\vec A})+\vec R_{90^\circ}(\vec C_{\perp \vec A})=\vec R_{90^\circ}((\vec B+\vec C)_{\perp \vec A})$$
+** 1-8
+If we multiply both sides of the equation with a scalar, $|\vec A|$, then we get:
+
+$$|\vec A|\vec R_{90^\circ}(\vec B_{\perp\vec A})+|\vec A|\vec R_{90^\circ}(\vec C_{\perp \vec A})=|\vec A|\vec R_{90^\circ}((\vec B+\vec C)_{\perp \vec A})$$
+
+From step 1-5 we know that:
+
+$$\vec A\times\vec B=|\vec A|\vec R_{90^\circ}(\vec B_{\perp\vec A})$$
+
+and by similar means we can show that:
+
+$$\vec A\times\vec C =|\vec A|\vec R_{90^\circ}(\vec C_{\perp\vec A})$$
+
+$$\vec A\times(\vec B+\vec C)=|\vec A|\vec R_{90^\circ}((\vec B+\vec C)_{\perp\vec A})$$
+
+Thus we can substitue:
+
+$\begin{center*} |\vec A|\vec R_{90^\circ}(\vec B_{\perp\vec A})+|\vec A|\vec R_{90^\circ}(\vec C_{\perp \vec A})=|\vec A|\vec R_{90^\circ}((\vec B+\vec C)_{\perp \vec A})\\
+\Rightarrow\vec A\times\vec B+\vec A\times\vec B=\vec A\times(\vec B+\vec C) \end{center*}$
+
+Therefore the cross product is distributive over addition.
+* Problem 2
+To start, we can define:
+
+$$\vec A =(A_x,A_y,A_z) = A_x\hat i+A_y\hat j+A_z\hat k$$
+
+$$\vec B=(B_x,B_y,B_z)=B_x\hat i+B_y\hat j+B_z\hat k$$
+
+Next, using the fact that the cross product is distributive across addition (shown in problem 1):
+
+$\begin{center*}
+\vec A\times\vec B=(A_x\hat i+A_y\hat j+A_Z\hat k)\times(B_x\hat i+B_y\hat j+B_z\hat k)\\
+= A_xB_x\hat i\times\hat i+A_xB_y\hat i\times\hat j+A_xB_z\hat i\times\hat k\\
++A_yB_x\hat j\times\hat i + A_yB_y\hat j\times\hat j +A_yB_z\hat j\times\hat k\\
++A_zB_x\hat k\times\hat i +A_zB_y\hat k\times\hat j + A_zB_z\hat k\times\hat k
+\end{center*}$
+
+From the definition of a cross product, we know that the cross product between any two vectors that are parallel is zero. This is because the $\sin(0)=0$. Thus all of the terms that take the cross product between two of the same unit vectors can be replace with 0:
+
+$\begin{center*}
+=A_xB_y\hat i\times\hat j+A_xB_z\hat i\times\hat k\\
++A_yB_x\hat j\times \hat i+A_yB_z\hat j\times \hat k\\
++A_zB_x\hat k\times \hat i+A_zB_y\hat k\times \hat j
+\end{center*}$
+
+Next, $\hat i\times\hat j$ would yield a vector length one in the direction of a vector that is perpendicular to both $\hat i$ and $\hat j$, which would be $\hat k$ (using the right hand rule to get the correct direction). Conversly, $\hat j\times\hat i=-\hat k$. We can use the right hand rule for all possible combinations of unit vector cross products (excluding of the same kind):
+
+$$\hat i\times\hat j=\hat k$$
+
+$$\hat i\times\hat k=-\hat j$$
+
+$$\hat j\times\hat i=-\hat k$$
+
+$$\hat j\times\hat k=\hat i$$
+
+$$\hat k\times\hat i=\hat j$$
+
+$$\hat k\times\hat j=-\hat i$$
+
+Therefore:
+
+$\begin{center*}
+=A_xB_y\hat k-A_xB_z\hat j\\
+-A_yB_x\hat k + A_yB_z\hat i\\
++A_zB_x\hat j-A_zB_y\hat i\\
+=A_xB_y\hat k-A_yB_x\hat k\\
++A_yB_z\hat i-A_zB_y\hat i\\
+-A_xB_z\hat j+A_zB_x\hat j\\
+=(A_xB_y-A_yB_x)\hat k+(A_yB_z-A_zB_y)\hat i+(A_zB_x-A_xB_z)\hat j\\
+=(A_yB_z-A_zB_y,A_zB_x-A_xB_z,A_xB_y-A_yB_x)
+\end{center*}$
+* Problem 3
+** 3-1
+First let's define the following:
+
+$$\vec P = (P_x,P_y,P_z)$$
+
+$$\vec Q = (Q_x,Q_y,Q_z)$$
+
+$$\vec R = (R_x,R_y,R_z)$$
+
+Using the three position vectors we can get two vectors that are in the plane:
+
+$$\vec V_1=\vec P-\vec Q$$
+
+$$\vec V_2=\vec R-\vec Q$$
+
+$\vec V_1$ and $\vec V_2$ are both in the the same plane as $\vec P$, $\vec Q$, and $\vec R$. This is because, their tails meet at $\vec Q$, because $\vec Q$ is negative and the tips are at $\vec P$ and $\vec R$ respectively. To find a vector normal to this plane we can use the cross product:
+
+$$\vec n=\vec V_1\times\vec V_2=(\vec P-\vec Q)\times(\vec R-\vec Q)$$
+
+Now we can use the vector definition of a plane:
+
+$$\{\vec r: (\vec r -\vec P_o)\cdot \vec n = 0,\vec P_o\in\mathbb{R},\vec n\in\mathbb{R}\}$$
+
+We can define:
+
+$\vec P_o = \vec P$
+
+though it could be any of the given vectors.
+
+Thus, the vetor equation of the plane containing the three points is:
+
+$$\{\vec r: (\vec r -\vec P)\cdot((\vec P-\vec Q)\times(\vec R-\vec Q)) = 0,\vec P\in\mathbb{R}^3,\vec Q\in\mathbb{R}^3,\vec R\in\mathbb{R}^3\}$$
+** 3-2
+First we have to find the cartisian equation of a plane given three points. We can use what we found in part 3-1 to know that:
+
+$\begin{center*}
+\vec n = \vec V_1\times\vec V_2\\
+=(\vec P-\vec Q)\times(\vec R-\vec Q)\\
+=(P_x-Q_x,P_y-Q_y,P_z-Q_z)\times(R_x-Q_x,R_y-Q_y,R_z-Q_z)\\
+=((P_y-Q_y)(R_z-Q_z)-(P_z-Q_z)(R_y-Q_y),\\
+(P_z-Q_z)(R_x-Q_x)-(P_x-Q_x)(R_z-Q_z),\\
+(P_x-Q_x)(R_y-Q_y)-(P_y-Q_y)(R_x-Q_x))\\
+=((P_yR_z-Q_yR_z-Q_zP_y+Q_zQ_y)-(P_zR_y-Q_zR_y-Q_yP_z+Q_yQ_z),\\
+(P_zR_x-Q_zR_x-Q_xP_z+Q_xQ_z)-(P_xR_z-Q_xR_z-Q_zP_x+Q_zQ_x),\\
+(P_xR_y-Q_xR_y-Q_yP_x+Q_xQ_y)-(P_yR_x-Q_yR_x-Q_xP_y+Q_xQ_y))\\
+=(P_yR_x-Q_yR_z-Q_zP_y-P_zR_y+Q_zR_y+Q_yP_z,\\
+P_zR_x-Q_zR_x-Q_xP_z-P_xR_z+Q_xR_z+Q_zP_x,\\
+P_xR_y-Q_xR_y-Q_yP_x-P_yR_x+Q_yR_x+Q_xP_y)
+\end{center*}$
+
+Once we have the normal vetor we can use the vector definition of a plane to get the cartisian equation of the plane:
+
+$$\{\vec r: (\vec r -\vec P_o)\cdot \vec n = 0,\vec P_o\in\mathbb{R},\vec n\in\mathbb{R}\}$$
+
+$\begin{center*}
+\Rightarrow \vec r\cdot\vec n-\vec P_o\cdot\vec n=0\\
+\Rightarrow \vec r\cdot\vec n=\vec P_o\cdot\vec n
+\end{center*}$
+
+We can define:
+
+$$\vec r =(x,y,z)$$
+
+$$\vec P_o = \vec P$$
+
+though it could be any of the given vectors.
+
+Evalutating the left side of the equation:
+
+$\begin{center*}
+\vec r\cdot \vec n = (x,y,z)\cdot(P_yR_x-Q_zR_x-Q_xP_y-P_zR_y+Q_zR_y+Q_yP_z,\\
+P_zR_x-Q_zR_x-Q_xP_z-P_xR_z+Q_xR_z+Q_zP_x,P_xR_y-Q_xR_y-Q_yP_x-P_yR_x+Q_yR_x+Q_xP_y)\\
+=x(P_yR_x-Q_yR_z-Q_zP_y-P_zR_y+Q_zR_y+Q_yP_z)\\
++y(P_zR_x-Q_zR_x-Q_xP_z-P_xR_z+Q_xR_z+Q_zP_x)\\
++z(P_xR_y-Q_xR_y-Q_yP_x-P_yR_x+Q_yR_x+Q_xP_y)
+\end{center*}$
+
+Evalutating the right side of the equation:
+
+$\begin{center*}
+\vec P_o\cdot \vec n = (P_x,P_y,P_z)\cdot(P_yR_x-Q_zR_x-Q_xP_y-P_zR_y+Q_zR_y+Q_yP_z,\\
+P_zR_x-Q_zR_x-Q_xP_z-P_xR_z+Q_xR_z+Q_zP_x,P_xR_y-Q_xR_y-Q_yP_x-P_yR_x+Q_yR_x+Q_xP_y)\\
+=P_x(P_yR_x-Q_yR_z-Q_zP_y-P_zR_y+Q_zR_y+Q_yP_z)\\
++P_y(P_zR_x-Q_zR_x-Q_xP_z-P_xR_z+Q_xR_z+Q_zP_x)\\
++P_z(P_xR_y-Q_xR_y-Q_yP_x-P_yR_x+Q_yR_x+Q_xP_y)
+\end{center*}$
+
+Thus the cartisian equation for the plane is the following:
+
+$\begin{center*}
+x(P_yR_x-Q_yR_z-Q_zP_y-P_zR_y+Q_zR_y+Q_yP_z)\\
++y(P_zR_x-Q_zR_x-Q_xP_z-P_xR_z+Q_xR_z+Q_zP_x)\\
++z(P_xR_y-Q_xR_y-Q_yP_x-P_yR_x+Q_yR_x+Q_xP_y)\\
+=\\
+P_x(P_yR_x-Q_yR_z-Q_zP_y-P_zR_y+Q_zR_y+Q_yP_z)\\
++P_y(P_zR_x-Q_zR_x-Q_xP_z-P_xR_z+Q_xR_z+Q_zP_x)\\
++P_z(P_xR_y-Q_xR_y-Q_yP_x-P_yR_x+Q_yR_x+Q_xP_y)
+\end{center*}$
+
+Now that we have the equation we just need to plug the numbers in:
+
+$\begin{center*}
+x(0-4-0-2-6-1)\\
++y(0-0-0-8+0+6)\\
++z(-4-0-2-0+0+0)\\
+=\\
+2(0-4-0-2-6-1)\\
++0(0-0-0-8+0+6)\\
+-1(-4-0-2-0+0+0)\\
+\Rightarrow -13x-2y-6z=-26+6\\
+\Rightarrow -13x-2y-6z=-20
+\end{center*}$
+
+We can check this by substituting all 3 points into the equation:
+
+The first point is $(2,0,-1)$:
+
+$\begin{center*}
+-13(2)-2(0)-6(-1)\stackrel{?}{=}-20\\
+-26-0+6\stackrel{?}{=}-20\\
+-20=-20
+\end{center*}$
+
+The second point is $(0,1,3)$:
+
+$\begin{center*}
+-13(0)-2(1)-6(3)\stackrel{?}{=}-20\\
+0-2-18\stackrel{?}{=}-20\\
+-20=-20
+\end{center*}$
+
+The third point is $(0,-2,4)$:
+
+$\begin{center*}
+-13(0)-2(-2)-6(4)\stackrel{?}{=}-20\\
+0+4+24\stackrel{?}{=}-20\\
+-20=-20
+\end{center*}$
+
+Thus $-13x-2y-6z=-20$ is the cartisian equation of the plane that contains the three points $(2,0,-1)$, $(0,1,3)$, and $(0,-2,4)$
