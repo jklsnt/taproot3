@@ -14,7 +14,7 @@ date: 2021-12-07
 person: Hideo Kojima
 https://en.wikipedia.org/wiki/Hideo_Kojima
 
-
+new plan, https://www.cnn.com/style/article/yayoi-kusama-artist/index.html
 
 
 
