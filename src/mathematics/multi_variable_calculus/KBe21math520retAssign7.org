@@ -5,7 +5,6 @@
 
 * projections or smt
 ** projections
-#+BEGIN_LATEX
 \begin{tikzpicture}
 \draw[thick,->] (0,0) -- (3,0) node[anchor=west] {x};
 \draw[thick,->] (0,0) -- (0,3) node[above] {y};
@@ -21,7 +20,6 @@
 \draw[thick,->] (0,0) -- (0,3) node[above] {z};
 \draw[thick,->] (0, 0) -- (1.5,2.5) node[above right] {(3, 5)};
 \end{tikzpicture}
-#+END_LATEX
 ** language of projections?
    Let $\vec{\textbf c} = \vec{B} - \vec{A}$. Our goal is to find the magnitude $\lvert \vec{\textbf c} \rvert$.
 
@@ -36,11 +34,11 @@
    \left| \vec{\textbf{c}} \right| = \sqrt{\left| \vec{\textbf{c}}_{x, y} \right|^2 + \left| \vec{\textbf{c}}_{z} \right|^2}pro
    \end{aligned}\]
 
-   The length of the projection onto the xy-plane can be found using the Pythagorean theorem. 
+   The distance between two points can be found using the Pythagorean theorem. 
 
    \[\begin{aligned}
    \left| \vec{\textbf{c}} \right| &= \sqrt{\left| \vec{\textbf{c}}_{x, y} \right|^2 + \left| \vec{\textbf{c}}_{z} \right|^2}\\
-   &= \sqrt{\sqrt{|\vec{\textbf{c}}_x | ^2 + | \vec{\textbf{c}} | ^2}^2 + \left| \vec{\textbf{c}}_{z} \right|^2}\\
+   &= \sqrt{\sqrt{|\vec{\textbf{c}}_x | ^2 + | \vec{\textbf{c}_y} | ^2}^2 + \left| \vec{\textbf{c}}_{z} \right|^2}\\
    &= \sqrt{\left|\vec{\textbf{c}}_x \right| ^2 + \left| \vec{\textbf{c}}_y \right| ^2 + \left| \vec{\textbf{c}}_{z} \right|^2}\\
    \end{aligned}\]
 * vectors problems
@@ -57,7 +55,15 @@
     We want to define $\vec{c} = \vec{a} - \vec{b}$ such that $\vec{b} + \vec{c} = \vec{a}$.
 
     Geometrically, that means following $\vec{a}$, and then following $\vec{b}$ backwards (ie. we want to define a negative vector as the same vector backwards).
+
     Algebracially, we see that it inherits the properties from addition/subtraction. 
+
+    \begin{tikzpicture}
+\draw[purple, thick, ->] (0, 0) -- (1, 1) node[above right] {$\vec{a}$};
+\draw[blue, thick, <-] (1, 1) -- (1.2, 0) node[above right] {$\vec{b} \text{ (backwards)}$};
+\draw[red, thick, ->] (0, 0) -- (1.2, 0) node[below right] {$\vec{a} - \vec{b}$};
+    \end{tikzpicture}
+    
 ** finding the vector between two points
    Take the points as vectors, and subtract them. 
    \[\begin{aligned}
@@ -136,24 +142,73 @@
     \cos  \theta = \frac{a_x}{\sqrt{a_x^2+a_y^2+a_z^2}}
     \end{aligned}\]
 
-
+*** actual numbers
     
+\[\begin{aligned}
+\cos  \theta  &= \frac{\vec{a}_x}{|\vec{a}|} \\
+&= \frac{4}{5}
+\theta &= \cos ^- \frac{4}{5} = \boxed{\ang{36.8}}
+\end{aligned}\]
+
 ** triangle proof
    
+\begin{tikzpicture}
+\draw[red, thick, ->] (1, 1) -- (2, 2) node[above left] {$\vec{a}$};
+\draw[blue, thick, ->] (2, 2) -- (2.5, 1) node[above right] {$\vec{b}$};
+\draw[purple, thick, ->] (1, 1) -- (2.5, 1) node[below left] {$\vec{c} = \vec{a} + \vec{b}$};
+\end{tikzpicture}
+
    Lets let $\vec{a}, \vec{b}$ be the two sides and $\vec{c}$ be the middle side. This is the small triangle. Then, let's double each of the side lengths:
+
+   Now, we can double $\vec a$ and $\vec b$ to look at the impact on the larger triangle.
+
+\begin{tikzpicture}
+\draw[black, thick, ->] (1, 1) -- (2, 2) node[above left] {$\vec{a}$};
+\draw[black, thick, ->] (2, 2) -- (2.5, 1) node[above right] {$\vec{b}$};
+\draw[black, thick, ->] (1, 1) -- (2.5, 1) node[below left] {$\vec{c}$};
+\draw[red, thick, ->] (0, 0) -- (1, 1) node[above left] {$\vec{a}$};
+\draw[blue, thick, ->] (2.5, 1) -- (3, 0) node[above right] {$\vec{b}$};
+\end{tikzpicture}
+
+Because vector addition is commutative, $\vec a + \vec b = \vec b = \vec a$. Geometrically, this means
+
+\begin{tikzpicture}
+\draw[black, thick, ->] (1, 1) -- (2, 2) node[above left] {$\vec{a}$};
+\draw[black, thick, ->] (2, 2) -- (2.5, 1) node[above right] {$\vec{b}$};
+\draw[black, thick, ->] (0, 0) -- (1, 1) node[above left] {$\vec{a}$};
+\draw[black, thick, ->] (2.5, 1) -- (3, 0) node[above right] {$\vec{b}$};
+\draw[purple, thick, ->] (1, 1) -- (2.5, 1) node[midway, above] {$\vec{c}$};
+\draw[red, thick, ->] (1.5, 0) -- (2.5, 1) node[midway, below right] {$\vec{a}$};
+\draw[blue, thick, ->] (1, 1) -- (1.5, 0) node[midway, below left] {$\vec{b}$};
+\end{tikzpicture}
+
+Using these new vectors, we can see that the bottom edge is equal to $2 \vec{c}$
+
+\begin{tikzpicture}
+\draw[black, thick, ->] (1, 1) -- (2, 2) node[above left] {$\vec{a}$};
+\draw[black, thick, ->] (2, 2) -- (2.5, 1) node[above right] {$\vec{b}$};
+\draw[red, thick, ->] (0, 0) -- (1, 1) node[above left] {$\vec{a}$};
+\draw[blue, thick, ->] (2.5, 1) -- (3, 0) node[above right] {$\vec{b}$};
+\draw[black, thick, ->] (1, 1) -- (2.5, 1) node[midway, above] {$\vec{c}$};
+\draw[red, thick, ->] (1.5, 0) -- (2.5, 1) node[midway, below right] {$\vec{a}$};
+\draw[blue, thick, ->] (1, 1) -- (1.5, 0) node[midway, below left] {$\vec{b}$};
+\draw[purple, thick, ->] (0, 0) -- (1.5, 0) node[midway, below] {$\vec{c}$};
+\draw[purple, thick, ->] (1.5, 0) -- (3, 0) node[midway, below] {$\vec c$};
+\end{tikzpicture}
+
+ Algebraically:
+
    \[\begin{aligned}
     2 \vec{a} + 2 \vec{b} = 2 ( \vec{a} + \vec{b}) = 2 \vec{c}
    \end{aligned}\]
 
-   Thus, the middle line is half the magnitude of the longer third side. Because they are scalar multiples of eachother, the lines are parallel.
-
+   Thus, $\vec c$ the line segment that joins the midpoints of two sides of the triangle (sides $2 \vec{a}$ and $2 \vec{b}$. $\vec{c}$ is half the magnitude of the third side ($2 \vec{c}$), and parallel because $2 \vec{c}$ is a scalar multiple of $\vec c$.
    
 * proving vector properties
   You are really stretching my LaTeX abilities here
   
-** $a + b = b + a$
+** $\vec a + \vec{b} = \vec{b} + \vec{a}$
 
-#+begin_latex
 \begin{tikzpicture}
 \draw[thick,->] (0,0) -- (5.5,0) node[anchor=west] {x};
 \draw[thick,->] (0,0) -- (0,4.5) node[above] {y};
@@ -163,32 +218,35 @@
 \draw[blue,thick,->] (4,1) -- (5,4) node[midway, below right] {a};
 \draw[purple,thick,->] (0,0) -- (5,4) node[midway, above left] {a+b, b+a};
 \end{tikzpicture}
-#+end_latex
 
 ** $c(\textbf a + \textbf b) = c\textbf a + c\textbf b$
    
-#+BEGIN_LATEX
 \begin{tikzpicture}
-\draw[thick,->] (0,0) -- (7,0) node[anchor=west] {x};
-\draw[thick,->] (0,0) -- (0,5) node[above] {y};
 \draw[red,thick,->] (1,1.5) -- (2,1) node[midway,above right] {b};
 \draw[blue,thick,->] (2,1) -- (3,2.5) node[midway,above left] {a};
 \draw[red,thick,->] (3,2.5) -- (4,2) node[midway,above right] {b};
 \draw[blue,thick,->] (4,2) -- (5,3.5) node[midway,above left] {a};
 \draw[red,very thick,->] (5,3.5) -- (6,3) node[midway,below left] {b};
-\draw[blue,thick,->] (1,1.5) -- (2,3) node[midway,above left] {$c \vec \textbf a$};
+\draw[blue,thick,->] (0,0) -- (1,1.5);
+\draw[blue,thick,->] (1,1.5) -- (2,3) node[midway,above left] {$c \vec{a}$};
 \draw[blue,thick,->] (2,3) -- (3,4.5);
 \draw[red,thick,->] (3,4.5) -- (4,4);
-\draw[red,thick,->] (4,4) -- (5,3.5) node[midway,above right] {$c\vec{\textbf b}$};
+\draw[red,thick,->] (4,4) -- (5,3.5) node[midway,above right] {$c\vec{b}$};
 \draw[purple, thick, ->] (0, 0) -- (2,1);
-\draw[purple, thick, ->] (2, 1) -- (4,2) node[midway,below right] {$c\left(\vec \textbf a+\vec \textbf b \right)$};
+\draw[purple, thick, ->] (2, 1) -- (4,2) node[midway,below right] {$c\left(\vec{a}+\vec{b} \right)$};
 \draw[purple, thick, ->] (4, 2) -- (6,3);
 \end{tikzpicture}
-#+END_LATEX
+
+
+\[\begin{aligned}
+c \left( \vec{a} + \vec{b} \right)  &= \underbrace{\left( \vec{a} + \vec{b} \right)  + \cdots + \left( \vec{a} + \vec{b} \right)}_{c \text{ times}}  \\
+&= \underbrace{\vec{a} + \cdots + \vec{a} }_{c \text{ times}} + \underbrace{\vec{b} + \cdots + \vec{b}} _{c \text{ times}}\\
+&= c\vec{a} + c \vec{b}
+\end{aligned}\]
+
 
 ** $(cd)\textbf a = c(d\textbf a)$
 
-#+BEGIN_LATEX
 \begin{tikzpicture}
 \draw[thick,->] (0,0) -- (6.5,0) node[anchor=west] {x};
 \draw[thick,->] (0,0) -- (0,4) node[above] {y};
@@ -202,5 +260,4 @@
 \draw[purple, thick, ->] (2.1, 1) -- (4.1,2) node[midway,below right] {$c(d\vec{\textbf a})$};
 \draw[purple, thick, ->] (4.1, 2) -- (6.1,3);
 \end{tikzpicture}
-#+END_LATEX
 

@@ -5,9 +5,9 @@
  
 \begin{tikzpicture}
     \draw[black, thick, ->] (1, 0) -- (0, 1.73205080757) node[above right] {$\vec{A}$};
-    \draw[black, thick, ->] (1, 0) -- (0, 0) node[above left] {$\text{proj}_\vec{B}\vec{A}$};
+    \draw[black, thick, ->] (1, 0) -- (0, 0) node[above left] {$\text{proj}_{\vec{B}} \vec{A}$};
     \draw[black, thick, ->] (1, 0) -- (7, 0) node[above right] {\( \vec{B} \)};
-    \draw[black, thick, ->] (1, 0) -- (2.5, -2.598) node[above right] {$\text{proj}_\vec{B}\vec{A}$};
+    \draw[black, thick, ->] (1, 0) -- (2.5, -2.598) node[above right] {$\text{proj}_{\vec{A}} \vec{B}$};
 \end{tikzpicture}
 
 ** components
@@ -22,7 +22,7 @@
    
    \[\begin{aligned}
    \vec{A} \cdot \vec{B} &= |A| |B| \cos  \theta \\
-   &= 2 \cdot 6 \cdot \cos  120 = -3
+   &= 2 \cdot 6 \cdot \cos  120 = -6
    \end{aligned}\]
    
 * proving expression for component 
@@ -65,7 +65,7 @@
   
   Well, the dot product already includes the angle, so let's just solve for that
   \[\begin{aligned}
-  \theta &= \cos ^- \left( \frac{ \vec{A} \cdot \vec{B} }{|\vec{A}| |\vec{B}|} \right)  
+  \cos \theta &= \frac{ \vec{A} \cdot \vec{B} }{|\vec{A}| |\vec{B}|}
   \end{aligned}\]
 
   The angle between:
@@ -80,6 +80,7 @@
 
   See other files in the Canvas comments.
   
+  \setcounter{section}{8}
 * vector equation that passes through the points
 
   The vectors are 
@@ -95,13 +96,18 @@
    and make sure that $\vec{r}(0) = \vec{a}$, and $\vec{r}(1) = \vec{b}$.
   We can do this by setting 
   \[\begin{aligned}
-  \vec{p} &= a = \langle -1, 4, 1 \rangle\\
-  \vec{v} &= b - a = \langle 3, 9, 4 \rangle
+  \vec{p} &= \vec{a} = \langle -1, 4, 1 \rangle\\
+  \vec{v} &= \vec{b} - \vec{a} = \langle 3, -9, -4 \rangle
   \end{aligned}\]
+
+  Thus,
+\[\begin{aligned}
+\boxed{\vec{r}(t) = \langle -1, 4, 1 \rangle + \langle 3, -9, -4 \rangle t}
+\end{aligned}\]
+
 
   This way, 
   \[\begin{aligned}
   \vec{r}(0) &= \vec{p} = \vec{a}\\
   \vec{r}(1) &= \vec{p} + \vec{v} = \vec{a} + (\vec{b} - \vec{a}) = \vec{b}
   \end{aligned}\]
-
