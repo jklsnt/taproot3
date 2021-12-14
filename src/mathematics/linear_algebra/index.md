@@ -61,6 +61,7 @@ source:  #index
 	- [[KBx3CInclass]]
 - [[KBxChapter3DReading]]
 	- [[KBx3DInclass]]
+- [[KBxQoutientGroupIntro]]
 	
 #### Finals!	
 - [[KBxFinalSelfAssesment]]

@@ -179,6 +179,22 @@ While both Douglass and Jacobs explore the corrupting nature of slavery, Douglas
 	- transition + sub claim 3: Having generalized both cause and effect, Jacobs goes on to generalize the connection between them: causality itself.
 
 
+***
+qs
+
+- missed: 
+	- Exemplary: Thesis statement and analysis are clearly expressed and reflect nuanced, interpretative complexities of each work. Evidence reflects breadth and depth of argument.
+	- Exemplary: Writing structures serve context and intention effectively. Ideas build on each other in a sustained, coherent manner. Appropriate and varied transitions clarify relationships among evidence and claims to generate cohesion and fluidity.
+	
+- went through and address all your comments, 
+	- focused on specificy in relation between close reading and idea
+	- and on fluidity and transitions
+	- would this fufill those final two rubric items, and if not, what would i need to do in order to fufill them?
+
+
+- when can you meet about the other essay?
+
+
 
 
 
