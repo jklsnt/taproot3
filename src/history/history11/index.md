@@ -60,6 +60,7 @@ the next assignment: historigraphical in nature. synthesithing multiple argument
 - [[KBhCivilWar]] 
 - [[KBdEricFonerNotes]]
 - [[KBxCivilWarFinalInclass]]
+- [[KBxCivilWarMemory]]
 
 ## reconstruction
 - [[KBxReconstructionHistories]]
