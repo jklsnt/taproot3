@@ -118,14 +118,29 @@ What was the most useful or memorable piece of feedback you received this semest
 
 
 
+## linalg
+Please answer these questions thoughtfully and thoroughly- they are very interesting and helpful for me to read, AND reflection counts on your template, just saying. Then submit your responses on the Nueva webpage.
+
+What was most challenging for you this semester? How did you respond to that challenge?
+
+What are you proudest of from your semester linear algebra?
+
+How did you grow as a student this semester?
+
+What role did collaboration and communication play in your learning process?
+
+What worked best or least best for you about the class structure?
 
 
 
+## hist 
 
 
+1.  What is something that you are proud of about your work this semester?
+In this history class, we have the freedom to explore things we are genuinely interested in. While this may often leave us a little behind schedule in class, I find that it makes for an environment where I learn a lot more, and have much more fun while doing so. Of course, utilizing this freedom does require more work and more thought. This extra thought was something I consistently put into my work.
 
-
-
+3.  Looking forward, what goals or areas of improvement do you have for next semester?
+I want to do more with historiography and the concept of how context changes how our view of historical events evolve. I also want to work on dealing with multiple different levels of abstraction elegantly in my writing.
 
 
 
