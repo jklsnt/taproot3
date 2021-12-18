@@ -13,10 +13,11 @@ date: 2021-12-13
 *hey, we made it! :)*
 
 ## modern phys
-```ad-abstract
-1.  What units or aspects of the class did you find most challenging this semester? What study habits or activities helped you cope with those challenges, and/or what did not work as well?
-2.  What units or aspects did you find most interesting or engaging? Why were you drawn to this particular material? What do you envision doing with it in the future?
-```
+What units or aspects of the class did you find most challenging this semester? What study habits or activities helped you cope with those challenges, and/or what did not work as well?
+- With Modern Physics, going deeper into concepts increases in complexity incredibly quickly. This increase in complexity made it hard for me to go about learning the way I normally do -- trying to understand concepts at a deeper level and then relate them. To deal with this, I had to focus more on rigor when studying and taking notes, jotting down information with finer granularity. Making this shift was one of the more challenging things this semester.
+
+What units or aspects did you find most interesting or engaging? Why were you drawn to this particular material? What do you envision doing with it in the future?
+- I thought that transistors and logic gates were super super cool. It's still amazing to me how these small properties and systems stack together to create impossibly complicated machines and tools. Looking first at how an individual transistor works, then how logic gates work, then how memory works was a super cool progression in layers of abstraction. As a programmer, going down to this incredibly low level was fascinating. This understanding of how layers of abstraction and complexity stack is something I'm quite confident will be useful when designing systems or doing research in the future.
 
 
 ## mathmod
@@ -122,20 +123,22 @@ What was the most useful or memorable piece of feedback you received this semest
 Please answer these questions thoughtfully and thoroughly- they are very interesting and helpful for me to read, AND reflection counts on your template, just saying. Then submit your responses on the Nueva webpage.
 
 What was most challenging for you this semester? How did you respond to that challenge?
+- Linear Algebra is a very different type of math than what I'm used to. Thinking about it more, I think that what makes it feel so different is the granularity of importance when it comes to concepts. As in, small details and ideas hold much more importance than expected. Shifting to this level of granularity was one of the more challenging tasks this semester. I responded to this challenge by intentionally trying to be more rigorous when doing the exercises from the book, whether it be for proof presentations or just for practice. I also focused on linking concepts together, allowing me to find out what I was missing about a concept more easily if I needed to.
 
-What are you proudest of from your semester linear algebra?
+What are you proudest of from your semester in Linear Algebra
+- I felt like I really understood the content by the end of the semester, past just memorizing the definitions. While studying for the final and reviewing some of the older content from the beginning of the semester, I started finding all kinds of cool connections. Being able to achieve this type of understanding is one of the things I'm proudest of doing this semester in Linear Algebra.
 
 How did you grow as a student this semester?
+- The nature of Linear Algebra forced me to be more rigorous than I am used to. Learning how to operate in an environment that required this, whether it be in class, while doing homework, studying, or note-taking, forced me to grow.
 
 What role did collaboration and communication play in your learning process?
+- Linear Algebra dominates my friend-groups lunch conversations. I also started and maintain the Linear Algebra Discord Server, where people commonly ask for and give help to each other, or just share cool things relating to Linear Algebra. Collaboration and communication were vital to my process of learning Linear Algebra -- not only is learning alone less effective, but much less fun.
 
 What worked best or least best for you about the class structure?
-
+- I really liked the flow of how we went through the chapters in class. I also really liked splitting up into halves to do proof presentations. For future classes, I think it would be much better for the tests on Thursdays to be strictly at the beginning of the class if at all. I know that the point of having the possibilities of a test on Thursdays is meant to encourage people to thoroughly review the content, however not knowing whether we have a test or not during class just leads to more stress and less focused classwork. No one should be trying to cram studying in during class anyways. That being said, I thought that the possible tests on Thursdays did work well for checking understanding and giving clear direction for what needed review.
 
 
 ## hist 
-
-
 1.  What is something that you are proud of about your work this semester?
 In this history class, we have the freedom to explore things we are genuinely interested in. While this may often leave us a little behind schedule in class, I find that it makes for an environment where I learn a lot more, and have much more fun while doing so. Of course, utilizing this freedom does require more work and more thought. This extra thought was something I consistently put into my work.
 
