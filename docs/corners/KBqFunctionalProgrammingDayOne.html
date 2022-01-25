@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-01-06 Thu 15:23 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Functional Programming</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Taproot" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Functional Programming</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2022-01-06 Thu 15:23</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org6beacff">1. Day 1</a></li>
+</ul>
+</div></div>
+</div>
+<div id="outline-container-org6beacff" class="outline-2">
+<h2 id="org6beacff"><span class="section-number-2">1</span> Day 1</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Functional programming comes from math!
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sml">fn 0 =&gt; true | x =&gt; false
+</pre>
+</div>
+
+<p>
+Here's a function for absolute value.
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">fn x =&gt; if x &gt;= 0 then x else 0 - x;
+</pre>
+</div>
+<p>
+We can bind it to a name:
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val abs = fn x =&gt; if x &gt;= 0 then x else 0 - x;
+abs ~4
+</pre>
+</div>
+
+<p>
+We can use tuples like <code>(1,2,3)</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val max = fn (x,y) =&gt; if x &gt; y then x else y;
+max (1,2)
+</pre>
+</div>
+
+<p>
+Functions are called like <code>max (x,y)</code>.
+</p>
+
+<pre class="example">
+val it = 2 : int
+</pre>
+
+
+<p>
+Every function has a single input type and single output type: to give multiple arguments you just pass a tuple.
+</p>
+
+<p>
+This won't run.
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">let
+  val g = fn x = x + 3
+in
+  if "hello" &gt; g then 1 else false
+end
+</pre>
+</div>
+<p>
+Why? First off, SML is <i>statically typed</i> (unlike some other notable FP languages), and <code>"hello"</code> and <code>g</code> are not the same type.
+</p>
+
+<p>
+What types does SML have?
+</p>
+<ul class="org-ul">
+<li><code>int</code></li>
+<li><code>bool</code></li>
+<li><code>string</code></li>
+<li><code>a-&gt;b</code> (function)</li>
+<li><code>a*b</code> (tuples)</li>
+<li><code>type frac = int*int</code> (we can do type aliasing)</li>
+</ul>
+
+<p>
+It also has <code>real</code>, but since floating points are&#x2026; unique, they can't be compared nicely due to inaccuracies.
+</p>
+
+<p>
+Let's try to make a function that checks if a tuple is <code>(0,0)</code>!
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val thing = fn (x,y) =&gt; if x=y andalso x=0 then true else false;
+thing (0,0)
+</pre>
+</div>
+
+<p>
+&#x2026; <code>andalso</code>? What? Apparently this is to get around the fact that <code>and</code> means something else.
+</p>
+
+<p>
+We could also do it like:
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val thing = fn (0,0) =&gt; true | x =&gt; false;
+thing (0,0)
+</pre>
+</div>
+<p>
+We can also do the Rust-style thing and have the second part be <code>_ =&gt; false</code> if we didn't care about naming the argument.
+This whole <code>something =&gt; 2 | x =&gt; 3</code> thing is called a <i>pattern</i>: these clauses can be a constant, number, tuple, but not an expression.
+</p>
+
+<p>
+Variables are immutable, but you can "shadow" variables like Rust:
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val abs = 2;
+val abs = 3;
+abs
+</pre>
+</div>
+
+<p>
+Let's make a function to check if either part of a tuple is zero:
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val either_zero = fn (0, x) =&gt; true | (x, 0) =&gt; true | _ =&gt; false;
+either_zero (1,0)
+</pre>
+</div>
+
+<p>
+Now, a factorial! We can allow a value to be recursive by using the <code>rec</code> keyword. Letting this not be default lets you shadow things.
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val rec fact = fn 1 =&gt; 1 | x =&gt; x * fact(x-1);
+fact 5
+</pre>
+</div>
+
+<p>
+Let's make a function that checks evenness (slowly&#x2026;)!
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val rec even = fn 0 =&gt; true | x =&gt; even(x-2) | 1 =&gt; false;
+</pre>
+</div>
+<p>
+This won't work, because it evaluates these clauses in order.
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val rec even = fn 0 =&gt; true | 1 =&gt; false | x =&gt; even(x-2);
+even 5
+</pre>
+</div>
+
+<p>
+Challenge problem: write a function that takes a nonnegative integer and returns whether or not it's a multiple of 3 (without modulo!)
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val mul3 = fn x =&gt; if (x div 3) * 3 = x then true else false;
+mul3 2
+</pre>
+</div>
+<p>
+Now, without <code>div</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val rec f = fn x =&gt; if x - 3 = 0 then true else if x - 3 &lt; 0 then false else f(x-3);
+f 20
+</pre>
+</div>
+
+<p>
+Again.
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val rec f = fn 0 =&gt; true | 1 =&gt; true | 2 =&gt; false | x =&gt; f(x-3);
+</pre>
+</div>
+<p>
+<code>if</code> is compiled away into pattern matches, and acts as a ternary of sorts.
+</p>
+
+<p>
+Let's implement a basic math function:
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val rec mult = fn (0, _) =&gt; 0 | (_, 0) =&gt; 0 | (x, 1) =&gt; x | (x, y) =&gt; x+mult(x, y-1);
+mult (2,3)
+</pre>
+</div>
+
+<p>
+We can also define our own <i>type aliases</i> (as we mentioned earlier) like so:
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">type t = int*string
+</pre>
+</div>
+<p>
+We can also define <i>datatypes</i> (Rust enums!). Addition in this context means "this or that type":
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">datatype intparse = Success of int | Failure of string;  
+</pre>
+</div>
+<p>
+Let's try something simpler (<code>Option&lt;int&gt;</code> but in SML):
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">datatype intoption = Some of int | None;
+val whee = Some 3
+</pre>
+</div>
+
+<p>
+Sidenote: you can use a colon to do type annotations.
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val whee: int = 3
+</pre>
+</div>
+
+<p>
+We can do operations on datatypes:
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">datatype intoption = Some of int | None;
+val unwrap = fn Some x =&gt; x | None =&gt; 0
+</pre>
+</div>
+
+<p>
+We can have <i>recursive datatypes</i>:
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">datatype ilist = Empty | Front of (int*ilist);
+val rec length = fn Empty =&gt; 0 | Front (x, xs) =&gt; 1+length xs;
+</pre>
+</div>
+<p>
+Let's make a <code>map</code> func!
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">datatype ilist = Empty | Front of (int*ilist);
+val rec map: (int-&gt;int)*ilist -&gt; ilist = fn (f, Empty) =&gt; Empty | (f, Front(x,xs)) =&gt; Front(f x, map(f, xs));
+</pre>
+</div>
+
+<p>
+There are actual built-in lists in SML, though:
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val rec map: (int-&gt;int)*int list -&gt; int list = fn (f, nil) =&gt; nil | (f, x::xs) =&gt; (f x)::(map (f, xs));
+</pre>
+</div>
+
+<p>
+It's time to do something known as <i>currying</i>: producing functions for us:
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val mkadd: int-&gt;(int-&gt;int) = fn x =&gt; fn y =&gt; y+x;
+mkadd 2 4 = 2+4 (* ensure our mkadd func works *)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sml">val f: int-&gt;(int-&gt;int) = fn x =&gt; fn y =&gt; y+x;
+val f': (int*int)-&gt;int = fn (x,y) =&gt; f x y;
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sml">val uncurry: (int-&gt;(int-&gt;int)) -&gt; (int*int)-&gt;int = fn f =&gt; fn(x,y) =&gt; f x y;
+val curry: (int*int-&gt;int)-&gt;(int-&gt;int-&gt;int) = fn f =&gt; fn x =&gt; fn y =&gt; f(x,y);
+</pre>
+</div>
+
+<p>
+Polymorphism can be done with "generic" types that are prefixed by an apostrophe!
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val f: 'a-&gt;'a = fn x =&gt; x;
+</pre>
+</div>
+
+<p>
+The well-known <code>filter</code> operator:
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val rec filter: ('a -&gt; bool) -&gt; ('a list -&gt; 'a list) =
+ fn f =&gt; (fn nil =&gt; nil | x::xs =&gt; if f x then x::filter f xs else filter f xs);                                                                
+</pre>
+</div>
+
+<p>
+Trees:
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">datatype 'a tree = Empty | Node of 'a tree * 'a * 'a tree;
+val rec map = fn f =&gt; (fn Empty =&gt; Empty | Node (l,x,r) =&gt; Node(map f l, f x, map f r))
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sml">datatype 'a tree = Empty | Node of 'a tree * 'a * 'a tree;
+val rec exists: ('a-&gt;bool)-&gt;'a tree -&gt; bool = fn f =&gt; (fn Empty =&gt; false | Node (l,x,r) =&gt; f x orelse exists f l orelse exists f r)
+</pre>
+</div>
+
+<p>
+We can use the <code>op</code> keyword to use an infix operator like a normal function.
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">op + (1, 2)
+</pre>
+</div>
+
+
+<p>
+Let's define a list-reversing function!
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val rec revhelper = fn (nil, acc) =&gt; acc | (x::xs, acc) =&gt; revhelper(xs, x::acc);
+val rec rev = fn L =&gt; revhelper(L, nil);
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sml">val rec helper = fn nil =&gt; nil | NONE::xs =&gt; helper xs | (SOME x)::xs =&gt; x::helper xs
+val mapPartial: ('a -&gt; 'b option) -&gt; 'a list -&gt; 'b list =
+ fn f =&gt; helper map o f;
+</pre>
+</div>
+
+<p>
+We can pattern match directly!
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val rec mapPartial = fn f =&gt; (fn nil =&gt; nil | x::xs =&gt; case f of SOME y =&gt; y::mapPartial xs | NONE =&gt; mapPartial xs);
+</pre>
+</div>
+
+
+<p>
+We have a void type, too (like Rust).
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val test: unit = ()
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sml">val rec length = fn nil =&gt; 0 | _::xs =&gt; 1+length xs;
+val rec sum = fn nil =&gt; 0 | x::xs =&gt; x+sum xs;
+val rec lmax = fn nil =&gt; 0 | x::xs =&gt; max(x, lmax xs);
+val rec allpos = fn nil =&gt; true | x::xs =&gt; if x &gt;= 0 then allpos xs else false;
+</pre>
+</div>
+
+<p>
+Let's automate our list creation functions. This is basically MapReduce!
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val rec foldl = fn cmb =&gt; fn z =&gt; (fn nil =&gt; z | x::xs =&gt; foldl cmb (cmb(z,x)) xs);
+val sum = foldl op + 0;
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sml">val sum = foldl op + 0;
+</pre>
+</div>
+
+<p>
+What if we want to handle overflows?
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val lmax: int list -&gt; int option = foldl (fn (NONE, x) =&gt; x | (SOME y, x) =&gt; max(x,y)) NONE;
+val lmax_unchecked = foldl max 0;
+</pre>
+</div>
+
+<p>
+We can also fold from the right to the left.
+</p>
+<div class="org-src-container">
+<pre class="src src-sml">val rec foldr = fn cmb =&gt; fn z =&gt; (fn nil =&gt; z | x::xs =&gt; cmb(x, foldr cmb z xs))
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sml">val rev = foldl op:: [];
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sml">val rec reduce: ('b*'a*'b -&gt; 'b) -&gt; 'b -&gt; 'a tree -&gt; 'b =
+ fn cmb =&gt; fn z =&gt; fn Empty =&gt; z
+  | Node(l, x, r) =&gt; cmb(reduce cmb z l, x, reduce cmb z r);
+val size = reduce (fn (l, _, r) =&gt; l+r+1) 0;
+val depth = reduce (fn (l, _, r) =&gt; max(l,r)+1) 0;
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sml">val mapreduce: = fn (f, cmb, z) =&gt; reduce cmb z o map f;
+</pre>
+</div>
+
+<p>
+SML has&#x2026; immutable arrays! Speed, without unsafety.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sml">type 'a seq;
+val length: 'a seq -&gt; int;
+val nth: 'a seq-&gt;int 'a;
+val tabulate: (int-&gt;'a)-&gt;int-&gt;'a seq;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-01-07 Fri 14:53 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Functional Programming</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley Marvit" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Functional Programming</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2022-01-07 Fri 14:53</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBIntersessionMasterIndex.html'>Intersession Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#functional-sml">1. Functional! SML!</a>
+<ul>
+<li><a href="#types">1.1. types!</a>
+<ul>
+<li><a href="#recursive-data-types">1.1.1. recursive data types</a></li>
+<li><a href="#lists-the-builtin-kind">1.1.2. lists! the builtin kind</a></li>
+</ul>
+</li>
+<li><a href="#curryin">1.2. curryin'</a></li>
+<li><a href="#types-1">1.3. Types!</a>
+<ul>
+<li><a href="#rings">1.3.1. Rings</a></li>
+<li><a href="#the-weirder-stuff">1.3.2. the weirder stuff</a></li>
+<li><a href="#the-structure-of-data">1.3.3. the structure of data</a></li>
+</ul>
+</li>
+<li><a href="#abstractions">1.4. abstractions</a></li>
+<li><a href="#finish-up-sml">1.5. finish up sml!</a>
+<ul>
+<li><a href="#tailcall-optimization">1.5.1. tailcall optimization</a></li>
+<li><a href="#an-example">1.5.2. an example</a></li>
+<li><a href="#continuations">1.5.3. continuations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<p>
+#flo #inclass #intersession
+</p>
+
+<hr />
+
+<div id="outline-container-functional-sml" class="outline-2">
+<h2 id="functional-sml"><span class="section-number-2">1</span> Functional! SML!</h2>
+<div class="outline-text-2" id="text-functional-sml">
+<p>
+^ = append "hello world" is hello world in SML. ## but let's get to the
+functions define functions like in mathematical notation: <code>fn x = x*3</code>
+</p>
+
+<p>
+functions are valid variables. inp func leads to oup func, but u can
+call like <code>(func)(param)</code> <code>fn 0 =&gt; true | x =&gt; false</code>
+</p>
+
+<p>
+absolute value func: <code>fn x =&gt; if x &gt;</code> 0 then x else ~1*x= (remember,
+negative sign is ~) or, we can say <code>val abs = {above func}</code>
+</p>
+
+<p>
+we can also have tuple inputs, like <code>fn (x, y) =&gt; x</code>. all functions have
+one input type and one output type
+</p>
+
+<p>
+this is, a statically typed language!
+</p>
+
+<p>
+renaming variables is shadowing! the old items still use the old value.
+</p>
+
+<p>
+or 0 function
+</p>
+
+<pre class="example" id="org32027ae">
+val f = fn (0, x) =&gt; true | (x, 0) =&gt; true | _ =&gt; false;
+f(1, 1);
+</pre>
+
+<p>
+we can allow recursive with val r factorial function:
+</p>
+
+<pre class="example" id="org9d75ae3">
+val rec fact = fn 1 =&gt; 1 | x =&gt; x * fact(x-1);
+fact(1);
+</pre>
+
+<p>
+it's written in LATEX?? &gt; average exacting spec in LaTeX fan vs average
+UB enjoyer - @david
+</p>
+
+<p>
+proven to be entirely type safe
+</p>
+</div>
+
+<div id="outline-container-types" class="outline-3">
+<h3 id="types"><span class="section-number-3">1.1</span> types!</h3>
+<div class="outline-text-3" id="text-types">
+<p>
+all of our declarations are: - expression - val x = e - val rec x = e
+</p>
+
+<p>
+but now we get&#x2026; - type t = types - datatype t =..
+</p>
+
+<pre class="example" id="org42134ae">
+datatype intoption = 
+    SOME of int
+| NONE
+</pre>
+
+<pre class="example" id="org95f85a7">
+(*SOME 3 : intoption val double : *)
+
+fn SOME x =&gt; x;
+| NONE =&gt; 0;
+</pre>
+
+<p>
+pattern matching to extract data
+</p>
+
+<p>
+omg..
+</p>
+</div>
+
+<div id="outline-container-recursive-data-types" class="outline-4">
+<h4 id="recursive-data-types"><span class="section-number-4">1.1.1</span> recursive data types</h4>
+<div class="outline-text-4" id="text-recursive-data-types">
+<pre class="example" id="org0d8541c">
+datatype ilist = 
+    Empty
+| Front of int*ilist;
+</pre>
+
+<p>
+<code>of</code> is the name of the constructor from the data that it carries
+</p>
+
+<p>
+product of a list
+</p>
+
+<pre class="example" id="org86ff37a">
+val rec prod = fn Empty =&gt; 1 
+    | Front (x, xs) =&gt; x * prod(xs)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-lists-the-builtin-kind" class="outline-4">
+<h4 id="lists-the-builtin-kind"><span class="section-number-4">1.1.2</span> lists! the builtin kind</h4>
+<div class="outline-text-4" id="text-lists-the-builtin-kind">
+<pre class="example" id="org729d87e">
+nil x::xs
+(*  list of type of x, [x, ...xs] *)
+(* or we can just use *) [1, 2, 3] 
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-curryin" class="outline-3">
+<h3 id="curryin"><span class="section-number-3">1.2</span> curryin'</h3>
+<div class="outline-text-3" id="text-curryin">
+<pre class="example" id="org2ccc858">
+In mathematics and computer science, currying is the **technique of converting a function that takes multiple arguments into a sequence of functions** that each takes a single argument. -wiki
+</pre>
+
+<p>
+but really, it let's us define functions with other functions instead of
+tuples, we have <b>iterated function calling</b>
+</p>
+
+<pre class="example" id="orgf9ec128">
+fn (x,y) =&gt; f(x, y)
+</pre>
+
+<pre class="example" id="org8d07730">
+val uncurry = fn f =&gt; fn (x, y) =&gt; f (x,y)
+(* of type (int -&gt; (int -&gt; int)) -&gt; (int * int) -&gt; int) *)
+val curry = fn f =&gt; fn x =&gt; fn y =&gt; f (x, y)
+</pre>
+
+<p>
+val rec filter : ('a -&gt; bool) -&gt; 'a list -&gt; 'a list = fn
+</p>
+
+<pre class="example" id="orgbc03634">
+(* direct pattern matching!*)
+case x of  
+0 =&gt; "zero"  
+| 1 =&gt; "one"  
+| _ =&gt; "more than one"
+</pre>
+
+<p>
+if statements are really
+</p>
+
+<pre class="example" id="org09807ba">
+if a then b else c
+(fn true =&gt; b | false =&gt; c ) a
+</pre>
+
+<p>
+<code>()</code> is the unit: the zero size of tuples
+</p>
+
+<p>
+one thing in the type unit, as opposed to bool which has 2. this means
+we already know what it will be! void really returns <code>()</code>, the unit
+</p>
+</div>
+</div>
+
+<div id="outline-container-types-1" class="outline-3">
+<h3 id="types-1"><span class="section-number-3">1.3</span> Types!</h3>
+<div class="outline-text-3" id="text-types-1">
+<p>
+what is a type?
+</p>
+
+<p>
+first, <b>groups</b>. - a group has: - elements : types - an operator :
+composition? forming tuples - identity : unit - what about inverse&#x2026;?
+and closed? - assosiative
+<a href="KBxGroupAndMatricesIntro.html">KBxGroupAndMatricesIntro</a>
+<a href="mathematics/linear_algebra/index.html">mathematics/linear<sub>algebra</sub>/index</a>
+</p>
+
+<ul class="org-ul">
+<li>two groups are equivalent</li>
+
+<li><a href="KBrefIsomorphicVectorSpace.html">KBrefIsomorphicVectorSpace</a> we
+can have isomorphic types!</li>
+
+<li>prove with pair of invertible functions</li>
+
+<li><b>magnitude</b>: the size of the unit type</li>
+
+<li>note: * is composed, and x is 'times.'</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">unit</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">bool</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">a * b</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">a</td>
+<td class="org-left">x</td>
+<td class="org-left">b</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">unit * a</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">a</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-rings" class="outline-4">
+<h4 id="rings"><span class="section-number-4">1.3.1</span> Rings</h4>
+<div class="outline-text-4" id="text-rings">
+<p>
+<i>like groups, but extra.</i> two operations instead of one? we also need
+assosiativity
+</p>
+
+<p>
+note: 'a means alpha option = 'a, unit
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">'a + option</td>
+<td class="org-left">= 1 +</td>
+<td class="org-left">a</td>
+<td class="org-left">=</td>
+<td class="org-left">'a</td>
+<td class="org-left">+</td>
+<td class="org-right">1</td>
+<td class="org-left">?</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+the <code>+</code> op forms a datatype? <code>+</code> works on datatypes
+</p>
+
+<p>
+adding in <code>+</code> to <code>x</code> means we get a <b>semi-ring</b>
+</p>
+
+<p>
+we cannot have something of (type, value)? <code>void</code> <code>void option</code> ~= to
+<code>()</code> note: ~= is isomorphic
+</p>
+
+<pre class="example" id="org899efc8">
+fn NONE =&gt; 0
+fn () =&gt; NONE
+</pre>
+
+<p>
+\(|a \to b|\) is exponentiation, \(|b|^{|a|}\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-the-weirder-stuff" class="outline-4">
+<h4 id="the-weirder-stuff"><span class="section-number-4">1.3.2</span> the weirder stuff</h4>
+<div class="outline-text-4" id="text-the-weirder-stuff">
+<p>
+two things are isomprhic if you create a pair of functions that are
+inverses
+</p>
+
+<p>
+for example, <code>curry</code> and <code>uncurry</code>! forms an isomorphism between two
+types we have proves that \((a^b)^c = a^{(b \cdot c)}\) with the
+functions current and uncurry?? ????
+</p>
+
+<p>
+this is a type theoretical proof.
+</p>
+
+<blockquote>
+<p>
+"proofs and programs are actully one and the same" "types and
+propositions are also one and the same"
+</p>
+</blockquote>
+
+<p>
+the definition of a <b>list</b>: \(L(\alpha) = 1 + \alpha \times L(\alpha)\)
+\(L(\alpha) = \alpha \times L(\alpha) = 1\)
+\(L(\alpha) = \frac{1}{1-\alpha}=1+\alpha+\alpha^2+\alpha^3 \dots\)
+</p>
+
+<p>
+wait wait wait WHAT? we just got the TAYLOR SERIES??
+<a href="KBhMATH401TaylorSeriesApprox.html">KBhMATH401TaylorSeriesApprox</a>
+</p>
+
+<p>
+\(\frac{d}{da} L(a) = \frac{d}{da} \frac{1}{1-a}\)
+</p>
+
+<p>
+we can do DERIVATIVES?
+<a href="KBhMATH401Derivatives.html">KBhMATH401Derivatives</a> the derivative
+of a list is.. two lists? a pair of lists?
+</p>
+</div>
+</div>
+
+<div id="outline-container-the-structure-of-data" class="outline-4">
+<h4 id="the-structure-of-data"><span class="section-number-4">1.3.3</span> the structure of data</h4>
+<div class="outline-text-4" id="text-the-structure-of-data">
+<p>
+we can delete things. \(a^2\) , a data structure that holds two <code>a=s, we
+have two ways to delete (rm either =a</code>) same is true for \(a+a\)
+</p>
+
+<p>
+for \(a^3\), we have three things to choose from
+</p>
+
+<p>
+the question is, what is left behind after something get's punched out?
+\(a+a - a\) needs to maintain the same structure so \(a^2\) punched out
+<code>a</code> gives us \(a+\textrm{bool}\) so we know where the rmed <code>a</code> was. so
+really, we have <code>a*option, a*option</code>
+</p>
+
+<p>
+wait, hole punching is a derivative?
+</p>
+
+<p>
+\(a^2 => 2a\) essentially, just put a hole where the thing was removed
+</p>
+
+<p>
+hence why, if we punch something out a linked list, we get two lists!
+everything prior to the hole, and everything after the hole. and, since
+we can get the element at the beginning and end of a list, we can get
+the things around the hole instantly
+</p>
+
+<p>
+we can move the hole, which means we can see in a vicinity and traverse,
+like a directory structure!
+</p>
+
+<p>
+we can define a tree as \(T(a)^2 \times L(a \times 2 \times T(a))\).
+this fully defines a tree!
+</p>
+
+<p>
+taking the second derivative means, we get two holes instead of one what
+does this mean? i don't know!
+</p>
+
+<p>
+done with type algebra, time for ## lambda calculus <i>istfg.</i> not actual
+calculus. it just means, ways for operations to interact
+</p>
+
+<p>
+church goes, how about, no, to turing. instead, let's use functions!
+</p>
+
+<p>
+three constructs: - functions: fn x =&gt; exp - exp are exp(exp), x, fn -
+\(\lambda x \cdot exp\)
+</p>
+
+<p>
+\(\lambda x \cdot x\) is a simplex example function?
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="booleans"></a>booleans<br />
+<div class="outline-text-5" id="text-booleans">
+<p>
+true is \(\lambda x \cdot \lambda y \cdot x\) false is
+\(\lambda x \cdot \lambda y \cdot y\)
+</p>
+
+<p>
+if a then b else c = abc which means, true bc =&gt; b and false bc =&gt; c
+</p>
+</div>
+</li>
+
+<li><a id="numbers"></a>numbers<br />
+<div class="outline-text-5" id="text-numbers">
+<p>
+the encoding of 1 =
+</p>
+
+<p>
+\(\bar{0} = \lambda f . \lambda x . x\)<br />
+\(\bar{1} = \lambda f . \lambda x . fx\)<br />
+\(\bar{2} = \lambda f . \lambda x . f(fx)\)
+</p>
+
+<p>
+now we define, incrementing! and, other stuff
+</p>
+
+<p>
+\(\textrm{succ} = \lambda n . \lambda f . \lambda x . f(n(fx))\)
+\(\textrm{add} = \lambda a . \lambda b . \lambda f . \lambda x . bf(afx)\)
+\(\textrm{mult} = \lambda a . \lambda b . \lambda f . \lambda x . a(bf)x)\)
+</p>
+
+<p>
+this is really, programming language theory. past function programming
+</p>
+
+<p>
+the Y combinator actually comes from lambda calculus
+\({\textsf {Y}}=\lambda f.\ (\lambda x.f\ (x\ x))\ (\lambda x.f\ (x\ x))\)
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-abstractions" class="outline-3">
+<h3 id="abstractions"><span class="section-number-3">1.4</span> abstractions</h3>
+<div class="outline-text-3" id="text-abstractions">
+<p>
+opaue types: types that we don't know the definition of we only know the
+functions that can interact w/ them
+</p>
+
+<p>
+exit functions can return void, because they exit anyways! we don't
+care. -&gt; technicaly, they are polymorphic
+</p>
+
+<p>
+nvm, actully we are doing
+</p>
+</div>
+</div>
+
+<div id="outline-container-finish-up-sml" class="outline-3">
+<h3 id="finish-up-sml"><span class="section-number-3">1.5</span> finish up sml!</h3>
+<div class="outline-text-3" id="text-finish-up-sml">
+<pre class="example" id="org2d6a876">
+(* what we have been doing *)
+val rec name = fn pat =&gt; exp
+(*instead, we can do *)
+fun name pat = exp
+(*eg.*)
+fun fact 0 = 1 
+    | fact n = n * fact(n-1)
+(* this is pattern mathching *) 
+</pre>
+
+<p>
+can define using <code>deftype</code> and <code>type</code>
+</p>
+
+<p>
+we can represent using expression trees
+</p>
+
+<pre class="example" id="org010a1c8">
+fact 4 -&gt; 
+    / * \
+    4   / app \(the apply function)
+      fact     n-1
+</pre>
+
+<p>
+and then we do this recursively until we get to our final result this is
+evaluation! <b>memory</b> is linearly consumed with this unraveling instead,
+if we pass down an accumulator, we can make this better
+</p>
+
+<p>
+recursive call (ie. fact 3 4 -&gt; fact (3-1) (4 * 3)) -&gt; result -&gt; fills
+hole from above in accumulator then you pass the final value all the way
+up
+</p>
+
+<p>
+this actully <b>doesnt help</b>, but we can add an optimization which makes
+it help
+</p>
+</div>
+
+<div id="outline-container-tailcall-optimization" class="outline-4">
+<h4 id="tailcall-optimization"><span class="section-number-4">1.5.1</span> tailcall optimization</h4>
+<div class="outline-text-4" id="text-tailcall-optimization">
+<blockquote>
+<p>
+Tail-call optimization is where you are able to avoid allocating a new
+stack frame for a function because the calling function will simply
+return the value that it gets from the called function. -stackoverflow
+(or not, ig, cus tailcall means we don't have it)
+</p>
+</blockquote>
+
+<pre class="example" id="orgda19ff4">
+    / app \
+   /   |   \
+fact   3    1
+</pre>
+
+<p>
+-&gt;
+</p>
+
+<pre class="example" id="orga40e190">
+    / app \
+   /   |   \
+fact   -    .
+      / \  / \
+      3 1  3  4
+</pre>
+
+<p>
+this doesnt take up any extra space, because we dont need the previous
+steps!
+</p>
+
+<hr />
+
+<pre class="example" id="org9091686">
+fun fact 0 k = k1
+    | fact n k = 
+        fact (n-1) (fn r =&gt; k (r * n))
+</pre>
+
+<p>
+this means that k acts as out accumulator and, this has no backtracking,
+as it is fully tailcall-optimized
+</p>
+
+<p>
+this is dont by the compiler automatically to everything, which is why
+we don't need a stack
+</p>
+</div>
+</div>
+
+<div id="outline-container-an-example" class="outline-4">
+<h4 id="an-example"><span class="section-number-4">1.5.2</span> an example</h4>
+<div class="outline-text-4" id="text-an-example">
+<p>
+<i>cps func</i> find1 : ('a -&gt; bool) -&gt; 'a shrub -&gt; ('a -&gt; 'z) -&gt; (unit -&gt;
+'z') -&gt; 'z
+</p>
+
+<pre class="example" id="orgc38cb65">
+fun find1 p T s f = case T of (* s = succes *) (* also, this automatically currys it! *)
+    Leaf x =&gt; if p x then s x else f () (*if we are in a tree with only one thing, then return succes x if succes else f unit*)
+    | Branch(l,r) =&gt; find1 p l s (fn () =&gt;
+                    find1 p r s f)
+</pre>
+
+<p>
+this is almost, imperative! once you are done being called, you are a
+whole. the stack -&gt; heap of clojures we get, one active line then heap
+memory
+</p>
+
+<p>
+when everything is tailcalls, that means we can get rid of functions and
+instead just have <b>continuations</b> once you call something, you do not
+exists. <code>oh_no()</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-continuations" class="outline-4">
+<h4 id="continuations"><span class="section-number-4">1.5.3</span> continuations</h4>
+<div class="outline-text-4" id="text-continuations">
+<p>
+we can define <code>letcc l =&gt; k</code> then, when we define k, we can quit out?
+</p>
+
+<p>
+we can jump through time, with the old values? what??
+</p>
+
+<p>
+let's "call for help" whenever we see a neg number
+</p>
+
+<pre class="example" id="org4afe4d3">
+fn sumpos k nil = 0
+    | sum pos k (x::xs) = 
+        if x &gt;= 0
+            then x + sumpos k xs
+        else (letcc j =&gt; then k (j, +)+sumpos
+</pre>
+
+<p>
+this let's us call k for help whenever we want we can invoke an entirely
+different CONTROL FLOW, and then that returns the right thing in the
+right type!
+</p>
+
+<p>
+the call stack is still in mem, but when j becomes inaccessible, we
+don't need need it anymore and it gets garbage collected!
+</p>
+
+<blockquote>
+<p>
+proofs are programs and from programs you can extract a
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

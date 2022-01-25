@@ -1,0 +1,69 @@
+#+TITLE: assignment 2: directional derivatives
+\setcounter{section}{-1}
+* lets find a general formula
+The problem is to find the slope of $f$ in the $\theta$ direction at the point $P_0 \in \mathbb{R}^2$.
+
+We want to turn this 2d problem into a 1d problem, so that we can find the derivative generally, then just apply it. For each version of the problem, we are given a function $f : \mathbb{R}^2 \to  \mathbb{R}$ (with a 2d input), but we would rather have a function $h : \mathbb{R} \to  \mathbb{R}$ that encodes the planar slice that we care about.
+
+We can do this by composing $f$ with some other $g : \mathbb{R} \to  \mathbb{R}^2$ s.t. $f \circ g (t)$ is that planar slice. This way, $g$ just has to spit out xy-coordinates in the domain of $f$.
+
+For convienence, lets also ensure that $g(0) = P_0$, In summary, we want a function $g(t)$ that parameterizes a line that passes through $P_0$ and has slope $\theta$, ie. goes in the direction $\langle \cos  \theta , \sin  \theta \rangle$. 
+\[\begin{aligned}
+g(t) = \vec{P_0} + t \langle \cos  \theta , \sin  \theta \rangle
+\end{aligned}\]
+
+Now, to solve any of the following problems, we can take 
+\[\begin{aligned}
+\frac{d}{dt} \Bigr|_{0} f \circ g
+\end{aligned}\]
+* $f(x, y) = x^2 + y^2$
+Before we do anything, lets find $\frac{d}{dt} f \circ g$ generally for any $P_0$ and $\theta$:
+
+\[\begin{aligned}
+\frac{d}{dt} f \circ g &= \frac{d}{dt} \bigg(  \left( P_{0x} + t \cos  \theta \right) ^2 + \left( P_{0y} + t \sin  \theta  \right)^2 \bigg)   \\ 
+&= \frac{d}{dt} \big(  P_{0x} ^2 + t ^2 \cos  ^2 \theta + 2 P_{0x} t \cos  \theta  + P_{0y} ^2 t ^2 \sin  ^2 \theta  + 2 t P_{0y}  \sin  \theta \big)  \\
+&= \frac{d}{dt} \big(  P_{0x} ^2 + P_{0y}^2 + t ^2 \left( \cos  ^2 \theta + \sin  ^2 \theta  \right) + 2 t \left( P_{0x} \cos \theta  + P_{0y} \sin  \theta \right)  \\
+&= 2 \cancelto{0}{t} \left( \cos  ^2 \theta + \sin  ^2 \theta  \right) + 2 \left( P_{0x} \cos \theta  + P_{0y} \sin  \theta \right) \\
+&= 2 \left( P_{0x} \cos \theta  + P_{0y} \sin  \theta \right) 
+\end{aligned}\]
+
+Because this tells us the slope, we can find the steepest slope through optimization.
+
+\[\begin{aligned}
+\frac{d}{d\theta } 2 \left( P_{0x} \cos  \theta + P_{0y} \sin  \theta  \right) &= 2 \left( - P_{0x}  \sin  \theta  + P_{0y} \cos  \theta \right)  = 0
+\end{aligned}\]
+
+Likewise, the slope is zero for all $\theta$s s.t.
+\[\begin{aligned}
+P_{0x} \cos  \theta  + P_{0y} \sin  \theta = 0
+\end{aligned}\]
+
+(I don't actually know how to solve these equations, but Wolfram Alpha does! Is there a trig identity for $\sin + \cos$?)
+
+Now, we just plug values in.
+
+\[\begin{aligned}
+&\text{(a) } 0 && \text{(b) } 24 &&&& \text{(c) } 6\\
+&\text{(d) } 14 \sqrt{2} && \text{(e) } 20 &&&& \text{(f) } 19.32\\
+&\text{(g) (above)}  && \text{(h) } \frac{4\pi}{3}, \frac{\pi}{3} &&&& \text{(i) (above)}\\
+\end{aligned}\]
+* $f(x, y) = x^2 - y^2$
+We can follow the same process as above
+
+
+\[\begin{aligned}
+f \circ g &= \left( P_{0x} + t\cos  \theta \right)  ^2 - \left( P_{0y} + t\sin  \theta  \right)  ^2\\
+&= P_{0x}^2 + t^2\cos^2 \theta + 2 t P_{0x} \cos  \theta  - P_{0y}^2 - t^2\sin^2 \theta - 2 t P_{0y} \sin  \theta\\
+&= P_{0x}^2 - P_{0y} ^2 + t^2 \left( \cos  ^2 \theta - \sin  ^2 \theta \right)  + 2t  \left(  P_{0x} \cos  \theta  - P_{0y} \sin  \theta \right)  \\
+h(t) = \frac{d}{dt} \Bigr|_0 f \circ g &= 2 \left( P_{0x} \cos  \theta - P_{0y} \sin  \theta  \right)  \\
+\frac{d}{d\theta} h &= -2 \left( P_{0x} \sin  \theta + P_{0y} \cos  \theta  \right)   = 0\\
+\theta &= n \pi  - \tan ^- \left( \frac{P_{0y}}{P_{0x}} \right)  
+\end{aligned}\]
+
+\[\begin{aligned}
+&\text{(a) } 0 &&\text{(b) } -24 &&&&\text{(c) } 6 \\
+&\text{(d) } 0 &&\text{(e) } -10 &&&&\text{(f) } -5.17 \\
+&\text{(g) (above)}  &&\text{(h) } \frac{2\pi}{3} \text{ steepest, add ninties for others}\\
+\end{aligned}\]
+
+[[file:KBe22math520ret2hyperbola.png]]

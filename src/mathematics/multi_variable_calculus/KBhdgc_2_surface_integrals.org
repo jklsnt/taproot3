@@ -1,0 +1,103 @@
+:PROPERTIES:
+:ID:       8CDFB28E-93C0-4872-A858-CEF1F1D260C3
+:END:
+#+title: DGC 2 Surface Integrals
+#+author: Houjun Liu
+
+* Motivation: Gauss' Law
+The original electric field expression is cool:
+
+\begin{equation}
+   \vec{E}(\vec{R}) = \frac{1}{4\pi\epsilon_0} \iiint_V \frac{\rho(\vec{r})\hat{u}\vec{r'}}{|\vec{r}-\vec{r}'|^2} dV'
+\end{equation}
+
+but it required the use of a triple-integral over a whole volume of space, per charge, which is very inefficient to compute.
+
+Gauss' Law provides a much more practical solution to the same problem, that:
+
+\begin{equation}
+   \iint_s \vec{E} \cdot \vec{n} dS = \frac{q}{\epsilon_0}
+\end{equation}
+
+This expression involves a "unit normal vector", $\vec{n}$, as well as a "surface integral" $\iint_s$ over $S$. In this chapter, we will explore both of those things.
+
+* Unit Normal Vector
+The normal unit vector is a vector orthogonal to a certain surface. It is likely part of most of the surface integrals we will see.
+
+** Intuition
+The intuition of a unit vector orthogonal to a direction is pretty intuitive.
+
+If "to a plane", it is orthogonal to the plane:
+
+#+DOWNLOADED: screenshot @ 2022-01-24 09:54:13
+[[file:2022-01-24_09-54-13_screenshot.png]]
+
+If "to a spherical surface", it is a vector in the radial direction to a slice of the surface:
+
+#+DOWNLOADED: screenshot @ 2022-01-24 09:55:21
+[[file:2022-01-24_09-55-21_screenshot.png]]
+
+** Formal definition of a Normal Unit Vector
+Consider an arbitrary surface $S$. Construct two noncollinear vector $\vec{u}$ and $\vec{u}$ tangent to $S$ at some point $P$. Some vector $\vec{N}$ which is orthogonal to both $\vec{u}$ and $\vec{u}$ with also an origin at $P$ is, by definition, normal to $S$ at $P$.
+
+#+DOWNLOADED: screenshot @ 2022-01-24 22:27:30
+[[file:2022-01-24_22-27-30_screenshot.png]]
+
+That is:
+
+\begin{equation}
+   \hat{n} = \frac{\vec{N}}{||N||} = \frac{\vec{u}\times \vec{v}}{|\vec{u}\times \vec{v}|}
+\end{equation}
+
+For some $\vec{u}$, $\vec{v}$ both tangent to point $P$.
+
+* Finding an Expression for $\hat{n}$
+To find an expression for $\hat{n}$, we will consider some surface $S$ by the eqn. $f(x,y)$. Our goal is to identify some $\vec{u}$ and $\vec{v}$ which will yield the result in the needed vector $\vec{n}$.
+
+We will construct a plane $P$ perpendicular to the floor, parallel to the $x$ axis, on $S$ which is parallel to the $xz$ plane. The plane will intersect with our surface at some curve $C$. (This is bit like parameterization.)
+
+Let's take some vector $\vec{u}$ tangent to $C$ at $P$. We will set its projection upon the $x$ component as, per convention, $\vec{u}_x$.
+
+We will now have a visual proof for the $z$ component from the book:
+
+#+DOWNLOADED: screenshot @ 2022-01-24 23:21:54
+[[file:2022-01-24_23-21-54_screenshot.png]]
+
+Given some $\vec{u}_x$, and the function $f$, we know that multiplying $\frac{\partial f}{\partial x}$ by $\vec{u}_x$, will yield $\partial f$, the change in the $z$ component. Therefore:
+
+\begin{equation}
+\vec{u} = \hat{i} \vec{u}_x + \hat{k}\left(\frac{\partial f}{\partial x}\vec{u}_x\right) = \left[\hat{i} + \hat{k}\left(\frac{\partial f}{\partial x}\right)\right]\vec{u}_x
+\end{equation}
+
+Now, we will construct $v$. The simplest way to do this is to construct another plane $P'$, but it is now parallel to the $y$ axis, on $S$ which is parallel to the $yz$ plane. It should be trivial to see that, if we construct a vector $\vec{v}$ from the trace curve $C'$ of the second plane $P'$ upon $S$.
+
+Doing the same thing, we will end up with:
+
+\begin{equation}
+\vec{v} = \hat{j} \vec{v}_y + \hat{k}\left(\frac{\partial f}{\partial y}\vec{u}_y\right) = \left[\hat{j} + \hat{k}\left(\frac{\partial f}{\partial y}\right)\right]\vec{u}_y
+\end{equation}
+
+And now, we consider their cross product.
+
+|           | $\hat{i}$   | $\hat{j}$ | $\hat{k}$                                             |
+| $\vec{u}$ | $\vec{u}_x$ | $0$       | $\left(\frac{\partial f}{\partial x}\right)\vec{u}_x$ |
+| $\vec{v}$ | $0$         | $\vec{u}_y$ | $\left(\frac{\partial f}{\partial y}\right)\vec{u}_y$ |
+
+The actual work of computing it is left as an exercise to the reader. However, we will get:
+
+\begin{equation}
+    \vec{u} \times \vec{v} = \left[-\hat{i}\left(\frac{\partial f}{\partial x}\right)-\hat{j}\left(\frac{\partial f}{\partial y}\right)+\hat{k}\right] \vec{u}_x\vec{u}_y
+\end{equation}
+
+And so, supplying this equation into the final equation for $\hat{n}$ in terms of $\vec{u}$ and $\vec{v}$, that:
+
+\begin{equation}
+   \hat{n} = \frac{\vec{N}}{||N||} = \frac{\vec{u}\times \vec{v}}{|\vec{u}\times \vec{v}|}
+\end{equation}
+
+we will arrive at:
+
+\begin{equation}
+   \hat{n} = \frac{-\hat{i}\left(\frac{\partial f}{\partial x}\right)-\hat{j}\left(\frac{\partial f}{\partial y}\right)+\hat{k}}{\sqrt{1+\left(\frac{\partial f}{\partial x}\right)^2 + \left(\frac{\partial f}{\partial y}\right)^2}} 
+\end{equation}
+

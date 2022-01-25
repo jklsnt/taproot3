@@ -1,0 +1,40 @@
+:PROPERTIES:
+:ID:       79C81982-E0FA-411D-88D4-624FE2A68378
+:END:
+#+title: QIC Challenge Modeling
+#+author: Houjun Liu
+
+#+begin_src sage
+M, m = var("M m")
+
+U(A1, B1, A2, B2, A3, B3) = 2*1/9*(-M*(A1*B1 + A2*B2 + A3*B3) + m*(A1*(B2+B3) + A2*(B1+B3) + A3*(B1+B2)))
+
+# grad = vector([i for i in U.diff()]).norm()
+# solve(grad, (A1, B1, A2, B2, A3, B3))
+grad = vector([i for i in U.diff()]).norm()
+# solve(grad, (A1, B1, A2, B2, A3, B3))
+#+end_src
+
+#+RESULTS:
+: []
+
+#+begin_src sage
+idx = [0,1]
+res = []
+ind = []
+for A1 in idx:
+    for A2 in idx:
+        for A3 in idx:
+            for B1 in idx:
+                for B2 in idx:
+                    for B3 in idx:
+                        res.append(U(A1, B1, A2, B2, A3, B3))
+                        if U(A1, B1, A2, B2, A3, B3) == 4/9*m:
+                            ind.append((A1, B1, A2, B2, A3, B3))
+#+end_src
+
+# #+RESULTS:
+
+# #+begin_src sage
+
+# #+end_src

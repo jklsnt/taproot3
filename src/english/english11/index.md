@@ -47,6 +47,32 @@ It's time for... American lit!
 - [[KBxSlaveNarrativesEssayPlanning]]
 
 
+# Semester, 2!!
+
+- [[KBxEnglishSemester2d1]]
+- [[KBxWEBDuBois]]
+%%- [[KBxDuBoisInclass%%
+- [[KBxGatsbyIntro]]
+- [[KBxGatsbyInclassWriting]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-01-15 Sat 15:24 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Green death</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Green death</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-01-15 Sat 15:23</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org881a3af">1. Reading Notes</a>
+<ul>
+<li><a href="#orgf9b3799">1.1. Socialism as the initial fuel for uprising</a></li>
+<li><a href="#orgb9065ef">1.2. Established the idea of the non-working class, "tramps"</a></li>
+<li><a href="#org6b09078">1.3. The jailing of police superindendent reduced public confident</a></li>
+<li><a href="#orgb7cf521">1.4. Gun industry monetized the want for protection via distrust in police</a></li>
+<li><a href="#org04c25e7">1.5. Distriction began being drawn between true poverty and "dishonest" poverty</a></li>
+<li><a href="#org996eb67">1.6. Immigrants are labelled as "invisible"</a></li>
+<li><a href="#org785a0e5">1.7. Immigration and resistance to Americanization as a part which caused dissenting sentiments</a></li>
+<li><a href="#orgc710687">1.8. Immigrant-based "Free-thinkers" and benevolent societies eventually lead to the first societies</a></li>
+<li><a href="#org5bea192">1.9. Socialist sensiments were being cultured feasting from the failure of organised labour</a></li>
+<li><a href="#org3b3388b">1.10. The election win of republicans overshadowed the development of socialism</a></li>
+<li><a href="#org408cf58">1.11. Insurgency intensified when lives are put on the line</a></li>
+<li><a href="#org45f1f7e">1.12. The "sucess" of strike and struggle deemed as infectious</a></li>
+<li><a href="#orgd84230f">1.13. Independent strikes pictured as one homogeous group</a></li>
+<li><a href="#orgfd3fded">1.14. Used sexism to justify workmen rights</a></li>
+<li><a href="#org815e3c7">1.15. Citizen militia (still independently organized groups) told to put down</a></li>
+<li><a href="#org0155e35">1.16. Police presece still won out</a></li>
+<li><a href="#org7a11e69">1.17. Political messaging of event was subsumed by disorderly warfare</a></li>
+<li><a href="#org3bb5b9a">1.18. Gender difference highlighted as a figure of disorderlyness</a></li>
+<li><a href="#orgf103c8b">1.19. "Sent out to suppress rioters, the police became rioters themselves."</a></li>
+<li><a href="#orgacb561c">1.20. Business people attained a vested interest in security</a></li>
+<li><a href="#orgeb4f57f">1.21. Automated radicalism is encouraged</a></li>
+<li><a href="#org4182c23">1.22. Civil Millitias actually encouraged further protests</a></li>
+<li><a href="#orgc3f889f">1.23. Governmental systems actively working against workers</a></li>
+<li><a href="#orgf04c130">1.24. Definance marked the organization of Parsons</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-org881a3af" class="outline-2">
+<h2 id="org881a3af"><span class="section-number-2">1</span> Reading Notes</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgf9b3799" class="outline-3">
+<h3 id="orgf9b3799"><span class="section-number-3">1.1</span> Socialism as the initial fuel for uprising</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+socialist agitators took to the streets all over the North and West sides
+</p>
+</div>
+</div>
+<div id="outline-container-orgb9065ef" class="outline-3">
+<h3 id="orgb9065ef"><span class="section-number-3">1.2</span> Established the idea of the non-working class, "tramps"</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+"dangerous class of vagrants called ‘tramps’ who would prefer to beg or steal than to work.”
+</p>
+</div>
+</div>
+<div id="outline-container-org6b09078" class="outline-3">
+<h3 id="org6b09078"><span class="section-number-3">1.3</span> The jailing of police superindendent reduced public confident</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+However, these arrests did little to increase citizens con­ fidence in the police department, whose former superintendent had been jailed on corruption charges
+</p>
+</div>
+</div>
+<div id="outline-container-orgb7cf521" class="outline-3">
+<h3 id="orgb7cf521"><span class="section-number-3">1.4</span> Gun industry monetized the want for protection via distrust in police</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+The Western Gun Works offered a solution: a new lightweight, silver-plated pistol made of the best English steel with a rifled barrel.
+</p>
+</div>
+</div>
+<div id="outline-container-org04c25e7" class="outline-3">
+<h3 id="org04c25e7"><span class="section-number-3">1.5</span> Distriction began being drawn between true poverty and "dishonest" poverty</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+The publisher, who cared deeply about the quality of life in his city, loathed Irish ward heelers and saloonkeepers, gamblers and socialist rabble-rousers, but he knew “honest poverty” when he saw it.
+</p>
+</div>
+</div>
+<div id="outline-container-org996eb67" class="outline-3">
+<h3 id="org996eb67"><span class="section-number-3">1.6</span> Immigrants are labelled as "invisible"</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+huge, largely invisible cotnmunity of immigrant working people, embers of anger and frustration smoldered that summer.
+</p>
+</div>
+</div>
+<div id="outline-container-org785a0e5" class="outline-3">
+<h3 id="org785a0e5"><span class="section-number-3">1.7</span> Immigration and resistance to Americanization as a part which caused dissenting sentiments</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+These immigrants also clung to their cultural, social and linguistic heritage with “a tenacity that resisted easy Americanization.”
+</p>
+</div>
+</div>
+<div id="outline-container-orgc710687" class="outline-3">
+<h3 id="orgc710687"><span class="section-number-3">1.8</span> Immigrant-based "Free-thinkers" and benevolent societies eventually lead to the first societies</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+When lumberyard owners cut the wages of common laborers from $1.50 to $1.25 a day, the Bohemians reacted to the blow as a community
+</p>
+</div>
+</div>
+<div id="outline-container-org5bea192" class="outline-3">
+<h3 id="org5bea192"><span class="section-number-3">1.9</span> Socialist sensiments were being cultured feasting from the failure of organised labour</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+THE SOCIALISTS WERE indeed busy cultivating their party that spring.
+</p>
+</div>
+</div>
+<div id="outline-container-org3b3388b" class="outline-3">
+<h3 id="org3b3388b"><span class="section-number-3">1.10</span> The election win of republicans overshadowed the development of socialism</h3>
+<div class="outline-text-3" id="text-1-10">
+<p>
+Still, Chicago’s top business and political leaders had no reason to notice a few hundred votes tallied by the socialists, because these elites were celebrating the reelection of a Republican mayor
+</p>
+</div>
+</div>
+<div id="outline-container-org408cf58" class="outline-3">
+<h3 id="org408cf58"><span class="section-number-3">1.11</span> Insurgency intensified when lives are put on the line</h3>
+<div class="outline-text-3" id="text-1-11">
+<p>
+was one of the first to notice the reports of workers blocking trains in West Virginia, strikers plundering an armory in Maryland, scores of “insurgent camp fires”
+</p>
+</div>
+</div>
+<div id="outline-container-org45f1f7e" class="outline-3">
+<h3 id="org45f1f7e"><span class="section-number-3">1.12</span> The "sucess" of strike and struggle deemed as infectious</h3>
+<div class="outline-text-3" id="text-1-12">
+<p>
+rergrTof terror prevailed” and that “riot fever” was spreading west.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd84230f" class="outline-3">
+<h3 id="orgd84230f"><span class="section-number-3">1.13</span> Independent strikes pictured as one homogeous group</h3>
+<div class="outline-text-3" id="text-1-13">
+<p>
+The next day freight handlers on the Illinois Central Railroad struck and marched through other Chicago yards and shops calling others out to join them. The evening Tribune simply proclaimed: “It Is Here.
+</p>
+</div>
+</div>
+<div id="outline-container-orgfd3fded" class="outline-3">
+<h3 id="orgfd3fded"><span class="section-number-3">1.14</span> Used sexism to justify workmen rights</h3>
+<div class="outline-text-3" id="text-1-14">
+<p>
+“Working men of Chicago! it began “Have you no rights?—No ambition?-—No Manhood?
+</p>
+</div>
+</div>
+<div id="outline-container-org815e3c7" class="outline-3">
+<h3 id="org815e3c7"><span class="section-number-3">1.15</span> Citizen militia (still independently organized groups) told to put down</h3>
+<div class="outline-text-3" id="text-1-15">
+<p>
+That afternoon fire bells rang all over the city, calling the militia to their armories, and that evening Civil War veterans met to form volunteer companies under the command of former army generals
+</p>
+</div>
+</div>
+<div id="outline-container-org0155e35" class="outline-3">
+<h3 id="org0155e35"><span class="section-number-3">1.16</span> Police presece still won out</h3>
+<div class="outline-text-3" id="text-1-16">
+<p>
+By the end of the day, however, Workingmen’s Party activists were laying low after being driven from the streets by the police
+</p>
+</div>
+</div>
+<div id="outline-container-org7a11e69" class="outline-3">
+<h3 id="org7a11e69"><span class="section-number-3">1.17</span> Political messaging of event was subsumed by disorderly warfare</h3>
+<div class="outline-text-3" id="text-1-17">
+<p>
+The significance of the work stoppage was overshadowed, however, by warfare that resumed along Halsted Street.
+</p>
+</div>
+</div>
+<div id="outline-container-org3bb5b9a" class="outline-3">
+<h3 id="org3bb5b9a"><span class="section-number-3">1.18</span> Gender difference highlighted as a figure of disorderlyness</h3>
+<div class="outline-text-3" id="text-1-18">
+<p>
+It was TERROR’S REIGN, according to the Chicago Times, and a sure sign of it was the presence of wild women in the crowd.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf103c8b" class="outline-3">
+<h3 id="orgf103c8b"><span class="section-number-3">1.19</span> "Sent out to suppress rioters, the police became rioters themselves."</h3>
+<div class="outline-text-3" id="text-1-19">
+<p>
+Sent out to suppress rioters, the police became rioters themselves.
+</p>
+</div>
+</div>
+<div id="outline-container-orgacb561c" class="outline-3">
+<h3 id="orgacb561c"><span class="section-number-3">1.20</span> Business people attained a vested interest in security</h3>
+<div class="outline-text-3" id="text-1-20">
+<p>
+Chicago’s richest man, Marshall Field, would donate thousands to purchase arms and would insist the money be invested in constructing fortresslike armories.
+</p>
+</div>
+</div>
+<div id="outline-container-orgeb4f57f" class="outline-3">
+<h3 id="orgeb4f57f"><span class="section-number-3">1.21</span> Automated radicalism is encouraged</h3>
+<div class="outline-text-3" id="text-1-21">
+<p>
+Thes e radicals were encouraged not only by the mil- itaficyoTthe strikers but by the behavior of hundreds of city dwellers who joined the workers in a series of community uprisings that expressed long-standing grievances
+</p>
+</div>
+</div>
+<div id="outline-container-org4182c23" class="outline-3">
+<h3 id="org4182c23"><span class="section-number-3">1.22</span> Civil Millitias actually encouraged further protests</h3>
+<div class="outline-text-3" id="text-1-22">
+<p>
+the massive use of the militia and the U.S. Army to suppress civil protest.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc3f889f" class="outline-3">
+<h3 id="orgc3f889f"><span class="section-number-3">1.23</span> Governmental systems actively working against workers</h3>
+<div class="outline-text-3" id="text-1-23">
+<p>
+The superintendent then opened a spring latch door, shoved Parsons into a dark hallway and whispered in his ear, “Take warning.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf04c130" class="outline-3">
+<h3 id="orgf04c130"><span class="section-number-3">1.24</span> Definance marked the organization of Parsons</h3>
+<div class="outline-text-3" id="text-1-24">
+<p>
+The Board of Trade was not going to drive Albert Parsons out of Chicago. Within a month after his ordeal, he would be back on the streets, campaigning for the Workingmen’s Party.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

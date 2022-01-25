@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-01-20 Thu 23:47 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DGC 1.1 Vector Functions</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">DGC 1.1 Vector Functions</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-01-20 Thu 23:47</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhvector_calc_index.html'>Vector Calc Index</a></li> <li><a class='backlink' href='index.html'>Multivariable Calculus Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#orga7092d8">1. Vector Functions</a></li>
+<li><a href="#org25a976a">2. Electrostatics</a>
+<ul>
+<li><a href="#orgc4f1c23">2.1. Charges</a></li>
+<li><a href="#orgbdb3aaa">2.2. Coulomb's Law</a>
+<ul>
+<li><a href="#org8f1b000">2.2.1. Formula for Coulomb's law</a></li>
+<li><a href="#org070d7c2">2.2.2. Like changes repel, unlike changes attract</a></li>
+<li><a href="#org6545746">2.2.3. Principle of Superposition</a></li>
+<li><a href="#org4f6e80b">2.2.4. The "Electrostatic Field"</a></li>
+</ul>
+</li>
+<li><a href="#org49383f1">2.3. Doing Some Calculus</a></li>
+</ul>
+</li>
+<li><a href="#orgb51713b">3. Exercises</a>
+<ul>
+<li><a href="#orgca37dfb">3.1. 1.4</a>
+<ul>
+<li><a href="#org2d7c963">3.1.1. Magnitude</a></li>
+<li><a href="#orgf369aac">3.1.2. Derivatives</a></li>
+<li><a href="#orgc182920">3.1.3. Tracing Path</a></li>
+</ul>
+</li>
+<li><a href="#orgd297588">3.2. 1.5</a>
+<ul>
+<li><a href="#orgcafdb0a">3.2.1. Identifying the Direction Vectors</a></li>
+<li><a href="#org809609f">3.2.2. Writing an Electric Field</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-orga7092d8" class="outline-2">
+<h2 id="orga7092d8"><span class="section-number-2">1</span> Vector Functions</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Functions like \(y=f(x)\) is a <i>rule</i> that associates two number \(x\) and \(y\). More generally, a function associates a (possibly multi-dimensional) set of values in perspective of others.
+</p>
+
+<p>
+<i>Vector functions</i>, like vectors, could be resolved into the components that will output results for each of the dimensions. 
+</p>
+
+<p>
+Here's a basic vector function:
+</p>
+
+\begin{equation}
+   \vec{F}(x,y) = \hat{i}x+\hat{j}y
+\end{equation}
+
+<p>
+For vector functions, we could split it into components. Some people use the following expression for partial derivatives, though in this case we will use it for components of the vector-valued function.
+</p>
+
+<p>
+For the function above, for instance, we could parameterize upon the output dimension:
+</p>
+
+<ul class="org-ul">
+<li>\(\vec{F}_x = x\)</li>
+<li>\(\vec{F}_y = y\)</li>
+</ul>
+
+<p>
+Instead of being partial derivatives, we use the subscript notation for parameterization when dealing with vector value function.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org25a976a" class="outline-2">
+<h2 id="org25a976a"><span class="section-number-2">2</span> Electrostatics</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+To understand the rest of the text better, the book provides a brief conversation upon electrostatics.
+</p>
+</div>
+
+<div id="outline-container-orgc4f1c23" class="outline-3">
+<h3 id="orgc4f1c23"><span class="section-number-3">2.1</span> Charges</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Two changes, positive and negative. Every piece of material contains electric charge, though most material has zero <i>net</i> charge by having equal parts positive and negative charges.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbdb3aaa" class="outline-3">
+<h3 id="orgbdb3aaa"><span class="section-number-3">2.2</span> Coulomb's Law</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Electrostatic forces between two particles are&#x2026;
+</p>
+
+<ul class="org-ul">
+<li>Proportional to the product of their changes</li>
+<li>Is inversely proportional to the square of the distance between them</li>
+<li>Acts along the line joining them</li>
+</ul>
+</div>
+
+<div id="outline-container-org8f1b000" class="outline-4">
+<h4 id="org8f1b000"><span class="section-number-4">2.2.1</span> Formula for Coulomb's law</h4>
+<div class="outline-text-4" id="text-2-2-1">
+
+<div id="org6d909e1" class="figure">
+<p><img src="2022-01-20_22-06-03_screenshot.png" alt="2022-01-20_22-06-03_screenshot.png" />
+</p>
+</div>
+
+\begin{equation}
+    \vec{F} = K\frac{qq_0}{r^2}\hat{u}
+\end{equation}
+
+<p>
+Expanding \(K = \frac{1}{4\pi\epsilon_0}\), we arrive at
+</p>
+
+\begin{equation}
+   \vec{F} = \frac{1}{4\pi\epsilon_0}\frac{qq_0}{r^2}\hat{u}
+\end{equation}
+
+<p>
+Looking at the numerator of this expression, we arrive at:
+</p>
+
+\begin{equation}
+   qq_0 \hat{u} 
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org070d7c2" class="outline-4">
+<h4 id="org070d7c2"><span class="section-number-4">2.2.2</span> Like changes repel, unlike changes attract</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+One will realize that, if \(q,q_0\) have the same signs, they will have a positive \(qq_0\). Therefore, \(+\hat{u}\) will be pointed towards each other &#x2014; meaning the charges will direct force towards themselves and hence repel; in a similar vein, if \(q,q_0\) have different signs, they will have a negative \(qq_0\), \(-\hat{u}\) will be pointed away from each other and hence the particles will push themselves towards each other.
+</p>
+
+<p>
+Therefore: "like changes repel, unlike changes attract."
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6545746" class="outline-4">
+<h4 id="org6545746"><span class="section-number-4">2.2.3</span> Principle of Superposition</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<p>
+If there are three changes, \(q_0\), \(q_1\), \(q_2\), and \(\vec{F}_1 \Rightarrow q_1 \to q_0\), \(\vec{F}_2 \Rightarrow q_2 \to q_0\): the total net force on \(q_0\) is \(\vec{F}_1 + \vec{F}_2\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4f6e80b" class="outline-4">
+<h4 id="org4f6e80b"><span class="section-number-4">2.2.4</span> The "Electrostatic Field"</h4>
+<div class="outline-text-4" id="text-2-2-4">
+<p>
+The electrostatic field is the field that a change emits given one test change, though not counting the interaction of the test change.
+</p>
+
+\begin{equation}
+   \vec{E}(\vec{r}) = \frac{\vec{F}(\vec{r})}{q_0} = \frac{1}{4\pi\epsilon_0}\frac{q}{r^2}\hat{u}
+\end{equation}
+
+<p>
+So then, if we expand this same principle to \(N\) <i>number</i> of test changes, though all discounting their influences:
+</p>
+
+\begin{equation}
+   \vec{E}(\vec{r}) = \sum^N_{i=1} \frac{1}{4\pi\epsilon_0}\frac{q}{|\vec{r}-\vec{r}_i|^2}\hat{u}
+\end{equation}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org49383f1" class="outline-3">
+<h3 id="org49383f1"><span class="section-number-3">2.3</span> Doing Some Calculus</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+We first define the <i>average change density</i> in some space \(\Delta V\) as&#x2026;
+</p>
+
+\begin{equation}
+\bar{\rho}_{\Delta V} = \frac{\Delta Q}{\Delta V}
+\end{equation}
+
+<p>
+As in, if we treat some volume \(\Delta V\) as a continuous space, in it there exists some \(\Delta Q\) which is the total electric change in that area.
+</p>
+
+<p>
+With this information, we could define the change density of any given point \((x,y,z)\) in space as function \(\mathbb{R}^3 \to \mathbb{R}^1\)
+</p>
+
+\begin{equation}
+   \rho(x,y,z) = \lim_{\Delta V \to 0} \bar{\rho}_{\Delta V}\ (about\ x,y,z)
+\end{equation}
+
+<p>
+Going the other way, we could integrate this expression, per our previous expression for the electrostatic field, it could be presented as an integral
+</p>
+
+\begin{equation}
+   \vec{E}(\vec{R}) = \frac{1}{4\pi\epsilon_0} \iiint_V \frac{\rho(\vec{r})\hat{u}\vec{r'}}{|\vec{r}-\vec{r}'|^2} dV'
+\end{equation}
+
+<p>
+(triple integral over area \(V\) and every point in it.)
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb51713b" class="outline-2">
+<h2 id="orgb51713b"><span class="section-number-2">3</span> Exercises</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgca37dfb" class="outline-3">
+<h3 id="orgca37dfb"><span class="section-number-3">3.1</span> 1.4</h3>
+<div class="outline-text-3" id="text-3-1">
+<blockquote>
+<p>
+An object moves in the x-y plane in such a way that its position vector \(\vec{r}\) is given as a function of time \(t\) by:
+</p>
+
+\begin{equation}
+   \vec{r} = \hat{i}a\ cos(\omega\ t)  + \hat{j} b\ sin(\omega t) 
+\end{equation}
+
+<p>
+Where \(a,b,w \in \mathbb{F}\) and are constants.
+</p>
+</blockquote>
+</div>
+
+<div id="outline-container-org2d7c963" class="outline-4">
+<h4 id="org2d7c963"><span class="section-number-4">3.1.1</span> Magnitude</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<blockquote>
+<p>
+How far away is the object from the origin at any time \(t\)
+</p>
+</blockquote>
+
+<p>
+The object is, at any time \(t\), the following magnitude away from the origin:
+</p>
+
+\begin{equation}
+\sqrt{a^2\ cos^2(\omega\ t) + b^2\ sin^2(\omega\ t)}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orgf369aac" class="outline-4">
+<h4 id="orgf369aac"><span class="section-number-4">3.1.2</span> Derivatives</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<blockquote>
+<p>
+Find the object's velocity and acceleration as functions of time
+</p>
+</blockquote>
+
+<p>
+As the function is \(R^1 \to R^2\), there are no partial derivatives to be taken. Hence:
+</p>
+
+\begin{equation}
+   \vec{r}' =  \omega(-\hat{i}a\ sin(\omega\ t) + \hat{j} b\ cos(\omega\ t))
+\end{equation}
+
+\begin{equation}
+   \vec{r}'' =  -\omega^2(\hat{i} a\ cos(\omega\ t) + \hat{j} b\ sin(\omega\ t))
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orgc182920" class="outline-4">
+<h4 id="orgc182920"><span class="section-number-4">3.1.3</span> Tracing Path</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<blockquote>
+<p>
+Show that the object moves on the elliptical path
+</p>
+
+\begin{equation}
+   \left(\frac{x}{a}\right)^2 + \left(\frac{y}{b}\right)^2 = 1
+\end{equation}
+</blockquote>
+
+<p>
+We will split the original expression into components:
+</p>
+
+\begin{equation}
+\begin{cases}    
+\vec{r}_x = a\ cos(\omega)t\\
+\vec{r}_y = b\ sin(\omega)t\\
+\end{cases}    
+\end{equation}
+
+<p>
+Therefore, we substitute the expressions for \(x\) and \(y\) components:
+</p>
+
+\begin{align}
+   &\left(\frac{a\ cos(\omega\ t)}{a}\right)^2 + \left(\frac{b\ sin(\omega\ t)}{b}\right)^2 = 1 \\
+\Rightarrow & cos^2(\omega\ t) + sin^2(\omega\ t) = 1 \\
+\Rightarrow & 1 = 1 
+\end{align}
+
+<p>
+QED
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd297588" class="outline-3">
+<h3 id="orgd297588"><span class="section-number-3">3.2</span> 1.5</h3>
+<div class="outline-text-3" id="text-3-2">
+<blockquote>
+<p>
+A charge \(+1\) is situated at the point \((1,0,0)\) and a change \(-1\) is sitting at the point \((-1,0,0)\). Find the electric field of these two changes at an arbitrary point \((0,y,0)\) on the \(y\) axis.
+</p>
+</blockquote>
+
+<p>
+A vector-valued function representing an electric field is:
+</p>
+
+\begin{equation}
+   \vec{E}(\vec{r}) = \frac{1}{4\pi\epsilon_0}\frac{q}{r^2}\hat{u}
+\end{equation}
+
+<p>
+We need to find a direction vector \(\vec{u}\) pointed towards our arbitrary-point test-charge on \((0,y,0)\).
+</p>
+</div>
+
+<div id="outline-container-orgcafdb0a" class="outline-4">
+<h4 id="orgcafdb0a"><span class="section-number-4">3.2.1</span> Identifying the Direction Vectors</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+For change \(+1\), the vector pointing from our change to the arbitrary test point is:
+</p>
+
+\begin{equation}
+    \begin{bmatrix}
+0-1 \\
+y-0 \\
+0-0 
+    \end{bmatrix} = \begin{bmatrix}
+-1 \\
+y \\
+0 
+    \end{bmatrix} 
+\end{equation}
+
+<p>
+Normalising this vector, therefore, we arrive the \(\vec{u}_{+1}\):
+</p>
+
+\begin{equation}
+    \vec{u}_{+1} = \begin{bmatrix}
+-\frac{1}{1+y^2} \\
+\frac{y}{1+y^2} \\
+0 
+    \end{bmatrix}
+\end{equation}
+
+<p>
+In a similar vein, for change \(-1\), the vector pointing from our change to the arbitrary test point is:
+</p>
+
+\begin{equation}
+    \begin{bmatrix}
+0+1 \\
+y-0 \\
+0-0 
+    \end{bmatrix} = \begin{bmatrix}
+1 \\
+y \\
+0 
+    \end{bmatrix} 
+\end{equation}
+
+<p>
+Normalising this vector, therefore, we arrive the \(\vec{u}_{-1}\):
+</p>
+
+\begin{equation}
+    \vec{u}_{-1} = \begin{bmatrix}
+\frac{1}{1+y^2} \\
+\frac{y}{1+y^2} \\
+0 
+    \end{bmatrix}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org809609f" class="outline-4">
+<h4 id="org809609f"><span class="section-number-4">3.2.2</span> Writing an Electric Field</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+Our distance, \(r^2\), is the magnitude of the distance vectors as pointed above, which is \(1+y^2\). Our direction vectors are determined above.
+</p>
+
+\begin{equation}
+   \vec{E}(\vec{r})_{+1} = \frac{1}{4\pi\epsilon_0}\frac{q}{1+y^2} \begin{bmatrix}
+-\frac{1}{1+y^2} \\
+\frac{y}{1+y^2} \\
+0 
+    \end{bmatrix}
+\end{equation}
+
+\begin{equation}
+   \vec{E}(\vec{r})_{-1} = \frac{1}{4\pi\epsilon_0}\frac{q}{1+y^2} \begin{bmatrix}
+\frac{1}{1+y^2} \\
+\frac{y}{1+y^2} \\
+0 
+    \end{bmatrix}
+\end{equation}
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -31,4 +31,4 @@ This needs to go before **every Epsilon Delta proof.**
 
 * Step 1: Re-write the Definition Above w.r.t. the function
 * Step 2: Do scratch work to identify delta
-* Step 3: Plug it in to verify
+0* Step 3: Plug it in to verify

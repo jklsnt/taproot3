@@ -11,7 +11,6 @@ date: 2021-11-26
 
 # chaos! let's do it.
 
-
 ### resources
 - [main](https://www.youtube.com/watch?v=idpOunnpKTo)
 - [colors?](https://www.youtube.com/watch?v=uzJXeluCKMs)

@@ -1,0 +1,1097 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-01-06 Thu 15:18 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Type Theory</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Type Theory</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-01-06 Thu 15:18</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org66280a2">1. Chapter 0: Algebraic Type Theory</a>
+<ul>
+<li><a href="#org23d3d1a">1.1. Semi-Groups</a></li>
+<li><a href="#org8246260">1.2. Semi-Rings</a></li>
+<li><a href="#org1726bd0">1.3. Types</a></li>
+<li><a href="#org1d5ad68">1.4. Tuples are Multiply</a>
+<ul>
+<li><a href="#org8a79a95">1.4.1. The "Tuple" Operator</a></li>
+<li><a href="#org446d5cc">1.4.2. Proving Properties</a></li>
+</ul>
+</li>
+<li><a href="#org6ee2ac7">1.5. Datatypes are Add</a>
+<ul>
+<li><a href="#orgfc2b01e">1.5.1. The "Add" Operator</a></li>
+<li><a href="#org92aac4c">1.5.2. Proving Properties</a></li>
+</ul>
+</li>
+<li><a href="#org220fdae">1.6. Proving Distribution</a></li>
+<li><a href="#org8f85f7c">1.7. Functions as a Type</a></li>
+<li><a href="#orga273234">1.8. Currying and Uncurring form an Isomorphism</a></li>
+<li><a href="#org7196c5f">1.9. Lists</a></li>
+<li><a href="#orgbae4300">1.10. And now, Calculus.</a></li>
+<li><a href="#org7a4f169">1.11. Formalizing a Derivatives</a>
+<ul>
+<li><a href="#orgba57447">1.11.1. Statements from the utterly deranged</a></li>
+<li><a href="#orgc888a98">1.11.2. So this is a derivative</a></li>
+</ul>
+</li>
+<li><a href="#orgc836144">1.12. Revisiting Lists with One-Hole Context on Context</a></li>
+<li><a href="#orgcdcc3a6">1.13. More with One-Hole Contexts</a></li>
+</ul>
+</li>
+<li><a href="#org3ccf147">2. Chapter 1: Church's Lambda Calculus</a>
+<ul>
+<li><a href="#orgcc1fbd7">2.1. Expressions</a></li>
+<li><a href="#org55b6e99">2.2. Basic Functions</a></li>
+<li><a href="#org1de9097">2.3. Booleans</a></li>
+<li><a href="#org404fd92">2.4. Numbers</a></li>
+<li><a href="#org6a3e5dd">2.5. Numerical Operators</a></li>
+<li><a href="#org808bc1f">2.6. Y-Combinator and Recursion</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-org66280a2" class="outline-2">
+<h2 id="org66280a2"><span class="section-number-2">1</span> Chapter 0: Algebraic Type Theory</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org23d3d1a" class="outline-3">
+<h3 id="org23d3d1a"><span class="section-number-3">1.1</span> Semi-Groups</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Elements</li>
+<li>Operator</li>
+<li>Identity</li>
+<li>Associativity</li>
+<li>Commutativity</li>
+</ul>
+
+<p>
+So its a field with one operator
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8246260" class="outline-3">
+<h3 id="org8246260"><span class="section-number-3">1.2</span> Semi-Rings</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Groups with two operators.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1726bd0" class="outline-3">
+<h3 id="org1726bd0"><span class="section-number-3">1.3</span> Types</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Define two types:
+</p>
+
+<ul class="org-ul">
+<li>(): Unit</li>
+<li>Option&lt;Unit&gt;: Bool</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1d5ad68" class="outline-3">
+<h3 id="org1d5ad68"><span class="section-number-3">1.4</span> Tuples are Multiply</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-org8a79a95" class="outline-4">
+<h4 id="org8a79a95"><span class="section-number-4">1.4.1</span> The "Tuple" Operator</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<p>
+These are isomorphic:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sml">fn SOME () =&gt; true | None =&gt; false;
+fn true =&gt; SOME () | false =&gt; None |
+</pre>
+</div>
+
+<p>
+(elements proven)
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">a * b</td>
+<td class="org-left">=</td>
+<td class="org-left">a</td>
+<td class="org-left">*</td>
+<td class="org-left">b</td>
+<td class="org-left">(closed under operator. Operator shown.)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org446d5cc" class="outline-4">
+<h4 id="org446d5cc"><span class="section-number-4">1.4.2</span> Proving Properties</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<ul class="org-ul">
+<li>| unit * a | = 1 * | a | = | a | (operator identity exists. Identity proven)</li>
+</ul>
+
+<p>
+Operator is associative
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sml">fn ((x,y),z) =&gt; (x,(y,z))
+</pre>
+</div>
+
+<p>
+(associativity proven)
+</p>
+
+<p>
+The Reverse Function Exists.
+</p>
+
+<p>
+(commutativity proven) Proof left for the reader, or Axler.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6ee2ac7" class="outline-3">
+<h3 id="org6ee2ac7"><span class="section-number-3">1.5</span> Datatypes are Add</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-orgfc2b01e" class="outline-4">
+<h4 id="orgfc2b01e"><span class="section-number-4">1.5.1</span> The "Add" Operator</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">+</td>
+<td class="org-left">b</td>
+<td class="org-left">=</td>
+<td class="org-left">a + b</td>
+<td class="org-left">(you are having a value that has EITHER type a or b. Closed under operator.)</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+(Operator 2 shown.)
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="orgcd76d4a"></a>Relationship between Operators<br />
+<div class="outline-text-5" id="text-1-5-1-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">+</td>
+<td class="org-left">a</td>
+<td class="org-left">= 2 *</td>
+<td class="org-left">a</td>
+<td class="org-left">=</td>
+<td class="org-left">bool</td>
+<td class="org-left">*</td>
+<td class="org-left">a</td>
+<td class="org-left">=</td>
+<td class="org-left">bool * a</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+We could show this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sml">datatype ('a, 'b) either = Left of 'a | Right of 'b;
+fn Left x =&gt; (false, x) | Right x =&gt; (true x);
+</pre>
+</div>
+
+<p>
+Therefore "either" is a union (OR) of two types.
+</p>
+
+<p>
+(map between operators?)
+</p>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org92aac4c" class="outline-4">
+<h4 id="org92aac4c"><span class="section-number-4">1.5.2</span> Proving Properties</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<p>
+Also, we show that this second operator has an identity
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sml">datatype void = .
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">+</td>
+<td class="org-left">void</td>
+<td class="org-left">=</td>
+<td class="org-left">a</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+because nothing could possibly have the type of <code>void</code>, so if we have a Either 'void 'a, it could only be Right a.
+</p>
+
+<p>
+(identity proven.)
+</p>
+
+<p>
+Commutivity and associativity is left for the reader. Or anyone else. I didin't catch it.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org220fdae" class="outline-3">
+<h3 id="org220fdae"><span class="section-number-3">1.6</span> Proving Distribution</h3>
+<div class="outline-text-3" id="text-1-6">
+<div class="org-src-container">
+<pre class="src src-sml">fn (y, Left y) =&gt; Left (x,y) | (x, Right z) =&gt; Right (x,z)
+</pre>
+</div>
+
+<p>
+Yeah. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8f85f7c" class="outline-3">
+<h3 id="org8f85f7c"><span class="section-number-3">1.7</span> Functions as a Type</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+How many functions does the following thing?
+</p>
+
+<p>
+'a -&gt; 1?
+</p>
+
+<p>
+One. The following thing:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sml">fn _ =&gt; ()
+</pre>
+</div>
+
+<p>
+How many functions does the following thing?
+</p>
+
+<p>
+1 -&gt; 'a
+</p>
+
+<p>
+A.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sml">fn _ =&gt; 1
+fn _ =&gt; 2
+</pre>
+</div>
+
+<p>
+etc. etc. etc.
+</p>
+
+<p>
+So! We understand the following things:
+</p>
+
+<ul class="org-ul">
+<li>|'a -&gt; 1| = | 1 |</li>
+<li>| 1 -&gt; 'a | = | 'a |</li>
+<li>| 2 -&gt; 'a | = | 'a |<sup>2</sup> (true, alpha. False, alpha. etc. etc.)</li>
+<li>| 'a -&gt; 2 | = 2<sup>(|' a | )</sup></li>
+</ul>
+
+<p>
+Hence, "function" is the exponent operator.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga273234" class="outline-3">
+<h3 id="orga273234"><span class="section-number-3">1.8</span> Currying and Uncurring form an Isomorphism</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+So:
+</p>
+
+<p>
+Blue box:
+</p>
+
+<p>
+'a x 'b -&gt; 'c (uncurried tuple input) is isomorphic to 'a -&gt; 'b -&gt; 'c
+</p>
+
+<p>
+Proof:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">(a * b) -&gt; c</td>
+<td class="org-left">=</td>
+<td class="org-left">a -&gt; (b -&gt; c)</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Rewriting in Exponent form, as established above
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">c</td>
+<td class="org-left">^</td>
+<td class="org-left">(a * b)</td>
+<td class="org-left">=</td>
+<td class="org-left">(b -&gt; c)</td>
+<td class="org-left">^</td>
+<td class="org-left">a</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Because of that property I dm'd zach
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">c</td>
+<td class="org-left">^</td>
+<td class="org-left">(a) * (b)</td>
+<td class="org-left">=</td>
+<td class="org-left">(b -&gt; c)</td>
+<td class="org-left">^</td>
+<td class="org-left">a</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Expanding the right function into exponent form
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">c</td>
+<td class="org-left">^</td>
+<td class="org-left">(a) * (b)</td>
+<td class="org-left">=</td>
+<td class="org-left">(</td>
+<td class="org-left">c</td>
+<td class="org-left">^</td>
+<td class="org-left">b</td>
+<td class="org-left">)</td>
+<td class="org-left">^</td>
+<td class="org-left">a</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+a<sup>b</sup><sup>c</sup>  = a * bc
+</p>
+
+<p>
+qed, ig?
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7196c5f" class="outline-3">
+<h3 id="org7196c5f"><span class="section-number-3">1.9</span> Lists</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+Linked lists!
+</p>
+
+<p>
+L('a) = 1 + 'a * L('a)
+</p>
+
+<p>
+We could do some things on it, by moving things around
+</p>
+
+<ul class="org-ul">
+<li>L('a) - 'a * L('a) = 1</li>
+<li>L('a) (1 - 'a) = 1</li>
+<li>L('a) = 1/(1-'a)</li>
+</ul>
+
+<p>
+Wait wait wait
+</p>
+
+<p>
+L('a) = 1/(1-'a)
+</p>
+
+<p>
+that's an infinite series! Let's taylor expand it
+</p>
+
+<p>
+L('a) = 1/(1-'a) = 1 + a + a<sup>2</sup> &#x2026;
+</p>
+
+<p>
+And, indeed. A list is a datatype of empty, OR linked to one element, OR linked by 2 elements (all possiblities of first element, times all the second, so 'a<sup>2</sup>), OR linked by 3 etc.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbae4300" class="outline-3">
+<h3 id="orgbae4300"><span class="section-number-3">1.10</span> And now, Calculus.</h3>
+<div class="outline-text-3" id="text-1-10">
+<p>
+So what exactly is: d/d'a L ('a)?
+</p>
+
+<p>
+Expanding the definition and taking low 'd high, high'd low:
+</p>
+
+<p>
+d/da L('a) = d/da 1/(1-'a) = ((1-'a)(0) - 1(d/d'a ( 1 - 'a )))/(1-'a)<sup>2</sup>
+</p>
+
+<p>
+d/da L('a) = 1/(1-'a)<sup>2</sup> = (1/(1-'a))<sup>2</sup>
+</p>
+
+<p>
+So we know that:
+</p>
+
+<p>
+d/da L('a) = (1/(1-'a))<sup>2</sup> = (L('a))<sup>2</sup>
+</p>
+
+<p>
+Therefore: the derivative of a list is two lists! Or a tuple of lists.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7a4f169" class="outline-3">
+<h3 id="org7a4f169"><span class="section-number-3">1.11</span> Formalizing a Derivatives</h3>
+<div class="outline-text-3" id="text-1-11">
+<p>
+Say we want to remove an 'a from a list:
+</p>
+
+<ul class="org-ul">
+<li>'a * 'a = 2 ways of removing an element of 'a. The result of this is bool (which one punched), val</li>
+<li>'a * 'a * 'a = 3 ways of removing an element of 'a</li>
+<li>'a * 'b = 1 way of removing an element of 'a</li>
+</ul>
+
+<p>
+This all makes sense. But its not motivated.
+</p>
+</div>
+
+<div id="outline-container-orgba57447" class="outline-4">
+<h4 id="orgba57447"><span class="section-number-4">1.11.1</span> Statements from the utterly deranged</h4>
+<div class="outline-text-4" id="text-1-11-1">
+<ul class="org-ul">
+<li>What if we have an 'b, and punch out alpha? We get Void.</li>
+<li>What if we have an (), and punch out alpha? We get Void.</li>
+<li>Why are these impossible?</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc888a98" class="outline-4">
+<h4 id="orgc888a98"><span class="section-number-4">1.11.2</span> So this is a derivative</h4>
+<div class="outline-text-4" id="text-1-11-2">
+<p>
+Think:
+</p>
+
+<p>
+'a * 'a = 2 ways of removing an element of 'a. The result of this is bool (which one punched) + val = 'a * 2
+</p>
+
+<p>
+a<sup>2</sup> = 2a
+</p>
+
+<p>
+This is also known as "one-hole context."
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc836144" class="outline-3">
+<h3 id="orgc836144"><span class="section-number-3">1.12</span> Revisiting Lists with One-Hole Context on Context</h3>
+<div class="outline-text-3" id="text-1-12">
+<p>
+From above:
+</p>
+
+<p>
+d/da L('a) = (L('a))<sup>2</sup>
+</p>
+
+<p>
+We could see: if we "punch" (create a hole) in a linked list, we create TWO linked lists. A tuple with everything before the punched element, and everything after the punched element.
+</p>
+
+<p>
+Also, you will realize that one-hole contexts allow fast access of things near holes
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcdcc3a6" class="outline-3">
+<h3 id="orgcdcc3a6"><span class="section-number-3">1.13</span> More with One-Hole Contexts</h3>
+<div class="outline-text-3" id="text-1-13">
+<p>
+A tree is defined as&#x2026;
+</p>
+
+<p>
+T('a) = 1 + T('a) * a * T('a)
+</p>
+
+<p>
+Let's find its one-hole context:
+</p>
+
+<p>
+We are just believing Avery.
+</p>
+
+<p>
+T'('a) = T('a) * T ('a) * L ( 'a * 2 * T ('a) )
+</p>
+
+<p>
+This tells us that, for any given hole, we have
+</p>
+
+<ul class="org-ul">
+<li>T('a): a left tree</li>
+<li>T ('a): a right tree</li>
+<li>L: a list of parent nodes
+<ul class="org-ul">
+<li>'a: the current value</li>
+<li>2: a boolean of whether to go right or left</li>
+<li>T ('a): a tree that diverged from that point</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3ccf147" class="outline-2">
+<h2 id="org3ccf147"><span class="section-number-2">2</span> Chapter 1: Church's Lambda Calculus</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+EVERYTHING IS A FUNCTION!
+</p>
+</div>
+
+<div id="outline-container-orgcc1fbd7" class="outline-3">
+<h3 id="orgcc1fbd7"><span class="section-number-3">2.1</span> Expressions</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+An expression should look like one of three things:
+</p>
+
+<ul class="org-ul">
+<li><code>lambda x . exp</code> (a function)</li>
+<li><code>exp(exp)</code> (a compound expression)</li>
+<li><code>x</code> (a value)</li>
+</ul>
+
+<p>
+Congratulations, you made a turing machine (the simplest one, in fact). Now let's just put some meaning on things:
+</p>
+</div>
+</div>
+
+<div id="outline-container-org55b6e99" class="outline-3">
+<h3 id="org55b6e99"><span class="section-number-3">2.2</span> Basic Functions</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>lambda x . x</li>
+<li>lambda x . lambda f . fx</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1de9097" class="outline-3">
+<h3 id="org1de9097"><span class="section-number-3">2.3</span> Booleans</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>true = lambda x. lambda y. x (curred function returns first)</li>
+<li>false = lambda x. y lmbda y. y  (curred function returns second)</li>
+<li>if a then b else c = a b c
+<ul class="org-ul">
+<li>a is a boolean, as defined above</li>
+<li>true bc =&gt; (lambda x. lambda y. x) bc = b (the "then" case")</li>
+<li>false bc =&gt; (lambda x. lambda y. y) bc = c (the "else" case")</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org404fd92" class="outline-3">
+<h3 id="org404fd92"><span class="section-number-3">2.4</span> Numbers</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>0 = lambda f.lambda.x.x ("run the function on base case times")</li>
+<li>1 = lambda f.lambda x.fx ("run the function on base case one times")</li>
+<li>2 = lambda f.lambda y.f(fx) ("run the function on base case two times")</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6a3e5dd" class="outline-3">
+<h3 id="org6a3e5dd"><span class="section-number-3">2.5</span> Numerical Operators</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li>succ (succ = fn x =&gt; x+1) = lambda n. lambda f. lambda x. f(nfx) (remember that n, a number, is a function too per above)</li>
+<li>add = lambda a. lambda b. lambda f. lambda x. b f(afx)</li>
+<li>mult = lambda a. lambda b. lambda f. lambda x. a(bf)x (run it a times b times)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org808bc1f" class="outline-3">
+<h3 id="org808bc1f"><span class="section-number-3">2.6</span> Y-Combinator and Recursion</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+Y is a recursion helper with the following property:
+</p>
+
+<p>
+Y f x = f (Y f) x
+</p>
+
+<p>
+"Y" passes itself to the inner function as a parametre. It is defined as follows:
+</p>
+
+<p>
+Y = lambda f.(lambda x.f(x x))(lambda x.f(x x))
+</p>
+
+<p>
+With this, we could now have the factorial function
+</p>
+
+<p>
+Y(lambda f. lambda n. if n=0 then 1 else mult n(f(pred x)))
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

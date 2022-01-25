@@ -4,6 +4,8 @@
   \[\begin{aligned}
   \vec{r} : ( \vec{r} - \vec{P_0}) \cdot \vec{n} = 0\\
   \end{aligned}\]
+
+    The plane is all vectors s.t. when offset by $\vec P_0$, they are orthogonal to $\vec n$. It can be thought of as a transformation of the "parent plane" $\vec r \cdot \vec{n} = 0$, just as $y - k = m(x - h)$ is a transformation of the parent line $y = m x$.
 * normal vectors
   In cartesian form:
   
@@ -24,14 +26,16 @@
   \end{aligned}\]
 
 
-* verify that $\vec n \cdot \vec{r} = D$ is a plane
+* verify that $\hat n \cdot \vec{r} = D$ is a plane
   
   \[\begin{aligned}
-  \vec{n} \cdot \vec{r} &= D\\
+  \hat{n} \cdot \vec{r} &= D\\
   n_x x + n_y y + n_z z &= D
   \end{aligned}\]
 
-  Thus, $\vec{n}$ is a vector normal to the plane, and $D = \vec{P_0} \cdot \vec{n}$ where $\vec P_0$ is the offset from the origin.
+  Thus, $\hat{n}$ is a vector normal to the plane, and $D = \vec{P_0} \cdot \hat{n}$ where $\vec P_0$ is the offset from the origin.
+
+  $D$ is the distance from the plane to the origin, because it is the component of the offset vector onto the normal vector, and we know that the closest offset will be normal to the plane. 
 
 * find the distance from the origin
 
@@ -64,7 +68,9 @@
   \end{aligned}\]
 
 * the distance
-  Let $\vec P$ be a vector that represents the displacement of the plane from the origin. We are looking for the distance from the plane to 
+  Let $\vec P$ be a vector that represents the displacement of the plane from the origin. This can be any point on the plane, because all displacements that lie on the plane are equivalent. This way, we know that the equation for the plane is $\vec{r} : \vec{r} \cdot \vec{n} = \vec{P} \cdot \vec{n} = D$
+
+  We are looking for the distance from the plane to 
   \[\begin{aligned}
   \vec{P_0} = \langle x_0, y_0, z_0 \rangle
   \end{aligned}\]
@@ -103,7 +109,7 @@
   
   \[\begin{aligned}
   \frac{d\vec{r}}{dt} &= \frac{d}{dt} ( |\vec{r}| \hat{r} )\\
-  &=  \left( \frac{d}{dt} |\vec{r}| \right)   \hat{r} + |\vec{r}| \left( \frac{d}{dt}  \hat{r}  \right)&& \quad \text{quotient rule}\\
+  &=  \left( \frac{d}{dt} |\vec{r}| \right)   \hat{r} + |\vec{r}| \left( \frac{d}{dt}  \hat{r}  \right)&& \quad \text{product rule}\\
   \end{aligned}\]
 
   Now, we have all the parts that we need
@@ -129,5 +135,3 @@
   \hat{r} \cdot \frac{d}{dt} \vec{r} &= \frac{d}{dt} |\vec{r}|\\
   \end{aligned}\]
 
-
-  

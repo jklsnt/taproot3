@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-01-16 Sun 23:14 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MVC 2 PS#2</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#2</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-01-16 Sun 23:13</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhHomeworkIndex.html'>MVC Homework Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org6c7b5b3">1. Two Dimensional Parabaloid, Problem 1</a>
+<ul>
+<li><a href="#orga3bb1f9">1.1. Facing in a Direction</a></li>
+</ul>
+</li>
+<li><a href="#org7ade197">2. Two Dimensional Parabaloid, Problem 1</a>
+<ul>
+<li><a href="#org80f5c67">2.1. Facing in a Direction</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-org6c7b5b3" class="outline-2">
+<h2 id="org6c7b5b3"><span class="section-number-2">1</span> Two Dimensional Parabaloid, Problem 1</h2>
+<div class="outline-text-2" id="text-1">
+<blockquote>
+<p>
+Consider a two-dimensional parabaloid:
+</p>
+
+\begin{equation}
+    \begin{cases}
+f: \mathbb{R}^2 \to \mathbb{R}^1 \\
+f(x,y) = x^2 + y^2
+    \end{cases}
+\end{equation}
+</blockquote>
+
+<div class="org-src-container">
+<pre class="src src-sage">f(x,y) = x^2 + y^2
+plot3d(f, (x,-5,5),(y,-5,5))
+</pre>
+</div>
+
+
+<div id="orgf4c4fa0" class="figure">
+<p><img src="2022-01-13_12-11-09_screenshot.png" alt="2022-01-13_12-11-09_screenshot.png" />
+</p>
+</div>
+
+<p>
+We will begin by writing a generalized parameterization of the expression.
+</p>
+
+<p>
+For any given equation, we could take parameterization of:
+</p>
+
+\begin{equation}
+   \begin{cases} 
+y = sin(\theta)t + y_1 \\
+x = cos(\theta)t + x_1
+   \end{cases} 
+\end{equation}
+
+<p>
+Supplying the values into the original expression:
+</p>
+
+\begin{equation}
+f(t) = (cos(\theta)t + x_1)^2 + (sin(\theta)t + y_1)^2
+\end{equation}
+
+<p>
+Expanding the square from before: 
+</p>
+
+\begin{align}
+ f(t) &= t^2cos(\theta)^2 + t^2sin(\theta)^2 + 2tx_1cos(\theta) + 2ty_1sin(\theta) + {x_1}^2 + {y_1}^2
+\end{align}
+
+<p>
+And finally, taking the derivative of the above expression:
+</p>
+
+\begin{equation}
+ f'(t) = 2tcos(\theta)^2 + 2tsin(\theta)^2 + 2x_1cos(\theta) + 2y_1sin(\theta)
+\end{equation}
+
+<p>
+For any given point, we will supply the \(0\) at that point as we are standing at that point:
+</p>
+
+\begin{equation}
+ f'(x_1) = 2x_1cos(\theta) + 2y_1sin(\theta)
+\end{equation}
+
+<p>
+We now define a function <code>f</code> in sage which returns the parameterized derivative at any given point, given the point we are at and a \(\theta\), the angle we are facing.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">f(x_1, y_1, theta) = 2*x_1*cos(theta) + 2*y_1*sin(theta)
+f
+</pre>
+</div>
+
+<p>
+For the rest of the assignment, we could leverage this expression to figure the slope at a point.
+</p>
+</div>
+
+<div id="outline-container-orga3bb1f9" class="outline-3">
+<h3 id="orga3bb1f9"><span class="section-number-3">1.1</span> Facing in a Direction</h3>
+<div class="outline-text-3" id="text-1-1">
+<blockquote>
+<p>
+Suppose you are standing at the origin, facing \(+x\), how steep is the function?
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>\(\theta=0\)</li>
+<li>\((x_1,y_1) = (0,0)\)</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sage">f(0,0,0)
+</pre>
+</div>
+
+<p>
+At that function, the function is not steep at all. The slope is \(0\).
+</p>
+
+<hr />
+
+<blockquote>
+<p>
+Suppose you are standing at \((0,12)\), facing \(+y\), how steep is the function?
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>\(\theta=\frac{\pi}{2}\)</li>
+<li>\((x_1,y_1) = (0,12)\)</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sage">f(0,12,pi/2)
+</pre>
+</div>
+
+<p>
+The slope is \(24\), at all locations where \({y_1}^2 = 24\).
+</p>
+
+<hr />
+
+<blockquote>
+<p>
+Suppose you are standing at \((-3,0)\), facing \(-x\), how steep is the function?
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>\(\theta = 0\)</li>
+<li>\((x_1,y_1) = (-3,0)\)</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sage">-f(-3, 0,0)
+</pre>
+</div>
+
+<p>
+The function is a steepness of \(6\) units.
+</p>
+
+<hr />
+
+<blockquote>
+<p>
+Suppose you are standing at \((7,7)\), facing in the direction of a \(45^{\circ}\) angle on the x-y plane, how steep is the function?
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>\(\theta=\frac{\pi}{4}\)</li>
+<li>\((x_1,y_1) = (7,7)\)</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sage">float(f(7,7,pi/4))
+</pre>
+</div>
+
+<p>
+The function is at a steepness of about \(19.8\) units.
+</p>
+
+<hr />
+
+<blockquote>
+<p>
+Suppose you are standing at \((5,5\sqrt{3})\), facing in the \(+60^{\circ}\) direction on the x-y plane, how steep is the function?  
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>\(\theta = \frac{\pi}{3}\)</li>
+<li>\((x_1,y_1) = (5, 5\sqrt{3})\)</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sage">float(f(5,5*sqrt(3),pi/3))
+</pre>
+</div>
+
+<p>
+The function is at a steepness of \(20\) units.
+</p>
+
+<hr />
+
+<blockquote>
+<p>
+Suppose you are standing at \((5,5\sqrt{3})\), facing in the \(+45^{\circ}\) direction on the x-y plane, how steep is the function?  
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>\(\theta = \frac{\pi}{4}\)</li>
+<li>\((x_1,y_1) = (5, 5\sqrt{3})\)</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sage">float(f(5,5*sqrt(3),pi/4))
+</pre>
+</div>
+
+<p>
+The function is at a steepness of \(19.32\) units.
+</p>
+
+<hr />
+
+<blockquote>
+<p>
+Suppose you are standing at \((a,b)\), facing in the \(\theta\) direction on the x-y plane, how steep is the function?  
+</p>
+</blockquote>
+
+<p>
+As per the expression derived above, the steepness of the function at that point is:
+</p>
+
+\begin{equation}
+ f'(x_1,y_1,\theta) = 2x_1cos(\theta) + 2y_1sin(\theta)
+\end{equation}
+
+<hr />
+
+<blockquote>
+<p>
+Suppose you are standing at \((5,5\sqrt{3})\), when is the slope biggest?
+</p>
+</blockquote>
+
+<p>
+The slope in the biggest in this example when, taken as the above function, there exists a critical point. This is also the same as when the function is turned in the direction of the gradient vector at that point. Namely:
+</p>
+
+\begin{equation}
+   \begin{bmatrix} 
+2x \\ 2y
+   \end{bmatrix} =  \begin{bmatrix} 
+10 \\ 10\sqrt{3} 
+   \end{bmatrix} 
+\end{equation}
+
+<p>
+This corresponds to an angle of \(arctan(\sqrt{3}) \approx 1.04 rad\). It has a magnitude of \(30\) units.
+</p>
+
+<p>
+If we turn for \(\frac{\pi}{2}\), we will find the angle orthogonal to the point, and which have the smallest slope of \(0\). If we turn for \(\pi\), we will find the angle with an equal steepness, but in the other direction, with a slope of \(-30\).
+</p>
+
+<hr />
+
+<blockquote>
+<p>
+More generally: suppose you are standing on the function at some point, facing in some direction. What's the slope? What direction do you need to turn for it to be the flattest? What direction do you need to turn for it to be the steepest?
+</p>
+</blockquote>
+
+<p>
+The slope of the function is found by the parameterized expression derived above, which would also be the dot product of the gradient against the direction vector. The steepest direction is the direction of the gradient, which is also the solution to critical points of the general parameterized expression w.r.t. \(\theta\). The flattest angle is the angle orthogonal to that angle, derived by \(\frac{\pi}{2}-\theta\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7ade197" class="outline-2">
+<h2 id="org7ade197"><span class="section-number-2">2</span> Two Dimensional Parabaloid, Problem 1</h2>
+<div class="outline-text-2" id="text-2">
+<blockquote>
+<p>
+Consider a two-dimensional parabaloid:
+</p>
+
+\begin{equation}
+    \begin{cases}
+g: \mathbb{R}^2 \to \mathbb{R}^1 \\
+f(x,y) = x^2 - y^2
+    \end{cases}
+\end{equation}
+</blockquote>
+
+<div class="org-src-container">
+<pre class="src src-sage">g(x,y) = x^2 - y^2
+plot3d(g, (x,-5,5),(y,-5,5))
+</pre>
+</div>
+
+
+<div id="org2436091" class="figure">
+<p><img src="2022-01-14_08-04-47_screenshot.png" alt="2022-01-14_08-04-47_screenshot.png" />
+</p>
+</div>
+
+
+<p>
+As with before, we will parameterize the expression along the following expressions:
+</p>
+
+\begin{equation}
+   \begin{cases} 
+y = sin(\theta)t + y_1 \\
+x = cos(\theta)t + x_1
+   \end{cases} 
+\end{equation}
+
+<p>
+Supplying the values into the original expression:
+</p>
+
+\begin{equation}
+f(t) = (cos(\theta)t + x_1)^2 - (sin(\theta)t + y_1)^2
+\end{equation}
+
+<p>
+Expanding the square from before: 
+</p>
+
+\begin{align}
+ f(t) &= t^2cos(\theta)^2 - t^2sin(\theta)^2 + 2tx_1cos(\theta) - 2ty_1sin(\theta) + {x_1}^2 - {y_1}^2
+\end{align}
+
+<p>
+And finally, taking the derivative of the above expression:
+</p>
+
+\begin{equation}
+ f'(t) = 2tcos(\theta)^2 - 2tsin(\theta)^2 + 2x_1cos(\theta) - 2y_1sin(\theta)
+\end{equation}
+
+<p>
+For any given point, we will supply the \(0\) at that point as we are standing at that point:
+</p>
+
+\begin{equation}
+ f'(x_1) = 2x_1cos(\theta) - 2y_1sin(\theta)
+\end{equation}
+
+<p>
+We now define a function <code>g</code> in sage which returns the parameterized derivative at any given point, given the point we are at and a \(\theta\), the angle we are facing.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">g(x_1, y_1, theta) = 2*x_1*cos(theta) - 2*y_1*sin(theta)
+g
+</pre>
+</div>
+
+<p>
+For the rest of the assignment, we could leverage this expression to figure the slope at a point.
+</p>
+</div>
+
+
+<div id="outline-container-org80f5c67" class="outline-3">
+<h3 id="org80f5c67"><span class="section-number-3">2.1</span> Facing in a Direction</h3>
+<div class="outline-text-3" id="text-2-1">
+<blockquote>
+<p>
+Suppose you are standing at the origin, facing \(+x\), how steep is the function?
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>\(\theta=0\)</li>
+<li>\((x_1,y_1) = (0,0)\)</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sage">g(0,0,0)
+</pre>
+</div>
+
+<p>
+At that function, the function is not steep at all. The slope is \(0\).
+</p>
+
+<hr />
+
+<blockquote>
+<p>
+Suppose you are standing at \((0,12)\), facing \(+y\), how steep is the function?
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>\(\theta=\frac{\pi}{2}\)</li>
+<li>\((x_1,y_1) = (0,12)\)</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sage">g(0,12,pi/2)
+</pre>
+</div>
+
+<p>
+At that point, the slope is \(-24\).
+</p>
+
+<hr />
+
+<blockquote>
+<p>
+Suppose you are standing at \((-3,0)\), facing \(-x\), how steep is the function?
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>\(\theta = 0\)</li>
+<li>\((x_1,y_1) = (-3,0)\)</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sage">-g(-3, 0,0)
+</pre>
+</div>
+
+<p>
+The function is a steepness of about \(6\) units.
+</p>
+
+<hr />
+
+<blockquote>
+<p>
+Suppose you are standing at \((7,7)\), facing in the direction of a \(45^{\circ}\) angle on the x-y plane, how steep is the function?
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>\(\theta=\frac{\pi}{4}\)</li>
+<li>\((x_1,y_1) = (7,7)\)</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sage">float(g(7,7,pi/4))
+</pre>
+</div>
+
+<p>
+The function is at a steepness of \(0\) units.
+</p>
+
+<hr />
+
+<blockquote>
+<p>
+Suppose you are standing at \((5,5\sqrt{3})\), facing in the \(+60^{\circ}\) direction on the x-y plane, how steep is the function?  
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>\(\theta = \frac{\pi}{3}\)</li>
+<li>\((x_1,y_1) = (5, 5\sqrt{3})\)</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sage">float(g(5,5*sqrt(3),pi/3))
+</pre>
+</div>
+
+<p>
+The function is at a steepness of \(-10\) units.
+</p>
+
+<hr />
+
+<blockquote>
+<p>
+Suppose you are standing at \((5,5\sqrt{3})\), facing in the \(+45^{\circ}\) direction on the x-y plane, how steep is the function?  
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>\(\theta = \frac{\pi}{4}\)</li>
+<li>\((x_1,y_1) = (5, 5\sqrt{4})\)</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sage">float(g(5,5*sqrt(3),pi/4))
+</pre>
+</div>
+
+<p>
+The function is at a steepness of \(-5.18\) units.
+</p>
+
+<hr />
+
+<blockquote>
+<p>
+Suppose you are standing at \((a,b)\), facing in the \(\theta\) direction on the x-y plane, how steep is the function?  
+</p>
+</blockquote>
+
+<p>
+As per the expression derived above, the steepness of the function at that point is:
+</p>
+
+\begin{equation}
+ g'(x_1) = 2x_1cos(\theta) - 2y_1sin(\theta)
+\end{equation}
+
+<hr />
+
+<blockquote>
+<p>
+Suppose you are standing at \((5,5\sqrt{3})\), when is the slope biggest?
+</p>
+</blockquote>
+
+<p>
+The slope in the biggest in this example when, taken as the above function, there exists a critical point. This is also the same as when the function is turned in the direction of the gradient vector at that point. Namely:
+</p>
+
+\begin{equation}
+   \begin{bmatrix} 
+2x \\ -2y
+   \end{bmatrix} =  \begin{bmatrix} 
+10 \\ -10\sqrt{3} 
+   \end{bmatrix} 
+\end{equation}
+
+<p>
+This corresponds to an angle of \(arctan(-\sqrt{3}) \approx -1.04 rad\). It has a magnitude of \(-30\) units. The slope of the function is found by the parameterized expression derived above, which would also be the dot product of the gradient against the direction vector. The steepest direction is the direction of the gradient, which is also the solution to critical points of the general parameterized expression w.r.t. \(\theta\). The flattest angle is the angle orthogonal to that angle, derived by \(\frac{\pi}{2}-\theta\).
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

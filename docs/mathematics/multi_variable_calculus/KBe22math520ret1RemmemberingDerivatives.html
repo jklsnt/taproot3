@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-01-12 Wed 20:30 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>22math520 assign 1: remembering differentiation</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Taproot" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">22math520 assign 1: remembering differentiation</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2022-01-12 Wed 20:29</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org7f2146d">1. \(f(x, y) = 7x + 2x^2 y^3 + 10y^2\)</a>
+<ul>
+<li><a href="#orgeff4c47">1.1. \(\frac{\partial }{\partial  x}\)</a></li>
+<li><a href="#org0e43325">1.2. \(\frac{\partial}{\partial y}\)</a></li>
+<li><a href="#org00ed87f">1.3. \(\frac{\partial^2}{\partial^2 x}\)</a></li>
+<li><a href="#org6883880">1.4. \(\frac{\partial^2}{\partial ^2y}\)</a></li>
+<li><a href="#org830b691">1.5. \(\frac{\partial^2}{\partial x \partial y}\)</a></li>
+<li><a href="#org5270ed8">1.6. \(\frac{\partial^3}{\partial ^3x}\)</a></li>
+<li><a href="#org1a2f3bb">1.7. \(\frac{\partial^3}{\partial ^3y}\)</a></li>
+<li><a href="#orgd3c854c">1.8. \(\frac{\partial^3}{\partial ^2 x \partial y}\)</a></li>
+<li><a href="#org339a829">1.9. \(\frac{\partial^3}{\partial ^2 y \partial x}\)</a></li>
+</ul>
+</li>
+<li><a href="#org86cdc4e">2. \(f(x, y) = 3 xy^3 + 8 x^2 y^4\)</a>
+<ul>
+<li><a href="#org897a631">2.1. \(\frac{\partial }{\partial  x}\)</a></li>
+<li><a href="#org6b1f391">2.2. \(\frac{\partial}{\partial y}\)</a></li>
+<li><a href="#orgddd784c">2.3. \(\frac{\partial^2}{\partial^2 x}\)</a></li>
+<li><a href="#org87043b1">2.4. \(\frac{\partial^2}{\partial ^2y}\)</a></li>
+<li><a href="#org5fb1aa1">2.5. \(\frac{\partial^2}{\partial x \partial y}\)</a></li>
+<li><a href="#orged19be7">2.6. \(\frac{\partial^3}{\partial ^3x}\)</a></li>
+<li><a href="#orga319608">2.7. \(\frac{\partial^3}{\partial ^3y}\)</a></li>
+<li><a href="#org5e6cf6a">2.8. \(\frac{\partial^3}{\partial ^2 x \partial y}\)</a></li>
+<li><a href="#org5424f90">2.9. \(\frac{\partial^3}{\partial ^2 y \partial x}\)</a></li>
+</ul>
+</li>
+<li><a href="#org6e75892">3. checking partial derivatives</a></li>
+</ul>
+</div></div>
+</div>
+<p>
+\setcounter{section}{14}
+</p>
+<div id="outline-container-org7f2146d" class="outline-2">
+<h2 id="org7f2146d"><span class="section-number-2">1</span> \(f(x, y) = 7x + 2x^2 y^3 + 10y^2\)</h2>
+<div class="outline-text-2" id="text-1">
+
+<div id="org8649204" class="figure">
+<p><img src="images/KBe22math520assign1p1.png" alt="KBe22math520assign1p1.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgeff4c47" class="outline-3">
+<h3 id="orgeff4c47"><span class="section-number-3">1.1</span> \(\frac{\partial }{\partial  x}\)</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+\[\begin{aligned}
+   7 + 4xy^3
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-org0e43325" class="outline-3">
+<h3 id="org0e43325"><span class="section-number-3">1.2</span> \(\frac{\partial}{\partial y}\)</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+\[\begin{aligned}
+   6x^2y^2 + 20y
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-org00ed87f" class="outline-3">
+<h3 id="org00ed87f"><span class="section-number-3">1.3</span> \(\frac{\partial^2}{\partial^2 x}\)</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+\[\begin{aligned}
+   4y^3
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-org6883880" class="outline-3">
+<h3 id="org6883880"><span class="section-number-3">1.4</span> \(\frac{\partial^2}{\partial ^2y}\)</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+\[\begin{aligned}
+   12 x^2 y + 20
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-org830b691" class="outline-3">
+<h3 id="org830b691"><span class="section-number-3">1.5</span> \(\frac{\partial^2}{\partial x \partial y}\)</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+\[\begin{aligned}
+   12 xy^2
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-org5270ed8" class="outline-3">
+<h3 id="org5270ed8"><span class="section-number-3">1.6</span> \(\frac{\partial^3}{\partial ^3x}\)</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+\[\begin{aligned}
+   0
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-org1a2f3bb" class="outline-3">
+<h3 id="org1a2f3bb"><span class="section-number-3">1.7</span> \(\frac{\partial^3}{\partial ^3y}\)</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+\[\begin{aligned}
+   12x^2
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-orgd3c854c" class="outline-3">
+<h3 id="orgd3c854c"><span class="section-number-3">1.8</span> \(\frac{\partial^3}{\partial ^2 x \partial y}\)</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+\[\begin{aligned}
+   12y^2
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-org339a829" class="outline-3">
+<h3 id="org339a829"><span class="section-number-3">1.9</span> \(\frac{\partial^3}{\partial ^2 y \partial x}\)</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+\[\begin{aligned}
+   24xy
+   \end{aligned}\]
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org86cdc4e" class="outline-2">
+<h2 id="org86cdc4e"><span class="section-number-2">2</span> \(f(x, y) = 3 xy^3 + 8 x^2 y^4\)</h2>
+<div class="outline-text-2" id="text-2">
+
+<div id="org5ce2185" class="figure">
+<p><img src="images/KBe22math520assign1p2.png" alt="KBe22math520assign1p2.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org897a631" class="outline-3">
+<h3 id="org897a631"><span class="section-number-3">2.1</span> \(\frac{\partial }{\partial  x}\)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+\[\begin{aligned}
+   3y^3 + 16x y^4
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-org6b1f391" class="outline-3">
+<h3 id="org6b1f391"><span class="section-number-3">2.2</span> \(\frac{\partial}{\partial y}\)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+\[\begin{aligned}
+   9xy^2 + 32 x^2 y^3
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-orgddd784c" class="outline-3">
+<h3 id="orgddd784c"><span class="section-number-3">2.3</span> \(\frac{\partial^2}{\partial^2 x}\)</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+\[\begin{aligned}
+   16 y^4
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-org87043b1" class="outline-3">
+<h3 id="org87043b1"><span class="section-number-3">2.4</span> \(\frac{\partial^2}{\partial ^2y}\)</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+\[\begin{aligned}
+   18 xy + 96 x^2 y^2
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-org5fb1aa1" class="outline-3">
+<h3 id="org5fb1aa1"><span class="section-number-3">2.5</span> \(\frac{\partial^2}{\partial x \partial y}\)</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+\[\begin{aligned}
+   9y^2 + 64 xy^3
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-orged19be7" class="outline-3">
+<h3 id="orged19be7"><span class="section-number-3">2.6</span> \(\frac{\partial^3}{\partial ^3x}\)</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+\[\begin{aligned}
+   0
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-orga319608" class="outline-3">
+<h3 id="orga319608"><span class="section-number-3">2.7</span> \(\frac{\partial^3}{\partial ^3y}\)</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+\[\begin{aligned}
+   18x + 192 x^2 y
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-org5e6cf6a" class="outline-3">
+<h3 id="org5e6cf6a"><span class="section-number-3">2.8</span> \(\frac{\partial^3}{\partial ^2 x \partial y}\)</h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
+\[\begin{aligned}
+   64y^3
+   \end{aligned}\]
+</p>
+</div>
+</div>
+<div id="outline-container-org5424f90" class="outline-3">
+<h3 id="org5424f90"><span class="section-number-3">2.9</span> \(\frac{\partial^3}{\partial ^2 y \partial x}\)</h3>
+<div class="outline-text-3" id="text-2-9">
+<p>
+\[\begin{aligned}
+   18y + 192x y^2
+   \end{aligned}\]
+</p>
+
+<p>
+\setcounter{section}{17}
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org6e75892" class="outline-2">
+<h2 id="org6e75892"><span class="section-number-2">3</span> checking partial derivatives</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Is the following possible?
+\[\begin{aligned}
+  \frac{\partial}{\partial x} f = 2x + 3y \\
+  \frac{\partial}{\partial y} f = 4x + 6y \\
+  \end{aligned}\]
+</p>
+
+<p>
+No, because if you integrate them, you have completely different functions.
+\[\begin{aligned}
+   \int (2x + 3y) dx &= x^2 + 3xy + C\\
+   \neq \int (4x + 6y) dy &= 3y^2 + 4xy + C
+  \end{aligned}\]
+</p>
+
+
+<p>
+Upon checking my work with Ian, I realize that doing the mixed partial is probably cleaner because then there's no ambiguous \(+C\) term.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

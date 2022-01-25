@@ -1,8 +1,5 @@
 ---
-title:   valuenex plannin
-context: valuenex
-author:  Huxley Marvit
-date: 2021-11-27
+title:   valuenex plannin context: valuenex author:  Huxley Marvit date: 2021-11-27
 ---
 
 #ref
@@ -65,6 +62,51 @@ now :: initialization array, done!
 now :: match incriment of arr to incriment of dates?
 now :: sliders! (not-ui)
 now :: passing to shaders
+
+
+## part two
+
+
+rendering sprites, instead.
+
+- need to find out:
+	- can we render 10k sprites?
+	- can we not have to render 10k things?
+	- how does addition work with transparency?
+	- how do we handle normalization?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

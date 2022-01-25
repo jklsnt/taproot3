@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-01-15 Sat 13:52 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Guilded Age</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Guilded Age</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-01-15 Sat 13:51</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhamerican_colossus.html'>American Colossus</a></li> <li><a class='backlink' href='index.html'>HIST301 Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#orgcd5eaed">1. Reading Notes</a></li>
+<li><a href="#org5c4c09f">2. Context</a>
+<ul>
+<li><a href="#orga952672">2.1. Issues of the Guilded Age</a></li>
+<li><a href="#org158c5ad">2.2. Why "Guilded"?</a></li>
+</ul>
+</li>
+<li><a href="#org9fc3189">3. Background: Civil War &amp; Modern America</a></li>
+<li><a href="#org01e6139">4. Issues of the Guilded Age</a>
+<ul>
+<li><a href="#orgefe0109">4.1. Immigration</a></li>
+<li><a href="#org523d3f4">4.2. Urbanization</a></li>
+<li><a href="#org44a9bd0">4.3. Social Activism</a></li>
+<li><a href="#org3147059">4.4. Industrialization</a></li>
+<li><a href="#orga9220df">4.5. Politics</a></li>
+<li><a href="#orgd34937c">4.6. Culture</a></li>
+<li><a href="#org384449c">4.7. Corportization</a></li>
+<li><a href="#org5fe0b75">4.8. Third Party</a></li>
+</ul>
+</li>
+<li><a href="#orgb66f2e1">5. Who is America?</a></li>
+<li><a href="#orgb869ced">6. Research Project</a></li>
+<li><a href="#org5290138">7. New American South</a>
+<ul>
+<li><a href="#org3e03236">7.1. Redeemer Governments</a></li>
+<li><a href="#org9d0d4b4">7.2. Push for Civil Rights</a></li>
+</ul>
+</li>
+<li><a href="#org3812459">8. The West</a>
+<ul>
+<li><a href="#org727839d">8.1. Indian Removal</a></li>
+</ul>
+</li>
+<li><a href="#orga7dd839">9. Imperialism</a></li>
+<li><a href="#orgc850804">10. Teddy Roosevelt</a></li>
+</ul>
+</div></div>
+</div>
+<p>
+This is the index note to the Guilded Age.
+</p>
+
+<div id="outline-container-orgcd5eaed" class="outline-2">
+<h2 id="orgcd5eaed"><span class="section-number-2">1</span> Reading Notes</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li></li>
+<li><a href="../../../src/history/history11/KBhamerican_colossus.html#ID-89A5BB23-7307-4BF5-8432-F3DFBB139A6C">American Colossus</a></li>
+<li></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5c4c09f" class="outline-2">
+<h2 id="org5c4c09f"><span class="section-number-2">2</span> Context</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Guilded Age: 1877-1900.
+</p>
+
+<ul class="org-ul">
+<li>Deepened divide in racism</li>
+<li>Deepened split between poor and rich</li>
+<li>Fluidity of social classes became more set</li>
+</ul>
+</div>
+
+<div id="outline-container-orga952672" class="outline-3">
+<h3 id="orga952672"><span class="section-number-3">2.1</span> Issues of the Guilded Age</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Balancing the problems of Late-State capitalism</li>
+<li>Sense of anger towards others' who don't give back</li>
+<li>Racial inequality and injustice</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org158c5ad" class="outline-3">
+<h3 id="org158c5ad"><span class="section-number-3">2.2</span> Why "Guilded"?</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Guilded: Outside Lined with Gold, Inside Contains Metal and is Less Valuable.
+</p>
+
+<p>
+The Guilded Age consists of three different sections:
+</p>
+
+<ul class="org-ul">
+<li>Business (Top!)</li>
+<li>Labour</li>
+<li>Government</li>
+</ul>
+
+<p>
+The Guilded Age is the most rapid expansion of change in America; it is the time when industrialization affect every aspect of America. Influences:
+</p>
+
+<ul class="org-ul">
+<li>Industrialization</li>
+<li>Immigration</li>
+<li>Urbanization</li>
+<li>Corruption</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9fc3189" class="outline-2">
+<h2 id="org9fc3189"><span class="section-number-2">3</span> Background: Civil War &amp; Modern America</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+There are three pieces
+</p>
+
+<ul class="org-ul">
+<li>"Homestead Act": legal way to give people land in the west</li>
+<li>"National Banking Act": unified a uniform economic system, and to connect markets</li>
+<li>"Pacific Railroad Act": expansion of connection; also formed the first "Corporations" based on railroad organization structures.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org01e6139" class="outline-2">
+<h2 id="org01e6139"><span class="section-number-2">4</span> Issues of the Guilded Age</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgefe0109" class="outline-3">
+<h3 id="orgefe0109"><span class="section-number-3">4.1</span> Immigration</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+"They are coming to take our jobs!" (Irish Edition.)
+</p>
+
+<p>
+USCIS processed people in Ellis (Irish processing, took about 2 days to process) and Angel (Chinese processing, took about 6 <i>months</i> to process) islands: beginning having racial immigrant discrimination.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org523d3f4" class="outline-3">
+<h3 id="org523d3f4"><span class="section-number-3">4.2</span> Urbanization</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Populations in the United States tripled in about 50 years. Immigrants were stuffed into Tennaments. The Guilded age saw the beginning of skyscrapers.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org44a9bd0" class="outline-3">
+<h3 id="org44a9bd0"><span class="section-number-3">4.3</span> Social Activism</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+Because of the issues began during the Guilded Age, more people essentially stepped instead of the governement to play a role in supporting welfare.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3147059" class="outline-3">
+<h3 id="org3147059"><span class="section-number-3">4.4</span> Industrialization</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+"Pulling yourself up by your bootstraps." <i>Steel</i> is invented. All of the technology has been moved to provide maximum output; this comes, of course, at an environmental cost. Large unions are starting to take off. Railroad Strike: federal troops fired upon railroad workers; argued the case for union but also for corp. influence on politics.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga9220df" class="outline-3">
+<h3 id="orga9220df"><span class="section-number-3">4.5</span> Politics</h3>
+<div class="outline-text-3" id="text-4-5">
+<ul class="org-ul">
+<li>Democrats: racist, states rights, limited federal government.</li>
+<li>Republicans: supported businesses, immigrations.</li>
+</ul>
+
+<p>
+Yes, they are still flipped.
+</p>
+
+<p>
+But either way, democracy was rampant: 80% turnout! This is, however, one of the most corrupt time in American politics. The party system: local political bosses would provide favours for a vote &#x2014; in an absence of welfare, in exchange for a vote, wolud provide protection and social welfare. At this time, there was mass lack of reliance.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd34937c" class="outline-3">
+<h3 id="orgd34937c"><span class="section-number-3">4.6</span> Culture</h3>
+<div class="outline-text-3" id="text-4-6">
+<p>
+Victorianism! Proper manners, conservatism, etc. Bikes and contraceptives! There is also a fear that "manliness was declining": that no more farming means need for more sports, body building, etc. Also, "name brands", "sears catalogue", and consumerism is taking hold.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org384449c" class="outline-3">
+<h3 id="org384449c"><span class="section-number-3">4.7</span> Corportization</h3>
+<div class="outline-text-3" id="text-4-7">
+<p>
+Corporations, as an idea, took hold. That the owners of a group is seperated by management, it allows the expansion of the size of companies. Monopolies in industries run while: concentrated wealth in addition to corrupted politics.
+</p>
+
+<p>
+Taylorism: Taylor decided to make a shovel for each type of movement &#x2014; which makes people repeat the same task over again but increased efficiency. "Taylor-made" comes from this.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5fe0b75" class="outline-3">
+<h3 id="org5fe0b75"><span class="section-number-3">4.8</span> Third Party</h3>
+<div class="outline-text-3" id="text-4-8">
+<p>
+"Omaha Platform"
+</p>
+
+<ul class="org-ul">
+<li>Expanding Credit</li>
+<li>Bracketed income tax</li>
+<li>Social reforms</li>
+</ul>
+
+<p>
+Lays the groundwork for the progressive moment. This was a socialist movement!
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb66f2e1" class="outline-2">
+<h2 id="orgb66f2e1"><span class="section-number-2">5</span> Who is America?</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Guilded age introduced heavy dichotomy between the ultra-poor and the ultra-wealthy with massive economic inequality. Many went into the work hoping to join the middle/upper-class, but didn't.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb869ced" class="outline-2">
+<h2 id="orgb869ced"><span class="section-number-2">6</span> Research Project</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+<a href="KBhguilded_age_world_fair_project.html#ID-C47ADD80-D40F-4ED2-A97F-01343C1BE333">Guilded Age World Fair Project</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5290138" class="outline-2">
+<h2 id="org5290138"><span class="section-number-2">7</span> New American South</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Election between Hayes vs Tildon was very close. Democrats gave Republicans Hayes, but then asked the Republican millitary to leave the South and hence they have no way of enforcing the rights.
+</p>
+</div>
+
+<div id="outline-container-org3e03236" class="outline-3">
+<h3 id="org3e03236"><span class="section-number-3">7.1</span> Redeemer Governments</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+Democrats put in systems to relegate African Americans to second-class citizenship into the south. Lynchings became the weapon of choice of enforcing Jim Crow.
+</p>
+
+<ul class="org-ul">
+<li>Within 20 years, Jim Crow became implemented by every state</li>
+<li>1896 Plessy vs Ferguson upholding the process of segregation</li>
+<li>Convict leasing: convicts' labour was leased to create infrastructure</li>
+</ul>
+
+<p>
+Economic transformation: put in sharecropping (crops in lieu or in addition to rent) and convict leasing. This is essentially modern slavery because debt is used as a process to enslave people as they will never actually be paid enough to pay back debt. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9d0d4b4" class="outline-3">
+<h3 id="org9d0d4b4"><span class="section-number-3">7.2</span> Push for Civil Rights</h3>
+<div class="outline-text-3" id="text-7-2">
+<p>
+"Booker T. Washington": help promote Southern society will gain equality. Founded the "Tuskegee Institute".
+</p>
+
+<p>
+"W.E.B. Dubois": make the most talented and artistic people push for civil rights. "Civil rights by copyright."
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3812459" class="outline-2">
+<h2 id="org3812459"><span class="section-number-2">8</span> The West</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>Transcontinental railroad: power over towns and concessions</li>
+<li>Rise of Cowboys and "cattle bonanza"</li>
+<li>Prairies settled with new farming equipment and new Russian wheat strands: "Americanlization"</li>
+</ul>
+
+<p>
+The "turner thesis": American democracy is formed at the frontier. However, Western Expansion is actually much of a tragedy, and this is actually leads to Imperialism. 
+</p>
+</div>
+
+<div id="outline-container-org727839d" class="outline-3">
+<h3 id="org727839d"><span class="section-number-3">8.1</span> Indian Removal</h3>
+<div class="outline-text-3" id="text-8-1">
+<ul class="org-ul">
+<li>Policy of Indian removal to force into treaties + reservation</li>
+<li>Sioux Wars (crazy horse, etc.): Native American resistance</li>
+<li>Native Americans of California extreme violence; as well as slave labour</li>
+<li>Dawes Act of 1887 and forced "assimilation": forced the breakup of many reservations</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga7dd839" class="outline-2">
+<h2 id="orga7dd839"><span class="section-number-2">9</span> Imperialism</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+Imperialism: a policy of extending a country's power and influence though diplomacy or military force.
+</p>
+
+<ol class="org-ol">
+<li>Colonies</li>
+<li>Protectorate &#x2014; nations has own government legally controlled by outside power</li>
+<li>Sphere of influence</li>
+</ol>
+
+<p>
+U.S. Imperialism, why?
+</p>
+
+<ol class="org-ol">
+<li>"Desire for Military strength": for a nation to be an international player, you have to have a strong navy</li>
+<li>"Thirst for new markets": if we continue to expand, we will have more economic power</li>
+<li>"Belief in supernatural superiority": trust that own culture is better</li>
+</ol>
+
+<p>
+Alaska &#x2014; "Seward's Ice Box", purchased from czarist Russia.
+</p>
+
+<p>
+Hawaii &#x2014; Annexed 1898, a sugar company, to get around import taxes, asked the US to annex Hawaii.
+</p>
+
+<p>
+Spanish-American War -&#x2014; newspaper receive letter sent by Spanish minister to not protect Cuba. The US then proceeded to fight for the territories. 
+</p>
+
+<p>
+Filipino rejected treaty of Paris, America fights. America burned food and crops to starve rebels, and built infrastructure earning elite support due to infrastructure. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc850804" class="outline-2">
+<h2 id="orgc850804"><span class="section-number-2">10</span> Teddy Roosevelt</h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>Large personality: expanded scope of the Presidency &#x2014; "if it doesn't explicit say its belong to the congress, it belongs to me"</li>
+<li>Moralist (Support American People), Imperialist (Believes in American Righteousness), Progressive</li>
+<li>Monroe Doctrine &amp; Roosevelt Corollary: America for Americans</li>
+<li>The Panama Canal - engineered <i>coup!</i> to build the panama canal</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

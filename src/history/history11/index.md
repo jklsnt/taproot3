@@ -65,7 +65,16 @@ the next assignment: historigraphical in nature. synthesithing multiple argument
 ## reconstruction
 - [[KBxReconstructionHistories]]
 
+# Guilded Age
+- [[KBhGuildedAge]] 
 
+# Semester 2!
+- [[KBxHist11Sem2Day1]]
+- [[KBxBrandsReading]]
+- [[KBxd2HistInclass]]
+- [[KBxConquestAndEmpireReading]]
+- [[KBxSpanishAmericanWarConvoPlanning]]
+- [[KBxCapatalismAndIndustrialization]]
 
 
 

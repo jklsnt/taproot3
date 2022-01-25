@@ -14,4 +14,3 @@ source:  KBe20math530refVectorSpace
 - Basically write it in standard form and find the highest index of the highest coefficient that isn't zero
 - degree of $0$ = $-\infty$
 
----

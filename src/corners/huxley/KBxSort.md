@@ -1,11 +1,83 @@
 n
 ***
 
+ https://www.yourdictionary.com/equivalate is a word! this is amazing.
+
+***
+
+ #name vacuo
+
+***
+
+ "the game I play is a very interesting one: it's imagination in a tight straight-jacket" - feynman
+
+***
+
+ #name ilk
+
+***
+
+ abstract math is "like a metaphor" - ted
+
+***
+
+ https://www.patreon.com/posts/52586182?scrlybrkr=6e7abbc0 #cool blender stuff 
+ https://www.youtube.com/watch?v=NmZxWXeIjJI 
+
+***
+
+#stack to finish: https://youtu.be/mTz0GXj8NN0?t=1418
+
+***
+
+ vim in browser, to try https://github.com/glacambre/firenvim
+ yo. https://github.com/gelguy/wilder.nvim
+ https://github.com/machakann/vim-sandwich
+could be interesting: https://github.com/hrsh7th/nvim-cmp
+https://github.com/akinsho/bufferline.nvim
+
+***
+
+ #cool chrome extension, https://chrome.google.com/webstore/detail/draft-by-slite/ljkidlijlaapmiilabpldhmhekeionfh?hl=en
+ super easy capture
+
+***
+
+>  “Like gods, these mathematical models were opaque, their workings invisible to all but the highest priests in their domain: mathematicians and computer scientists.” (Cathy O’Neil)
+
+***
+
+ #name lohah
+
+***
+
+ super #cool artwork utilizing noise-based volume displacement https://leegriggs.com/volume-mesh
+ can't really be done easily in blender..
+
+***
+
+ procedurally generate language from arrival
+
+***
+
+ super #cool things made with curl noise and flow fields! 
+
+***
+
+ #cool lisp interpreter in conways game of life https://github.com/woodrush/lisp-in-life
+
+***
+
+ look into this working /w taproot: obsidian://show-plugin?id=obsidian-icons-plugin
+
+***
+
+
  this is crazy #cool, https://www.youtube.com/watch?v=-th6w_ZIvpA&ab_channel=BenThroop
 
 ***
 
- name for something: etude. means, a peice of music for the point of demonstration.
+ #name for something: etude. means, a peice of music for the point of demonstration.
 
 ***
 
@@ -13,7 +85,7 @@ n
 
 ***
 
- could be a name for smt: azimuth
+ could be a #name for smt: azimuth
 
 ***
 
@@ -54,6 +126,7 @@ n
 ***
 
 [category theory](https://ncatlab.org/nlab/show/category+theory). to #review
+[[KBxSystemsofSystemsinNatureandDeepLearning#category theory]]
 
 ***
 
@@ -62,8 +135,8 @@ n
 
 ***
 
- proximal: possible name!
- distal: also a good name?
+ proximal: possible #name!
+ distal: also a good #name?
 
 ***
 
@@ -86,7 +159,7 @@ mechanical pencils!
 
 ***
 
-eom: good name for something.
+eom: good #name for something.
 means: end of sentence
 but it sounds cool! 
 
@@ -113,7 +186,7 @@ graph theory! i wanna take it. ~"most likely will exist next year" ~exr0n
 
 ***
 
-#cool name: orhac
+#cool #name: orhac
 
 ***
 
@@ -135,7 +208,7 @@ lemma sort is #cool!
 
 ***
 
-convecto, name for smt
+convecto, #name for smt
 means gather in latin
 
 ***
@@ -155,7 +228,7 @@ means gather in latin
 
 ---
 
-name for someting: taba
+#name for someting: taba
 
 ---
 

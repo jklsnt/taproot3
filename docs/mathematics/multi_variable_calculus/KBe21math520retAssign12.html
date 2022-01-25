@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-10 Fri 15:12 -->
+<!-- 2021-12-28 Tue 10:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Assignment 12: cross product</title>
@@ -263,29 +263,25 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Assignment 12: cross product</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-12-10 Fri 15:12</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Assignment 12: cross product</h1> <h2 class="subtitle"></h2> <span class="author">Taproot</span> <span class="date">2021-12-28 Tue 10:32</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgcda636e">1. cross product is distributive across addition</a>
+<li><a href="#orge41ce2e">1. cross product is distributive across addition</a>
 <ul>
-<li>
-<ul>
-<li><a href="#org7f30197">1.0.1. proof that rotation is additive</a></li>
-<li><a href="#org2efa016">1.0.2. magnitude of cross product distributivity</a></li>
+<li><a href="#org9bd0ff7">1.1. proof that rotation is additive</a></li>
+<li><a href="#orga70bfb5">1.2. magnitude of cross product distributivity</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#orgf41e5fe">2. use distributivity to derive the algebraic form</a></li>
-<li><a href="#org856303b">3. plane equation</a></li>
-<li><a href="#org6bd188d">4. trying it with a set of numbers</a></li>
+<li><a href="#org1c7466f">2. use distributivity to derive the algebraic form</a></li>
+<li><a href="#org72af043">3. plane equation</a></li>
+<li><a href="#org0de6d1b">4. trying it with a set of numbers</a></li>
 </ul>
 </div></div>
 </div>
-<div id="outline-container-orgcda636e" class="outline-2">
-<h2 id="orgcda636e"><span class="section-number-2">1</span> cross product is distributive across addition</h2>
+<div id="outline-container-orge41ce2e" class="outline-2">
+<h2 id="orge41ce2e"><span class="section-number-2">1</span> cross product is distributive across addition</h2>
 <div class="outline-text-2" id="text-1">
 <blockquote>
 <p>
@@ -308,35 +304,65 @@ They are the same because rotation is linear, ie. if \(R_{90}\) is the rotation 
 </p>
 </div>
 
-<div id="outline-container-org7f30197" class="outline-4">
-<h4 id="org7f30197"><span class="section-number-4">1.0.1</span> proof that rotation is additive</h4>
-<div class="outline-text-4" id="text-1-0-1">
+<div id="outline-container-org9bd0ff7" class="outline-3">
+<h3 id="org9bd0ff7"><span class="section-number-3">1.1</span> proof that rotation is additive</h3>
+<div class="outline-text-3" id="text-1-1">
+
+<div id="org12ec3be" class="figure">
+<p><img src="KBe21math520srcRotationIsAdditive.jpg" alt="KBe21math520srcRotationIsAdditive.jpg" />
+</p>
+</div>
+
 <p>
-Deconstruct the input vector into its components. You can rotate the coordinate system and notice that the sum of the rotated components is still the same as the rotated sum. 
+Algebraically, \(R_{90}\) can be thought of as multiplying by the corresponding rotation matrix 
+</p>
+
+\begin{aligned}
+\begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix}
+\end{aligned}
+
+<p>
+and matrix multiplication is linear, and thus additive. 
+</p>
+
+\begin{aligned}
+R_{90}  \left(  \vec{A} + \vec{B} \right) &= \begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix}  \begin{pmatrix}A_x + B_x \\ A_y + B_y\end{pmatrix}\\
+&= \begin{pmatrix}A_y + B_y \\ -A_x - B_x\end{pmatrix}\\
+&= \begin{pmatrix}A_y \\ -A_x\end{pmatrix} + \begin{pmatrix}B_y \\ -B_x\end{pmatrix}\\
+&= \begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix} \begin{pmatrix}A_x \\ A_y\end{pmatrix} + \begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix} \begin{pmatrix}B_x \\ B_y\end{pmatrix}\\
+&= R_{90} (\vec A) + R_{90}(  \vec B)  
+\end{aligned}
+
+<p>
+We use the clockwise rotation because we imagine looking at the plane s.t. \(\vec A\) points towards us. 
 </p>
 </div>
 </div>
 
-
-<div id="outline-container-org2efa016" class="outline-4">
-<h4 id="org2efa016"><span class="section-number-4">1.0.2</span> magnitude of cross product distributivity</h4>
-<div class="outline-text-4" id="text-1-0-2">
+<div id="outline-container-orga70bfb5" class="outline-3">
+<h3 id="orga70bfb5"><span class="section-number-3">1.2</span> magnitude of cross product distributivity</h3>
+<div class="outline-text-3" id="text-1-2">
 <p>
 For the magnitude
 \[\begin{aligned}
-    \lvert \vec{A} \rvert  \lvert \vec{B} + \vec{C} \rvert \sin  \theta &= \lvert \vec{A} \rvert \left( \vec{B} + \vec{C} \right)_{\perp A}\\
-    &= |\vec{A}| \vec{B}_{\perp \vec{A}} + |\vec{A}| \vec{C}_{\perp \vec{A}}\\
-    &= |\vec{A}| |\vec{B}| \sin  \theta  + |\vec{A}| |\vec{C}| \sin  \theta 
+    \left| \vec{A} \times \left( \vec{B} + \vec{C} \right) \right|  &= \lvert \vec{A} \rvert  \lvert \vec{B} + \vec{C} \rvert \sin  \theta_{\vec{A}, \vec{B} + \vec{C}}\\
+    &= \lvert \vec{A} \rvert \left\lvert \left( \vec{B} + \vec{C} \right)_{\perp A} \right\rvert\\
+    &= |\vec{A}| \left(  \left\lvert \vec{B}_{\perp \vec{A}} \right\rvert +  \left\lvert \vec{C}_{\perp \vec{A}}\right\lvert \right) &&\quad\ \text{(additivity of components)}\\
+    &= |\vec{A}| \left\lvert \vec{B}_{\perp \vec{A}} \right\rvert +  |\vec{A}| \left\lvert \vec{C}_{\perp \vec{A}}\right\lvert  \\
+    &= |\vec{A}| |\vec{B}| \sin  \theta_{\vec{A}, \vec{B}}  + |\vec{A}| |\vec{C}| \sin  \theta_{\vec{A}, \vec{C}} \\
+    &= \left|\vec{A} \times \vec{B}\right| + \left|\vec{A} \times \vec{C}\right|
     \end{aligned}\]
+</p>
+
+<p>
+Geometrically, taking the cross product constitutes a rotation of the projections of \(\vec B\), \(\vec C\), and \(\vec B + \vec{C}\) on the plane normal to \(\vec A\), and we established above that rotation is additive. 
 </p>
 </div>
 </div>
 </div>
 
-
-
-<div id="outline-container-orgf41e5fe" class="outline-2">
-<h2 id="orgf41e5fe"><span class="section-number-2">2</span> use distributivity to derive the algebraic form</h2>
+<div id="outline-container-org1c7466f" class="outline-2">
+<h2 id="org1c7466f"><span class="section-number-2">2</span> use distributivity to derive the algebraic form</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 \[\begin{aligned}
@@ -355,6 +381,9 @@ For the magnitude
   \end{aligned}\]
 </p>
 
+<p>
+\(\hat i \times \hat{i} = \hat{j} \times \hat{j} = \hat{k} \times \hat{k} = 0\) because \(\sin \theta\) between a vector and itself is zero, and the other vectors are defined using the right hand rule and by \(\hat i \times \hat{j} = \hat{k}\).
+</p>
 
 <p>
 \[\begin{aligned}
@@ -368,8 +397,8 @@ Leonard's amazing mnemonic: ijkijkijk
 </div>
 </div>
 
-<div id="outline-container-org856303b" class="outline-2">
-<h2 id="org856303b"><span class="section-number-2">3</span> plane equation</h2>
+<div id="outline-container-org72af043" class="outline-2">
+<h2 id="org72af043"><span class="section-number-2">3</span> plane equation</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Plan: Perpendicular to the cross product of the differences.
@@ -413,8 +442,8 @@ Plugging in our definition of \(\vec n\),
 </div>
 </div>
 
-<div id="outline-container-org6bd188d" class="outline-2">
-<h2 id="org6bd188d"><span class="section-number-2">4</span> trying it with a set of numbers</h2>
+<div id="outline-container-org0de6d1b" class="outline-2">
+<h2 id="org0de6d1b"><span class="section-number-2">4</span> trying it with a set of numbers</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 \[\begin{aligned}
@@ -435,13 +464,11 @@ Cross product time
   \end{aligned}\]
 </p>
 
-
-
 <p>
 \[\begin{aligned}
   \vec{r} \cdot \vec{n} &= \vec{P} \cdot \vec{n}\\
   -13x - 2y - 6z &= -26 + 6 &= -20\\
-  13x + 2 + 6 &= 20
+  13x + 2y + 6z &= 20
   \end{aligned}\]
 </p>
 </div>

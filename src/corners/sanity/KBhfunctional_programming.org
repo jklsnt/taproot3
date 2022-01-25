@@ -1,0 +1,504 @@
+:PROPERTIES:
+:ID:       6C336369-76E7-4002-85E1-D23DB4BB1B49
+:END:
+#+title: Functional Programming
+#+author: Houjun Liu
+
+* What is FP?
+Computation: taking an instruction, and simplifying it down
+  - $4+7 = 11$.
+  - $(5-3)*2 = 4$.
+
+
+We could bind varibles
+
+#+begin_src sml
+let val x = 3 in x * 5 end
+#+end_src
+
+#+RESULTS:
+: val it = 15 : int
+
+We could concatenate strings!
+
+#+begin_src sml
+"Hello" ^ "World!"
+#+end_src
+
+#+RESULTS:
+: val it = "HelloWorld!" : string
+
+
+** Functional Programming is About Functions
+Functions are first class citizens
+
+#+begin_src sml
+let val g = (fn x = x +3) in
+g(10)
+end
+#+end_src
+
+#+RESULTS:
+
+We could have a piecewise function
+
+#+begin_src sml
+fn 0 => true
+| x => false
+#+end_src
+g
+#+RESULTS:
+: val it = fn : int -> bool
+
+Or an absolute value function
+
+#+begin_src sml
+fn x => if x >= 0 then x else ~1 * x
+#+end_src
+
+#+RESULTS:
+: val it = fn : int -> int
+
+Or tuples! As input. Multiple arguments, therefore, is a tuple.
+
+#+begin_src sml
+val max = fn(x,y) => if x > y then x else y;
+max (12,3)
+#+end_src
+
+#+RESULTS:
+: val it = 12 : int
+
+** Some Code Examples 
+Ok so here's something
+
+#+begin_src sml
+let val g = fn x = x + 1
+in
+if "hewo" > g then 1 else false
+end 
+#+end_src
+
+#+RESULTS:
+: stdIn:43.18-43.21 Error: syntax error: deleting  EQUALOP IDA
+
+This code crashes. Why? $g: int \to int$, and ="hello" > g= is a comparing between integer and integer.
+
+* Builtins
+
+** Types to be had
+- int
+- bool
+- string
+- a -> b
+- a * b (this is *not* a /times/ b, this is a TUPLE between a /times/ b)
+
+**  Patters
+- x: variable
+- (p,p,p,p): destructured tuple
+- _: throwaway
+- 7, "hello": rvalues
+
+* Messing with Numbbers
+
+Write a function: check if both args are zero.
+
+#+begin_src sml
+both_zero = fn (x,y) => x = y andalso x=0;
+#+end_src
+
+#+RESULTS:
+
+but no! you are bad. you are not thinking like a functional programmer. Instead, the ideomatic way is:
+
+#+begin_src sml
+val both_zero_better = fn (0,0) => true
+                         | _ => false;
+
+both_zero_better (0,2)
+#+end_src
+
+#+RESULTS:
+: val both_zero_better = fn : int * int -> bool
+
+Also, this language supports shadowing. In a scope, you could overwrite the value of a variable but its only shadowed.
+
+#+begin_src sml
+val is_either_zero = fn (0,x) => 1 | (x,0) => 1 | _ => 0;
+is_either_zero (0,2);
+#+end_src
+
+#+RESULTS:
+: val it = 1 : int
+
+Recursion works
+
+#+begin_src sml
+val rec fact = fn 1 => 1 | x => x * fact(x-1);
+fact 10
+#+end_src
+
+#+RESULTS:
+: val it = 3628800 : int
+
+Write a function that takes an integer, and returns whether or not its a multiple of three.
+
+#+begin_src sml
+7 div 3
+#+end_src
+
+#+RESULTS:
+: val it = 2 : int
+
+Divisibility test, slow but "better"
+
+#+begin_src sml
+val rec threecheck = fn 0 => true | x => if x < 0 then false else threecheck (x-3);
+threecheck 13
+#+end_src
+
+#+RESULTS:
+: val it = false : bool
+
+Written nicely, but the same thing:
+
+#+begin_src sml
+val rec threecheck = fn 0 => true | 1 => false | 2 => false | x => threecheck (x - 3);
+threecheck 12
+#+end_src
+
+#+RESULTS:
+: val it = true : bool
+
+Ok, squaring a number.
+
+#+begin_src sml
+val rec multi = fn (_,0) => 0 | (x,1) => x | (x,y) => x+multi(x, y-1);
+multi (4,8)
+#+end_src
+
+#+RESULTS:
+: val it = 32 : int
+
+* Messing with Types!
+We are going to introduce a new type of declaration
+
+=type t = types=.
+
+This is a typedef! Wowzies! But, there's something better.
+
+** Datatypes
+
+=datatype t = ...=
+
+What's a datatype? If we have a type A, and some type B, we could put them together.
+
+"Type A", "Type B". Type A+B is a type that glues A and B together.
+
+For instance, here's a maybe int.
+
+#+begin_src sml
+datatype intoption = SOME of int | NONE
+#+end_src
+
+#+RESULTS:
+: datatype intoption = NONE | SOME of int
+
+Yes, this does exactly what you think it does.
+
+#+begin_src sml
+datatype intoption = SOME of int | NONE;
+SOME 3
+#+end_src
+
+#+RESULTS:
+: val it = SOME 3 : intoption
+
+So, here's a function:
+
+#+begin_src sml
+val zeroout = fn SOME x => x | NONE => 0;
+zeroout (SOME 43);
+#+end_src
+
+#+RESULTS:
+: val it = 43 : int
+
+** Recursive Datatypes
+#+begin_src sml
+datatype ilist = EMPTY | FRONT of int*ilist;
+val rec length = fn EMPTY => 0 | FRONT (x, xs) => 1 + length xs;
+#+end_src
+
+#+RESULTS:
+: val length = fn : ilist -> int
+
+That's a linked list! 
+
+Multiply the list together:
+
+#+begin_src sml
+val rec prod = fn EMPTY => 1 | FRONT (x, xs) => x * prod xs;
+#+end_src
+
+#+RESULTS:
+: val it = "stdIn" : string
+
+** Lists
+This is a cons list.
+
+#+begin_src sml
+[1,2,3,4];
+#+end_src
+
+#+RESULTS:
+: val it = "stdIn" : string
+
+Consing looks like this:
+
+#+begin_src sml
+4::1::nil
+#+end_src
+
+#+RESULTS:
+: val it = [4,1] : int list
+
+** Currying
+Let's write a function that makes a function!
+
+#+begin_src sml
+val makeadd = fn x => (fn y => y+x);
+makeadd 3 7 (* function that adds 3 to 7 *)
+#+end_src
+
+#+RESULTS:
+: val it = 10 : int
+
+Recursive applications 
+
+#+begin_src sml
+val uncurry = fn f => fn (x,y)  => f x y;
+val curry = fn f => fn x => fn y => f (x, y);
+#+end_src
+
+#+RESULTS:
+: val curry = fn : ('a * 'b -> 'c) -> 'a -> 'b -> 'c
+
+** Something more difficult
+#+begin_src sml
+val rec filter = fn f => fn nil => nil | x::xs => if f x then x::filter f xs else filter f xs;
+#+end_src
+
+#+RESULTS:
+: val it = "stdIn" : string
+
+Let's try something different. We define a list
+
+#+begin_src sml
+datatype 'a tree = Empty | Node of 'a tree * 'a * 'a tree;
+#+end_src
+
+#+RESULTS:
+: val it = "stdIn" : string
+
+Let us map over this list.
+
+#+begin_src sml
+val rec map = fn f => fn Empty => Empty | Node (l, x, r) => Node (map f l, f x, map f r); 
+#+end_src
+
+#+RESULTS:
+: val it = "stdIn" : string
+
+Check if elements exists in a tree.
+
+#+begin_src sml
+val rec exists = fn f => fn Empty => false | Node (l, x, r) =>  f x orelse exists f l orelse exists f r;
+#+end_src
+
+#+RESULTS:
+: val it = "stdIn" : string
+
+
+Write the function in order. turns tree and sort.
+
+* Operators are functions
+#+begin_src sml
+(op +) (1,2)
+#+end_src
+
+#+RESULTS:
+: val it = 3 : int
+
+#+begin_src sml
+(op ::) (1,nil)
+#+end_src
+
+#+RESULTS:
+: val it = [1] : int list
+
+and etc. etc.
+
+We could also compose functions together
+
+#+begin_src sml
+(f o g)(x) = f(g(x))
+#+end_src
+
+* Libraries
+Let's open a few libraries with standard implementations we introduced:
+
+#+begin_src sml
+open Int; 
+open Fn;
+#+end_src
+
+#+RESULTS:
+#+begin_example
+[autoloading]
+[autoloading done]
+opening Fn
+  val id : 'a -> 'a
+  val const : 'b -> 'a -> 'b
+  val apply : ('a -> 'b) * 'a -> 'b
+  val o : ('a -> 'c) * ('b -> 'a) -> 'b -> 'c
+  val curry : ('a * 'b -> 'c) -> 'a -> 'b -> 'c
+  val uncurry : ('a -> 'b -> 'c) -> 'a * 'b -> 'c
+  val flip : ('b * 'a -> 'c) -> 'a * 'b -> 'c
+  val repeat : int -> ('a -> 'a) -> 'a -> 'a
+  val equal : ''a -> ''a -> bool
+#+end_example
+
+* Accumulators
+Accumulators allow us to do things that we didn't do previously. For instance, defining, the reverse function:
+
+#+begin_src sml
+val rec revhelper = fn (nil, acc) => acc | (x::xs, acc) => revhelper(xs, acc); 
+#+end_src
+
+#+RESULTS:
+: val it = "stdIn" : string
+
+#+begin_src sml
+val rev = fn L => revhelper(L, nil)
+#+end_src
+
+#+RESULTS:
+: val rev = fn : 'a list -> 'b list
+
+Direct pattern match!
+
+#+begin_src sml
+val a = 3;
+case a of 3 => 3 | 4 => 4 | x =>  x;
+#+end_src
+
+#+RESULTS:
+: val it = 3 : int
+
+Unit types exists too!
+
+#+begin_src sml
+();
+#+end_src
+
+#+RESULTS:
+: val it = "stdIn" : string
+
+There is only one thing in the type Unit: the type information. It does not carry any value.
+
+* Write other functions with functions
+For instance, let's write map reduce!
+
+left reduce:
+
+#+begin_src sml
+val rec foldl = fn cmb => fn z => (fn nil => z | x::xs => foldl cmb ( cmb (z, x)) xs);
+#+end_src
+
+#+RESULTS:
+: val it = "stdIn" : string
+
+#+begin_src sml
+SOME 3;
+#+end_src
+
+#+RESULTS:
+: val it = "stdIn" : string
+
+Right reduce
+
+#+begin_src sml
+val rec foldr = fn cmb => fn z => (fn nil => z | x::xs => cmb ( x, foldr cmb z xs));
+#+end_src
+
+#+RESULTS:
+: val it = "stdIn" : string
+
+
+Therefore, we could write reverse as
+
+#+begin_src sml
+val rev = foldl op :: []
+#+end_src
+
+Reduce tree:
+
+#+begin_src sml
+datatype 'a tree = Empty | Node of 'a tree * 'a * 'a tree;
+#+end_src
+
+#+RESULTS:
+: val it = "stdIn" : string
+
+#+begin_src sml
+val rec reduce = fn cmb => fn z => fn Empty => z | Node (l,x,r) => cmb (reduce cmb z l, x, reduce cmb z r);
+#+end_src
+
+#+RESULTS:
+: val it = "stdIn" : string
+
+
+Note! If you have infinite cores, and we have perfect parallelism:
+
+- Trees scale by depth
+- Reduce scale by length
+
+- Trees: W = O(n), S = O(log n)
+- Reduce: W = O(n), S = O(n)
+
+
+** Reduce a tree
+#+begin_src sml
+val rec helper = fn acc => fn Empty => acc | Node (l,x,r) => helper (x::helper acc r) l;
+#+end_src
+
+#+RESULTS:
+: val it = "stdIn" : string
+
+- W = O(n)
+- S = O(n)
+
+Rule of thumb: everything that involves a list is probbaly not very paralizable
+
+#+begin_src sml
+datatype 'a shrub = Leaf of 'a | Branch of 'a shrub * 'a shrub;
+#+end_src
+
+#+RESULTS:
+: val it = "stdIn" : string
+
+Shrubs can never be empty! Therefore, we could help optimize a little
+
+** Immutable Array
+#+begin_src sml
+type 'a seq
+#+end_src
+
+We claim that there exists a type alpha seq, and has:
+
+- val length: 'a seq -> int
+- val nth: 'a seq -> int
+- val tabulate: (int -> 'a) -> int -> 'a seq
+
+

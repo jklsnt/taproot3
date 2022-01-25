@@ -1,0 +1,115 @@
+:PROPERTIES:
+:ID:       4D5C30CC-054F-48A3-8097-44995AC1401A
+:END:
+#+title: MVC 2 PS#3
+#+author: Houjun Liu
+
+* Diff. in Higher Dimensions
+
+** Partial Derivatives
+#+begin_quote
+Find all the first, second, and third partial derivatives. Also, draw a picture of them!
+
+\begin{equation}
+    f(x,y) = 4x^2y^5 + 3x^3y^2
+\end{equation}
+#+end_quote
+
+#+begin_src sage
+f(x,y) = 4*x^2*y^5 + 3*x^3*y^2
+plot3d(f, (x,-5,5), (y,-5,5))
+#+end_src
+
+#+RESULTS:
+: Launched html viewer for Graphics3d Object
+
+
+#+DOWNLOADED: screenshot @ 2022-01-18 19:45:28
+[[file:2022-01-18_19-45-28_screenshot.png]]
+
+- $f_x = 8xy^5 + 9x^2y^2$
+- $f_y = 20x^2y^4 + 6x^3y$
+- $f_{xx} = 8y^5 + 18xy^2$
+- $f_{yy} = 80x^2y^3 + 6x^3$
+- $f_{xy} = 40xy^4 + 18x^2y$
+- $f_{xxx} = 18y^2$
+- $f_{yyy} = 240x^2y^2$
+- $f_{xxy} = 40y^4 + 36 xy$
+- $f_{yyx} = 160xy^3 + 18x^2$
+
+** Number of Partial Derivatives
+#+begin_quote
+Suppose you have a function $\mathbb{R}^2 \to \mathbb{R}^1$. How many total first partial derivatives does it have? What about second partial derivatives? What about third partial derivatives? What about k'th partial derivatives?
+#+end_quote
+
+A function from $\mathbb{R}^2 \to \mathbb{R}^1$ has...
+
+- 2 first partial derivatives
+- 3 second partial derivatives
+- 4 third partial derivatives
+- $k+1$ kth partial derivatives 
+
+* Considering the Parameterization 
+#+begin_quote
+Consider the parameterization of a straight line given by:
+
+\begin{equation}
+    \begin{cases}
+x(t) = 3t+4 \\
+y(t) = 5t-7 \\
+for\ -\infty < t < +\infty
+    \end{cases}
+\end{equation}
+#+end_quote
+
+#+begin_quote
+What is the equation of the line, in normal $y=mx+b$ form?
+#+end_quote
+
+\begin{align}
+    &x = 3t+4 \\
+\Rightarrow &x-4 = 3t \\
+\Rightarrow &t = \frac{x-4}{3} 
+\end{align}
+
+\begin{align}
+   y &= 5t-7 \\ 
+\Rightarrow& y = 5(\frac{x-4}{3})-7 \\
+\Rightarrow& y = \frac{5x-20}{3}-7 \\
+\Rightarrow& y = \frac{5x-20-21}{3} \\
+\Rightarrow& y = \frac{5x-41}{3} \\
+\Rightarrow& y = \frac{5}{3}x-\frac{41}{3} 
+\end{align}
+
+-----
+ 
+#+begin_quote
+Where does the parameterization start?
+#+end_quote
+
+The parameterization starts at: $(x(0), y(0)) = (4, -7)$.
+
+-----
+
+#+begin_quote
+How fast is the parameterization moving, in the $x$ direction?
+#+end_quote
+
+The parameterization is moving at $3$ units per unit $t$ in the $x$ direction.
+
+-----
+
+#+begin_quote
+How fast is the parameterization moving, in the $y$ direction?
+#+end_quote
+
+The parameterization is moving at $5$ units per unit $t$ in the $y$ direction.
+
+-----
+
+#+begin_quote
+How fast is the parameterization moving, in the direction it's actually traveling.
+#+end_quote
+
+The parameterization is moving at $\sqrt{5^2+3^2} = \sqrt{34}$ units on the line.
+

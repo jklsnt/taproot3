@@ -1,0 +1,31 @@
+---
+title:   Advanced Probability
+---
+
+#ref
+
+***
+
+# Advanced prob!
+
+- [[KBxAdvancedprobd1]]
+- [[KBxNotNaiveProbability]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

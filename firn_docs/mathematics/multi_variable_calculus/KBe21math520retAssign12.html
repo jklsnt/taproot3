@@ -24,12 +24,23 @@
    \end{aligned}\]</span></p></blockquote><p><span>    First, notice that each term in the previous equation is perpendicular to $\vec A$. Thus, we can consider compress this 3d problem into two dimensions. Let $\vec A$ point out of the page. Then, to show that the direction of $\text{proj}_{\vec A} \vec{B} + \vec{C}$ is the same as $\text{proj}_{\vec A} \vec B + \text{proj}_{\vec A} \vec C$.</span></p><p><span>    They are the same because rotation is linear, ie. if $R_{90}$ is the rotation matrix (the result of $\vec A$ when looking at projections onto the plane), then 
     \[\begin{aligned}
     R_{90} \left( \vec{A} + \vec{B} \right)  = R_{90} \left( \vec{A} \right)  + R_{90} \left( \vec{B} \right)  
-    \end{aligned}\]</span></p></section><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="proof-that-rotation-is-additive"><span class="firn-headline-text"><span>proof that rotation is additive</span></span></h3><section><p><span>    Deconstruct the input vector into its components. You can rotate the coordinate system and notice that the sum of the rotated components is still the same as the rotated sum.</span></p></section></div><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="magnitude-of-cross-product-distributivity"><span class="firn-headline-text"><span>magnitude of cross product distributivity</span></span></h3><section><p><span>    For the magnitude
+    \end{aligned}\]</span></p></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="proof-that-rotation-is-additive"><span class="firn-headline-text"><span>proof that rotation is additive</span></span></h2><section><p><img src="/KBe21math520srcRotationIsAdditive.jpg" /></p><p><span>Algebraically, $R_{90}$ can be thought of as multiplying by the corresponding rotation matrix</span></p><p><span>\begin{aligned}
+\begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix}
+\end{aligned}</span></p><p><span>and matrix multiplication is linear, and thus additive.</span></p><p><span>\begin{aligned}
+R_{90}  \left(  \vec{A} + \vec{B} \right) &= \begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix}  \begin{pmatrix}A_x + B_x \\ A_y + B_y\end{pmatrix}\\
+&= \begin{pmatrix}A_y + B_y \\ -A_x - B_x\end{pmatrix}\\
+&= \begin{pmatrix}A_y \\ -A_x\end{pmatrix} + \begin{pmatrix}B_y \\ -B_x\end{pmatrix}\\
+&= \begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix} \begin{pmatrix}A_x \\ A_y\end{pmatrix} + \begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix} \begin{pmatrix}B_x \\ B_y\end{pmatrix}\\
+&= R_{90} (\vec A) + R_{90}(  \vec B)  
+\end{aligned}</span></p><p><span>We use the clockwise rotation because we imagine looking at the plane s.t. $\vec A$ points towards us.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="magnitude-of-cross-product-distributivity"><span class="firn-headline-text"><span>magnitude of cross product distributivity</span></span></h2><section><p><span>    For the magnitude
     \[\begin{aligned}
-    \lvert \vec{A} \rvert  \lvert \vec{B} + \vec{C} \rvert \sin  \theta &= \lvert \vec{A} \rvert \left( \vec{B} + \vec{C} \right)_{\perp A}\\
-    &= |\vec{A}| \vec{B}_{\perp \vec{A}} + |\vec{A}| \vec{C}_{\perp \vec{A}}\\
-    &= |\vec{A}| |\vec{B}| \sin  \theta  + |\vec{A}| |\vec{C}| \sin  \theta 
-    \end{aligned}\]</span></p></section></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="use-distributivity-to-derive-the-algebraic-form"><span class="firn-headline-text"><span>use distributivity to derive the algebraic form</span></span></h1><section><p><span>  \[\begin{aligned}
+    \left| \vec{A} \times \left( \vec{B} + \vec{C} \right) \right|  &= \lvert \vec{A} \rvert  \lvert \vec{B} + \vec{C} \rvert \sin  \theta_{\vec{A}, \vec{B} + \vec{C}}\\
+    &= \lvert \vec{A} \rvert \left\lvert \left( \vec{B} + \vec{C} \right)_{\perp A} \right\rvert\\
+    &= |\vec{A}| \left(  \left\lvert \vec{B}_{\perp \vec{A}} \right\rvert +  \left\lvert \vec{C}_{\perp \vec{A}}\right\lvert \right) &&\quad\ \text{(additivity of components)}\\
+    &= |\vec{A}| \left\lvert \vec{B}_{\perp \vec{A}} \right\rvert +  |\vec{A}| \left\lvert \vec{C}_{\perp \vec{A}}\right\lvert  \\
+    &= |\vec{A}| |\vec{B}| \sin  \theta_{\vec{A}, \vec{B}}  + |\vec{A}| |\vec{C}| \sin  \theta_{\vec{A}, \vec{C}} \\
+    &= \left|\vec{A} \times \vec{B}\right| + \left|\vec{A} \times \vec{C}\right|
+    \end{aligned}\]</span></p><p><span>    Geometrically, taking the cross product constitutes a rotation of the projections of $\vec B$, $\vec C$, and $\vec B + \vec{C}$ on the plane normal to $\vec A$, and we established above that rotation is additive.</span></p></section></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="use-distributivity-to-derive-the-algebraic-form"><span class="firn-headline-text"><span>use distributivity to derive the algebraic form</span></span></h1><section><p><span>  \[\begin{aligned}
   \vec{A} \times \vec{B} &=  \left( \vec{A}_x \hat{i} + \vec{A}_y \hat{j} + \vec{A}_z \hat{k} \right)  \times \left( \vec{B}_x \hat{i} + \vec{B}_y \hat{j} + \vec{B}_z \hat{k} \right)\\
   \end{aligned}\]</span></p><p><span>  \[\begin{aligned}
  &= \vec{A}_x \hat{i} \times \vec{B}_x \hat{i} &&+ \vec{A}_x \hat{i} \times \vec{B}_y \hat{j} &&+ \vec{A}_x \hat{i} \times \vec{B}_z \hat{k}\\
@@ -38,7 +49,7 @@
  &= 0 &&+ \vec{A}_x \vec{B}_y \hat{k} &&- \vec{A}_x \vec{B}_z \hat{j}\\
  &- \vec{A}_y \vec{B}_x \hat{k} &&+ 0 &&+ \vec{A}_y \vec{B}_z \hat{i}\\
  &+ \vec{A}_z \vec{B}_x \hat{j} &&- \vec{A}_z \vec{B}_y \hat{i} &&+ 0\\
-  \end{aligned}\]</span></p><p><span>  \[\begin{aligned}
+  \end{aligned}\]</span></p><p><span>  $\hat i \times \hat{i} = \hat{j} \times \hat{j} = \hat{k} \times \hat{k} = 0$ because $\sin \theta$ between a vector and itself is zero, and the other vectors are defined using the right hand rule and by $\hat i \times \hat{j} = \hat{k}$.</span></p><p><span>  \[\begin{aligned}
  &= \left( \vec{A}_y \vec{B}_z - \vec{A}_z \vec{B}_y \right)  \hat{i} &+ \left( \vec{A}_x \vec{B}_z - \vec{A}_y \vec{B}_x \right)  \hat{j} &+ \left( \vec{A}_x \vec{B}_y - \vec{A}_z \vec{B}_y \right)  \hat{k}
   \end{aligned}\]</span></p><p><span>  Leonard's amazing mnemonic: ijkijkijk</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="plane-equation"><span class="firn-headline-text"><span>plane equation</span></span></h1><section><p><span>  Plan: Perpendicular to the cross product of the differences.</span></p><p><span>   The points being $\vec{P_1}, \vec{P_2}, \vec{P_3}$</span></p><p><span>   Perpendicular to the perpendicular 
    \[\begin{aligned}
@@ -66,5 +77,5 @@
   \end{aligned}\]</span></p><p><span>  \[\begin{aligned}
   \vec{r} \cdot \vec{n} &= \vec{P} \cdot \vec{n}\\
   -13x - 2y - 6z &= -26 + 6 &= -20\\
-  13x + 2 + 6 &= 20
+  13x + 2y + 6z &= 20
   \end{aligned}\]</span></p></section></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#cross-product-is-distributive-across-addition">cross product is distributive across addition</a><ol><li><a href="#proof-that-rotation-is-additive">proof that rotation is additive</a></li><li><a href="#magnitude-of-cross-product-distributivity">magnitude of cross product distributivity</a></li></ol></li><li><a href="#use-distributivity-to-derive-the-algebraic-form">use distributivity to derive the algebraic form</a></li><li><a href="#plane-equation">plane equation</a></li><li><a href="#trying-it-with-a-set-of-numbers">trying it with a set of numbers</a></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>

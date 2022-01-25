@@ -1,0 +1,136 @@
+:PROPERTIES:
+:ID:       1041119D-B7CC-4E7B-9432-CEC499E30313
+:END:
+#+title: Algos PS#1 Proofs
+#+author: Houjun Liu
+
+* Groups of Students
+Out of the group of 17 students, take a student Alice. Furthermore, take a sub-group of 6 students. WLOG, Alice is friends with these 6 students. We now split the proof into cases.
+
+** Case 1: there exists a pair of friendships in the group of 6
+As there exists a pair of friendships in the group of 6, and Alice is friends with both participants of the pair, there exists three students which are friends with each other in the bigger group.
+
+** Case 2: there exists no pairs of friendships within the group of 6
+As there is no friendships within the group of 6, there must exist, WLOG:
+
+1. Case 2.1: a triplet of acquaintances in the non-friend group of 6. Then there exists a triplet of acquaintances in the bigger group.
+2. Case 2.2: a triplet of strangers in the non-friend group of 6. Then there exists a triplet of strangers in the bigger group.
+
+** Conclusion
+These cases exhaust the universe for all cases, QED.
+
+* Sensible Numbers
+The following proof is by contradiction.
+
+As per given, we define a value as /sensible/ if it is the square root of a rational number: that, for a sensible number $S$
+
+\begin{equation}
+    S = \sqrt{\frac{a}{b}}, a,b \in \mathbb{I}, a,b \neq 0
+\end{equation}
+
+and as a and b are in their lowest terms.
+
+Assume, for the purposes of contradiction, that $\sqrt[3]{2}$ is sensible. By the above definition of sensibility, we claim that:
+
+\begin{equation}
+   \exists\ a,b,\ s.t.\ \sqrt[3]{2} = \sqrt{\frac{a}{b}}
+\end{equation}
+
+with rules defined above. We will now perform some algebraic manipulation to the above statement.
+
+- $\sqrt[3]{2} = \sqrt{\frac{a}{b}}$
+- $2 = \frac{a}{b} \sqrt{\frac{a}{b}}$, cube each side
+- $\frac{2b}{a} =  \sqrt{\frac{a}{b}}$, multiply by $\frac{b}{a}$
+- $\frac{2b}{a} = \sqrt{\frac{a}{b}} = \sqrt[3]{2}$
+- $\frac{8b^3}{a^3} = 2$, cube each side
+- $8b^3 = 2a^3$, multiply each side by $a^3$
+- $4b^3 = a^3$, divide each side by $2$
+
+We have shown that $a^3$ is divisible by $4$, and therefore by $2$. Therefore $a^3$ is even, and hence $a$ is even.
+
+Given $a$ is even, there is some $k$ such that $2k = a$.
+
+- $4b^3 = a^3 = (2k)^3$
+- $4b^3 = 8k^3$, expanding the parentheses
+- $b^3 = 2k^3$
+
+We show that $b^3$ is divisible by $2$, and therefore is even. $b^3$ is even, and hence $b$ is even.
+
+As both $a,b$ are even, there does not exist $\frac{a}{b}$ in their reduced terms. Therefore, $S$ cannot be expressed as the square root of a rational number. 
+
+CONTRADICTION. The original assumption that $\sqrt[3]{2}$ is sensible is false. QED.
+
+* Less than or equal to $\sqrt{n}$
+The following proof is by contradiction.
+
+As per given, we define numbers $a,b,n \in \mathbb{R}, > 0$ s.t. $ab = n$.
+
+Assume, for the purposes of contradiction, that $a$, $b$ are both strictly larger than $\sqrt{n}$. We will now perform some algebreic manipulation to the given statement:
+
+- $ab = n$
+- $\sqrt{ab} = \sqrt{n}$
+
+Substituting our assumption into the expression, and converting it to an inequality.
+
+$\sqrt{ab} > a, \sqrt{ab} > b$
+
+We will now manipulate both of these expressions further:
+
+- $\sqrt{ab} > a, \sqrt{ab} > b$
+- $ab > a^2, ab > b^2$
+- $b > a, a > b$
+
+CONTRADICTION. Two numbers cannot be strictly larger than each other. The original assumption that both $a$, $b$ are strictly larger than $\sqrt{n}$ is false, and hence either $a,b$ must be at least less or equal to $\sqrt{n}$. QED.
+
+* Fibonachichi Divisibility 
+The following proof is via strong induction.
+
+Our $P(n)$ is that for a sequence $F(n) = F(n-1) + F(n-2) + F(n-3) + F(n-4)$, all values in the sequence is $1\ (mod\ 3)$.
+
+** Base cases
+
+- $P(1,2,3,4) = 1$, $1 = 1\ (mod\ 3)$
+
+** Inductive step
+
+For a given $P(n+1) = P(n-3)+P(n-2)+P(n-1)+P(n)$: given by the inductive hypothesis, all $P(n-\{3,2,1,0\})$ is $1\ (mod\ 3)$. Their sums, therefore:
+
+$1+1+1+1\ (mod\ 3) = 1 \ (mod\ 3)$, making $P(n+1)$ equally $1\ (mod\ 3)$
+
+** Conclusion
+By the inductive principle, therefore, we have proven the base cases and the inductive step. It must be true $\forall\ n$. Therefore, all members of a sequence $F(n) = F(n-1) + F(n-2) + F(n-3) + F(n-4)$ is $1\ (mod\ 3)$.
+
+Given that $F(n) = F(n-1) + F(n-2) + F(n-3) + F(n-4)$ is $1\ (mod\ 3)$, and $1 \neq 0$, all members of the sequence $F$, they are all indivisible by $3$. QED.
+  
+* n-team tournament
+The following proof is via induction.
+
+Our $P(n)$ is that, in a "valid game" where no team wins against all others, $\exists$ a subset of teams $T_i, T_{i+1}, \ldots T_k$ where $1 \leq i \leq k\leq n$ there exists a cycle $T_i > T_{i+1} > \cdots > T_k > T_i$ (a "valid cycle.")
+
+** Base cases
+At $P(3)$, we have a game involving three players $T_1, T_2, T_3$.
+
+We will prove via exhaustion that all permutations of these players, as long as forming a valid game, results in a valid cycle.
+
+- Case 1: $T_1 > T_2 > T_3 > T_1$ 
+- Case 2: $T_1 > T_3 > T_2 > T_1$ 
+
+This exhaustively satisfies all permutations of valid games, and both contain a valid cycle.
+
+** Inductive step
+For a given $P(n)$, we know that the game is valid and forms within it a valid cycle. For a tournament $P(n+1)$ to be valid, the introduction of $T_{n+1}$ must follow the following cases:
+
+*** Case 1: Games $T_1\ldots T_{n}$ is now themselves independently invalid
+For games $T_1\ldots T_{n}$ to be invalid, we understand that there is a team $T_w$ where $1 \leq w \leq n$ who did not loose to any member. For, as is given, $P(n+1)$ to be valid, therefore, $T_{n+1}$ must be a winner against $T_w$ to ensure $T_w$ looses at least once.
+
+In a similar vein, for $T_{n+1}$ themselves to loose at least once, they must to loose to some member $T_1 \ldots T_n$, not including $T_w$ as we established that $T_w$ won against $T_{n+1}$. Let's propose a team that, in this manner, won against $T_{n+1}$, some $T_l$ where $1 \leq l \leq n$ where $l \neq w$.
+
+As, as highlighted above, $T_w$ won against all teams $T_1 \ldots T_n$, we understand that $T_w$ won against $T_l$.
+
+Therefore, we have created a valid cycle $T_{n+1} > T_w > T_l > T_{n+1}$ in the valid tournament.
+
+*** Case 2: Games $T_1\ldots T_{n}$ is themselves still independently valid
+If $T_1\ldots T_n$ is still independently valid after the introduction of team $T_{n+1}$, we simply follow the inductive hypothesis that, for a given valid game $P(n)$, there exists a valid cycle.
+
+** Conclusion
+By the inductive principle, therefore, we have proven the base cases and the inductive step via the universe of all possible cases. It must therefore be that for any given valid tournament, there exists a valid cycle. QED.

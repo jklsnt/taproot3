@@ -15,21 +15,41 @@
     R_{90} \left( \vec{A} + \vec{B} \right)  = R_{90} \left( \vec{A} \right)  + R_{90} \left( \vec{B} \right)  
     \end{aligned}\]
 
-*** proof that rotation is additive
+** proof that rotation is additive
     
-    Deconstruct the input vector into its components. You can rotate the coordinate system and notice that the sum of the rotated components is still the same as the rotated sum. 
+[[file:KBe21math520srcRotationIsAdditive.jpg]]
+    
+Algebraically, $R_{90}$ can be thought of as multiplying by the corresponding rotation matrix 
 
-    
-*** magnitude of cross product distributivity
+\begin{aligned}
+\begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix}
+\end{aligned}
+
+and matrix multiplication is linear, and thus additive. 
+
+\begin{aligned}
+R_{90}  \left(  \vec{A} + \vec{B} \right) &= \begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix}  \begin{pmatrix}A_x + B_x \\ A_y + B_y\end{pmatrix}\\
+&= \begin{pmatrix}A_y + B_y \\ -A_x - B_x\end{pmatrix}\\
+&= \begin{pmatrix}A_y \\ -A_x\end{pmatrix} + \begin{pmatrix}B_y \\ -B_x\end{pmatrix}\\
+&= \begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix} \begin{pmatrix}A_x \\ A_y\end{pmatrix} + \begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix} \begin{pmatrix}B_x \\ B_y\end{pmatrix}\\
+&= R_{90} (\vec A) + R_{90}(  \vec B)  
+\end{aligned}
+
+We use the clockwise rotation because we imagine looking at the plane s.t. $\vec A$ points towards us. 
+
+** magnitude of cross product distributivity
     
     For the magnitude
     \[\begin{aligned}
-    \lvert \vec{A} \rvert  \lvert \vec{B} + \vec{C} \rvert \sin  \theta &= \lvert \vec{A} \rvert \left( \vec{B} + \vec{C} \right)_{\perp A}\\
-    &= |\vec{A}| \vec{B}_{\perp \vec{A}} + |\vec{A}| \vec{C}_{\perp \vec{A}}\\
-    &= |\vec{A}| |\vec{B}| \sin  \theta  + |\vec{A}| |\vec{C}| \sin  \theta 
+    \left| \vec{A} \times \left( \vec{B} + \vec{C} \right) \right|  &= \lvert \vec{A} \rvert  \lvert \vec{B} + \vec{C} \rvert \sin  \theta_{\vec{A}, \vec{B} + \vec{C}}\\
+    &= \lvert \vec{A} \rvert \left\lvert \left( \vec{B} + \vec{C} \right)_{\perp A} \right\rvert\\
+    &= |\vec{A}| \left(  \left\lvert \vec{B}_{\perp \vec{A}} \right\rvert +  \left\lvert \vec{C}_{\perp \vec{A}}\right\lvert \right) &&\quad\ \text{(additivity of components)}\\
+    &= |\vec{A}| \left\lvert \vec{B}_{\perp \vec{A}} \right\rvert +  |\vec{A}| \left\lvert \vec{C}_{\perp \vec{A}}\right\lvert  \\
+    &= |\vec{A}| |\vec{B}| \sin  \theta_{\vec{A}, \vec{B}}  + |\vec{A}| |\vec{C}| \sin  \theta_{\vec{A}, \vec{C}} \\
+    &= \left|\vec{A} \times \vec{B}\right| + \left|\vec{A} \times \vec{C}\right|
     \end{aligned}\]
 
-
+    Geometrically, taking the cross product constitutes a rotation of the projections of $\vec B$, $\vec C$, and $\vec B + \vec{C}$ on the plane normal to $\vec A$, and we established above that rotation is additive. 
     
 * use distributivity to derive the algebraic form
   
@@ -46,7 +66,8 @@
  &+ \vec{A}_z \vec{B}_x \hat{j} &&- \vec{A}_z \vec{B}_y \hat{i} &&+ 0\\
   \end{aligned}\]
 
-  
+  $\hat i \times \hat{i} = \hat{j} \times \hat{j} = \hat{k} \times \hat{k} = 0$ because $\sin \theta$ between a vector and itself is zero, and the other vectors are defined using the right hand rule and by $\hat i \times \hat{j} = \hat{k}$.
+
   \[\begin{aligned}
  &= \left( \vec{A}_y \vec{B}_z - \vec{A}_z \vec{B}_y \right)  \hat{i} &+ \left( \vec{A}_x \vec{B}_z - \vec{A}_y \vec{B}_x \right)  \hat{j} &+ \left( \vec{A}_x \vec{B}_y - \vec{A}_z \vec{B}_y \right)  \hat{k}
   \end{aligned}\]
@@ -96,13 +117,11 @@
   &= (-15 + 2) \hat{i} + (-2) \hat{j} + (-6) \hat{k} \\ 
   &=\left( -13, -2, -6 \right)\\
   \end{aligned}\]
-
-
   
   \[\begin{aligned}
   \vec{r} \cdot \vec{n} &= \vec{P} \cdot \vec{n}\\
   -13x - 2y - 6z &= -26 + 6 &= -20\\
-  13x + 2 + 6 &= 20
+  13x + 2y + 6z &= 20
   \end{aligned}\]
 
 

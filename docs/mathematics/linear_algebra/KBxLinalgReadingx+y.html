@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-01-14 Fri 13:35 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Linalg Reading &#x2013; A mathematicians manifesto for rethinking</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley Marvit" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Linalg Reading &#x2013; A mathematicians manifesto for rethinking</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2022-01-14 Fri 13:35</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBxLinalgSem2D1.html'>Linalg Semester 2 Day 1</a></li> <li><a class='backlink' href='index.html'>Linear Algebra Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#x-y-eugenia-cheng">1. x + y, Eugenia Cheng</a>
+<ul>
+<li><a href="#the-problem">1.1. the problem</a></li>
+<li><a href="#math-time">1.2. math time</a>
+<ul>
+<li><a href="#dimensions">1.2.1. dimensions</a></li>
+</ul>
+</li>
+<li><a href="#inclass">1.3. inclass</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<p>
+gende
+</p>
+<p>
+#flo #hw #reading
+</p>
+
+<hr />
+
+<div id="outline-container-x-y-eugenia-cheng" class="outline-2">
+<h2 id="x-y-eugenia-cheng"><span class="section-number-2">1</span> x + y, Eugenia Cheng</h2>
+<div class="outline-text-2" id="text-x-y-eugenia-cheng">
+<ul class="org-ul">
+<li>def of "woman" is constructed, arbitrary
+
+<ul class="org-ul">
+<li>and they hurt! but mathematical thinking can help</li>
+</ul></li>
+
+<li>mathematics is not just about numbers and equations, even tho it
+starts with them
+
+<ul class="org-ul">
+<li>at the heart of mathematics is the <b>framework for making arguments</b>
+
+<ul class="org-ul">
+<li>which had abstraction and logic</li>
+</ul></li>
+</ul></li>
+
+<li>def abstraction: seeing past surface details in a situation to find
+it's core
+
+<ul class="org-ul">
+<li>hmm&#x2026; i don;t agree with this. it's less about seeing "past" to
+find a core than it is about zooming out until the details are
+irrelevant, and seeing the patterns</li>
+<li>does abstraction get to the core? ig it does in the sense that it
+distils..</li>
+</ul></li>
+
+<li><b>two cultures of mathematics</b>
+
+<ul class="org-ul">
+<li>problem solving</li>
+<li>theory building
+
+<ul class="org-ul">
+<li>but what does this mean? ## theories</li>
+</ul></li>
+</ul></li>
+
+<li>descriptive, not prescriptive
+
+<ul class="org-ul">
+<li>hmm&#x2026; what about axioms?</li>
+</ul></li>
+
+<li>works at higher levels of abstraction</li>
+<li>the right abstraction hold great power in explanability</li>
+<li>she is proposing one such abstraction / reframing, but for gender!</li>
+</ul>
+</div>
+
+<div id="outline-container-the-problem" class="outline-3">
+<h3 id="the-problem"><span class="section-number-3">1.1</span> the problem</h3>
+<div class="outline-text-3" id="text-the-problem">
+<p>
+<i>what is it?</i> divisivness of arguments around gender equality.
+</p>
+
+<ul class="org-ul">
+<li>society get's distracted by the argument of how men and women are
+different
+
+<ul class="org-ul">
+<li>this is a detraction! not the right argument</li>
+<li>because it draws us into a meta-argument
+
+<ul class="org-ul">
+<li>this argument about what we should be arguing about only maintains
+the status quo</li>
+<li>but, mathematics is v good at sorting this stuff out!</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-math-time" class="outline-3">
+<h3 id="math-time"><span class="section-number-3">1.2</span> math time</h3>
+<div class="outline-text-3" id="text-math-time">
+<ul class="org-ul">
+<li>mathematical deduction is not about averages on a large sample set
+
+<ul class="org-ul">
+<li>instead, they use logic, not evidence
+
+<ul class="org-ul">
+<li>reductionist? assumes our logic is good enough</li>
+</ul></li>
+</ul></li>
+
+<li>individual experiences do not generalize to large groups
+
+<ul class="org-ul">
+<li><b>the reverse is also true</b></li>
+</ul></li>
+
+<li>we can get around this with a case study, and then trying to
+generalize</li>
+
+<li>yooo she does
+<a href="KBxSystemsofSystemsinNatureandDeepLearning#category theory.html">KBxSystemsofSystemsinNatureandDeepLearning#category
+theory</a>
+
+<ul class="org-ul">
+<li>says that a similar type of seemingly small abstraction is possibly
+what she has now</li>
+</ul></li>
+
+<li>not mathematics of gender, but a mathematical approach to gender
+
+<ul class="org-ul">
+<li>ie. a redefining</li>
+</ul></li>
+
+<li>continual abstractions is the process of math</li>
+
+<li>statisical link is not enough! math looks for causality</li>
+
+<li>set theory asserts that math is fundementally about membership,
+whereas category theory asserts that it is fundementally about
+relasionships</li>
+
+<li>she hopes to focus on relationships instead of intrinsic
+characteristics</li>
+
+<li>abstractions can be temporary! you can details back in later</li>
+</ul>
+</div>
+
+<div id="outline-container-dimensions" class="outline-4">
+<h4 id="dimensions"><span class="section-number-4">1.2.1</span> dimensions</h4>
+<div class="outline-text-4" id="text-dimensions">
+<ul class="org-ul">
+<li>because dimensions are by definiton indipendent, it's hard to define
+new ones
+
+<ul class="org-ul">
+<li>as you can't describe them w/ the existing dims</li>
+</ul></li>
+
+<li>looking at too low of a dimensions messes things up
+
+<ul class="org-ul">
+<li>eg. a shadow instead of an object</li>
+</ul></li>
+</ul>
+
+<p>
+lmao aight
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-inclass" class="outline-3">
+<h3 id="inclass"><span class="section-number-3">1.3</span> inclass</h3>
+<div class="outline-text-3" id="text-inclass">
+<p>
+abstractions can be applied cyclicy (ie. vec to matrix to tensor)
+"category theory is the science of metaphor" - ted
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

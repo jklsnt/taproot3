@@ -1,0 +1,144 @@
+<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Functional Programming</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        'displayAlign': 'center',
+        'displayIndent': '0em',
+        'extensions': ['tex2jax.js'],
+        'tex2jax': {
+        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
+        'processEscapes': true
+        },
+        'HTML-CSS': { scale: 100,
+                        linebreaks: { automatic: 'false' },
+                        webFont: 'TeX'
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: 'false' },
+              font: 'TeX'},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: 'AMS'},
+               MultLineWidth: '85%',
+               TagSide: 'right',
+               TagIndent: '.8em'
+             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Functional Programming</h1></div><div class="metamble"></div><div class="notebody"><div><section></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="day-1"><span class="firn-headline-text"><span>Day 1</span></span></h1><section><p><span>Functional programming comes from math!</span></p><pre class="language-sml"><code class="language-sml">  fn 0 => true | x => false
+</code></pre><p><span>Here's a function for absolute value.</span></p><pre class="language-sml"><code class="language-sml">  fn x => if x >= 0 then x else 0 - x;
+</code></pre><p><span>We can bind it to a name:</span></p><pre class="language-sml"><code class="language-sml">  val abs = fn x => if x >= 0 then x else 0 - x;
+  abs ~4
+</code></pre><pre class="fixed-width"> val it = 4 : int
+</pre><p><span>We can use tuples like </span><code>(1,2,3)</code><span>:</span></p><pre class="language-sml"><code class="language-sml">  val max = fn (x,y) => if x > y then x else y;
+  max (1,2)
+</code></pre><p><span>Functions are called like </span><code>max (x,y)</code><span>.</span></p><pre class="fixed-width"> val it = 2 : int
+</pre><p><span>Every function has a single input type and single output type: to give multiple arguments you just pass a tuple.</span></p><p><span>This won't run.</span></p><pre class="language-sml"><code class="language-sml">  let
+    val g = fn x = x + 3
+  in
+    if "hello" > g then 1 else false
+  end
+</code></pre><p><span>Why? First off, SML is </span><em><span>statically typed</span></em><span> (unlike some other notable FP languages), and </span><code>"hello"</code><span> and </span><code>g</code><span> are not the same type.</span></p><p><span>What types does SML have?</span></p><ul><li><p><code>int</code></p></li><li><p><code>bool</code></p></li><li><p><code>string</code></p></li><li><p><code>a->b</code><span> (function)</span></p></li><li><p><code>a*b</code><span> (tuples)</span></p></li><li><p><code>type frac = int*int</code><span> (we can do type aliasing)</span></p></li></ul><p><span>It also has </span><code>real</code><span>, but since floating points are... unique, they can't be compared nicely due to inaccuracies.</span></p><p><span>Let's try to make a function that checks if a tuple is </span><code>(0,0)</code><span>!</span></p><pre class="language-sml"><code class="language-sml">  val thing = fn (x,y) => if x=y andalso x=0 then true else false;
+  thing (0,0)
+</code></pre><pre class="fixed-width"> val it = true : bool
+</pre><p><span>... </span><code>andalso</code><span>? What? Apparently this is to get around the fact that </span><code>and</code><span> means something else.</span></p><p><span>We could also do it like:</span></p><pre class="language-sml"><code class="language-sml">  val thing = fn (0,0) => true | x => false;
+  thing (0,0)
+</code></pre><pre class="fixed-width"> val it = true : bool
+</pre><p><span>We can also do the Rust-style thing and have the second part be </span><code>_ => false</code><span> if we didn't care about naming the argument.
+This whole </span><code>something => 2 | x => 3</code><span> thing is called a </span><em><span>pattern</span></em><span>: these clauses can be a constant, number, tuple, but not an expression.</span></p><p><span>Variables are immutable, but you can "shadow" variables like Rust:</span></p><pre class="language-sml"><code class="language-sml">  val abs = 2;
+  val abs = 3;
+  abs
+</code></pre><p><span>Let's make a function to check if either part of a tuple is zero:</span></p><pre class="language-sml"><code class="language-sml">  val either_zero = fn (0, x) => true | (x, 0) => true | _ => false;
+  either_zero (1,0)
+</code></pre><pre class="fixed-width"> val it = true : bool
+</pre><p><span>Now, a factorial! We can allow a value to be recursive by using the </span><code>rec</code><span> keyword. Letting this not be default lets you shadow things.</span></p><pre class="language-sml"><code class="language-sml">  val rec fact = fn 1 => 1 | x => x * fact(x-1);
+  fact 5
+</code></pre><pre class="fixed-width"> val it = 120 : int
+</pre><p><span>Let's make a function that checks evenness (slowly...)!</span></p><pre class="language-sml"><code class="language-sml">val rec even = fn 0 => true | x => even(x-2) | 1 => false;
+</code></pre><p><span>This won't work, because it evaluates these clauses in order.</span></p><pre class="language-sml"><code class="language-sml">  val rec even = fn 0 => true | 1 => false | x => even(x-2);
+  even 5
+</code></pre><pre class="fixed-width"> val it = false : bool
+</pre><p><span>Challenge problem: write a function that takes a nonnegative integer and returns whether or not it's a multiple of 3 (without modulo!)</span></p><pre class="language-sml"><code class="language-sml">  val mul3 = fn x => if (x div 3) * 3 = x then true else false;
+  mul3 2
+</code></pre><p><span>Now, without </span><code>div</code><span>.</span></p><pre class="language-sml"><code class="language-sml">  val rec f = fn x => if x - 3 = 0 then true else if x - 3 < 0 then false else f(x-3);
+  f 20
+</code></pre><pre class="fixed-width"> val it = false : bool
+</pre><p><span>Again.</span></p><pre class="language-sml"><code class="language-sml">  val rec f = fn 0 => true | 1 => true | 2 => false | x => f(x-3);
+</code></pre><pre class="fixed-width"> val f = fn : int -> bool
+</pre><p><code>if</code><span> is compiled away into pattern matches, and acts as a ternary of sorts.</span></p><p><span>Let's implement a basic math function:</span></p><pre class="language-sml"><code class="language-sml">  val rec mult = fn (0, _) => 0 | (_, 0) => 0 | (x, 1) => x | (x, y) => x+mult(x, y-1);
+  mult (2,3)
+</code></pre><pre class="fixed-width"> val it = 6 : int
+</pre><p><span>We can also define our own </span><em><span>type aliases</span></em><span> (as we mentioned earlier) like so:</span></p><pre class="language-sml"><code class="language-sml">  type t = int*string
+</code></pre><p><span>We can also define </span><em><span>datatypes</span></em><span> (Rust enums!). Addition in this context means "this or that type":</span></p><pre class="language-sml"><code class="language-sml">  datatype intparse = Success of int | Failure of string;  
+</code></pre><p><span>Let's try something simpler (</span><code>Option<int></code><span> but in SML):</span></p><pre class="language-sml"><code class="language-sml">  datatype intoption = Some of int | None;
+  val whee = Some 3
+</code></pre><pre class="fixed-width"> val whee = Some 3 : intoption
+</pre><p><span>Sidenote: you can use a colon to do type annotations.</span></p><pre class="language-sml"><code class="language-sml">  val whee: int = 3
+</code></pre><pre class="fixed-width"> val whee = 3 : int
+</pre><p><span>We can do operations on datatypes:</span></p><pre class="language-sml"><code class="language-sml">  datatype intoption = Some of int | None;
+  val unwrap = fn Some x => x | None => 0
+</code></pre><p><span>We can have </span><em><span>recursive datatypes</span></em><span>:</span></p><pre class="language-sml"><code class="language-sml">  datatype ilist = Empty | Front of (int*ilist);
+  val rec length = fn Empty => 0 | Front (x, xs) => 1+length xs;
+</code></pre><p><span>Let's make a </span><code>map</code><span> func!</span></p><pre class="language-sml"><code class="language-sml">  datatype ilist = Empty | Front of (int*ilist);
+  val rec map: (int->int)*ilist -> ilist = fn (f, Empty) => Empty | (f, Front(x,xs)) => Front(f x, map(f, xs));
+</code></pre><pre class="fixed-width"> val map = fn : (int -> int) * ilist -> ilist
+</pre><p><span>There are actual built-in lists in SML, though:</span></p><pre class="language-sml"><code class="language-sml">  val rec map: (int->int)*int list -> int list = fn (f, nil) => nil | (f, x::xs) => (f x)::(map (f, xs));
+</code></pre><pre class="fixed-width"> val it = "stdIn" : string
+</pre><p><span>It's time to do something known as </span><em><span>currying</span></em><span>: producing functions for us:</span></p><pre class="language-sml"><code class="language-sml">  val mkadd: int->(int->int) = fn x => fn y => y+x;
+  mkadd 2 4 = 2+4 (* ensure our mkadd func works *)
+</code></pre><pre class="fixed-width"> val it = true : bool
+</pre><pre class="language-sml"><code class="language-sml">  val f: int->(int->int) = fn x => fn y => y+x;
+  val f': (int*int)->int = fn (x,y) => f x y;
+</code></pre><pre class="fixed-width"> val f' = fn : int * int -> int
+</pre><pre class="language-sml"><code class="language-sml">  val uncurry: (int->(int->int)) -> (int*int)->int = fn f => fn(x,y) => f x y;
+  val curry: (int*int->int)->(int->int->int) = fn f => fn x => fn y => f(x,y);
+</code></pre><pre class="fixed-width"> val curry = fn : (int * int -> int) -> int -> int -> int
+</pre><p><span>Polymorphism can be done with "generic" types that are prefixed by an apostrophe!</span></p><pre class="language-sml"><code class="language-sml">  val f: 'a->'a = fn x => x;
+</code></pre><pre class="fixed-width"> val f = fn : 'a -> 'a
+</pre><p><span>The well-known </span><code>filter</code><span> operator:</span></p><pre class="language-sml"><code class="language-sml">  val rec filter: ('a -> bool) -> ('a list -> 'a list) =
+   fn f => (fn nil => nil | x::xs => if f x then x::filter f xs else filter f xs);                                                                
+</code></pre><pre class="fixed-width"> val filter = fn : ('a -> bool) -> 'a list -> 'a list
+</pre><p><span>Trees:</span></p><pre class="language-sml"><code class="language-sml">  datatype 'a tree = Empty | Node of 'a tree * 'a * 'a tree;
+  val rec map = fn f => (fn Empty => Empty | Node (l,x,r) => Node(map f l, f x, map f r))
+</code></pre><pre class="fixed-width"> val map = fn : ('a -> 'b) -> 'a tree -> 'b tree
+</pre><pre class="language-sml"><code class="language-sml">  datatype 'a tree = Empty | Node of 'a tree * 'a * 'a tree;
+  val rec exists: ('a->bool)->'a tree -> bool = fn f => (fn Empty => false | Node (l,x,r) => f x orelse exists f l orelse exists f r)
+</code></pre><pre class="fixed-width"> val exists = fn : ('a -> bool) -> 'a tree -> bool
+</pre><p><span>We can use the </span><code>op</code><span> keyword to use an infix operator like a normal function.</span></p><pre class="language-sml"><code class="language-sml">op + (1, 2)
+</code></pre><pre class="fixed-width"> val it = 3 : int
+</pre><p><span>Let's define a list-reversing function!</span></p><pre class="language-sml"><code class="language-sml">  val rec revhelper = fn (nil, acc) => acc | (x::xs, acc) => revhelper(xs, x::acc);
+  val rec rev = fn L => revhelper(L, nil);
+</code></pre><pre class="fixed-width"> val rev = fn : 'a list -> 'a list
+</pre><pre class="language-sml"><code class="language-sml">  val rec helper = fn nil => nil | NONE::xs => helper xs | (SOME x)::xs => x::helper xs
+  val mapPartial: ('a -> 'b option) -> 'a list -> 'b list =
+   fn f => helper map o f;
+</code></pre><p><span>We can pattern match directly!</span></p><pre class="language-sml"><code class="language-sml">  val rec mapPartial = fn f => (fn nil => nil | x::xs => case f of SOME y => y::mapPartial xs | NONE => mapPartial xs);
+</code></pre><pre class="fixed-width"> val it = "stdIn" : string
+</pre><p><span>We have a void type, too (like Rust).</span></p><pre class="language-sml"><code class="language-sml">  val test: unit = ()
+</code></pre><pre class="fixed-width"> val test = () : unit
+</pre><pre class="language-sml"><code class="language-sml">  val rec length = fn nil => 0 | _::xs => 1+length xs;
+  val rec sum = fn nil => 0 | x::xs => x+sum xs;
+  val rec lmax = fn nil => 0 | x::xs => max(x, lmax xs);
+  val rec allpos = fn nil => true | x::xs => if x >= 0 then allpos xs else false;
+</code></pre><pre class="fixed-width"> val length = fn : 'a list -> int
+: val sum = fn : int list -> int
+: val lmax = fn : int list -> int
+: val allpos = fn : int list -> bool
+</pre><p><span>Let's automate our list creation functions. This is basically MapReduce!</span></p><pre class="language-sml"><code class="language-sml">  val rec foldl = fn cmb => fn z => (fn nil => z | x::xs => foldl cmb (cmb(z,x)) xs);
+  val sum = foldl op + 0;
+</code></pre><pre class="fixed-width"> val foldl = fn : ('a * 'b -> 'a) -> 'a -> 'b list -> 'a
+</pre><pre class="language-sml"><code class="language-sml">  val sum = foldl op + 0;
+</code></pre><pre class="fixed-width"> val sum = fn : int list -> int
+</pre><p><span>What if we want to handle overflows?</span></p><pre class="language-sml"><code class="language-sml">  val lmax: int list -> int option = foldl (fn (NONE, x) => x | (SOME y, x) => max(x,y)) NONE;
+  val lmax_unchecked = foldl max 0;
+</code></pre><p><span>We can also fold from the right to the left.</span></p><pre class="language-sml"><code class="language-sml">val rec foldr = fn cmb => fn z => (fn nil => z | x::xs => cmb(x, foldr cmb z xs))
+</code></pre><pre class="fixed-width"> val foldr = fn : ('a * 'b -> 'b) -> 'b -> 'a list -> 'b
+</pre><pre class="language-sml"><code class="language-sml">val rev = foldl op:: [];
+</code></pre><pre class="fixed-width"> val it = "stdIn" : string
+</pre><pre class="language-sml"><code class="language-sml">  val rec reduce: ('b*'a*'b -> 'b) -> 'b -> 'a tree -> 'b =
+   fn cmb => fn z => fn Empty => z
+    | Node(l, x, r) => cmb(reduce cmb z l, x, reduce cmb z r);
+  val size = reduce (fn (l, _, r) => l+r+1) 0;
+  val depth = reduce (fn (l, _, r) => max(l,r)+1) 0;
+</code></pre><pre class="fixed-width"> val reduce = fn : ('a * 'b * 'a -> 'a) -> 'a -> 'b tree -> 'a
+: val tree = fn : ?.X1 tree -> int
+: val depth = fn : ?.X1 tree -> int
+</pre><pre class="language-sml"><code class="language-sml">val mapreduce: = fn (f, cmb, z) => reduce cmb z o map f;
+</code></pre><p><span>SML has... immutable arrays! Speed, without unsafety.</span></p><pre class="language-sml"><code class="language-sml">  type 'a seq;
+  val length: 'a seq -> int;
+  val nth: 'a seq->int 'a;
+  val tabulate: (int->'a)->int->'a seq;
+</code></pre></section></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#day-1">Day 1</a></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>

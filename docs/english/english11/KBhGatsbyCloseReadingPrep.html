@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-01-24 Mon 22:14 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gatsby Close Reading</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Gatsby Close Reading</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-01-24 Mon 22:13</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#orgea8b47d">1. General Information</a></li>
+<li><a href="#orga51c4a4">2. Passage</a></li>
+<li><a href="#org646fd96">3. Sub-Claim Synthesis</a>
+<ul>
+<li><a href="#org1478019">3.1. Shifts blame upon Myrtle as Blocking Out Goodness</a></li>
+<li><a href="#orgf14bcf6">3.2. Double entente metaphor of belittlement and one sidedness</a></li>
+<li><a href="#org583bd1c">3.3. Uses vanity/objects to distract from character</a></li>
+<li><a href="#orgb34f247">3.4. Positive qualities all had a counterpoint</a></li>
+<li><a href="#orge0d42de">3.5. Conflicting</a></li>
+</ul>
+</li>
+<li><a href="#org0a507f1">4. Claim and Topic</a></li>
+<li><a href="#org997796c">5. Thesis</a></li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-orgea8b47d" class="outline-2">
+<h2 id="orgea8b47d"><span class="section-number-2">1</span> General Information</h2>
+<div class="outline-text-2" id="text-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Due Date</th>
+<th scope="col" class="org-left">Topic</th>
+<th scope="col" class="org-left">Important Documents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">1/24</td>
+<td class="org-left">Gatsby Close Reading</td>
+<td class="org-left">The Great Gatsby</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orga51c4a4" class="outline-2">
+<h2 id="orga51c4a4"><span class="section-number-2">2</span> Passage</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Chapter 2: "Then I heard footsteps on a stairs, and in a moment the thickish figure of a woman blocked out the light from the office door. She was in the middle thirties, and faintly stout, but she carried her surplus flesh sensuously as some women can. Her face, above a spotted dress of dark blue crepe-de-chine, contained no facet or gleam of beauty, but there was an immediately perceptible vitality about her as if the nerves of her body were continually smoldering. She smiled slowly and, walking through her husband as if he were a ghost, shook hands with Tom, looking him flush in the eye. Then she wet her lips, and without turning around spoke to her husband in a soft, coarse voice” (25-26).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org646fd96" class="outline-2">
+<h2 id="org646fd96"><span class="section-number-2">3</span> Sub-Claim Synthesis</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org1478019" class="outline-3">
+<h3 id="org1478019"><span class="section-number-3">3.1</span> Shifts blame upon Myrtle as Blocking Out Goodness</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+"thickish &#x2026; woman blocked out the light"
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf14bcf6" class="outline-3">
+<h3 id="orgf14bcf6"><span class="section-number-3">3.2</span> Double entente metaphor of belittlement and one sidedness</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+"facet", two definitions:
+</p>
+
+<ul class="org-ul">
+<li>One side of something (one-sided-ness)</li>
+<li>One eye of a compound-eyed insect =&gt; belittlement</li>
+</ul>
+
+<p>
+Lack of beauty, insect-like 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org583bd1c" class="outline-3">
+<h3 id="org583bd1c"><span class="section-number-3">3.3</span> Uses vanity/objects to distract from character</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+"Her face, above the spotted"
+</p>
+
+<p>
+"spotted" =&gt; "spot" = to be able to see. Her face is not remarkable, and dark (insect-like), but she leveraged clothing to be "spotted."
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb34f247" class="outline-3">
+<h3 id="orgb34f247"><span class="section-number-3">3.4</span> Positive qualities all had a counterpoint</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+[She/her] &#x2026;, [contains quality], but [is different.]
+</p>
+
+<p>
+Descriptions of her quality all had a counterpoint to it, via "but."
+</p>
+
+<ul class="org-ul">
+<li>[she was] [-] [+]</li>
+<li>[her face] [-] [+]</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge0d42de" class="outline-3">
+<h3 id="orge0d42de"><span class="section-number-3">3.5</span> Conflicting</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+"soft, coarse voice" sense of contrast.
+</p>
+
+<ul class="org-ul">
+<li>Coarse: Large, Rude, Vulgar</li>
+<li>Soft: easy to mold, pleasing</li>
+</ul>
+
+<p>
+Pleasing vulgarity; hints at recognition of the affair as having a duality in quality
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0a507f1" class="outline-2">
+<h2 id="org0a507f1"><span class="section-number-2">4</span> Claim and Topic</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+(quotes in order of the sub-claims above)
+</p>
+
+<p>
+Nick had originally <a href="#org1478019">a preconcieved notion of "sinfulness"</a> with Myrtle, and examined as such as she entered the room.
+</p>
+
+<p>
+Upon examining Myrtle further, however, his negative descriptions become more nuanced; he believes Myrtle as being dangerously multi-faceted &#x2014; hinting that, through his description of her lack of beauty, contains <a href="#orgf14bcf6">insect-like qualities</a> which Nick believes <a href="#org583bd1c">she attempts to mask via her vanity</a>.
+</p>
+
+<p>
+However, through a more macro view of the text <a href="#orgb34f247">Nick is actually conflicted on his beliefs in Myrtle</a>, beginning to be "enchanted" by alternate explanations of what he right before claimed as being negative qualities.
+</p>
+
+<p>
+In the passage, Nick leaves us <a href="#orge0d42de">confused</a>, that he finally makes admittance to the duality in quality exhibited by Myrtle.
+</p>
+
+<p>
+Despite his preconceived (more "pure") notions of Myrtle, Nick nevertheless fall prey to her presence and began to understand the duality in her character. The process of passing judgment and analyzing her character, then, literally corrupted Nick's original value judgment.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org997796c" class="outline-2">
+<h2 id="org997796c"><span class="section-number-2">5</span> Thesis</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+In The Great Gatsby, the author leveraged Nick's subtle change of opinion during his initial, impressional judgments of Myrtle to underscore the moral corruption that could take place during the dangerous process of mental judgment.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

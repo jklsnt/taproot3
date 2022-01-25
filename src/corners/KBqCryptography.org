@@ -1,0 +1,75 @@
+
+
+#+TITLE: Cryptography
+
+* Modular Arithmetic
+For a positive integer $m$ and integers $a,b$ we say that $a,b$ are _congruent_ modulo $m$ if they have the same remainder upon division by $m$. Equivalently, $a,b$ are congruent modulo $m$ if $a-b$ is a multiple of $m$. This is denoted as $a \equiv b\text{ }(\bmod\text{ }m)$.
+
+Example: $2 \equiv 26\text{ }(\bmod\text{ }8)$
+
+Addition, subtraction, and multiplication are defined in modular arithmetic. For $a \equiv 2\text{ }(\bmod\text{ }8)$ and $a \equiv 5\text{ }(\bmod\text{ }8)$:
+- $a+b \equiv 7\text{ }(\bmod\text{ }8)$
+- $a-b \equiv 5\text{ }(\bmod\text{ }8)$
+- $ab \equiv 2\text{ }(\bmod\text{ }8)$
+
+Exponentiation and division are a bit more complex.
+#+begin_aside Fermat's Little Theorem
+Let $p$ be a prime.
+1. If $a$ is an integer, then $a^p \equiv a\ (\bmod\ p)$.
+2. If $a \not\equiv 0\ (\bmod\ p)$, then $a^{p-1} = 1\ (\bmod\ p)$
+
+Proof:
+- Consider the numbers $a, 2a, 3a, \ldots, (p-1)a$. None of these are divisible by $p$.
+- Furthermore, we can claim no two are congruent $\bmod\ p$.
+  - Suppose the contrary: that $ra = sa\ (\bmod\ p)$.
+  - Then $(r-s)a = 0\ (\bmod\ p)$ , but neither factor is a multiple of $p$ (as established earlier), and therefore this is impossible.
+- Thus $a, 2a, 3a, \dots, p-1\ (\bmod\ p) = 1,2,3, \dots, p-1\ (\bmod\ p)$ in some scrambled order.)
+  - $a^{p-1}(p-1)! \equiv (p-1)!\ (\bmod\ p)$
+  - $(a^{p-1} - 1)(p-1)! \equiv 0\ (\bmod\ p)$
+  - Therefore, $\boxed{a^{p-1} \equiv 1\ (\bmod\ p)}$
+#+end_aside
+
+* Totient functions
+#+begin_defn Totient Function
+Let $n$ be a positive integer. The _totient_ of $n$, denoted $\phi(n)$ (or $\Phi(n)$), is the number of positive integers $a \leq n$ such that $a$ and $n$ are relatively prime (share no common factors other than 1).
+#+end_defn
+
+Suppose the prime factorization of $n$ is $n = p_1^{e_1} p_2 ^{e_2} \cdots p_r^{e_r}$, where each $p_i$ is a distinct prime and each $e_i \geq 1$.
+Then, $\phi(n) = n(1-\frac{1}{p_1})(1-\frac{1}{p_2})\cdots(1-\frac{1}{p_r})=(p_1^{e_1}-p_1^{e_1-1})(p_2^{e_2}-p_2^{e_2-1})\cdots(p_r^{e_r}-p_r^{e_r-1})$.
+
+** Euler's Totient Theorem
+If $\gcd(a,n) = 1$ then $a^{\phi(n)} \equiv 1\ (\bmod\ n)$
+
+* Primitive Roots
+#+begin_defn Primitive Roots
+If $p$ is prime, then these is some integer $g$, depending on $p$, such that $g, g^2, g^3, \ldots, g^{p-1}$ are all distinct modulo $p$.
+Such an integer $g$ is known as a primitive root.
+#+end_defn
+
+* Euclidean Algorithm
+$\gcd(a,b) = \gcd(a,b-a)$ If $d$ is any factor of $a,b$, say $a=kd$ and $b=ld$, then $b-a=(l-k)d$.
+
+\begin{align*}
+\gcd(301,161) &= \gcd(161, 140) \\
+&= \gcd(140, 21) \\
+&= \gcd(21,14) \\
+&= \gcd(14, 7) \\
+&= \gcd (7, 0) \\
+&= 7
+\end{align*}
+
+#+begin_aside Bézout's Lemma
+If $a,b$ are integers, then $\gcd (a,b)$ is the smallest positive integer $d$ such that there exist integers $x,y$ with $ax+by=d$.
+#+end_aside
+
+* Diffie-Hellman Key Exchange
+Alice and Bob select a prime $p$ and a primitive root $g\ (\bmod\ p)$.  Alice picks a random number $a$, and Bob a random number $b$.
+
+Alice computes $A=g^a\bmod p$ and sends it to Bob. Bob computes $B=g^b \bmod p$ and sends it to Alice.
+
+Alice computes $k_1 = B^a\bmod p$ and Bob computes $k_2= A^b\bmod p$. $k_1=k_2$, so this is a shared piece of information between Alice and Bob.
+
+#+begin_aside Discrete Logarithm Problem
+Given a prime $p$, a primitive root $g$, and a nonzero [[https://mathworld.wolfram.com/ResidueClass.html][residue class]] $x\ (\bmod\ p)$, find a number $a$ s.t. $g^a = x\ (\bmod\ p)$.
+#+end_aside
+

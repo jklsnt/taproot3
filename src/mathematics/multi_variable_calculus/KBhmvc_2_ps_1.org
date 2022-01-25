@@ -1,0 +1,78 @@
+:PROPERTIES:
+:ID:       706E9D6E-4CF4-494C-9E6F-7BBAA8682EC0
+:END:
+#+title: MVC 2 PS#1
+#+author: Houjun Liu
+
+* Partial Derivatives
+#+begin_quote
+Find all the first, second, and third partial derivatives for the following functions. Also, draw a picture of them!
+#+end_quote
+
+** $f(x,y) = 7x+2x^2y^3 + 10y^2$
+#+begin_src sage
+f(x,y) = 7*x+2*x^2*y^3 + 10*y^2
+plot3d(f, (x,-3,3), (y,-3,3))
+#+end_src
+
+#+RESULTS:
+: Launched html viewer for Graphics3d Object
+
+#+DOWNLOADED: screenshot @ 2022-01-12 20:08:45
+[[file:2022-01-12_20-08-45_screenshot.png]]
+
+- $f_x = 7+4xy^3$
+- $f_y=6x^2y^2+20y$
+- $f_{xy} = 12xy^2$
+- $f_{xx} = 4y^3$
+- $f_{yy} = 12x^2y + 20$
+- $f_{xxx} = 0$
+- $f_{yyy} = 12x^2$
+- $f_{xxy} = 12y^2$
+- $f_{yyx} = 24xy$
+
+** $f(x,y) = 3xy^3 + 8x^2y^4$
+#+begin_src sage
+f(x,y) = 3*x*y^3 + 8*x^2*y^4
+plot3d(f, (x,-3,3), (y,-3,3))
+#+end_src
+
+#+RESULTS:
+: Launched html viewer for Graphics3d Object
+
+
+#+DOWNLOADED: screenshot @ 2022-01-10 09:12:28
+[[file:2022-01-10_09-12-28_screenshot.png]]
+
+- $f_x = 3y^3 + 16xy^4$
+- $f_y=9xy^2+32x^2y^3$
+- $f_{xy} = 9y^2+64xy^3$
+- $f_{xx} = 16y^4$
+- $f_{yy} = 18xy + 96x^2y^2$
+- $f_{xxx} = 0$
+- $f_{yyy} = 18x + 192x^2y$
+- $f_{xxy} = 64y^3$
+- $f_{yyx} = 18y+192xy^2$
+
+* Puzzled Classmate
+#+begin_quote
+Suppose that one of your classmates reports that for a particular function $f(x,y)$, the partial derivatives are:
+
+\begin{equation}
+\begin{cases}
+   \frac{\partial f}{\partial x}  = 2x + 3y \\
+   \frac{\partial f}{\partial y}  = 4x + 6y
+\end{cases}
+\end{equation}
+
+Do you believe them? Why or why not?
+#+end_quote
+
+I do not.
+
+If we take the "integrals" along the $y$ and $x$ dimensions, we result the following:
+
+- $\int 2x+3y\ dx = x^2+3xy + c$
+- $\int 4x+6y\ dy = 3y^2 + 4xy + c$
+
+The two resulting functions are not in the same family of functions. Therefore, I do not believe my classmate in this regard.

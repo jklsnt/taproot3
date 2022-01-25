@@ -1,0 +1,173 @@
+:PROPERTIES:
+:ID:       77A0D6BA-8678-45B3-961A-8E4449DE335A
+:END:
+#+title: Atwood Lab
+#+author: Houjun Liu
+
+Solving equations for the Atwood lab
+
+#+begin_src sage
+# Set up the constants
+g, w_1, w_2, a = var("g w_1 w_2 a")
+
+# Set up the variables
+b, F_f = var("b F_f")
+
+# Set up substitutions
+m_1 = w_1 + b
+m_2 = w_2 + b
+a_1 = 2*a
+a_2 = a
+#+end_src
+
+#+RESULTS:
+
+* For Bucket
+# Solve!
+#+begin_src sage
+# solution_b = solve([2*(w_1+b)*(-2*a+g) == (w_2+b)*(a+g)+6*F_f], b)
+
+solution_b = solve((m_2*a_2+m_2*g)/2 == m_1*-a_1+m_1*g, b)
+
+#+end_src
+
+#+RESULTS:
+
+#+begin_src sage
+b_a(a, w_1, w_2, g) = solution_b[0].rhs()
+b_1=b_a(0.751109, 0.3, 0.4, 9.81) # group 1, trial 1
+b_2=b_a(0.454363, 0.2, 0.2, 9.81) # group 2, trial 1
+(b_1, b_2)
+b_a
+#+end_src
+
+#+RESULTS:
+: (-0.125564662715306, -0.200000000000000)
+: (a, w_1, w_2, g) |--> -(2*(2*a - g)*w_1 + (a + g)*w_2)/(5*a - g)
+
+#+begin_src sage
+solve([b==b_1, b==b_2], (b, F_f))
+#+end_src
+
+#+RESULTS:
+: [[b == (-3737057/7418650), F_f == (-1132399719433/2967460000000)]]
+
+We will also take the partial derivatives with respect to each variable, and square them, in order to be able to propergate error
+
+Error by acceleration:
+
+#+begin_src sage
+d = var("Δa")
+bucket_accel_error = b_a.diff(a)*d
+bucket_accel_error
+#+end_src
+
+#+RESULTS:
+: (a, w_1, w_2, g) |--> -Δa*((4*w_1 + w_2)/(5*a - g) - 5*(2*(2*a - g)*w_1 + (a + g)*w_2 + 6*F_f)/(5*a - g)^2)
+
+Error by mass $w_1$:
+
+#+begin_src sage
+d = var("Δw_1")
+bucket_w1_error = b_a.diff(w_1)*d
+bucket_w1_error
+#+end_src
+
+#+RESULTS:
+: (a, w_1, w_2, g) |--> -2*(2*a - g)*Δw_1/(5*a - g)
+
+Error by mass $w_2$:
+
+#+begin_src sage
+d = var("Δw_2")
+bucket_w2_error = b_a.diff(w_2)*d
+bucket_w2_error
+#+end_src
+
+#+RESULTS:
+: (a, w_1, w_2, g) |--> -(a + g)*Δw_2/(5*a - g)
+
+Total error:
+
+#+begin_src sage
+bucket_error = sqrt(bucket_accel_error^2 + bucket_w1_error^2 + bucket_w2_error^2)
+bucket_error
+#+end_src
+
+#+RESULTS:
+: (a, w_1, w_2, g) |--> sqrt(Δa^2*((4*w_1 + w_2)/(5*a - g) - 5*(2*(2*a - g)*w_1 + (a + g)*w_2 + 6*F_f)/(5*a - g)^2)^2 + 4*(2*a - g)^2*Δw_1^2/(5*a - g)^2 + (a + g)^2*Δw_2^2/(5*a - g)^2)
+
+
+
+* For Friction
+# Solve!
+
+#+begin_src sage
+solution_f = solve([2*(w_1+b)*(-2*a+g) == (w_2+b)*(a+g)+6*F_f], F_f)
+#+end_src
+
+#+RESULTS:
+
+#+begin_src sage
+ff_a(a, w_1, w_2, g) = solution_f[0].rhs()
+ff_1=ff_a(0.751109, 0.3, 0.4, 9.81)
+ff_2=ff_a(0.454363, 0.2, 0.2, 9.81)
+(ff_1, ff_2)
+#+end_src
+
+#+RESULTS:
+: (1.00907583333333*b + 0.126704266666667,
+:  1.25636416666667*b + 0.251272833333333)
+
+#+begin_src sage
+solve([F_f==ff_1, F_f==ff_2], (b, F_f))
+#+end_src
+
+#+RESULTS:
+: [[b == (-3737057/7418650), F_f == (-1132399719433/2967460000000)]]
+
+We will also take the partial derivatives with respect to each variable, and square them, in order to be able to propergate error
+
+Error by acceleration:
+
+#+begin_src sage
+d = var("Δa")
+friction_accel_error = ff_a.diff(a)*d
+friction_accel_error
+#+end_src
+
+#+RESULTS:
+: (a, w_1, w_2, g) |--> -1/6*(5*b + 4*w_1 + w_2)*Δa
+
+Error by mass $w_1$:
+
+#+begin_src sage
+d = var("Δw_1")
+friction_w1_error = ff_a.diff(w_1)*d
+friction_w1_error
+#+end_src
+
+#+RESULTS:
+: (a, w_1, w_2, g) |--> -1/3*(2*a - g)*Δw_1
+
+Error by mass $w_2$:
+
+#+begin_src sage
+d = var("Δw_2")
+friction_w2_error = ff_a.diff(w_2)*d
+friction_w2_error
+#+end_src
+
+#+RESULTS:
+: (a, w_1, w_2, g) |--> -1/6*(a + g)*Δw_2
+
+Total error:
+
+#+begin_src sage
+friction_error = sqrt(friction_accel_error^2 + friction_w1_error^2 + friction_w2_error^2)
+friction_error
+#+end_src
+
+#+RESULTS:
+: (a, w_1, w_2, g) |--> 1/6*sqrt((5*b + 4*w_1 + w_2)^2*Δa^2 + 4*(2*a - g)^2*Δw_1^2 + (a + g)^2*Δw_2^2)
+

@@ -10,8 +10,7 @@ source:  #index
 ---
 
 ## Linear Algebra Master Index
-
-####  Chapter 1
+ ####  Chapter 1
 - [[KBxLInAlgDayTwo]]
 - [[KBxGroupAndMatricesIntro]]
 - [[KBxChapter1aReview]]
@@ -67,6 +66,18 @@ source:  #index
 - [[KBxFinalSelfAssesment]]
 - [[KBxFinalStudying]]
 - [[KBxIndividualAssesmentPlanning]]
+
+# Semester 2
+## module 1 
+- [[KBxLinalgSem2D1]]
+- [[KBxLinalgReadingx+y]]
+- [[KBxTedChallengeOne]]
+
+
+
+
+
+
 
 
 

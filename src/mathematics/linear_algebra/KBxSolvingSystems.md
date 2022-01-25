@@ -25,7 +25,7 @@ Also, keep thinking about the group work questions from today:
 
 * **Do your best to solve the following matrix equation using matrix multiplications that correspond to row operations for systems, specifically multiplying a row by a scalar, adding two rows, and swapping the order of rows. You'll have to think about how to do these things with matrices! It may help to keep in mind what a SOLVED matrix equation looks like (in particular, what does the 3x3 matrix of coefficients look like?).**
 
-$
+$$
 	\begin{bmatrix} 
 	1 & -1 & 1 \\
 	0 & 2 & 1\\
@@ -43,24 +43,9 @@ $
 	3 \\
 	2 \\
 	\end{bmatrix}
-$
+$$
 
 
 %%![[why.pdf]]%%
 
 %%![[Pasted image 20210904215239.png]]%%
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
