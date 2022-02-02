@@ -14,6 +14,7 @@ date: 2021-12-23
 ## sketches
 - [[KBxChaosPlanning]]
 - [[KBxR3F]]
+- [[KBxcliExperiments]]
 
 
 ## blender things
@@ -29,6 +30,8 @@ date: 2021-12-23
 - chaos exploration
 - boids
 - volume displacement but w/ arnold
+- cli based text and file transfer + storage
+	- or, show air qual
 
 
 

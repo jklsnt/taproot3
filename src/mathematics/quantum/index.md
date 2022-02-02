@@ -7,3 +7,5 @@ title: Quantum Master Index
 - [[KBxQuantumDay2]]
 	- [[KBxQICChallenge1Writeup]]
 - [[KBzQuantumReadingOneNotes]]
+- [[KBxQuantumLectureOne]]
+- [[KBxQuantumLectureTwo]]

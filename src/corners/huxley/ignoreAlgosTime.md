@@ -23,6 +23,46 @@ no :clap: we :clap: don't! :clap
 	- gs :sunglasses:
 
 
+# pt 2. 
+
+rr1
+s2
+o3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

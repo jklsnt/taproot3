@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-02-01 Tue 20:02 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>QIC Module 1: Cubits</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">QIC Module 1: Cubits</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-02-01 Tue 09:57</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#orgf2a2c8c">1. How to deal with quantum</a></li>
+<li><a href="#org2789be1">2. Lecture 1: Cubits</a>
+<ul>
+<li><a href="#org8a74344">2.1. Cubits</a></li>
+<li><a href="#org3b6739d">2.2. Elementary Particles</a></li>
+<li><a href="#org0f81d6e">2.3. More Cubit Properties</a></li>
+<li><a href="#orge60e0cc">2.4. Quantum Logic</a>
+<ul>
+<li><a href="#org3283f9f">2.4.1. Quantum OR</a></li>
+<li><a href="#org0a5b447">2.4.2. Quantum AND</a></li>
+</ul>
+</li>
+<li><a href="#org67fdb7f">2.5. Hey remember complex numbers?</a></li>
+<li><a href="#orgd13a43e">2.6. Bra-Ket Notation</a>
+<ul>
+<li><a href="#orgdb87e68">2.6.1. What if we took its conjugate?</a></li>
+<li><a href="#org2b9d7e3">2.6.2. Applying a function</a></li>
+<li><a href="#org4a1b9fc">2.6.3. Kets by themselves</a></li>
+<li><a href="#org0dbdb0f">2.6.4. Sandwhiches</a></li>
+</ul>
+</li>
+<li><a href="#orgef5c34b">2.7. Simple Cubits</a></li>
+<li><a href="#orgaf6f6bc">2.8. Algebraic Representation</a></li>
+<li><a href="#org15f8818">2.9. Results are not Measurements</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-orgf2a2c8c" class="outline-2">
+<h2 id="orgf2a2c8c"><span class="section-number-2">1</span> How to deal with quantum</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>It is not particularly the <i>instance</i> of something that we are talking about; we are actually talking about how the instances <i>transform</i> against and into each other</li>
+<li>That <i>what</i> we are talking about doesn't really matter; i.e. "cubits" instantiated as Protons, or Electrons, no need to worry. Just apply operations on cubits</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2789be1" class="outline-2">
+<h2 id="org2789be1"><span class="section-number-2">2</span> Lecture 1: Cubits</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Instead of looking at fields, we then proceed to look at their interactions.
+</p>
+</div>
+
+<div id="outline-container-org8a74344" class="outline-3">
+<h3 id="org8a74344"><span class="section-number-3">2.1</span> Cubits</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+So what's a cubit? Its information. We will think about a Cubit as a pair: its a question and answer &#x2014; a type of property. We don't care what cubits are, we need to describe instead their properties and interactions with the world.
+</p>
+
+<p>
+Cubits are essentially a game: you specify a direction and ask a question to the cubit:
+</p>
+
+<p>
+"Given this direction, what are you?" The cubit answers:
+</p>
+
+<ul class="org-ul">
+<li>Up, 1, yes!</li>
+<li>Down, 0, no.</li>
+</ul>
+
+<p>
+It can only answer yes or no.
+</p>
+
+<p>
+All quantum properties are described using a cubit, which interacts in a similar way.
+</p>
+
+<p>
+Spin and Charge are not physical properties: points in spacetime have numerical "spin" , "charge", which do not correlate to actual motion and are instead just arbitrary actions. "Spacetime" &#x2014; where you are physically in a space &#x2014; are also arbitrary.
+</p>
+
+<p>
+Cubits, therefore, is simply "the ability to encode and answer the above questions for properties."
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3b6739d" class="outline-3">
+<h3 id="org3b6739d"><span class="section-number-3">2.2</span> Elementary Particles</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Protons and electrons are point particles: they have no special extent; they themselves are the basis of other materials. Each point can have several degr. of freedom. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0f81d6e" class="outline-3">
+<h3 id="org0f81d6e"><span class="section-number-3">2.3</span> More Cubit Properties</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Cubits remember the answer you give it in the past. If you point it to one direction, it will always return that answer. If you point it to the opposite direction, it will return the opposite answer.
+</p>
+
+<p>
+Once you do that, if you point it to the orthogonal direction, it will return with 50% chance once answer, 50% chance the other answer.
+</p>
+
+<p>
+Before your very first measurement, there is no modeling of the probability of spin of the cubit before the first measurement. It is essentially both spin at once.
+</p>
+
+<p>
+What if you take a priming, turn it around by \(\theta\)? i.e.
+</p>
+
+
+<div id="orgb96288a" class="figure">
+<p><img src="2022-01-25_09-57-15_screenshot.png" alt="2022-01-25_09-57-15_screenshot.png" />
+</p>
+</div>
+
+\begin{equation}
+    \left<\sigma\right> = \hat{n} \cdot \hat{m}
+\end{equation}
+
+<p>
+As in: the expected value of the result at an angle is the dot product of the directions together.
+</p>
+
+<p>
+For instance, if we did do the turn by 90 degrees thing, we will find \(\sigma =0\), that its neither up nor down (\(1+(-1)=0\)), with a \(50%\) chance of each.
+</p>
+
+<hr />
+
+<p>
+The quantum or is not commutative. See notes.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge60e0cc" class="outline-3">
+<h3 id="orge60e0cc"><span class="section-number-3">2.4</span> Quantum Logic</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+We are interested in the process of quantum logic &#x2014; the operations of things in quantum space. Don't think about "what is a cubit", instead, think about it as a series of questions and answers, like points in spacetime.
+</p>
+
+<p>
+Quantum logic is built using the following rules.
+</p>
+
+<p>
+We start with \(\mathbb{R}^3\). We will rotate our assay to the \(z\) direction. According to quantum mechanics, we have \(50\%\) chance of any orientation in \(\sigma_z\) (\(\pm1\ in\ \sigma_z\)); furthermore, there is \(25\%\) chance that the event produces \(\sigma_x = -1\) and \(\sigma_z = -1\) (\(\frac{1}{2^2}\)).
+</p>
+</div>
+
+<div id="outline-container-org3283f9f" class="outline-4">
+<h4 id="org3283f9f"><span class="section-number-4">2.4.1</span> Quantum OR</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<p>
+Measuring via assay \(z\), then measuring via assay \(x\) later, therefore does <i>not</i> result the same probabilities as \(x\) then \(z\). Therefore, quantum OR is not commutative &#x2014; first thing vs second thing changes the probabilities &#x2014; as the first assay will prime the result of the second assay.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0a5b447" class="outline-4">
+<h4 id="org0a5b447"><span class="section-number-4">2.4.2</span> Quantum AND</h4>
+<div class="outline-text-4" id="text-2-4-2">
+<p>
+Quantum AND is more intense then quantum OR. If you measure two things: \(x\) AND \(z\), you will get one result with probability. If you measure this again, you will \(100\%\) get the same result again. 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org67fdb7f" class="outline-3">
+<h3 id="org67fdb7f"><span class="section-number-3">2.5</span> Hey remember complex numbers?</h3>
+<div class="outline-text-3" id="text-2-5">
+
+<div id="org6b86659" class="figure">
+<p><img src="2022-01-28_09-22-27_screenshot.png" alt="2022-01-28_09-22-27_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd13a43e" class="outline-3">
+<h3 id="orgd13a43e"><span class="section-number-3">2.6</span> Bra-Ket Notation</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+Take the following expression:
+</p>
+
+\begin{equation}
+z | A \big>
+\end{equation}
+
+<p>
+Where \(|A\big>\) is a column vector ("a ket"), \(z\) is some complex number.
+</p>
+</div>
+
+<div id="outline-container-orgdb87e68" class="outline-4">
+<h4 id="orgdb87e68"><span class="section-number-4">2.6.1</span> What if we took its conjugate?</h4>
+<div class="outline-text-4" id="text-2-6-1">
+\begin{equation}
+    z | a\big>^* = \big<A|z*
+\end{equation}
+
+<p>
+What just happened?
+</p>
+
+<p>
+Remember that:
+</p>
+
+\begin{equation}
+   |A\big> * = \big<A|
+\end{equation}
+
+<p>
+transposing a ket (a column vector) results in a bra (a row vector, which is a function (map))
+</p>
+
+<p>
+So therefore, transposing around involves transposing both components.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2b9d7e3" class="outline-4">
+<h4 id="org2b9d7e3"><span class="section-number-4">2.6.2</span> Applying a function</h4>
+<div class="outline-text-4" id="text-2-6-2">
+\begin{equation}
+   \big<B|A\big> 
+\end{equation}
+
+<p>
+"apply the bra \(B\) upon the ket \(A\)".
+</p>
+
+<p>
+Transposing works like how you thin.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4a1b9fc" class="outline-4">
+<h4 id="org4a1b9fc"><span class="section-number-4">2.6.3</span> Kets by themselves</h4>
+<div class="outline-text-4" id="text-2-6-3">
+\begin{equation}
+    |A\big> = |i\big> \big<i|A\big>
+\end{equation}
+
+<p>
+"For every element in column vector \(i\), we first dot-product it upon the basis \(i\), then scale the basis back, and then add".
+</p>
+
+<p>
+Also known as:
+</p>
+
+\begin{equation}
+   |A\big> = \sum_i \alpha_i | i \big> 
+\end{equation}
+
+<p>
+("every element multiplied by")
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0dbdb0f" class="outline-4">
+<h4 id="org0dbdb0f"><span class="section-number-4">2.6.4</span> Sandwhiches</h4>
+<div class="outline-text-4" id="text-2-6-4">
+\begin{equation}
+   \big<k|M|j\big> 
+\end{equation}
+
+<p>
+\(M\) is some intermediate multiplication operation.
+</p>
+
+<p>
+So, this is essentially
+</p>
+
+
+<div id="org3735817" class="figure">
+<p><img src="2022-02-01_09-08-14_screenshot.png" alt="2022-02-01_09-08-14_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgef5c34b" class="outline-3">
+<h3 id="orgef5c34b"><span class="section-number-3">2.7</span> Simple Cubits</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+Let \(u,d\) be some basis in two dimension ("up, down"), as in:
+</p>
+
+\begin{equation}
+    | u \big> = \begin{pmatrix} 1 \\ 0\end{pmatrix}
+\end{equation}
+
+\begin{equation}
+    | d \big> = \begin{pmatrix} 0 \\ 1\end{pmatrix}
+\end{equation}
+
+<p>
+And therefore:
+</p>
+
+\begin{align}
+   \big<u|d\big> = 0  \\
+   \big<d|u\big> = 0  
+\end{align}
+
+<p>
+"If a cubit is prepared <i>up</i> (has ket \(u\)), the probability to detect it <i>down</i> again (the bra \(d\)) is zero. Visa, versa."
+</p>
+
+<p>
+And furthermore, for the overall probabilities:
+</p>
+
+\begin{equation}
+    |A \big> = \alpha_u | u \big > + \alpha_d | d \big>
+\end{equation}
+
+<p>
+Given that the spin has been prepared in the state \(|A\big>\), and the apparatus is oriented along \(z\), the quantity \(a_u^*a_u\) is the probability that the spin would be measured as \(\alpha_z = +1\). In other words:
+</p>
+
+\begin{equation}
+    \alpha_u^*\alpha_u + \alpha_d^*\alpha_d = 1
+\end{equation}
+
+<p>
+Furthermore:
+</p>
+
+\begin{equation}
+   \big<A|A\big> = 1 
+\end{equation}
+
+<p>
+"the probability of getting state \(A\) given primed \(A\) is 1". Plug this into the above expression and try it out for yourself.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaf6f6bc" class="outline-3">
+<h3 id="orgaf6f6bc"><span class="section-number-3">2.8</span> Algebraic Representation</h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
+To make quantum laws work, we have to allow for a part of what's going on to be non-observable. As the thing propergates, the imaginary and real compoents gets mixed up &#x2014; you cann't <i>a priori</i> determine the observable parts.
+</p>
+
+<p>
+Duality of meaning between \(5\) the rvalue and \(5\) the operator. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org15f8818" class="outline-3">
+<h3 id="org15f8818"><span class="section-number-3">2.9</span> Results are not Measurements</h3>
+<div class="outline-text-3" id="text-2-9">
+<p>
+"The results of a measurement are the eigenvalues of the operator that represents the observable."
+</p>
+
+\begin{equation}
+   M | \lambda_1 \big> = \lambda_1 | \lambda_1 \big >
+\end{equation}
+
+\begin{equation}
+   M | \lambda_2 \big> = \lambda_2 | \lambda_2 \big >
+\end{equation}
+
+<p>
+Given its an eigenvalue, the above claims makes sense. Eigenvalues don't move except for scale after a matrix transformation.
+</p>
+
+<p>
+Take two expressions representing the eigenvector/eigenvalues of a 2x2 matrix \(M\). The "ket" operator here represent the eigenvector, whereas \(\lambda _1\) isolated represent the eigenvalue.
+</p>
+
+<p>
+We will set:
+</p>
+
+\begin{equation}
+   \lambda_1 = \begin{pmatrix} 
+\alpha_1 \\
+\alpha_2
+\end{pmatrix}, M = \begin{pmatrix}
+0 & 1 \\
+1& 0\end{pmatrix}
+\end{equation}
+
+<p>
+\(M\) is here represented as one of the Pauli matricies.
+</p>
+
+<p>
+Therefore, now, we can say the following expression:
+</p>
+
+\begin{equation}
+   \begin{pmatrix}
+0 & 1 \\
+1&0
+   \end{pmatrix}\begin{pmatrix}
+\alpha_1 \\\alpha_2
+\end{pmatrix} = \lambda_1 \begin{pmatrix}
+\alpha_1 \\
+\alpha_2 \end{pmatrix}
+\end{equation}
+
+<p>
+And, by staring at this expression, we get that:
+</p>
+
+\begin{equation}
+\begin{cases}    
+\alpha_2 = \lambda_1 \alpha_1 \\
+\alpha_1 = \lambda_1 \alpha_2
+\end{cases}    
+\end{equation}
+
+<p>
+Therefore, it follows that:
+</p>
+
+\begin{align}
+   &\alpha_1 = {\lambda_1}^2 \alpha_1 \\
+   \Rightarrow &{\lambda_1}^2 = 1
+\end{align}
+
+<p>
+So the eigenvalue is \(\pm 1\).
+</p>
+
+<p>
+Supplying the expression back to the original, and solving, we will get \(\alpha_1 = \alpha_2\).
+</p>
+
+<p>
+Given that \(\lambda_1\) is a state vector, we know that its a probability. We have discussed from before, that, for a state vector:
+</p>
+
+\begin{equation}
+   {\alpha_1}^*\alpha_1 + {\alpha_2}^*\alpha_2 = 1
+\end{equation}
+
+<p>
+And then, filling that in:
+</p>
+
+\begin{align}
+   &2{\alpha_1}^* \alpha_1 = \pm 1 \\
+\Rightarrow &{\alpha_1}^* \alpha_1 = \frac{1}{2}
+\end{align}
+
+<p>
+And so \(\alpha_1 = \frac{1}{\sqrt{2}}\) is one case among many.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

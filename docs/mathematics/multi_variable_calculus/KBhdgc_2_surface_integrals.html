@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-24 Mon 23:39 -->
+<!-- 2022-01-31 Mon 09:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>DGC 2 Surface Integrals</title>
@@ -263,25 +263,37 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">DGC 2 Surface Integrals</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-01-24 Mon 23:38</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">DGC 2 Surface Integrals</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-01-31 Mon 09:14</date></div>
 </div>
 <div id="content">
-<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhvector_calc_index.html'>Vector Calc Index</a></li> <li><a class='backlink' href='index.html'>Multivariable Calculus Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org39f9dc3">1. Motivation: Gauss' Law</a></li>
-<li><a href="#orgeccce21">2. Unit Normal Vector</a>
+<li><a href="#orgfbcf517">1. Motivation: Gauss' Law</a></li>
+<li><a href="#orgd48375c">2. Unit Normal Vector</a>
 <ul>
-<li><a href="#org64ce8b5">2.1. Intuition</a></li>
-<li><a href="#org8d387f5">2.2. Formal definition of a Normal Unit Vector</a></li>
+<li><a href="#org29f2867">2.1. Intuition</a></li>
+<li><a href="#org945c74f">2.2. Formal definition of a Normal Unit Vector</a></li>
 </ul>
 </li>
-<li><a href="#orgf2142df">3. Finding an Expression for \(\hat{n}\)</a></li>
+<li><a href="#orgfd8bb26">3. Finding an Expression for \(\hat{n}\)</a></li>
+<li><a href="#org5e48b14">4. Finding an Expression for \(\hat{n}\) at random surfaces</a>
+<ul>
+<li><a href="#orgc2e8be9">4.1. The \(x,y\) plane</a></li>
+<li><a href="#org1e38a56">4.2. A sphere</a></li>
+</ul>
+</li>
+<li><a href="#orgf62b973">5. Surface Integrals</a>
+<ul>
+<li><a href="#org88a1895">5.1. Formal Definitions of the Surface Integral</a></li>
+<li><a href="#orgeac5b67">5.2. Useful Definition of the Surface Integral</a></li>
+</ul>
+</li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org39f9dc3" class="outline-2">
-<h2 id="org39f9dc3"><span class="section-number-2">1</span> Motivation: Gauss' Law</h2>
+<div id="outline-container-orgfbcf517" class="outline-2">
+<h2 id="orgfbcf517"><span class="section-number-2">1</span> Motivation: Gauss' Law</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The original electric field expression is cool:
@@ -309,16 +321,16 @@ This expression involves a "unit normal vector", \(\vec{n}\), as well as a "surf
 </div>
 </div>
 
-<div id="outline-container-orgeccce21" class="outline-2">
-<h2 id="orgeccce21"><span class="section-number-2">2</span> Unit Normal Vector</h2>
+<div id="outline-container-orgd48375c" class="outline-2">
+<h2 id="orgd48375c"><span class="section-number-2">2</span> Unit Normal Vector</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The normal unit vector is a vector orthogonal to a certain surface. It is likely part of most of the surface integrals we will see.
 </p>
 </div>
 
-<div id="outline-container-org64ce8b5" class="outline-3">
-<h3 id="org64ce8b5"><span class="section-number-3">2.1</span> Intuition</h3>
+<div id="outline-container-org29f2867" class="outline-3">
+<h3 id="org29f2867"><span class="section-number-3">2.1</span> Intuition</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 The intuition of a unit vector orthogonal to a direction is pretty intuitive.
@@ -329,7 +341,7 @@ If "to a plane", it is orthogonal to the plane:
 </p>
 
 
-<div id="org3e98410" class="figure">
+<div id="org00b049b" class="figure">
 <p><img src="2022-01-24_09-54-13_screenshot.png" alt="2022-01-24_09-54-13_screenshot.png" />
 </p>
 </div>
@@ -339,22 +351,22 @@ If "to a spherical surface", it is a vector in the radial direction to a slice o
 </p>
 
 
-<div id="orgf5ae920" class="figure">
+<div id="org1385057" class="figure">
 <p><img src="2022-01-24_09-55-21_screenshot.png" alt="2022-01-24_09-55-21_screenshot.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org8d387f5" class="outline-3">
-<h3 id="org8d387f5"><span class="section-number-3">2.2</span> Formal definition of a Normal Unit Vector</h3>
+<div id="outline-container-org945c74f" class="outline-3">
+<h3 id="org945c74f"><span class="section-number-3">2.2</span> Formal definition of a Normal Unit Vector</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Consider an arbitrary surface \(S\). Construct two noncollinear vector \(\vec{u}\) and \(\vec{u}\) tangent to \(S\) at some point \(P\). Some vector \(\vec{N}\) which is orthogonal to both \(\vec{u}\) and \(\vec{u}\) with also an origin at \(P\) is, by definition, normal to \(S\) at \(P\).
 </p>
 
 
-<div id="org2816bc5" class="figure">
+<div id="org3a699ca" class="figure">
 <p><img src="2022-01-24_22-27-30_screenshot.png" alt="2022-01-24_22-27-30_screenshot.png" />
 </p>
 </div>
@@ -374,8 +386,8 @@ For some \(\vec{u}\), \(\vec{v}\) both tangent to point \(P\).
 </div>
 </div>
 
-<div id="outline-container-orgf2142df" class="outline-2">
-<h2 id="orgf2142df"><span class="section-number-2">3</span> Finding an Expression for \(\hat{n}\)</h2>
+<div id="outline-container-orgfd8bb26" class="outline-2">
+<h2 id="orgfd8bb26"><span class="section-number-2">3</span> Finding an Expression for \(\hat{n}\)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 To find an expression for \(\hat{n}\), we will consider some surface \(S\) by the eqn. \(f(x,y)\). Our goal is to identify some \(\vec{u}\) and \(\vec{v}\) which will yield the result in the needed vector \(\vec{n}\).
@@ -394,7 +406,7 @@ We will now have a visual proof for the \(z\) component from the book:
 </p>
 
 
-<div id="orgd184628" class="figure">
+<div id="org6165008" class="figure">
 <p><img src="2022-01-24_23-21-54_screenshot.png" alt="2022-01-24_23-21-54_screenshot.png" />
 </p>
 </div>
@@ -445,7 +457,7 @@ And now, we consider their cross product.
 
 <tr>
 <td class="org-left">\(\vec{u}\)</td>
-<td class="org-left">\(u_x\)</td>
+<td class="org-left">\(\vec{u}_x\)</td>
 <td class="org-left">\(0\)</td>
 <td class="org-left">\(\left(\frac{\partial f}{\partial x}\right)\vec{u}_x\)</td>
 </tr>
@@ -453,7 +465,7 @@ And now, we consider their cross product.
 <tr>
 <td class="org-left">\(\vec{v}\)</td>
 <td class="org-left">\(0\)</td>
-<td class="org-left">\(u_y\)</td>
+<td class="org-left">\(\vec{u}_y\)</td>
 <td class="org-left">\(\left(\frac{\partial f}{\partial y}\right)\vec{u}_y\)</td>
 </tr>
 </tbody>
@@ -464,8 +476,302 @@ The actual work of computing it is left as an exercise to the reader. However, w
 </p>
 
 \begin{equation}
-    \vec{u} \times \vec{v} = \left[-\hat{i}\left(\frac{\partial f}{\partial x}\right)-\hat{j}(\frac{\partial f}{\partial y}\right)+\hat{k}\right]u_xu_y
+    \vec{u} \times \vec{v} = \left[-\hat{i}\left(\frac{\partial f}{\partial x}\right)-\hat{j}\left(\frac{\partial f}{\partial y}\right)+\hat{k}\right] \vec{u}_x\vec{u}_y
 \end{equation}
+
+<p>
+And so, supplying this equation into the final equation for \(\hat{n}\) in terms of \(\vec{u}\) and \(\vec{v}\), that:
+</p>
+
+\begin{equation}
+   \hat{n} = \frac{\vec{N}}{||N||} = \frac{\vec{u}\times \vec{v}}{|\vec{u}\times \vec{v}|}
+\end{equation}
+
+<p>
+we will arrive at:
+</p>
+
+\begin{equation}
+   \hat{n} = \frac{-\hat{i}\left(\frac{\partial f}{\partial x}\right)-\hat{j}\left(\frac{\partial f}{\partial y}\right)+\hat{k}}{\sqrt{1+\left(\frac{\partial f}{\partial x}\right)^2 + \left(\frac{\partial f}{\partial y}\right)^2}} 
+\end{equation}
+
+<p>
+as the main expression for \(\hat{n}\), the unit normal vector to the surface.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5e48b14" class="outline-2">
+<h2 id="org5e48b14"><span class="section-number-2">4</span> Finding an Expression for \(\hat{n}\) at random surfaces</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgc2e8be9" class="outline-3">
+<h3 id="orgc2e8be9"><span class="section-number-3">4.1</span> The \(x,y\) plane</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+The expression for the \(x\), \(y\) plane is defined as:
+</p>
+
+\begin{equation}
+    z = f(x,y) = 0
+\end{equation}
+
+<p>
+Based on this expression, therefore:
+</p>
+
+<ul class="org-ul">
+<li>\(\frac{\partial f}{\partial x} = 0\)</li>
+<li>\(\frac{\partial f}{\partial y} = 0\)</li>
+</ul>
+
+<p>
+Supplying this expression onto that for \(\hat{n}\), we will arrive at
+</p>
+
+\begin{equation}
+   \hat{n}_{f(x,y)=0} = \hat{k}
+\end{equation}
+
+<p>
+Which, obviously, is the vector orthogonal to the \(x,y\) plane.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1e38a56" class="outline-3">
+<h3 id="org1e38a56"><span class="section-number-3">4.2</span> A sphere</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+The expression for a sphere, of radius 1, centered around the origin, is:
+</p>
+
+\begin{equation}
+   x^2 + y^2 + z^2 = 1
+\end{equation}
+
+<p>
+We will then solve the expression w.r.t. \(z\) to get an equation for a half-hemisphere.
+</p>
+
+\begin{align}
+    &x^2 + y^2 + z^2 = 1 \\
+\Rightarrow\ & z^2 = 1 - (x^2 + y^2) \\
+\Rightarrow\ & z^2 = 1 - x^2 - y^2 \\
+\Rightarrow\ & z = \sqrt{1 - x^2 - y^2} \\
+\Rightarrow\ & z = = (1 - x^2 - y^2)^{1/2}
+\end{align}
+
+<p>
+We can again take the partial derivatives of this expression to supply to the equation to \(\hat{n}\).
+</p>
+
+\begin{align}
+   \frac{\partial}{\partial x} z &= \frac{\partial}{\partial x} (1-x^2-y^2)^{1/2} \\
+&= \frac{-2x}{2(1-x^2-y^2)^{1/2}} \\
+&= \frac{-x}{\left[(1-x^2-y^2)^{1/2}\right] = z} \\
+&= \frac{-x}{z} 
+\end{align}
+
+\begin{align}
+   \frac{\partial}{\partial y} z &= \frac{\partial}{\partial y} (1-x^2-y^2)^{1/2} \\
+&= \frac{-2y}{2(1-x^2-y^2)^{1/2}} \\
+&= \frac{-y}{\left[(1-x^2-y^2)^{1/2}\right] = z} \\
+&= \frac{-y}{z} 
+\end{align}
+
+<p>
+And finally, if we take the expression for the unit normal vector, and replace it with the prescribed values: 
+</p>
+
+
+\begin{align}
+   \hat{n} &= \frac{-\hat{i}\left(\frac{-x}{z}\right)-\hat{j}\left(\frac{-y}{z}\right)+\hat{k}}{\sqrt{1+\left(\frac{-x}{z}\right)^2 + \left(\frac{-y}{z}\right)^2}} \\
+&= \frac{\hat{i}\left(\frac{x}{z}\right)+\hat{j}\left(\frac{y}{z}\right)+\hat{k}}{\sqrt{1+\left(\frac{x^2}{z^2}\right) + \left(\frac{y^2}{z^2}\right)}} \\
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf62b973" class="outline-2">
+<h2 id="orgf62b973"><span class="section-number-2">5</span> Surface Integrals</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Surface integrals are area integrals multiplied of a function multiplied by the unit normal vector of the face that we with to analyses.
+</p>
+
+\begin{equation}
+   \iint_S \vec{F} \cdot \hat{n}\ dS
+\end{equation}
+</div>
+
+<div id="outline-container-org88a1895" class="outline-3">
+<h3 id="org88a1895"><span class="section-number-3">5.1</span> Formal Definitions of the Surface Integral</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Of course, this statement is saying to project every vector on the surface onto the direction of the unit normal vector on the surface, essentially, therefore:
+</p>
+
+\begin{equation}
+   \iint_S \vec{F} \cdot \hat{n}\ dS = \lim_{N \to \infty, \Delta S_l \to 0} \vec{F}(x_l,y_l,z_l) \cdot \hat{n}_l \Delta S_l
+\end{equation}
+
+
+<p>
+Sometimes, \(\vec{F} \cdot \hat{n}\) is given by a scalar function \(G(x,y,z)\) of the unit value we are trying to measure at point \((x,y,z)\). This will make our surface integral a lot simpler:
+</p>
+
+\begin{equation}
+   \iint_S G(x,y,z)\ dS 
+\end{equation}
+
+<p>
+Ok but what's the difference between this and a volume double-integral? Look! Look harder! This is a <i>double</i> integral, but the function is over <i>three</i> paramtres. We are going through each portion of the surface, but then only adding the values on the surface. That is:
+</p>
+
+\begin{equation}
+   \iint_S G(x,y,z)\ dS  = \lim_{N \to \infty, \Delta S_l \to 0} G(x_l, y_l, z_l) \Delta S_l
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orgeac5b67" class="outline-3">
+<h3 id="orgeac5b67"><span class="section-number-3">5.2</span> Useful Definition of the Surface Integral</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+We will now attempt to parse the following expression into something more useful
+</p>
+
+\begin{equation}
+   \iint_S G(x,y,z)\ dS 
+\end{equation}
+
+<p>
+To actually properly evaluate this, we need to first find a way to project some surface \(\Delta S_l\) to its coordinates on the \((x,y)\) plane to plug into \(G\). This relation we will call \(\Delta S_l \to \Delta R_l\), where \(\Delta R_l\) is the rectangular projection.
+</p>
+
+
+<div id="org338fb6f" class="figure">
+<p><img src="2022-01-29_10-20-47_screenshot.png" alt="2022-01-29_10-20-47_screenshot.png" />
+</p>
+</div>
+
+<p>
+Let's do the project with the help of vector \(\hat{n}\) and \(\hat{k}\).
+</p>
+
+
+<div id="org9f560be" class="figure">
+<p><img src="2022-01-29_10-57-08_screenshot.png" alt="2022-01-29_10-57-08_screenshot.png" />
+</p>
+</div>
+
+<p>
+First, it is evident that, given these angles and the idea of projection:
+</p>
+
+\begin{equation}
+   b' = \cos \theta b 
+\end{equation}
+
+<p>
+Based on the same idea, we have:
+</p>
+
+\begin{equation}
+   ab' = ab \cos \theta
+\end{equation}
+
+<p>
+Replacing \(\hat{n}\cdot \vec{k} = \cos{\theta}\) (the definition of a dot product):
+</p>
+
+\begin{equation}
+    ab = \frac{ab'}{\hat{n}\cdot\vec{k}}
+\end{equation}
+
+<p>
+And, look here!, we just came up with the definition of \(\Delta R_l\) as we determined above &#x2014; \(ab' = \Delta R_l\)!
+</p>
+
+<p>
+So:
+</p>
+
+\begin{equation}
+   \Delta S_l = \frac{\Delta R_l}{\hat{n}\cdot\vec{k}} 
+\end{equation}
+
+<p>
+And therefore, we can write the following:
+</p>
+
+\begin{equation}
+   \iint_S G(x,y,z)\ dS = \lim_{N \to \infty, \Delta R_l \to 0} \sum_{l=1}^N G(x_l,y_l,z_l) \frac{\Delta R_l}{\hat{n}_l \cdot \vec{k}} 
+\end{equation}
+
+<p>
+Hey look&#x2014;we now have a limit of some integral on \(\Delta R_l\), the two-dimensional area on the cartesian plane: turning this into a good ol' double integral!
+</p>
+
+<p>
+And therefore&#x2026; 
+</p>
+
+\begin{equation}
+   \lim_{N \to \infty, \Delta R_l \to 0} \sum_{l=1}^N G(x_l,y_l,z_l) \frac{\Delta R_l}{\hat{n}_l \cdot \vec{k}} = \iint_R \frac{G(x,y,z)}{\hat{n}(x,y,z) \cdot \vec{k}} dx\ dy
+\end{equation}
+
+<p>
+As we are modeling a surface, obviously \(f(x,y) = z\). (what's \(G\)? Remember how \(G\) is the value function at various points on the surface.)
+</p>
+
+<p>
+Therefore:
+</p>
+
+\begin{equation}
+    \iint_R \frac{G[x,y,f(x)]}{\hat{n}(x,y,f(x)) \cdot \vec{k}} dx\ dy
+\end{equation}
+
+<p>
+And now, we expand, because, apparently
+</p>
+
+
+<div id="org25d78f7" class="figure">
+<p><img src="2022-01-29_11-41-35_screenshot.png" alt="2022-01-29_11-41-35_screenshot.png" />
+</p>
+</div>
+
+<p>
+We will now remember the definition of \(\hat{n}\), the unit normal vector:
+</p>
+
+\begin{equation}
+   \hat{n} = \frac{-\hat{i}\left(\frac{\partial f}{\partial x}\right)-\hat{j}\left(\frac{\partial f}{\partial y}\right)+\hat{k}}{\sqrt{1+\left(\frac{\partial f}{\partial x}\right)^2 + \left(\frac{\partial f}{\partial y}\right)^2}} 
+\end{equation}
+
+<p>
+And therefore, the dot product of this and \(\vec{k}\) is:
+</p>
+
+\begin{equation}
+   \hat{n} \cdot \vec{k} = \frac{1}{\sqrt{1+\left(\frac{\partial f}{\partial x}\right)^2 + \left(\frac{\partial f}{\partial y}\right)^2}}
+\end{equation}
+
+<p>
+Lastly, substituting this back to our original expression:
+</p>
+
+\begin{equation}
+   \iint_R G[x,y,f(x,y)] \cdot {\sqrt{1+\left(\frac{\partial f}{\partial x}\right)^2 + \left(\frac{\partial f}{\partial y}\right)^2}} dx\ dy 
+\end{equation}
+
+<p>
+Oh god. However, thinking about this &#x2014; it kind of makes sense: think! the equation of a <i>line length</i> in \(\mathbb{R}^1\) is basically the surface integral proof above, with \(G(*) = 1\) ("one unit is one unit."). And indeed we do result in the same expression.
+</p>
+</div>
 </div>
 </div>
 </div>

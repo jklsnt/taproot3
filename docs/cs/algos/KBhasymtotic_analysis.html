@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-24 Mon 11:22 -->
+<!-- 2022-01-29 Sat 15:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Asymtotic Analysis</title>
@@ -263,18 +263,22 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Asymtotic Analysis</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-01-24 Mon 11:22</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Asymtotic Analysis</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-01-29 Sat 15:51</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgcf8de3b">1. ~</a></li>
+<li><a href="#org0045399">1. ~</a></li>
+<li><a href="#org4295398">2. o(n)</a></li>
+<li><a href="#org6a8495e">3. O(n)</a></li>
+<li><a href="#org706bbe8">4. \(\theta\)(n)</a></li>
+<li><a href="#org9c618ae">5. \(\omega\)(n) and \(\Omega\)(n)</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-orgcf8de3b" class="outline-2">
-<h2 id="orgcf8de3b"><span class="section-number-2">1</span> ~</h2>
+<div id="outline-container-org0045399" class="outline-2">
+<h2 id="org0045399"><span class="section-number-2">1</span> ~</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Given functions \(f(n)\) and \(g(n)\), if:
@@ -287,6 +291,117 @@ Given functions \(f(n)\) and \(g(n)\), if:
 <p>
 we say that \(f \sim g\).
 </p>
+
+<p>
+That &#x2013; the relationship between \(f\) and \(g\) grows in a similar fashion as \(n\) increases. For instance:
+</p>
+
+<ul class="org-ul">
+<li>\(f(n) = n+1\)</li>
+<li>\(g(n) = n+2\)</li>
+</ul>
+
+<p>
+Therefore:
+</p>
+
+\begin{equation}
+   f\sim g = \lim_{n\to \infty} \frac{f(n)}{g(n)} = \lim_{n\to \infty} \frac{n+1}{n+2} = 1
+\end{equation}
+
+<p>
+The \(\sim\) operator is <i>commutative</i> (\(f \sim g \Rightarrow g\sim f\)) and <i>transitive</i> (\(f\sim g, g\sim h \Rightarrow f \sim h\)).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4295398" class="outline-2">
+<h2 id="org4295398"><span class="section-number-2">2</span> o(n)</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Given two functions \(f(n)\), \(g(n)\), if their relationship shows:
+</p>
+
+\begin{equation}
+   \lim_{n \to \infty} \frac{f(n)}{g(n)} = 0
+\end{equation}
+
+<p>
+we can write it as
+</p>
+
+\begin{equation}
+  f = o(g)  
+\end{equation}
+
+<p>
+This tells us that if \(n\) becomes very large, \(g\) becomes much larger than \(f\). \(f\) does not grow nearly as fast as \(g\).
+</p>
+
+<p>
+The operation is <i>not</i> commutative, but is <i>transitive</i> (\(f = o(g), g = o(h) \Rightarrow f = o(h)\))
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6a8495e" class="outline-2">
+<h2 id="org6a8495e"><span class="section-number-2">3</span> O(n)</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Given two functions \(f(n)\), \(g(n)\).
+</p>
+
+\begin{equation}
+   \lim_{n \to \infty} \frac{f(n)}{g(n)} < \infty
+\end{equation}
+
+<p>
+that the relationship between \(f(n)\) and \(g(n)\) is countable as \(n\) trends to infinity.
+</p>
+
+<p>
+We can also say that, given \(n\), \(n_0\), and some \(c\) which \(\forall n, n > n_0\), there is:
+</p>
+
+\begin{equation}
+   |f(n)| < |cg(n)| 
+\end{equation}
+
+<p>
+This tells us that \(f(n)\) does not grow much much faster than \(g(n)\).
+</p>
+
+<p>
+Therefore:
+</p>
+
+<ul class="org-ul">
+<li>If \(f \sim g\), \(f = O(g)\) (as they grow together, \(f\) is not much faster)</li>
+<li>If \(f = o(g)\), \(f=O(g)\) (as \(f\) does not grow at all, \(f\) is not faster)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org706bbe8" class="outline-2">
+<h2 id="org706bbe8"><span class="section-number-2">4</span> \(\theta\)(n)</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+\(f=\theta(g)\) IFF \(f=O(g)\) and \(g=O(f)\), its essentially \(\sim\) but without the strict requirement of a 1:1 ratio.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9c618ae" class="outline-2">
+<h2 id="org9c618ae"><span class="section-number-2">5</span> \(\omega\)(n) and \(\Omega\)(n)</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+The inverses of \(O\) and \(o\):
+</p>
+
+<ul class="org-ul">
+<li>\(f(n) = O(g(n)) \Rightarrow g(n) = \omega(f(n))\)</li>
+<li>\(f(n) = o(g(n)) \Rightarrow g(n) = \Omega(f(n))\)</li>
+</ul>
 </div>
 </div>
 </div>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-22 Sat 00:11 -->
+<!-- 2022-01-31 Mon 20:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Atwood Lab</title>
@@ -219,60 +219,12 @@
     /*]]>*///-->
 // @license-end
 </script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/javascript">
-<!--/*--><![CDATA[/*><!--*/
-    MathJax.Hub.Config({
-        jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
-        showProcessingMessages: true,
-        displayAlign: "center",
-        displayIndent: "2em",
-
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
-             }
-        }
-    });
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Atwood Lab</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-01-22 Sat 00:11</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Atwood Lab</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-01-31 Mon 20:33</date></div>
 </div>
 <div id="content">
-<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
-<ul>
-<li><a href="#orge66a8fa">1. For Bucket</a></li>
-<li><a href="#org86c2208">2. For Friction</a></li>
-</ul>
-</div></div>
-</div>
 <p>
 Solving equations for the Atwood lab
 </p>
@@ -290,152 +242,6 @@ m_2 = w_2 + b
 a_1 = 2*a
 a_2 = a
 </pre>
-</div>
-
-<div id="outline-container-orge66a8fa" class="outline-2">
-<h2 id="orge66a8fa"><span class="section-number-2">1</span> For Bucket</h2>
-<div class="outline-text-2" id="text-1">
-<div class="org-src-container">
-<pre class="src src-sage"># solution_b = solve([2*(w_1+b)*(-2*a+g) == (w_2+b)*(a+g)+6*F_f], b)
-
-solution_b = solve((m_2*a_2+m_2*g)/2 == m_1*-a_1+m_1*g, b)
-
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-sage">b_a(a, w_1, w_2, g) = solution_b[0].rhs()
-b_1=b_a(0.751109, 0.3, 0.4, 9.81) # group 1, trial 1
-b_2=b_a(0.454363, 0.2, 0.2, 9.81) # group 2, trial 1
-(b_1, b_2)
-b_a
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-sage">solve([b==b_1, b==b_2], (b, F_f))
-</pre>
-</div>
-
-<p>
-We will also take the partial derivatives with respect to each variable, and square them, in order to be able to propergate error
-</p>
-
-<p>
-Error by acceleration:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">d = var("Δa")
-bucket_accel_error = b_a.diff(a)*d
-bucket_accel_error
-</pre>
-</div>
-
-<p>
-Error by mass \(w_1\):
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">d = var("Δw_1")
-bucket_w1_error = b_a.diff(w_1)*d
-bucket_w1_error
-</pre>
-</div>
-
-<p>
-Error by mass \(w_2\):
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">d = var("Δw_2")
-bucket_w2_error = b_a.diff(w_2)*d
-bucket_w2_error
-</pre>
-</div>
-
-<p>
-Total error:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">bucket_error = sqrt(bucket_accel_error^2 + bucket_w1_error^2 + bucket_w2_error^2)
-bucket_error
-</pre>
-</div>
-</div>
-</div>
-
-
-
-<div id="outline-container-org86c2208" class="outline-2">
-<h2 id="org86c2208"><span class="section-number-2">2</span> For Friction</h2>
-<div class="outline-text-2" id="text-2">
-<div class="org-src-container">
-<pre class="src src-sage">solution_f = solve([2*(w_1+b)*(-2*a+g) == (w_2+b)*(a+g)+6*F_f], F_f)
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-sage">ff_a(a, w_1, w_2, g) = solution_f[0].rhs()
-ff_1=ff_a(0.751109, 0.3, 0.4, 9.81)
-ff_2=ff_a(0.454363, 0.2, 0.2, 9.81)
-(ff_1, ff_2)
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-sage">solve([F_f==ff_1, F_f==ff_2], (b, F_f))
-</pre>
-</div>
-
-<p>
-We will also take the partial derivatives with respect to each variable, and square them, in order to be able to propergate error
-</p>
-
-<p>
-Error by acceleration:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">d = var("Δa")
-friction_accel_error = ff_a.diff(a)*d
-friction_accel_error
-</pre>
-</div>
-
-<p>
-Error by mass \(w_1\):
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">d = var("Δw_1")
-friction_w1_error = ff_a.diff(w_1)*d
-friction_w1_error
-</pre>
-</div>
-
-<p>
-Error by mass \(w_2\):
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">d = var("Δw_2")
-friction_w2_error = ff_a.diff(w_2)*d
-friction_w2_error
-</pre>
-</div>
-
-<p>
-Total error:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">friction_error = sqrt(friction_accel_error^2 + friction_w1_error^2 + friction_w2_error^2)
-friction_error
-</pre>
-</div>
-</div>
 </div>
 </div>
 </body>

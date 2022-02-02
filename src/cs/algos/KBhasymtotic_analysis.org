@@ -13,4 +13,64 @@ Given functions $f(n)$ and $g(n)$, if:
 
 we say that $f \sim g$.
 
+That -- the relationship between $f$ and $g$ grows in a similar fashion as $n$ increases. For instance:
+
+- $f(n) = n+1$
+- $g(n) = n+2$
+
+Therefore:
+
+\begin{equation}
+   f\sim g = \lim_{n\to \infty} \frac{f(n)}{g(n)} = \lim_{n\to \infty} \frac{n+1}{n+2} = 1
+\end{equation}
+
+The $\sim$ operator is /commutative/ ($f \sim g \Rightarrow g\sim f$) and /transitive/ ($f\sim g, g\sim h \Rightarrow f \sim h$).
+
+* o(n)
+Given two functions $f(n)$, $g(n)$, if their relationship shows:
+
+\begin{equation}
+   \lim_{n \to \infty} \frac{f(n)}{g(n)} = 0
+\end{equation}
+
+we can write it as
+
+\begin{equation}
+  f = o(g)  
+\end{equation}
+
+This tells us that if $n$ becomes very large, $g$ becomes much larger than $f$. $f$ does not grow nearly as fast as $g$.
+
+The operation is /not/ commutative, but is /transitive/ ($f = o(g), g = o(h) \Rightarrow f = o(h)$)
+
+* O(n)
+Given two functions $f(n)$, $g(n)$.
+
+\begin{equation}
+   \lim_{n \to \infty} \frac{f(n)}{g(n)} < \infty
+\end{equation}
+
+that the relationship between $f(n)$ and $g(n)$ is countable as $n$ trends to infinity.
+
+We can also say that, given $n$, $n_0$, and some $c$ which $\forall n, n > n_0$, there is:
+
+\begin{equation}
+   |f(n)| < |cg(n)| 
+\end{equation}
+
+This tells us that $f(n)$ does not grow much much faster than $g(n)$.
+
+Therefore:
+
+- If $f \sim g$, $f = O(g)$ (as they grow together, $f$ is not much faster)
+- If $f = o(g)$, $f=O(g)$ (as $f$ does not grow at all, $f$ is not faster)
+
+* $\theta$(n) 
+$f=\theta(g)$ IFF $f=O(g)$ and $g=O(f)$, its essentially $\sim$ but without the strict requirement of a 1:1 ratio.
+
+* $\omega$(n) and $\Omega$(n)
+The inverses of $O$ and $o$:
+
+- $f(n) = O(g(n)) \Rightarrow g(n) = \omega(f(n))$
+- $f(n) = o(g(n)) \Rightarrow g(n) = \Omega(f(n))$
 

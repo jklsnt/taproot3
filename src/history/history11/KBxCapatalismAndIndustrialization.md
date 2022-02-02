@@ -85,7 +85,7 @@ lots of strikes and such!
 
 end at "The alliance’s most innovative programs were a series of farmers’ cooperatives that enabled farmers to negotiate higher prices for their crops and lower prices for the goods they purchased. These co"
 
-
+changes for david, are located here!
 
 
 

@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-02-01 Tue 20:02 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SAT Panel</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley Marvit" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">SAT Panel</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2022-02-01 Tue 20:02</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='ignoreSATIndex.html'>SAT Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#for-later-sat">1. for later, sat!</a>
+<ul>
+<li><a href="#question-time">1.1. question time</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<p>
+#flo #disorganized #inclass
+</p>
+
+<hr />
+
+<div id="outline-container-for-later-sat" class="outline-2">
+<h2 id="for-later-sat"><span class="section-number-2">1</span> for later, sat!</h2>
+<div class="outline-text-2" id="text-for-later-sat">
+<ul class="org-ul">
+<li>dylan's advice
+
+<ul class="org-ul">
+<li>if you arn't good at the math section, just grind math! <b>just grind.
+3 hours a day.</b></li>
+</ul></li>
+
+<li>take practice tests when you are going to take the actual test</li>
+<li>reading questions:
+
+<ul class="org-ul">
+<li>do the evidence question before the first one!</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-question-time" class="outline-3">
+<h3 id="question-time"><span class="section-number-3">1.1</span> question time</h3>
+<div class="outline-text-3" id="text-question-time">
+<ul class="org-ul">
+<li>how should you train if you misread a lot of problems?
+
+<ul class="org-ul">
+<li>underline very single word that is vaugely important
+
+<ul class="org-ul">
+<li>numbers, proper nouns, non generic nouns, everything that's not
+FANBOYS? uht-</li>
+</ul></li>
+
+<li>math section,
+
+<ul class="org-ul">
+<li>happens a lot of on the proportionaly sections
+
+<ul class="org-ul">
+<li>just immediently transalate into equations! while you read!</li>
+</ul></li>
+</ul></li>
+
+<li>practice is the only real thing to fix.
+
+<ul class="org-ul">
+<li>don't speed through the easy questions that you might misread!</li>
+</ul></li>
+
+<li>when you read a question, say it back to yourself
+
+<ul class="org-ul">
+<li>"what collede board says is x"</li>
+<li>-&gt; 3b = c</li>
+</ul></li>
+
+<li>or, look at the rest for context and then judge</li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p>
+you are reviewing a practice test, how do aproach something that you got
+wrong?
+</p>
+
+<ul class="org-ul">
+<li>look at the answer key, and then write down what the actual <b>mistake</b>
+was.
+
+<ul class="org-ul">
+<li>then get a lesson</li>
+</ul></li>
+
+<li>the SAT has question templates
+
+<ul class="org-ul">
+<li>as long as you remember how you learn things, then you can solve
+similar questions in every test</li>
+</ul></li>
+
+<li>track questions how you miss!
+
+<ul class="org-ul">
+<li>write down the process for how you solve things! as if they are
+future instructions</li>
+</ul></li>
+
+<li>running on intuition in the very beginning
+
+<ul class="org-ul">
+<li>there are very specific templates</li>
+<li>khan academy! very in the beginning as they single out the different
+templates</li>
+</ul></li>
+
+<li>early on, it's about content
+
+<ul class="org-ul">
+<li>then the mistakes are about</li>
+<li>"stupid" mistakes are not a thing. there is always a reason! pin
+point down that reason.</li>
+<li>"not reading carefully" is not explaining anything! think, again,
+about the <b>actual</b> reason.</li>
+<li>take a test where you are documenting everything
+
+<ul class="org-ul">
+<li>and then you will start to see patterns emerge</li>
+</ul></li>
+</ul></li>
+
+<li>bridge water
+
+<ul class="org-ul">
+<li>do the questions!</li>
+</ul></li>
+
+<li>reach the "zen" state</li>
+<li>not about the content, just about the framework</li>
+</ul>
+
+<hr />
+
+<p>
+zooming out: what was the general arc of the test prep process?
+</p>
+
+<ul class="org-ul">
+<li>albert
+
+<ul class="org-ul">
+<li>PSAT: bad</li>
+<li>spent half of thanksgiving break doing SAT</li>
+</ul></li>
+
+<li>dhruv
+
+<ul class="org-ul">
+<li>?</li>
+</ul></li>
+
+<li>david
+
+<ul class="org-ul">
+<li>started a few months before</li>
+<li>practice tests every week! fine tuning</li>
+</ul></li>
+
+<li>akshay
+
+<ul class="org-ul">
+<li>didnt start prepping until after the PSAT</li>
+<li>that was a little less than 2 months</li>
+<li>not more than 4 hours a weekend</li>
+</ul></li>
+
+<li>jack
+
+<ul class="org-ul">
+<li>sprinted for 3.5 months, of weekly practice tests!</li>
+<li>longer you prep, not the better you score!</li>
+</ul></li>
+
+<li>dylan
+
+<ul class="org-ul">
+<li>really actully started in mid september before the psat</li>
+<li>in regard to the practice test scores:
+
+<ul class="org-ul">
+<li>if you are lazy, then your real test scores will be higher than
+your practice test scores</li>
+</ul></li>
+</ul></li>
+
+<li>abi
+
+<ul class="org-ul">
+<li>weekly practice tests</li>
+<li>lot's of khan</li>
+<li>week before: daily practice tests!</li>
+<li>intense practice test taking was very helpful. good for building
+stamina!</li>
+</ul></li>
+
+<li>lauren
+
+<ul class="org-ul">
+<li>panicked! took a diagnostic over the summer</li>
+<li>and then.. did something else? didnt catch it.</li>
+</ul></li>
+</ul>
+
+<hr />
+
+<p>
+resources? and also, worst advice!
+</p>
+
+<ul class="org-ul">
+<li>lauren
+
+<ul class="org-ul">
+<li>"you need a tutor" -&gt; you don't need a tutor, tbh</li>
+<li>something about the redbook?</li>
+</ul></li>
+
+<li>abi
+
+<ul class="org-ul">
+<li>don't read the questions and then read the passage</li>
+<li>just do them as they come!</li>
+<li>if you have two passages, answer all the things about the first
+passage, and then do the second one, answer those, and then do the
+comparison questions</li>
+<li>people like the blackbook!</li>
+</ul></li>
+
+<li>dylan
+
+<ul class="org-ul">
+<li>if you feel anxious a lot, don't eat breakfast?</li>
+<li>dont eat sugary things! in the morning</li>
+<li>timers, are very important. measure how much time you have left / #
+problems = amount of time you could have spent reviewing?</li>
+</ul></li>
+
+<li>jack
+
+<ul class="org-ul">
+<li>the worst advice he got: annotate!</li>
+<li>don't annotate. #todo ask @jemoka about this.</li>
+<li>dont transfer the bubbles? what?</li>
+<li>only use the official practice tests.</li>
+<li>princeton review! it's fantastic.</li>
+<li>online version don't correlate super well with the actual score</li>
+</ul></li>
+
+<li>akshay: disagrees!
+
+<ul class="org-ul">
+<li>khan is great
+
+<ul class="org-ul">
+<li>mini sections are very good</li>
+<li>reading section explanantions are not great</li>
+<li>shorter is better unless it intterupts parrelel strucutre</li>
+<li>make sure you compare two things that are the same!
+
+<ul class="org-ul">
+<li>ie. horse's saddle vs horse</li>
+</ul></li>
+
+<li>make sure you have semetric punctuation, "just google the rules!"</li>
+</ul></li>
+
+<li>worst peice of advide: you don;t need to know extranious knowledge!</li>
+<li>practice taking a test with a mask on</li>
+</ul></li>
+
+<li>david
+
+<ul class="org-ul">
+<li>balance it out: long and shallow? it still works in the end</li>
+<li>well, too bad!</li>
+<li>pracact.com? #todo ask jack about this again!</li>
+<li>reddit sat form</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

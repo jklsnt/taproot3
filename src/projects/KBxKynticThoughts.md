@@ -23,7 +23,8 @@ background: linear-gradient(90deg, rgba(171,197,197,1) 0%, rgba(199,196,225,1) 5
 
 inspo: https://miro.medium.com/max/2000/1*9XUTmFn8Ok0CeJ2QkI1_ig.png
 
-
+auth: https://www.youtube.com/watch?v=oXWImFqsQF4&ab_channel=NaderDabit
+or, https://www.pullrequest.com/blog/authentication-with-nextjs-and-supabase/
 
 
 

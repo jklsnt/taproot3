@@ -75,6 +75,8 @@ the next assignment: historigraphical in nature. synthesithing multiple argument
 - [[KBxConquestAndEmpireReading]]
 - [[KBxSpanishAmericanWarConvoPlanning]]
 - [[KBxCapatalismAndIndustrialization]]
+- [[KBxGrowthofAmericanLaborMovement]]
+- [[KBxHistoryLongBlock]]
 
 
 

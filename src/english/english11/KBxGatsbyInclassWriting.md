@@ -56,16 +56,30 @@ Represents how Nick is becoming trapped in the lives of his fellow partygoers
 	- wild strident argument, ofc ends with a bloody mess
 	
 ***
-- results in nick being a "casual watch," and "within and without"
+- results in nick being a "casual watcher," and "within and without"
 
 
 ### writing?
 
-Nick's recount of his time at the party represents his supposedly unwilling descent into the life of a partygoer. Nick starts his description by utilizing agency to juxtapose his rejection and acceptance of this new life. He writes of how he "wanted to get out," but instead was "pulled [...] back, as if by ropes." Here, rejecting the life of the partygoer, as symbolized by getting "out" of the party, is described as something intrinsic to Nick. However, his acceptance is described as extrinsic, something he doesn't have any agency over -- he is "pulled" back by "ropes." Nick continues to describe the forces keeping him at the party, narrating how he whenever he "tried to go" he simply "became entangled." This contrast once again illustrates the supposed dichotomy between Nicks intrinsic attempts at rejection and the extrinsic forces leading to his acceptance.
+Nick's recount of his time at the party represents his supposedly unwilling descent into the life of a partygoer. Nick starts his description by utilizing agency to juxtapose his rejection and acceptance of this new life. He writes of how he "wanted to get out," but instead was "pulled [...] back, as if by ropes." Here, rejecting the life of the partygoer -- as symbolized by getting "out" of the party -- is described as something intrinsic to Nick. However, his acceptance is described as extrinsic, something he doesn't have any agency over: Nick is "pulled" back by "ropes." Nick continues to describe the forces keeping him at the party, narrating how whenever he "tried to go" he simply "became entangled." This contrast between "tried" and "became" once again illustrates the supposed dichotomy between Nick's intrinsic attempts at rejection and the extrinsic forces leading to his acceptance.
 
-Not only is Nick trying :: trying to leave, but his window for leaving is closing as he continues to be entangled.
-- Twilight as the barrier between the light and the dark
-- but the streets are darkening!
+However, as Nick attempts to escape, his window for doing so is closing. He narrates his path of escape: "eastward toward the park through the soft twilight." Nick is attempting to move "eastward," toward the embodiment of class and refinement. This path is illuminated with "soft twilight," representing how, just as twilight is the divide between night and day, the path out of the party is the divide between Nick's further descent and his escape. But as Nick stands at the edge of this divide -- enchanted and entangled -- his opportunity to escape shrinks: "[I was the] watcher in the darkening streets." His path out, illuminated with twilight, is sinking into darkness as he continues to watch. Day is becoming night, light is becoming dark, and Nick is becoming trapped.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

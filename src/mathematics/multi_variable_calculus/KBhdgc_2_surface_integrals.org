@@ -101,3 +101,186 @@ we will arrive at:
    \hat{n} = \frac{-\hat{i}\left(\frac{\partial f}{\partial x}\right)-\hat{j}\left(\frac{\partial f}{\partial y}\right)+\hat{k}}{\sqrt{1+\left(\frac{\partial f}{\partial x}\right)^2 + \left(\frac{\partial f}{\partial y}\right)^2}} 
 \end{equation}
 
+as the main expression for $\hat{n}$, the unit normal vector to the surface.
+
+* Finding an Expression for $\hat{n}$ at random surfaces
+
+** The $x,y$ plane
+The expression for the $x$, $y$ plane is defined as:
+
+\begin{equation}
+    z = f(x,y) = 0
+\end{equation}
+
+Based on this expression, therefore:
+
+- $\frac{\partial f}{\partial x} = 0$
+- $\frac{\partial f}{\partial y} = 0$
+
+Supplying this expression onto that for $\hat{n}$, we will arrive at
+
+\begin{equation}
+   \hat{n}_{f(x,y)=0} = \hat{k}
+\end{equation}
+
+Which, obviously, is the vector orthogonal to the $x,y$ plane.
+
+** A sphere
+The expression for a sphere, of radius 1, centered around the origin, is:
+
+\begin{equation}
+   x^2 + y^2 + z^2 = 1
+\end{equation}
+
+We will then solve the expression w.r.t. $z$ to get an equation for a half-hemisphere.
+
+\begin{align}
+    &x^2 + y^2 + z^2 = 1 \\
+\Rightarrow\ & z^2 = 1 - (x^2 + y^2) \\
+\Rightarrow\ & z^2 = 1 - x^2 - y^2 \\
+\Rightarrow\ & z = \sqrt{1 - x^2 - y^2} \\
+\Rightarrow\ & z = = (1 - x^2 - y^2)^{1/2}
+\end{align}
+
+We can again take the partial derivatives of this expression to supply to the equation to $\hat{n}$.
+
+\begin{align}
+   \frac{\partial}{\partial x} z &= \frac{\partial}{\partial x} (1-x^2-y^2)^{1/2} \\
+&= \frac{-2x}{2(1-x^2-y^2)^{1/2}} \\
+&= \frac{-x}{\left[(1-x^2-y^2)^{1/2}\right] = z} \\
+&= \frac{-x}{z} 
+\end{align}
+
+\begin{align}
+   \frac{\partial}{\partial y} z &= \frac{\partial}{\partial y} (1-x^2-y^2)^{1/2} \\
+&= \frac{-2y}{2(1-x^2-y^2)^{1/2}} \\
+&= \frac{-y}{\left[(1-x^2-y^2)^{1/2}\right] = z} \\
+&= \frac{-y}{z} 
+\end{align}
+
+And finally, if we take the expression for the unit normal vector, and replace it with the prescribed values: 
+
+
+\begin{align}
+   \hat{n} &= \frac{-\hat{i}\left(\frac{-x}{z}\right)-\hat{j}\left(\frac{-y}{z}\right)+\hat{k}}{\sqrt{1+\left(\frac{-x}{z}\right)^2 + \left(\frac{-y}{z}\right)^2}} \\
+&= \frac{\hat{i}\left(\frac{x}{z}\right)+\hat{j}\left(\frac{y}{z}\right)+\hat{k}}{\sqrt{1+\left(\frac{x^2}{z^2}\right) + \left(\frac{y^2}{z^2}\right)}} \\
+\end{align}
+ 
+* Surface Integrals
+Surface integrals are area integrals multiplied of a function multiplied by the unit normal vector of the face that we with to analyses.
+
+\begin{equation}
+   \iint_S \vec{F} \cdot \hat{n}\ dS
+\end{equation}
+
+** Formal Definitions of the Surface Integral
+Of course, this statement is saying to project every vector on the surface onto the direction of the unit normal vector on the surface, essentially, therefore:
+
+\begin{equation}
+   \iint_S \vec{F} \cdot \hat{n}\ dS = \lim_{N \to \infty, \Delta S_l \to 0} \vec{F}(x_l,y_l,z_l) \cdot \hat{n}_l \Delta S_l
+\end{equation}
+
+
+Sometimes, $\vec{F} \cdot \hat{n}$ is given by a scalar function $G(x,y,z)$ of the unit value we are trying to measure at point $(x,y,z)$. This will make our surface integral a lot simpler:
+
+\begin{equation}
+   \iint_S G(x,y,z)\ dS 
+\end{equation}
+
+Ok but what's the difference between this and a volume double-integral? Look! Look harder! This is a /double/ integral, but the function is over /three/ paramtres. We are going through each portion of the surface, but then only adding the values on the surface. That is:
+
+\begin{equation}
+   \iint_S G(x,y,z)\ dS  = \lim_{N \to \infty, \Delta S_l \to 0} G(x_l, y_l, z_l) \Delta S_l
+\end{equation}
+
+** Useful Definition of the Surface Integral
+We will now attempt to parse the following expression into something more useful
+
+\begin{equation}
+   \iint_S G(x,y,z)\ dS 
+\end{equation}
+
+To actually properly evaluate this, we need to first find a way to project some surface $\Delta S_l$ to its coordinates on the $(x,y)$ plane to plug into $G$. This relation we will call $\Delta S_l \to \Delta R_l$, where $\Delta R_l$ is the rectangular projection.
+
+#+DOWNLOADED: screenshot @ 2022-01-29 10:20:47
+[[file:2022-01-29_10-20-47_screenshot.png]]
+
+Let's do the project with the help of vector $\hat{n}$ and $\hat{k}$.
+
+#+DOWNLOADED: screenshot @ 2022-01-29 10:57:08
+[[file:2022-01-29_10-57-08_screenshot.png]]
+
+First, it is evident that, given these angles and the idea of projection:
+
+\begin{equation}
+   b' = \cos \theta b 
+\end{equation}
+
+Based on the same idea, we have:
+
+\begin{equation}
+   ab' = ab \cos \theta
+\end{equation}
+
+Replacing $\hat{n}\cdot \vec{k} = \cos{\theta}$ (the definition of a dot product):
+
+\begin{equation}
+    ab = \frac{ab'}{\hat{n}\cdot\vec{k}}
+\end{equation}
+
+And, look here!, we just came up with the definition of $\Delta R_l$ as we determined above --- $ab' = \Delta R_l$!
+
+So:
+
+\begin{equation}
+   \Delta S_l = \frac{\Delta R_l}{\hat{n}\cdot\vec{k}} 
+\end{equation}
+
+And therefore, we can write the following:
+
+\begin{equation}
+   \iint_S G(x,y,z)\ dS = \lim_{N \to \infty, \Delta R_l \to 0} \sum_{l=1}^N G(x_l,y_l,z_l) \frac{\Delta R_l}{\hat{n}_l \cdot \vec{k}} 
+\end{equation}
+
+Hey look---we now have a limit of some integral on $\Delta R_l$, the two-dimensional area on the cartesian plane: turning this into a good ol' double integral!
+
+And therefore... 
+
+\begin{equation}
+   \lim_{N \to \infty, \Delta R_l \to 0} \sum_{l=1}^N G(x_l,y_l,z_l) \frac{\Delta R_l}{\hat{n}_l \cdot \vec{k}} = \iint_R \frac{G(x,y,z)}{\hat{n}(x,y,z) \cdot \vec{k}} dx\ dy
+\end{equation}
+
+As we are modeling a surface, obviously $f(x,y) = z$. (what's $G$? Remember how $G$ is the value function at various points on the surface.)
+
+Therefore:
+
+\begin{equation}
+    \iint_R \frac{G[x,y,f(x)]}{\hat{n}(x,y,f(x)) \cdot \vec{k}} dx\ dy
+\end{equation}
+
+And now, we expand, because, apparently
+
+#+DOWNLOADED: screenshot @ 2022-01-29 11:41:35
+
+[[file:2022-01-29_11-41-35_screenshot.png]]
+
+We will now remember the definition of $\hat{n}$, the unit normal vector:
+
+\begin{equation}
+   \hat{n} = \frac{-\hat{i}\left(\frac{\partial f}{\partial x}\right)-\hat{j}\left(\frac{\partial f}{\partial y}\right)+\hat{k}}{\sqrt{1+\left(\frac{\partial f}{\partial x}\right)^2 + \left(\frac{\partial f}{\partial y}\right)^2}} 
+\end{equation}
+
+And therefore, the dot product of this and $\vec{k}$ is:
+
+\begin{equation}
+   \hat{n} \cdot \vec{k} = \frac{1}{\sqrt{1+\left(\frac{\partial f}{\partial x}\right)^2 + \left(\frac{\partial f}{\partial y}\right)^2}}
+\end{equation}
+
+Lastly, substituting this back to our original expression:
+
+\begin{equation}
+   \iint_R G[x,y,f(x,y)] \cdot {\sqrt{1+\left(\frac{\partial f}{\partial x}\right)^2 + \left(\frac{\partial f}{\partial y}\right)^2}} dx\ dy 
+\end{equation}
+
+Oh god. However, thinking about this --- it kind of makes sense: think! the equation of a /line length/ in $\mathbb{R}^1$ is basically the surface integral proof above, with $G(*) = 1$ ("one unit is one unit."). And indeed we do result in the same expression.
+

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-09 Thu 12:40 -->
+<!-- 2022-01-31 Mon 20:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rotating Chain Experiment: Floor</title>
@@ -222,7 +222,7 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2021-12-09 Thu 12:40</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotating Chain Experiment: Floor</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-01-31 Mon 20:33</date></div>
 </div>
 <div id="content">
 <p>
@@ -230,10 +230,21 @@ Let's draw a picture of this situation!
 </p>
 
 
-<div id="org2cd3b6b" class="figure">
+<div id="orgfc0ab33" class="figure">
 <p><img src="2021-12-04_23-02-31_screenshot.png" alt="2021-12-04_23-02-31_screenshot.png" />
 </p>
 </div>
+
+<div class="org-src-container">
+<pre class="src src-sage">t, a = var("t a")
+solve(t/cos(t) == a, t)
+</pre>
+</div>
+
+<pre class="example">
+[t == a*cos(t)]
+</pre>
+
 
 <p>
 We first set up the basic assumptions and variables.
@@ -309,6 +320,17 @@ cKETrans = NULL
 <p>
 Awesome. Let's now run a lovely little for loop to actually populate the values recursively.
 </p>
+
+<div class="org-src-container">
+<pre class="src src-sage">t,b = var("theta b")
+solve(sin(90+t) == cos(b), b)
+</pre>
+</div>
+
+<pre class="example">
+[b == arccos(sin(theta + 90))]
+</pre>
+
 
 
 <div class="org-src-container">
@@ -474,7 +496,7 @@ Cool! We could first graph a function for theta over time.
 </div>
 
 
-<div id="orga830063" class="figure">
+<div id="org23b8d62" class="figure">
 <p><img src="./chainrot_time_theta.png" alt="chainrot_time_theta.png" />
 </p>
 </div>
@@ -489,7 +511,7 @@ And, similarly, we will graph <code>ax</code> and <code>ay</code> on top of each
 </div>
 
 
-<div id="orgcd33359" class="figure">
+<div id="org2a6259f" class="figure">
 <p><img src="./chainrot_time_accels.png" alt="chainrot_time_accels.png" />
 </p>
 </div>
@@ -504,7 +526,7 @@ Let's also plot torque as well.
 </div>
 
 
-<div id="orga96c62a" class="figure">
+<div id="org0540a41" class="figure">
 <p><img src="./chainrot_torque.png" alt="chainrot_torque.png" />
 </p>
 </div>
@@ -519,7 +541,7 @@ And. <b>Most importantly!</b> Let's plot the normal force.
 </div>
 
 
-<div id="org5653d94" class="figure">
+<div id="orga9389e2" class="figure">
 <p><img src="./chainrot_normal.png" alt="chainrot_normal.png" />
 </p>
 </div>
@@ -542,7 +564,7 @@ We finally, plot KE rotation and translation
 </div>
 
 
-<div id="org9295509" class="figure">
+<div id="org88632b6" class="figure">
 <p><img src="./chainrot_ke.png" alt="chainrot_ke.png" />
 </p>
 </div>
@@ -554,7 +576,7 @@ We finally, plot KE rotation and translation
 </div>
 
 
-<div id="orgd248c0e" class="figure">
+<div id="org773f2bb" class="figure">
 <p><img src="./chainrot_x_y_pos.png" alt="chainrot_x_y_pos.png" />
 </p>
 </div>
@@ -569,7 +591,7 @@ We finally, plot KE rotation and translation
 </div>
 
 
-<div id="org8ed74b7" class="figure">
+<div id="orgc24a31c" class="figure">
 <p><img src="./chainrot_x_y_pos_p.png" alt="chainrot_x_y_pos_p.png" />
 </p>
 </div>
@@ -580,7 +602,7 @@ We finally, plot KE rotation and translation
 </div>
 
 
-<div id="org2b6f119" class="figure">
+<div id="org427912d" class="figure">
 <p><img src="./chainrot_thetadot_theta.png" alt="chainrot_thetadot_theta.png" />
 </p>
 </div>
@@ -591,7 +613,7 @@ We finally, plot KE rotation and translation
 </div>
 
 
-<div id="orgdb8f7d0" class="figure">
+<div id="orga1e3fbb" class="figure">
 <p><img src="./chainrot_thetadot_theta_dot_dot.png" alt="chainrot_thetadot_theta_dot_dot.png" />
 </p>
 </div>

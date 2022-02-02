@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-24 Mon 10:56 -->
+<!-- 2022-01-31 Mon 20:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>QIC Challenge Modeling</title>
@@ -222,7 +222,7 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">QIC Challenge Modeling</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-01-24 Mon 10:56</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">QIC Challenge Modeling</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-01-31 Mon 20:33</date></div>
 </div>
 <div id="content">
 <div class="org-src-container">
@@ -233,7 +233,7 @@ U(A1, B1, A2, B2, A3, B3) = 2*1/9*(-M*(A1*B1 + A2*B2 + A3*B3) + m*(A1*(B2+B3) + 
 # grad = vector([i for i in U.diff()]).norm()
 # solve(grad, (A1, B1, A2, B2, A3, B3))
 grad = vector([i for i in U.diff()]).norm()
-# solve(grad, (A1, B1, A2, B2, A3, B3))
+solve(grad, (A1, B1, A2, B2, A3, B3))
 </pre>
 </div>
 
@@ -250,6 +250,11 @@ for A1 in idx:
 			res.append(U(A1, B1, A2, B2, A3, B3))
 			if U(A1, B1, A2, B2, A3, B3) == 4/9*m:
 			    ind.append((A1, B1, A2, B2, A3, B3))
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sage">ind
 </pre>
 </div>
 </div>

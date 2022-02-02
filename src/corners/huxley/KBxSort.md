@@ -1,6 +1,67 @@
 n
 ***
 
+ reallly nice arch config: https://www.reddit.com/r/unixporn/comments/sh2lme/bspwm_levuaska_my_attempt_on_making_a_color_scheme/
+
+***
+
+ good article on [[mathematics/quantum/index]]  from thomas rimer: https://quantum.country/qcvc
+ check this out later!
+
+***
+
+ ternary operators are epic. 
+ ```python
+# python
+(falseValue, trueValue)[test]
+```
+
+***
+
+ "don't become a monk in a monestary" - barry, referring to note taking
+
+***
+
+ github has a quickswitcher! this is a gamechanger, thx @zbuster05.
+ 
+***
+
+ "classes of representation and how they move together" is what algebra is! ~-ted
+
+***
+
+ https://github.com/Exr0nProjects/obsidian-sage yoooo?? @exr0n made a sick plugin! to try out.
+
+***
+
+https://github.com/daaru00/obsidian-commander could be interesting. would love it to show the output below the block,  https://forum.obsidian.md/t/new-plugin-sagecell/13364 style.
+
+***
+
+w/ darkreader, makes lots of ugly pages look nice
+```css
+html {
+  /* max-width: 111vh; */
+  max-width: 78rem;
+  padding: 3em 1em;
+  margin: auto;
+  line-height: 1.75;
+  font-size: 1rem;
+}
+```
+modified from https://www.swyx.io/css-100-bytes/
+
+***
+
+ python infix operators? this is sick. http://tomerfiliba.com/blog/Infix-Operators/
+ essentially, of `add(add(add(5,6),7),8)...` we can write
+ ```py
+5 |add| 6
+```
+with a bit of trickery. 
+
+***
+
  https://www.yourdictionary.com/equivalate is a word! this is amazing.
 
 ***

@@ -10,6 +10,8 @@ title:   Advanced Probability
 
 - [[KBxAdvancedprobd1]]
 - [[KBxNotNaiveProbability]]
+- [[KBxMonteHall]]
+- [[KBxFirstStepAnalysis]]
 
 
 

@@ -14,6 +14,8 @@ date: 2022-01-06
 - [[ignoreSATD1]]
 - [[ignoreSATD2]]
 - [[ignoreSATD3]]
+- [[ignoreSATD4]]
+- [[ignoreSATPanel]]
 
 
 

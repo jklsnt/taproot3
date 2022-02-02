@@ -11,7 +11,7 @@ date: 2022-01-18
 
 # probability
 
-
+## intro
 given a sample space, a **probabilty map** P is a function from subsets of $\Omega$  to [0,1]
 where $P(\Omega)$ = 1
 
@@ -51,19 +51,39 @@ P(2H) = P(H) P(2) = 1/2 * 1/6 = 1/12
 2 events A and B are independent if $P(a \cap B) = P(A) * P(B)$
 
 
+***
+conditional probability!
+def $P(A|B) =  \frac{ P(A \cap B)}{P(B)}$
+$P(A|B)P(B)=P(B|A)P(A)=P(A \text{ and } B)$
+
+this is basically bayes theorem:
+
+$$P(A|B)= \frac{P(B|A)P(A)}{P(B)}$$
+which is also written as: 
+$$P(A|B)= \frac{P(B|A)P(A)}{P(B and A)+P(B and A^C)} =  \frac{P(B|A)P(A)}{P(B|A)*P(A)+P(B|A^c)*A^c}$$
+but don't memorize it in this way.
 
 
+## example
+- disease, occurs 1 in a 1000 people 
+	- 98% right when person has the disease
+	- 90% of being right when they don't have it
+	- but, we have 100% accuracy if we do an unpleasant test, which we wan't to avoid
+- screen test comes back positive. what is the prob that you have the disease?
+	- P(disease | positive test)
+	
+|            | positive      | negative      |
+| ---------- | ------------- | ------------- |
+| disease    | .98/1000      | 0.02/1000     |
+| no disease | .1 * 999/1000 | .9 * 999/1000 |
 
+as marginal is 1/1000 -> 999/1000
 
+so, $P(d|p) = \frac{P(\text{dispease and positive})}{P(positive)}$
 
+we have two ways to test positive, so we can add them. this yields around 1%.
 
-
-
-
-
-
-
-
+this is called, switching conditioning. so don't panic about positive tests until you know what is going on about them!
 
 
 

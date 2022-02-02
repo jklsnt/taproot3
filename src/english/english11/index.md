@@ -54,6 +54,7 @@ It's time for... American lit!
 %%- [[KBxDuBoisInclass%%
 - [[KBxGatsbyIntro]]
 - [[KBxGatsbyInclassWriting]]
+- [[KBxGatbsyInclassCreativeWriting]]
 
 
 

@@ -11,6 +11,14 @@ Let's draw a picture of this situation!
 #+DOWNLOADED: screenshot @ 2021-12-04 23:02:31
 [[file:2021-12-04_23-02-31_screenshot.png]]
 
+#+begin_src sage
+t, a = var("t a")
+solve(t/cos(t) == a, t)
+#+end_src
+
+#+RESULTS:
+: [t == a*cos(t)]
+
 We first set up the basic assumptions and variables.
 
 #+begin_src R :results none
@@ -85,6 +93,14 @@ cKETrans = NULL
 #+end_src
 
 Awesome. Let's now run a lovely little for loop to actually populate the values recursively.
+
+#+begin_src sage
+t,b = var("theta b")
+solve(sin(90+t) == cos(b), b)
+#+end_src
+
+#+RESULTS:
+: [b == arccos(sin(theta + 90))]
 
 
 #+begin_src R :results none
