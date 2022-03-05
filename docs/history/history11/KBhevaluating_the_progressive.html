@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-02-17 Thu 14:05 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Evaluating the Progressive</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Evaluating the Progressive</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-02-17 Thu 14:05</date></div>
+</div>
+<div id="content">
+<div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgaa14a13">1. Reading Notes</a>
+<ul>
+<li><a href="#org9e2404f">1.1. That the process of reform was "convulsive": A</a></li>
+<li><a href="#orgbf755d0">1.2. "Progressivsm" became a word that was shunned</a></li>
+<li><a href="#orgc277f6b">1.3. That progressivism is often pained as being too positive</a></li>
+<li><a href="#org4cf4336">1.4. That the liberal progressivem is a way of quelling discontent</a></li>
+<li><a href="#orgc5c003b">1.5. That progressives pivoted to the ceremonial fixes than those that are systemic</a></li>
+<li><a href="#orgff98823">1.6. That liberals frequently invent problem and try to solve them</a></li>
+<li><a href="#orgaf58f67">1.7. Early 20th centry conservative reform is often messy</a></li>
+<li><a href="#orgc8df6c3">1.8. One way to define "Progressives" as a product of business collaboration</a></li>
+<li><a href="#org6db0dea">1.9. Business collaboration model of progressivism is too heartless compared to the progressive agitation seen</a></li>
+<li><a href="#orge779e9f">1.10. Perhaps the disorganization of progressivism is because progressivism doesn't exist, so we need to ignore this framing</a></li>
+<li><a href="#org40aa959">1.11. To understand progressivsm, we first need to define the underlying trend across all progressive reforms: B</a></li>
+<li><a href="#orge727b3a">1.12. Progressives solidified big business, while improving the conditions of industrial life</a></li>
+<li><a href="#org9295152">1.13. Nevertheless, progressives often took issue with the wrongdoings of big industry</a></li>
+<li><a href="#orgd7a7c4a">1.14. Progressives wanted overall control over their governements</a></li>
+<li><a href="#orga1ee7ed">1.15. Progressives wanted to work independently of govn't originally, but realised that most reforms relied on governmental support</a></li>
+<li><a href="#org050c8d1">1.16. Progressivism came from evangelical protestants and natural/social sciences</a></li>
+<li><a href="#orgf080791">1.17. Progressivism was the first universal reform momevent</a></li>
+<li><a href="#org3004a1b">1.18. Traditionally, it is believed that what was agitated for was the goal and once the agitation was achieved the goal is too: C</a></li>
+<li><a href="#org35e899a">1.19. Public involvement and regulations became much more rampant in the 1900s</a></li>
+<li><a href="#orgec79dbe">1.20. Although the call te reform were always in moralistic language, the true purpose were often much more complicated</a></li>
+<li><a href="#orged14ff2">1.21. By the end of the progressive era, there became more regulation on political parties, and voting turnout was lower</a></li>
+<li><a href="#orgcdb80c8">1.22. There were good and bad components of the new system, and no clear "progressivism": D</a></li>
+<li><a href="#org9162678">1.23. That the progressive enforcement of uniformity upon diversity was actually threatening the health of a community</a></li>
+<li><a href="#org2b3d5dd">1.24. Example of uniforminy in action and mind is demonstrated by prohibition</a></li>
+<li><a href="#orgc633b2e">1.25. Although: inability to fufill promised reform is not unique to progressivism</a></li>
+<li><a href="#orge5097b3">1.26. Progressive insistence on modernity actually hindered them: E</a></li>
+<li><a href="#org7f80b01">1.27. Scientific data collection quantified the degree of failure</a></li>
+<li><a href="#org0d542d4">1.28. Progressives also disregarded the consiquences of industrialization</a></li>
+<li><a href="#org3c6b71e">1.29. That progressivism failed because it is promising too much</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgaa14a13" class="outline-2">
+<h2 id="orgaa14a13"><span class="section-number-2">1</span> Reading Notes</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org9e2404f" class="outline-3">
+<h3 id="org9e2404f"><span class="section-number-3">1.1</span> That the process of reform was "convulsive": A</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Convulsive reform movements swept across the American landscape from the I 890s to 1917.
+</p>
+</div>
+</div>
+<div id="outline-container-orgbf755d0" class="outline-3">
+<h3 id="orgbf755d0"><span class="section-number-3">1.2</span> "Progressivsm" became a word that was shunned</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Thelen perhaps exaggerated the point, but this much, at least, is true: there is a malaise among historians about the concept of progressivism and a growing urge to avoid the word itself whenever possible.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc277f6b" class="outline-3">
+<h3 id="orgc277f6b"><span class="section-number-3">1.3</span> That progressivism is often pained as being too positive</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Historians, being naturally wary of such value-laden terms, tend to seek a more neutral language that is better suited to imparti"al analysis
+</p>
+</div>
+</div>
+<div id="outline-container-org4cf4336" class="outline-3">
+<h3 id="org4cf4336"><span class="section-number-3">1.4</span> That the liberal progressivem is a way of quelling discontent</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+They were not genuinely intended to uplift the disadvantaged, but rather to assuage guilty liberal consciences. And the devices upon which they relied, namely, expensive governmental bureaucracies,
+</p>
+</div>
+</div>
+<div id="outline-container-orgc5c003b" class="outline-3">
+<h3 id="orgc5c003b"><span class="section-number-3">1.5</span> That progressives pivoted to the ceremonial fixes than those that are systemic</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+progressives' attraction to "ceremonial," rather than .far. reaching, solutions by observing the reformers' own deep need to feel better about American society
+</p>
+</div>
+</div>
+<div id="outline-container-orgff98823" class="outline-3">
+<h3 id="orgff98823"><span class="section-number-3">1.6</span> That liberals frequently invent problem and try to solve them</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+But liberals often seem (and seemed) to occupy the foolish, middle position of alternately recognizing and denying the existence of basic social and economic divisions.
+</p>
+</div>
+</div>
+<div id="outline-container-orgaf58f67" class="outline-3">
+<h3 id="orgaf58f67"><span class="section-number-3">1.7</span> Early 20th centry conservative reform is often messy</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+historians are dissatisfied with the concep<sub>t</sub> of progressivism is the awful complexity and diversity of early twentieth-century reform.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc8df6c3" class="outline-3">
+<h3 id="orgc8df6c3"><span class="section-number-3">1.8</span> One way to define "Progressives" as a product of business collaboration</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+a number of scholars have located the progressive impulse in the drive of newly formed business and professional groups to achieve their goals though cooperation and expertise
+</p>
+</div>
+</div>
+<div id="outline-container-org6db0dea" class="outline-3">
+<h3 id="org6db0dea"><span class="section-number-3">1.9</span> Business collaboration model of progressivism is too heartless compared to the progressive agitation seen</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+Hays's and Wiebe's organized, expert progressives seem too bland, too passionless, and too self-confident to have waged the frantic battles many reformers did.
+</p>
+</div>
+</div>
+<div id="outline-container-orge779e9f" class="outline-3">
+<h3 id="orge779e9f"><span class="section-number-3">1.10</span> Perhaps the disorganization of progressivism is because progressivism doesn't exist, so we need to ignore this framing</h3>
+<div class="outline-text-3" id="text-1-10">
+<p>
+Filene proposed th e more drastic response to the complexity of progressivi sm: abandon the concept of a progressive movement.
+</p>
+</div>
+</div>
+<div id="outline-container-org40aa959" class="outline-3">
+<h3 id="org40aa959"><span class="section-number-3">1.11</span> To understand progressivsm, we first need to define the underlying trend across all progressive reforms: B</h3>
+<div class="outline-text-3" id="text-1-11">
+<p>
+The first is to identify the basic characteristics that were common, in varying measure, to many (and probably most) progressive reforms.
+</p>
+</div>
+</div>
+<div id="outline-container-orge727b3a" class="outline-3">
+<h3 id="orge727b3a"><span class="section-number-3">1.12</span> Progressives solidified big business, while improving the conditions of industrial life</h3>
+<div class="outline-text-3" id="text-1-12">
+<p>
+They undertook reforms not to dismantle modem industry and commerce but rather to improve and ameliorate the conditions of industrial life.
+</p>
+</div>
+</div>
+<div id="outline-container-org9295152" class="outline-3">
+<h3 id="org9295152"><span class="section-number-3">1.13</span> Nevertheless, progressives often took issue with the wrongdoings of big industry</h3>
+<div class="outline-text-3" id="text-1-13">
+<p>
+Outpourings of anger and dismay about corporation wrongdoing and of suspicion for industrial values frequently punctuated the course of refom
+</p>
+</div>
+</div>
+<div id="outline-container-orgd7a7c4a" class="outline-3">
+<h3 id="orgd7a7c4a"><span class="section-number-3">1.14</span> Progressives wanted overall control over their governements</h3>
+<div class="outline-text-3" id="text-1-14">
+<p>
+Progressive intellectuals, as well as popularizers, produced a vast literature denouncing laissez-faire and affirming the capacity of men and women to better their conditions.
+</p>
+</div>
+</div>
+<div id="outline-container-orga1ee7ed" class="outline-3">
+<h3 id="orga1ee7ed"><span class="section-number-3">1.15</span> Progressives wanted to work independently of govn't originally, but realised that most reforms relied on governmental support</h3>
+<div class="outline-text-3" id="text-1-15">
+<p>
+most progressives preferred to work through voluntary associations for non­ coercive improvements in economic and social conditions. As time passed, how­ ever, more and more of their reforms relied on the hand of government.
+</p>
+</div>
+</div>
+<div id="outline-container-org050c8d1" class="outline-3">
+<h3 id="org050c8d1"><span class="section-number-3">1.16</span> Progressivism came from evangelical protestants and natural/social sciences</h3>
+<div class="outline-text-3" id="text-1-16">
+<p>
+Progressivism took its inspiration, as well as much of its substance and
+technique, from two bodies of belief and  knowledge: evangelical Protestantism
+and the sciences, both natural and social.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf080791" class="outline-3">
+<h3 id="orgf080791"><span class="section-number-3">1.17</span> Progressivism was the first universal reform momevent</h3>
+<div class="outline-text-3" id="text-1-17">
+<p>
+Finally, progressivism was the first (perhaps the only) reform movement to be
+experienced by the whole American nation.
+</p>
+</div>
+</div>
+<div id="outline-container-org3004a1b" class="outline-3">
+<h3 id="org3004a1b"><span class="section-number-3">1.18</span> Traditionally, it is believed that what was agitated for was the goal and once the agitation was achieved the goal is too: C</h3>
+<div class="outline-text-3" id="text-1-18">
+<p>
+Older interpretations of progressivism implicitly assumed that the rhetoric explained the goals and that if a reform became law the results fulfilled the intentions behind it.
+</p>
+</div>
+</div>
+<div id="outline-container-org35e899a" class="outline-3">
+<h3 id="org35e899a"><span class="section-number-3">1.19</span> Public involvement and regulations became much more rampant in the 1900s</h3>
+<div class="outline-text-3" id="text-1-19">
+<p>
+public officials became widely involved in monitoring and regulating how people lived and worked
+</p>
+</div>
+</div>
+<div id="outline-container-orgec79dbe" class="outline-3">
+<h3 id="orgec79dbe"><span class="section-number-3">1.20</span> Although the call te reform were always in moralistic language, the true purpose were often much more complicated</h3>
+<div class="outline-text-3" id="text-1-20">
+<p>
+Commonly the progressives presented their plans in moralistic, democratic language, but often the true purposes of many reformers were more complicated.
+</p>
+</div>
+</div>
+<div id="outline-container-orged14ff2" class="outline-3">
+<h3 id="orged14ff2"><span class="section-number-3">1.21</span> By the end of the progressive era, there became more regulation on political parties, and voting turnout was lower</h3>
+<div class="outline-text-3" id="text-1-21">
+<p>
+Political parties had been regulated. and the active electorate had become relatively smaller and less enthusiastic.
+</p>
+</div>
+</div>
+<div id="outline-container-orgcdb80c8" class="outline-3">
+<h3 id="orgcdb80c8"><span class="section-number-3">1.22</span> There were good and bad components of the new system, and no clear "progressivism": D</h3>
+<div class="outline-text-3" id="text-1-22">
+<p>
+Voting had become more difficult for many (especially blacks and ew immigrants), but for others new avenues of political participation had opened.
+</p>
+</div>
+</div>
+<div id="outline-container-org9162678" class="outline-3">
+<h3 id="org9162678"><span class="section-number-3">1.23</span> That the progressive enforcement of uniformity upon diversity was actually threatening the health of a community</h3>
+<div class="outline-text-3" id="text-1-23">
+<p>
+Numerous social reforms of the early twentieth century expressed the progressives' desire to impose uniform living habits on a culturally diverse population whose behavior sometimes seemed to threaten the morality and health of the community.
+</p>
+</div>
+</div>
+<div id="outline-container-org2b3d5dd" class="outline-3">
+<h3 id="org2b3d5dd"><span class="section-number-3">1.24</span> Example of uniforminy in action and mind is demonstrated by prohibition</h3>
+<div class="outline-text-3" id="text-1-24">
+<p>
+The prohibition of alcoholic beverages was perhaps the prototypical reform of this type .
+</p>
+</div>
+</div>
+<div id="outline-container-orgc633b2e" class="outline-3">
+<h3 id="orgc633b2e"><span class="section-number-3">1.25</span> Although: inability to fufill promised reform is not unique to progressivism</h3>
+<div class="outline-text-3" id="text-1-25">
+<p>
+The failure of reform to fulfill all of the expectations behind it was not, of course, unique to the Progressive era.
+</p>
+</div>
+</div>
+<div id="outline-container-orge5097b3" class="outline-3">
+<h3 id="orge5097b3"><span class="section-number-3">1.26</span> Progressive insistence on modernity actually hindered them: E</h3>
+<div class="outline-text-3" id="text-1-26">
+<p>
+Often their methods worked, but often progressive programs simply did not prove capable of accomplishing what had been expected of them.
+</p>
+</div>
+</div>
+<div id="outline-container-org7f80b01" class="outline-3">
+<h3 id="org7f80b01"><span class="section-number-3">1.27</span> Scientific data collection quantified the degree of failure</h3>
+<div class="outline-text-3" id="text-1-27">
+<p>
+Worse, the progressives' scientific reforms frequently involved the collection of data, making it possible to know just how far short of success their programs sometimes fell
+</p>
+</div>
+</div>
+<div id="outline-container-org0d542d4" class="outline-3">
+<h3 id="org0d542d4"><span class="section-number-3">1.28</span> Progressives also disregarded the consiquences of industrialization</h3>
+<div class="outline-text-3" id="text-1-28">
+<p>
+progressives' deep ambivalence about industrialism and its consequences.
+</p>
+</div>
+</div>
+<div id="outline-container-org3c6b71e" class="outline-3">
+<h3 id="org3c6b71e"><span class="section-number-3">1.29</span> That progressivism failed because it is promising too much</h3>
+<div class="outline-text-3" id="text-1-29">
+<p>
+it is important to recall how terribly ambitious were the reformers' stated aims and true goals. They missed some of their marks because they sought to do so much
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

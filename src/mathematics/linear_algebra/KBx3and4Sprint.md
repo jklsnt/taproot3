@@ -39,6 +39,8 @@ dual space, aka $V'$, is the vec space of all linear functionals!
 
 dual basis is the dual of $v_{1}, \dots, v_{n}$ which goes to $\phi_{1}, \dots, \phi_n$ is where each $\phi_{j}$ is the linear functional which takes $v_k$ to 1 if $k=j$ and 0 else
 
+
+
 we also get dual maps, $T'$, which is just the composition of the linear functional and the normal map
 
 ending on, pg 104.
@@ -48,6 +50,30 @@ set of all linear functionals which take all elements to 0
 ofc, the annihilator is a subspace
 
 we can relate $T'$ and $T$ to surjective and injective
+
+
+the transpose of a matrix, denoted as $A^t$, is the matrix obtained by switching the rows and columns
+so nxm -> mxn
+
+algebra on tranpose is nice
+
+on matricis, we can define the row rank and the column rank
+the row rank is the dimension of the span of rows 
+whereas the column rank is the dim of the span of the columns
+but... they are the same? so we just use **rank** instead
+
+
+we get a linear independence equivalent def for polynomials
+
+formal defs of zeroes and factors and degree and relations and etc.
+
+
+and we get the
+
+```ad-def
+title: Fundemental Theorem of Algebra
+every non constant polynomial with complex coeffficients has a zero
+```
 
 
 

@@ -1,6 +1,88 @@
 n
 ***
 
+ #name posit
+
+***
+
+ https://github.com/yoav-lavi/melody this could make writing regex wayy easier, check it out later!
+ 
+***
+
+ gini coefficient is crazy elegant! super #cool way of quantification
+
+***
+
+ toon shaded mandlbulb!!! https://youtu.be/h9NSV3Tj8Q8?t=34 [[KBxBlenderFractals]]
+gotta try and replicate.
+
+***
+
+ this font is epic https://dtinth.github.io/comic-mono-font/
+ use in tuts!
+ #notcursed
+ 
+
+***
+
+ one of the best units: grams/mile! ~barak
+ *(for car emissions)*
+
+***
+
+ helpful to change speed of media easily on multiple different sites
+ ```js
+document.querySelector('video').playbackRate = 3
+```
+
+***
+
+ got published in that journal one time... figure out what it was and update resume stuff
+ also, add National ctf time team rank 59
+
+***
+
+to experiment with, when on windows: https://www.nvidia.com/en-us/studio/canvas/
+
+***
+
+ #name ch!li
+ like the pepper!
+ figma design is [here](https://www.figma.com/file/Z3qcCiUBVYOY8MZwlc6yS1/ch!li?node-id=0%3A1)
+
+***
+
+ planck's constant is denoted as $h$ because it was meant to be a placeholder! so he called it, `holder`!
+
+***
+
+ want to get this working: https://github.com/Lorago/vfetch
+ https://github.com/Rosettea/bunnyfetch
+ https://github.com/o2sh/onefetch
+ https://github.com/kiedtl/gfetch
+
+***
+
+ quantum mechanics,  “I know everything about your car but unfortunately I can’t tell you anything about any of its parts.” 
+ 
+***
+
+ ```rust
+dbg!(foo) // the superior way to print debug in rust.
+// no more wack dedub traik prinln!-ing!
+```
+
+***
+
+ better way to floor in js
+ ```js
+num | 0 
+```
+turns out, `parseInt` sucks!
+hint: try `parseInt(0.000000000002)`
+
+***
+
  reallly nice arch config: https://www.reddit.com/r/unixporn/comments/sh2lme/bspwm_levuaska_my_attempt_on_making_a_color_scheme/
 
 ***
@@ -14,6 +96,11 @@ n
  ```python
 # python
 (falseValue, trueValue)[test]
+```
+the only thing is, this evaluates both things...
+instead, can use
+```python
+a if x else b
 ```
 
 ***
@@ -113,7 +200,7 @@ https://github.com/akinsho/bufferline.nvim
 ***
 
  super #cool artwork utilizing noise-based volume displacement https://leegriggs.com/volume-mesh
- can't really be done easily in blender..
+ can't really be done easily in blender.. tried here [[KBxBlenderFractals]]
 
 ***
 

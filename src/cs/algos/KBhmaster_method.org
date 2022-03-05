@@ -1,0 +1,60 @@
+:PROPERTIES:
+:ID:       3E2747FD-72AA-4EEE-A5AC-7E5FA8E60FC9
+:END:
+#+title: Master Method
+#+author: Houjun Liu
+
+* Motivation
+Let's look at the recurrence relation for mergesort:
+
+\begin{equation}
+   T(n) = 2T(\frac{n}{2}) + \theta(n) 
+\end{equation}
+
+We can say a few things:
+
+- $\frac{n}{2}$ is the size of a sub problem
+- $2$ is the number of sub problems
+- $\theta(n)$ is the time it takes to combine
+
+What if, instead of $n$, we took $\theta(n^2)$ to do the combining steps?
+
+Our tree changes.
+
+#+DOWNLOADED: screenshot @ 2022-02-02 09:52:57
+[[file:2022-02-02_09-52-57_screenshot.png]]
+
+- It will take $\theta(n^2)$ operations to combine the top two
+- It will take $\theta(\frac{n^2}{2})$ operations to combine the second level
+- $\theta(\frac{n^2}{4})$ operations for the third
+
+And eventually, this adds up:
+
+\begin{align}
+(1 + \frac{1}{2} + \frac{1}{4} + \cdots) \theta(n^2)\\
+= 2\theta(n^2)\\
+= \theta(n^2)
+\end{align}
+
+So the actual change of subproblems are not really covered well in terms of elements shifting. How do we then analyze something with different subproblems vs operations?
+
+* Master Method
+General recurrence form:
+
+\begin{align}
+   T(1) &= c \\
+T(n) &= aT\left(\frac{n}{b}\right) + \theta(n^d)
+\end{align}
+
+Where, $a\geq 1, b\geq2, c>0, d\geq0$ are constants. Also, $n=b^k$ for some positive $k$. The runtime, therefore, is:
+
+\begin{equation}
+   T(n) = \begin{cases} 
+\theta(n^d), &a<b^d \\
+\theta(n^dlog(n)), &a=b^d \\
+\theta(n^{log_ba}), &a>b^d \\
+\end{cases} 
+\end{equation}
+
+Voodoo witchcraft! Just plug and chug. Proof is left to Sheldon Axler.
+

@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-02-03 Thu 17:57 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Newton's Laws Pulleys</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Newton's Laws Pulleys</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-02-03 Thu 17:56</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org7c8fce1">1. Pulley Problem</a>
+<ul>
+<li><a href="#org97e2915">1.1. Number 1</a></li>
+<li><a href="#org2c87dcf">1.2. Number 2</a></li>
+<li><a href="#org32c7753">1.3. Number 3</a></li>
+<li><a href="#org6e78d8d">1.4. Number 4</a></li>
+<li><a href="#orge03d288">1.5. Number 5</a></li>
+<li><a href="#org42ca839">1.6. Number 6</a></li>
+<li><a href="#org0e9e630">1.7. Number 7</a></li>
+</ul>
+</li>
+<li><a href="#org6aaff9f">2. Sliding Blocks</a></li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-org7c8fce1" class="outline-2">
+<h2 id="org7c8fce1"><span class="section-number-2">1</span> Pulley Problem</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org97e2915" class="outline-3">
+<h3 id="org97e2915"><span class="section-number-3">1.1</span> Number 1</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Three tie points, tied onto one point.
+</p>
+
+\begin{align}
+&3T_1 = T\\
+\Rightarrow &T_1 = \frac{1}{3}T
+\end{align}
+
+
+<div id="org2ed7a0f" class="figure">
+<p><img src="2022-02-03_10-01-45_screenshot.png" alt="2022-02-03_10-01-45_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org2c87dcf" class="outline-3">
+<h3 id="org2c87dcf"><span class="section-number-3">1.2</span> Number 2</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Three tie points, tied onto one point. The extra additional pull, given its not tied, simply transfers tension.
+</p>
+
+\begin{align}
+&3T_1 = T\\
+\Rightarrow &T_1 = \frac{1}{3}T
+\end{align}
+
+
+
+<div id="org22df122" class="figure">
+<p><img src="2022-02-03_10-01-52_screenshot.png" alt="2022-02-03_10-01-52_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org32c7753" class="outline-3">
+<h3 id="org32c7753"><span class="section-number-3">1.3</span> Number 3</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Five points, tied onto one point. 
+</p>
+
+\begin{align}
+&5T_1 = T\\
+\Rightarrow &T_1 = \frac{1}{5}T
+\end{align}
+
+
+
+<div id="orgf74bcbb" class="figure">
+<p><img src="2022-02-03_10-02-01_screenshot.png" alt="2022-02-03_10-02-01_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org6e78d8d" class="outline-3">
+<h3 id="org6e78d8d"><span class="section-number-3">1.4</span> Number 4</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Two tie points on one, which is added to another set of tie points. The higher (smaller) set has a total tension of \(3T_1\), which is tied again onto the bottom tie point.
+</p>
+
+\begin{align}
+&9T_1 = T\\
+\Rightarrow &T_1 = \frac{1}{9}T
+\end{align}
+
+
+
+<div id="orgf1f213b" class="figure">
+<p><img src="2022-02-03_10-02-44_screenshot.png" alt="2022-02-03_10-02-44_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orge03d288" class="outline-3">
+<h3 id="orge03d288"><span class="section-number-3">1.5</span> Number 5</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+The top tie point has \(3T_1\) of tension. The bottom has \(2T_1\), and they are finally all added together.
+</p>
+
+\begin{align}
+&3T_1 + 2T_1 = T\\
+\Rightarrow &T_1 = \frac{1}{5}T
+\end{align}
+
+
+
+<div id="org59b996e" class="figure">
+<p><img src="2022-02-03_10-02-51_screenshot.png" alt="2022-02-03_10-02-51_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org42ca839" class="outline-3">
+<h3 id="org42ca839"><span class="section-number-3">1.6</span> Number 6</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+The top tie point has \(3T_1\) of tensions, and the bottom has four tie points and tied together towards the bottom. 
+</p>
+
+\begin{align}
+&3T_1 + 4T_1 = T\\
+\Rightarrow &T_1 = \frac{1}{7}T
+\end{align}
+
+
+
+<div id="orgda4e573" class="figure">
+<p><img src="2022-02-03_10-03-00_screenshot.png" alt="2022-02-03_10-03-00_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org0e9e630" class="outline-3">
+<h3 id="org0e9e630"><span class="section-number-3">1.7</span> Number 7</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+The top tie point has \(2T_1\) of ties, the bottom has \(3T_1\), which is finally tied to another propagated to another \(6T_1\) tie point. In total, therefore:
+</p>
+
+\begin{align}
+&2T_1 + 3T_1 + 6T_1 = T\\
+\Rightarrow &T_1 = \frac{1}{11}T
+\end{align}
+
+
+
+<div id="org1880e48" class="figure">
+<p><img src="2022-02-03_10-03-05_screenshot.png" alt="2022-02-03_10-03-05_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6aaff9f" class="outline-2">
+<h2 id="org6aaff9f"><span class="section-number-2">2</span> Sliding Blocks</h2>
+<div class="outline-text-2" id="text-2">
+
+<div id="org56ca05c" class="figure">
+<p><img src="2022-02-03_11-40-21_screenshot.png" alt="2022-02-03_11-40-21_screenshot.png" />
+</p>
+</div>
+
+<p>
+Given the masses \(M_a\), \(M_b\), \(F_f\) between them, and \(A\) the acceleration of the pully pulling them, we are to figure the tension \(T\) on the rope.
+</p>
+
+<p>
+We will first draw free-body diagrams of each of the objects, like so:
+</p>
+
+
+
+<div id="orgdf78603" class="figure">
+<p><img src="2022-02-03_11-41-33_screenshot.png" alt="2022-02-03_11-41-33_screenshot.png" />
+</p>
+</div>
+
+
+
+<div id="org7a9a5ed" class="figure">
+<p><img src="2022-02-03_11-41-36_screenshot.png" alt="2022-02-03_11-41-36_screenshot.png" />
+</p>
+</div>
+
+<p>
+We will note that, given \(M_b > M_a\), \(M_a\) will slide to the "right" (+x) direction. As such, in the reference frame of \(M_a\), the force of friction is in the opposite direction as \(T\), whereas this is the opposite case for \(M_b\).
+</p>
+
+<p>
+According to these free-body diagrams, then, we can conclude that:
+</p>
+
+\begin{equation}
+    \begin{cases}
+    M_a a_a = T- F_f \\
+M_b a_b = T+ F_f
+\end{cases}
+\end{equation}
+
+<p>
+As we have three unknowns and two expressions, we have one remaining degree of freedom to address. This can be analysed by looking at the rope connecting \(M_a\) and \(M_b\).
+</p>
+
+<p>
+We will define the position of \(M_a\) as \(x_a\), \(M_b\) as \(x_b\), and finally the position of the pulley as \(x_p\). We will further introduce a temporary constant value \(L\) representing the length of the perfect rope connecting the two blocks.
+</p>
+
+<p>
+We can, therefore, claim that:
+</p>
+
+\begin{equation}
+   (x_p - x_a) + (x_p-x_b) = L
+\end{equation}
+
+<p>
+That the two distances from block to pulley added up is the length of the rope.
+</p>
+
+<p>
+Performing slight algebraic simplifications:
+</p>
+
+\begin{align}
+&(x_p-x_a)+(x_p-x_b) = L \\
+\Rightarrow & 2x_p-(x_a+x_b) = L \\
+\Rightarrow & 2x_p = L +(x_a+x_b)\\
+\Rightarrow & x_p = \frac{L +(x_a+x_b)}{2}
+\end{align}
+
+<p>
+We can now take two derivatives w.r.t. time:
+</p>
+
+\begin{equation}
+   \frac{d^2x_p }{d{t^2}} = \frac{\ddot{x_a}+\ddot{x_b}}{2}
+\end{equation}
+
+<p>
+And, therefore:
+</p>
+
+\begin{equation}
+    A = \frac{{a_a}+{a_b}}{2}
+\end{equation}
+
+<p>
+We now have three unknowns and three equations, which therefore allows for solving:
+</p>
+
+\begin{equation}
+    \begin{cases}
+    M_a a_a = T- F_f \\
+M_b a_b = T+ F_f\\
+A = \frac{{a_a}+{a_b}}{2}
+\end{cases}
+\end{equation}
+
+<p>
+Solving for the equations above symbolically, we arrive at the following expressions:
+</p>
+
+\begin{equation}
+\left[a_{a} = \frac{2 \, {\left(A M_{b} - F_{f}\right)}}{M_{a} + M_{b}}, a_{b} = \frac{2 \, {\left(A M_{a} + F_{f}\right)}}{M_{a} + M_{b}}, T = \frac{{\left(2 \, A M_{b} - F_{f}\right)} M_{a} + F_{f} M_{b}}{M_{a} + M_{b}}\right]
+\end{equation}
+
+<p>
+The value for tension, therefore, is the last expression highlighted above.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

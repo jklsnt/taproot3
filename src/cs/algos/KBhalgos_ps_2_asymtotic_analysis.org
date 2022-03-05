@@ -163,23 +163,51 @@ Since $P(n)$ implies $P(n+1)$, and we have proven the base case, by induction th
 * TriSort
 
 ** Three Sorted Lists
-For every element, it will take two comparisons to remove. However, for the last two elements, we only need one comparison as it is only comparing exactly two things against each other. Therefore:
+To sort two lists, the fastest method is to sort the first two list, then sort the third.
 
-- $2(n-2)+1$
-- $2n-4+1$
-- $2n-3$
+- $(\frac{2}{3}n-1) + (n-1)$
+- $\frac{5}{3}n -2$
   
-Therefore, for a three sorted list, each with $\frac{n}{3}$ elements, the worst case runtime would be $2n-3$ to merge the lists together---the worst-case case is to place a pointer on each element to do incremental element comparison.
+Therefore, for a three sorted list, each with $\frac{n}{3}$ elements, the worst case runtime would be $\frac{5}{3}n -2$ to merge the lists together---the worst-case case is to place a pointer on each element to do incremental element comparison.
 
 ** Recurrence Running Time
 - $T(1) = 1$
-- $T(n) = 3T(\frac{n}{3}) + (2n-3)$
+- $T(n) = 3T(\frac{n}{3}) + (\frac{5}{3}n-2)$
 
 Furthermore:
 
 \begin{equation}
-\lim_{n\to \infty} \frac{n}{2n-3} = \frac{1}{2} < \infty 
+\lim_{n\to \infty} \frac{n}{\frac{5}{3}n-2} = \frac{1}{2} < \infty 
 \end{equation}
 
-Therefore: $2n-3 = \theta(n)$.
+Therefore: $\frac{5}{3}n-2 = \theta(n)$. The resulting expression, therefore is that:
+
+\begin{equation}
+   T(n) = 3T\left(\frac{n}{3} \right) + \theta(n)
+\end{equation}
+
+** Drawing a Recurrence Tree
+
+#+DOWNLOADED: screenshot @ 2022-02-02 09:39:21
+[[file:2022-02-02_09-39-21_screenshot.png]]
+
+** Number of Comparisons at Each Layer
+At each layer, there is $a\frac{n}{a}$ comparisons ($3$ nodes of $\frac{n}{3}$ on the first, $9$ nodes of $\frac{n}{9}$, etc.). Therefore, each layer of the tree has $\theta(n)$ comparisons.
+
+** Height of the Tree
+WLOG at large values of $n$, we will assume that the number of elements in the list are a power of $3$ to make a balanced tree. To divide $n$ by $3$ recursively until we result at $1$ (the actual base cases), there will need to be $\log_3(n)$ layers in the tree. 
+
+** Master Method
+The general recurrence relation for this process is as follows:
+
+\begin{equation}
+   T(n) = 3T\left(\frac{n}{3} \right) + \theta(n)
+\end{equation}
+
+We can see that $a=3, b=3, d=1$, and the base case is $c=1$. $b^d = 3$, which is equal to $a$.
+
+Therefore, by the Master Method, we can say that the runtime for the algorithm is $\theta(nlog(n))$.
+
+** Did the student win?
+No. The $\theta$ time complexity between Merge and TriMerge is exactly the same, and the constant factor of TriMerge $\frac{5}{3}n-2$ is roughly $\frac{2}{3}n$ larger than the $n-1$ 
 

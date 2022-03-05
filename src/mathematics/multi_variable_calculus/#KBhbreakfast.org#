@@ -1,0 +1,41 @@
+:PROPERTIES:
+:ID:       A66D67FD-045D-4BFC-9B6D-C46D43BA8CBB
+:END:
+#+title: Breakfast
+#+author: Houjun Liu
+
+Hi Andrew,
+I am not sure if I can bring you breakfast, but here's a small (though actually kind of hard) puzzle.
+
+The following array encodes a string by ASCII codes:
+
+#+begin_src clojure
+'(33 126 115 97 102
+  107 107 101 114 98
+  32 111 109 111 115
+  32 125 39 101 114
+  101 82)
+#+end_src
+
+Although... I made some alterations to it such that it will be a little harder than usual to decipher.
+
+-----
+
+Here's the solution:
+
+#+begin_src clojure
+(let [breakfast '(33 126 115 97 102
+                     107 107 101 114 98
+                     32 111 109 111 115
+                     32 125 39 101 114
+                     101 82)]
+  (apply str (map-indexed
+              #(char (if (= (mod %1 5) 0)
+                       (- %2 10) %2)) (reverse breakfast))))
+#+end_src
+
+#+RESULTS:
+: Here's some breakfast!
+
+Anyways. Thank you very much for all that you have done for me this semester!
+

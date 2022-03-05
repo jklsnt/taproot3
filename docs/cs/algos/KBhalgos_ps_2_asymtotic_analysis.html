@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-02-02 Wed 09:27 -->
+<!-- 2022-02-07 Mon 21:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Algos PS#2 Asymtotic Analysis</title>
@@ -263,38 +263,43 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Algos PS#2 Asymtotic Analysis</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-02-02 Wed 09:26</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Algos PS#2 Asymtotic Analysis</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-02-07 Mon 10:35</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org0b8ddb8">1. Asymptotically Analyze</a>
+<li><a href="#org7b3d522">1. Asymptotically Analyze</a>
 <ul>
-<li><a href="#org597070d">1.1. 1.a</a></li>
-<li><a href="#orgad1d1a6">1.2. 1.b</a></li>
-<li><a href="#orgede249f">1.3. 1.c</a></li>
-<li><a href="#org44e8ae7">1.4. 1.d</a></li>
-<li><a href="#orgde3c1f1">1.5. 1.e</a></li>
-<li><a href="#org9040279">1.6. 1.f</a></li>
+<li><a href="#orgc4a1e9a">1.1. 1.a</a></li>
+<li><a href="#org16c2c4a">1.2. 1.b</a></li>
+<li><a href="#org081b971">1.3. 1.c</a></li>
+<li><a href="#orgbcc9a72">1.4. 1.d</a></li>
+<li><a href="#org74853a8">1.5. 1.e</a></li>
+<li><a href="#org4572c68">1.6. 1.f</a></li>
 </ul>
 </li>
-<li><a href="#org2c766d3">2. Vampires</a></li>
-<li><a href="#orga69045b">3. TriSort</a>
+<li><a href="#org7be88cf">2. Vampires</a></li>
+<li><a href="#org2a3bed9">3. TriSort</a>
 <ul>
-<li><a href="#org93dad73">3.1. Three Sorted Lists</a></li>
-<li><a href="#org0d35d04">3.2. Recurrence Running Time</a></li>
+<li><a href="#org8cc4c82">3.1. Three Sorted Lists</a></li>
+<li><a href="#orge5103fe">3.2. Recurrence Running Time</a></li>
+<li><a href="#org92890ae">3.3. Drawing a Recurrence Tree</a></li>
+<li><a href="#org3a91498">3.4. Number of Comparisons at Each Layer</a></li>
+<li><a href="#orgad7c1ae">3.5. Height of the Tree</a></li>
+<li><a href="#orga2252a2">3.6. Master Method</a></li>
+<li><a href="#org93b54fd">3.7. Did the student win?</a></li>
 </ul>
 </li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org0b8ddb8" class="outline-2">
-<h2 id="org0b8ddb8"><span class="section-number-2">1</span> Asymptotically Analyze</h2>
+<div id="outline-container-org7b3d522" class="outline-2">
+<h2 id="org7b3d522"><span class="section-number-2">1</span> Asymptotically Analyze</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org597070d" class="outline-3">
-<h3 id="org597070d"><span class="section-number-3">1.1</span> 1.a</h3>
+<div id="outline-container-orgc4a1e9a" class="outline-3">
+<h3 id="orgc4a1e9a"><span class="section-number-3">1.1</span> 1.a</h3>
 <div class="outline-text-3" id="text-1-1">
 \begin{align}
 f(n) = n^2, g(n) = 3n+1
@@ -319,8 +324,8 @@ Therefore:
 </div>
 </div>
 
-<div id="outline-container-orgad1d1a6" class="outline-3">
-<h3 id="orgad1d1a6"><span class="section-number-3">1.2</span> 1.b</h3>
+<div id="outline-container-org16c2c4a" class="outline-3">
+<h3 id="org16c2c4a"><span class="section-number-3">1.2</span> 1.b</h3>
 <div class="outline-text-3" id="text-1-2">
 \begin{align}
 f(n) = \frac{3n-7}{n+4}, g(n)=4
@@ -346,8 +351,8 @@ Therefore:
 </div>
 </div>
 
-<div id="outline-container-orgede249f" class="outline-3">
-<h3 id="orgede249f"><span class="section-number-3">1.3</span> 1.c</h3>
+<div id="outline-container-org081b971" class="outline-3">
+<h3 id="org081b971"><span class="section-number-3">1.3</span> 1.c</h3>
 <div class="outline-text-3" id="text-1-3">
 \begin{align}
 f(n) = 4^n, g(n)=2^n
@@ -372,8 +377,8 @@ Therefore:
 </div>
 </div>
 
-<div id="outline-container-org44e8ae7" class="outline-3">
-<h3 id="org44e8ae7"><span class="section-number-3">1.4</span> 1.d</h3>
+<div id="outline-container-orgbcc9a72" class="outline-3">
+<h3 id="orgbcc9a72"><span class="section-number-3">1.4</span> 1.d</h3>
 <div class="outline-text-3" id="text-1-4">
 \begin{align}
 f(n) = n!, g(n)=n^n
@@ -398,8 +403,8 @@ Therefore:
 </div>
 </div>
 
-<div id="outline-container-orgde3c1f1" class="outline-3">
-<h3 id="orgde3c1f1"><span class="section-number-3">1.5</span> 1.e</h3>
+<div id="outline-container-org74853a8" class="outline-3">
+<h3 id="org74853a8"><span class="section-number-3">1.5</span> 1.e</h3>
 <div class="outline-text-3" id="text-1-5">
 \begin{align}
 f(n) = 2^n, g(n)=2^{\frac{n}{2}}
@@ -424,8 +429,8 @@ Therefore:
 </div>
 </div>
 
-<div id="outline-container-org9040279" class="outline-3">
-<h3 id="org9040279"><span class="section-number-3">1.6</span> 1.f</h3>
+<div id="outline-container-org4572c68" class="outline-3">
+<h3 id="org4572c68"><span class="section-number-3">1.6</span> 1.f</h3>
 <div class="outline-text-3" id="text-1-6">
 \begin{align}
 f(n) = n^8, g(n)=1.1^n
@@ -459,8 +464,8 @@ Therefore:
 </div>
 </div>
 
-<div id="outline-container-org2c766d3" class="outline-2">
-<h2 id="org2c766d3"><span class="section-number-2">2</span> Vampires</h2>
+<div id="outline-container-org7be88cf" class="outline-2">
+<h2 id="org7be88cf"><span class="section-number-2">2</span> Vampires</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The open-form recurrence relationship for vampires is as follows:
@@ -586,35 +591,34 @@ Since \(P(n)\) implies \(P(n+1)\), and we have proven the base case, by inductio
 </div>
 </div>
 
-<div id="outline-container-orga69045b" class="outline-2">
-<h2 id="orga69045b"><span class="section-number-2">3</span> TriSort</h2>
+<div id="outline-container-org2a3bed9" class="outline-2">
+<h2 id="org2a3bed9"><span class="section-number-2">3</span> TriSort</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org93dad73" class="outline-3">
-<h3 id="org93dad73"><span class="section-number-3">3.1</span> Three Sorted Lists</h3>
+<div id="outline-container-org8cc4c82" class="outline-3">
+<h3 id="org8cc4c82"><span class="section-number-3">3.1</span> Three Sorted Lists</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
-For every element, it will take two comparisons to remove. However, for the last two elements, we only need one comparison as it is only comparing exactly two things against each other. Therefore:
+To sort two lists, the fastest method is to sort the first two list, then sort the third.
 </p>
 
 <ul class="org-ul">
-<li>\(2(n-2)+1\)</li>
-<li>\(2n-4+1\)</li>
-<li>\(2n-3\)</li>
+<li>\((\frac{2}{3}n-1) + (n-1)\)</li>
+<li>\(\frac{5}{3}n -2\)</li>
 </ul>
 
 <p>
-Therefore, for a three sorted list, each with \(\frac{n}{3}\) elements, the worst case runtime would be \(2n-3\) to merge the lists together&#x2014;the worst-case case is to place a pointer on each element to do incremental element comparison.
+Therefore, for a three sorted list, each with \(\frac{n}{3}\) elements, the worst case runtime would be \(\frac{5}{3}n -2\) to merge the lists together&#x2014;the worst-case case is to place a pointer on each element to do incremental element comparison.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org0d35d04" class="outline-3">
-<h3 id="org0d35d04"><span class="section-number-3">3.2</span> Recurrence Running Time</h3>
+<div id="outline-container-orge5103fe" class="outline-3">
+<h3 id="orge5103fe"><span class="section-number-3">3.2</span> Recurrence Running Time</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>\(T(1) = 1\)</li>
-<li>\(T(n) = 3T(\frac{n}{3}) + (2n-3)\)</li>
+<li>\(T(n) = 3T(\frac{n}{3}) + (\frac{5}{3}n-2)\)</li>
 </ul>
 
 <p>
@@ -622,11 +626,74 @@ Furthermore:
 </p>
 
 \begin{equation}
-\lim_{n\to \infty} \frac{n}{2n-3} = \frac{1}{2} < \infty 
+\lim_{n\to \infty} \frac{n}{\frac{5}{3}n-2} = \frac{1}{2} < \infty 
 \end{equation}
 
 <p>
-Therefore: \(2n-3 = \theta(n)\).
+Therefore: \(\frac{5}{3}n-2 = \theta(n)\). The resulting expression, therefore is that:
+</p>
+
+\begin{equation}
+   T(n) = 3T\left(\frac{n}{3} \right) + \theta(n)
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org92890ae" class="outline-3">
+<h3 id="org92890ae"><span class="section-number-3">3.3</span> Drawing a Recurrence Tree</h3>
+<div class="outline-text-3" id="text-3-3">
+
+<div id="org8c64155" class="figure">
+<p><img src="2022-02-02_09-39-21_screenshot.png" alt="2022-02-02_09-39-21_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3a91498" class="outline-3">
+<h3 id="org3a91498"><span class="section-number-3">3.4</span> Number of Comparisons at Each Layer</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+At each layer, there is \(a\frac{n}{a}\) comparisons (\(3\) nodes of \(\frac{n}{3}\) on the first, \(9\) nodes of \(\frac{n}{9}\), etc.). Therefore, each layer of the tree has \(\theta(n)\) comparisons.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgad7c1ae" class="outline-3">
+<h3 id="orgad7c1ae"><span class="section-number-3">3.5</span> Height of the Tree</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+WLOG at large values of \(n\), we will assume that the number of elements in the list are a power of \(3\) to make a balanced tree. To divide \(n\) by \(3\) recursively until we result at \(1\) (the actual base cases), there will need to be \(\log_3(n)\) layers in the tree. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga2252a2" class="outline-3">
+<h3 id="orga2252a2"><span class="section-number-3">3.6</span> Master Method</h3>
+<div class="outline-text-3" id="text-3-6">
+<p>
+The general recurrence relation for this process is as follows:
+</p>
+
+\begin{equation}
+   T(n) = 3T\left(\frac{n}{3} \right) + \theta(n)
+\end{equation}
+
+<p>
+We can see that \(a=3, b=3, d=1\), and the base case is \(c=1\). \(b^d = 3\), which is equal to \(a\).
+</p>
+
+<p>
+Therefore, by the Master Method, we can say that the runtime for the algorithm is \(\theta(nlog(n))\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org93b54fd" class="outline-3">
+<h3 id="org93b54fd"><span class="section-number-3">3.7</span> Did the student win?</h3>
+<div class="outline-text-3" id="text-3-7">
+<p>
+No. The \(\theta\) time complexity between Merge and TriMerge is exactly the same, and the constant factor of TriMerge \(\frac{5}{3}n-2\) is roughly \(\frac{2}{3}n\) larger than the \(n-1\) 
 </p>
 </div>
 </div>

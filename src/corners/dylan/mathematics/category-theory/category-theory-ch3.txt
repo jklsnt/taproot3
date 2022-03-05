@@ -1,0 +1,59 @@
+# Chapter 3
+
+Spivak talks about databases
+
+We finally get to talk about categories now! Not V-categories, but ordinary categories.
+A "category" is a set of objects, a set of "morphisms" of any two objects, an "identity morphism" for any object and itself, and a "composite morphism" for two morphisms that "overlap"
+Categories are:
+* unital: composing a morphism with an identity does nothing
+* associative: (f ; g) ; h = f ; (g ; h)
+From any graph we get a Free Category on the graph such that the objects are the vertices of the graph and the morphisms are the paths from obe vertex to another.
+Graphs with path equations are called a finite presentation for a category, which create finitely-presented categories.
+Preorders are categories and categories are preorders because preorders are just categories where parallel morphisms are equal
+
+Some important categrioes
+$Set$ : category of sets
+* Ob($Set$) is collection of all sets
+* Morphisms: set of all functions from one object to another
+* Identity morphism is just the identity map
+** FinSet is a category of finite sets
+$Top$ : category of topological spaces
+$Grph$: category of graphs
+$Meas$: category of measure spaces
+$Mon$ : category of monoids
+$Grp$ : category of groups
+$Cat$ : category of categories
+
+Isomorphism is a morphism such that there exists another morphism such that their composites are identity maps. If there exists an isomorphism between two objects, they are isomorphic
+
+Functors are maps between categories.
+Each object in the first category is mapped to an object in the second category, and the morphisms are mapped based on their source and destination.
+Functors between preorders are monotone maps
+A functor from a category to $Set$ is called a "set-valued functor" on the original category, which is the basis of database theory
+All database instances are a functor from the database schema category to $Set$, called an instance of the original category
+
+A "natural transformation" from one functor to another (with same source and destination) is a functor that specifies a morphism from one functor of an element to another functor of the element
+Natural transformation is commulative: Square diagram
+If all morphisms resulting from a natural transformation are isomorphisms, then the natural transformation is a "natural isomorphism"
+A diagram of a category is a functor from another category (the indexing category) to the category. The diagram "commutes" if for any parallel pair of morphisms in the indexing category the diagram is equal.
+The functor category is a category whose objects are functors from one category to the other and whose morphisms are natural transformations between one functor to the other.
+An instance homomorphism is a natural transformation between two functors from a category to $Set$.
+One cool thing is that we can think of graphs as functors from $Gr$ to $Set$. We can think of the set of all graphs as a category ($Gr-Inst$). Then, the morphisms of $Gr-Inst$ will be graph homomorphisms - natural transformations between the graphs (which are functors).
+
+The composite of a functor from one category to another and a functor from another to $Set$ is called the pullback. 
+We can think of an adjunction (galois connection like thing) between two categories as two functors from one category to another and back such that:
+* for c in C and d in D, C(c, R(d)) ~> D(L(c), d)
+Galois connections between preorders are adjunctions between categories
+Currying is a consequence of adjunction: A * B -> C is isomorphic to A -> C^B
+
+Given a functor from A to B, the delta of that functor is from B to A and destroys or copies data.
+The sum functor over the functor is from A to B and maps the union of all objects that are mapped to the object in B to the object in B.
+The product functor over the functor is from A to B and maps the set of all pairs whose outbound morphisms are equivelent (isomorphic?) Kinda operates like a join
+Database migration and schematic changes can be conceptualized as functors
+
+There is exactly one functor from a category to $1$ (category of 1 item)
+An instance of $1$ is just a set. Both Sum and Product are functors from the category instance to sets in this case.
+In the case of graphs:
+* The sum gives us a partition of vertices in the instance, grouped by whether they are connected or not.
+* The product gives us the set of arrows that are isomorphic to the identity morphism.
+

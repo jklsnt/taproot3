@@ -1,8 +1,6 @@
 ---
 title:   Japanese speekin prep
-context: jpn401
-author:  Huxley Marvit
-date: 2021-12-02
+context: jpn401 author:  Huxley Marvit date: 2021-12-02
 ---
 
 #hw #ref
@@ -95,17 +93,44 @@ dona tabemono ga ichiban suki desuka? // what is your favorite food?
 - doyatte
 	- how
 
+# oh god
+*whatever.*
 
+- programming competition
 
+## some sentences
+- do you have time? (initiation)
+	- tenkiga arimasuka?
 
+- i did a coding competition
+	- codingu contesto o shitakotoga arimasu
 
+- i did well
+	- yoku de ki mashi ta
+	
+- because of that, i did coding all weekend
+	- sorede, shyuomatsu wa codingu ba_kari shite imashita
 
+- it was hard
+	- muzukashidesu
 
+- it was hard but interesting
+	- muzukashi desuga, omoshiroi desu
 
+- its name is USACO
+	- USACO toiu contestu
 
+- this is called b
+	- B toiu mono desu
 
+- i will do another contest
+	- mou hitotsu contesto o suru tsu ri desu
 
-
+- do you think this is interesting?
+	- ~omoshiroi  to omimasuka?
+	
+- what did you do over the weekend?
+	- sensei wa, shyumatsu ni nani o shimashitaka?
 
 
 

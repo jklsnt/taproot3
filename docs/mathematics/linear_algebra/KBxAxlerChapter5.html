@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-02-08 Tue 14:36 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Axler Chapter 5</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley Marvit" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Axler Chapter 5</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2022-02-08 Tue 14:36</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBrefDiagonalMatrix.html'>Diagonal Matrix and Diagonalizability</a></li> <li><a class='backlink' href='KBrefInvertibleLinearMaps.html'>Invertibility of Linear Maps</a></li> <li><a class='backlink' href='KBrefSurjectiveFunction.html'>Surjectivity of Functions</a></li> <li><a class='backlink' href='KBrefInjective.html'>Injectivity (math)</a></li> <li><a class='backlink' href='index.html'>Linear Algebra Master Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#eigen-things">1. Eigen things!</a>
+<ul>
+<li><a href="#b">1.1. 5.B!</a></li>
+<li><a href="#c-inclass">1.2. 5.C, inclass</a>
+<ul>
+<li><a href="#so-what-is-diagonalization-anyways">1.2.1. so, what is diagonalization anyways?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<p>
+#flo #hw
+</p>
+
+<hr />
+
+<div id="outline-container-eigen-things" class="outline-2">
+<h2 id="eigen-things"><span class="section-number-2">1</span> Eigen things!</h2>
+<div class="outline-text-2" id="text-eigen-things">
+<p>
+instead of maps from vec space to another vec space, this is about a vec
+space to itself
+</p>
+
+<p>
+the study of this is the most important part of linalg, according to
+axler
+</p>
+
+<p>
+a subpsace which gets mapped into itself is an <b>invariant subspace</b>
+</p>
+
+<p>
+ie, a subspace can be invarant under T if \(T|_U\) is an operator on
+\(U\)
+</p>
+
+<hr />
+
+<p>
+pausing, pg 133
+</p>
+
+<p>
+simplest possible nontrivial invariant subspace is an invariant subspace
+with dim 1
+</p>
+
+<p>
+we can take any non-zero vector in V and make the set of all scalar
+multiples of it \(\text{span}(v) = U = \{ \lambda v : \lambda \in F \}\)
+thus, \(U\) must have dim 1, cus we only need the org vec to define the
+basis
+</p>
+
+<p>
+if \(U\) is invariant under an operator, then that means that
+\(Tv \in U\) which means that there exists some scalar in <b>F</b> which does
+the same thing as the map \[Tv = \lambda v\]
+</p>
+
+<hr />
+
+<p>
+pausing, again, pg. 134
+</p>
+
+<p>
+we get the formal definiion of an eigenvalue, which is essentially the
+scalar from F that does the same thing as the transformation
+</p>
+
+<p>
+we also get relations to surjectivity and injectivyt and invertibility
+and ect. <a href="KBrefSurjectiveFunction.html">KBrefSurjectiveFunction</a>
+<a href="KBrefInjective.html">KBrefInjective</a>
+<a href="KBrefInvertibleLinearMaps.html">KBrefInvertibleLinearMaps</a>
+</p>
+
+<p>
+an eigenvector is the corresponding vector that you pass through the
+linear map / \(\lambda\) ie, a vector that only get's scaled when you
+pass it through a linear map, as opposed to getting rotated or
+transalated
+</p>
+
+<p>
+we also know that eigenvectors are LID when they have distinct
+eigenvalues and also, the number of distinc eigen values has to be
+\(\leq\) dim v
+</p>
+
+<p>
+restirction operators and quotient operators restricted to U means you
+can only map into U? ie, instead of U -&gt; V, it becomes U -&gt; U?
+</p>
+</div>
+
+<div id="outline-container-b" class="outline-3">
+<h3 id="b"><span class="section-number-3">1.1</span> 5.B!</h3>
+<div class="outline-text-3" id="text-b">
+<p>
+the reason why we care more about operators than normal linear maps is
+because operators can be raised to powers we can do \(T^{2}\), because
+we know it will be in \(\mathcal{L}(V)\) ! they follow all the normal
+exponentiation rules, except that \(T^0\) is the identity
+</p>
+
+<p>
+and we get polynomial \(p(T)\) which is where instead of
+\(z \dots z^{m}\) we have T's
+</p>
+
+<p>
+and also, <b>operators on complex vector spaces have an eigenvalue</b>
+</p>
+
+<p>
+define diagonal of a matrix to be the diagonal of a sqaure matrix upper
+triangular is when all entries below the diag are 0. the
+upper-triangular matrix is usually represented in the form: \[
+\begin{pmatrix} 
+\lambda_1 &  & * \\   & \ddots  &  \\ 0  &  & \lambda_n
+\end{pmatrix};
+\]
+</p>
+
+<p>
+which is very pretty!
+</p>
+
+<p>
+every operator over C has an upper triangular matrix we can also use
+these to determine where the operator is invertible. if the diag
+contains any 0's then it's non invertible!
+</p>
+
+<p>
+relation to eigen values,
+</p>
+
+<p>
+if the operator has an upper-triangular matrix w.r.t. some basis of V,
+then the eigenvalues of that operator are the entries on the diag.
+</p>
+
+<p>
+and with that, we get to ## 5.C! diagonals and eigenspaces <i>oh boy, here
+comes the real stuff!</i>
+</p>
+
+<p>
+diag matrix is a matrix with only non-zero numbers on the diag
+</p>
+
+<p>
+the eigenvalues of an operator are the entries along the diag of a diag
+matrix
+</p>
+
+<p>
+and we also get to define, <b>eigenspace</b> denoted \(E(\lambda, T)\) which
+is the set of all eigenvectors corresponding to \(\lambda\) + 0 vec
+(which is also a subspace)
+</p>
+
+<p>
+and, ofc, the sum of the eigenspaces is a direct sum, as a single vec
+cannot be scaled by multiple \(\lambda\)'s
+</p>
+
+<p>
+import def, <b>diagonalizable</b> operators on V can be diagonlizable if the
+op has a diag matrix w.r.t. some basis of V
+</p>
+
+<p>
+also a bunch of things that are equivalent to being diagonalizable,
+shown in 5.41
+</p>
+</div>
+</div>
+
+<div id="outline-container-c-inclass" class="outline-3">
+<h3 id="c-inclass"><span class="section-number-3">1.2</span> 5.C, inclass</h3>
+<div class="outline-text-3" id="text-c-inclass">
+<p>
+#extract?
+</p>
+
+<ul class="org-ul">
+<li>linear algebra can be seen as an equivalence class between multiple
+different forms
+
+<ul class="org-ul">
+<li>algebra is about manipulating these different representations</li>
+</ul></li>
+
+<li>diagonal form is one of these forms. its one of the <i>standard</i> forms</li>
+</ul>
+</div>
+
+<div id="outline-container-so-what-is-diagonalization-anyways" class="outline-4">
+<h4 id="so-what-is-diagonalization-anyways"><span class="section-number-4">1.2.1</span> so, what is diagonalization anyways?</h4>
+<div class="outline-text-4" id="text-so-what-is-diagonalization-anyways">
+<p>
+<a href="KBrefDiagonalMatrix.html">KBrefDiagonalMatrix</a>
+</p>
+
+<p>
+how we actually compute the eigenvalues is not how axler computes the
+eigen values how we actully do it, is set \((A-\lambda I) v = 0\) this
+is also equaivalent to the inverse of the first term not existing and
+the determinant being 0
+</p>
+
+<p>
+the determinant of a matrix is the product of its eigenvalues! whaaaat?
+</p>
+
+<p>
+the charateristic equation of a matrix A becomes a polynomial of degree
+N
+</p>
+
+<pre class="example" id="org6ca4d41">
+title: characteristic polynomial
+the characteristic polynomial of a square matrix is a polynomial which is invariant under matrix similarity and has the eigenvalues as roots. -google
+</pre>
+
+<p>
+the <b>trace</b> is the sum of the diag
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

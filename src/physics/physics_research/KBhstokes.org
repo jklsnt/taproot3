@@ -1,0 +1,31 @@
+:PROPERTIES:
+:ID:       D797EFB2-128F-4911-92F6-896625A555BB
+:END:
+#+title: Quadratic Drag?
+#+author: Houjun Liu
+
+- $1000$ balls
+- $0.3$ kg in total
+- $0.002$ each in radius
+- $1.81 \times 10^{-5}$ kg/(ms) viscocity
+
+#+begin_src sage
+air_density = 1.225
+air_viscocity = 1.81*10^(-5)
+radius = 0.002
+mass = 0.3
+
+# V = var("V")
+# renolds(V) = (air_density*V*(2*radius))/air_viscocity
+
+# renolds(10)
+
+drag_coefficient = 0.8
+
+F_d = drag_coefficient*0.5*air_density*pi*radius^2*V^2
+
+float(solve(F_d * 1000 - mass*9.8, V)[1].rhs())
+#+end_src
+
+#+RESULTS:
+: 21.85096861184158

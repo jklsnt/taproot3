@@ -1,0 +1,62 @@
+:PROPERTIES:
+:ID:       9F1B7816-389E-40C0-9311-F142E570813B
+:END:
+#+title: DGC 2 Practical Divergence
+#+author: Houjun Liu
+
+* Del Operator
+We know from before that the divergence of $\vec{F}$ in normal Cartesian coordinates is equal to:
+
+\begin{equation}
+div\ \vec{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_x}{\partial y} + \frac{\partial F_x}{\partial z}
+\end{equation}
+
+We will define an operator $\nabla$ with the following property:
+
+\begin{equation}
+   \nabla = \hat{i}\frac{\partial}{\partial x} + \hat{j}\frac{\partial}{\partial y} + \hat{k}\frac{\partial}{\partial z}
+\end{equation}
+
+Which, given its shape, we can actually express $div\ \vec{F}$ in a much simpler way:
+
+\begin{equation}
+\nabla \cdot \vec{F}    
+\end{equation}
+
+which would result in the same expression for divergence as defined above.
+
+* Divergence Theorem
+We will now begin exploring a proof for the Divergence Theorem: that the sum of divergence over a volume is equal to the surface integral of that surface.
+
+We first clam that, per intuition, that the surface integral of an object is the sum of the surface integrals of all of its surfaces:
+
+\begin{equation}
+   \iint_S \vec{F} \cdot \hat{n}\ dS = \sum^N_{l=1} \iint_{S_i} \vec{F} \cdot \hat{n}\ dS 
+\end{equation}
+
+Any adjacent subfaces that are not part of the outer face $S_1, S_2$ will have $\hat{n_1} = -\hat{n_2}$, whose sums of surface will cancel each out. Therefore, the above expression holds.
+
+We will now expand the above expression by multiplying and diving by the differential volume at each step:
+
+\begin{equation}
+   \sum^N_{l=1} \iint_{S_i} \vec{F} \cdot \hat{n}\ dS = \sum^N_{l=1} \left[ \frac{1}{\Delta V_l} \iint_{S_i} \vec{F} \cdot \hat{n}\ dS\right] \Delta V_l
+\end{equation}
+
+We furthermore show that, for the expression in the bracket, we literally have the formal definition of divergence at some surface $i$. Therefore:
+
+\begin{equation}
+   \sum^N_{l=1} \left[ \frac{1}{\Delta V_l} \iint_{S_i} \vec{F} \cdot \hat{n}\ dS\right] \Delta V_l = \sum^N_{l=1} \left[ \nabla \cdot \vec{F} \right]_i \Delta V_l
+\end{equation}
+
+And lastly, as $N \to \infty$ and $\Delta V_l \to 0$ (as we are working at a point)---per the definition of a surface integral at a point:
+
+\begin{equation}
+    \lim_{N\to \infty, \Delta V_i\to0} \sum^N_{l=1} \left[ \nabla \cdot \vec{F} \right]_i \Delta V_l = \iiint_V \nabla \cdot \vec{F}\ dV
+\end{equation}
+
+We can see that, essentially, the sum becomes a normal volume integral! Hence, it turns out that its much easier to calculate the surface integral by calculating its divergence, then summing; that:
+
+\begin{equation}
+   \iint_S \vec{F} \cdot \hat{n}\ dS = \iiint_V \nabla \cdot \vec{F}\ dV
+\end{equation}
+

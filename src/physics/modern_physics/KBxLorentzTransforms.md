@@ -28,7 +28,7 @@ t' = \frac{(t-vx)}{\sqrt{1-v^2}}
 $$
 and ect
 
-
+***
 
 
 

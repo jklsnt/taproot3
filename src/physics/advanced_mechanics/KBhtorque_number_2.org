@@ -1,0 +1,90 @@
+:PROPERTIES:
+:ID:       68C06A3F-B4C3-4385-BE1C-3DB2B97842A8
+:END:
+#+title: Torque Number 2
+#+author: Houjun Liu
+
+* Problem 1
+The circumference of the circle: $2\pi R$. To travel this circumference, it will mean traveling all of $2\pi$ under the speed of $\omega$, which means it will take $\frac{2\pi}{\omega}$.
+
+Finally, therefore, the tangential velocity will require traveling $2 \pi R$ in $\frac{2\pi}{\omega}$:
+
+\begin{equation}
+   V = 2\pi R \div \frac{2\pi}{\omega}  = \frac{2\omega \pi R}{2\pi} = \omega R 
+\end{equation}
+
+And finally, in order to calculate angular momentum:
+
+\begin{equation}
+   \vec{L}(t) = \vec{r} \times m \vec{V}_0
+\end{equation}
+
+We will find the magnitude of this expression first:
+
+\begin{align}
+   |\vec{L}| &= |\vec{r}||m\vec{v_0}|\sin\theta\\
+&= Rm \omega R \sin\left(\frac{\pi}{2}\right)\\
+&= m\omega R^2 
+\end{align}
+
+Furthermore, by the right hand rule, we can see that the direction of $\vec{L}$ is out of the page given the drawn figure.
+
+* Problem 2
+If a ball is traveling through space with no net force, given Newton's first law, it will travel linearly with velocity $\vec{v}_0$ at the direction thereof.
+
+We can model this by the following figure:
+
+#+DOWNLOADED: screenshot @ 2022-02-16 08:01:22
+[[file:2022-02-16_08-01-22_screenshot.png]]
+
+We can see that if we define a coordinate system parallel to the direction of travel, we can have each $\sin(\theta) \vec{R_0}$ be equal to each other throughout the travel.
+
+Therefore:
+\begin{align} \vec{L}(t) &= \vec{r} \cross m\vec{V_0}\\ &= |\vec{r}||m\vec{v_0}|\sin\theta\\ &= |\vec{r}|\sin\theta|m\vec{v}_0|
+\end{align}
+
+We see that though $\sin\theta$ and $\vec{r}$ are the two non-constant terms in the expression, the projection of $\vec{r} \sin\theta$ would be equal if we are leveraging the equality as given above would stay constant as per the figure above because the $y$ coordinate for every position is the same in our coordinate system (and hence the $y$ projection would be the same). 
+
+Therefore, all elements of $\vec{L}(t)$ is constant---making the overall angular momentum constant.
+
+* Problem 3
+
+Proof:
+
+\begin{equation}
+   \vec{\tau}_{net} = \frac{d\vec{L}}{dt} 
+\end{equation}
+
+We are going to first take the expression for angular momentum:
+
+\begin{equation}
+   \vec{L}(t) = \vec{r} \times m \vec{V}
+\end{equation}
+
+And, as per prescribed to the right, take its derivative:
+
+\begin{align}
+   \frac{d\vec{L}}{dt} &= \frac{d}{dt} (\vec{r} \times m\vec{V}) \\
+&=\frac{d}{dt} (\vec{r} \times m\vec{V}) \\
+&= \left(\frac{d\vec{r}}{dt} \times m\frac{d\vec{r}}{dt}\right) + \left(\vec{r} \times m\frac{d\vec{V}}{dt}\right)\\
+&= 0 + \left(\vec{r} \times m\frac{d\vec{V}}{dt}\right)\\
+&= \left(\vec{r} \times m\frac{d\vec{V}}{dt}\right)\\
+&= \vec{r} \times m\frac{d\vec{V}}{dt}
+\end{align}
+
+The only technique we took here is simply the cross-product product rule.
+
+Lastly, therefore, we know that the first derivative of velocity is acceleration. Hence:
+
+\begin{align}
+   \frac{d\vec{L}}{dt} &= \frac{d}{dt} (\vec{r} \times m\vec{V}) \\
+&= \vec{r} \times m\frac{d\vec{V}}{dt}\\
+&= \vec{r} \times m\vec{a}\\
+&= \vec{r} \times \vec{F}
+\end{align}
+
+Of course, $\vec{\tau}_{net} = \vec{r}\times\vec{F}_{net}$. Hence:
+
+\begin{equation}
+   \vec{\tau}_{net} = \frac{d\vec{L}}{dt} \ \blacksquare
+\end{equation}

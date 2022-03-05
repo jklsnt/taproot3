@@ -12,6 +12,7 @@ title:   Advanced Probability
 - [[KBxNotNaiveProbability]]
 - [[KBxMonteHall]]
 - [[KBxFirstStepAnalysis]]
+- [[KBxRandomVariables]]
 
 
 

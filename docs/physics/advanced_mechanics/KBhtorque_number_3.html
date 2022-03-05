@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-03-04 Fri 13:21 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Torque Number 3</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Torque Number 3</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-04 Fri 13:20</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#orgfe6ff06">1. External Torque</a></li>
+<li><a href="#org00dbad1">2. Two Rotating Point Masses</a>
+<ul>
+<li><a href="#org2d4a55b">2.1. Angular Momentum from \(m_1\)</a></li>
+<li><a href="#org2d01507">2.2. Angular Momentum from \(m_2\)</a></li>
+<li><a href="#orgc28b6e7">2.3. Summing the \(\vec{L_i}\) s</a></li>
+</ul>
+</li>
+<li><a href="#orgfa4d905">3. Rigid Body Generalization</a>
+<ul>
+<li><a href="#org495fd51">3.1. N-Mass Formula</a></li>
+<li><a href="#org3e980f2">3.2. The angular momentum of \(m_i\)</a></li>
+<li><a href="#org0530935">3.3. Angular momentum of the system</a></li>
+<li><a href="#orgc0df428">3.4. Actual Integral Expression</a></li>
+</ul>
+</li>
+<li><a href="#orgd4b1fdd">4. The Rod</a></li>
+<li><a href="#org380f53d">5. The Disk</a></li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-orgfe6ff06" class="outline-2">
+<h2 id="orgfe6ff06"><span class="section-number-2">1</span> External Torque</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Proof:
+</p>
+
+\begin{equation}
+\vec{\tau}_{total\ ext} = \frac{d \vec{L}_{system}}{dt}
+\end{equation}
+
+<p>
+According to the work that is already done, we have that:
+</p>
+
+\begin{equation}
+   \frac{d \vec{L}_{system}}{dt} = \vec{\tau}_{tot\ ext} + \sum_{1 \leq i < j \leq N} \left[ (\vec{r}_i \times \vec{F}_{j \to i}) + (\vec{r}_j \times \vec{F}_{i \to j}) \right]
+\end{equation}
+
+<p>
+The left expression \(\vec{\tau}_{tot\ ext}\) already achieves what we want in terms of the final expression, so the right expression must cancel to \(0\). 
+</p>
+
+<p>
+We first begin by recognizing, by Newton's Third Law, \(\vec{F}_{i\to j} = -\vec{F}_{j\to i}\) as long as both objects are within the system. Therefore, we will first begin by making this substitution below:
+</p>
+
+\begin{align}
+(\vec{r}_i \times \vec{F}_{j \to i}) + (\vec{r}_j \times \vec{F}_{i \to j}) =  (\vec{r}_j \times \vec{F}_{i \to j}) -(\vec{r}_i \times \vec{F}_{i \to j})
+\end{align}
+
+<p>
+We further understand that the cross-product is distributive across addition; therefore:
+</p>
+
+\begin{align}
+(\vec{r}_i \times \vec{F}_{j \to i}) + (\vec{r}_j \times \vec{F}_{i \to j}) &=  (\vec{r}_j \times \vec{F}_{i \to j}) -(\vec{r}_i \times \vec{F}_{i \to j})\\
+&= (\vec{r}_j-\vec{r_i}) \times \vec{F}_{i \to j}
+\end{align}
+
+<p>
+At this point, we realise that a vector \(\vec{r_i}\) subtracted from \(\vec{r_j}\) is a vector \(i \to j\), which would be parallel to \(\vec{F}_{i \to j}\). As such, their cross products would be zero.
+</p>
+
+<p>
+Completing the proof, then:
+</p>
+
+\begin{align}
+   \frac{d \vec{L}_{system}}{dt} &= \vec{\tau}_{tot\ ext} + \sum_{1 \leq i < j \leq N} \left[ (\vec{r}_i \times \vec{F}_{j \to i}) + (\vec{r}_j \times \vec{F}_{i \to j}) \right] \\
+&= \vec{\tau}_{tot\ ext} + \sum_{1 \leq i < j \leq N} 0 \\
+&= \vec{\tau}_{tot\ ext} + 0 \\
+&= \vec{\tau}_{tot\ ext}\ \blacksquare
+\end{align}
+
+
+<div id="org096ba22" class="figure">
+<p><img src="./2022-03-01_14-44-25_screenshot.png" alt="2022-03-01_14-44-25_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org00dbad1" class="outline-2">
+<h2 id="org00dbad1"><span class="section-number-2">2</span> Two Rotating Point Masses</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+We do this problem by calculating the angular momentum of each of the \(m_{\{1,2\}}\), and adding the angular accelerations together.
+</p>
+
+<p>
+The system is given by this figure:
+</p>
+
+
+<div id="orga7c5baf" class="figure">
+<p><img src="2022-03-03_22-44-48_screenshot.png" alt="2022-03-03_22-44-48_screenshot.png" />
+</p>
+</div>
+
+<p>
+We define a coordinate such that the "figure"'s left is the negative y direction, the "figure"'s right is the positive y direction. The side "outside" the page is the positive x direction, and the side "inside" the page is the negative x direction.
+</p>
+</div>
+
+<div id="outline-container-org2d4a55b" class="outline-3">
+<h3 id="org2d4a55b"><span class="section-number-3">2.1</span> Angular Momentum from \(m_1\)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+We begin with the expression for tangential velocity, which is simply \(R \omega\).
+</p>
+
+<p>
+Therefore:
+</p>
+
+\begin{align}
+   \vec{V} &= (R\hat{j})(\omega \hat{k}) \\
+&=(R\omega) (\hat{j}\hat{k})\\
+&=R\omega \hat{i}
+\end{align}
+
+<p>
+We will supply this expression for that of the angular momentum: \(\vec{R} \times m\vec{V}\):
+</p>
+
+\begin{align}
+   \vec{L} &= \vec{r} \times m\vec{V} \\
+&=(-R\hat{j} + h\hat{k}) \times m(R\omega \hat{i})\\
+&=-R\hat{j}\times mR\omega \vec{i} + h\hat{k}\times mR\omega \vec{i} \\
+&=-mR^2\omega (\hat{j}\times\hat{i}) + h mR\omega (\hat{k}\times\hat{i}) \\
+&=mR^2\omega \hat{k} + h mR\omega \hat{j} 
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org2d01507" class="outline-3">
+<h3 id="org2d01507"><span class="section-number-3">2.2</span> Angular Momentum from \(m_2\)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+The calculations here is essentially almost the same. We just need to take a few sign changes as \(R\) in \(m_2\) is in the opposite direction as \(R\) in \(m_1\).
+</p>
+
+<p>
+Therefore:
+</p>
+
+\begin{align}
+   \vec{V} &= (-R\hat{j})(\omega \hat{k}) \\
+&=(-R\omega) (\hat{j}\hat{k})\\
+&=-R\omega \hat{i}
+\end{align}
+
+<p>
+And, as with before, we supply it to the previous expression.
+</p>
+
+\begin{align}
+   \vec{L} &= \vec{r} \times m\vec{V} \\
+&=(R\hat{j} + h\hat{k}) \times m(-R\omega \hat{i})\\
+&=R\hat{j}\times -mR\omega \vec{i} + h\hat{k}\times -mR\omega \vec{i} \\
+&=-mR^2\omega (\hat{j}\times\vec{i}) - h mR\omega (\hat{k}\times\vec{i}) \\
+&=mR^2\omega \hat{k} - h mR\omega \hat{j} 
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgc28b6e7" class="outline-3">
+<h3 id="orgc28b6e7"><span class="section-number-3">2.3</span> Summing the \(\vec{L_i}\) s</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+We will now sub the two \(\vec{L_i}\) s together:
+</p>
+
+\begin{align}
+   \vec{L}_1 + \vec{L}_2 &= mR^2\omega \hat{k} + h mR\omega \hat{j} +mR^2\omega \hat{k} - h mR\omega \hat{j} \\
+&= mR^2\omega \hat{k} +mR^2\omega \hat{k} + h mR\omega \hat{j}  - h mR\omega \hat{j}\\
+&= 2mR^2\omega \hat{k} + 0\\
+&= 2mR^2\omega \hat{k}\ \blacksquare
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfa4d905" class="outline-2">
+<h2 id="orgfa4d905"><span class="section-number-2">3</span> Rigid Body Generalization</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org495fd51" class="outline-3">
+<h3 id="org495fd51"><span class="section-number-3">3.1</span> N-Mass Formula</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+We will think about a single mass \(m_i\) in isolation. We will use \(\ell_i\) to represent the perpendicular distance from \(m_i\) to \(\hat{k}\). 
+</p>
+
+<p>
+We begin by analyzing some \(m_i\), and add all \(m_i\) together.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3e980f2" class="outline-3">
+<h3 id="org3e980f2"><span class="section-number-3">3.2</span> The angular momentum of \(m_i\)</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+For every object \(m_i\), we take it being arranged at some \(\theta\) between \(\hat{i}\) and \(\hat{j}\). We will perform the same procedures as with above to calculate angular momentum.
+</p>
+
+<p>
+\(\ell_i\) is angled between \(\hat{i}\) and \(\hat{j}\). Specifically, it is located at:
+</p>
+
+\begin{equation}
+   \ell_i = cos(\theta) \ell_i\hat{i} + sin(\theta) \ell_i\hat {j} 
+\end{equation}
+
+<p>
+We will calculate the tangential velocity, as usual:
+</p>
+
+\begin{align}
+   \vec{V} &= (cos(\theta) \ell_i\hat{i} + sin(\theta) \ell_i\hat {j})(\omega \hat{k}) \\
+&= cos(\theta)\ell_i(\omega \hat{k}) \hat{i} + sin(\theta)\ell_i(\omega \hat{k}) \hat {j}\\
+&= cos(\theta)\ell_i\omega (\hat{k} \hat{i}) + sin(\theta)\ell_i\omega (\hat{k} \hat {j})\\
+&= cos(\theta)\ell_i\omega \hat{j} - sin(\theta)\ell_i\omega \hat{i}
+\end{align}
+
+<p>
+And, as with before, we will supply it to the expression for angular momentum. 
+</p>
+
+\begin{align}
+   \vec{L} &= \vec{r} \times m\vec{V} \\
+&=(cos(\theta)\ell_i \hat{i} + sin(\theta)\ell_i \hat {j} + h\hat{k}) \times m(cos(\theta)\ell_i\omega \hat{j} - sin(\theta)\ell_i\omega \hat{i})\\
+&=(cos(\theta)\ell_i \hat{i} + sin(\theta)\ell_i \hat {j} + h\hat{k}) \times (mcos(\theta)\ell_i\omega \hat{j} - msin(\theta)\ell_i\omega \hat{i})
+\end{align}
+
+<p>
+We will now compute the actual cross product:
+</p>
+
+\begin{align}
+   \vec{L} = &(hmcos\theta \ell_i \omega) \hat{i}  +\\
+&(hmsin\theta\ell_i \omega)\hat{j} +\\
+&(m\omega(cos\theta \ell_i)^2 + m\omega(sin\theta \ell_i)^2)\hat{k}
+\end{align}
+
+<p>
+Let's expand the last term slightly:
+</p>
+
+\begin{align}
+  &m\omega(cos\theta \ell_i)^2 + m\omega(sin\theta \ell_i)^2\\
+=&m\omega(cos\theta \ell_i)^2 + m\omega(sin\theta \ell_i)^2\\
+=&m\omega\ cos^2\theta {\ell_i}^2 + m\omega\ sin^2 \theta {\ell_i}^2\\
+=&m\omega(1-sin^2\theta) {\ell_i}^2 + m\omega\ sin^2 \theta {\ell_i}^2 \\
+=&m\omega{\ell_i}^2- m\omega{\ell_i}^2sin^2\theta + m\omega\ sin^2 \theta {\ell_i}^2 \\
+=&m\omega{\ell_i}^2
+\end{align}
+
+<p>
+And therefore, we can re-write the following expression for \(\vec{L}\):
+</p>
+
+\begin{align}
+   \vec{L} = &(hmcos\theta \ell_i \omega) \hat{i}  +\\
+&(hmsin\theta\ell_i \omega)\hat{j} +\\
+&m\omega{\ell_i}^2\hat{k}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org0530935" class="outline-3">
+<h3 id="org0530935"><span class="section-number-3">3.3</span> Angular momentum of the system</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Therefore, the total momentum of the system would be:
+</p>
+
+\begin{align}
+       \vec{L} = \sum^N_{i=1} \left(hm\ cos\left(\frac{2\pi i}{N}\right) \ell_i \omega\right) \hat{i}  +\left(hm\ sin\left(\frac{2\pi i}{N}\right)\ell_i \omega\right)\hat{j} +m\omega{\ell_i}^2\hat{k}
+\end{align}
+
+<p>
+At this point, we need to remember the fact that the points in the generalized formula we are to derive are axially symmetric. This means that the components \(cos{\theta} \hat{i}\) and \(sin(\theta)\hat{j}\) will, pairwise, cancel each other out.
+</p>
+
+\begin{align}
+       \vec{L} &= \sum^N_{i=1} \left(hm\ cos\left(\frac{2\pi i}{N}\right) \ell_i \omega\right) \hat{i}  +\left(hm\ sin\left(\frac{2\pi i}{N}\right)\ell_i \omega\right)\hat{j} +m\omega{\ell_i}^2\hat{k}\\
+&=\sum^N_{i=1} 0 +m\omega{\ell_i}^2\hat{k}\\
+&=\sum^N_{i=1} m\omega{\ell_i}^2\hat{k}\\
+&=\hat{k}\omega\sum^N_{i=1} m{\ell_i}^2
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgc0df428" class="outline-3">
+<h3 id="orgc0df428"><span class="section-number-3">3.4</span> Actual Integral Expression</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+Our object has total mass \(M\) and volume \(V_0\). We will now determine an integral expression for its angular momentum.
+</p>
+
+<p>
+So far, we have that:
+</p>
+
+\begin{equation}
+ \vec{L}=\hat{k}\omega\sum^N_{i=1} m{\ell_i}^2
+\end{equation}
+
+<p>
+We will convert \(\ell_i = \ell(m)\), a function in terms of differential mass \(m\) that maps mass to the distance from \(z\) axis \(\ell\).
+</p>
+
+<p>
+Hence:
+</p>
+
+\begin{align}
+ \vec{L}&=\hat{k}\omega\sum^N_{i=1} m{\ell_i}^2\\
+&=\hat{k}\omega\int_V {\ell}^2dm\\
+&=\hat{k}\omega\int_V {\ell}^2\frac{dm}{dv} dV\\
+&=\hat{k}\omega\int_V {\ell}^2\frac{M}{V_0} dV
+\end{align}
+
+<p>
+In our last step, we can see that the ratio between differential \(\frac{dm}{dv}\) can be equivalent&#x2014;as all components of this system are point masses&#x2014;to the overall \(\frac{M}{V_0}\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd4b1fdd" class="outline-2">
+<h2 id="orgd4b1fdd"><span class="section-number-2">4</span> The Rod</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+In this problem, we essentially have a line of aligned infinitesimal point masses around the -center.
+</p>
+
+<p>
+For every point \(i\), we understand that its tangential velocity can be modeled by:
+</p>
+
+\begin{align}
+   \vec{V} &= (\ell_i\hat{j})(\omega \hat{k}) \\
+&=(\ell_i\omega) (\hat{j}\hat{k})\\
+&=\ell_i\omega \hat{i}
+\end{align}
+
+<p>
+We again supply this expression into that for \(\vec{L}\):
+</p>
+
+\begin{align}
+   \vec{L_i} &= \vec{r} \times m_i\vec{V} \\
+&=(\ell_i \hat{j} + h\hat{k}) \times m_i \ell_i \omega \hat{i}\\
+&=\ell_i  m_i \ell_i \omega (\hat{j}\times \hat{i}) + h m_i \ell_i \omega (\hat{k}\times\hat{i})\\
+&= -h m_i \ell_i \omega \hat{j}+{\ell_i}^2 m_i \omega \hat{k}
+\end{align}
+
+<p>
+To figure the actual momentum, we will have to sum the momentums for all \(i\):
+</p>
+
+\begin{equation}
+   \vec{L} = \sum_i \vec{L_i} = \sum_i \left(-h m_i \ell_i \omega \hat{j}+{\ell_i}^2 m_i \omega \hat{k}\right)
+\end{equation}
+
+<p>
+Of course, to actually perform the summation, we integrate over each differential mass:
+</p>
+
+\begin{align}
+    &\int_L \left(-h \ell \omega \hat{j}+\ell^2 \omega \hat{k}\right) dm\\
+=&\omega \int_L \left(-h\ell \hat{j}+\ell^2 \hat{k}\right) dm\\
+=&\omega \int_L \left(-h\ell \hat{j}+\ell^2 \hat{k}\right) \frac{dm}{dl} dl\\
+=&\omega \int_L \left(-h\ell \hat{j}+\ell^2 \hat{k}\right) \lambda dl\\
+=&\omega \lambda \int_L \left(- h\ell \hat{j}+\ell^2 \hat{k}\right) dl
+\end{align}
+
+<p>
+We now supply the integral with actual bounds: \([-\frac{L}{2}, \frac{L}{2}]\).
+</p>
+
+\begin{align}
+&\omega  \lambda\int_L \left(- h\ell \hat{j}+\ell^2 \hat{k}\right) dl \\
+=&\omega  \lambda\int_{-\frac{L}{2}}^{\frac{L}{2}} \left( -h\ell \hat{j}+\ell^2 \hat{k}\right) dl \\
+=&\omega  \lambda  \left(\int_{-\frac{L}{2}}^{\frac{L}{2}}-h\ell \hat{j}dl+\int_{-\frac{L}{2}}^{\frac{L}{2}}\ell^2 \hat{k} dl \right)\\
+=&\omega  \lambda  \left(h\hat{j}\int_{-\frac{L}{2}}^{\frac{L}{2}}\ell dl-\hat{k}\int_{-\frac{L}{2}}^{\frac{L}{2}}\ell^2  dl \right)\\
+=&\omega  \lambda  \left\left(-h\hat{j}\frac{\ell^2}{2} +\hat{k}\frac{\ell^3}{3}  \right)\right|_{-\frac{L}{2}}^{\frac{L}{2}}\\
+=&\omega  \lambda  \left(-h\hat{j}\frac{\frac{L}{2}^2}{2} +\hat{k}\frac{\frac{L}{2}^3}{3}  \right)-\left(-h\hat{j}\frac{\frac{-L}{2}^2}{2} +\hat{k}\frac{\frac{-L}{2}^3}{3}  \right)\\
+=& 2\frac{L^3}{24} \omega  \lambda   \hat{k}\\
+=& \frac{L^3}{12} \omega  \lambda   \hat{k}
+\end{align}
+
+<p>
+We continue be realizing that \(\lambda = \frac{M}{L}\). Supplying that to the equation:
+</p>
+
+\begin{align}
+& \frac{L^3}{12} \omega  \lambda   \hat{k} \\
+=& \frac{L^3}{12} \omega  \frac{M}{L} \hat{k} \\
+=& \frac{L^2}{12} M \omega  \hat{k} \\
+=& \frac{1}{12}L^2M \omega  \hat{k} 
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org380f53d" class="outline-2">
+<h2 id="org380f53d"><span class="section-number-2">5</span> The Disk</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Our original expression for the momentum in the system is the same. 
+</p>
+
+\begin{align}
+   \vec{L_i} &= \vec{r} \times m_i\vec{V} \\
+&=m\omega{\ell_i}^2\hat{k}
+\end{align}
+
+<p>
+We will have to add the angular momentum in two directions to get that of a disk:
+</p>
+
+\begin{equation}
+   \vec{L} = \sum_i \vec{L_i} = \sum_A \vec{L_i}
+\end{equation}
+
+<p>
+where, \(A\) is the area of the surface.
+</p>
+
+<p>
+To begin doing this, we will construct the differential operator for a disk. We understand the circumference of the circle is \(2 \pi r\) for some radius r. Furthermore, for a small ring with infinitesimal thickness \(dr\), it has an area of \(2\pi r dr\).
+</p>
+
+<p>
+Therefore:
+</p>
+
+\begin{equation}
+    da = 2\pi r dr
+\end{equation}
+
+<p>
+We finally want to find the expression for differential mass. Of course, it is simply the mass density \(\frac{dm}{da}\) multiplied by the value of \(da\).
+</p>
+
+\begin{align}
+   dm &= \frac{dm}{da}\ da\\
+&= \sigma\ da \\
+&= \frac{M}{\pi R^2} da\\
+&= \frac{M}{\pi R^2} 2\pi r dr\\
+&= \frac{2 rM}{R^2} dr
+\end{align}
+
+<p>
+We can now finally take the integral:
+</p>
+
+\begin{align}
+   &\int_{0}^{R} \vec{L}_i  \\
+\Rightarrow &\int_{0}^{R} \omega r^2\hat{k}\ dm\\
+\Rightarrow &\int_{0}^{R} \omega r^2\hat{k} \frac{2 rM}{R^2} dr\\
+\Rightarrow &\int_{0}^{R} \omega \hat{k} \frac{2 r^3M}{R^2} dr\\
+\Rightarrow &\frac{2 M \omega }{R^2} \hat{k}\int_{0}^{R}  r^3 dr\\
+\Rightarrow &\frac{2 M \omega }{R^2} \hat{k} \left(\left\frac{r^4}{4}\right|_0^R\right)\\
+\Rightarrow &\frac{2 M \omega }{R^2} \hat{k} \frac{R^4}{4}\\
+\Rightarrow &\frac{1}{2}MR^2 \omega \hat{k}\ \blacksquare
+\end{align}
+</div>
+</div>
+</div>
+</body>
+</html>

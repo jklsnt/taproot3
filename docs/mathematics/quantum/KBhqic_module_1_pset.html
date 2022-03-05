@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-02-13 Sun 22:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>QIC Module 1: Pset</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">QIC Module 1: Pset</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-02-13 Sun 22:06</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#orgbc23867">1. Problem 1</a></li>
+<li><a href="#orgca0a2e0">2. Problem 3</a>
+<ul>
+<li><a href="#orgeae2a73">2.1. Problem 3.1</a></li>
+<li><a href="#orga36309c">2.2. Problem 3.2</a></li>
+<li><a href="#orgfd44d58">2.3. Problem 3.3</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-orgbc23867" class="outline-2">
+<h2 id="orgbc23867"><span class="section-number-2">1</span> Problem 1</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Given the statement of the problem, we will take \(|S\big>\) and \(|S'\big>\) as a new set of basis over which we will work. The definition of \(|S\big>\) based upon the \(u,d\) basis has been supplied already:
+</p>
+
+\begin{equation}
+   |S\big> = \frac{2}{3} |u\big>+ \alpha |d\big>
+\end{equation}
+
+<p>
+For \(\big<S'|S\big>\), we will set:
+</p>
+
+\begin{equation}
+   |S'\big> \triangleq \alpha^*|u\big> - \frac{2}{3}|d\big> 
+\end{equation}
+
+<p>
+it is not difficult to verify that \(\big<S'|S\big> =0\) &#x2014;
+</p>
+
+\begin{equation}
+   \begin{pmatrix} 
+a & \frac{-2}{3}
+   \end{pmatrix}    \begin{pmatrix} 
+\frac{2}{3} \\ a
+   \end{pmatrix} = \frac{2a}{3} - \frac{2a}{3} = 0 
+\end{equation}
+
+<p>
+We know that the set of basis are orthogonal; therefore, their magnitudes must be 1. This leads us to the fact that:
+</p>
+
+\begin{align}
+   \Rightarrow &\left(\frac{2}{3}\right)^2 + \alpha \alpha^* = 1\\
+   \Rightarrow &\frac{4}{9} + \alpha \alpha^* = 1\\
+   \Rightarrow &\alpha \alpha^* = \frac{5}{9}
+\end{align}
+
+<p>
+Given this expression, one value that would suffice for \(\alpha\) would be:
+</p>
+
+\begin{equation}
+   \alpha\triangleq \frac{\sqrt{5}i}{3}
+\end{equation}
+
+<p>
+We now have, fully defined, the set of bases \(|S\big>, |S'\big>\) from which we will work:
+</p>
+
+\begin{equation}
+\begin{cases}
+|S \big> = \frac{2}{3}|u\big> + \frac{\sqrt{5}i}{3}|d\big>\\
+|S' \big> = \frac{-\sqrt{5}i}{3}|u\big> - \frac{2}{3}|d\big>\\
+\end{cases}
+\end{equation}
+
+<p>
+Next, we will transpose \(|R\big>\) to use the \(S, S'\) basis. Per the problem, we know that:
+</p>
+
+\begin{equation}
+   |R\big> = \frac{1+2i}{3}|u\big> + \beta |d\big>
+\end{equation}
+
+<p>
+For \(|R\big>\)'s components to consist a probability amplitude, we know that:
+</p>
+
+\begin{align}
+   &\left(\frac{1+2i}{3}\right)\left(\frac{1-2i}{3}\right) + \beta\beta^* = 1\\
+\Rightarrow & \frac{5}{9} + \beta\beta^* = 1 \\
+\Rightarrow & \beta\beta^* = 1-\frac{5}{9} \\
+\Rightarrow & \beta\beta^* = \frac{4}{9} 
+\end{align}
+
+<p>
+Very nicely, this is reminiscent along a part of the definition of \(|S\big>\) aforementioned. Therefore, we will take:
+</p>
+
+\begin{equation}
+   \beta\triangleq \frac{2}{3}
+\end{equation}
+
+<p>
+We can see that \(\beta^2 = \beta\beta^* = \frac{4}{9}\). Therefore, we can say that, in this care aforementioned:
+</p>
+
+\begin{equation}
+   |R\big> = \frac{1+2i}{3}|u\big> + \frac{2}{3} |d\big>
+\end{equation}
+
+<p>
+Let's finally perform the chance of basis operation.
+</p>
+
+\begin{align}
+    &\frac{1+2i}{3}|u\big> + \frac{2}{3} |d\big> = |R\big> = \gamma|S\big> + \delta |S'\big>\\
+\Rightarrow &\frac{1+2i}{3}|u\big> + \frac{2}{3} |d\big> = \gamma|S\big> + \delta |S'\big>\\
+\Rightarrow &\frac{1+2i}{3}|u\big> + \frac{2}{3} |d\big> = \gamma\left(\frac{2}{3}|u\big> + \frac{\sqrt{5}i}{3}|d\big>\right) + \delta \left(\frac{-\sqrt{5}i}{3}|u\big> - \frac{2}{3}|d\big>\right)\\
+\Rightarrow &\frac{1+2i}{3}|u\big> + \frac{2}{3} |d\big> = \frac{2\gamma-\sqrt{5}i\delta}{3}|u\big> + \frac{\sqrt{5}i\gamma-2\delta}{3}|d\big>
+\end{align}
+
+<p>
+which, separating each component:
+</p>
+
+\begin{equation}
+   \begin{cases}
+   \frac{1+2i}{3} = \frac{2\gamma-\sqrt{5}i\delta}{3} \\
+   \frac{2}{3} = \frac{\sqrt{5}i\gamma-2\delta}{3} 
+\end{cases}
+\end{equation}
+
+<p>
+Given this is a statement in two expressions and two unknowns, we can solve!
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">gamma = var("gamma", latex_name="\\gamma", domain="complex")
+delta = var("delta", latex_name="\\delta", domain="complex")
+
+eqn0 = (1+2*i)/3 == (2*gamma-sqrt(5)*i*delta)/3
+eqn1 = 2/3 == (sqrt(5)*i*gamma - 2*delta)/3
+
+latex(expand(solve((eqn0, eqn1), (gamma, delta))))
+</pre>
+</div>
+
+\begin{equation}
+    \left[\left[{\gamma} = -\frac{2}{9} i \, \sqrt{5} + \frac{4}{9} i + \frac{2}{9}, {\delta} = \left(\frac{1}{9} i - \frac{2}{9}\right) \, \sqrt{5} - \frac{4}{9}\right]\right]
+\end{equation}
+
+<p>
+And hence, we can now write \(|R\big>\) in the changed basis:
+</p>
+
+\begin{equation}
+   |R\big> = \frac{2+(4-2\sqrt{5})i}{9}|S\big> + \frac{-4-2\sqrt{5}+\sqrt{5}i}{9} |S'\big>
+\end{equation}
+
+<p>
+Lastly, given the wording of the problem, we understand that our \(|Q\big>\) measurement is defined as:
+</p>
+
+\begin{equation}
+   |Q\big> = \frac{1}{\sqrt{2}}|S\big> + c |S'\big>
+\end{equation}
+
+<p>
+where \(C\) is some probability amplitude. We will assign:
+</p>
+
+\begin{equation}
+   c\triangleq \frac{1}{\sqrt{2}}
+\end{equation}
+
+<p>
+which would satisfy the requirements of the probability amplitude. Therefore:
+</p>
+
+\begin{equation}
+   |Q\big> = \frac{1}{\sqrt{2}}|S\big> + \frac{1}{\sqrt{2}}|S'\big>
+\end{equation}
+
+<p>
+We are now <i>finally</i> set up to solve the problem:
+</p>
+
+\begin{align}
+   \big<Q|R\big>\big<R|Q\big> &= \left[\begin{pmatrix}
+\frac{1}{\sqrt{2}} &\frac{1}{\sqrt{2}} 
+\end{pmatrix} \begin{pmatrix}
+\frac{2+(4-2\sqrt{5})i}{9}\\ \frac{-4-2\sqrt{5}+\sqrt{5}i}{9} 
+\end{pmatrix}\right] \left[\begin{pmatrix}
+\frac{2+(-4+2\sqrt{5})i}{9}& \frac{-4-2\sqrt{5}-\sqrt{5}i}{9} 
+\end{pmatrix} \begin{pmatrix}
+\frac{1}{\sqrt{2}} \\\frac{1}{\sqrt{2}} 
+\end{pmatrix} \right]\\
+&=\left(\frac{-4-(2-i) \sqrt{5}}{9 \sqrt{2}}+\frac{2+i \left(4-2 \sqrt{5}\right)}{9 \sqrt{2}}\right) \left(\frac{-4-(2+i) \sqrt{5}}{9 \sqrt{2}}+\frac{2+i \left(2 \sqrt{5}-4\right)}{9 \sqrt{2}}\right)\\
+&= \frac{5}{18}
+\end{align}
+
+<p>
+There is about \(27.78\%\) chance that the measurement of \(|R\big>\) along \(|Q\big>\), given these parameters, would come up positive.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgca0a2e0" class="outline-2">
+<h2 id="orgca0a2e0"><span class="section-number-2">2</span> Problem 3</h2>
+<div class="outline-text-2" id="text-2">
+<blockquote>
+<p>
+Let:
+</p>
+
+\begin{align}
+   |i \big> = \alpha |u \big> + \beta | d \big >\\
+   |o \big> = \gamma |u \big> + \delta | d \big >
+\end{align}
+</blockquote>
+</div>
+
+<div id="outline-container-orgeae2a73" class="outline-3">
+<h3 id="orgeae2a73"><span class="section-number-3">2.1</span> Problem 3.1</h3>
+<div class="outline-text-3" id="text-2-1">
+<blockquote>
+<p>
+Show that:
+</p>
+
+\begin{equation}
+   \alpha^*\alpha = \beta^*\beta = \gamma^* \gamma = \delta^*\delta = \frac{1}{2}
+\end{equation}
+</blockquote>
+
+<p>
+We understand that \(|i\big>\) and \(|o\big>\), given their definition in Susskind ("in" and "out"), is perpendicular to \(|u \big>\) and \(|d\big>\) ("up" and "down.") For a cubit primed for either \(|i\big>\) or \(|o\big>\), then, there is \(50\%\) chance that \(|u \big>\) or \(|d\big>\) is measured.
+</p>
+
+<p>
+From this, in follows that:
+</p>
+
+\begin{equation}
+   \alpha^*\alpha = \beta^*\beta = \frac{1}{2}
+\end{equation}
+
+<p>
+by the same line of logic, it follows that:
+</p>
+
+\begin{equation}
+   \gamma^*\gamma = \delta^*\delta = \frac{1}{2}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orga36309c" class="outline-3">
+<h3 id="orga36309c"><span class="section-number-3">2.2</span> Problem 3.2</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+From the two above statement, we understand that \(\alpha = (a+bi)\) where \(a^2 + b^2 = \frac{1}{2}\), and \(\beta = (c+di)\).
+</p>
+
+<p>
+We want to figure values such that they would be perpendicular to both the up and down, left and right states. Tracing this back, we can solve for states that result in \(\frac{1}{2}\) chance of being measured given any of \(|u\big>,|d\big>,|l\big>, |r\big>\).
+</p>
+
+<p>
+Taking the values for \(|l\big>, |r\big>\) referenced by susskind, and the fact that \(|i\big>\) and \(|o\big>\) are perpendicular to \(|l\big>\) (and indeed as well as \(|r\big>\)), we can claim that:
+</p>
+
+\begin{equation}
+    \left(\frac{\alpha^*}{\sqrt{2}}+\frac{\beta^*}{\sqrt{2}}\right) \left(\frac{\alpha}{\sqrt{2}}+\frac{\beta}{\sqrt{2}}\right) = \frac{1}{2}
+\end{equation}
+
+<p>
+Expanding the left expression, we get that:
+</p>
+
+\begin{equation}
+    \frac{\alpha^*\alpha}{2} + \frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} + \frac{\beta\beta^*}{2} = \frac{1}{2}
+\end{equation}
+
+<p>
+From the above reasoning, we already deducted that \(\alpha^*\alpha = \beta^*\beta =\frac{1}{2}\), therefore:
+</p>
+
+\begin{align}
+    &\frac{1}{4} + \frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} + \frac{1}{4} = \frac{1}{2} \\
+    \Rightarrow &\frac{1}{2} + \frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} = \frac{1}{2} \\
+    \Rightarrow &\frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} = 0 \\
+    \Rightarrow &\alpha^*\beta + \alpha\beta^* = 0 
+\end{align}
+
+<p>
+The same logic follows directly for \(\gamma^*\delta + \gamma\delta^*\). WLOG for any chosen set of basis \(|l\big>\) and \(|r\big>\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfd44d58" class="outline-3">
+<h3 id="orgfd44d58"><span class="section-number-3">2.3</span> Problem 3.3</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+We know that \(|i\big>\) is perpendicular to both \(|l\big>\) and \(|r\big>\). Therefore, we know that:
+</p>
+
+\begin{equation}
+    \left(\frac{\alpha^*}{\sqrt{2}}+\frac{\beta^*}{\sqrt{2}}\right) \left(\frac{\alpha}{\sqrt{2}}+\frac{\beta}{\sqrt{2}}\right) = \big<i|r\big>\big<r|i\big> = \frac{1}{2}
+\end{equation}
+
+\begin{equation}
+    \left(\frac{\alpha^*}{\sqrt{2}}-\frac{\beta^*}{\sqrt{2}}\right) \left(\frac{\alpha}{\sqrt{2}}-\frac{\beta}{\sqrt{2}}\right)  = \big<i|l\big>\big<l|i\big> = \frac{1}{2}
+\end{equation}
+
+<p>
+Expanding the expressions, we can see that:
+</p>
+
+\begin{equation}
+    \frac{\alpha^*\alpha}{2} + \frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} + \frac{\beta\beta^*}{2} = \frac{1}{2}
+\end{equation}
+
+\begin{equation}
+    \frac{\alpha^*\alpha}{2} - \frac{\alpha^*\beta}{\sqrt{2}} - \frac{\alpha\beta^*}{\sqrt{2}} + \frac{\beta\beta^*}{2} = \frac{1}{2}
+\end{equation}
+
+<p>
+Given that, as we have discussed above \(a^*a = \frac{1}{2}\), we will see that:
+</p>
+
+\begin{equation}
+    \frac{1}{4} + \frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} + \frac{1}{4} = \frac{1}{2}
+\end{equation}
+
+\begin{equation}
+    \frac{1}{4} - \frac{\alpha^*\beta}{\sqrt{2}} - \frac{\alpha\beta^*}{\sqrt{2}} + \frac{1}{4} = \frac{1}{2}
+\end{equation}
+
+<p>
+and therefore:
+</p>
+
+\begin{equation}
+    \frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} = 0
+\end{equation}
+
+\begin{equation}
+    - \left(\frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}}\right) = 0
+\end{equation}
+
+<p>
+Finally, we will set the two expressions equal to each other as both are equal to \(0\):
+</p>
+
+\begin{equation}
+    \frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} = - \left(\frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}}\right)
+\end{equation}
+
+<p>
+We will now perform some algebraic manipulations:
+</p>
+
+\begin{align}
+    &\frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} = - \left(\frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}}\right)\\
+\Rightarrow &\alpha^*\beta + \alpha\beta^* = - \alpha^*\beta - \alpha\beta^*\\
+\Rightarrow &\alpha^*\beta = - \alpha\beta^*\\
+\Rightarrow &\alpha^*\beta = - (\alpha^*\beta)^* \\
+\Rightarrow &-\alpha^*\beta = (\alpha^*\beta)^*
+\end{align}
+
+<p>
+Given that the value of the conjugate of \(\alpha^*\beta\) is the same as \(-1\) times \(\alpha^*\beta\), \(\alpha^*\beta\) is purely imaginary. 
+</p>
+
+<p>
+And lastly, given the product of \(\alpha^*\beta\) is imaginary, \(\alpha\) and \(\beta\) cannot simultaneously be real&#x2014;otherwise the conjugate of \(\alpha\) would be real and therefore \(\alpha^*\beta\) would be real.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

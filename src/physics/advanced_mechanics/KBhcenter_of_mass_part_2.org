@@ -1,0 +1,121 @@
+:PROPERTIES:
+:ID:       DD1CFE0A-B6FE-4D83-A2CD-C8D9D392BA56
+:END:
+#+title: Center of Mass Part 2
+#+author: Houjun Liu
+
+* Problem 1
+
+** Center of Mass, Definition
+
+Per our discussion last semester, and derived via taking a double-integral over the expression for net force of a group of point-masses then dividing by mass, the center of mass' position can be figured via the following expression:
+
+\begin{equation}
+\vec{r_{CM}} = \frac{1}{M} \sum^n_{i=1} m_i \vec{r_i}
+\end{equation}
+
+where, $M$ is the total mass in the system, $m_i$ the mass of each sub-component, and $\vec{r_i}$ the position of the component.
+
+Therefore, for two objects $A,B$, with masses $M_A$, $M_B$, and center of mass located at $A_{CM} = (A_x, A_y, A_z)$, and $B_{CM} = (B_x, B_y, B_z)$, we can compute the location of the center of mass via the above-given expression; that:
+
+\begin{equation}
+   \vec{r_{CM}} = \frac{M_A(A_x,A_y,A_z) + M_B(B_x,B_y,B_z)}{M_A + M_B} 
+\end{equation}
+
+** N-Object System
+We have shown that the above expression satisfies for two systems $A$ and $B$. Furthermore, we have the base cases of zero objects, with the center of mass at the origin.
+
+By induction, therefore, the following follows:
+
+\begin{equation}
+   \vec{r_{CM}} = \frac{M_1(P_{(1,x)},P_{(1,y)},P_{(1,z)}) + \cdots + M_N(P_{(1,x)},P_{(1,y)},P_{(1,z)})}{M_1 + \cdots + M_N} 
+\end{equation}
+
+That: the position of the center of mass is simply the weighted average of all positions.
+
+* Big Mountain
+Given that the material that makes up Mount Fuji has uniform density, a unit volume will result in a unit mass in any given point. We will define a system where the origin is at the apex of the mountain, and where "downwards" is a positive direction.
+
+Therefore, we can write the center of mass as follows:
+
+\begin{equation}
+   \vec{r_{CM}} = \frac{\int_0^{h_f} (\pi \tan(65^\circ)h)^2 h\ dh}{\int_0^{h_f} (\pi \tan(65^\circ)h)^2 dh} 
+\end{equation}
+
+Where, $(\pi \tan(65^\circ)h)^2$ is the "area" (i.e. mass) at any given slice, and $h$ (outside the expression) the $z$ position of the CoM (as we know the $x$ and $y$ coordinates are $(0,0)$ respectively), $h_f=3600$ the apex height.
+ 
+We will note that the constant components immediately cancel:
+
+\begin{equation}
+   \vec{r_{CM}} = \frac{\int_0^{h_f} (h^2 h = h^3)\ dh}{\int_0^{h_f} h^2 dh} 
+\end{equation}
+
+And, therefore, taking the integrals:
+
+\begin{align}
+   \vec{r_{CM}} &= \frac{\int_0^{h_f} (h^2 h = h^3)\ dh}{\int_0^{h_f} h^2 dh} \\
+&= \frac{\int_0^{h_f} h^3\ dh}{\int_0^{h_f} h^2 dh}\\
+&= \frac{\frac{h^4}{4} \rvert_0^{h_f}}{\frac{h^3}{3} \rvert_0^{h_f}}\\
+&= \frac{\frac{{h_f}^4}{4}}{\frac{{h_f}^3}{3}}\\
+&= \frac{3{h_f}}{4}
+\end{align}
+
+We can see that, from the apex, the center of mass will be $\frac{3}{4}$ of the apex height. Therefore, it will be located at $2700$ m from the apex, or $900$ m from the origin.
+
+* Right Triangular Plate
+We again begin with the expression from first-principles of the center of mass of the object.
+
+\begin{equation}
+\vec{r_{CM}} = \frac{1}{M} \sum^n_{i=1} m_i \vec{r_i}
+\end{equation}
+
+As per instructed by the problem, for each small strip $\Delta x$ in the system, the center of mass is exactly halfway up from the middle.
+
+At any given strip, therefore, $(x, \frac{xh}{2b})$ would be the coordinate of its "middle"---its CoM: where $x$ is the x-position at the edge of any given strip, $h$ the given height of the triangle, and $b$ the given base. The right expression is given by the properties of similar triangles to figure the height at the strip, then dividing by 2.
+
+Furthermore, by the same token as leveraging $\Delta x$ strip above and similar triangles, each strip has a mass of $\Delta x \frac{xh}{b}$ scaled---as the mass is uniform---by some uniform mass scalar $M$.
+
+We also know that, given the shape of the triangle, the total area (i.e. mass) would be $\frac{1}{2}bh$.
+
+The final center of mass, therefore, can be expressed as two integrals each representing the $x$ and $y$ components of the CoM:
+
+\begin{equation}
+\begin{cases}
+   \vec{r_{cm}_x} = \frac{2}{bh}\int^b_0 \frac{xh}{b} (x)\Delta x \\
+   \vec{r_{cm}_y} = \frac{2}{bh}\int^b_0 \frac{xh}{b} \frac{xh}{2b} \Delta x 
+\end{cases}
+\end{equation}
+
+Let us solve each of these integrals!
+
+For the x-component:
+
+\begin{align}
+   \frac{2}{bh} \int_0^b \frac{xh}{b}x dx &= \frac{2}{bh} \int_0^b \frac{x^2h}{b} dx \\
+&= \frac{2}{bh} \frac{h}{b} \int_0^b x^2 dx \\
+&= \frac{2}{b^2} \int_0^b x^2 dx \\
+&= \frac{2}{b^2} \left(\frac{x^3}{3} \rvert_0^b \right)\\
+&= \frac{2}{b^2} \left(\frac{b^3}{3} \right)\\
+&= \frac{2}{3}b 
+\end{align}
+
+We conclude, therefore, that the $x$ component of the center of mass of the triangle is located at $\frac{2}{3}$ of its base.
+
+For the y-component:
+
+\begin{align}
+   \frac{2}{bh} \int^b_0 \frac{xh}{b} \frac{xh}{2b} dx &= \frac{2}{bh} \int^b_0 \frac{(xh)^2}{2b^2} dx\\
+&= \frac{2}{bh} \frac{h^2}{2b^2} \int^b_0 x^2 dx\\
+&= \frac{h}{b^3} \int^b_0 x^2 dx\\
+&= \frac{h}{b^3} \left(\frac{x^3}{3} \rvert^b_0\right)\\
+&= \frac{h}{b^3} \frac{b^3}{3}\\
+&= \frac{1}{3}h
+\end{align}
+
+We can further conclude that the $y$ component of the center of mass is located at $\frac{1}{3}$ of its height.
+
+Therefore, the position of the center of mass in a triangle like such highlighted is:
+
+\begin{equation}
+    \left(\frac{2}{3}b, \frac{1}{3}h\right)
+\end{equation}

@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-03-01 Tue 14:20 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Torque and Angular Momentum</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Torque and Angular Momentum</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-01 Tue 14:19</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#orgb37e69d">1. Rotational vs. Linear Dynamics</a></li>
+<li><a href="#org931c6c5">2. Angular Momentum</a></li>
+<li><a href="#org14be5e5">3. A bit of Uniform Circular Motion</a></li>
+<li><a href="#org6d3a302">4. Relationship between Torque and Angular Momentum</a></li>
+</ul>
+</div></div>
+</div>
+<p>
+Ok so we know that:
+</p>
+
+\begin{equation}
+   |\vec{\tau}| = |\vec{F_\perp}||\vec{r}| 
+\end{equation}
+
+<p>
+Different forces on different parts of a bar.
+</p>
+
+\begin{equation}
+   F\Delta x = F_1 |r| = \frac{F_1}{2}\cdot|2\vec{r}|
+\end{equation}
+
+<p>
+Applying a parallel force, instead of a perpendicular force, at an angle, only the perpendicular component is causing rotation.
+</p>
+
+<p>
+So really, the above statement is:
+</p>
+
+\begin{equation}
+   |\vec{\tau}| = |\vec{F}|\sin{\theta}|\vec{r}| 
+\end{equation}
+
+<p>
+The lever arm, of course, can be looked at as:
+</p>
+
+\begin{equation}
+   |\vec{\tau}| = |\vec{F}||\vec{r}| \sin{\theta}
+\end{equation}
+
+<p>
+And therefore, \(|\vec{r}_{\perp \vec{F}}|\) is the length of the lever arm.
+</p>
+
+<hr />
+
+<p>
+What's the direction of torque? 
+</p>
+
+\begin{equation}
+   |A \times B| = |\vec{A}| |\vec{B}| \sin{\theta} 
+\end{equation}
+
+<p>
+Direction:
+</p>
+
+<p>
+Use the right hand rule rotating 1st vector into the 2nd vector. (i.e. rotating \(\vec{A}\) into \(\vec{B}\). Fingers curl into the direction of rotation.
+</p>
+
+<div id="outline-container-orgb37e69d" class="outline-2">
+<h2 id="orgb37e69d"><span class="section-number-2">1</span> Rotational vs. Linear Dynamics</h2>
+<div class="outline-text-2" id="text-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Thing</th>
+<th scope="col" class="org-left">Linear</th>
+<th scope="col" class="org-left">Rotational</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Force</td>
+<td class="org-left">ma</td>
+<td class="org-left">Ialpha</td>
+</tr>
+
+<tr>
+<td class="org-left">Acceleration</td>
+<td class="org-left">a</td>
+<td class="org-left">alpha</td>
+</tr>
+
+<tr>
+<td class="org-left">Inertia</td>
+<td class="org-left">m</td>
+<td class="org-left">I</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Force</td>
+<td class="org-left">dp/dt</td>
+<td class="org-left">dL/dt</td>
+</tr>
+
+<tr>
+<td class="org-left">Momentum</td>
+<td class="org-left">p=mV</td>
+<td class="org-left">L=r x mV</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org931c6c5" class="outline-2">
+<h2 id="org931c6c5"><span class="section-number-2">2</span> Angular Momentum</h2>
+<div class="outline-text-2" id="text-2">
+\begin{align}
+   \tau &= \vec{r} \times \vec{F} \\
+&= \vec{r} \times M \frac{d\vec{v}}{dt}\\
+&= \frac{dL}{dt}
+\end{align}
+
+<p>
+Let's check that:
+</p>
+
+\begin{equation}
+   \vec{L} = \vec{r} \times m\vec{V}
+\end{equation}
+
+<p>
+Well, we can take the derivative on both sides:
+</p>
+
+\begin{equation}
+   \frac{d\vec{L}}{dt} = m\left(\frac{d \vec{r}}{dt} \times \vec{V} + \vec{r} \times \frac{d\vec{V}}{dt} \right) 
+\end{equation}
+
+<p>
+We know that \(\vec{V}\) is simply \(\frac{d\vec{r}}{dt}\), and so:
+</p>
+
+\begin{equation}
+   \frac{d\vec{L}}{dt} = m\left(\vec{V} \times \vec{V} + \vec{r} \times \frac{d\vec{V}}{dt} \right) 
+\end{equation}
+
+\begin{equation}
+   \frac{d\vec{L}}{dt} = m\left(0 + \vec{r} \times \frac{d\vec{V}}{dt} \right) 
+\end{equation}
+
+\begin{equation}
+   \frac{d\vec{L}}{dt} = m\vec{r} \times \frac{d\vec{V}}{dt}
+\end{equation}
+
+<p>
+And lastly
+</p>
+
+\begin{equation}
+   \frac{d\vec{L}}{dt} = m\vec{r} \times \vec{F}
+\end{equation}
+
+<p>
+:tada:
+</p>
+
+<p>
+So \(\frac{dL}{dt} = \tau\).
+</p>
+
+<hr />
+
+<p>
+Remember to use the same reference frame for the content.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org14be5e5" class="outline-2">
+<h2 id="org14be5e5"><span class="section-number-2">3</span> A bit of Uniform Circular Motion</h2>
+<div class="outline-text-2" id="text-3">
+
+<div id="org919403c" class="figure">
+<p><img src="2022-02-18_12-44-24_screenshot.png" alt="2022-02-18_12-44-24_screenshot.png" />
+</p>
+</div>
+
+
+\begin{equation}
+    |\vec{V}| = \omega R
+\end{equation}
+
+<p>
+And really, the vector \(V\) is represented as:
+</p>
+
+\begin{equation}
+   \vec{V} = \omega \times \vec{R} 
+\end{equation}
+
+<p>
+\(\omega\) would be defined in a direction such that the above statement makes sense.
+</p>
+
+<p>
+To maintain uniform circular motion, we need to balance a system onto both directions
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6d3a302" class="outline-2">
+<h2 id="org6d3a302"><span class="section-number-2">4</span> Relationship between Torque and Angular Momentum</h2>
+<div class="outline-text-2" id="text-4">
+\begin{equation}
+   \vec{\tau} = \frac{d\vec{L}}{dt} 
+\end{equation}
+
+<p>
+and, for:
+</p>
+
+\begin{equation}
+   \vec{L} \triangleq \frac{d\vec{L}_{syst}}{dt} 
+\end{equation}
+
+<hr />
+
+\begin{equation}
+   \vec{L} \triangleq \vec{r} \times \vec{p} 
+\end{equation}
+
+\begin{equation}
+   \vec{\tau} \triangleq \vec{r} \times \vec{F} 
+\end{equation}
+
+<p>
+and so, finally:
+</p>
+
+\begin{equation}
+   \vec{\tau} = \frac{d\vec{L}}{dt} 
+\end{equation}
+
+<p>
+for a point mass.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+#+TITLE: Center of Mass (2)
+#+AUTHOR: Dylan Wallace
+
+* 1)
+** a)
+The center of mass of a collection of $N$ masses, each with position vector $\vec{r}_{i}$ and mass $m_{i}$ where $1 \leq i \leq N$, is given by
+\begin{aligned}
+\vec{CM} &= \frac{\sum_{i=1}^{N} \vec{r}_{i}m_{i}}{\sum_{i=1}^{N} m_{i}} \\
+\end{aligned}
+
+We can rewrite the center of mass of $A$ and $B$ with this equation as such:
+
+\begin{aligned}
+\vec{A}_{CM} &= \frac{\sum_{i=1}^{N} \vec{r_{A;i}}\cdot m_{A;i}}{M_{A}} \\
+\vec{B}_{CM} &= \frac{\sum_{i=1}^{N} \vec{r_{B;i}}\cdot m_{B;i}}{M_{B}} \\
+\end{aligned}
+
+We can rewrite this as follows:
+\begin{aligned}
+\vec{A}_{CM}\cdot M_{A} &= \sum_{i=1}^{N} \vec{r}_{A;i}\cdot m_{A;i} \\
+\vec{B}_{CM}\cdot M_{B} &= \sum_{i=1}^{N} \vec{r}_{B;i}\cdot m_{B;i} \\
+\end{aligned}
+Note that the two sums on the right side of the equations are the sum of all constituent objects' position vectors weighted by mass. Finding the total center of mass is now trivial.
+\begin{aligned}
+\vec{CM} &= \frac{\sum_{i=1}^{N} \vec{r}_{i}m_{i}}{\sum_{i=1}^{N} m_{i}} \\
+&= \frac{\vec{A}_{CM}\cdot M_{A} + \vec{B}_{CM}\cdot M_{B}}{M_{A} + M_{B}} \\
+\end{aligned}
+
+** b)
+See the equation above.
+* 2)
+The center of mass of the rod is given by
+\begin{aligned}
+CM &= \frac{\int_{0}^{L} x\cdot \lambda_{0}(x/L) \,dx}{\int_{0}^{L} \lambda_{0}(x/L) \,dx}
+\end{aligned}
+We solve for the integrals:
+\begin{aligned}
+\int_{0}^{L} x\cdot \lambda_{0}(x/L) \,dx &= \frac{\lambda_{0}}{L} \int_{0}^{L} x^{2} \,dx \\
+&= \frac{\lambda_{0}}{L} \cdot \frac{L^3}{3} \\
+&= \frac{\lambda_{0}L^2}{3} \\
+\end{aligned}
+
+\begin{aligned}
+\int_{0}^{L} \lambda_{0}(x/L)\,dx &= \frac{\lambda_{0}}{L} \int_{0}^{L} x\,dx \\
+&= \frac{\lambda_{0}}{L}\cdot \frac{L^2}{2} \\
+&= \frac{\lambda_{0}L}{2} \\
+\end{aligned}
+
+We now plug back in:
+\begin{aligned}
+CM &= \frac{\frac{\lambda_{0}L^2}{3}}{\frac{\lambda_{0}L}{2}} \\
+&= \frac{2}{3}L \\
+\end{aligned}
+
+* 3)
+We are given that the density of the mountain is the same. Therefore, the mass of the mountain at a specific height is given by the area of the horizontal slice at that height.
+The radius of the slice of a cone, given angle $\theta$, and at height $h$, is given by the following equation:
+\begin{aligned}
+r(h) &= (H-h)\tan{(\theta)} \\
+\end{aligned}
+The area is trivial:
+\begin{aligned}
+a(h) &= \pi r(h)^2 &= \pi (H-h)^2 \tan^2{(\theta)} \\
+\end{aligned}
+We can essentially do the same thing we did for Problem 2:
+
+\begin{aligned}
+CM &= \frac{\int_{0}^{H} h\cdot a(h) \,dh}{\int_{0}^{H} a(h) \,dh} \\
+\end{aligned}
+
+We solve for the integrals:
+\begin{aligned}
+\int_{0}^{H} h\cdot a(h) \,dh &= \pi\tan^2{(\theta)} \int_{0}^{H} (H-h)^2h \,dh \\
+&= \pi\tan^2{(\theta)} \cdot \frac{H^4}{12} \\
+\end{aligned}
+\begin{aligned}
+\int_{0}^{H} a(h) \,dh &= \pi\tan^2{(\theta)} \int_{0}^{H} (H - h)^2 \,dh \\
+&= \pi\tan^2{(\theta)}\cdot \frac{H^3}{3}\\
+\end{aligned}
+
+We plug in:
+\begin{aligned}
+CM &= \pi\tan^2{(\theta)} \cdot (\frac{\frac{H^4}{12}}{\frac{H^3}{3}}) \\
+&= \pi\tan^2{(\theta)} \cdot \frac{H}{4}
+\end{aligned}
+
+We plug in the actual values for the height and whatnot; that is, $H = 3800$ and $\theta = \frac{65}{2}^\circ$.
+\begin{aligned}
+CM &= \pi\tan^2{(\frac{65}{2}^\circ)}\cdot \frac{3800}{4} \\
+&= 1211
+\end{aligned}
+
+* 4)
+We imagine the plate as resting on top of the xy plane.
+We know that the triangle plate has a uniform thickness $t$, so the z-component of the center of mass should just be $\frac{z}{2}$.
+We consider the base of the triangle as lying on the x-axis. We can find the length of a vertical strip of the triangle at point $0 \leq x \leq b$ with the following function:
+\begin{aligned}
+l(x) &= \frac{h}{b}x \\
+\end{aligned}
+We know that for any strip of uniform mass, the center of mass must be at half the length of the strip. Therefore, the center of mass of a strip for any $x$ must be
+\begin{aligned}
+CM(x) &= x\hat{i} + \frac{hx}{2b}\hat{j} \\
+\end{aligned}
+Also, the mass at $x$ has to be proportional to its length, so
+\begin{aligned}
+M(x) &= l(x) &= \frac{h}{b}x \\
+\end{aligned}
+We now set up the integral:
+\begin{aligned}
+CM &= \frac{\int_{0}^{b} M(x)CM(x) \,dx}{\int_{0}^{b} M(x)\,dx} \\
+\end{aligned}
+
+We solve for each integral:
+
+\begin{aligned}
+\int_{0}^{b} M(x)CM(x) \,dx &= \int_{0}^{b} \frac{h}{b}x^2\hat{i} \,dx + \frac{h^2}{2b^2}x^2\hat{j} \,dx \\
+&= \int_{0}^{b} \frac{h}{b}x^2\,dx \cdot\hat{i} + \int_{0}^{b} \frac{h^2}{2b^2}x^2 \,dx \cdot\hat{j} \\
+&= \frac{h}{b} \int_{0}^{b} x^2 \,dx \cdot\hat{i} + \frac{h^2}{2b^2}\int_{0}^{b}x^2 \,dx \cdot \hat{j} \\
+&= \frac{h}{b}\cdot \frac{b^3}{3}\hat{i} + \frac{h^2}{2b^2}\cdot \frac{b^3}{3}\hat{j} \\
+&= \frac{hb^2}{3}\hat{i} + \frac{h^2b}{6}\hat{j}
+\end{aligned}
+\begin{aligned}
+\int_{0}^{b} M(x)\,dx &= \int_{0}^{b} \frac{h}{b}x \,dx \\
+&= \frac{h}{b} \int_{0}^{b} x \,dx \\
+&= \frac{h}{b}\cdot \frac{b^2}{2} \\
+&= \frac{hb}{2} \\
+\end{aligned}
+
+We plug back in.
+
+\begin{aligned}
+CM &= \frac{\frac{hb^2}{3}\hat{i} + \frac{h^2b}{6}\hat{j}}{\frac{hb}{2}} \\
+&= \frac{2b}{3}\hat{i} + \frac{h}{3}\hat{j} \\
+\end{aligned}
+

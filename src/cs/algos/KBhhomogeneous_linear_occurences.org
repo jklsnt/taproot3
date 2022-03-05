@@ -1,0 +1,39 @@
+:PROPERTIES:
+:ID:       A56A22F4-E3A3-431E-BE5B-BDB206446426
+:END:
+#+title: Homogeneous Linear Occurences
+#+author: Houjun Liu
+
+* Motivation: Fibonacci series
+Each number is the sum of two previous numbers, we all know it:
+
+\begin{equation}
+   1,1,2,3,5,8,13,21,\ldots 
+\end{equation}
+
+How many digits does the /billionth/ number have? We obviously can't just compute it.
+
+* Motivation: Bernie Sanders Memes???
+- $T(n) = 3$
+- $T(n) = T(n-1) + 2T(n-1) - 2T(n-2)$
+
+That, the first $T(n-1)$ are the meme makers of the day, $2T(n-1)$ are the newly anointed meme makers, and $2T(n-2)$ are the tired meme-makers.
+
+Let's, instead, guess that there is some kind of exponential relationship, in perspective to a variable $r$ with a few degrees of freedom:
+
+\begin{align}
+&T(n) = T(n-1) + 2T(n-1) - 2T(n-2) \\
+&T(n) -T(n-1) - 2T(n-1) + 2T(n-2) = 0  \\
+&r^n -r^{ n-1 } - 2r^{n-1} + 2^{n-2} = 0  \\
+&r^n -3r^{ n-1 } + 2^{n-2} = 0  \\
+&r^{n-2} (r-2)(r-1)= 0  \\
+&r=\{0,1,2\}
+\end{align}
+
+So there must be some kind of exponential relationship:
+
+\begin{equation}
+   T(n) = a(1^n) + b(2^n) + c(0^n) 
+\end{equation}
+
+We can finally solve for $a$ and $b$ given the base cases: then we know that $b=3$, $a=-3$.

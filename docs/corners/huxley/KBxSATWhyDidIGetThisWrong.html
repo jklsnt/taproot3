@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-03-02 Wed 18:26 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Why did i get this wrong?</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huxley Marvit" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Why did i get this wrong?</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2022-03-02 Wed 18:26</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#why-did-i-get-this-wrong">1. Why did i get this wrong?</a>
+<ul>
+<li><a href="#tests">1.1. tests</a>
+<ul>
+<li><a href="#ajt-2">1.1.1. ajt #2</a></li>
+<li><a href="#bb1">1.1.2. bb1</a></li>
+<li><a href="#bb3">1.1.3. bb3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#to-review">2. To review</a></li>
+</ul>
+</div></div>
+</div>
+<p>
+#ref
+</p>
+
+<hr />
+
+<div id="outline-container-why-did-i-get-this-wrong" class="outline-2">
+<h2 id="why-did-i-get-this-wrong"><span class="section-number-2">1</span> Why did i get this wrong?</h2>
+<div class="outline-text-2" id="text-why-did-i-get-this-wrong">
+<p>
+<i>an on-going journal to help me review questions i got wrong, so i can
+learn from them and improve in the future.</i>
+</p>
+</div>
+
+<div id="outline-container-tests" class="outline-3">
+<h3 id="tests"><span class="section-number-3">1.1</span> tests</h3>
+<div class="outline-text-3" id="text-tests">
+</div>
+<div id="outline-container-ajt-2" class="outline-4">
+<h4 id="ajt-2"><span class="section-number-4">1.1.1</span> ajt #2</h4>
+<div class="outline-text-4" id="text-ajt-2">
+<hr />
+
+<p>
+reading 1-8 :: d, c
+</p>
+
+<ul class="org-ul">
+<li>i didn't recognize the contrast. the word in question was referring to
+before, not after. this contrast eliminates three answers.</li>
+<li>however, i see no evidence for the correct answer.
+
+<ul class="org-ul">
+<li>#revisit this w/ @selina</li>
+</ul></li>
+</ul>
+
+<p>
+lesson: look for the contrast! <b>*</b> reading 1-30 :: d, c
+</p>
+
+<ul class="org-ul">
+<li>i interpreted the data! no. interpretation. remember your training.</li>
+<li>stuck between c and d, should have recognized that nothing in c was
+wrong, so i was either missing something, or c was the right answer.</li>
+</ul>
+
+<p>
+lesson: do not interpret. operate at lower level of abstraction! <b>*</b>
+reading 1-32 :: d, b
+</p>
+
+<ul class="org-ul">
+<li>answer choice "ruined" implies that it was once good, which there is
+no evidence for. everything needs evidence.</li>
+<li>this was a "valid in classroom" mistake</li>
+</ul>
+
+<p>
+lesson: make sure to be clear about the assumptions you are making. <b>*</b>
+reading: 1-37 :: c, d
+</p>
+
+<ul class="org-ul">
+<li>the answer i chose had essentially the same meaning as the correct
+one, but it wasn't about the future!</li>
+<li>i should have recognized that d was also valid. i thought it wasn't
+because it had an "unless," but that is countered by the "likely" in
+the question above.</li>
+</ul>
+
+<p>
+lesson: focus on tense. don't be quick to eliminate the answers &#x2013; this
+could have been an example of talking myself into the wrong answer. */
+reading 1-45, 1-48 :: got these all wrong?? something happened here, ask
+about during review. #revisit /* reading 1-51 :: d, a
+</p>
+
+<ul class="org-ul">
+<li>two things i got wrong in this question:
+
+<ul class="org-ul">
+<li>nothing was actully de-extincted. only, endangered cloned.</li>
+<li>de-extinction has not happened yet! so, d does not work.</li>
+</ul></li>
+
+<li>fundementally, was not careful enough when thinking about tense,
+again!</li>
+</ul>
+
+<p>
+lesson: consider tense! consider examples more carefully! <b>*</b> writing
+2-4 :: d, b
+</p>
+
+<ul class="org-ul">
+<li>no evidence for part of my answer &#x2013; "less engaging"</li>
+<li>however, no evidence for tastes changing either? are we supposed to
+assume this? #revisit this. I don't know what i did wrong. <b>*</b> writing
+2-25 :: a, c review rest of writing.</li>
+</ul>
+
+<hr />
+
+<hr />
+
+<hr />
+
+<hr />
+
+<p>
+nc 3-8 :: b, c
+</p>
+
+<ul class="org-ul">
+<li>increasing by $100 per week does not mean every week they increase by
+$100. it means, that they increase by $100 once for the remainder of
+the time.</li>
+<li>i could have found this out if i actully did the math out rigorously,
+and realized i was making a mistake as none of the answers matched</li>
+<li>in an effort to save time, i did not, and estimated.</li>
+</ul>
+
+<p>
+lesson: be rigorous! don't get trapped in your own assumptions. <b>*</b> nc
+3-9 :: a, b
+</p>
+
+<ul class="org-ul">
+<li>i missed one part of the question, namely x &gt; 0.</li>
+<li>remember to actully check all the answers! if i did, i would have
+realized that two of them work, and realized my flaw</li>
+</ul>
+
+<p>
+lesson: check multiple answers, and also look for things you can factor
+out / divide! <b>*</b> nc 3-11 :: a, c
+</p>
+
+<ul class="org-ul">
+<li>the equation of a parabola is \(ax^{2}+ bx + c\)!</li>
+<li>so if you see a -c term, that means the intercept is at -c, not +c.</li>
+</ul>
+
+<p>
+lesson: learn the equation for a parabola. goddamn it. <b>*</b> nc 3-15 :: b,
+d
+</p>
+
+<ul class="org-ul">
+<li>ran out of time and guessed entirely on this question.</li>
+
+<li>upon doing the question, needed to consider the entire equation. this
+made it trivial</li>
+
+<li>found a trap in the question, where one of the answers was the factors
+of the right answers. <b>*</b> nc 3-16 :: 8/9, 2</li>
+
+<li>subtracted five from both sides instead of added five to both sides.</li>
+
+<li>i don't know how to prevent this and still have time.</li>
+</ul>
+
+<p>
+lesson: be careful of dropping signs! <b>*</b> nc 3-17 :: 300, 480
+</p>
+
+<ul class="org-ul">
+<li>i forgot to add the original side length to my answer. I calculated
+the unknown side, but then didn't add the known side to it's length to
+find the holistic length.</li>
+<li>check what the question is actully asking!</li>
+<li>especially for these line questions, just db-check which line is
+which.</li>
+</ul>
+
+<p>
+a lot of these wrong answers seem to be intermediate steps. dont get
+lost in them!
+</p>
+
+<p>
+lesson: check what the question is actully asking before writing it
+down. make sure to pop back to the question to make sure your not
+answering with an intermediate step! <b>*</b> nc 3-19 :: 12, 10
+</p>
+
+<ul class="org-ul">
+<li>i completely guessed on this question. hey, 12 is actully pretty
+close!</li>
+<li>i should have trusted my instincts and just made the equations, and
+see if that worked.</li>
+</ul>
+
+<p>
+lesson: trust your instincts about systems of equations questions. I got
+flustered with this one. <b>*</b> nc 3-20 :: 9/15, 4/5
+</p>
+
+<ul class="org-ul">
+<li>i swapped my sides again!</li>
+<li>i mixed up QR for SR.</li>
+<li>make sure to db-check sides. that's how they get you.</li>
+</ul>
+
+<p>
+lesson: check the sides! <b>*</b> c 4-8 :: a, c
+</p>
+
+<ul class="org-ul">
+<li>the quadrants of a graph! it goes,</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">2</th>
+<th scope="col" class="org-right">1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+counterclockwise from the top right! - knowing this, question becomes
+trivial. <b>*</b> c 4-24 :: a, c
+</p>
+
+<ul class="org-ul">
+<li>i guess i forgot to sqaure my answer for the radius.</li>
+<li>intermediate steps again!</li>
+</ul>
+
+<p>
+lesson: for circle questions, always consider the sqaure of the ending
+bit! the constant term will be the sqaure of the radius. <b>*</b> c 4-26 ::
+d, b
+</p>
+
+<ul class="org-ul">
+<li>it gave it to me in seconds, and asked about minutes..
+
+<ul class="org-ul">
+<li>make sure to pay attention to the units on every single number they
+give you!</li>
+<li>this would have been obvious if i had realized that the options are
+factors of 60.
+
+<ul class="org-ul">
+<li>if their are factors of 60, or something else, in an answer, then
+think about your units and the mistakes they could be causing!
+lesson: look out for mismatched units, and be able to spot them
+based on common factors in the answer choices. <b>*</b> c 4-30 :: c, b</li>
+</ul></li>
+</ul></li>
+
+<li>guessed on this question, cus out of time</li>
+<li>if they need the x-intercepts to be identified, then that means they
+need it in factored form, not in vertex or standard form
+
+<ul class="org-ul">
+<li>this instantly elims two of the answers, and we know that the vertex
+is on the right side, so the neg on the factor has to be on the
+larger number</li>
+</ul></li>
+</ul>
+
+<p>
+lesson: use the position of the vertex to determine the signs on the
+factors <b>*</b> c 4-33 :: 92, 20
+</p>
+
+<ul class="org-ul">
+<li>i dropped a sign.</li>
+
+<li id="#revisit review how to not drop signs! <b>*</b> c 4-36">121, 54-64</li>
+
+<li>used the wrong formula. to find the area, use
+\(A=\pi r^{2}* \frac{\theta}{360}\)
+
+<ul class="org-ul">
+<li>we know this because area is in square units of length.</li>
+</ul></li>
+</ul>
+
+<p>
+lesson: check the units on the formula to make sure you are using the
+right formula <b>*</b> c 4-38 :: 985, 1356
+</p>
+
+<ul class="org-ul">
+<li>this was a hard question.</li>
+<li>error was not re-evaluating the previous equation for the updated
+variables</li>
+</ul>
+
+<p>
+lesson: make sure to re-evaluate all the variables whenever there is a
+set of questions using a formula! <b>*</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-bb1" class="outline-4">
+<h4 id="bb1"><span class="section-number-4">1.1.2</span> bb1</h4>
+<div class="outline-text-4" id="text-bb1">
+<hr />
+
+<p>
+r3 :: a, c
+</p>
+
+<ul class="org-ul">
+<li>i read the "mediation" as "meditation."
+
+<ul class="org-ul">
+<li>how to mitigate this? idk!</li>
+<li>-revisit from jack</li>
+</ul></li>
+
+<li>advice: be warry that your own thinking can make you read things wrong</li>
+</ul>
+
+<p>
+lesson: you can read things wrong. that is a real issue. be aware that
+this is a failure mode. <b>*</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-bb3" class="outline-4">
+<h4 id="bb3"><span class="section-number-4">1.1.3</span> bb3</h4>
+<div class="outline-text-4" id="text-bb3">
+<hr />
+
+<p>
+r1 :: d, b
+</p>
+
+<ul class="org-ul">
+<li>i didn't read the passage carefully enough, entirely missing one of
+the crucial points.
+
+<ul class="org-ul">
+<li>i could have found this out if i had been more rigourous with all
+the words in my answer choice (ie. rigorous) lesson: consider every
+word, and read the frickin passage! <b>*</b> r3,4 :: db, aa</li>
+</ul></li>
+
+<li>the trait "unfriendly" does not correspond to losing the friendship of
+one person</li>
+<li>and plural is not the same as singular?</li>
+</ul>
+
+<p>
+lesson: #revisit this, idk <b>*</b> r7 :: b, a
+</p>
+
+<ul class="org-ul">
+<li>man. the word "equality" in the description of one relates them all
+together. look for the general case!</li>
+</ul>
+
+<p>
+lesson: when stuck between two choices, with seemingly contradictory
+evidence, look for things that generalize. <b>*</b> r11 :: b, a
+</p>
+
+<p>
+lesson: make <b>sure</b> you are reading the right paragraph. check line
+numbers! if a couple of the answers are complete nonsense, then that can
+clue you in that you might be in the wrong section. <b>*</b> mnc12 :: b, a
+</p>
+
+<p>
+i average (2 -4)/2 = -2..
+</p>
+
+<p>
+lesson: be careful with averages! <b>*</b> mcn13 :: a, b
+</p>
+
+<p>
+ran out of time here, coudn't find a quick enough way so geussed! could
+have done it quickly enough if i had just backsolved.
+</p>
+
+<p>
+lesson: for complex equations, think about just plugging in something
+like x=1 and simplifying! <b>*</b> mcn14 :: b, a
+</p>
+
+<p>
+again out of time. lesson: remember that you can factor things out of
+radicals! <b>/ mcn15 lesson: you can attack larger fractions in your head!
+for ratios, think about what /needs</b> to happen for the statement being
+asked to be true. */ mnc19 :: a, c got this wrong because i added
+instead of subtracted. more specifically, flipped the polarity of sizes
+in the units. in the future, lesson: convert between units first! /**
+mnc23 sin(a) = cos(b) means that a+b are complementary! so, they =90
+remember remember that sin(a) = cos(90-a)!!
+</p>
+
+<p>
+lesson: whenever you see equated trig functions, replace them with 90-a
+to get equalitys! <b>*</b> mnc24 when defining equations, set the vars in
+terms of what we know. and a lack of is a negative number
+</p>
+
+<p>
+when you dont know how to put together a system of euqations, just start
+assigning variables! <b>/ mnc30 isolate what we know, and then reflect
+convert things to equations &#x2013; "is" equals "=" /</b> ## blb 5 */ c19 :: d,
+b i got this wrong because i wasnt sure about 30,60,90 triangles. i
+should have checked which sides were which! make sure to check sides.
+lesson: match up your sides! know your triangles! /* c26 :: a, b i got
+this wrong because i simplified to find a side length instead of the
+perimeter. i got too caught up, and didnt think to ask myself again,
+"what am i solving for? what do i have?" lesson: ALWAYS ask yourself
+what you are <i>actully</i> solving for and also what you got */ c29 :: c, b
+i answered the positive instead of the negative! got too tunnel vision
+in the graph. lesson: always glance at the other answer choices, or
+consider them before you do the question! /* c35 :: 8, 13 tinspire only
+gives one set of answers for polynomial with nsolve. instead, use
+polyRoots! lesson: if you get an answer that doesnt make sense.. look
+again! if you have a sqaured term, then you can get two possible
+answers! <b>*</b>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-to-review" class="outline-2">
+<h2 id="to-review"><span class="section-number-2">2</span> To review</h2>
+<div class="outline-text-2" id="text-to-review">
+<ul class="org-ul">
+<li>polynomial division</li>
+<li>remainder theorem</li>
+<li>using quadratic formula</li>
+<li>box and whisker plots</li>
+<li>circles equations! centers
+
+<ul class="org-ul">
+<li>completing the square</li>
+</ul></li>
+
+<li>unit conversions</li>
+<li>vertex form</li>
+</ul>
+
+<p>
+(52-5)+(44-10)+(20-9)+(38-7)
+</p>
+
+<p>
+33+37
+</p>
+
+<p>
+700
+</p>
+
+<p>
+710
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

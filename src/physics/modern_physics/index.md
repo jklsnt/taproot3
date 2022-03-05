@@ -64,6 +64,8 @@ source: #index
 	- [[KBxSimultaneityHW]]
 - [[KBxModPhysSem2D2]]
 - [[KBxLorentzTransforms]]
+- [[KBxModPhysLongBlock]]
+- [[KBxGeigerCounter]]
 
 # Quantum Mechanics
 - [[KBhPHYS201QuantumMechanics]]

@@ -73,6 +73,8 @@ source:  #index
 - [[KBxLinalgReadingx+y]]
 - [[KBxTedChallengeOne]]
 - [[KBx3and4Sprint]]
+- [[KBxAxlerChapter5]]
+- [[KBxModuleOneLinalgTed]]
 
 
 

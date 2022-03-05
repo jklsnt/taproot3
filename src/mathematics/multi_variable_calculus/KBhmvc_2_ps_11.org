@@ -1,0 +1,293 @@
+:PROPERTIES:
+:ID:       6315E8AC-7182-464E-AD78-F0682999D30D
+:END:
+#+title: MVC 2 PS#11
+#+author: Houjun Liu
+
+* Classic 1D Optimization
+#+begin_quote
+What’s the rectangle with largest area that has a perimeter of 100 units? Give the dimensions and the area. You can do this using just the basic tricks of single-variable calculus—but do it using the method of Lagrange multipliers.
+#+end_quote
+
+** Without math
+Intuitively, the rectangle with the largest area is a square. Therefore, the dimensions of the shape would be $25\times 25 = 625$ units.
+
+** Solve using 1D calc
+We will set the length on one side as $x$, and represent all other sides in terms of $x$. The area of the shape, therefore, would be:
+
+\begin{align}
+   A(x) &= x \left(\frac{100-2x}{2}\right)\\
+&= x \left({50-x}\right) \\
+&= 50x-x^2
+\end{align}
+
+We will use the first derivative test to figure critical points and optimize.
+
+\begin{equation}
+   A'(x) = 50-2x 
+\end{equation}
+
+Solving for $A'(x)=0$, we get that $x = 25$. We can see that, about this point, as $x$ increases, $A'$ becomes smaller---and vise versa; therefore this is the maximum of $A(x)$.
+
+Given one side of this shape is $25$ units long, the other must be as well. Therefore, the square is the largest possible area by which this can be the case.
+
+** Unnecessarily Solving Using Lagrange Multipliers
+We will then proceed to use 2D calculus to solve for this same are. We will now construct area as a $\mathbb{R}^2 \to \mathbb{R}^1$ function, that:
+
+\begin{equation}
+   A(x,y) = xy 
+\end{equation}
+
+Furthermore, we will construct the perimeter of the square as:
+
+\begin{equation}
+   g(x,y) = 100 == 2(x+y)
+\end{equation}
+
+as per given in the problem.
+
+To figure the Lagrange multiplier, we will figure some set of points where:
+
+\begin{equation}
+   \begin{cases}
+\nabla A = \lambda \nabla g \\
+g= 0
+   \end{cases}
+\end{equation}
+
+In order to do so, we first take $\nabla A$ and $\nabla g$:
+
+\begin{equation}
+   \nabla A = \begin{pmatrix} 
+y \\x
+\end{pmatrix} 
+\end{equation}
+
+\begin{equation}
+   \nabla g = \begin{pmatrix} 
+2 \\
+2
+\end{pmatrix} 
+\end{equation}
+
+Finally, we understand that:
+
+\begin{align}
+  &\nabla A = \lambda \nabla g \\
+\Rightarrow &\begin{pmatrix} 
+y \\x
+\end{pmatrix} = \lambda\begin{pmatrix} 
+2 \\
+2
+\end{pmatrix}
+\end{align}
+
+From this, we arrive at three expressions:
+
+\begin{equation}
+\begin{cases}
+   y = 2\lambda  \\
+   x = 2\lambda  \\
+   100 = 2x+2y \\
+\end{cases}
+\end{equation}
+
+Solving these expressions pairwise, we arrive at:
+
+\begin{equation}
+   \lambda = \frac{25}{2},\, y=x
+\end{equation}
+
+Substituting this to the final expression, we essentially get the same result:
+
+\begin{equation}
+   100 = 4\{y,x\}
+\end{equation}
+
+Therefore, $x=y=25$.
+
+* Aquarium Optimization
+We will set up an aquarium with three side lengths, $(x,y,z)$. We will take that one unit area of the bottom is cost of one unit, and therefore the side glasses would have cost of 2 units. 
+
+The total cost $C$, therefore, can be modeled by the following expression:
+
+\begin{equation}
+   C(x,y,z) = xy + 4xz + 4yz 
+\end{equation}
+
+(this can be scaled by some $\rho$ which is the cost density, but that will not be a factor as scaling would be optimized out of the function)
+
+Furthermore, we are given that there is some constant $V$ which is the volume that the glass must satisfy, that:
+
+\begin{equation}
+   g(x,y,z) = V == xyz  
+\end{equation}
+
+Applying the same principle as the Lagrange multiplier, we will first figure $\nabla C$ and $\nabla g$.
+
+\begin{equation}
+   \nabla C = \begin{pmatrix} 
+y + 4z \\
+x + 4z \\
+4x + 4y
+\end{pmatrix}
+\end{equation}
+
+and
+
+\begin{equation}
+   \nabla g = \begin{pmatrix} 
+yz \\
+xz\\
+xy
+\end{pmatrix} 
+\end{equation}
+
+Lastly, based on the Lagrange multiplier principle, we want to find $(x,y,z)$ such that:
+
+\begin{equation}
+    \begin{pmatrix} 
+y + 4z \\
+x + 4z \\
+4x + 4y
+\end{pmatrix} = \lambda\begin{pmatrix} 
+yz \\
+xz\\
+xy
+\end{pmatrix}
+\end{equation}
+
+This will bring us four expressions for four unknowns:
+
+\begin{equation}
+\begin{cases}
+y + 4z = \lambda(yz)\\
+x+4z = \lambda(xz) \\
+4x+4y = \lambda(xy)\\
+0 = xyz-V
+\end{cases}
+\end{equation}
+
+We will first take the top three expressions and divide the right side to result in expressions all in terms of $\lambda$.
+
+\begin{equation}
+\begin{cases}
+\frac{1}{z} + \frac{4}{y} = \lambda\\
+\frac{1}{z}+\frac{4}{x} = \lambda \\
+\frac{4}{y}+\frac{4}{x} = \lambda\\
+\end{cases}
+\end{equation}
+
+Observing the top two expressions, we see that $y=x$. Therefore, we will replace in these expressions every statement of $y$ with $x$.
+
+\begin{equation}
+\begin{cases}
+\frac{1}{z}+\frac{4}{x} = \lambda \\
+\frac{8}{x} = \lambda\\
+\end{cases}
+\end{equation}
+
+Setting these two expressions equal:
+
+\begin{align}
+   &\frac{1}{z} + \frac{4}{x} = \frac{8}{x} \\
+\Rightarrow & \frac{1}{z}  = \frac{4}{x} \\
+\Rightarrow & x  = 4z 
+\end{align}
+
+Awesome, now we can solve for $x$ via the last unused expression from our original four equations.
+
+\begin{align}
+   &0 = xyz-V \\
+\Rightarrow &0 = x(x)\left(\frac{1}{4}x\right)-V \\
+\Rightarrow &0 = \frac{1}{4}x^3-V \\
+\Rightarrow &V = \frac{1}{4}x^3 \\
+\Rightarrow &4V = x^3 \\
+\Rightarrow &x = \sqrt[3]{4V} 
+\end{align}
+
+And taking our original expressions for $y$ and $z$, we see that:
+
+\begin{equation}
+  \begin{cases}
+x = \sqrt[3]{4V}\\
+y = \sqrt[3]{4V}\\
+z = \frac{1}{4}\sqrt[3]{4V}\\
+\end{cases}
+\end{equation}
+
+Though its not useful here (as the above answer is the optima), we will finally solve for $\lambda$:
+
+\begin{align}
+\frac{8}{\sqrt[3]{4V}} = \lambda
+\end{align}
+
+* Temperature in Space
+#+begin_quote
+Say the temperature is given by:
+
+\begin{align}
+f: \mathbb{R}^3 \to \mathbb{R}^1 \\    
+f(x,y,z) = x^2+y^5-2z
+\end{align}
+#+end_quote
+
+Firstly, at $(-1,-1,-1)$, the temperature would be $-2$ Kevin, which [[https://www.science.org/doi/10.1126/science.1227831][is really hot]] such that the gas particles attract each other and is indeed possible! This fact is courtesy of Albert H. who sent it along.
+
+** Temperature at that Point
+The temperature at that point is given by $f(3,2,7)$, which is:
+
+\begin{equation}
+   f(3,2,7) = 27 
+\end{equation}
+
+** Is it hot?
+27 kelvin would be considered really cold!
+
+** Jet pack Thruster
+To figure the direction of optimization, we find $\nabla f$, which is:
+
+\begin{equation}
+   \nabla f = \begin{pmatrix} 
+2x \\
+5y^4 \\
+-2
+\end{pmatrix}
+\end{equation}
+
+At $(3,2,7)$, the gradient vector is:
+
+\begin{equation}
+    \begin{pmatrix} 
+6 \\
+80 \\
+-2
+\end{pmatrix}
+\end{equation}
+
+Normalizing this into a direction:
+
+\begin{equation}
+    \begin{pmatrix} 
+\frac{3}{\sqrt{1610}} \\
+\frac{40}{\sqrt{1610}} \\
+\frac{-1}{\sqrt{1610}}
+\end{pmatrix}
+\end{equation}
+
+To maximize the temperature as quickly as possible (which is what we want to do), go in this direction.
+
+** Broken Thruster
+If the thruster is broken, the direction of fastest temperature ascent is in the $y$ direction as we have shown in the above gradient vector. For ever unit traveled in the $y$ direction, the temperature increases by $80$ kelvin.
+
+** Fixed Thruster
+If the thruster is fixed again, for every unit traveled in that direction, the temperature will change by the magnitude of that vector:
+
+\begin{equation}
+   norm \begin{pmatrix} 
+6 \\
+80 \\
+-2
+\end{pmatrix} = 2\sqrt{1610} \approx 80.25
+\end{equation}
+

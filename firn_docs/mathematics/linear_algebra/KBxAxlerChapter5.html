@@ -1,0 +1,63 @@
+<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Huxley Marvit" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Axler Chapter 5</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        'displayAlign': 'center',
+        'displayIndent': '0em',
+        'extensions': ['tex2jax.js'],
+        'tex2jax': {
+        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
+        'processEscapes': true
+        },
+        'HTML-CSS': { scale: 100,
+                        linebreaks: { automatic: 'false' },
+                        webFont: 'TeX'
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: 'false' },
+              font: 'TeX'},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: 'AMS'},
+               MultLineWidth: '85%',
+               TagSide: 'right',
+               TagIndent: '.8em'
+             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Axler Chapter 5</h1></div><div class="metamble"><span><span>Written by </span><span>Huxley Marvit</span></span></div><div class="notebody"><div><section><p><span>#flo #hw</span></p><hr /></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="eigen-things!"><span class="firn-headline-text"><span>Eigen things!</span></span></h1><section><p><span>instead of maps from vec space to another vec space, this is about a vec
+space to itself</span></p><p><span>the study of this is the most important part of linalg, according to
+axler</span></p><p><span>a subpsace which gets mapped into itself is an </span><strong><span>invariant subspace</span></strong></p><p><span>ie, a subspace can be invarant under T if \(T|_U\) is an operator on
+\(U\)</span></p><hr /><p><span>pausing, pg 133</span></p><p><span>simplest possible nontrivial invariant subspace is an invariant subspace
+with dim 1</span></p><p><span>we can take any non-zero vector in V and make the set of all scalar
+multiples of it \(\text{span}(v) = U = \{ \lambda v : \lambda \in F \}\)
+thus, \(U\) must have dim 1, cus we only need the org vec to define the
+basis</span></p><p><span>if \(U\) is invariant under an operator, then that means that
+\(Tv \in U\) which means that there exists some scalar in </span><strong><span>F</span></strong><span> which does
+the same thing as the map \[Tv = \lambda v\]</span></p><hr /><p><span>pausing, again, pg. 134</span></p><p><span>we get the formal definiion of an eigenvalue, which is essentially the
+scalar from F that does the same thing as the transformation</span></p><p><span>we also get relations to surjectivity and injectivyt and invertibility
+and ect. </span><a class="firn-internal" href="/mathematics/linear_algebra/KBrefSurjectiveFunction">KBrefSurjectiveFunction</a><span></span><a class="firn-internal" href="/mathematics/linear_algebra/KBrefInjective">KBrefInjective</a><span></span><a class="firn-internal" href="/mathematics/linear_algebra/KBrefInvertibleLinearMaps">KBrefInvertibleLinearMaps</a></p><p><span>an eigenvector is the corresponding vector that you pass through the
+linear map / \(\lambda\) ie, a vector that only get's scaled when you
+pass it through a linear map, as opposed to getting rotated or
+transalated</span></p><p><span>we also know that eigenvectors are LID when they have distinct
+eigenvalues and also, the number of distinc eigen values has to be
+\(\leq\) dim v</span></p><p><span>restirction operators and quotient operators restricted to U means you
+can only map into U? ie, instead of U -> V, it becomes U -> U?</span></p></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="5b!"><span class="firn-headline-text"><span>5.B!</span></span></h2><section><p><span>the reason why we care more about operators than normal linear maps is
+because operators can be raised to powers we can do \(T^{2}\), because
+we know it will be in \(\mathcal{L}(V)\) ! they follow all the normal
+exponentiation rules, except that \(T^0\) is the identity</span></p><p><span>and we get polynomial \(p(T)\) which is where instead of
+\(z \dots z^{m}\) we have T's</span></p><p><span>and also, </span><strong><span>operators on complex vector spaces have an eigenvalue</span></strong></p><p><span>define diagonal of a matrix to be the diagonal of a sqaure matrix upper
+triangular is when all entries below the diag are 0. the
+upper-triangular matrix is usually represented in the form: \[
+\begin{pmatrix} 
+\lambda_1 &  & * \\   & \ddots  &  \\ 0  &  & \lambda_n
+\end{pmatrix};
+\]</span></p><p><span>which is very pretty!</span></p><p><span>every operator over C has an upper triangular matrix we can also use
+these to determine where the operator is invertible. if the diag
+contains any 0's then it's non invertible!</span></p><p><span>relation to eigen values,</span></p><p><span>if the operator has an upper-triangular matrix w.r.t. some basis of V,
+then the eigenvalues of that operator are the entries on the diag.</span></p><p><span>and with that, we get to ## 5.C! diagonals and eigenspaces </span><em><span>oh boy, here
+comes the real stuff!</span></em></p><p><span>diag matrix is a matrix with only non-zero numbers on the diag</span></p><p><span>the eigenvalues of an operator are the entries along the diag of a diag
+matrix</span></p><p><span>and we also get to define, </span><strong><span>eigenspace</span></strong><span> denoted \(E(\lambda, T)\) which
+is the set of all eigenvectors corresponding to \(\lambda\) + 0 vec
+(which is also a subspace)</span></p><p><span>and, ofc, the sum of the eigenspaces is a direct sum, as a single vec
+cannot be scaled by multiple \(\lambda\)'s</span></p><p><span>import def, </span><strong><span>diagonalizable</span></strong><span> operators on V can be diagonlizable if the
+op has a diag matrix w.r.t. some basis of V</span></p><p><span>also a bunch of things that are equivalent to being diagonalizable,
+shown in 5.41</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="5c,-inclass"><span class="firn-headline-text"><span>5.C, inclass</span></span></h2><section><p><span>#extract?</span></p><ul><li><p><span>linear algebra can be seen as an equivalence class between multiple
+  different forms</span></p><ul><li><p><span>algebra is about manipulating these different representations</span></p></li></ul></li><li><p><span>diagonal form is one of these forms. its one of the </span><em><span>standard</span></em><span> forms</span></p></li></ul></section><div class="firn-headline-section firn-headline-section-3"><h3 class="firn-headline firn-headline-3" id="so,-what-is-diagonalization-anyways?"><span class="firn-headline-text"><span>so, what is diagonalization anyways?</span></span></h3><section><p><a class="firn-internal" href="/mathematics/linear_algebra/KBrefDiagonalMatrix">KBrefDiagonalMatrix</a></p><p><span>how we actually compute the eigenvalues is not how axler computes the
+eigen values how we actully do it, is set \((A-\lambda I) v = 0\) this
+is also equaivalent to the inverse of the first term not existing and
+the determinant being 0</span></p><p><span>the determinant of a matrix is the product of its eigenvalues! whaaaat?</span></p><p><span>the charateristic equation of a matrix A becomes a polynomial of degree
+N</span></p><p><span>the </span><strong><span>trace</span></strong><span> is the sum of the diag</span></p></section></div></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#eigen-things!">Eigen things!</a><ol><li><a href="#5b!">5.B!</a></li><li><a href="#5c,-inclass">5.C, inclass</a><ol><li><a href="#so,-what-is-diagonalization-anyways?">so, what is diagonalization anyways?</a></li></ol></li></ol></li></ol><div class="metalabel">Backlinks</div><ul class="firn-backlinks"><li class="firn-backlink"><a href="/mathematics/linear_algebra/index">Linear Algebra Master Index</a></li></ul></div></main></body></html>

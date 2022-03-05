@@ -1,0 +1,277 @@
+:PROPERTIES:
+:ID:       6AAC41BD-931D-4359-82C7-59C3076A4D41
+:END:
+#+title: QIC Module 1: Pset
+#+author: Houjun Liu
+
+* Problem 1
+Given the statement of the problem, we will take $|S\big>$ and $|S'\big>$ as a new set of basis over which we will work. The definition of $|S\big>$ based upon the $u,d$ basis has been supplied already:
+
+\begin{equation}
+   |S\big> = \frac{2}{3} |u\big>+ \alpha |d\big>
+\end{equation}
+
+For $\big<S'|S\big>$, we will set:
+
+\begin{equation}
+   |S'\big> \triangleq \alpha^*|u\big> - \frac{2}{3}|d\big> 
+\end{equation}
+
+it is not difficult to verify that $\big<S'|S\big> =0$ ---
+
+\begin{equation}
+   \begin{pmatrix} 
+a & \frac{-2}{3}
+   \end{pmatrix}    \begin{pmatrix} 
+\frac{2}{3} \\ a
+   \end{pmatrix} = \frac{2a}{3} - \frac{2a}{3} = 0 
+\end{equation}
+
+We know that the set of basis are orthogonal; therefore, their magnitudes must be 1. This leads us to the fact that:
+
+\begin{align}
+   \Rightarrow &\left(\frac{2}{3}\right)^2 + \alpha \alpha^* = 1\\
+   \Rightarrow &\frac{4}{9} + \alpha \alpha^* = 1\\
+   \Rightarrow &\alpha \alpha^* = \frac{5}{9}
+\end{align}
+
+Given this expression, one value that would suffice for $\alpha$ would be:
+
+\begin{equation}
+   \alpha\triangleq \frac{\sqrt{5}i}{3}
+\end{equation}
+
+We now have, fully defined, the set of bases $|S\big>, |S'\big>$ from which we will work:
+
+\begin{equation}
+\begin{cases}
+|S \big> = \frac{2}{3}|u\big> + \frac{\sqrt{5}i}{3}|d\big>\\
+|S' \big> = \frac{-\sqrt{5}i}{3}|u\big> - \frac{2}{3}|d\big>\\
+\end{cases}
+\end{equation}
+
+Next, we will transpose $|R\big>$ to use the $S, S'$ basis. Per the problem, we know that:
+
+\begin{equation}
+   |R\big> = \frac{1+2i}{3}|u\big> + \beta |d\big>
+\end{equation}
+
+For $|R\big>$'s components to consist a probability amplitude, we know that:
+
+\begin{align}
+   &\left(\frac{1+2i}{3}\right)\left(\frac{1-2i}{3}\right) + \beta\beta^* = 1\\
+\Rightarrow & \frac{5}{9} + \beta\beta^* = 1 \\
+\Rightarrow & \beta\beta^* = 1-\frac{5}{9} \\
+\Rightarrow & \beta\beta^* = \frac{4}{9} 
+\end{align}
+
+Very nicely, this is reminiscent along a part of the definition of $|S\big>$ aforementioned. Therefore, we will take:
+
+\begin{equation}
+   \beta\triangleq \frac{2}{3}
+\end{equation}
+
+We can see that $\beta^2 = \beta\beta^* = \frac{4}{9}$. Therefore, we can say that, in this care aforementioned:
+
+\begin{equation}
+   |R\big> = \frac{1+2i}{3}|u\big> + \frac{2}{3} |d\big>
+\end{equation}
+
+Let's finally perform the chance of basis operation.
+
+\begin{align}
+    &\frac{1+2i}{3}|u\big> + \frac{2}{3} |d\big> = |R\big> = \gamma|S\big> + \delta |S'\big>\\
+\Rightarrow &\frac{1+2i}{3}|u\big> + \frac{2}{3} |d\big> = \gamma|S\big> + \delta |S'\big>\\
+\Rightarrow &\frac{1+2i}{3}|u\big> + \frac{2}{3} |d\big> = \gamma\left(\frac{2}{3}|u\big> + \frac{\sqrt{5}i}{3}|d\big>\right) + \delta \left(\frac{-\sqrt{5}i}{3}|u\big> - \frac{2}{3}|d\big>\right)\\
+\Rightarrow &\frac{1+2i}{3}|u\big> + \frac{2}{3} |d\big> = \frac{2\gamma-\sqrt{5}i\delta}{3}|u\big> + \frac{\sqrt{5}i\gamma-2\delta}{3}|d\big>
+\end{align}
+
+which, separating each component:
+
+\begin{equation}
+   \begin{cases}
+   \frac{1+2i}{3} = \frac{2\gamma-\sqrt{5}i\delta}{3} \\
+   \frac{2}{3} = \frac{\sqrt{5}i\gamma-2\delta}{3} 
+\end{cases}
+\end{equation}
+
+Given this is a statement in two expressions and two unknowns, we can solve!
+
+#+begin_src sage
+gamma = var("gamma", latex_name="\\gamma", domain="complex")
+delta = var("delta", latex_name="\\delta", domain="complex")
+
+eqn0 = (1+2*i)/3 == (2*gamma-sqrt(5)*i*delta)/3
+eqn1 = 2/3 == (sqrt(5)*i*gamma - 2*delta)/3
+
+latex(expand(solve((eqn0, eqn1), (gamma, delta))))
+#+end_src
+
+\begin{equation}
+    \left[\left[{\gamma} = -\frac{2}{9} i \, \sqrt{5} + \frac{4}{9} i + \frac{2}{9}, {\delta} = \left(\frac{1}{9} i - \frac{2}{9}\right) \, \sqrt{5} - \frac{4}{9}\right]\right]
+\end{equation}
+
+And hence, we can now write $|R\big>$ in the changed basis:
+
+\begin{equation}
+   |R\big> = \frac{2+(4-2\sqrt{5})i}{9}|S\big> + \frac{-4-2\sqrt{5}+\sqrt{5}i}{9} |S'\big>
+\end{equation}
+
+Lastly, given the wording of the problem, we understand that our $|Q\big>$ measurement is defined as:
+
+\begin{equation}
+   |Q\big> = \frac{1}{\sqrt{2}}|S\big> + c |S'\big>
+\end{equation}
+
+where $C$ is some probability amplitude. We will assign:
+
+\begin{equation}
+   c\triangleq \frac{1}{\sqrt{2}}
+\end{equation}
+
+which would satisfy the requirements of the probability amplitude. Therefore:
+
+\begin{equation}
+   |Q\big> = \frac{1}{\sqrt{2}}|S\big> + \frac{1}{\sqrt{2}}|S'\big>
+\end{equation}
+
+We are now /finally/ set up to solve the problem:
+
+\begin{align}
+   \big<Q|R\big>\big<R|Q\big> &= \left[\begin{pmatrix}
+\frac{1}{\sqrt{2}} &\frac{1}{\sqrt{2}} 
+\end{pmatrix} \begin{pmatrix}
+\frac{2+(4-2\sqrt{5})i}{9}\\ \frac{-4-2\sqrt{5}+\sqrt{5}i}{9} 
+\end{pmatrix}\right] \left[\begin{pmatrix}
+\frac{2+(-4+2\sqrt{5})i}{9}& \frac{-4-2\sqrt{5}-\sqrt{5}i}{9} 
+\end{pmatrix} \begin{pmatrix}
+\frac{1}{\sqrt{2}} \\\frac{1}{\sqrt{2}} 
+\end{pmatrix} \right]\\
+&=\left(\frac{-4-(2-i) \sqrt{5}}{9 \sqrt{2}}+\frac{2+i \left(4-2 \sqrt{5}\right)}{9 \sqrt{2}}\right) \left(\frac{-4-(2+i) \sqrt{5}}{9 \sqrt{2}}+\frac{2+i \left(2 \sqrt{5}-4\right)}{9 \sqrt{2}}\right)\\
+&= \frac{5}{18}
+\end{align}
+
+There is about $27.78\%$ chance that the measurement of $|R\big>$ along $|Q\big>$, given these parameters, would come up positive.
+
+* Problem 3
+#+begin_quote
+Let:
+
+\begin{align}
+   |i \big> = \alpha |u \big> + \beta | d \big >\\
+   |o \big> = \gamma |u \big> + \delta | d \big >
+\end{align}
+#+end_quote
+
+** Problem 3.1
+#+begin_quote
+Show that:
+
+\begin{equation}
+   \alpha^*\alpha = \beta^*\beta = \gamma^* \gamma = \delta^*\delta = \frac{1}{2}
+\end{equation}
+#+end_quote
+
+We understand that $|i\big>$ and $|o\big>$, given their definition in Susskind ("in" and "out"), is perpendicular to $|u \big>$ and $|d\big>$ ("up" and "down.") For a cubit primed for either $|i\big>$ or $|o\big>$, then, there is $50\%$ chance that $|u \big>$ or $|d\big>$ is measured.
+
+From this, in follows that:
+
+\begin{equation}
+   \alpha^*\alpha = \beta^*\beta = \frac{1}{2}
+\end{equation}
+
+by the same line of logic, it follows that:
+
+\begin{equation}
+   \gamma^*\gamma = \delta^*\delta = \frac{1}{2}
+\end{equation}
+
+** Problem 3.2
+From the two above statement, we understand that $\alpha = (a+bi)$ where $a^2 + b^2 = \frac{1}{2}$, and $\beta = (c+di)$.
+
+We want to figure values such that they would be perpendicular to both the up and down, left and right states. Tracing this back, we can solve for states that result in $\frac{1}{2}$ chance of being measured given any of $|u\big>,|d\big>,|l\big>, |r\big>$.
+
+Taking the values for $|l\big>, |r\big>$ referenced by susskind, and the fact that $|i\big>$ and $|o\big>$ are perpendicular to $|l\big>$ (and indeed as well as $|r\big>$), we can claim that:
+
+\begin{equation}
+    \left(\frac{\alpha^*}{\sqrt{2}}+\frac{\beta^*}{\sqrt{2}}\right) \left(\frac{\alpha}{\sqrt{2}}+\frac{\beta}{\sqrt{2}}\right) = \frac{1}{2}
+\end{equation}
+
+Expanding the left expression, we get that:
+
+\begin{equation}
+    \frac{\alpha^*\alpha}{2} + \frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} + \frac{\beta\beta^*}{2} = \frac{1}{2}
+\end{equation}
+
+From the above reasoning, we already deducted that $\alpha^*\alpha = \beta^*\beta =\frac{1}{2}$, therefore:
+
+\begin{align}
+    &\frac{1}{4} + \frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} + \frac{1}{4} = \frac{1}{2} \\
+    \Rightarrow &\frac{1}{2} + \frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} = \frac{1}{2} \\
+    \Rightarrow &\frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} = 0 \\
+    \Rightarrow &\alpha^*\beta + \alpha\beta^* = 0 
+\end{align}
+
+The same logic follows directly for $\gamma^*\delta + \gamma\delta^*$. WLOG for any chosen set of basis $|l\big>$ and $|r\big>$.
+
+** Problem 3.3
+We know that $|i\big>$ is perpendicular to both $|l\big>$ and $|r\big>$. Therefore, we know that:
+
+\begin{equation}
+    \left(\frac{\alpha^*}{\sqrt{2}}+\frac{\beta^*}{\sqrt{2}}\right) \left(\frac{\alpha}{\sqrt{2}}+\frac{\beta}{\sqrt{2}}\right) = \big<i|r\big>\big<r|i\big> = \frac{1}{2}
+\end{equation}
+
+\begin{equation}
+    \left(\frac{\alpha^*}{\sqrt{2}}-\frac{\beta^*}{\sqrt{2}}\right) \left(\frac{\alpha}{\sqrt{2}}-\frac{\beta}{\sqrt{2}}\right)  = \big<i|l\big>\big<l|i\big> = \frac{1}{2}
+\end{equation}
+
+Expanding the expressions, we can see that:
+
+\begin{equation}
+    \frac{\alpha^*\alpha}{2} + \frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} + \frac{\beta\beta^*}{2} = \frac{1}{2}
+\end{equation}
+
+\begin{equation}
+    \frac{\alpha^*\alpha}{2} - \frac{\alpha^*\beta}{\sqrt{2}} - \frac{\alpha\beta^*}{\sqrt{2}} + \frac{\beta\beta^*}{2} = \frac{1}{2}
+\end{equation}
+
+Given that, as we have discussed above $a^*a = \frac{1}{2}$, we will see that:
+
+\begin{equation}
+    \frac{1}{4} + \frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} + \frac{1}{4} = \frac{1}{2}
+\end{equation}
+
+\begin{equation}
+    \frac{1}{4} - \frac{\alpha^*\beta}{\sqrt{2}} - \frac{\alpha\beta^*}{\sqrt{2}} + \frac{1}{4} = \frac{1}{2}
+\end{equation}
+
+and therefore:
+
+\begin{equation}
+    \frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} = 0
+\end{equation}
+
+\begin{equation}
+    - \left(\frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}}\right) = 0
+\end{equation}
+
+Finally, we will set the two expressions equal to each other as both are equal to $0$:
+
+\begin{equation}
+    \frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} = - \left(\frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}}\right)
+\end{equation}
+
+We will now perform some algebraic manipulations:
+
+\begin{align}
+    &\frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}} = - \left(\frac{\alpha^*\beta}{\sqrt{2}} + \frac{\alpha\beta^*}{\sqrt{2}}\right)\\
+\Rightarrow &\alpha^*\beta + \alpha\beta^* = - \alpha^*\beta - \alpha\beta^*\\
+\Rightarrow &\alpha^*\beta = - \alpha\beta^*\\
+\Rightarrow &\alpha^*\beta = - (\alpha^*\beta)^* \\
+\Rightarrow &-\alpha^*\beta = (\alpha^*\beta)^*
+\end{align}
+
+Given that the value of the conjugate of $\alpha^*\beta$ is the same as $-1$ times $\alpha^*\beta$, $\alpha^*\beta$ is purely imaginary. 
+
+And lastly, given the product of $\alpha^*\beta$ is imaginary, $\alpha$ and $\beta$ cannot simultaneously be real---otherwise the conjugate of $\alpha$ would be real and therefore $\alpha^*\beta$ would be real.
+

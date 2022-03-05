@@ -1,0 +1,43 @@
+#Chapter 1
+
+A set of mutually exclusive subsets of a set, of which the union of all of them is the original set, is called a "partition"
+A partition can be thought of also as a surjective map from the original set to another set, where depending on what element of the dest set an element points to, the "partition" is determined
+
+A preorder is a set with a particular operation specified which "orders" the elements. Usually preorders can also sort sets as well.
+You can create a partition from a preorder because we can partition two elements that are ordered as equivelent (e.g. if the preorder is <=, then if x<=y and y<=x, then the two are "equal" and can be considered a partition.)
+A graph is defined as a set of elements, a set of arrows, and two functions from arrows to elements which represent the source and destination of the arrows.
+An upper set of a preorder is a subset of the preorder which contains only the largest elements of a set up until a particular element.
+The cartesian product of a preorder is a normal cartesian product of the sets and a preorder operation that orders each set's component according to its preorder operation.
+
+A monotone map is a mapping between two preorders such that the ordering of the domain must correspond to the ordering of the range.
+If a monotone function between two sets f has an inverse monotone function g such that f(g) and g(f) are identity functions, then f and g are said to be "isomorphic functions" and the two preorders are "isomorphic".
+- Corollary: An isomorphism between preorders is basically just a relabeling of the elements
+
+A meet of a subset of a preorder is the greatest element in the preorder such that it is less than every element in the subset.
+Similarly, a join is the smallest element that is greater than the subset.
+A meet or join of a set of two sets can be thought of as the intersection or union of the two sets, because we can think of the set of two sets as a subset of the set of all sets and the preorder operation of a set defines that a set is greater than its subset. Hence why we use the notation ^ for meets and V for joins.
+A subset could have multiple meets/joins. Any two meets of the same subset are isomorphic.
+A monotone map preserves meets if the map of a meet is the same as the meet of two maps. Same goes for joins.
+If the monotone map does not preserve joins, then it "has a generative effect"
+
+A Galois connection is a pair of maps from one set to another and back that are a superset of preorder isomorphisms. Most notably, it must be true that for functions f: P->Q and g: Q->P, f(p) <= q iff p <= g(q).
+In a Galois connection, we call f the "left adjoint" and g the "right adjoint".
+BTW, there is a Galois connection between the sets of all partitions of two sets. Proof in the book.
+f and g form a Galois connection if f is left adjoint to g iff for every p and q, p <= g(f(p)) and f(g(q) <= q
+Right adjoints preserve meets and left adjoints preserve joins: g(^A) ~= ^g(A) and f(VA) ~= Vf(A) where A is the subset of the domain
+A map from a preorder with all meets to another preorder preserves meets iff it is a right adjoint. Same goes for joins and left adjoint.
+
+If f is left adjoint to g, then f(g) is a monotone map with the property of being a "closure operator": p <= f(g(p)), and f(g(f(g(p)))) ~= f(g(p)). This is really cool when you think about it.
+You can go from closures to adjunctions as well as adjunctions to closures. 
+Closures are practical, e.g. simplifying expressions is a clojure operation because a simplified expression can't be simplified further and therefore simplifying a simplified expression returns itself.
+
+Also a bunch of bullcrap that I can't understand about sets of binary relations over sets and preorders
+All of this is absolutely fucked
+but apparently the map of a set of preorder operations over a set to the set of binary relations over a set is a right adjoint (you get the left adjoint by doing it backwards)
+
+## Questions
+
+* How does the partition to partition galois connection proof work? (missing pieces/transitive closure)
+* Binary relations map
+	* What exactly is the set of all binary relations over a set? (I thought that it would be a set of operations but the Hasse diagram makes it look like it is a set of sets of tuples)
+	* What is the significance of the preorder of a preorder? Is this an actual preorder of a preorder or is it a preorder of preorder operation? what?

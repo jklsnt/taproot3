@@ -1,0 +1,58 @@
+
+
+# Chapter 4
+
+This chapter concerns co-designs, categories where we think of objects as having inputs and outputs
+
+A feasibility relation for a preorder given another preorder is a monotone map from them to a bool, such that the preorder operations matter.
+A profunctor is a relation between two V-categories: it is a function from an element in each category to V.
+Profunctors are like "bridges" and they connect categories together
+A feasibility relation is a Bool profunctor by definition.
+Feasibility relations kind of look like monotone maps because they preserve structure
+
+There exists a category $Feas$ where the objects are preorders and the morphisms are feasibility relations.
+Composing two feasibility relations is pretty easy to visualize so I won't discuss here
+Recall that skeletal preorders are preorders such that if x <= y and y <= x, x = y. Quantiles based on skeletal preorders are skeletal quantiles.
+For any skeletal quantile, there is a category $Prof_V$ where the objects are categories enriched in the quantile and the morphisms are profunctors enriched in the quantile.
+We can define $Feas$ as $Prof_Bool$.
+We can think of an identity profunctor as a profunctor between isomorphic categories. In other words, the hom-object is the same as the profunctor result.
+
+Profunctor composition is associative.
+Profunctors have an associated "companion" and "conjoint", defined as Companion: F(p, q) = Q(F(p), q) and Conjoint: F(q, p) = Q(q, F(p)). Companions can be thought of as bridges in the direction of the profunctor, and conjoint can be thought of as a bridge in the opposite direction.
+
+Profunctors can kind of be thought of as creating a new V-category. This is called the "collage".
+The collage is defined as a V-category such that the objects are the union of the objects of the source and dest categories, and the hom-object as being either the hom-object of the original category or the value of the profunctor depending on what elements are being compared.
+There exist functors that send each object to itself and each morphism to itself. These are called "collage inclusions."
+
+We can add complexity to feasibility diagrams by creating something called a "monoidal category": a categorified monoid.
+The process of categorification is converting properties of something to structures.
+Example with natural numbers:
+* We can categorize addition of natural numbers by converting each number first into a set with that many elements.
+* The addition operation becomes the disjoint union and equality becomes isomorphic.
+* Then, for any two sets, the disjoint union of them creates an isomorphism with the sum.
+Usually, it is pretty good to categorize preorders as categories, with hom-sets instead of hom-objects. Categories are just $Set$-categories!
+Note that categorizing things might remove some brutish things but it will add more complex brutish things.
+
+Symmetric monoidal categories are like the category version of monoidal preorders. From the perspective of wiring diagrams, it's like a box with multiple inputs and outputs.
+A "symmetric monoidal structure" on a category is defined as an object in the category that acts as the monoidal unit and a monoidal product functor that is subject to associativity and reflexivity (defined as isomorphisms).
+* If the isomorphisms for identity and associativity are replaced with equality, it is "strict".
+Monoidal preorders are just symmetric monoidal categories where the hom-set has at most 1 element.
+
+Recall how V-categories can be thought of as a type of category, where V is a SMP.
+A V-category where V is an SMP is a normal V-category, except that:
+* for every object, there is an "identity element" specified, which is a morphism from the identity object to the self-hom-object
+* A composition morphism is defined from any three objects' resulting hom-objects
+I literally only somewhat understand this
+
+Compact closed categories are monoidal diagrams that loop back.
+A "dual" for an object in an SMC consists of:
+* Another object in SMC, called the "dual" of the object;
+* A morphism from the identity to the product of the dual and the object, called the "unit" of the object;
+* A morphism from the product of the object and the dual to the identity, called the "counit" of the object.
+If for every object in an SMC has a duel, then the SMC is "compact closed".
+We can visualize the unit and counit as "cups" in a wiring diagram.
+Compact closed categories are a special type of monoidal category.
+
+The profunctor cateogry of any skeletal quantile is compact closed
+The product of profunctors is "distributive" (not really but you get the idea) (f*g ((x1, y1), (x2, y2)) := f(x1, y1) * g(x2, y2)). The monoidal unit is $1$.
+Duals in $Prof_V$ are just opposite categories. 

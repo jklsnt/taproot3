@@ -1,6 +1,6 @@
 ---
 title:   Kyntic
-context: kyntic
+context: proj
 author:  Huxley Marvit
 date: 2022-01-08
 ---
@@ -25,6 +25,56 @@ inspo: https://miro.medium.com/max/2000/1*9XUTmFn8Ok0CeJ2QkI1_ig.png
 
 auth: https://www.youtube.com/watch?v=oXWImFqsQF4&ab_channel=NaderDabit
 or, https://www.pullrequest.com/blog/authentication-with-nextjs-and-supabase/
+
+
+## database planning
+*alright.*
+
+
+have a table with
+
+| uuid     | user | date   | data...                        |
+| -------- | ---- | ------ | ------------------------------ |
+| nanoid() | jeff | Date() | all the data in multiple cells |
+| nanoid() | alb | Date() | all the data in multiple cells |
+| nanoid() | alb | Date() | all the data in multiple cells |
+| nanoid() | jeff | Date() | all the data in multiple cells |
+and ect.
+
+have another table, which stores user specific things:
+
+| user | global data |
+| ---- | ----------- |
+
+#### global data
+| workouts | activities |
+| -------- | ---------- |
+
+#### logging data
+| date | mood | sleep | exercise (json?) | screen time | activities | notes | tics? tic data? | perceived severity? |
+| ---- | ---- | ----- | ---------------- | ----------- | ---------- | ----- | --------------- | ------------------- |
+
+mood: int
+sleep: int
+screen time: int
+notes: text
+perceived severity: int
+exercise: json
+activities: json
+
+[[KBxKynticDesignReviewNotes]]
+
+
+##  view screen!
+
+https://hypeserver.github.io/react-date-range/
+daily radar chart?
+
+## possible additions
+something that tells you what you have tracked at the top of the log screen
+
+
+
 
 
 

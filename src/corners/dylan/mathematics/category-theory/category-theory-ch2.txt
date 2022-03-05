@@ -1,0 +1,63 @@
+# Chapter 2
+
+A symmetric monoidal structure or monoidal preorder on a preorder consists of an element of the preorder called the "monoidal unit" and a function from the cart product of the preorder to the preorder called the "monoidal product" which follows a set of rules:
+* for all a, b, c, d in X, if a <= c and b <= d then a * b <= c * d
+* for all x in X, I * x = x and x * I = x
+* for all a, b, c in X, a * (b * c) = (a * b) * c
+* for all a, b in X, a * b = b * a
+i.e. monotonicity, unitality, associativity, and symmetry hold
+Notation for symmetric monoidal structure: (X, <=, I, *)
+Apparently it's usefull to use ~= instead of = as the def for symmetric monoidal structure; this creates a "weak monoidal structure" instead; not sure what the difference between isomorphism and equality is in this context
+
+Monoids are a set, a function from the cart prod of the set to the set called the "monoid multiplication", and an element called the "monoid unit"
+* monoid units act like monoidal units; in fact they may be the same thing and differ only because of semantics
+* monoid multiplication follows unitality and associativity. Optionally it can be commulative (so commulativity is not symmetry?)
+Monoids are like symmetric monoidal structures but with sets instead of preorders and vice versa.
+
+Spivak then goes off about wiring diagrams
+He also talks about real world applications/examples, for example chemistry, manufacturing, and informatics
+Also abstract examples
+
+Given two monoidal preorders, a "monoidal monotone" is a monotone map from the preorder of one monoidal preorder to the other of the other, such that:
+* The unit of the range preorder is leq the map of the domain preorder;
+* for all two elements of the domain preorder, the map is associative about the preorder
+If in the above two clauses the preorder is isomorphic, then the monoidal monotone is "strong"
+If in the above two clauses the preorder is equivalent, then the monoidal monotone is "strict" (again, what _exactly_ is the difference)
+Monoidal monotones are examples of "monoidal functors", whatever that means
+
+V-categories are a structure over a symmetric monoidal preorder, consisting of a set containing something we call "objects" and an element of the original symmetric monoidal preorder per pair of objects called the "hom-object"
+* For every object, the hom-object of the object and itself is greater than the unit of the original SMP
+* given x, y, z in Ob(X), X(x, y) * X(y, z) <= X(x, z)
+i.e. Reflexitive and Transitive
+V is called the "base of the enrichment" for X
+
+A Lawvere Metric Space consists of a set of something called "points" and a function from two points to positive reals that represents the "distance" between the two points
+* The distance from any point to itself is 0
+* If the distance between two points is 0, the two points are equal
+* Transitive
+* Triangle Inequality
+We can also instead have a function from two points to [0, inf] which is called an "extended metric space"
+A Lawvere metric space is a Cost-category
+We can convert weighted graphs into a metric space
+
+We can use a monoidal monotone to construct one category from another
+We can convert Lawvere metric spaces into preorders using a monoidal monotone
+A V-functor from one V-category to another consists of a function from the object of one category to the other such that the hom-object of the domain objects are leq the hom-object of the function of the domain objects
+^ Mappings from one category to another and within categories
+
+V-products are to V-categories as monotone maps are to preorders
+V-products are themselves a V-category
+* The object of the V-product are the products of the objects of its constituing V-categories
+* The hom-object of two pairs of objects are the product of the hom-objects of its constituing V-categories
+
+New monoidal preorder just dropped!
+A "symmetric monoidal closed" (or just closed) is an smp such that given two elements in V:
+* If v, w in V and v -o w in V (hom-element):
+* (a * v) <= w iff a <= (v -o w) for all a, v, w in V
+
+A unital commulative quantale is an smcp that has all joins (i.e. for every subset there exists a join).
+
+You can multiply two V-matrices as the commulative join of the products of the matrices.
+
+# Questions
+

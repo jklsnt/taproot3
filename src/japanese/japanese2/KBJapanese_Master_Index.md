@@ -19,3 +19,4 @@ source: #index
 [[KBxJapFInalProj]]
 [[KBxJapaneseSpeakingPrep]]
 [[KBxPrezFinalJapanese]]
+[[KBxDanielHuxleyJapaneseScript]]

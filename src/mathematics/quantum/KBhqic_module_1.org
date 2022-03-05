@@ -244,7 +244,9 @@ So the eigenvalue is $\pm 1$.
 
 Supplying the expression back to the original, and solving, we will get $\alpha_1 = \alpha_2$.
 
-Given that $\lambda_1$ is a state vector, we know that its a probability. We have discussed from before, that, for a state vector:
+Given that $\lambda_1$ is a state vector, we know that its a probability. We have discussed from before, that, for a state vectoContri
+
+r:
 
 \begin{equation}
    {\alpha_1}^*\alpha_1 + {\alpha_2}^*\alpha_2 = 1
@@ -258,4 +260,119 @@ And then, filling that in:
 \end{align}
 
 And so $\alpha_1 = \frac{1}{\sqrt{2}}$ is one case among many.
+
+** Crash Course on Operators
+
+*** Unitary Matrices ("orthogonal matrices")
+Some $A$ where
+
+\begin{equation}
+   A^*A = I \Leftrightarrow A^* = A^{-1}
+\end{equation}
+
+where, $A^*$ is the /conjugate transpose/ (conjugate the complex numbers, transpose the matrix), i.e. the "hermitian", of the matrix.
+
+Properties:
+
+- If $U$ is unitary matrix, and $a$ is a vector, $||Ua|| = ||a|||$.
+
+*** Hermitian Matrices ("symmetric matrices")
+Some $A$ where
+
+\begin{equation}
+A^* = A    
+\end{equation}
+
+where the matrix its own hermitian as hermitian is defined above.
+
+*** Adjoin
+Define *adjoin* of a matrix $U$ to be the matrix $V = U^*$ such that:
+
+\begin{equation}
+   V[r,c] = \bar{U}[c,r] 
+\end{equation}
+
+*** Tensor Product of Matrices
+if $U$ in $m\times n$, and $V$ is $r \times s$, $\vec{c}(ij) = \vec{a}(i)\vec{b}(j)$, then $W = U \otimes V$ is the $mr \times ns$ matrix, where:
+
+\begin{equation}
+   (Wc)(ij) = (Ua)(i)(Vb)(j)
+\end{equation}
+
+
+* Lecture 2: Quantum Logic
+Let's take some vector $a$, we will index it using binary:
+
+\begin{equation}
+   \vec{a}(00), \vec{a}(01) \cdots
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+  \vec{e}_{00} = \begin{pmatrix}
+1 \\ 0 \\0 \\ 0 \end{pmatrix}, \vec{e}_{01} = \begin{pmatrix}
+0 \\ 1 \\0 \\ 0 \end{pmatrix}, \ldots
+\end{equation}
+
+where $e$ is the basis.
+
+** Tensor Products
+Their /tensor product/, $\mathbb{H}_1 \otimes \mathbb{H}_2$ has the vectors of form $\vec{a}(k)$, where $1 \leq k \leq mn$. The tensor product of two vectors $\vec{a}$ and $\vec{b}$ is the vector $\vec{c}=\vec{a} \bigotimes \vec{b}$, where:
+
+\begin{equation}
+   \vec{c}(ij) = \vec{a}(i)\vec{b}(j)
+\end{equation}
+
+it has to do with state spaces of individual cubits. Its not motivated but that's fine.
+
+The important thing about tensor products is that they can be easily indexed using binaries according to the $ij$ rule above.
+
+** Entanglement
+A vector denoting a pure quantum state is *separable* if its the tensor product of two other vectors; otherwise its *entangled*.
+
+Take the tensor product of the basis:
+
+\begin{equation}
+   | u \big > \otimes | d \big > = \begin{pmatrix}
+1 \begin{pmatrix} 0 \\ 1 \end{pmatrix} \\
+0 \begin{pmatrix} 0 \\ 1 \end{pmatrix} \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\ 1 \\ 0 \\ 0
+\end{pmatrix}
+\end{equation}
+
+You can think of the combined state, therefore, $|ud \big>$ is /not/ entangled.
+
+Let's take another example, what if we have a state:
+
+\begin{equation}
+\begin{pmatrix}
+1 \\ 0 \\ 1 \\ 1
+\end{pmatrix}
+\end{equation}
+
+If we attempt to solve for some 
+
+\begin{equation}
+\begin{pmatrix}
+ac \\ ad \\ bc \\ bd
+\end{pmatrix}
+\end{equation}
+
+we will not get vectors $[a,b]$, $[c,d]$ which would then qualify as being a state.
+
+** More Stuff
+Often, our quantum algorithms will operate on the product of two Hilbert spaces, using binary strings as indices, and giving us the space of vectors in the form $\vec{a}(xy)$. $x$ ranges over the indices of the first space, $y$ over that of the second space.
+
+We can also index things like:
+
+\begin{equation}
+   a(01\ 10) 
+\end{equation}
+
+That would be the 6th element in $a$ ($01_2$ (2) + $10_2$ + (3) = $5_{10}$ which is the 6th element.)
+
+* Module Work
+- [[id:6AAC41BD-931D-4359-82C7-59C3076A4D41][QIC Module 1: Pset]] 
 
