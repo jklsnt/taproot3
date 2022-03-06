@@ -285,6 +285,58 @@ c35 :: 8, 13
 tinspire only gives one set of answers for polynomial with nsolve. instead, use polyRoots!
 lesson: if you get an answer that doesnt make sense.. look again! if you have a sqaured term, then you can get two possible answers!
 ***
+## blb9
+***
+w7 :: a, d
+i got this wrong because i didn't know what i was reading. 
+i didn't understand the difference between lohi and this new species, which would have made it obvious.
+
+lesson: think about what is being referred to, espcially if what looks like the right answer isnt very strong.
+***
+nc6 :: c, b
+i got this wrong because i didn't answer the question! i solved for the circumfrance, and forgot to subtract the original lenght.
+
+lesson: espcially for line / geo questions, CHECK WHAT you are ACTULLY supposed to answer VS what you just solved for before moving on.
+***
+nc111: d, b
+i got this wrong because i got an answer which worked, and didnt consider that others could as well.
+in the future, whenever you can divide both sides by x, that means that 0 is a solution!
+
+lesson: consider the other answers before you submit, especially if they contain components of the right answer.
+***
+nc15 :: d, b
+i got this wrong because i forgot to sqaure my x when i sqaured both sides.
+also, **radicals are always positive on the sat.** 
+this makes sqauring both sides of an equation **not algebraicly sound**
+
+lesson: be super careful with sqauring equations and negatives! remember, radicals are always positive!! if it's simple, just plug and chug.
+***
+c16 :: d,b
+i got this wrong because i didn't regognize the different between constants and variables.
+
+lesson: if their is an equation with two many things to solve for, things have to cancel out! look for how to cancel things out. look for terms that appear on one side but not the other.
+***
+c33 :: 10, 8
+i got this wrong because, when finding my probability, i didn't include my target number in my sample space. 
+
+lesson: make SURE to think about what your sample space actully is!
+***
+c30: no answer
+i got this wrong because i wasn't willing enough to round! remember, always geuss if out of time
+
+lesson: be ok with rounding for graph questions. use logic and estimation over precise solving.
+***
+## bb10
+***
+c31 :: 3,6
+i got this wrong because i wrote the number i rounded off instead of the right number. 
+
+lesson: when you have to round, DOUBLE CHECK after you round. be aware that you could just be writing the entirely wrong thing.
+***
+c30 :: b, a
+
+i got this wrong because when i wasnt careful enough about sqauring. when squaring 2x, it's (2x)^2 = 4x^2. remember to also sqaure the coefficient
+lesson: be careful about sqaured terms. make sure you sqaure coefficients when nessasarry
 
 
 # To review
@@ -296,6 +348,7 @@ lesson: if you get an answer that doesnt make sense.. look again! if you have a 
 	- completing the square
 - unit conversions
 - vertex form
+- 30-60-90 triangles
 
 (52-5)+(44-10)+(20-9)+(38-7)
 
@@ -304,5 +357,14 @@ lesson: if you get an answer that doesnt make sense.. look again! if you have a 
 700
 
 710
+52 -> 40
+43 -> 39
+
+790
+
+17 + 35 = 52
+52 -> 750
+
+790+750 = 1540
 
 

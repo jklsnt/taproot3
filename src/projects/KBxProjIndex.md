@@ -37,6 +37,8 @@ date: 2021-12-23
 flow field that takes weather data as the vector field. inspired by sebastain leuge!
 a graph of citations, clustered?
 
+handwriting-note taking app extravaganza
+
 
 
 
