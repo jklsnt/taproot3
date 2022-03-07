@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-04 Fri 15:06 -->
+<!-- 2022-03-06 Sun 23:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MVC 2 PS#13</title>
+<title>MVC 2 PS#14</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Houjun Liu" />
 <style type="text/css">
@@ -263,436 +263,352 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#13</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-04 Fri 15:05</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#14</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-06 Sun 23:22</date></div>
 </div>
 <div id="content">
-<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhHomeworkIndex.html'>MVC Homework Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgce9c06c">1. Line integral problem 1</a></li>
-<li><a href="#org5650b59">2. Line integral problem 2</a></li>
-<li><a href="#org9c661e5">3. Seal Sweatshop</a></li>
-<li><a href="#orga0b49c6">4. 1D Taylor Series</a>
+<li><a href="#orgc65d158">1. Actual double integrals</a>
 <ul>
-<li><a href="#orgeccf62b">4.1. Increasing speed by \(50\%\)</a></li>
-<li><a href="#org83a7d78">4.2. Increasing a speed at small intervals</a></li>
-<li><a href="#org4057e4e">4.3. The Taylor Series</a></li>
+<li><a href="#org2deb76d">1.1. Volume under egg carton, rectangular</a></li>
+<li><a href="#org0fe737e">1.2. Volume under egg carton, polar</a></li>
 </ul>
 </li>
+<li><a href="#orgf5795a6">2. Lagrange Multiplier, Again</a></li>
+<li><a href="#org4796d34">3. Parameterization 4D Surface</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-orgce9c06c" class="outline-2">
-<h2 id="orgce9c06c"><span class="section-number-2">1</span> Line integral problem 1</h2>
+<div id="outline-container-orgc65d158" class="outline-2">
+<h2 id="orgc65d158"><span class="section-number-2">1</span> Actual double integrals</h2>
 <div class="outline-text-2" id="text-1">
-<blockquote>
 <p>
-Consider the following function:
+The intuition behind a double integral is not necessarily complex&#x2014;it is simply summing up twice along each dimension.
 </p>
-
-\begin{equation}
-   f(x,y) = ye^x 
-\end{equation}
-</blockquote>
-
-<p>
-We first graph the expression.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">f(x,y) = y*e^x
-plot3d(f, (x,-5,5), (y,-5,5))
-</pre>
-</div>
-
-
-<div id="org31f7985" class="figure">
-<p><img src="2022-03-03_09-17-02_screenshot.png" alt="2022-03-03_09-17-02_screenshot.png" />
-</p>
-</div>
 
 <blockquote>
 <p>
-Find an area under the straight line from \((1,2)\) to \((4,7)\).
-</p>
-</blockquote>
-
-<p>
-The line has slope \(\frac{5}{3}\). We will begin by solving for its \(y\) intercept.
-</p>
-
-\begin{align}
-   &2 = \frac{5}{3} + b\\
-&b = \frac{1}{3}
-\end{align}
-
-<p>
-Therefore, the expression from which we are slicing is:
-</p>
-
-\begin{equation}
-   y = \frac{5}{3} x + \frac{1}{3} 
-\end{equation}
-
-<p>
-From here, we will now actually perform the parameterization.
-</p>
-
-\begin{equation}
-\begin{align}
-&x = t\\
-&y = \frac{5}{3} t + \frac{1}{3}    
-\end{align}
-\end{equation}
-
-<div class="org-src-container">
-<pre class="src src-sage">f(x,y) = y*e^x
-contour_plot(f, (x,-5,5), (y,-5,5), cmap="cool")+plot((5/3)*x+(1/3), (-3,3))
-</pre>
-</div>
-
-
-<div id="org73a59dd" class="figure">
-<p><img src="2022-03-04_14-37-01_screenshot.png" alt="2022-03-04_14-37-01_screenshot.png" />
-</p>
-</div>
-
-<p>
-Our bounds are \((1,2)\) to \((4,7)\), meaning the bounds are from \([1,4]\) in units of \(t\).
-</p>
-
-<p>
-Additionally, we will figure the rate of change of the action function w.r.t. both of these variables:
-</p>
-
-\begin{align}
-   \frac{dx}{dt} &= 1 \\
-   \frac{dy}{dt} &= \frac{5}{3} 
-\end{align}
-
-<p>
-Therefore, the actual function \(\frac{df}{dt}\) grows at a rate of:
-</p>
-
-\begin{align}
-   \frac{df}{dt} &= \sqrt{1 + \left(\frac{5}{3}\right)^2}\\
-&= \sqrt{1 + \frac{25}{9}}\\
-&= \sqrt{\frac{34}{9}}
-\end{align}
-
-<p>
-Now we are ready to parameterize this function.
-</p>
-
-\begin{align}
-   &f(x,y) = ye^x \\
-\Rightarrow &f\left(t, \frac{5}{3}t+\frac{1}{3}\right) = \left(\frac{5}{3}t+\frac{1}{3}\right) e^t
-\end{align}
-
-<p>
-The actual integral, scaled correctly to the units originally in the function, therefore is:
-</p>
-
-\begin{equation}
-   \int^4_1 = \left(\frac{5}{3}t+\left(\frac{1}{3}\right)\right)e^t\sqrt(\frac{34}{9})
-\end{equation}
-
-<div class="org-src-container">
-<pre class="src src-sage">from sage.symbolic.integration.integral import definite_integral
-
-float(definite_integral(((5/3)*t+(1/3))*e^t*sqrt(34/9), t, 1, 4))
-</pre>
-</div>
-
-<p>
-It is roughly \(564.2\) units across.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org5650b59" class="outline-2">
-<h2 id="org5650b59"><span class="section-number-2">2</span> Line integral problem 2</h2>
-<div class="outline-text-2" id="text-2">
-<blockquote>
-<p>
-Consider the parabaloid:
-</p>
-
-\begin{equation}
-f(x,y) = x^2 + y^2    
-\end{equation}
-
-<p>
-Find the area under this function, along a circle of radius 1 centered at the origin.
+Volume underneath the infinite egg carton, \(f(x,y) = sin(x)cos(y)+5\)
 </p>
 </blockquote>
 
 <div class="org-src-container">
-<pre class="src src-sage">f(x,y) = x^2 + y^2
-plot3d(f, (x,-5,5), (y,-5,5))
+<pre class="src src-sage">f(x,y) = sin(x)*cos(y)+5
+plot3d(f, (x, 0, 3*pi), (y,0,5*pi))
 </pre>
 </div>
 
 
-<div id="orgb0973f1" class="figure">
-<p><img src="2022-03-03_09-33-50_screenshot.png" alt="2022-03-03_09-33-50_screenshot.png" />
+<div id="org8d83799" class="figure">
+<p><img src="2022-03-06_22-03-12_screenshot.png" alt="2022-03-06_22-03-12_screenshot.png" />
 </p>
 </div>
+</div>
 
+
+<div id="outline-container-org2deb76d" class="outline-3">
+<h3 id="org2deb76d"><span class="section-number-3">1.1</span> Volume under egg carton, rectangular</h3>
+<div class="outline-text-3" id="text-1-1">
 <p>
-We are to parameterize this function along a circle of radius 1, some equation:
+In this sub-problem, we are bound by the origin and \(x=3\pi,y=5\pi\).
 </p>
 
-\begin{equation}
-   x^2 + y^2 = 1 
-\end{equation}
-
 <p>
-We will parameterize the function along a circle:
+We take the expression, and sum it in both directions. We first collapse the \(y\) dimension by summing along it:
 </p>
 
 \begin{align}
-   &y = sin(t)\\
-&x = cos(t)
-\end{align}
-
-<div class="org-src-container">
-<pre class="src src-sage">f(x,y) = x^2 + y^2
-contour_plot(f, (x,-5,5), (y,-5,5), cmap="cool")+implicit_plot(x^2+y^2-1, (-5,5), (-5,5))
-</pre>
-</div>
-
-
-<div id="orgb245291" class="figure">
-<p><img src="2022-03-04_14-37-31_screenshot.png" alt="2022-03-04_14-37-31_screenshot.png" />
-</p>
-</div>
-
-<p>
-Evidently, the pairs \(y,x\) form a valid pair of parameterization to the above expression.
-</p>
-
-<p>
-Furthermore, we need to figure \(\frac{df}{dt}\). As per the Pythagorean theorem again, \(\frac{df}{dt}\) is \(1\) as the derivatives of sine, cosine, squared, would simply result in \(sin^2t + cos^2t = 1\).
-</p>
-
-<p>
-We will supply the parameterization now to the function:
-</p>
-
-\begin{align}
-   &f(x,y) = x^2 + y^2 \\
-&f(cos(t),sin(t)) = 1
+   g(x,y) &= \int^{5\pi}_0 sin(x)cos(y)+5\ dy\\
+&= \left (sin(x)sin(y) + 5y \right)|^{5\pi}_{0}\\
+&= 25\pi
 \end{align}
 
 <p>
-We lastly take the very simple integral:
+We then collapse along the \(x\) dimension by doing the same:
 </p>
 
 \begin{align}
-   &\int^{2\pi}_0 = 1 dt \\
-\Rightarrow &2\pi
+   h(x) &= \int^{3\pi}_0 25\pi\ dx \\
+&= 25\pi x | ^{3\pi}_0\\
+&= 75{\pi}^2
 \end{align}
 </div>
 </div>
 
-<div id="outline-container-org9c661e5" class="outline-2">
-<h2 id="org9c661e5"><span class="section-number-2">3</span> Seal Sweatshop</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org0fe737e" class="outline-3">
+<h3 id="org0fe737e"><span class="section-number-3">1.2</span> Volume under egg carton, polar</h3>
+<div class="outline-text-3" id="text-1-2">
 <p>
-As per given by the question, our revenue \(R\) is modeled by the following function:
-</p>
-
-\begin{equation}
-   R(h,s) = 200 h^{2/3} s^{1/3} 
-\end{equation}
-
-<p>
-Our bound function is that we only have \(20,000\) to spend on the expenses. Each raccoonhour of work costs 20 dollars, and sear furs which cost \(170\) per unit. 
+In this sub-problem, we are bound by the origin and \(\theta=\frac{\pi}{2}, r=5\pi\).
 </p>
 
 <p>
-Therefore, the maximum expense expression (the bounds) would therefore be:
-</p>
-
-\begin{equation}
-   g(h,s)=170s+20h-20000
-\end{equation}
-
-<p>
-Solutions to \(g\) on \(R\) would therefore be our desired solution.
-</p>
-
-<p>
-We first take the gradient of \(g\):
-</p>
-
-\begin{equation}
-   \nabla g = \begin{pmatrix}
-20 \\170
-\end{pmatrix} 
-\end{equation}
-
-<p>
-We will furthermore take the gradient of \(R\):
-</p>
-
-\begin{align}
-   \nabla R &= \begin{pmatrix}
-200S^{\frac{1}{3}}\frac{2}{3}h^{\frac{-1}{3}}\\
-200h^{\frac{2}{3}}\frac{1}{3}S^{\frac{-2}{3}}
-\end{pmatrix} \\
-&= \begin{pmatrix}
-\frac{400}{3} \sqrt[3]{\frac{s}{h}}\\
-\frac{200}{3} \sqrt[3]{\frac{h^2}{s^2}}
-\end{pmatrix}
-\end{align}
-
-<p>
-Given the expression for Lagrange multipliers, we can finally set up a system of three equations and solve:
+To do this, we first convert our rectangular expressions to cylindrical. Recall that, because of the shape of a unit circle and a cylinder:
 </p>
 
 \begin{equation}
    \begin{cases}
- \frac{400}{3} \sqrt[3]{\frac{s}{h}} = \lambda 20 \\   
-\frac{200}{3} \sqrt[3]{\frac{h^2}{s^2}} = \lambda 170\\
-170s+20h-20000=0
+   x = r\ cos (\theta)\\
+   y = r\ sin *\theta)\\
+z = z
 \end{cases}
 \end{equation}
 
 <p>
-We now solve using Sage:
+Therefore, we will perform the requisite substitutions:
+</p>
+
+\begin{align}
+   z = f(r, \theta) &= sin(x)cos(y)+5\\
+&= sin(r\ cos(\theta))cos(r\ sin(\theta))+5\\
+&= \frac{1}{2}\left(sin(r\ cos(\theta) - r\ sin(\theta)) + sin(r\ cos(\theta) + r\ sin(\theta))\right)+5
+\end{align}
+
+<p>
+As with before, we will perform integration twice, over each set of bounds
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sage">s,h,l = var("s h l", domain="real")
-eqns = [
-    ((400/3)*(s/h)^(1/3) == l*20),
-    ((200/3)*((h^2)/(s^2))^(1/3) == l*170),
-    170*s + 20*h - 20000 == 0
-]
+<pre class="src src-sage">f(r,t) = (1/2)*(sin(r*cos(t)-r*sin(t))+ sin(r*cos(t)+r*sin(t)))+5
 
-solve(eqns, s,h,l)
+monte_carlo_integral(f, [0,0], [5*pi, pi/2], 10000000)
 </pre>
 </div>
 
 <p>
-Therefore, we understand that, to maximize revenue, we will use \(s=\frac{2000}{51}\) tonnes of fur and \(h=\frac{2000}{3}\) hours of work. This will result in approximately \(51854.8\) dollars of revenue.
+We can see that the volume under the shape is roughly \(124.14\) units large.
 </p>
 </div>
 </div>
-
-<div id="outline-container-orga0b49c6" class="outline-2">
-<h2 id="orga0b49c6"><span class="section-number-2">4</span> 1D Taylor Series</h2>
-<div class="outline-text-2" id="text-4">
-<p>
-Let's set our initial speed at \(x\), to travel some fixed distance \(d\).
-</p>
-
-<p>
-This means that our generic expression for time elapsed is:
-</p>
-
-\begin{align}
-   tx = d \\
-t = \frac{d}{x} 
-\end{align}
-
-<p>
-If we, say, now increased our speed by a factor of \((1+100\%) = 2\), we can figure a new expression for time:
-</p>
-
-\begin{align}
-   t' &= \frac{d}{2x} \\
-&=\frac{1}{2} \frac{d}{x}
-\end{align}
-
-<p>
-If increased speed by \(100\%\), we only get there in half as much time (i.e. lowered time by \(50\%\)).
-</p>
 </div>
 
-<div id="outline-container-orgeccf62b" class="outline-3">
-<h3 id="orgeccf62b"><span class="section-number-3">4.1</span> Increasing speed by \(50\%\)</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-orgf5795a6" class="outline-2">
+<h2 id="orgf5795a6"><span class="section-number-2">2</span> Lagrange Multiplier, Again</h2>
+<div class="outline-text-2" id="text-2">
+<blockquote>
 <p>
-If we instead increased speed by \(50\%\), we will increase it by a factor of \((1+50\%) = 1.5\). By the same token, therefore:
-</p>
-
-\begin{align}
-   t' &= \frac{d}{1.5x} \\
-&= \frac{10}{15}\frac{d}{x} \\
-&= \frac{2}{3}\frac{d}{x}
-\end{align}
-
-<p>
-We will get there in \(\frac{2}{3}\) the original time. As it took originally 6 hours, it would take now roughly 4 hours, lowering time by \(33.\overline{3}\%\).
-</p>
-</div>
-</div>
-
-<div id="outline-container-org83a7d78" class="outline-3">
-<h3 id="org83a7d78"><span class="section-number-3">4.2</span> Increasing a speed at small intervals</h3>
-<div class="outline-text-3" id="text-4-2">
-<p>
-If we increased our speed by \(2\%\), we will increase it by a factor of \((1+2\%) = 1.02\).
-</p>
-
-<p>
-As with before:
-</p>
-
-\begin{align}
-   t' &= \frac{d}{1.02x} \\
-&= \frac{100}{102}\frac{d}{x} \\
-&= \frac{50}{51}\frac{d}{x}
-\end{align}
-
-<p>
-We will get there in \(\frac{50}{51}\) of the original time. It will take roughly \(5.88\) hours. This would constitute lowering time by \(1.96\% \approx 2\%\).
-</p>
-</div>
-</div>
-
-<div id="outline-container-org4057e4e" class="outline-3">
-<h3 id="org4057e4e"><span class="section-number-3">4.3</span> The Taylor Series</h3>
-<div class="outline-text-3" id="text-4-3">
-<p>
-As we can see from the expression of:
+Take the following bound expression:
 </p>
 
 \begin{equation}
-   t' = \frac{1}{\sigma} \frac{d}{x} 
+   2x+4y+5z = 20 
 \end{equation}
 
 <p>
-repeatedly used above, where \(\sigma\) is some factor of speed increase, the actual weight of the speed increase is:
+what are the dimensions of the rectangle with one corner on the origin and the other on the above rectangle with these properties with the largest volume?
+</p>
+</blockquote>
+
+<p>
+Let's plot the bound curve first:
 </p>
 
-\begin{equation}
-   1- \frac{1}{\sigma} 
-\end{equation}
+<div class="org-src-container">
+<pre class="src src-sage">x,y,z=var("x y z")
+implicit_plot3d(2*x+4*y+5*z, (-10, 20), (-10, 20), (-10, 20))
+</pre>
+</div>
 
-<p>
-As we know, the Taylor Series centered at \(1\) (doing nothing) for \(\frac{1}{x}\) is:
-</p>
 
-\begin{equation}
-    \frac{1}{x} = 1-(x-1)+(x-1)^2 -(x-1)^3 \cdots
-\end{equation}
-
-<p>
-Subtracting this whole expression by 1, therefore:
-</p>
-
-\begin{equation}
-    1-\frac{1}{x} = (x-1)-(x-1)^2 +(x-1)^3 \cdots
-\end{equation}
-
-<p>
-We therefore see that, at values close to 1, this expression holds a roughly linear relation (first degree of the Taylor Series is most augmented; the rest, due to squaring/cubing/etc., is more diminished.) As \(x\) gets larger, the weight of the rest of the sequence becomes larger &#x2014; pairwise balancing to have a more reduced effect on the speed.
+<div id="org346621f" class="figure">
+<p><img src="2022-03-06_22-32-10_screenshot.png" alt="2022-03-06_22-32-10_screenshot.png" />
 </p>
 </div>
+
+<p>
+We realize first that the \(x\), \(y\), \(z\) values are corresponding to both the coordinate of the topmost corner, as well as the lengths of the side. We will use a Lagrange multiplier method to optimize volume:
+</p>
+
+\begin{equation}
+   V(x,y,z) = xyz 
+\end{equation}
+
+<p>
+Let's start by taking the gradient of the expression for both \(V\) and the bound expression \(g(x,y,z)=2x+4y+5z-20\):
+</p>
+
+\begin{equation}
+   \Delta V = \begin{pmatrix} 
+yz\\
+xz\\
+xy
+\end{pmatrix}
+\end{equation}
+
+<p>
+and,
+</p>
+
+\begin{equation}
+   \Delta g = \begin{pmatrix}
+2\\
+4\\
+5
+\end{pmatrix} 
+\end{equation}
+
+<p>
+Based on the expression for the Lagrange multiplier, we will derive the following expressions:
+</p>
+
+\begin{equation}
+    \begin{cases}
+   yz = 2\lambda \\
+xz = 4\lambda \\
+xy = 5\lambda \\
+0 = 2x+4y+5z -20
+\end{cases}
+\end{equation}
+
+<p>
+To solve, we will first divide the first two expressions by each other:
+</p>
+
+\begin{align}
+   &\frac{y}{x} = \frac{1}{2} \\
+\Rightarrow\ &y = \frac{x}{2}
+\end{align}
+
+<p>
+We then substitute this into the third expression:
+</p>
+
+\begin{align}
+   &xy = 5\lambda \\
+\Rightarrow\ &x\frac{x}{2} = 5\lambda\\
+\Rightarrow\ &\frac{x^2}{2} = 5\lambda\\
+\Rightarrow\ &\frac{x^2}{10} = \lambda
+\end{align}
+
+<p>
+Furthermore, we substitute the expression for \(\lambda\) into the second expression to figure \(z\) in terms of \(x\).
+</p>
+
+\begin{align}
+   &xz = 4\lambda \\
+\Rightarrow\ &xz = 4\frac{x^2}{10}\\
+\Rightarrow\ &z = \frac{2x}{5}
+\end{align}
+
+<p>
+We now solve by substituting all expression into the last one:
+</p>
+
+\begin{align}
+   &0 = 2x+4y+5z-20\\ 
+\Rightarrow\ &0 = 2x + 2x + 2x - 20 \\
+\Rightarrow\ &0 = 6x - 20 \\
+\Rightarrow\ &20 = 6x \\
+\Rightarrow\ &x = \frac{10}{3} 
+\end{align}
+
+<p>
+Substituting the final expressions, therefore, the dimensions with the biggest volume would be:
+</p>
+
+\begin{equation}
+    \begin{cases}
+    x = \frac{10}{3}\\
+y = \frac{5}{3} \\
+z = \frac{4}{3}
+\end{cases}
+\end{equation}
+
+<p>
+The max volume that results, therefore, is:
+</p>
+
+\begin{equation}
+    V = \frac{200}{27} \approx 7.4
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org4796d34" class="outline-2">
+<h2 id="org4796d34"><span class="section-number-2">3</span> Parameterization 4D Surface</h2>
+<div class="outline-text-2" id="text-3">
+<blockquote>
+<p>
+Consider the 4d surface:
+</p>
+
+\begin{equation}
+   f(x,y,z) = -\sqrt{x^2+y^2} 
+\end{equation}
+
+<p>
+and the path:
+</p>
+\begin{equation}
+    s(t) = \begin{pmatrix}
+a\ cos(t) \\
+a\ sin(t)
+\end{pmatrix}, where\ t\, \in [0, 2\pi]
+\end{equation}
+
+<p>
+what does the path look like?
+</p>
+</blockquote>
+
+<p>
+We begin by figuring the parameterization of the function \(f\) along \(s\). \(s\) is expressions in terms of a parameterization:
+</p>
+
+\begin{equation}
+\begin{cases}
+    x = a\ cos(t)\\
+y = a\ sin(t)
+\end{cases}
+\end{equation}
+
+<p>
+We first need to figure the rate of change of parameter w.r.t. time, that:
+</p>
+
+\begin{equation}
+   \begin{align}
+   \frac{\partial x}{\partial t} = -a\ sin(t)\\
+   \frac{\partial y}{\partial t} = -a\ cos(t)
+\end{align}
+\end{equation}
+
+<p>
+And therefore, the rate of change is:
+</p>
+
+\begin{align}
+   \frac{ds}{dt} &= \sqrt{(-a\ sin(t))^2+(-a\ cos(t))^2} \\
+&= \sqrt{a^2(sin^2(t)+cos^2(t))} \\
+&= \sqrt{a^2} \\
+&= a
+\end{align}
+
+<p>
+We then proceed to parameterize the actual function along these dimensions:
+</p>
+
+\begin{align}
+   f(a\ cos(t),a\ sin(t),z) &= -\sqrt{(a\ cos(t))^2+(a\ sin(t))^2} \\
+&= -\sqrt{a^2(cos^2(t)+sin^2(t))}\\
+&= -a
+\end{align}
+
+<p>
+Hence, taking the actual line integral:
+</p>
+
+\begin{align}
+   &\int_0^{2 \pi} -a \frac{ds}{dt} dt\\
+\Rightarrow & -\int_0^{2 \pi} a^2 dt\\
+\Rightarrow & -\left \frac{a^3}{3}\right|_0^{2 \pi} \\
+\Rightarrow & -\left \frac{8\pi^3}{3}\right 
+\end{align}
+
+<p>
+The integral along that curve would be \(\frac{-8\pi^3}{3}\).
+</p>
 </div>
 </div>
 </div>

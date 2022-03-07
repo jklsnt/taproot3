@@ -11,10 +11,6 @@ date: 2022-01-24
 
 # pt 2!
 
-the readings:
-YAWP Chapter 16, Reader 1870s-1910s, Trachtenberg's Machine as Diety and Demon, Gilded Age Reflections gathered by Blodget.
-
-## yawp
 #### intro
 - railroad financial bubble bursts in 1873
 	- econ stagnates

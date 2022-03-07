@@ -336,8 +336,16 @@ lesson: when you have to round, DOUBLE CHECK after you round. be aware that you 
 c30 :: b, a
 
 i got this wrong because when i wasnt careful enough about sqauring. when squaring 2x, it's (2x)^2 = 4x^2. remember to also sqaure the coefficient
-lesson: be careful about sqaured terms. make sure you sqaure coefficients when nessasarry
 
+lesson: be careful about sqaured terms. make sure you sqaure coefficients when nessasarry
+***
+## ka math diagnostic
+***
+percents ::
+i got this wrong because i made an invalid assumption about other peoples logic. i should have simply double checked.
+
+lesson: don't make assumptions about other people logic! just do the math!
+***
 
 # To review
 - polynomial division
@@ -349,6 +357,7 @@ lesson: be careful about sqaured terms. make sure you sqaure coefficients when n
 - unit conversions
 - vertex form
 - 30-60-90 triangles
+- radian and degree conversions
 
 (52-5)+(44-10)+(20-9)+(38-7)
 
@@ -367,4 +376,12 @@ lesson: be careful about sqaured terms. make sure you sqaure coefficients when n
 
 790+750 = 1540
 
+51 + 37
+
+51 -> 39
+37 -> 33
+
+720
+
+17 + 36 -> 780
 
