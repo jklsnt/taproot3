@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-06 Sun 23:22 -->
+<!-- 2022-03-07 Mon 22:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MVC 2 PS#14</title>
@@ -263,25 +263,25 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#14</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-06 Sun 23:22</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#14</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-07 Mon 22:14</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc65d158">1. Actual double integrals</a>
+<li><a href="#org66c8864">1. Actual double integrals</a>
 <ul>
-<li><a href="#org2deb76d">1.1. Volume under egg carton, rectangular</a></li>
-<li><a href="#org0fe737e">1.2. Volume under egg carton, polar</a></li>
+<li><a href="#org09b711e">1.1. Volume under egg carton, rectangular</a></li>
+<li><a href="#org06270a3">1.2. Volume under egg carton, polar</a></li>
 </ul>
 </li>
-<li><a href="#orgf5795a6">2. Lagrange Multiplier, Again</a></li>
-<li><a href="#org4796d34">3. Parameterization 4D Surface</a></li>
+<li><a href="#org44e7cb5">2. Lagrange Multiplier, Again</a></li>
+<li><a href="#org2505181">3. Parameterization 4D Surface</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-orgc65d158" class="outline-2">
-<h2 id="orgc65d158"><span class="section-number-2">1</span> Actual double integrals</h2>
+<div id="outline-container-org66c8864" class="outline-2">
+<h2 id="org66c8864"><span class="section-number-2">1</span> Actual double integrals</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The intuition behind a double integral is not necessarily complex&#x2014;it is simply summing up twice along each dimension.
@@ -300,15 +300,15 @@ plot3d(f, (x, 0, 3*pi), (y,0,5*pi))
 </div>
 
 
-<div id="org8d83799" class="figure">
+<div id="orgbf63d6f" class="figure">
 <p><img src="2022-03-06_22-03-12_screenshot.png" alt="2022-03-06_22-03-12_screenshot.png" />
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-org2deb76d" class="outline-3">
-<h3 id="org2deb76d"><span class="section-number-3">1.1</span> Volume under egg carton, rectangular</h3>
+<div id="outline-container-org09b711e" class="outline-3">
+<h3 id="org09b711e"><span class="section-number-3">1.1</span> Volume under egg carton, rectangular</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 In this sub-problem, we are bound by the origin and \(x=3\pi,y=5\pi\).
@@ -336,21 +336,73 @@ We then collapse along the \(x\) dimension by doing the same:
 </div>
 </div>
 
-<div id="outline-container-org0fe737e" class="outline-3">
-<h3 id="org0fe737e"><span class="section-number-3">1.2</span> Volume under egg carton, polar</h3>
+<div id="outline-container-org06270a3" class="outline-3">
+<h3 id="org06270a3"><span class="section-number-3">1.2</span> Volume under egg carton, polar</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 In this sub-problem, we are bound by the origin and \(\theta=\frac{\pi}{2}, r=5\pi\).
 </p>
 
 <p>
-To do this, we first convert our rectangular expressions to cylindrical. Recall that, because of the shape of a unit circle and a cylinder:
+To do this, we will realize that a circular pair of coordinates can be represented by slices of areas with a custom upper-bound. We will first sum the area of an individual triangular shape, then integrate it by sweeping across.
+</p>
+
+<p>
+An expression of a circle with radius \(5\pi\) is:
+</p>
+
+\begin{equation}
+x^2 + y^2 = (5 \pi)^2
+\end{equation}
+
+<p>
+Therefore, we can set the upper \(y\) bound as an expression:
+</p>
+
+\begin{equation}
+   y = \sqrt{(5\pi)^2-x^2}
+\end{equation}
+
+<p>
+Therefore, we will integrate the function to figure an expression for the total weight of each "rod":
+</p>
+
+\begin{align}
+   &\int^{\sqrt{(5\pi)^2-x^2}}_0 (sin(x)cos(y)+5)\ dy\\
+\Rightarrow&\ \left \left(sin(x)sin(y) + 5y \right)\right|^{\sqrt{(5\pi)^2-x^2}}_0\\
+\Rightarrow&\ \left \left(sin(x)sin(\sqrt{(5\pi)^2-x^2}) + 5\sqrt{(5\pi)^2-x^2} \right)
+\end{align}
+
+<p>
+We finally integrate along the \(x\) dimension: between \(0\) and \(5\pi\).
+</p>
+
+\begin{align}
+   \int^{5\pi}_0  \left(sin(x)sin(\sqrt{(5\pi)^2-x^2}) + 5\sqrt{(5\pi)^2-x^2} \right) dx
+\end{align}
+
+<p>
+Unfortunately, we will need now sage to actually compute this integral.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">f(x) = (sin(x)*sin(sqrt((5*pi)^2-x^2)) + 5 * sqrt((5*pi)^2-x^2))
+monte_carlo_integral(f, [0], [5*pi], 100000)
+</pre>
+</div>
+
+<p>
+Therefore, the area under the shape is roughly \(971\) units.
+</p>
+
+<p>
+We can check this with cylindrical coordinates. To do this, we first convert our rectangular expressions to cylindrical. Recall that, because of the shape of a unit circle and a cylinder:
 </p>
 
 \begin{equation}
    \begin{cases}
    x = r\ cos (\theta)\\
-   y = r\ sin *\theta)\\
+   y = r\ sin (\theta)\\
 z = z
 \end{cases}
 \end{equation}
@@ -361,18 +413,17 @@ Therefore, we will perform the requisite substitutions:
 
 \begin{align}
    z = f(r, \theta) &= sin(x)cos(y)+5\\
-&= sin(r\ cos(\theta))cos(r\ sin(\theta))+5\\
-&= \frac{1}{2}\left(sin(r\ cos(\theta) - r\ sin(\theta)) + sin(r\ cos(\theta) + r\ sin(\theta))\right)+5
+&= sin(r\ cos(\theta))cos(r\ sin(\theta))+5
 \end{align}
 
 <p>
-As with before, we will perform integration twice, over each set of bounds
+We will need to perform the integration twice again. Note, however, we are integrating over "rings" of the shape, whose deferential circumference would be \(r\ d\theta\). Therefore, we are to multiply the whole expression in \(r\).
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sage">f(r,t) = (1/2)*(sin(r*cos(t)-r*sin(t))+ sin(r*cos(t)+r*sin(t)))+5
+<pre class="src src-sage">f(r,t) = (sin(r*cos(t))*cos(r*sin(t))+5)*r
 
-monte_carlo_integral(f, [0,0], [5*pi, pi/2], 10000000)
+monte_carlo_integral(f, [0,0], [5*pi, pi/2], 1000000)
 </pre>
 </div>
 
@@ -383,8 +434,8 @@ We can see that the volume under the shape is roughly \(124.14\) units large.
 </div>
 </div>
 
-<div id="outline-container-orgf5795a6" class="outline-2">
-<h2 id="orgf5795a6"><span class="section-number-2">2</span> Lagrange Multiplier, Again</h2>
+<div id="outline-container-org44e7cb5" class="outline-2">
+<h2 id="org44e7cb5"><span class="section-number-2">2</span> Lagrange Multiplier, Again</h2>
 <div class="outline-text-2" id="text-2">
 <blockquote>
 <p>
@@ -411,7 +462,7 @@ implicit_plot3d(2*x+4*y+5*z, (-10, 20), (-10, 20), (-10, 20))
 </div>
 
 
-<div id="org346621f" class="figure">
+<div id="org7b8e547" class="figure">
 <p><img src="2022-03-06_22-32-10_screenshot.png" alt="2022-03-06_22-32-10_screenshot.png" />
 </p>
 </div>
@@ -525,8 +576,8 @@ The max volume that results, therefore, is:
 </div>
 </div>
 
-<div id="outline-container-org4796d34" class="outline-2">
-<h2 id="org4796d34"><span class="section-number-2">3</span> Parameterization 4D Surface</h2>
+<div id="outline-container-org2505181" class="outline-2">
+<h2 id="org2505181"><span class="section-number-2">3</span> Parameterization 4D Surface</h2>
 <div class="outline-text-2" id="text-3">
 <blockquote>
 <p>

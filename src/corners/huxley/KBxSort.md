@@ -1,6 +1,11 @@
 n
 ***
 
+ intresting category theory reading from @nickm https://drive.google.com/file/d/1lKQZ6dMxGTHZggNVbQG9JgGGbTo0QwZ6/view
+ and also, https://drive.google.com/file/d/1lC7OeM7FTx7cVVv3ILijqwJVtugoEtVE/view #readingsuggestion
+
+***
+
  #name posit
 
 ***

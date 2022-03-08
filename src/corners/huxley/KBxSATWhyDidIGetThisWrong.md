@@ -339,6 +339,64 @@ i got this wrong because when i wasnt careful enough about sqauring. when squari
 
 lesson: be careful about sqaured terms. make sure you sqaure coefficients when nessasarry
 ***
+## bb8
+***
+r9 :: a,c
+i got this wrong because i was wrong about the word emphasize. you can emphasize something that hasn't been said before!
+
+lesson: if the right answer doesn't really make sense, **really** consider your assumptions. sometimes, words can be used differently.
+***
+w15 :: a, c
+i got this wrong because i was too focused on the idea of conscision and grammar. writing is more than grammar!
+lesson: conclusions need transitions! transitioning from previous ideas to new ideas is required.
+***
+w16 :: b, a
+i got this wrong because not sound blackbook advice. only use the who/whom thing when they are explicitly asking you about it! and use your ear!
+the reason why the right answer is better is because it places the subject closer to its pronoun ("both")
+
+lesson: trust the ear! think about placement of operators and subjects! 
+***
+w29 :: c, b
+i got this wrong because i got too caught up in the sandwiches for em dashes and commas. 
+lesson: if an em dash is an answer, consider it with the sandwiching rule **and** on its own! same goes for commas.
+***
+w35 :: c, d
+
+i got this wrong because i ignored the parenthetical phrase. you can't always do this! the paranthetical phrase made it so that only one answer was correct, because it was referring to something that needed to be at the end of the sentence.
+
+lesson: consider what concepts need to be at the end and beginning of a sentence, especially if it doesnt make sense! check out parentheticals as well
+***
+w39 :: c, b
+
+dont be so quick to elim things if you don;t know what they are testing you on!
+lesson: again, be super warry about what is mentioned at the end of the previous sentence and the beginning of the next sentence!
+***
+w42 :: b, d
+i got this wrong because i didn't read the whole sentence. 
+lesson: make sure to read the whole sentence and listen for if it sounds right! this way, you can catch tricks!
+***
+nc9 :: c,a 
+was using radius instead of diameter.
+
+lesson: used to working with radius. watch out for diameters!
+***
+nc10 :: b, c
+i got this wrong because i wrote down the number 200 instead of 202!
+
+lesson: double check what numbers you are putting down for language design questions. look at the answers, check what mistakes they could be looking for.
+***
+nc10 :: 3, 3/2
+i got this wrong because i dropped a sign!
+lesson: just do out the steps, you have time! be extra careful about it! plug shit back in to make sure it makes sense
+***
+lesson: you have to divide your variables! 
+***
+c37 :: 576, 556
+i got this wrong because i trusted graphs not exactly.
+lesson: look for exact info on grid in questions, especially if it is given to you! make sure to double check correspondance of graphs and tables.
+***
+
+
 ## ka math diagnostic
 ***
 percents ::
@@ -346,6 +404,16 @@ i got this wrong because i made an invalid assumption about other peoples logic.
 
 lesson: don't make assumptions about other people logic! just do the math!
 ***
+## ka writing
+***
+transition question :
+i got this wrong because i didn't consider the previous sentence and how it connects to the next sentence closely enough.
+i also fell for one of the traps: contradicting info, when the info was different.
+
+lesson: for transitions, CONSIDER what the previous sentence "opens" and the next sentence "receives"
+also, consider what the info / stats are actully referring to!
+***
+
 
 # To review
 - polynomial division
