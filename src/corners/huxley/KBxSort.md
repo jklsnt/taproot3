@@ -1,6 +1,23 @@
 n
 ***
 
+ "Categorical compositional distributional semantics, also known as DisCoCat for short,"
+
+***
+
+ quantum resources, from [tim!](https://thosgood.com) 
+-  https://www.quantinuum.com
+-  [qubit.guide](https://qubit.guide)
+-  https://topos.site/topos-colloquium/ 
+-  ZX-calculus? like, pauli matricies?
+-  https://graphicallinearalgebra.net
+	-  we can have three dimensional algebra??
+	-  search for: diagramatic category theory, string / sheet diagrams
+	-  associahedron
+-  tropical geometry?
+
+***
+
  intresting category theory reading from @nickm https://drive.google.com/file/d/1lKQZ6dMxGTHZggNVbQG9JgGGbTo0QwZ6/view
  and also, https://drive.google.com/file/d/1lC7OeM7FTx7cVVv3ILijqwJVtugoEtVE/view #readingsuggestion
 

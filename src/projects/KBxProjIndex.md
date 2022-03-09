@@ -32,6 +32,7 @@ date: 2021-12-23
 - volume displacement but w/ arnold
 - cli based text and file transfer + storage
 	- or, show air qual
+- vector space visualizer
 
 ## loose
 flow field that takes weather data as the vector field. inspired by sebastain leuge!
