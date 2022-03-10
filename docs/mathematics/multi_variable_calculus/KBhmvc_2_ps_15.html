@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-09 Wed 23:35 -->
+<!-- 2022-03-09 Wed 23:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MVC 2 PS#15</title>
@@ -263,23 +263,24 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#15</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-09 Wed 23:34</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#15</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-09 Wed 23:37</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org30a6ae4">1. A Double Integral</a></li>
-<li><a href="#org43df727">2. Pringles</a>
+<li><a href="#org18e5aea">1. A Double Integral</a></li>
+<li><a href="#orgaddbeb8">2. Pringles</a>
 <ul>
-<li><a href="#org2b6e775">2.1. Painting the sides</a></li>
+<li><a href="#orge33f54f">2.1. Painting the sides</a></li>
+<li><a href="#org9568b91">2.2. Tall Ladders</a></li>
 </ul>
 </li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org30a6ae4" class="outline-2">
-<h2 id="org30a6ae4"><span class="section-number-2">1</span> A Double Integral</h2>
+<div id="outline-container-org18e5aea" class="outline-2">
+<h2 id="org18e5aea"><span class="section-number-2">1</span> A Double Integral</h2>
 <div class="outline-text-2" id="text-1">
 <blockquote>
 <p>
@@ -324,15 +325,15 @@ plot3d(f, (x,-5,5), (y,-5,5))
 </div>
 
 
-<div id="org03dbfd4" class="figure">
+<div id="org65fc4f4" class="figure">
 <p><img src="2022-03-09_16-47-50_screenshot.png" alt="2022-03-09_16-47-50_screenshot.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org43df727" class="outline-2">
-<h2 id="org43df727"><span class="section-number-2">2</span> Pringles</h2>
+<div id="outline-container-orgaddbeb8" class="outline-2">
+<h2 id="orgaddbeb8"><span class="section-number-2">2</span> Pringles</h2>
 <div class="outline-text-2" id="text-2">
 <blockquote>
 <p>
@@ -353,7 +354,7 @@ parametric_plot([x,y], (0, 2*pi))
 </div>
 
 
-<div id="orga9d8f7c" class="figure">
+<div id="org010c0a2" class="figure">
 <p><img src="2022-03-09_16-50-16_screenshot.png" alt="2022-03-09_16-50-16_screenshot.png" />
 </p>
 </div>
@@ -378,14 +379,14 @@ plot3d(r, (x,-30,30), (y,-20,20), contours=True)
 </div>
 
 
-<div id="org36127c6" class="figure">
+<div id="org0b0fe2b" class="figure">
 <p><img src="2022-03-09_23-29-26_screenshot.png" alt="2022-03-09_23-29-26_screenshot.png" />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org2b6e775" class="outline-3">
-<h3 id="org2b6e775"><span class="section-number-3">2.1</span> Painting the sides</h3>
+<div id="outline-container-orge33f54f" class="outline-3">
+<h3 id="orge33f54f"><span class="section-number-3">2.1</span> Painting the sides</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 This question is simply a matter of parameterization&#x2014;the line integral of the function along the "base" projection forms the "wall" of the shape, whose value is therefore the amount of paint to use. We have been given the parameterization:
@@ -442,6 +443,34 @@ monte_carlo_integral(f(-30*sin(t), 20*cos(t))*dfdt, [0], [2*pi], 20000000)
 <p>
 You need roughly \(1835\) units of paint to paint the sides. 
 </p>
+</div>
+</div>
+
+<div id="outline-container-org9568b91" class="outline-3">
+<h3 id="org9568b91"><span class="section-number-3">2.2</span> Tall Ladders</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+We can leverage some single variable calculus to figure the critical points of the parameterization. We start again at the "base"-parameterized version of the function:
+</p>
+
+\begin{equation}
+    f(t) = \left(\frac{1}{400}\left(\sqrt{3}\ 30\ cos(t)-20\ sin(t)\right)^2 - \frac{1}{400}\left(\sqrt{3}\ 20\ sin(t)+30\ cos(t)\right)^2 + 10\right)
+\end{equation}
+
+<p>
+We will take the derivative of this expression as a step for solving for critical points:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">f(x,y) = (1/400)*(sqrt(3)*x-y)^2 - (1/400)*(sqrt(3)*y+x)^2 + 10
+latex(f(-30*sin(t), 20*cos(t)).diff())
+</pre>
+</div>
+
+\begin{align}
+   f'(t) = \frac{1}{2} &\, {\left(3 \, \sqrt{3} \cos\left(t\right) - 2 \, \sin\left(t\right)\right)} {\left(3 \, \sqrt{3} \sin\left(t\right) + 2 \, \cos\left(t\right)\right)} \\
+&+ \frac{1}{2} \, {\left(2 \, \sqrt{3} \cos\left(t\right) - 3 \, \sin\left(t\right)\right)} {\left(2 \, \sqrt{3} \sin\left(t\right) + 3 \, \cos\left(t\right)\right)} 
+\end{align}
 </div>
 </div>
 </div>

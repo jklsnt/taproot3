@@ -146,3 +146,16 @@ latex(f(-30*sin(t), 20*cos(t)).diff())
 &+ \frac{1}{2} \, {\left(2 \, \sqrt{3} \cos\left(t\right) - 3 \, \sin\left(t\right)\right)} {\left(2 \, \sqrt{3} \sin\left(t\right) + 3 \, \cos\left(t\right)\right)} 
 \end{align}
 
+We furthermore solve for the critical points of this function:
+
+#+begin_src sage
+solve(f(-30*sin(t), 20*cos(t)).diff(), t, to_poly_solve=True)
+#+end_src
+
+#+RESULTS:
+: [t == pi + 2*pi*z3093 - 1/2*arctan(12/13*sqrt(3)),
+:  t == 2*pi*z3172 - 1/2*arctan(12/13*sqrt(3)),
+:  t == 3/2*pi + 2*pi*z3572 - 1/2*arctan(12/13*sqrt(3)),
+:  t == 1/2*pi + 2*pi*z3651 - 1/2*arctan(12/13*sqrt(3))]
+
+There are four critical points to this expression. We will supply 
