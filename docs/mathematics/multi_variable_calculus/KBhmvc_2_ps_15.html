@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-09 Wed 13:15 -->
+<!-- 2022-03-09 Wed 23:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MVC 2 PS#14</title>
+<title>MVC 2 PS#15</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Houjun Liu" />
 <style type="text/css">
@@ -263,426 +263,174 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#14</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-09 Wed 13:15</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#15</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-09 Wed 23:25</date></div>
 </div>
 <div id="content">
-<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhHomeworkIndex.html'>MVC Homework Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd402cc4">1. Actual double integrals</a>
-<ul>
-<li><a href="#orgce1e8c4">1.1. Volume under egg carton, rectangular</a></li>
-<li><a href="#org7edc722">1.2. Volume under egg carton, polar</a></li>
-</ul>
-</li>
-<li><a href="#org575b2cb">2. Lagrange Multiplier, Again</a></li>
-<li><a href="#org30064a1">3. Parameterization 4D Surface</a></li>
+<li><a href="#org77bb0ae">1. A Double Integral</a></li>
+<li><a href="#org28fe03c">2. Pringles</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-orgd402cc4" class="outline-2">
-<h2 id="orgd402cc4"><span class="section-number-2">1</span> Actual double integrals</h2>
+<div id="outline-container-org77bb0ae" class="outline-2">
+<h2 id="org77bb0ae"><span class="section-number-2">1</span> A Double Integral</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-The intuition behind a double integral is not necessarily complex&#x2014;it is simply summing up twice along each dimension.
-</p>
-
 <blockquote>
 <p>
-Volume underneath the infinite egg carton, \(f(x,y) = sin(x)cos(y)+5\)
+Find the volume of the shape bounded on the top by the function \(f(x,y)= xy\), and on the base/sides by the rectangle with corners \((x=1,y=0)\) and \((x=4, y=2)\).
 </p>
 </blockquote>
 
+<p>
+Taking this integral in two ways is essentially just taking the double integral of the expression, in two different methods.
+</p>
+
+\begin{align}
+   &\int_0^2 \int_1^4 xy\ dx\ dy\\
+\Rightarrow &\int_0^2\left \frac{x^2y}{2}\ \right|_1^4 dy\\
+\Rightarrow &\int_0^2\frac{16y-y}{2} dy\\
+\Rightarrow &\int_0^2\frac{15y}{2} dy\\
+\Rightarrow &\left\frac{15y^2}{4} \right|_0^2\\
+\Rightarrow &\frac{60}{4}
+\end{align}
+
+<p>
+We can now do that again.
+</p>
+
+\begin{align}
+   &\int_1^4 \int_0^2 xy\ dy\ dx\\
+\Rightarrow &\int_1^4\left \frac{xy^2}{2}\ \right|_0^2 dy\\
+\Rightarrow &\int_1^4\frac{4x}{2} dx\\
+\Rightarrow &\left\frac{4x^2}{4} \right|_1^4\\
+\Rightarrow &\frac{64-4}{4}\\
+\Rightarrow &\frac{60}{4}
+\end{align}
+
+<p>
+As you can see, both results in the same value.
+</p>
+
 <div class="org-src-container">
-<pre class="src src-sage">f(x,y) = sin(x)*cos(y)+5
-plot3d(f, (x, 0, 3*pi), (y,0,5*pi))
+<pre class="src src-sage">f(x,y) = x*y
+plot3d(f, (x,-5,5), (y,-5,5))
 </pre>
 </div>
 
 
-<div id="org4b25bf5" class="figure">
-<p><img src="2022-03-06_22-03-12_screenshot.png" alt="2022-03-06_22-03-12_screenshot.png" />
-</p>
-</div>
-</div>
-
-
-<div id="outline-container-orgce1e8c4" class="outline-3">
-<h3 id="orgce1e8c4"><span class="section-number-3">1.1</span> Volume under egg carton, rectangular</h3>
-<div class="outline-text-3" id="text-1-1">
-<p>
-In this sub-problem, we are bound by the origin and \(x=3\pi,y=5\pi\).
-</p>
-
-<p>
-We take the expression, and sum it in both directions. We first collapse the \(y\) dimension by summing along it:
-</p>
-
-\begin{align}
-   g(x,y) &= \int^{5\pi}_0 sin(x)cos(y)+5\ dy\\
-&= \left (sin(x)sin(y) + 5y \right)|^{5\pi}_{0}\\
-&= 25\pi
-\end{align}
-
-<p>
-We then collapse along the \(x\) dimension by doing the same:
-</p>
-
-\begin{align}
-   h(x) &= \int^{3\pi}_0 25\pi\ dx \\
-&= 25\pi x | ^{3\pi}_0\\
-&= 75{\pi}^2
-\end{align}
-</div>
-</div>
-
-<div id="outline-container-org7edc722" class="outline-3">
-<h3 id="org7edc722"><span class="section-number-3">1.2</span> Volume under egg carton, polar</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-In this sub-problem, we are bound by the origin and \(\theta=\frac{\pi}{2}, r=5\pi\).
-</p>
-
-<p>
-To do this, we will realize that a circular pair of coordinates can be represented by slices of areas with a custom upper-bound. We will first sum the area of an individual triangular shape, then integrate it by sweeping across.
-</p>
-
-<p>
-An expression of a circle with radius \(5\pi\) is:
-</p>
-
-\begin{equation}
-x^2 + y^2 = (5 \pi)^2
-\end{equation}
-
-<p>
-Therefore, we can set the upper \(y\) bound as an expression:
-</p>
-
-\begin{equation}
-   y = \sqrt{(5\pi)^2-x^2}
-\end{equation}
-
-<p>
-Therefore, we will integrate the function to figure an expression for the total weight of each "rod":
-</p>
-
-\begin{align}
-   &\int^{\sqrt{(5\pi)^2-x^2}}_0 (sin(x)cos(y)+5)\ dy\\
-\Rightarrow&\ \left \left(sin(x)sin(y) + 5y \right)\right|^{\sqrt{(5\pi)^2-x^2}}_0\\
-\Rightarrow&\ \left \left(sin(x)sin(\sqrt{(5\pi)^2-x^2}) + 5\sqrt{(5\pi)^2-x^2} \right)
-\end{align}
-
-<p>
-We finally integrate along the \(x\) dimension: between \(0\) and \(5\pi\).
-</p>
-
-\begin{align}
-   \int^{5\pi}_0  \left(sin(x)sin(\sqrt{(5\pi)^2-x^2}) + 5\sqrt{(5\pi)^2-x^2} \right) dx
-\end{align}
-
-<p>
-Unfortunately, we will need now sage to actually compute this integral.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">f(x) = (sin(x)*sin(sqrt((5*pi)^2-x^2)) + 5 * sqrt((5*pi)^2-x^2))
-monte_carlo_integral(f, [0], [5*pi], 100000)
-</pre>
-</div>
-
-<p>
-Therefore, the area under the shape is roughly \(971\) units.
-</p>
-
-<p>
-We can check this with cylindrical coordinates. To do this, we first convert our rectangular expressions to cylindrical. Recall that, because of the shape of a unit circle and a cylinder:
-</p>
-
-\begin{equation}
-   \begin{cases}
-   x = r\ cos (\theta)\\
-   y = r\ sin (\theta)\\
-z = z
-\end{cases}
-\end{equation}
-
-<p>
-Therefore, we will perform the requisite substitutions:
-</p>
-
-\begin{align}
-   z = f(r, \theta) &= sin(x)cos(y)+5\\
-&= sin(r\ cos(\theta))cos(r\ sin(\theta))+5
-\end{align}
-
-<p>
-We will need to perform the integration twice again. Note, however, we are integrating over "rings" of the shape, whose deferential circumference would be \(r\ d\theta\). Therefore, we are to multiply the whole expression in \(r\).
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">f(r,t) = (sin(r*cos(t))*cos(r*sin(t))+5)*r
-
-monte_carlo_integral(f, [0,0], [5*pi, pi/2], 1000000)
-</pre>
-</div>
-
-<p>
-We can see that the volume under the shape is roughly \(124.14\) units large.
+<div id="org99cdb6f" class="figure">
+<p><img src="2022-03-09_16-47-50_screenshot.png" alt="2022-03-09_16-47-50_screenshot.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org575b2cb" class="outline-2">
-<h2 id="org575b2cb"><span class="section-number-2">2</span> Lagrange Multiplier, Again</h2>
+<div id="outline-container-org28fe03c" class="outline-2">
+<h2 id="org28fe03c"><span class="section-number-2">2</span> Pringles</h2>
 <div class="outline-text-2" id="text-2">
 <blockquote>
 <p>
-Take the following bound expression:
-</p>
-
-\begin{equation}
-   2x+4y+5z = 20 
-\end{equation}
-
-<p>
-what are the dimensions of the rectangle with one corner on the origin and the other on the above rectangle with these properties with the largest volume?
+Building a Pringle's house. 
 </p>
 </blockquote>
 
 <p>
-Let's plot the bound curve first:
+We first begin by creating the elliptical projection of the shape downwards.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sage">x,y,z=var("x y z")
-implicit_plot3d(2*x+4*y+5*z, (-10, 20), (-10, 20), (-10, 20))
+<pre class="src src-sage">x(t) = 30*cos(t)
+y(t) = 20*sin(t)
+
+parametric_plot([x,y], (0, 2*pi))
 </pre>
 </div>
 
 
-<div id="org4235549" class="figure">
-<p><img src="2022-03-06_22-32-10_screenshot.png" alt="2022-03-06_22-32-10_screenshot.png" />
+<div id="orgc7bdcb0" class="figure">
+<p><img src="2022-03-09_16-50-16_screenshot.png" alt="2022-03-09_16-50-16_screenshot.png" />
 </p>
 </div>
 
 <p>
-We realize first that the \(x\), \(y\), \(z\) values are corresponding to both the coordinate of the topmost corner, as well as the lengths of the side. We will use a Lagrange multiplier method to optimize volume:
+The function for which the projection is created is given by the problem as well, that:
 </p>
 
 \begin{equation}
-   V(x,y,z) = xyz 
+   r(x,y) = \frac{1}{400}\left(\sqrt{3}x-y\right)^2 - \frac{1}{400}\left(\sqrt{3}y-x\right)^2 + 10
 \end{equation}
 
 <p>
-Let's start by taking the gradient of the expression for both \(V\) and the bound expression \(g(x,y,z)=2x+4y+5z-20\):
+The plot of this function appears as:
 </p>
 
-\begin{equation}
-   \Delta V = \begin{pmatrix} 
-yz\\
-xz\\
-xy
-\end{pmatrix}
-\end{equation}
+<div class="org-src-container">
+<pre class="src src-sage">r(x,y) = (1/400)*(sqrt(3)*x-y)^2 - (1/400)*(sqrt(3)*y+x)^2 + 10
 
-<p>
-and,
-</p>
-
-\begin{equation}
-   \Delta g = \begin{pmatrix}
-2\\
-4\\
-5
-\end{pmatrix} 
-\end{equation}
-
-<p>
-Based on the expression for the Lagrange multiplier, we will derive the following expressions:
-</p>
-
-\begin{equation}
-    \begin{cases}
-   yz = 2\lambda \\
-xz = 4\lambda \\
-xy = 5\lambda \\
-0 = 2x+4y+5z -20
-\end{cases}
-\end{equation}
-
-<p>
-To solve, we will first divide the first two expressions by each other:
-</p>
-
-\begin{align}
-   &\frac{y}{x} = \frac{1}{2} \\
-\Rightarrow\ &y = \frac{x}{2}
-\end{align}
-
-<p>
-We then substitute this into the third expression:
-</p>
-
-\begin{align}
-   &xy = 5\lambda \\
-\Rightarrow\ &x\frac{x}{2} = 5\lambda\\
-\Rightarrow\ &\frac{x^2}{2} = 5\lambda\\
-\Rightarrow\ &\frac{x^2}{10} = \lambda
-\end{align}
-
-<p>
-Furthermore, we substitute the expression for \(\lambda\) into the second expression to figure \(z\) in terms of \(x\).
-</p>
-
-\begin{align}
-   &xz = 4\lambda \\
-\Rightarrow\ &xz = 4\frac{x^2}{10}\\
-\Rightarrow\ &z = \frac{2x}{5}
-\end{align}
-
-<p>
-We now solve by substituting all expression into the last one:
-</p>
-
-\begin{align}
-   &0 = 2x+4y+5z-20\\ 
-\Rightarrow\ &0 = 2x + 2x + 2x - 20 \\
-\Rightarrow\ &0 = 6x - 20 \\
-\Rightarrow\ &20 = 6x \\
-\Rightarrow\ &x = \frac{10}{3} 
-\end{align}
-
-<p>
-Substituting the final expressions, therefore, the dimensions with the biggest volume would be:
-</p>
-
-\begin{equation}
-    \begin{cases}
-    x = \frac{10}{3}\\
-y = \frac{5}{3} \\
-z = \frac{4}{3}
-\end{cases}
-\end{equation}
-
-<p>
-The max volume that results, therefore, is:
-</p>
-
-\begin{equation}
-    V = \frac{200}{27} \approx 7.4
-\end{equation}
-</div>
+plot3d(r, (x,-35,35), (y,-35,35))
+</pre>
 </div>
 
-<div id="outline-container-org30064a1" class="outline-2">
-<h2 id="org30064a1"><span class="section-number-2">3</span> Parameterization 4D Surface</h2>
-<div class="outline-text-2" id="text-3">
-<blockquote>
-<p>
-Consider the 4d surface:
+
+
+<div id="orgf84b9e1" class="figure">
+<p><img src="2022-03-09_23-24-39_screenshot.png" alt="2022-03-09_23-24-39_screenshot.png" />
 </p>
-
-\begin{equation}
-   f(x,y,z) = -\sqrt{x^2+y^2} 
-\end{equation}
+</div>
 
 <p>
-and the path:
-</p>
-\begin{equation}
-    s(t) = \begin{pmatrix}
-0\\
-a\ cos(t) \\
-a\ sin(t)
-\end{pmatrix}, where\ t\, \in [0, 2\pi]
-\end{equation}
-
-<p>
-what does the path look like?
-</p>
-</blockquote>
-
-<p>
-We begin by figuring the parameterization of the function \(f\) along \(s\). \(s\) is expressions in terms of a parameterization:
+This question is simply a matter of parameterization. We have been given the parameterization:
 </p>
 
 \begin{equation}
 \begin{cases}
-    x = 0\\
-y = a\ cos(t)\\
-z = a\ sin(t)
+x(t) = 30\ cos(t)\\    
+y(t) = 20\ sin(t)\\    
 \end{cases}
 \end{equation}
 
 <p>
-We first need to figure the rate of change of parameter w.r.t. time, that:
+We first figure the derivative of each expression w.r.t. t:
 </p>
 
 \begin{equation}
-   \begin{align}
-   &\frac{\partial x}{\partial t} = 0\\
-   &\frac{\partial y}{\partial t} = -a\ sin(t)\\
-   &\frac{\partial z}{\partial t} = a\ cos(t)
-\end{align}
+\begin{cases}
+\frac{dx}{dt} = -30\ sin(t) \\
+\frac{dy}{dt} = 20\ cos(t) 
+\end{cases}
 \end{equation}
 
 <p>
-And therefore, the rate of change is:
-</p>
-
-\begin{align}
-   \frac{ds}{dt} &= \sqrt{(-a\ sin(t))^2+(-a\ cos(t))^2} \\
-&= \sqrt{a^2(sin^2(t)+cos^2(t))} \\
-&= \sqrt{a^2} \\
-&= a
-\end{align}
-
-<p>
-We then proceed to parameterize the actual function along these dimensions:
-</p>
-
-\begin{align}
-   f(0, a\ cos(t), a\ sin(T)) &= -\sqrt{0+(a\ cos(t))^2} \\
-&= -|a\ cos(t)|
-\end{align}
-
-<p>
-Hence, taking the actual line integral:
-</p>
-
-\begin{align}
-   &\int_0^{2 \pi} -|a\ cos(t) |\frac{ds}{dt} dt\\
-\Rightarrow &\int_0^{2 \pi} -a|a\ cos(t) | dt\\
-\Rightarrow &-a |a| \int_0^{2 \pi} |cos(t)| dt
-\end{align}
-
-<p>
-At this point, we realize that there is no way of actually taking the integral of an absolute value; this is because there is non-differentiable corners cross the graph.
-</p>
-
-<p>
-However, observing the graph of \(|cos(t)|\), we realize that there is repetitive "humps" at every point whose integrated shape is \(sin(t)\). 
-</p>
-
-<p>
-The value at each of the humps is:
-</p>
-
-\begin{align}
-&\int^{\frac{\pi}{2}}_{\frac{-\pi}{2}} cos(t)\ dt\\
-\Rightarrow\ &\left sin(t) \right |^{\frac{\pi}{2}}_{\frac{-\pi}{2}}\\
-\Rightarrow\ &2
-\end{align}
-
-<p>
-There exists two such humps in the system. Therefore, the total integral is:
+Lastly, we will square this expression to figure the value for \(\frac{df}{dt} = \left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2\).
 </p>
 
 \begin{equation}
-   -4a^2 
+   \frac{df}{dt} = \sqrt{900\ sin^2(t) + 400\ cos^2(t)}
 \end{equation}
+
+<p>
+And finally, to figure the amount of paint that's needed to paint the sides, we will need to take the line integral of the function parameterized by \(x(t)\) and \(y(t)\).
+</p>
+
+\begin{equation}
+   \int_0^{2 \pi} =  \left(\frac{1}{400}\left(\sqrt{3}\ 30\ cos(t)-20\ sin(t)\right)^2 - \frac{1}{400}\left(\sqrt{3}\ 20\ sin(t)+30\ cos(t)\right)^2 + 10\right)\sqrt{900\ sin^2(t) + 400\ cos^2(t)} dt
+\end{equation}
+
+
+<p>
+We will take this integral digitally.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">t = var("t")
+f(x,y) = (1/400)*(sqrt(3)*x-y)^2 - (1/400)*(sqrt(3)*y+x)^2 + 10
+dfdt = sqrt(900*(sin(t))^2 + 400*(cos(t))^2)
+
+monte_carlo_integral(f(-30*sin(t), 20*cos(t))*dfdt, [0], [2*pi], 10000000)
+</pre>
+</div>
 </div>
 </div>
 </div>

@@ -235,6 +235,7 @@ Consider the 4d surface:
 and the path:
 \begin{equation}
     s(t) = \begin{pmatrix}
+0\\
 a\ cos(t) \\
 a\ sin(t)
 \end{pmatrix}, where\ t\, \in [0, 2\pi]
@@ -247,8 +248,9 @@ We begin by figuring the parameterization of the function $f$ along $s$. $s$ is 
 
 \begin{equation}
 \begin{cases}
-    x = a\ cos(t)\\
-y = a\ sin(t)
+    x = 0\\
+y = a\ cos(t)\\
+z = a\ sin(t)
 \end{cases}
 \end{equation}
 
@@ -256,8 +258,9 @@ We first need to figure the rate of change of parameter w.r.t. time, that:
 
 \begin{equation}
    \begin{align}
-   \frac{\partial x}{\partial t} = -a\ sin(t)\\
-   \frac{\partial y}{\partial t} = -a\ cos(t)
+   &\frac{\partial x}{\partial t} = 0\\
+   &\frac{\partial y}{\partial t} = -a\ sin(t)\\
+   &\frac{\partial z}{\partial t} = a\ cos(t)
 \end{align}
 \end{equation}
 
@@ -273,18 +276,33 @@ And therefore, the rate of change is:
 We then proceed to parameterize the actual function along these dimensions:
 
 \begin{align}
-   f(a\ cos(t),a\ sin(t),z) &= -\sqrt{(a\ cos(t))^2+(a\ sin(t))^2} \\
-&= -\sqrt{a^2(cos^2(t)+sin^2(t))}\\
-&= -a
+   f(0, a\ cos(t), a\ sin(T)) &= -\sqrt{0+(a\ cos(t))^2} \\
+&= -|a\ cos(t)|
 \end{align}
 
 Hence, taking the actual line integral:
 
 \begin{align}
-   &\int_0^{2 \pi} -a \frac{ds}{dt} dt\\
-\Rightarrow & -\int_0^{2 \pi} a^2 dt\\
-\Rightarrow & -\left \frac{a^3}{3}\right|_0^{2 \pi} \\
-\Rightarrow & -\left \frac{8\pi^3}{3}\right 
+   &\int_0^{2 \pi} -|a\ cos(t) |\frac{ds}{dt} dt\\
+\Rightarrow &\int_0^{2 \pi} -a|a\ cos(t) | dt\\
+\Rightarrow &-a |a| \int_0^{2 \pi} |cos(t)| dt
 \end{align}
 
-The integral along that curve would be $\frac{-8\pi^3}{3}$.
+At this point, we realize that there is no way of actually taking the integral of an absolute value; this is because there is non-differentiable corners cross the graph.
+
+However, observing the graph of $|cos(t)|$, we realize that there is repetitive "humps" at every point whose integrated shape is $sin(t)$. 
+
+The value at each of the humps is:
+
+\begin{align}
+&\int^{\frac{\pi}{2}}_{\frac{-\pi}{2}} cos(t)\ dt\\
+\Rightarrow\ &\left sin(t) \right |^{\frac{\pi}{2}}_{\frac{-\pi}{2}}\\
+\Rightarrow\ &2
+\end{align}
+
+There exists two such humps in the system. Therefore, the total integral is:
+
+\begin{equation}
+   -4a^2 
+\end{equation}
+

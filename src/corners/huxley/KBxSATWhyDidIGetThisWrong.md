@@ -453,3 +453,10 @@ also, consider what the info / stats are actully referring to!
 
 17 + 36 -> 780
 
+48 -> 37
+43 -> 39
+-> 760
+
+18 + 37 = 55 -> 
+-> 760
+
