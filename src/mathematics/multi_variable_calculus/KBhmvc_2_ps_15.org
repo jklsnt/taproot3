@@ -126,3 +126,23 @@ monte_carlo_integral(f(-30*sin(t), 20*cos(t))*dfdt, [0], [2*pi], 20000000)
 : (1835.7367048787498, 0.18987592692827487)
 
 You need roughly $1835$ units of paint to paint the sides. 
+
+** Tall Ladders
+We can leverage some single variable calculus to figure the critical points of the parameterization. We start again at the "base"-parameterized version of the function:
+
+\begin{equation}
+    f(t) = \left(\frac{1}{400}\left(\sqrt{3}\ 30\ cos(t)-20\ sin(t)\right)^2 - \frac{1}{400}\left(\sqrt{3}\ 20\ sin(t)+30\ cos(t)\right)^2 + 10\right)
+\end{equation}
+
+We will take the derivative of this expression as a step for solving for critical points:
+    
+#+begin_src sage
+f(x,y) = (1/400)*(sqrt(3)*x-y)^2 - (1/400)*(sqrt(3)*y+x)^2 + 10
+latex(f(-30*sin(t), 20*cos(t)).diff())
+#+end_src
+
+\begin{align}
+   f'(t) = \frac{1}{2} &\, {\left(3 \, \sqrt{3} \cos\left(t\right) - 2 \, \sin\left(t\right)\right)} {\left(3 \, \sqrt{3} \sin\left(t\right) + 2 \, \cos\left(t\right)\right)} \\
+&+ \frac{1}{2} \, {\left(2 \, \sqrt{3} \cos\left(t\right) - 3 \, \sin\left(t\right)\right)} {\left(2 \, \sqrt{3} \sin\left(t\right) + 3 \, \cos\left(t\right)\right)} 
+\end{align}
+
