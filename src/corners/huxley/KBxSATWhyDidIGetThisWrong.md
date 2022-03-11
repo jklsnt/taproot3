@@ -414,6 +414,45 @@ lesson: for transitions, CONSIDER what the previous sentence "opens" and the nex
 also, consider what the info / stats are actully referring to!
 ***
 
+## blb7 
+***
+r28 :: a, b
+
+i got this wrong because i didn't look at the things sourounding my evidence.
+lesson: context can imply! think about, this but that.
+***
+r36 :: a, b
+i got this wrong because i didn't consider every part of the question. every word counts! every part needs backing!
+also, when struggling, look to the question! see what answers the question more explicitly. 
+
+lesson: check every part of the answer. look to the question and see what addresses it more explicitly if struggling.
+***
+r39 :: a, c
+i got this wrong because i interpreted the text! something had direct weak evidence, but evidence nonetheless! no interpretation
+
+lesson: don't interpret the text! it's not about the content! 
+it's truly modernist.
+***
+w2 :: b, a
+i got this wrong because i fucked up affect / effect.
+
+lesson: affect is a verb, but effect is a noun! you can affect something, or produce an effect.
+***
+nc15 :: c, d
+i got this wrong because i didn't follow distribution rules.
+pay attention to parens! pay attention to all the different terms, and what mistakes they could cause you to make!
+lesson: multiplication distributes! pay atttention to parens! don't cross shit out! if you think about doing so, make sure it's validated! things always matter.
+***
+nc20 
+i got this wrong because i added to the thousands place instead of the hundreds place.
+lesson: write out all of your operations! consider each one! remember, you can fuck up addition by placement of tens!
+***
+c36 :: 31/3, 6
+i got this wrong because i wasn't careful enough about how i was multiplying my fractions. WRITE IT OUT!
+also, look for pythagorean triples! if they give you the ration of a sin function, see if that tells you the side lenghts!
+
+lesson: write out your algebra. be careful with ratios. consider trig functions as clueing you in on pythagorean triples
+***
 
 # To review
 - polynomial division
@@ -426,6 +465,7 @@ also, consider what the info / stats are actully referring to!
 - vertex form
 - 30-60-90 triangles
 - radian and degree conversions
+- pythagorean triples
 
 (52-5)+(44-10)+(20-9)+(38-7)
 

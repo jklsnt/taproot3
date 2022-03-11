@@ -17,7 +17,7 @@ Taking this integral in two ways is essentially just taking the double integral 
 \Rightarrow &\int_0^2\frac{16y-y}{2} dy\\
 \Rightarrow &\int_0^2\frac{15y}{2} dy\\
 \Rightarrow &\left\frac{15y^2}{4} \right|_0^2\\
-\Rightarrow &\frac{60}{4}
+\Rightarrow &\frac{60}{4} = 15
 \end{align}
 
 We can now do that again.
@@ -28,7 +28,7 @@ We can now do that again.
 \Rightarrow &\int_1^4\frac{4x}{2} dx\\
 \Rightarrow &\left\frac{4x^2}{4} \right|_1^4\\
 \Rightarrow &\frac{64-4}{4}\\
-\Rightarrow &\frac{60}{4}
+\Rightarrow &\frac{60}{4} = 15
 \end{align}
 
 As you can see, both results in the same value.
@@ -138,36 +138,35 @@ We will take the derivative of this expression as a step for solving for critica
     
 #+begin_src sage
 f(x,y) = (1/400)*(sqrt(3)*x-y)^2 - (1/400)*(sqrt(3)*y+x)^2 + 10
-latex(f(-30*sin(t), 20*cos(t)).diff())
+latex(expand(f(30*cos(t), 20*sin(t)).diff()))
 #+end_src
 
+#+RESULTS:
+
 \begin{align}
-   f'(t) = \frac{1}{2} &\, {\left(3 \, \sqrt{3} \cos\left(t\right) - 2 \, \sin\left(t\right)\right)} {\left(3 \, \sqrt{3} \sin\left(t\right) + 2 \, \cos\left(t\right)\right)} \\
-&+ \frac{1}{2} \, {\left(2 \, \sqrt{3} \cos\left(t\right) - 3 \, \sin\left(t\right)\right)} {\left(2 \, \sqrt{3} \sin\left(t\right) + 3 \, \cos\left(t\right)\right)} 
+   f'(t) = -6 \, \sqrt{3} \cos\left(t\right)^{2} + 6 \, \sqrt{3} \sin\left(t\right)^{2} - 13 \, \cos\left(t\right) \sin\left(t\right)
 \end{align}
 
 We furthermore solve for the critical points of this function:
 
 #+begin_src sage
-critical = solve(f(-30*sin(t), 20*cos(t)).diff(), t, to_poly_solve=True)
+critical = solve(f(30*cos(t), 20*sin(t)).diff(), t, to_poly_solve=True)
 critical
 #+end_src
 
 #+RESULTS:
-: [t == pi + 2*pi*z4079 - 1/2*arctan(12/13*sqrt(3)),
-:  t == 2*pi*z4158 - 1/2*arctan(12/13*sqrt(3)),
-:  t == 3/2*pi + 2*pi*z4558 - 1/2*arctan(12/13*sqrt(3)),
-:  t == 1/2*pi + 2*pi*z4637 - 1/2*arctan(12/13*sqrt(3))]
+: [t == pi + 2*pi*z9009 - 1/2*arctan(12/13*sqrt(3)),
+:  t == 2*pi*z9088 - 1/2*arctan(12/13*sqrt(3)),
+:  t == 3/2*pi + 2*pi*z9488 - 1/2*arctan(12/13*sqrt(3)),
+:  t == 1/2*pi + 2*pi*z9567 - 1/2*arctan(12/13*sqrt(3))]
 
 There are four critical points to this expression. We will figure the value of the function at integer values period of $1$ to find the maximum value:
 
 #+begin_src sage
-(pi + 2*pi*1 - 1/2*arctan(12/13*sqrt(3))).n()
-(2*pi*1 - 1/2*arctan(12/13*sqrt(3))).n()
-(3/2*pi + 2*pi*1 - 1/2*arctan(12/13*sqrt(3))).n()
-(1/2*pi + 2*pi*1 - 1/2*arctan(12/13*sqrt(3))).n()
-f(-30*sin(t), 20*cos(t))(t=0).n()
-f(-30*sin(t), 20*cos(t))(t=2*pi).n()
+(pi + 2*pi - 1/2*arctan(12/13*sqrt(3))).n()
+(2*pi - 1/2*arctan(12/13*sqrt(3))).n()
+(3/2*pi + 2*pi - 1/2*arctan(12/13*sqrt(3))).n()
+(1/2*pi + 2*pi - 1/2*arctan(12/13*sqrt(3))).n()
 #+end_src
 
 #+RESULTS:
@@ -175,7 +174,16 @@ f(-30*sin(t), 20*cos(t))(t=2*pi).n()
 : 5.77725316383275
 : 10.4896421442174
 : 7.34804949062765
-: 8.00000000000000
-: 8.00000000000000
 
-The maximum ladder height, as determined by critical points, is roughly $10.48$ units.
+We can see, of all critical points, $5.77$ would be the only within the $[0, 2\pi]$ bounds.
+
+Hence, the height at that point is:
+
+#+begin_src sage
+f(30*cos(t), 20*sin(t))(t=5.77).n()
+#+end_src
+
+#+RESULTS:
+: 17.3781804921609
+
+The maximum ladder height you would need, then, would be about $17.38$.

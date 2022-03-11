@@ -1,6 +1,14 @@
 n
 ***
 
+ mahn, [https://github.com/starship/starship](https://github.com/starship/starship "https://github.com/starship/starship")
+
+***
+
+ this is sick https://www.reddit.com/r/unixporn/comments/souv1t/bspwm_i_was_told_you_guys_would_like_my_startup/
+
+***
+
  "Categorical compositional distributional semantics, also known as DisCoCat for short,"
 
 ***
