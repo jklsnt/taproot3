@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-09 Wed 16:47 -->
+<!-- 2022-03-11 Fri 09:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>QIC Module 2: Changing Cubits</title>
@@ -263,37 +263,38 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">QIC Module 2: Changing Cubits</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-09 Wed 16:46</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">QIC Module 2: Changing Cubits</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-11 Fri 09:58</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhtim_hosgood.html'>Tim Hosgood</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgbab8068">1. To Do</a></li>
-<li><a href="#org073e742">2. Core Concepts</a></li>
-<li><a href="#orgc52d55a">3. Introduction</a></li>
-<li><a href="#orge51333c">4. Shrödinger's Equations</a>
+<li><a href="#org1c8456a">1. To Do</a></li>
+<li><a href="#org37f9508">2. Core Concepts</a></li>
+<li><a href="#org37ed77c">3. Introduction</a></li>
+<li><a href="#orgc13f04d">4. Shrödinger's Equations</a>
 <ul>
-<li><a href="#org272322a">4.1. What's a unitary matrix again?</a></li>
-<li><a href="#orgfcc2a5d">4.2. What is a Hermitian again?</a></li>
-<li><a href="#orga23f6e0">4.3. Basic Properties</a></li>
-<li><a href="#org454c935">4.4. The Schrodinger Equation at the Last Bit of Class</a></li>
+<li><a href="#org0dd45ec">4.1. What's a unitary matrix again?</a></li>
+<li><a href="#org68425bc">4.2. What is a Hermitian again?</a></li>
+<li><a href="#org88bc215">4.3. Basic Properties</a></li>
+<li><a href="#org574a1fc">4.4. The Schrodinger Equation at the Last Bit of Class</a></li>
 </ul>
 </li>
-<li><a href="#org4e48bf9">5. Solving Shrödinger's Equations</a></li>
-<li><a href="#org94d9849">6. Boolean Operators, etc.</a>
+<li><a href="#org830381b">5. Solving Shrödinger's Equations</a></li>
+<li><a href="#orgd68fe31">6. Boolean Operators, etc.</a>
 <ul>
-<li><a href="#org3c7bcc2">6.1. Boolean Inner Product</a></li>
-<li><a href="#orgb0b0ef7">6.2. And now, a boolean network</a></li>
-<li><a href="#org0bc6743">6.3. Controlled Not</a></li>
+<li><a href="#org04634dc">6.1. Boolean Inner Product</a></li>
+<li><a href="#org5d96983">6.2. And now, a boolean network</a></li>
+<li><a href="#orgca8e257">6.3. Controlled Not</a></li>
 </ul>
 </li>
-<li><a href="#orgc4e69f4">7. A Guest Lecture</a></li>
+<li><a href="#orgb0496d6">7. A Guest Lecture</a></li>
+<li><a href="#org123bedc">8. Parallel vs Series</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-orgbab8068" class="outline-2">
-<h2 id="orgbab8068"><span class="section-number-2">1</span> To Do</h2>
+<div id="outline-container-org1c8456a" class="outline-2">
+<h2 id="org1c8456a"><span class="section-number-2">1</span> To Do</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Read chapters</li>
@@ -302,8 +303,8 @@
 </div>
 </div>
 
-<div id="outline-container-org073e742" class="outline-2">
-<h2 id="org073e742"><span class="section-number-2">2</span> Core Concepts</h2>
+<div id="outline-container-org37f9508" class="outline-2">
+<h2 id="org37f9508"><span class="section-number-2">2</span> Core Concepts</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Solving the Shrödinger equation</li>
@@ -314,8 +315,8 @@ the state of the cubit</li>
 </div>
 </div>
 
-<div id="outline-container-orgc52d55a" class="outline-2">
-<h2 id="orgc52d55a"><span class="section-number-2">3</span> Introduction</h2>
+<div id="outline-container-org37ed77c" class="outline-2">
+<h2 id="org37ed77c"><span class="section-number-2">3</span> Introduction</h2>
 <div class="outline-text-2" id="text-3">
 \begin{equation}
    |ud \big> = u \big> \otimes |d\big> = \begin{pmatrix}
@@ -342,8 +343,8 @@ Change in perspective! Instead of simulating the behavior of cubits with bits, w
 </div>
 </div>
 
-<div id="outline-container-orge51333c" class="outline-2">
-<h2 id="orge51333c"><span class="section-number-2">4</span> Shrödinger's Equations</h2>
+<div id="outline-container-orgc13f04d" class="outline-2">
+<h2 id="orgc13f04d"><span class="section-number-2">4</span> Shrödinger's Equations</h2>
 <div class="outline-text-2" id="text-4">
 \begin{equation}
    |\Psi (t) \big> = U(t) | \Psi(0)\big> 
@@ -354,8 +355,8 @@ We will use \(\Psi\) to represents a function that dumps a cubit. We will act on
 </p>
 </div>
 
-<div id="outline-container-org272322a" class="outline-3">
-<h3 id="org272322a"><span class="section-number-3">4.1</span> What's a unitary matrix again?</h3>
+<div id="outline-container-org0dd45ec" class="outline-3">
+<h3 id="org0dd45ec"><span class="section-number-3">4.1</span> What's a unitary matrix again?</h3>
 <div class="outline-text-3" id="text-4-1">
 \begin{equation}
    U^*U = I 
@@ -363,8 +364,8 @@ We will use \(\Psi\) to represents a function that dumps a cubit. We will act on
 </div>
 </div>
 
-<div id="outline-container-orgfcc2a5d" class="outline-3">
-<h3 id="orgfcc2a5d"><span class="section-number-3">4.2</span> What is a Hermitian again?</h3>
+<div id="outline-container-org68425bc" class="outline-3">
+<h3 id="org68425bc"><span class="section-number-3">4.2</span> What is a Hermitian again?</h3>
 <div class="outline-text-3" id="text-4-2">
 \begin{equation}
    H = H^* 
@@ -372,8 +373,8 @@ We will use \(\Psi\) to represents a function that dumps a cubit. We will act on
 </div>
 </div>
 
-<div id="outline-container-orga23f6e0" class="outline-3">
-<h3 id="orga23f6e0"><span class="section-number-3">4.3</span> Basic Properties</h3>
+<div id="outline-container-org88bc215" class="outline-3">
+<h3 id="org88bc215"><span class="section-number-3">4.3</span> Basic Properties</h3>
 <div class="outline-text-3" id="text-4-3">
 \begin{equation}
    \big< \Psi (0) | \Phi (0) \big> = 0  \Rightarrow  \big< \Psi (t) | \Phi (t) \big> = 0
@@ -405,8 +406,8 @@ because \(\epsilon^2\) is really small, so you get the same thing back.
 </div>
 </div>
 
-<div id="outline-container-org454c935" class="outline-3">
-<h3 id="org454c935"><span class="section-number-3">4.4</span> The Schrodinger Equation at the Last Bit of Class</h3>
+<div id="outline-container-org574a1fc" class="outline-3">
+<h3 id="org574a1fc"><span class="section-number-3">4.4</span> The Schrodinger Equation at the Last Bit of Class</h3>
 <div class="outline-text-3" id="text-4-4">
 \begin{equation}
    \hbar \frac{\partial | \Psi \big>}{\partial t}  = -i H | \Psi \big>
@@ -427,8 +428,8 @@ Partial differential equations can be treated as a limit of a system of ordinary
 </div>
 </div>
 
-<div id="outline-container-org4e48bf9" class="outline-2">
-<h2 id="org4e48bf9"><span class="section-number-2">5</span> Solving Shrödinger's Equations</h2>
+<div id="outline-container-org830381b" class="outline-2">
+<h2 id="org830381b"><span class="section-number-2">5</span> Solving Shrödinger's Equations</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Let's start with a state:
@@ -494,7 +495,7 @@ We will get:
 </p>
 
 
-<div id="orgd332877" class="figure">
+<div id="org4ebd3a9" class="figure">
 <p><img src="2022-03-04_09-28-18_screenshot.png" alt="2022-03-04_09-28-18_screenshot.png" />
 </p>
 </div>
@@ -536,7 +537,7 @@ We can actually decompose \(|\Psi(t)\big>\) down into the sum of all components 
 </p>
 
 
-<div id="orgd63521c" class="figure">
+<div id="orgcf2bb05" class="figure">
 <p><img src="2022-03-04_09-56-38_screenshot.png" alt="2022-03-04_09-56-38_screenshot.png" />
 </p>
 </div>
@@ -544,12 +545,12 @@ We can actually decompose \(|\Psi(t)\big>\) down into the sum of all components 
 </div>
 
 
-<div id="outline-container-org94d9849" class="outline-2">
-<h2 id="org94d9849"><span class="section-number-2">6</span> Boolean Operators, etc.</h2>
+<div id="outline-container-orgd68fe31" class="outline-2">
+<h2 id="orgd68fe31"><span class="section-number-2">6</span> Boolean Operators, etc.</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org3c7bcc2" class="outline-3">
-<h3 id="org3c7bcc2"><span class="section-number-3">6.1</span> Boolean Inner Product</h3>
+<div id="outline-container-org04634dc" class="outline-3">
+<h3 id="org04634dc"><span class="section-number-3">6.1</span> Boolean Inner Product</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Boolean strings of length \(m\), \(x \cdot y\) is their <b><b>boolean inner product</b></b>, defined to be:
@@ -565,15 +566,15 @@ here, \(\oplus\) means exclusive or (addition mod 2) (1+1 is zero, 0+1 is 1, etc
 </div>
 </div>
 
-<div id="outline-container-orgb0b0ef7" class="outline-3">
-<h3 id="orgb0b0ef7"><span class="section-number-3">6.2</span> And now, a boolean network</h3>
+<div id="outline-container-org5d96983" class="outline-3">
+<h3 id="org5d96983"><span class="section-number-3">6.2</span> And now, a boolean network</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 We can have a boolean network in classical framing:
 </p>
 
 
-<div id="org96fa2a2" class="figure">
+<div id="orgd61fa4b" class="figure">
 <p><img src="2022-03-02_09-10-04_screenshot.png" alt="2022-03-02_09-10-04_screenshot.png" />
 </p>
 </div>
@@ -592,8 +593,8 @@ Does the number of nodes grow proportionally to the number of inputs? I.e.:
 </div>
 </div>
 
-<div id="outline-container-org0bc6743" class="outline-3">
-<h3 id="org0bc6743"><span class="section-number-3">6.3</span> Controlled Not</h3>
+<div id="outline-container-orgca8e257" class="outline-3">
+<h3 id="orgca8e257"><span class="section-number-3">6.3</span> Controlled Not</h3>
 <div class="outline-text-3" id="text-6-3">
 \begin{equation}
    C_{not}(x_1, x_2) = \begin{cases}
@@ -605,12 +606,22 @@ x_1\ if\ x_2 = 0\\
 </div>
 </div>
 
-<div id="outline-container-orgc4e69f4" class="outline-2">
-<h2 id="orgc4e69f4"><span class="section-number-2">7</span> A Guest Lecture</h2>
+<div id="outline-container-orgb0496d6" class="outline-2">
+<h2 id="orgb0496d6"><span class="section-number-2">7</span> A Guest Lecture</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 <a href="../../../src/mathematics/quantum/KBhtim_hosgood.html#ID-CF365519-4623-44E1-A3EA-591A586C74CF">Tim Hosgood</a>
 </p>
+</div>
+</div>
+
+<div id="outline-container-org123bedc" class="outline-2">
+<h2 id="org123bedc"><span class="section-number-2">8</span> Parallel vs Series</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>Tensoring matricies are parallel operations</li>
+<li>Producting matricies are series operations</li>
+</ul>
 </div>
 </div>
 </div>

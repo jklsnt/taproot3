@@ -455,17 +455,17 @@ lesson: write out your algebra. be careful with ratios. consider trig functions 
 ***
 
 # To review
-- polynomial division
-- remainder theorem
-- using quadratic formula 
-- box and whisker plots
-- circles equations! centers
-	- completing the square
-- unit conversions
-- vertex form
-- 30-60-90 triangles
-- radian and degree conversions
-- pythagorean triples
+- polynomial division [ x ]
+- remainder theorem [ x ]
+- using quadratic formula [ x ]
+- box and whisker plots [ x ]
+- circles equations! centers [ x ]
+	- completing the square [ x ] 
+- unit conversions [ x ]
+- vertex form [ x ]
+- 30-60-90 triangles [ x ]
+- radian and degree conversions [ x ]
+- pythagorean triples [ x ]
 
 (52-5)+(44-10)+(20-9)+(38-7)
 

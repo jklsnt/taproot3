@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-10 Thu 10:09 -->
+<!-- 2022-03-11 Fri 23:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Torque Number 4</title>
@@ -263,52 +263,36 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Torque Number 4</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-10 Thu 10:09</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Torque Number 4</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-11 Fri 23:24</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc85432e">1. Notes from Within the Lecture</a></li>
-<li><a href="#org07a6c18">2. Proving the Parallel Axis Theorem</a></li>
+<li><a href="#org66d71f4">1. Proving the Parallel Axis Theorem</a></li>
+<li><a href="#orgdb2947e">2. 5-Ring Object</a></li>
+<li><a href="#org4f85839">3. Spinning Top</a>
+<ul>
+<li><a href="#org76947a8">3.1. Torque</a></li>
+<li><a href="#org31ea7f4">3.2. Diagram of \(\vec{\tau}_0\)</a></li>
+<li><a href="#orgad924df">3.3. Balancing Forces</a></li>
+<li><a href="#orgf715d55">3.4. Rotational Inertia</a></li>
+<li><a href="#org2519584">3.5. Kinematics Equations</a></li>
+</ul>
+</li>
+<li><a href="#orgb9fbd0b">4. Rectangular Rod</a>
+<ul>
+<li><a href="#org0701866">4.1. Strip</a></li>
+<li><a href="#org66f80d3">4.2. Slice</a></li>
+<li><a href="#org6bfb2cb">4.3. Final Rotational Inertia</a></li>
+</ul>
+</li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-orgc85432e" class="outline-2">
-<h2 id="orgc85432e"><span class="section-number-2">1</span> Notes from Within the Lecture</h2>
+<div id="outline-container-org66d71f4" class="outline-2">
+<h2 id="org66d71f4"><span class="section-number-2">1</span> Proving the Parallel Axis Theorem</h2>
 <div class="outline-text-2" id="text-1">
-\begin{equation}
-    CM = \frac{\sum m_i \vec{r_i}}{\sum m_i} = \frac{1}{M} \sum m_i \vec{r}_i
-\end{equation}
-
-<p>
-i.e.: the centre of mass is the weighted average of the centers. "First moment."
-</p>
-
-\begin{equation}
-   I = M \frac{\sum m_i {r_i}^2}{M}=\sum m_i {r_i}^2
-\end{equation}
-
-<p>
-i.e.: the rotational inertia is \(M\) times the weighted average, squared. "Second moment."
-</p>
-
-<ul class="org-ul">
-<li>1st moment: Mean</li>
-<li>2nd moment: Standard Deviation</li>
-<li>3rd moment: Skew</li>
-<li>4th moment: Kurtosis</li>
-</ul>
-
-<p>
-If I take an axis, and shift the direction of the axis, we can compute the rotational inertia about the center of mass and then move it
-</p>
-</div>
-</div>
-
-<div id="outline-container-org07a6c18" class="outline-2">
-<h2 id="org07a6c18"><span class="section-number-2">2</span> Proving the Parallel Axis Theorem</h2>
-<div class="outline-text-2" id="text-2">
 <p>
 We will begin with the definition of rotational inertia about an origin:
 </p>
@@ -330,9 +314,453 @@ Therefore, the actual position \(\vec{l}_i\) of the axis of rotation can be expr
 </p>
 
 \begin{align}
-   l_i &= \vec{R}_{CM} + \vec{l}_i'\\
-&= (X_{CM} \hat{i} + Y_{CM} \hat{j})+(x_i' \hat{i} + y_i' \hat{j})
+   l_i &= \vec{R}_{CM} + \vec{l}_i'
 \end{align}
+
+<p>
+Substituting this expression into that for \(I\):
+</p>
+
+\begin{align}
+   I &= \sum_i m_i{l_i}^2 \\
+&= \sum_i m_i( \vec{R}_{CM} + \vec{l}_i')^2 \\
+&= \sum_i m_i( (\vec{R}_{CM})^2 + 2(\vec{R}_{CM})(\vec{l}_i') + (\vec{l}_i')^2) 
+\end{align}
+
+<p>
+We can see that the first and last terms will result in the expression we need, and therefore we are bound to figure why the following expression would result in \(0\):
+</p>
+
+\begin{align}
+    &\sum_i 2(\vec{R}_{CM})m_i\vec{l'}_i\\
+\Rightarrow\ &2(\vec{R}_{CM}) \sum_i m_i\vec{l'}_i
+\end{align}
+
+<p>
+Recall that \(\vec{l'}_i\) is the location of the distance from a given point mass in the body to the center of mass. Of course, this makes \(\sum_i m_i\vec{l'}_i\) the expression for the center of mass <i>in the center of mass reference frame.</i>
+</p>
+
+<p>
+We know that the coordinate of the center of mass in the center of mass reference frame is \(0\), making this whole expression \(0\).
+</p>
+
+<p>
+Therefore:
+</p>
+
+\begin{align}
+ I &= \sum_i m_i{l_i}^2 \\   
+&= \sum_i m_i( (\vec{R}_{CM})^2 + 2(\vec{R}_{CM})(\vec{l}_i') + (\vec{l}_i')^2) \\
+&= (\vec{R}_{CM})^2 \sum_i m_i + \sum_i m_i (\vec{l}_i')^2 \\
+&= (\vec{R}_{CM})^2 M + \sum_i m_i (\vec{l}_i')^2 \\
+&= D^2 M + I_{CM} \ \blacksquare
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgdb2947e" class="outline-2">
+<h2 id="orgdb2947e"><span class="section-number-2">2</span> 5-Ring Object</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+We will leverage the parallel axis theorem to figure the inertia at the center point.
+</p>
+
+<p>
+We can see the distance from the center of mass of each side-sphere to the axis of rotation is \(2R\). Furthermore, we can see the mass of the ring is \(\frac{1}{5}M\).
+</p>
+
+<p>
+As been demonstrated before, the rotational inertia of a ring is:
+</p>
+
+\begin{equation}
+    I = MR^2
+\end{equation}
+
+<p>
+For the ring with \(\frac{1}{5}\) mass then:
+</p>
+
+\begin{equation}
+    I_{CM} = \frac{1}{5}MR^2
+\end{equation}
+
+<p>
+Applying the parallel axis theorem, then, to each of the four side-objects:
+</p>
+
+\begin{align}
+    I &= I_{CM} + \frac{1}{5} MD^2 \\
+&= \frac{1}{5}MR^2 + \frac{4}{5}MR^2 \\
+&= MR^2
+\end{align}
+
+<p>
+We repeat this procedure four times, to result in the outer rings' rotational inertia of:
+</p>
+
+\begin{equation}
+    4MR^2
+\end{equation}
+
+<p>
+The last ("middle") ring has simply the rotational inertia about its center of origin:
+</p>
+
+\begin{equation}
+    \frac{1}{5}MR^2
+\end{equation}
+
+<p>
+And therefore, the total rotational inertia is:
+</p>
+
+\begin{equation}
+    I = \frac{21}{5}MR^2
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org4f85839" class="outline-2">
+<h2 id="org4f85839"><span class="section-number-2">3</span> Spinning Top</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org76947a8" class="outline-3">
+<h3 id="org76947a8"><span class="section-number-3">3.1</span> Torque</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+We are asked to find the magnitude and direction of torque \(\vec{\tau}_0\) applied by the string. This is easily achieved with the expression for torque \(\vec{r} \times \vec{F_0}\).
+</p>
+
+<p>
+We will do this in components. Observing the point at which the string is attached, we noticed that it has two components: one towards the positive \(y\) direction, and one towards the positive \(z\) direction. That:
+</p>
+
+\begin{equation}
+    \vec{r} = R\hat{j} + H\hat{k}
+\end{equation}
+
+<p>
+Furthermore, we can see from the graph that \(\vec{F_0} = F_0 \hat{i}\). Their dot products, therefore, are:
+</p>
+
+\begin{align}
+    \vec{\tau}_0 &= (R\hat{j} + H\hat{k})\times (F_0 \hat{i})\\
+&= RF_0 (\hat{j} \times \hat{i}) + HF_0 (\hat{k}\times \hat{i})\\
+&= -RF_0 \hat{k} + HF_0 \hat{j}\\
+&=  HF_0 \hat{j}-RF_0 \hat{k}
+\end{align}
+
+<p>
+And therefore:
+</p>
+
+\begin{equation}
+\begin{cases}
+    \tau_0_x = 0\\
+    \tau_0_y = HF_0\\
+    \tau_0_z = -RF_0\\
+\end{cases}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org31ea7f4" class="outline-3">
+<h3 id="org31ea7f4"><span class="section-number-3">3.2</span> Diagram of \(\vec{\tau}_0\)</h3>
+<div class="outline-text-3" id="text-3-2">
+
+<div id="orgb62b896" class="figure">
+<p><img src="2022-03-11_14-24-33_screenshot.png" alt="2022-03-11_14-24-33_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgad924df" class="outline-3">
+<h3 id="orgad924df"><span class="section-number-3">3.3</span> Balancing Forces</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+To figure the net torque on the system, we will need to add the torques contributing to the net torque in the system.
+</p>
+
+<p>
+We have already deducted above \(\vec{\tau}_0 = HF_0 \hat{j}-RF_0 \hat{k}\). Given \(\vec{F}_1\) is attached to the origin of the system, it contributes no torque. Therefore, to figure out the net torque we only need to deduct that for \(\vec{F_2}\).
+</p>
+
+\begin{align}
+\vec{\tau}_2 &= \vec{r_2} \times \vec{F_2}\\
+&=  -\frac{H}{2} \hat{k} \times F_2 \hat{i}\\
+&=  -\frac{HF_2}{2} \hat{j}
+\end{align}
+
+<p>
+As we know, the object simply rotates about the \(\hat{k}\) axis. Therefore, the net torque along \(\hat{j}\) would have to be zero.
+</p>
+
+<p>
+Therefore:
+</p>
+
+\begin{equation}
+-\frac{HF_2}{2} +HF_0  = 0
+\end{equation}
+
+<p>
+We further understand that the object does not move. This means that it has a net force of \(0\) as well. That is:
+</p>
+
+\begin{equation}
+    F_0 + F_2 - F_1 = 0
+\end{equation}
+
+<p>
+We are given \(F_0\). We therefore have two equations for two variables, rendering it suitable for solving. 
+</p>
+
+\begin{align}
+&-\frac{HF_2}{2} +HF_0  = 0\\
+\Rightarrow\  & 2HF_0-HF_2 = 0\\
+\Rightarrow\  & 2F_0-F_2 = 0\\
+\Rightarrow\  & F_2 = 2F_0\\
+&F_0+F_2-F_1 = 0\\
+\Rightarrow\  & F_0+2F_0 - F_1 = 0\\
+\Rightarrow\  & F_1 = 3F_0
+\end{align}
+
+<p>
+Per the setup of the problem, \(\vec{F_1}\) is in the \(-\hat{i}\) direction, and \(\vec{F}_2\) in the \(\hat{i}\) direction. Hence:
+</p>
+
+\begin{equation}
+    \begin{cases}
+    \vec{F_1} = -3F_0 \hat{i} \\
+    \vec{F_2} = 2F_0 \hat{i}
+\end{cases}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orgf715d55" class="outline-3">
+<h3 id="orgf715d55"><span class="section-number-3">3.4</span> Rotational Inertia</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+We have already determined the net torque of the system.
+</p>
+
+\begin{align}
+\vec{\tau}_2 &= -\frac{HF_2}{2} \hat{j}\\
+\vec{\tau}_0 &= HF_0 \hat{j}-RF_0 \hat{k}\\
+\vec{\tau}_{net} &= (HF_0 - \frac{HF_2}{2})\hat{j} -RF_0 \hat{k} 
+\end{align}
+
+<p>
+We also know from the setup of the problem that the left term works out such that, given the values of \(F_0\) and \(F_2\), it is zero in this scenario. Hence:
+</p>
+
+\begin{equation}
+\vec{\tau}_{net} = -RF_0 \hat{k} 
+\end{equation}
+
+<p>
+Based on Newton's Second Law, we understand that:
+</p>
+
+\begin{equation}
+    \vec{\tau}_{net} = I \vec{\alpha}
+\end{equation}
+
+<p>
+If the top has rotational inertia \(I_0\), therefore:
+</p>
+
+\begin{align}
+  &I_0 \vec{\alpha_0} = -RF_0 \vec{k}\\
+\Rightarrow\ &\vec{\alpha_0} = \frac{-RF_0}{I_0}\vec{k}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org2519584" class="outline-3">
+<h3 id="org2519584"><span class="section-number-3">3.5</span> Kinematics Equations</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+Our system is angularity accelerating at an constant angular acceleration of \(\vec{\alpha_0}\). As such, we integrate twice to figure the kinematics equations.
+</p>
+
+<p>
+First, as derived above:
+</p>
+
+\begin{equation}
+   \vec{\alpha}(t) = \frac{-RF_0}{I_0}\vec{k}
+\end{equation}
+
+<p>
+Taking the first integral of this expression, we get that:
+</p>
+
+\begin{equation}
+   \vec{\omega}(t) = \int \vec{\alpha}(t) dt = \frac{-RF_0}{I_0}t\vec{k} + C
+\end{equation}
+
+<p>
+where, as \(\omega=0\) at \(t=0\): 
+</p>
+
+\begin{equation}
+   \vec{\omega}(t) = \frac{-RF_0}{I_0}t\vec{k}
+\end{equation}
+
+<p>
+Performing the integral yet again, we have that:
+</p>
+
+\begin{equation}
+   \vec{\theta}(t) = \int \vec{\omega}(t) dt =  \frac{-RF_0}{2I_0}t^2\vec{k}+C
+\end{equation}
+
+<p>
+where again, as \(\theta=0\) at \(t=0\): 
+</p>
+
+\begin{equation}
+   \vec{\theta}(t) =  \frac{-RF_0}{2I_0}t^2\vec{k}
+\end{equation}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb9fbd0b" class="outline-2">
+<h2 id="orgb9fbd0b"><span class="section-number-2">4</span> Rectangular Rod</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+To find the rotational inertia of a rectangular rod, we need to perform three integrations: building up strips, slices, and finally the inertia of the actual rod.
+</p>
+</div>
+
+<div id="outline-container-org0701866" class="outline-3">
+<h3 id="org0701866"><span class="section-number-3">4.1</span> Strip</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+We begin by recalling that the expression for rotational inertia is:
+</p>
+
+\begin{equation}
+   I = \sum_i m_i {l_i}^2
+\end{equation}
+
+<p>
+Furthermore, we understand the mass of our entire volume is \(M\). Therefore, the mass density along the object would be \(\frac{M}{HWL}\).
+</p>
+
+<p>
+To figure the inertia of an infinitesimal strip of point masses, we perform a simple integration along the \(w\) axis:
+</p>
+
+\begin{align}
+   I_{strip} &= \int_{-W/2}^{W/2} {l}^2 dm\\
+   &= \int_{-W/2}^{W/2} {l}^2 \frac{dm}{dl} dl\\
+   &= \int_{-W/2}^{W/2} {l}^2 \frac{M}{HWL} dl\\
+   &= \frac{M}{HWL}\left(\frac{(W/2)^3}{3}-\frac{(-W/2)^3}{3}\right)\\
+   &= \frac{M}{HWL}\left(\frac{W^3}{24}-\frac{-W^3}{24}\right)\\
+   &= \frac{M}{HWL}\left(\frac{W^3}{12}\right)\\
+   &= \frac{M}{HL}\left(\frac{W^2}{12}\right)
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org66f80d3" class="outline-3">
+<h3 id="org66f80d3"><span class="section-number-3">4.2</span> Slice</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+We will now find the inertia of a slice. The procedure is essentially the same, but that there is no longer any non-constant components. Therefore, the inertias, as we are rotating about the same axis of a rigid body together, simply stack ("add"). That is: the rotational inertia of a slice is simply \(H\) times that of a strip.
+</p>
+
+\begin{align}
+    I_{slice} &= H\ I_{strip}\\
+&= H\ \frac{M}{HL}\left(\frac{W^2}{12}\right)\\
+&= \frac{M}{L}\left(\frac{W^2}{12}\right)
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org6bfb2cb" class="outline-3">
+<h3 id="org6bfb2cb"><span class="section-number-3">4.3</span> Final Rotational Inertia</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+Finally, we will leverage the parallel axis theorem to deduct rotational inertia of the entire rod.
+</p>
+
+<p>
+At every plate \(i\), we note that it will be \(l_i\) away from the axis of rotation \(\hat{k}\). By the parallel axis theorem:
+</p>
+
+\begin{equation}
+   I = I_{cm} + mD^2
+\end{equation}
+
+<p>
+where, \(l_i = D\) and $m=\frac{M}{L}$&#x2014;the mass of each slice.
+</p>
+
+<p>
+That is, then:
+</p>
+
+\begin{equation}
+   I_{slice\ about\ \hat{k}} = \frac{M}{L}\left(\frac{W^2}{12}\right) + m_i (l_i)^2
+\end{equation}
+
+<p>
+We aim to find the sum of all such rotational inertia slices about \(\vec{k}\) along \(L\), meaning we will figure:
+</p>
+
+\begin{equation}
+   I= \sum_L\left( \frac{M}{L}\left(\frac{W^2}{12}\right) + m_i (l_i)^2\right)
+\end{equation}
+
+<p>
+Splitting this summation into two parts:
+</p>
+
+\begin{equation}
+   I = \sum_L \frac{M}{L}\left(\frac{W^2}{12}\right) + \sum_L m_i (l_i)^2
+\end{equation}
+
+<p>
+We can see that, because the lack of differentials on the left side, the left expression can simply be simplified to route multiplication:
+</p>
+
+\begin{align}
+   I &= \sum_L \frac{M}{L}\left(\frac{W^2}{12}\right) + \sum_L m_i (l_i)^2\\
+&= M\left(\frac{W^2}{12}\right) + \sum_L m_i (l_i)^2
+\end{align}
+
+<p>
+The right side, however, requires integration. The actual integral is, fortunately, almost the same procedure as before&#x2014;summing up differential \(l_i\) along \(L\) via differential masses \(m_i\). We will leverage the mass density of a slice again: \(\frac{M}{L}\) ("total mass divided by all slices").
+</p>
+
+\begin{align}
+    \sum_L m_i (l_i)^2 &= \int_{-L/2}^{L/2} l^2 dm\\
+&= \int_{-L/2}^{L/2} l^2 \frac{dm}{dl}{dl}\\
+&= \int_{-L/2}^{L/2} l^2 \frac{M}{L}{dl}\\
+&= \frac{M}{L}\int_{-L/2}^{L/2} l^2 {dl}\\
+&= \frac{M}{L}\int_{-L/2}^{L/2} l^2 {dl}\\
+&= \frac{M}{L} \left (\left\frac{l^3}{3}\right |_{-L/2}^{L/2} \right)\\
+&= \frac{M}{L} \left(\frac{L^3}{12}\right)\\
+&= M \left(\frac{L^2}{12}\right)
+\end{align}
+
+<p>
+Substituting this back into our above expression for \(I\) again:
+</p>
+
+\begin{align}
+    I &= M\left(\frac{W^2}{12}\right) + \sum_L m_i (l_i)^2\\
+&= M\left(\frac{W^2}{12}\right) + M \left(\frac{L^2}{12}\right)\\
+&= \frac{1}{12}M\left(W^2 + L^2\right)\ \blacksquare
+\end{align}
+</div>
 </div>
 </div>
 </div>
