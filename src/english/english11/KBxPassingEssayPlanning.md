@@ -70,7 +70,10 @@ thesis: passing is opposite in TGG and passing, yet both have the same result: a
 		- "If I knew that, I'd know w^hat race is." 
 	- but you can! 
 
-
+- p3:
+	- gatsby
+	- "one of the few honest people I have ever known" (3.171)
+	- "inclined to reserve all judgments" but judges the shit out of peolpe
 
 ### outlining timeline
 - intro: thesis
