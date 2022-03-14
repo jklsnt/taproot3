@@ -72,9 +72,12 @@ thesis: passing is opposite in TGG and passing, yet both have the same result: a
 
 - p3:
 	- gatsby
-	- "one of the few honest people I have ever known" (3.171)
-	- "inclined to reserve all judgments" but judges the shit out of peolpe
-	- I am one of the few honest people that I have ever known (39)
+		- "one of the few honest people I have ever known" (3.171)
+		- "inclined to reserve all judgments" but judges the shit out of peolp
+		- I am one of the few honest people that I have ever known (39)
+	- passing
+		- hates clare but hangs out with her
+		- hates passing but does it anyways
 
 ### outlining timeline
 - intro: thesis
