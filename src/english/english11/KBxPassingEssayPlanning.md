@@ -74,6 +74,7 @@ thesis: passing is opposite in TGG and passing, yet both have the same result: a
 	- gatsby
 	- "one of the few honest people I have ever known" (3.171)
 	- "inclined to reserve all judgments" but judges the shit out of peolpe
+	- I am one of the few honest people that I have ever known (39)
 
 ### outlining timeline
 - intro: thesis
