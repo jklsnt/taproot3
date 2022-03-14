@@ -57,8 +57,8 @@ have another table, which stores user specific things:
 mood: int
 sleep: int
 screen time: int
-notes: text
 perceived severity: int
+notes: text
 exercise: json
 activities: json
 

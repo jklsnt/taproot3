@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-11 Fri 09:56 -->
+<!-- 2022-03-13 Sun 21:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>QIC Module 2: Pset</title>
@@ -263,18 +263,19 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">QIC Module 2: Pset</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-11 Fri 09:55</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">QIC Module 2: Pset</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-13 Sun 21:33</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org9dd9a74">1. Problem 1</a></li>
+<li><a href="#org782332a">1. Problem 1</a></li>
+<li><a href="#org12db80b">2. Problem 2</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org9dd9a74" class="outline-2">
-<h2 id="org9dd9a74"><span class="section-number-2">1</span> Problem 1</h2>
+<div id="outline-container-org782332a" class="outline-2">
+<h2 id="org782332a"><span class="section-number-2">1</span> Problem 1</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The question asks us to figure scalars \(\alpha\) and \(\beta\) making:
@@ -301,6 +302,200 @@ We first expand the expressions in the combinator:
 \Rightarrow\ & \alpha \beta ((ABC-BAC) - (CAB-CBA))\\
 \Rightarrow\ & \alpha \beta (ABC-BAC - CAB+CBA)
 \end{align}
+
+<p>
+We wish to figure out values \(\alpha\) and \(\beta\) such that the conjugate of the above output equals to itself; that is, so that the following hold:
+</p>
+
+\begin{align}
+   \alpha^* \beta^* (ABC-BAC-CAB+CBA) = \alpha \beta (ABC-BAC - CAB+CBA)
+\end{align}
+
+<p>
+We did not need to conjugate the right side as all matricies \(A,B,C\) are Hermitian. Let's set:
+</p>
+
+\begin{equation}
+   X=ABC-BAC-CAB+CBA 
+\end{equation}
+
+<p>
+We will get, then:
+</p>
+
+\begin{align}
+   \alpha^* \beta^* X = \alpha \beta X
+\end{align}
+
+<p>
+Hence, we essentially need to find scalar values \(\alpha,\beta\) such that:
+</p>
+
+\begin{equation}
+\alpha^*\beta^* = \alpha\beta
+\end{equation}
+
+<p>
+We now expand the above expression:
+</p>
+
+\begin{align}
+   &(a-bi)(c-di) = (a+bi)(c+di)\\
+\Rightarrow\ & ac-(ad+bc)i-bd = ac+(ad+bc)i+bd\\
+\Rightarrow\ & -(ad+bc)i = (ad+bc)i\\
+\Rightarrow\ & -(ad+bc) = (ad+bc)
+\end{align}
+
+<p>
+The only value of \(ad+bc\) for which this would hold is \(0\). Hence:
+</p>
+
+\begin{align}
+   &ad+bc = 0 \\
+   \Rightarrow\ &ad = -bc 
+\end{align}
+
+<p>
+If we provide three degrees of freedom, we get that:
+</p>
+
+\begin{equation}
+   \begin{cases}
+\alpha = a+bi\\
+\beta = \frac{-ad}{b}+di
+\end{cases}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org12db80b" class="outline-2">
+<h2 id="org12db80b"><span class="section-number-2">2</span> Problem 2</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Considering the Hamiltonian operator:
+</p>
+
+\begin{equation}
+   \vec{H} = \frac{\hbar \omega}{2}\sigma \vec{n} 
+\end{equation}
+
+<p>
+Solve:
+</p>
+
+\begin{equation}
+   \vec{H} | E_j \big> = E_j | E_j\big> 
+\end{equation}
+
+<p>
+where \(E_j\) is the $j$-th eigenvalue of the hermitian.
+</p>
+
+<p>
+Let's first recall the generic expression for \(\sigma_n\) for any normal vector \(\vec{n}\):
+</p>
+
+\begin{equation}
+   \sigma_n = \begin{pmatrix}
+n_z && (n_x-in_y) \\
+(n_x+in_y) && -n_z \\
+\end{pmatrix} 
+\end{equation}
+
+<p>
+We will multiply the scalar \(\frac{\hbar\omega}{2}\) upon the above expression, resulting in:
+</p>
+
+\begin{equation}
+   H = \frac{\hbar\omega}{2}\sigma_n = \begin{pmatrix}
+\frac{\hbar \omega n_z}{2} && \frac{\hbar \omega (n_x-in_y)}{2} \\
+\frac{\hbar \omega (n_x+in_y)}{2} && \frac{-\hbar \omega n_z}{2} \\
+\end{pmatrix} 
+\end{equation}
+
+<p>
+Now, we attempt to solve for the eigenvectors of the expression via Sage:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage"># define the normal and pauli_n matrix
+nx,ny,nz = var("nx ny nz")
+paulin = Matrix([[nz, (nx-i*ny)], [(nx+i*ny), -nz]])
+
+# define the hermitian
+hbar, omega = var("hbar omega")
+H = ((hbar*omega)/2)*paulin
+
+# we now get the eigenvalues
+H.eigenvalues()
+H.eigenvectors_right()
+</pre>
+</div>
+
+\begin{equation}
+    \left(\frac{1}{2} \, \sqrt{\mathit{nx}^{2} + \mathit{ny}^{2} + \mathit{nz}^{2}} \mathit{hbar} \omega, \left[\left(1,\,-\frac{{\left(\mathit{nx} + i \, \mathit{ny}\right)} \mathit{nz} - \sqrt{\mathit{nx}^{2} + \mathit{ny}^{2} + \mathit{nz}^{2}} {\left(\mathit{nx} + i \, \mathit{ny}\right)}}{\mathit{nx}^{2} + \mathit{ny}^{2}}\right)\right], 1\right)
+\end{equation}
+
+
+
+<p>
+The eigenvalues, as per given by Sage, of the Hermitian is:
+</p>
+
+\begin{equation}
+   \left[\frac{1}{2} ||n|| \hbar \omega, \frac{-1}{2} ||n|| \hbar \omega \right] 
+\end{equation}
+
+<p>
+We will also take one produced eigenvalue:
+</p>
+
+\begin{equation}
+\begin{pmatrix}    
+1\\
+-\frac{(n_x+n_y\ i)(n_z - ||n||)}{{n_x}^2+{n_y}^2}
+\end{pmatrix}    
+\end{equation}
+
+<p>
+This solution is not extremely useful. However, we can supply a more definite \(\vec{n}\) to make this solution more interesting.
+</p>
+
+<p>
+Take, for instance, where \(\vec{n}\) lies on some \(\theta\) on the \(x\), \(y\) plane. We can take the following parameterization:
+</p>
+
+\begin{equation}
+\begin{cases}
+n_x = cos\theta\\    
+n_y = sin\theta\\    
+n_z = 0
+\end{cases}
+\end{equation}
+
+<p>
+Applying this parameterization to the above eigenvector:
+</p>
+
+\begin{equation}
+   \begin{pmatrix} 
+1\\
+cos\theta+i\ sin\theta
+\end{pmatrix} = \begin{pmatrix} 
+1\\
+e^{i\theta}
+\end{pmatrix}
+\end{equation}
+
+<p>
+The Hamiltonian operator given by \(\frac{\hbar \omega}{2}\sigma\cdot\vec{n}\) for a normal vector \(\vec{n}\) on the x,y plane is concentrated on a cyclic manner on the \(\hat{j}\) direction by:
+</p>
+
+\begin{equation}
+   \begin{pmatrix} 
+1\\e^{i\thehta}
+   \end{pmatrix} 
+\end{equation}
 </div>
 </div>
 </div>

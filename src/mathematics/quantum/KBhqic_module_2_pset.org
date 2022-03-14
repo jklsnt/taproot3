@@ -25,3 +25,156 @@ We first expand the expressions in the combinator:
 \Rightarrow\ & \alpha \beta (ABC-BAC - CAB+CBA)
 \end{align}
 
+We wish to figure out values $\alpha$ and $\beta$ such that the conjugate of the above output equals to itself; that is, so that the following hold:
+
+\begin{align}
+   \alpha^* \beta^* (ABC-BAC-CAB+CBA) = \alpha \beta (ABC-BAC - CAB+CBA)
+\end{align}
+
+We did not need to conjugate the right side as all matricies $A,B,C$ are Hermitian. Let's set:
+
+\begin{equation}
+   X=ABC-BAC-CAB+CBA 
+\end{equation}
+
+We will get, then:
+
+\begin{align}
+   \alpha^* \beta^* X = \alpha \beta X
+\end{align}
+
+Hence, we essentially need to find scalar values $\alpha,\beta$ such that:
+
+\begin{equation}
+\alpha^*\beta^* = \alpha\beta
+\end{equation}
+
+We now expand the above expression:
+
+\begin{align}
+   &(a-bi)(c-di) = (a+bi)(c+di)\\
+\Rightarrow\ & ac-(ad+bc)i-bd = ac+(ad+bc)i+bd\\
+\Rightarrow\ & -(ad+bc)i = (ad+bc)i\\
+\Rightarrow\ & -(ad+bc) = (ad+bc)
+\end{align}
+
+The only value of $ad+bc$ for which this would hold is $0$. Hence:
+
+\begin{align}
+   &ad+bc = 0 \\
+   \Rightarrow\ &ad = -bc 
+\end{align}
+
+If we provide three degrees of freedom, we get that:
+
+\begin{equation}
+   \begin{cases}
+\alpha = a+bi\\
+\beta = \frac{-ad}{b}+di
+\end{cases}
+\end{equation}
+
+* Problem 2
+Considering the Hamiltonian operator:
+
+\begin{equation}
+   \vec{H} = \frac{\hbar \omega}{2}\sigma \vec{n} 
+\end{equation}
+
+Solve:
+
+\begin{equation}
+   \vec{H} | E_j \big> = E_j | E_j\big> 
+\end{equation}
+
+where $E_j$ is the $j$-th eigenvalue of the hermitian.
+
+Let's first recall the generic expression for $\sigma_n$ for any normal vector $\vec{n}$:
+
+\begin{equation}
+   \sigma_n = \begin{pmatrix}
+n_z && (n_x-in_y) \\
+(n_x+in_y) && -n_z \\
+\end{pmatrix} 
+\end{equation}
+
+We will multiply the scalar $\frac{\hbar\omega}{2}$ upon the above expression, resulting in:
+
+\begin{equation}
+   H = \frac{\hbar\omega}{2}\sigma_n = \begin{pmatrix}
+\frac{\hbar \omega n_z}{2} && \frac{\hbar \omega (n_x-in_y)}{2} \\
+\frac{\hbar \omega (n_x+in_y)}{2} && \frac{-\hbar \omega n_z}{2} \\
+\end{pmatrix} 
+\end{equation}
+
+Now, we attempt to solve for the eigenvectors of the expression via Sage:
+
+#+begin_src sage
+# define the normal and pauli_n matrix
+nx,ny,nz = var("nx ny nz")
+paulin = Matrix([[nz, (nx-i*ny)], [(nx+i*ny), -nz]])
+
+# define the hermitian
+hbar, omega = var("hbar omega")
+H = ((hbar*omega)/2)*paulin
+
+# we now get the eigenvalues
+H.eigenvalues()
+H.eigenvectors_right()
+#+end_src
+
+#+RESULTS:
+
+\begin{equation}
+    \left(\frac{1}{2} \, \sqrt{\mathit{nx}^{2} + \mathit{ny}^{2} + \mathit{nz}^{2}} \mathit{hbar} \omega, \left[\left(1,\,-\frac{{\left(\mathit{nx} + i \, \mathit{ny}\right)} \mathit{nz} - \sqrt{\mathit{nx}^{2} + \mathit{ny}^{2} + \mathit{nz}^{2}} {\left(\mathit{nx} + i \, \mathit{ny}\right)}}{\mathit{nx}^{2} + \mathit{ny}^{2}}\right)\right], 1\right)
+\end{equation}
+
+
+
+The eigenvalues, as per given by Sage, of the Hermitian is:
+
+\begin{equation}
+   \left[\frac{1}{2} ||n|| \hbar \omega, \frac{-1}{2} ||n|| \hbar \omega \right] 
+\end{equation}
+
+We will also take one produced eigenvalue:
+
+\begin{equation}
+\begin{pmatrix}    
+1\\
+-\frac{(n_x+n_y\ i)(n_z - ||n||)}{{n_x}^2+{n_y}^2}
+\end{pmatrix}    
+\end{equation}
+
+This solution is not extremely useful. However, we can supply a more definite $\vec{n}$ to make this solution more interesting.
+
+Take, for instance, where $\vec{n}$ lies on some $\theta$ on the $x$, $y$ plane. We can take the following parameterization:
+
+\begin{equation}
+\begin{cases}
+n_x = cos\theta\\    
+n_y = sin\theta\\    
+n_z = 0
+\end{cases}
+\end{equation}
+
+Applying this parameterization to the above eigenvector:
+
+\begin{equation}
+   \begin{pmatrix} 
+1\\
+cos\theta+i\ sin\theta
+\end{pmatrix} = \begin{pmatrix} 
+1\\
+e^{i\theta}
+\end{pmatrix}
+\end{equation}
+
+The Hamiltonian operator given by $\frac{\hbar \omega}{2}\sigma\cdot\vec{n}$ for a normal vector $\vec{n}$ on the x,y plane is concentrated on a cyclic manner on the $\hat{j}$ direction by:
+
+\begin{equation}
+   \begin{pmatrix} 
+1\\e^{i\thehta}
+   \end{pmatrix} 
+\end{equation}
+

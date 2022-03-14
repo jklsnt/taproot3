@@ -78,6 +78,7 @@ the next assignment: historigraphical in nature. synthesithing multiple argument
 - [[KBxGrowthofAmericanLaborMovement]]
 - [[KBxHistoryLongBlock]]
 - [[KBxS2MA1Hist11]]
+- [[KBxHistResearchProjectPlanning]]
 
 
 
