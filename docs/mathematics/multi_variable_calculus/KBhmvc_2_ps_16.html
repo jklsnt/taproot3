@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-14 Mon 10:46 -->
+<!-- 2022-03-14 Mon 17:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>QIC Module 2: Changing Cubits</title>
+<title>MVC 2 PS#16</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Houjun Liu" />
 <style type="text/css">
@@ -263,365 +263,330 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">QIC Module 2: Changing Cubits</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-14 Mon 10:46</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#16</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-14 Mon 17:12</date></div>
 </div>
 <div id="content">
-<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhtim_hosgood.html'>Tim Hosgood</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org6ff98b0">1. To Do</a></li>
-<li><a href="#orgfca380b">2. Core Concepts</a></li>
-<li><a href="#org9e25698">3. Introduction</a></li>
-<li><a href="#org2687e20">4. Shrödinger's Equations</a>
+<li><a href="#org2483053">1. Triple Osward's Box</a></li>
+<li><a href="#org1ba593b">2. Custom-Bound Integration</a>
 <ul>
-<li><a href="#org7c4a097">4.1. What's a unitary matrix again?</a></li>
-<li><a href="#org8f54882">4.2. What is a Hermitian again?</a></li>
-<li><a href="#orgd9fd169">4.3. Basic Properties</a></li>
-<li><a href="#org48434c5">4.4. The Schrodinger Equation at the Last Bit of Class</a></li>
+<li><a href="#orgf22ac33">2.1. y-dimension first</a></li>
+<li><a href="#org82993e7">2.2. x-dimension first</a></li>
 </ul>
 </li>
-<li><a href="#org27c6cfb">5. Solving Shrödinger's Equations</a></li>
-<li><a href="#org67fbc25">6. Boolean Operators, etc.</a>
-<ul>
-<li><a href="#orge39586d">6.1. Boolean Inner Product</a></li>
-<li><a href="#orgcc6dd74">6.2. And now, a boolean network</a></li>
-<li><a href="#orga3c9438">6.3. Controlled Not</a></li>
-</ul>
-</li>
-<li><a href="#org8ace7f2">7. A Guest Lecture</a></li>
-<li><a href="#org5cefc09">8. Parallel vs Series</a></li>
+<li><a href="#org535b547">3. Cylindrical Coordinates</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org6ff98b0" class="outline-2">
-<h2 id="org6ff98b0"><span class="section-number-2">1</span> To Do</h2>
+<div id="outline-container-org2483053" class="outline-2">
+<h2 id="org2483053"><span class="section-number-2">1</span> Triple Osward's Box</h2>
 <div class="outline-text-2" id="text-1">
-<ul class="org-ul">
-<li>Read chapters</li>
-<li>Watch videos</li>
-</ul>
+<p>
+To solve this problem, we will need to take a triple integral along each of the dimensions to add up the energy inside the box.
+</p>
+
+<p>
+We know that the box is modeled by the function:
+</p>
+
+\begin{equation}
+   e(x,y,z) = x^2y+11z+13 
+\end{equation}
+
+<div class="org-src-container">
+<pre class="src src-sage">
+</pre>
+</div>
+
+<p>
+We further understand that one corner of the box is located at the origin and the other, at \((3,7,4)\).
+</p>
+
+<p>
+We will now take the triple integral, one along each dimension:
+</p>
+
+\begin{equation}
+   \int_0^4\ &\int_0^{7}\ \int_0^{3} x^2y+11z+13\ dx\ dy\ dz
+\end{equation}
+
+<p>
+We will take parts of this integral at a time.
+</p>
+
+\begin{align}
+    &\int_0^{3} x^2y+11z+13\ dx\\
+=& \left \frac{x^3y}{3}+11zx+13x \right|_0^{3} \\
+=& 9y+33z+39
+\end{align}
+
+<p>
+And now, we do this again for the second integral.
+</p>
+
+\begin{align}
+    &\int_0^{7} 9y+33z+39 dy\\
+=& \left \frac{9y^2}{2}+33zy+39y \right|_0^{7} \\
+=& \frac{441}{2}+231z+273 \\
+=& 493.5+231z
+\end{align}
+
+<p>
+And finally, we take the third integral:
+</p>
+
+\begin{align}
+    &\int_0^{4} 493.5+231z\ dz\\
+=& \left 493.5z+\frac{231z^2}{2} \right|_0^{4} \\
+=& 1974 + 1848 \\
+=& 3822
+\end{align}
+
+<p>
+We can see there is \(3822\) total units of energy in the box.
+</p>
 </div>
 </div>
 
-<div id="outline-container-orgfca380b" class="outline-2">
-<h2 id="orgfca380b"><span class="section-number-2">2</span> Core Concepts</h2>
+<div id="outline-container-org1ba593b" class="outline-2">
+<h2 id="org1ba593b"><span class="section-number-2">2</span> Custom-Bound Integration</h2>
 <div class="outline-text-2" id="text-2">
-<ul class="org-ul">
-<li>Solving the Shrödinger equation</li>
-<li>We still look at a cubit at a time, but time will now pass: which impacts
-the state of the cubit</li>
-<li>We will learn about evolving a cubit, and gates, etc.</li>
-</ul>
+<p>
+We are to find to volume beneath \(z=x^2\) via the bounds of \(xy=16\), \(y=x\), \(y=0\), and \(x=8\).
+</p>
+
+<p>
+From the bound functions of \(y\), it is evident that the parameter \(y\) is bound by \([0,x]\). For the bounds of \(x\), we can figure that its bounded in the right by \(x=8\), and the right by \(x=\frac{16}{y}\).
+</p>
+
+<p>
+Plotting the bounds together:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">x,y = var("x y")
+eqns = [y==0, y==x,x==8, x*y==16]
+sum(implicit_plot(i, (x,0,16), (y,0,16)) for i in eqns)
+</pre>
+</div>
+
+
+<div id="org0d0a17b" class="figure">
+<p><img src="2022-03-14_09-39-54_screenshot.png" alt="2022-03-14_09-39-54_screenshot.png" />
+</p>
+</div>
+
+
+<p>
+As per (not actually given) by the problem, we wish to find the "lower-left" region bound. 
+</p>
+</div>
+
+<div id="outline-container-orgf22ac33" class="outline-3">
+<h3 id="orgf22ac33"><span class="section-number-3">2.1</span> y-dimension first</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let's perform the integral along the \(y\) dimension first, reducing it to a function in \(x\).
+</p>
+
+<p>
+We see that the top bound is by two piece-wise functions, each in one dimension of \(x\). We will perform the integral between bounds \([0,4]\).
+</p>
+
+\begin{align}
+   &\int_0^x x^2 dy \\
+\Rightarrow &x^3 
+\end{align}
+
+<p>
+And, integrating between \([0,4]\), we have that:
+</p>
+
+\begin{align}
+   &\int_0^4 x^3 dx \\
+\Rightarrow & 64
+\end{align}
+
+<p>
+We find the integral now between \([4,8]\), with the bound:  
+</p>
+
+\begin{align}
+   &\int_0^{16/x} x^2 dy \\
+\Rightarrow &\frac{16x^2}{x}\\
+\Rightarrow &16x
+\end{align}
+
+<p>
+And then, integrating along \([4,8]\):
+</p>
+
+\begin{align}
+   &\int_4^8 16x dx \\
+\Rightarrow & \left\frac{16x^2}{2} \right|_4^8 \\
+\Rightarrow & 384
+\end{align}
+
+<p>
+The total area under the curve, then, is \(448\).
+</p>
 </div>
 </div>
 
-<div id="outline-container-org9e25698" class="outline-2">
-<h2 id="org9e25698"><span class="section-number-2">3</span> Introduction</h2>
+<div id="outline-container-org82993e7" class="outline-3">
+<h3 id="org82993e7"><span class="section-number-3">2.2</span> x-dimension first</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+We can do this again, but rotated. We can perform the integral along the \(x\) dimension, reducing it into a function in \(y\).
+</p>
+
+<p>
+We see that the right is bound again by two piece-wise functions, each in one dimension of \(y\). We will perform the integral between the bounds \([0,2]\).
+</p>
+
+\begin{align}
+   &\int_y^8 x^2 dx \\
+\Rightarrow &\left \frac{x^3}{3}\right|_y^8\\
+\Rightarrow &\left \frac{512}{3} - \frac{y^3}{3}
+\end{align}
+
+<p>
+And then, we have to integrate between the bounds \([0,2]\).
+</p>
+
+\begin{align}
+   &\int_0^2 \left(\frac{512}{3} - \frac{y^3}{3}\right)\ dy\\
+\Rightarrow &\left\frac{512y}{3} - \frac{y^4}{12}\right|_0^2\ dy\\ 
+\Rightarrow &\left\frac{1024}{3} - \frac{16}{12} \\
+\Rightarrow &\left\frac{4080}{12} = 340
+\end{align}
+
+<p>
+We can perform the integration again \([2,4]\).
+</p>
+
+\begin{align}
+   &\int_y^{16/y} x^2 dx \\
+\Rightarrow &\left \frac{x^3}{3}\right|_y^{16/y}\\
+\Rightarrow &\left \frac{4096}{3y^3} - \frac{y^3}{3}\\
+\Rightarrow &\left \frac{4096y^{-3}}{3} - \frac{y^3}{3}
+\end{align}
+
+<p>
+And then, we will integrate by the bounds \([2,4]\):
+</p>
+
+\begin{align}
+   &\int_2^4 \frac{4096y^{-3}}{3} - \frac{y^3}{3}\ dy\\
+\Rightarrow &\left\frac{4096y^{-2}}{-6} - \frac{y^4}{4}\right|_2^4\\ 
+\Rightarrow &108
+\end{align}
+
+<p>
+Hence, the total area under the curve would also be \(448\) units. 
+</p>
+
+<p>
+As we can see, the two integrals agree with respect to the area in that corner.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org535b547" class="outline-2">
+<h2 id="org535b547"><span class="section-number-2">3</span> Cylindrical Coordinates</h2>
 <div class="outline-text-2" id="text-3">
-\begin{equation}
-   |ud \big> = u \big> \otimes |d\big> = \begin{pmatrix}
-1 \\ 0 \end{pmatrix} \otimes \begin{pmatrix}
-0 \\ 1 \end{pmatrix} = \begin{pmatrix}
-0 \\ 1\\0\\0 \end{pmatrix}
-\end{equation}
-
 <p>
-Instead of thinking about it as <i>physics</i>, we will think it about computation.
+To find the volume beneath \(f(x,y) = 7+x+y\) above a circle of radius \(5\), we can leverage cylindrical coordinates.
 </p>
 
-<p>
-We propagate <i>square roots</i> of probabilities because time is not real, but is imaginary. The location of something is simply differently likely in various places.
-</p>
-
-<p>
-Every <i>property</i> in the quantum work as a cubit.
-</p>
-
-<p>
-Change in perspective! Instead of simulating the behavior of cubits with bits, we can simulate them with OTHER CUBITS! So, our tools are now manipulating groups of cubits to simulate other, more complicated groups of cubits.
-</p>
-</div>
+<div class="org-src-container">
+<pre class="src src-sage">x,y,z = var("x y z")
+f(x,y) = 7+x+y
+implicit_plot3d(7+x+y-z, (x,-10,10), (y,-10,10), (z,-10,10), region=lambda x,y,z:(x**2+y**2)&lt;5, plot_points=200)
+</pre>
 </div>
 
-<div id="outline-container-org2687e20" class="outline-2">
-<h2 id="org2687e20"><span class="section-number-2">4</span> Shrödinger's Equations</h2>
-<div class="outline-text-2" id="text-4">
-\begin{equation}
-   |\Psi (t) \big> = U(t) | \Psi(0)\big> 
-\end{equation}
 
-<p>
-We will use \(\Psi\) to represents a function that dumps a cubit. We will act on it by a unitary matrix function \(U\), so \(U(t) | \Psi(0) \big>\), represents an evolution. \(U\) encode all possible next transition states.
+<div id="orga1b7c29" class="figure">
+<p><img src="2022-03-14_17-11-25_screenshot.png" alt="2022-03-14_17-11-25_screenshot.png" />
 </p>
 </div>
 
-<div id="outline-container-org7c4a097" class="outline-3">
-<h3 id="org7c4a097"><span class="section-number-3">4.1</span> What's a unitary matrix again?</h3>
-<div class="outline-text-3" id="text-4-1">
-\begin{equation}
-   U^*U = I 
-\end{equation}
-</div>
-</div>
-
-<div id="outline-container-org8f54882" class="outline-3">
-<h3 id="org8f54882"><span class="section-number-3">4.2</span> What is a Hermitian again?</h3>
-<div class="outline-text-3" id="text-4-2">
-\begin{equation}
-   H = H^* 
-\end{equation}
-</div>
-</div>
-
-<div id="outline-container-orgd9fd169" class="outline-3">
-<h3 id="orgd9fd169"><span class="section-number-3">4.3</span> Basic Properties</h3>
-<div class="outline-text-3" id="text-4-3">
-\begin{equation}
-   \big< \Psi (0) | \Phi (0) \big> = 0  \Rightarrow  \big< \Psi (t) | \Phi (t) \big> = 0
-\end{equation}
 
 <p>
-This claim makes intuitive sense: if we have rigid rotations \(U\), perpendicular cubits, however you rotate the pair, you will result in perpendicular cubits.
+Recall that, given an unit circle, we have:
 </p>
 
 \begin{equation}
-   U(\epsilon) = I-i\epsilon H 
-\end{equation}
-
-<p>
-At every state, in order to maintain unitary in \(U\), we have to subtract a small amount of a hermitian matrix. "Think about \(H\) as the derivative at zero of \(U\)"
-</p>
-
-<p>
-We can see, of course:
-</p>
-
-\begin{equation}
-   (I+ i \epsilon H^*)(I- i \epsilon H)  = I
-\end{equation}
-
-<p>
-because \(\epsilon^2\) is really small, so you get the same thing back.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org48434c5" class="outline-3">
-<h3 id="org48434c5"><span class="section-number-3">4.4</span> The Schrodinger Equation at the Last Bit of Class</h3>
-<div class="outline-text-3" id="text-4-4">
-\begin{equation}
-   \hbar \frac{\partial | \Psi \big>}{\partial t}  = -i H | \Psi \big>
-\end{equation}
-
-<p>
-That the change in \(|\Psi\big>\) over time is simply the \(-i\) times the hermitian matrix.  And \(\hbar\), Planck's constant to get the energy scale right.
-</p>
-
-<p>
-And solving it for \(|\Psi\big>\), we will result in the state at any point to model the evolution.
-</p>
-
-<p>
-Partial differential equations can be treated as a limit of a system of ordinary differential equations.
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org27c6cfb" class="outline-2">
-<h2 id="org27c6cfb"><span class="section-number-2">5</span> Solving Shrödinger's Equations</h2>
-<div class="outline-text-2" id="text-5">
-<p>
-Let's start with a state:
-</p>
-
-\begin{equation}
-    |A \big> = \sum_i \alpha_i | \lambda_i \big>
-\end{equation}
-
-<p>
-So let's take a linear operator \(L\), for whom \(\lambda\) is an eigenvector:
-</p>
-
-\begin{equation}
-   L | A \big> =\sum_i \alpha_i \lambda _i | \lambda _i \big> 
-\end{equation}
-
-<p>
-You will notice that, after applying the linear operator, the eigenvector just get scaled by the eigenvalue. (duh)
-</p>
-
-<p>
-Lastly, if we get the expected value:
-</p>
-
-\begin{align}
-   \big<L\big> &= \big<A | L | A\big> \\
-&= \sum_j {\alpha_j}^* \big<\lambda_j|\sum_i \alpha_i \lambda_i | \lambda i \big>
-\end{align}
-
-<p>
-We know that eigenvectors are orthogonal, so:
-</p>
-
-\begin{align}
-   \big<L\big> &= \big<A | L | A\big> \\
-&= \sum_j {\alpha_j}^* \big<\lambda_j|\sum_i \alpha_i \lambda_i | \lambda i \big>\\
-&= \sum_j {\alpha_i}^* \alpha _i \lambda_i
-\end{align}
-
-<p>
-Therefore, you just end up with the probably of the sum of the eigenvectors coming up.
-</p>
-
-<p>
-Under Schrodinger's model, we don't change the state, we change the operator.
-</p>
-
-<hr />
-
-<p>
-If we want to find the expected value of a change&#x2026;.
-</p>
-
-\begin{align}
-   &\frac{d}{dt} \big <\Psi(t)|L|\Psi(t)\big>\\
-\Rightarrow&\frac{d}{dt} ((\big <\Psi(t)|)(L|\Psi(t)\big>))\\
-\Rightarrow&\frac{d}{dt} (\big <\Psi(t)|)(L|\Psi(t)\big>) + \frac{d}{dt} (L|\Psi(t)\big>)(\big <\Psi(t)|)
-\end{align}
-
-<p>
-We will get:
-</p>
-
-
-<div id="org9d2c232" class="figure">
-<p><img src="2022-03-04_09-28-18_screenshot.png" alt="2022-03-04_09-28-18_screenshot.png" />
-</p>
-</div>
-
-<p>
-back.
-</p>
-
-<p>
-We can summarize this expression to say:
-</p>
-
-\begin{equation}
-   \frac{d}{dt} \big<L\big> = \frac{i}{\hbar} \big<[H, L]\big>
-\end{equation}
-
-<p>
-where, the "commutator" \([A,B] = AB-BA\). (There is a cool property, if you think about it, that \([cA,B] = c[A,B]\).
-</p>
-
-<p>
-"the change in expected value by some linear operator \(L\) is that for the commutator \(HL\)". For every observable, its rate of change is proportional to the comutator.
-</p>
-
-<p>
-Furthermore, we have some:
-</p>
-
-\begin{equation}
-    [Q,H] = 0
-\end{equation}
-
-<p>
-if observation and evolution has no ordering difference, the change in expected value would be zero.
-</p>
-
-<p>
-We can actually decompose \(|\Psi(t)\big>\) down into the sum of all components multiplied to the eigen 
-</p>
-
-
-<div id="orgbd813fa" class="figure">
-<p><img src="2022-03-04_09-56-38_screenshot.png" alt="2022-03-04_09-56-38_screenshot.png" />
-</p>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-org67fbc25" class="outline-2">
-<h2 id="org67fbc25"><span class="section-number-2">6</span> Boolean Operators, etc.</h2>
-<div class="outline-text-2" id="text-6">
-</div>
-<div id="outline-container-orge39586d" class="outline-3">
-<h3 id="orge39586d"><span class="section-number-3">6.1</span> Boolean Inner Product</h3>
-<div class="outline-text-3" id="text-6-1">
-<p>
-Boolean strings of length \(m\), \(x \cdot y\) is their <b><b>boolean inner product</b></b>, defined to be:
-</p>
-
-\begin{equation}
-x_1 y_1 \oplus \cdots \oplus x_my_m
-\end{equation}
-
-<p>
-here, \(\oplus\) means exclusive or (addition mod 2) (1+1 is zero, 0+1 is 1, etc.). Odd number of trues is true, even number of trues is false.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgcc6dd74" class="outline-3">
-<h3 id="orgcc6dd74"><span class="section-number-3">6.2</span> And now, a boolean network</h3>
-<div class="outline-text-3" id="text-6-2">
-<p>
-We can have a boolean network in classical framing:
-</p>
-
-
-<div id="orgd94b510" class="figure">
-<p><img src="2022-03-02_09-10-04_screenshot.png" alt="2022-03-02_09-10-04_screenshot.png" />
-</p>
-</div>
-
-<p>
-But now, can you simplify this? Is there a simpler way to represent majority&#x2014;how does the simplest way of computing the majority scale with the inputs.
-</p>
-
-<p>
-Does the number of nodes grow proportionally to the number of inputs? I.e.:
-</p>
-
-\begin{equation}
-   \theta(N) =^? \#\ of\ nodes 
-\end{equation}
-</div>
-</div>
-
-<div id="outline-container-orga3c9438" class="outline-3">
-<h3 id="orga3c9438"><span class="section-number-3">6.3</span> Controlled Not</h3>
-<div class="outline-text-3" id="text-6-3">
-\begin{equation}
-   C_{not}(x_1, x_2) = \begin{cases}
-x_1\ if\ x_2 = 0\\
-1-x_1\ if\ x_2 = 1\\
+   \begin{cases}
+x = r\ cos(\theta)\\
+y = r\ sin(\theta)
 \end{cases}
 \end{equation}
-</div>
-</div>
-</div>
 
-<div id="outline-container-org8ace7f2" class="outline-2">
-<h2 id="org8ace7f2"><span class="section-number-2">7</span> A Guest Lecture</h2>
-<div class="outline-text-2" id="text-7">
 <p>
-<a href="../../../src/mathematics/quantum/KBhtim_hosgood.html#ID-CF365519-4623-44E1-A3EA-591A586C74CF">Tim Hosgood</a>
+and the \(z\) value stays Cartesian. Therefore, we can change the expression into that in \(r\) and \(\theta\):
 </p>
-</div>
+
+\begin{equation}
+   f(r, \theta) = 7+r\ cos(\theta) + r\ sin(\theta)
+\end{equation}
+
+<p>
+The "shell" of each circle in the expression would have circumference \(r\ d\theta\), therefore, the integral to form a circle of radius \(5\) and \(\theta \in [0, 2\pi]\) would be:
+</p>
+
+\begin{align}
+   &\int_0^5\ \int_0^{2\pi}\ r(7+r\ cos(\theta) + r\ sin(\theta))\ d\theta\ dr\\
+\Rightarrow  &\int_0^5\ r(\left 7\theta+r\ sin(\theta) - r\ cos(\theta) \right|_0^{2\pi}\ )dr\\
+\Rightarrow  &\int_0^5\ (14\pi - r)-(-r)\ dr\\
+\Rightarrow  &\int_0^5\ 14\pi\ r\ dr \\
+\Rightarrow  &175\pi
+\end{align}
+
+<p>
+We can check this value by taking vertical slices of the function. A circle of radius five centered about the origin can be modeled by the expression:
+</p>
+
+\begin{equation}
+    y = \pm\sqrt{5^2-x^2}
+\end{equation}
+
+<p>
+We will take the integral along the \(y\) dimension first, bounded by this function; then, we will sum the results along \([-5,5]\) for the \(x\) dimension.
+</p>
+
+<p>
+Taking the integral in \(y\):
+</p>
+
+\begin{align}
+   &\int_0^{\sqrt{25-x^2}} 7+x+y\ dy +  \int_{-\sqrt{25-x^2}}^0 7+x+y\ dy\\
+\Rightarrow& \left \left(7y+xy+\frac{y^2}{2}\right)\right|_0^{\sqrt{25-x^2}} + \left \left(7y+xy+\frac{y^2}{2}\right)\right|_{-\sqrt{25-x^2}}^0\\
+\Rightarrow& \left(7\sqrt{25-x^2}+x\sqrt{25-x^2}+\frac{25-x^2}{2}\right) + \left \left(7\sqrt{25-x^2}+x\sqrt{25-x^2}-\frac{25-x^2}{2}\right)\\
+\Rightarrow& 14\sqrt{25-x^2}+2x\sqrt{25-x^2}
+\end{align}
+
+<p>
+We will leverage Sage to take the integral in \(x\).
+</p>
+
+\begin{equation}
+   \int_{-5}^{5} 14\sqrt{25-x^2}+2x\sqrt{25-x^2}\ dx
+\end{equation}
+
+<div class="org-src-container">
+<pre class="src src-sage">f(x,y)=7+x+y
+(f.integrate(y, 0, sqrt(25-x^2)) + f.integrate(y, -sqrt(25-x^2), 0)).integrate(x,-5,5)
+</pre>
 </div>
 
-<div id="outline-container-org5cefc09" class="outline-2">
-<h2 id="org5cefc09"><span class="section-number-2">8</span> Parallel vs Series</h2>
-<div class="outline-text-2" id="text-8">
-<ul class="org-ul">
-<li>Tensoring matricies are  parallel operations</li>
-<li>Producting matricies are series operations</li>
-</ul>
+<p>
+As we can see, the result from both expressions are the same, \(175\pi\).
+</p>
 </div>
 </div>
 </div>

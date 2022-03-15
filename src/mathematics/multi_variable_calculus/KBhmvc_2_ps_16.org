@@ -1,0 +1,228 @@
+:PROPERTIES:
+:ID:       E0DAEE95-823E-4298-ABFE-1A6205DF89DD
+:END:
+#+title: MVC 2 PS#16
+#+author: Houjun Liu
+
+* Triple Osward's Box
+To solve this problem, we will need to take a triple integral along each of the dimensions to add up the energy inside the box.
+
+We know that the box is modeled by the function:
+
+\begin{equation}
+   e(x,y,z) = x^2y+11z+13 
+\end{equation}
+
+# e(x,y,z) = x^2*y+11*z+13
+# implicit_plot3d(x==y, (x,-10,10), (y,-10,10), (z,-10,10), color=(e, colormaps.gist_rainbow), plot_points=100, contour=4)
+#+begin_src sage
+#+end_src
+
+# #+RESULTS:
+# : Launched html viewer for Graphics3d Object
+
+We further understand that one corner of the box is located at the origin and the other, at $(3,7,4)$.
+
+We will now take the triple integral, one along each dimension:
+
+\begin{equation}
+   \int_0^4\ &\int_0^{7}\ \int_0^{3} x^2y+11z+13\ dx\ dy\ dz
+\end{equation}
+
+We will take parts of this integral at a time.
+
+\begin{align}
+    &\int_0^{3} x^2y+11z+13\ dx\\
+=& \left \frac{x^3y}{3}+11zx+13x \right|_0^{3} \\
+=& 9y+33z+39
+\end{align}
+
+And now, we do this again for the second integral.
+
+\begin{align}
+    &\int_0^{7} 9y+33z+39 dy\\
+=& \left \frac{9y^2}{2}+33zy+39y \right|_0^{7} \\
+=& \frac{441}{2}+231z+273 \\
+=& 493.5+231z
+\end{align}
+
+And finally, we take the third integral:
+
+\begin{align}
+    &\int_0^{4} 493.5+231z\ dz\\
+=& \left 493.5z+\frac{231z^2}{2} \right|_0^{4} \\
+=& 1974 + 1848 \\
+=& 3822
+\end{align}
+
+We can see there is $3822$ total units of energy in the box.
+
+* Custom-Bound Integration
+We are to find to volume beneath $z=x^2$ via the bounds of $xy=16$, $y=x$, $y=0$, and $x=8$.
+
+From the bound functions of $y$, it is evident that the parameter $y$ is bound by $[0,x]$. For the bounds of $x$, we can figure that its bounded in the right by $x=8$, and the right by $x=\frac{16}{y}$.
+
+Plotting the bounds together:
+
+#+begin_src sage
+x,y = var("x y")
+eqns = [y==0, y==x,x==8, x*y==16]
+sum(implicit_plot(i, (x,0,16), (y,0,16)) for i in eqns)
+#+end_src
+
+#+RESULTS:
+
+#+DOWNLOADED: screenshot @ 2022-03-14 09:39:54
+[[file:2022-03-14_09-39-54_screenshot.png]]
+
+
+As per (not actually given) by the problem, we wish to find the "lower-left" region bound. 
+
+** y-dimension first
+Let's perform the integral along the $y$ dimension first, reducing it to a function in $x$.
+
+We see that the top bound is by two piece-wise functions, each in one dimension of $x$. We will perform the integral between bounds $[0,4]$.
+
+\begin{align}
+   &\int_0^x x^2 dy \\
+\Rightarrow &x^3 
+\end{align}
+
+And, integrating between $[0,4]$, we have that:
+
+\begin{align}
+   &\int_0^4 x^3 dx \\
+\Rightarrow & 64
+\end{align}
+
+We find the integral now between $[4,8]$, with the bound:  
+
+\begin{align}
+   &\int_0^{16/x} x^2 dy \\
+\Rightarrow &\frac{16x^2}{x}\\
+\Rightarrow &16x
+\end{align}
+
+And then, integrating along $[4,8]$:
+
+\begin{align}
+   &\int_4^8 16x dx \\
+\Rightarrow & \left\frac{16x^2}{2} \right|_4^8 \\
+\Rightarrow & 384
+\end{align}
+
+The total area under the curve, then, is $448$.
+
+** x-dimension first
+We can do this again, but rotated. We can perform the integral along the $x$ dimension, reducing it into a function in $y$.
+
+We see that the right is bound again by two piece-wise functions, each in one dimension of $y$. We will perform the integral between the bounds $[0,2]$.
+
+\begin{align}
+   &\int_y^8 x^2 dx \\
+\Rightarrow &\left \frac{x^3}{3}\right|_y^8\\
+\Rightarrow &\left \frac{512}{3} - \frac{y^3}{3}
+\end{align}
+
+And then, we have to integrate between the bounds $[0,2]$.
+
+\begin{align}
+   &\int_0^2 \left(\frac{512}{3} - \frac{y^3}{3}\right)\ dy\\
+\Rightarrow &\left\frac{512y}{3} - \frac{y^4}{12}\right|_0^2\ dy\\ 
+\Rightarrow &\left\frac{1024}{3} - \frac{16}{12} \\
+\Rightarrow &\left\frac{4080}{12} = 340
+\end{align}
+
+We can perform the integration again $[2,4]$.
+
+\begin{align}
+   &\int_y^{16/y} x^2 dx \\
+\Rightarrow &\left \frac{x^3}{3}\right|_y^{16/y}\\
+\Rightarrow &\left \frac{4096}{3y^3} - \frac{y^3}{3}\\
+\Rightarrow &\left \frac{4096y^{-3}}{3} - \frac{y^3}{3}
+\end{align}
+
+And then, we will integrate by the bounds $[2,4]$:
+
+\begin{align}
+   &\int_2^4 \frac{4096y^{-3}}{3} - \frac{y^3}{3}\ dy\\
+\Rightarrow &\left\frac{4096y^{-2}}{-6} - \frac{y^4}{4}\right|_2^4\\ 
+\Rightarrow &108
+\end{align}
+
+Hence, the total area under the curve would also be $448$ units. 
+
+As we can see, the two integrals agree with respect to the area in that corner.
+
+* Cylindrical Coordinates
+To find the volume beneath $f(x,y) = 7+x+y$ above a circle of radius $5$, we can leverage cylindrical coordinates.
+
+#+begin_src sage
+x,y,z = var("x y z")
+f(x,y) = 7+x+y
+implicit_plot3d(7+x+y-z, (x,-10,10), (y,-10,10), (z,-10,10), region=lambda x,y,z:(x**2+y**2)<5, plot_points=200)
+#+end_src
+
+#+RESULTS:
+
+#+DOWNLOADED: screenshot @ 2022-03-14 17:11:25
+[[file:2022-03-14_17-11-25_screenshot.png]]
+
+
+Recall that, given an unit circle, we have:
+
+\begin{equation}
+   \begin{cases}
+x = r\ cos(\theta)\\
+y = r\ sin(\theta)
+\end{cases}
+\end{equation}
+
+and the $z$ value stays Cartesian. Therefore, we can change the expression into that in $r$ and $\theta$:
+
+\begin{equation}
+   f(r, \theta) = 7+r\ cos(\theta) + r\ sin(\theta)
+\end{equation}
+
+The "shell" of each circle in the expression would have circumference $r\ d\theta$, therefore, the integral to form a circle of radius $5$ and $\theta \in [0, 2\pi]$ would be:
+
+\begin{align}
+   &\int_0^5\ \int_0^{2\pi}\ r(7+r\ cos(\theta) + r\ sin(\theta))\ d\theta\ dr\\
+\Rightarrow  &\int_0^5\ r(\left 7\theta+r\ sin(\theta) - r\ cos(\theta) \right|_0^{2\pi}\ )dr\\
+\Rightarrow  &\int_0^5\ (14\pi - r)-(-r)\ dr\\
+\Rightarrow  &\int_0^5\ 14\pi\ r\ dr \\
+\Rightarrow  &175\pi
+\end{align}
+
+We can check this value by taking vertical slices of the function. A circle of radius five centered about the origin can be modeled by the expression:
+
+\begin{equation}
+    y = \pm\sqrt{5^2-x^2}
+\end{equation}
+
+We will take the integral along the $y$ dimension first, bounded by this function; then, we will sum the results along $[-5,5]$ for the $x$ dimension.
+
+Taking the integral in $y$:
+
+\begin{align}
+   &\int_0^{\sqrt{25-x^2}} 7+x+y\ dy +  \int_{-\sqrt{25-x^2}}^0 7+x+y\ dy\\
+\Rightarrow& \left \left(7y+xy+\frac{y^2}{2}\right)\right|_0^{\sqrt{25-x^2}} + \left \left(7y+xy+\frac{y^2}{2}\right)\right|_{-\sqrt{25-x^2}}^0\\
+\Rightarrow& \left(7\sqrt{25-x^2}+x\sqrt{25-x^2}+\frac{25-x^2}{2}\right) + \left \left(7\sqrt{25-x^2}+x\sqrt{25-x^2}-\frac{25-x^2}{2}\right)\\
+\Rightarrow& 14\sqrt{25-x^2}+2x\sqrt{25-x^2}
+\end{align}
+
+We will leverage Sage to take the integral in $x$.
+
+\begin{equation}
+   \int_{-5}^{5} 14\sqrt{25-x^2}+2x\sqrt{25-x^2}\ dx
+\end{equation}
+
+#+begin_src sage
+f(x,y)=7+x+y
+(f.integrate(y, 0, sqrt(25-x^2)) + f.integrate(y, -sqrt(25-x^2), 0)).integrate(x,-5,5)
+#+end_src
+
+#+RESULTS:
+: 175*pi
+
+As we can see, the result from both expressions are the same, $175\pi$.
