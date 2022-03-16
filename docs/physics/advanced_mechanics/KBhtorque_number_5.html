@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-15 Tue 14:00 -->
+<!-- 2022-03-15 Tue 23:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MVC 2 PS#16</title>
+<title>Torque Number 5</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Houjun Liu" />
 <style type="text/css">
@@ -263,321 +263,375 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#16</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-15 Tue 13:59</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Torque Number 5</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-15 Tue 23:11</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf5e7cb5">1. Triple Osward's Box</a></li>
-<li><a href="#orga71b29b">2. Custom-Bound Integration</a>
-<ul>
-<li><a href="#org1413598">2.1. y-dimension first</a></li>
-<li><a href="#org98d1b71">2.2. x-dimension first</a></li>
-</ul>
-</li>
-<li><a href="#org145eaf4">3. Cylindrical Coordinates</a></li>
+<li><a href="#org249a1f8">1. Properties of the CM Reference Frame</a></li>
+<li><a href="#orga42992a">2. System Angular Momentum</a></li>
+<li><a href="#org9ad4234">3. Change in Angular Momentum</a></li>
+<li><a href="#orgc9eed87">4. Total Torque on a System</a></li>
+<li><a href="#org0922fae">5. Net Torque Equals Change of Angular Momentum</a></li>
+<li><a href="#org2c117cb">6. Angular Momentum on a Spinning Rigid Body</a></li>
+<li><a href="#org26f146a">7. Net Torque on a Spinning Rigid Body</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-orgf5e7cb5" class="outline-2">
-<h2 id="orgf5e7cb5"><span class="section-number-2">1</span> Triple Osward's Box</h2>
+<div id="outline-container-org249a1f8" class="outline-2">
+<h2 id="org249a1f8"><span class="section-number-2">1</span> Properties of the CM Reference Frame</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-To solve this problem, we will need to take a triple integral along each of the dimensions to add up the energy inside the box.
+At the center of mass reference frame, the center of mass is located at the origin given how the frame is being defined.
 </p>
 
 <p>
-We know that the box is modeled by the function:
+Recall that the expression for the center of mass is
 </p>
 
 \begin{equation}
-   e(x,y,z) = x^2y+11z+13 
+   \sum_{i=1}^n m_i \vec{r_i}
 \end{equation}
 
-<div class="org-src-container">
-<pre class="src src-sage">
-</pre>
-</div>
-
 <p>
-We further understand that one corner of the box is located at the origin and the other, at \((3,7,4)\).
+the "mass scaled location" of each point mass. 
 </p>
 
 <p>
-We will now take the triple integral, one along each dimension:
+Therefore, in the prime reference frame:
 </p>
 
 \begin{equation}
-   \int_0^4\ &\int_0^{7}\ \int_0^{3} x^2y+11z+13\ dx\ dy\ dz
+   \sum_{i=1}^n m_i\vec{r_i}' = 0\ \blacksquare
 \end{equation}
 
 <p>
-We will take parts of this integral at a time.
+as the center of mass is located at the origin.
+</p>
+
+<p>
+We can now take the derivative of this expression to figure that for velocity:
 </p>
 
 \begin{align}
-    &\int_0^{3} x^2y+11z+13\ dx\\
-=& \left \frac{x^3y}{3}+11zx+13x \right|_0^{3} \\
-=& 9y+33z+39
+   &\frac{d}{dt} \sum_{i=1}^n m_i\vec{r_i}' = \frac{d}{dt} 0\ \\
+   \Rightarrow\ &\sum_{i=1}^n m_i\frac{d}{dt} \vec{r_i}' = 0\ \\
+   \Rightarrow\ &\sum_{i=1}^n m_i\vec{v_i}' = 0\ \blacksquare
 \end{align}
 
 <p>
-And now, we do this again for the second integral.
+We can take again the derivative tho figure that for acceleration:
 </p>
 
 \begin{align}
-    &\int_0^{7} 9y+33z+39 dy\\
-=& \left \frac{9y^2}{2}+33zy+39y \right|_0^{7} \\
-=& \frac{441}{2}+231z+273 \\
-=& 493.5+231z
+   &\frac{d}{dt} \sum_{i=1}^n m_i\vec{v_i}' = \frac{d}{dt} 0\ \\
+   \Rightarrow\ &\sum_{i=1}^n m_i\frac{d}{dt} \vec{v_i}' = 0\ \\
+   \Rightarrow\ &\sum_{i=1}^n m_i\vec{a_i}' = 0\ \blacksquare
 \end{align}
 
 <p>
-And finally, we take the third integral:
-</p>
-
-\begin{align}
-    &\int_0^{4} 493.5+231z\ dz\\
-=& \left 493.5z+\frac{231z^2}{2} \right|_0^{4} \\
-=& 1974 + 1848 \\
-=& 3822
-\end{align}
-
-<p>
-We can see there is \(3822\) total units of energy in the box.
+Therefore, all components of the lemma is proven.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orga71b29b" class="outline-2">
-<h2 id="orga71b29b"><span class="section-number-2">2</span> Custom-Bound Integration</h2>
+<div id="outline-container-orga42992a" class="outline-2">
+<h2 id="orga42992a"><span class="section-number-2">2</span> System Angular Momentum</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-We are to find to volume beneath \(z=x^2\) via the bounds of \(xy=16\), \(y=x\), \(y=0\), and \(x=8\).
+We will first get the expression for angular momentum. Recall that:
+</p>
+
+\begin{equation}
+   \vec{L} = \vec{r} \times m\vec{v} 
+\end{equation}
+
+<p>
+Adding up all angular momentum throughout each point-mass, we get that:
+</p>
+
+\begin{equation}
+   \vec{L}_{sys} = \sum_{i=1}^n\ \vec{r}_i \times m_i\vec{v}_i
+\end{equation}
+
+<p>
+We can figure each of the components split separately into that towards the center of mass and that in the prime reference frame.
 </p>
 
 <p>
-From the bound functions of \(y\), it is evident that the parameter \(y\) is bound by \([0,x]\). For the bounds of \(x\), we can figure that its bounded in the right by \(x=8\), and the right by \(x=\frac{16}{y}\).
+First, we have that:
 </p>
+
+\begin{equation}
+   \vec{r_i} = \vec{R} + \vec{r_i}' 
+\end{equation}
 
 <p>
-Plotting the bounds together:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">x,y = var("x y")
-eqns = [y==0, y==x,x==8, x*y==16]
-sum(implicit_plot(i, (x,0,16), (y,0,16)) for i in eqns)
-</pre>
-</div>
-
-
-<div id="orgbf3b417" class="figure">
-<p><img src="2022-03-14_09-39-54_screenshot.png" alt="2022-03-14_09-39-54_screenshot.png" />
-</p>
-</div>
-
-
-<p>
-As per (not actually given) by the problem, we wish to find the "lower-left" region bound. 
-</p>
-</div>
-
-<div id="outline-container-org1413598" class="outline-3">
-<h3 id="org1413598"><span class="section-number-3">2.1</span> y-dimension first</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-Let's perform the integral along the \(y\) dimension first, reducing it to a function in \(x\).
-</p>
-
-<p>
-We see that the top bound is by two piece-wise functions, each in one dimension of \(x\). We will perform the integral between bounds \([0,4]\).
+Taking the derivative of this expression, we also have:
 </p>
 
 \begin{align}
-   &\int_0^x x^2 dy \\
-\Rightarrow &x^3 
+    &\vec{r_i} = \vec{R} + \vec{r_i}' \\
+&\frac{d}{dt}\vec{r_i} = \frac{d}{dt} (\vec{R} + \vec{r_i}')\\
+&\vec{v_i} = \vec{V} + \vec{v_i}'
 \end{align}
 
 <p>
-And, integrating between \([0,4]\), we have that:
+Substituting these values into that for \(\vec{L}_{net}\), we have:
 </p>
 
 \begin{align}
-   &\int_0^4 x^3 dx \\
-\Rightarrow & 64
+ \vec{L}_{sys} &= \sum_{i=1}^n\ (\vec{R} + \vec{r_i}') \times m_i(\vec{V} + \vec{v_i}')\\
+&= \sum_{i=1}^n\ (\vec{R} + \vec{r_i}') \times (m_i\vec{V} + m_i\vec{v_i}')\\
+&= \sum_{i=1}^n\ (\vec{R} \times m_i\vec{V}) + (\vec{R} \times m_i\vec{v_i}') + (\vec{r_i}' \times m_i\vec{V}) + (\vec{r_i}' \times m_i\vec{v_i}')\\
+&= \sum_{i=1}^n\ (\vec{R} \times m_i\vec{V}) + (\vec{R} \times m_i\vec{v_i}') + (m_i\vec{r_i}' \times \vec{V}) + (\vec{r_i}' \times m_i\vec{v_i}')\\
+&= \sum_{i=1}^n\ (\vec{R} \times m_i\vec{V}) +\sum_{i=1}^n\  (\vec{R} \times m_i\vec{v_i}') +\sum_{i=1}^n\  (m_i\vec{r_i}' \times \vec{V}) +\sum_{i=1}^n\  (\vec{r_i}' \times m_i\vec{v_i}')
 \end{align}
 
 <p>
-We find the integral now between \([4,8]\), with the bound:  
+At which points, we realize that, per our given lemmas, the middle two terms become \(0\).
 </p>
 
 \begin{align}
-   &\int_0^{16/x} x^2 dy \\
-\Rightarrow &\frac{16x^2}{x}\\
-\Rightarrow &16x
+ \vec{L}_{sys} &= \sum_{i=1}^n\ (\vec{R} \times m_i\vec{V}) +\sum_{i=1}^n\  (\vec{R} \times m_i\vec{v_i}') +\sum_{i=1}^n\  (m_i\vec{r_i}' \times \vec{V}) +\sum_{i=1}^n\  (\vec{r_i}' \times m_i\vec{v_i}')\\
+&= \sum_{i=1}^n\ (\vec{R} \times m_i\vec{V}) +0 +0 +\sum_{i=1}^n\  (\vec{r_i}' \times m_i\vec{v_i}')\\
+&= \sum_{i=1}^n\ (\vec{R} \times m_i\vec{V}) +\sum_{i=1}^n\  (\vec{r_i}' \times m_i\vec{v_i}')\\
+&= \vec{R} \times M\vec{V} + \sum_{i=1}^n\  \vec{r_i}' \times m_i\vec{v_i}'\\ 
+&= \vec{R} \times M\vec{v}_{cm} + \sum_{i=1}^n\  \vec{r_i}' \times m_i\vec{v_i}'\ \blacksquare
 \end{align}
-
-<p>
-And then, integrating along \([4,8]\):
-</p>
-
-\begin{align}
-   &\int_4^8 16x dx \\
-\Rightarrow & \left\frac{16x^2}{2} \right|_4^8 \\
-\Rightarrow & 384
-\end{align}
-
-<p>
-The total area under the curve, then, is \(448\).
-</p>
 </div>
 </div>
 
-<div id="outline-container-org98d1b71" class="outline-3">
-<h3 id="org98d1b71"><span class="section-number-3">2.2</span> x-dimension first</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-We can do this again, but rotated. We can perform the integral along the \(x\) dimension, reducing it into a function in \(y\).
-</p>
-
-<p>
-We see that the right is bound again by two piece-wise functions, each in one dimension of \(y\). We will perform the integral between the bounds \([0,2]\).
-</p>
-
-\begin{align}
-   &\int_y^8 x^2 dx \\
-\Rightarrow &\left \frac{x^3}{3}\right|_y^8\\
-\Rightarrow &\left \frac{512}{3} - \frac{y^3}{3}
-\end{align}
-
-<p>
-And then, we have to integrate between the bounds \([0,2]\).
-</p>
-
-\begin{align}
-   &\int_0^2 \left(\frac{512}{3} - \frac{y^3}{3}\right)\ dy\\
-\Rightarrow &\left\frac{512y}{3} - \frac{y^4}{12}\right|_0^2\ dy\\ 
-\Rightarrow &\left\frac{1024}{3} - \frac{16}{12} \\
-\Rightarrow &\left\frac{4080}{12} = 340
-\end{align}
-
-<p>
-We can perform the integration again \([2,4]\).
-</p>
-
-\begin{align}
-   &\int_y^{16/y} x^2 dx \\
-\Rightarrow &\left \frac{x^3}{3}\right|_y^{16/y}\\
-\Rightarrow &\left \frac{4096}{3y^3} - \frac{y^3}{3}\\
-\Rightarrow &\left \frac{4096y^{-3}}{3} - \frac{y^3}{3}
-\end{align}
-
-<p>
-And then, we will integrate by the bounds \([2,4]\):
-</p>
-
-\begin{align}
-   &\int_2^4 \frac{4096y^{-3}}{3} - \frac{y^3}{3}\ dy\\
-\Rightarrow &\left\frac{4096y^{-2}}{-6} - \frac{y^4}{4}\right|_2^4\\ 
-\Rightarrow &108
-\end{align}
-
-<p>
-Hence, the total area under the curve would also be \(448\) units. 
-</p>
-
-<p>
-As we can see, the two integrals agree with respect to the area in that corner.
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org145eaf4" class="outline-2">
-<h2 id="org145eaf4"><span class="section-number-2">3</span> Cylindrical Coordinates</h2>
+<div id="outline-container-org9ad4234" class="outline-2">
+<h2 id="org9ad4234"><span class="section-number-2">3</span> Change in Angular Momentum</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-To find the volume upon \(f(x,y) = 7+x+y\) above a circle of radius \(5\), we can leverage cylindrical coordinates.
+To figure the change in net angular momentum, we simply take the first derivative by time of the above-derived expression.
 </p>
-
-<div class="org-src-container">
-<pre class="src src-sage">x,y,z = var("x y z")
-f(x,y) = 7+x+y
-implicit_plot3d(7+x+y-z, (x,-10,10), (y,-10,10), (z,-10,10), region=lambda x,y,z:(x**2+y**2)&lt;5, plot_points=200)
-</pre>
-</div>
-
-
-<div id="orgec91512" class="figure">
-<p><img src="2022-03-14_17-11-25_screenshot.png" alt="2022-03-14_17-11-25_screenshot.png" />
-</p>
-</div>
 
 <p>
-Recall that, given an unit circle, we have:
+Recall that:
 </p>
 
 \begin{equation}
-   \begin{cases}
-x = r\ cos(\theta)\\
-y = r\ sin(\theta)
-\end{cases}
+  \vec{L}_{sys} =\vec{R} \times M\vec{v}_{cm} + \sum_{i=1}^n\  \vec{r_i}' \times m_i\vec{v_i}'
 \end{equation}
 
 <p>
-Supplying the radius of \(5\) to the expression, we have the following parameterization:
-</p>
-
-\begin{equation}
-   \begin{cases}
-x = 5\ cos(t)\\
-y = 5\ sin(t)
-\end{cases}
-\end{equation}
-
-<p>
-We can further figure the change of the function along \(t\). That is:
-</p>
-
-\begin{equation}
-   \begin{cases}
-\frac{dx}{dt} = -5\ sin(t)\\
-\frac{dy}{dt} = 5\ cos(t)
-\end{cases}
-\end{equation}
-
-<p>
-And furthermore, we can see that \(\frac{df}{dt}\) is:
-</p>
-
-\begin{equation}
-   \frac{df}{dt} = 5 
-\end{equation}
-
-<p>
-To take the parameterization, we finally get that:
-</p>
-
-\begin{equation}
-   f(t) = 7+5\ cos(t)+ 5\ sin(t)
-\end{equation}
-
-<p>
-Finally the integral between \(0\) and \(2\pi\):
+Let's take the time derivative on both sides to figure the change in angular momentum:
 </p>
 
 \begin{align}
-    &\int_0^{2\pi} 5f(t)\ dt\\
-\Rightarrow\ &\int_0^{2\pi} 5(7+5\ cos(t)+ 5\ sin(t))\ dt\\
-\Rightarrow\ &\int_0^{2\pi} 35+25\ cos(t)+ 25\ sin(t)\ dt\\
-\Rightarrow\ &\left 35t+25\ sin(t)- 25\ cos(t)\ \right|_0^{2\pi}\\
-\Rightarrow\ &\left 70\pi- 25
+   \frac{d}{dt} \vec{L}_{sys} &=\frac{d}{dt} \left(\vec{R} \times M\vec{v}_{cm} + \sum_{i=1}^n\  \vec{r_i}' \times m_i\vec{v_i}' \right) \\
+&= \frac{d}{dt} \vec{R} \times M\vec{v}_{cm} + \frac{d}{dt} \sum_{i=1}^n\  \vec{r_i}' \times m_i\vec{v_i}'  \\
+&= \vec{R} \times M\frac{d\vec{v}_{cm}}{dt}  + \sum_{i=1}^n\  \vec{r_i}' \times m_i\frac{d\vec{v_i}'}{dt}   \\
+&= \vec{R} \times M\vec{a}_{cm}  + \sum_{i=1}^n\  \vec{r_i}' \times m_i \vec{a_i}'\ \blacksquare
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgc9eed87" class="outline-2">
+<h2 id="orgc9eed87"><span class="section-number-2">4</span> Total Torque on a System</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+We first have, still, the expression for any point mass in the system:
+</p>
+
+\begin{equation}
+   \vec{r_i} = \vec{R} + \vec{r_i}' 
+\end{equation}
+
+<p>
+We will begin by recalling the expression for Torque:
+</p>
+
+\begin{equation}
+   \vec{\tau} = \vec{r} \times \vec{F} 
+\end{equation}
+
+<p>
+For the net torque on a system, we sum up all torque \(\vec{\tau}_i\).
+</p>
+
+\begin{align}
+   \vec{\tau}_{net} &= \sum_i \vec{r}_i \times \vec{F}_i\\
+&= \sum_i (\vec{R} + \vec{r_i}') \times \vec{F}_i\\
+&= \sum_i\left( \vec{R}\times \vec{F}_i + \vec{r_i}'\times \vec{F}_i\right)\\
+&= \vec{R}\times \vec{F}_{net} + \sum_i \vec{r_i}'\times \vec{F}_i\right)
 \end{align}
 
 <p>
-The line integral under the curve is \(70\pi-25\).
+On the right expression, we want to recall that&#x2014;per our previous assignment&#x2014;internal forces upon a system, cross product with the location of the mass in the center of mass reference frame, is zero.
+</p>
+
+<p>
+This is because internal Newton's third law forces internal to the system are central forces, we have:
+</p>
+
+\begin{equation}
+   \vec{F}_{i\to j} = -\vec{F}_{j\to i} 
+\end{equation}
+
+<p>
+Hence, there are pairwise:
+</p>
+
+\begin{align}
+    &\vec{r_j}' \times \vec{F}_{i\to j} - \vec{r_i}' \times \vec{F}_{i\to j}\\
+\Rightarrow & (\vec{r_j}'- \vec{r_i}') \times \vec{F}_{i\to j} 
+\end{align}
+
+<p>
+We realist that \((\vec{r_j}'- \vec{r_i}')\) is a vector from \(i \to j\), and \(\vec{F}_{i\to j}\) would be \(i \to j\). Crossing two parallel vectors would result in \(0\).
+</p>
+
+<p>
+Hence, all internal forces cancel out on the right hand side of the summation. Ultimately, we have that:
+</p>
+
+\begin{align}
+  &\vec{\tau}_{net} = \vec{R}\times \vec{F}_{net} + \sum_i \vec{r_i}'\times \vec{F}_i\\
+\Rightarrow &\vec{\tau}_{net} = \vec{R}\times \vec{F}_{net} + \sum_i \vec{r_i}'\times \vec{F}_{i, ext}\right)\ \blacksquare\\
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org0922fae" class="outline-2">
+<h2 id="org0922fae"><span class="section-number-2">5</span> Net Torque Equals Change of Angular Momentum</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Recall the previous two conclusions:
+</p>
+
+\begin{equation}
+   \begin{cases}
+ \vec{\tau}_{net} = \vec{R}\times \vec{F}_{net} + \sum_i \vec{r_i}'\times \vec{F}_{i, ext}\right)\\   
+ \frac{d}{dt} \vec{L}_{sys} = \vec{R} \times M\vec{a}_{cm}  + \sum_{i=1}^n\  \vec{r_i}' \times m_i \vec{a_i}'\
+\end{cases}
+\end{equation}
+
+<p>
+Recall that, per Newton's Second Law:
+</p>
+
+\begin{equation}
+    M\vec{a}_{cm} = \vec{F}_{net}
+\end{equation}
+
+<p>
+Hence, we have that:
+</p>
+
+\begin{equation}
+   \begin{cases}
+ \vec{\tau}_{net} = \vec{R}\times \vec{F}_{net} + \sum_i \vec{r_i}'\times \vec{F}_{i, ext}\right)\\   
+ \frac{d}{dt} \vec{L}_{sys} = \vec{R} \times \vec{F}_{net}  + \sum_{i=1}^n\  \vec{r_i}' \times m_i \vec{a_i}'\
+\end{cases}
+\end{equation}
+
+<p>
+The net torque on the system is the first derivative of the angular momentum. Therefore, setting the two expressions equivalent:
+</p>
+
+\begin{align}
+  \vec{R}\times \vec{F}_{net} + \sum_i \vec{r_i}'\times \vec{F}_{i, ext}\right) &= \vec{R} \times \vec{F}_{net}  + \sum_{i=1}^n\  \vec{r_i}' \times m_i \vec{a_i}' \\
+  \sum_i \vec{r_i}'\times \vec{F}_{i, ext}\right) &= \sum_{i=1}^n\  \vec{r_i}' \times m_i \vec{a_i}'\\
+\vec{\tau}_{net}' &= \vec{L}_{sys}'\ \blacksquare
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org2c117cb" class="outline-2">
+<h2 id="org2c117cb"><span class="section-number-2">6</span> Angular Momentum on a Spinning Rigid Body</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+If, given the object's axial symmetry about the axis of rotation, we have that:
+</p>
+
+\begin{equation}
+   I = \sum_i m_i {l_i}^2 
+\end{equation}
+
+<p>
+In the language of the prime reference frame, about \(r\), we have that:
+</p>
+
+\begin{equation}
+   I_{CM'} = \sum_i m_i {r_i'}^2
+\end{equation}
+
+<p>
+Definitionally, angular velocity is the vector measuring the pace at which the lever arm is moving towards the tangential direction. Therefore, we have that:
+</p>
+
+\begin{equation}
+   \vec{\omega} = \frac{v\ sin{\theta}}{r} = \frac{\vec{r} \times \vec{v}}{r^2}
+\end{equation}
+
+<p>
+where, \(\theta\) is the angle between \(\vec{r}\) and \(\vec{v}\) and \(\vec{r}\) is rotating into \(\vec{v}\).
+</p>
+
+<p>
+Applying this to the right of the above expression, then:
+</p>
+
+\begin{align}
+   I_{CM} \vec{\omega}' &= \sum_i m_i {r_i}'^2 \\
+&= \sum_i m_i {r_i}'^2\ \frac{\vec{r_i}' \times \vec{v_i}'}{{r_i}'^2}\\
+&= \sum_i \vec{r}_i' \times m_i \vec{v_i}'
+\end{align}
+
+<p>
+We will now take the expression for angular momentum in the prime reference frame:
+</p>
+
+\begin{equation}
+   \vec{L}' = \vec{r}'_i \times m\vec{v_i}'
+\end{equation}
+
+<p>
+If we sum the expression on along all \(i\):
+</p>
+
+\begin{equation}
+   \vec{L'} = \sum_i \vec{r}'_i \times m\vec{v_i}'
+\end{equation}
+
+<p>
+As the two expressions are equal, we have that:
+</p>
+
+\begin{equation}
+    \vec{L}' = I_{CM} \vec{\omega}'\ \blacksquare
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org26f146a" class="outline-2">
+<h2 id="org26f146a"><span class="section-number-2">7</span> Net Torque on a Spinning Rigid Body</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+From the previous theorem, we have an expression of equality:
+</p>
+
+\begin{equation}
+    \vec{L}' = \sum_i \vec{r}_i' \times m_i \vec{v_i}'= I_{CM} \vec{\omega}' 
+\end{equation}
+
+<p>
+Taking the first derivative by time of the above expression:
+</p>
+
+\begin{align}
+    &\vec{L}' = \sum_i \vec{r}_i' \times m_i \vec{v_i}'= I_{CM} \vec{\omega}'\\
+    &\frac{d}{dt}\left(\vec{L}'\right) = \frac{d}{dt}\left(\sum_i \vec{r}_i' \times m_i \vec{v_i}'= I_{CM} \vec{\omega}'\right)\\
+    &\vec{\tau}' = \sum_i \vec{r}_i' \times m_i \vec{a_i}'= I_{CM} \vec{\alpha}'\ \blacksquare
+\end{align}
+
+<p>
+As we are working completely in the prime reference frame, the derivatives would hold as if they were in another reference frame. Furthermore, the requirment for axial symmetry carries from the previous theorem.
 </p>
 </div>
 </div>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-14 Mon 10:46 -->
+<!-- 2022-03-15 Tue 10:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>QIC Module 2: Changing Cubits</title>
@@ -263,38 +263,40 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">QIC Module 2: Changing Cubits</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-14 Mon 10:46</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">QIC Module 2: Changing Cubits</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-15 Tue 10:04</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhtim_hosgood.html'>Tim Hosgood</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org6ff98b0">1. To Do</a></li>
-<li><a href="#orgfca380b">2. Core Concepts</a></li>
-<li><a href="#org9e25698">3. Introduction</a></li>
-<li><a href="#org2687e20">4. Shrödinger's Equations</a>
+<li><a href="#org2096882">1. To Do</a></li>
+<li><a href="#org45bd2a0">2. Core Concepts</a></li>
+<li><a href="#org385a6e5">3. Introduction</a></li>
+<li><a href="#org2d01a5b">4. Shrödinger's Equations</a>
 <ul>
-<li><a href="#org7c4a097">4.1. What's a unitary matrix again?</a></li>
-<li><a href="#org8f54882">4.2. What is a Hermitian again?</a></li>
-<li><a href="#orgd9fd169">4.3. Basic Properties</a></li>
-<li><a href="#org48434c5">4.4. The Schrodinger Equation at the Last Bit of Class</a></li>
+<li><a href="#orgdbefecc">4.1. What's a unitary matrix again?</a></li>
+<li><a href="#orgf87320d">4.2. What is a Hermitian again?</a></li>
+<li><a href="#org7281ae9">4.3. Basic Properties</a></li>
+<li><a href="#orgcaaa315">4.4. The Schrodinger Equation at the Last Bit of Class</a></li>
 </ul>
 </li>
-<li><a href="#org27c6cfb">5. Solving Shrödinger's Equations</a></li>
-<li><a href="#org67fbc25">6. Boolean Operators, etc.</a>
+<li><a href="#orga02b56e">5. Solving Shrödinger's Equations</a></li>
+<li><a href="#orga96602b">6. Boolean Operators, etc.</a>
 <ul>
-<li><a href="#orge39586d">6.1. Boolean Inner Product</a></li>
-<li><a href="#orgcc6dd74">6.2. And now, a boolean network</a></li>
-<li><a href="#orga3c9438">6.3. Controlled Not</a></li>
+<li><a href="#org42f03b3">6.1. Boolean Inner Product</a></li>
+<li><a href="#org1bfbee3">6.2. And now, a boolean network</a></li>
+<li><a href="#org9c6a08e">6.3. Controlled Not</a></li>
 </ul>
 </li>
-<li><a href="#org8ace7f2">7. A Guest Lecture</a></li>
-<li><a href="#org5cefc09">8. Parallel vs Series</a></li>
+<li><a href="#org328a260">7. A Guest Lecture</a></li>
+<li><a href="#orgd568642">8. Parallel vs Series</a></li>
+<li><a href="#org1985eac">9. Not the Uncertainty Principle</a></li>
+<li><a href="#org9539298">10. The Actual Uncertainty Principle</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org6ff98b0" class="outline-2">
-<h2 id="org6ff98b0"><span class="section-number-2">1</span> To Do</h2>
+<div id="outline-container-org2096882" class="outline-2">
+<h2 id="org2096882"><span class="section-number-2">1</span> To Do</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Read chapters</li>
@@ -303,8 +305,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgfca380b" class="outline-2">
-<h2 id="orgfca380b"><span class="section-number-2">2</span> Core Concepts</h2>
+<div id="outline-container-org45bd2a0" class="outline-2">
+<h2 id="org45bd2a0"><span class="section-number-2">2</span> Core Concepts</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Solving the Shrödinger equation</li>
@@ -315,8 +317,8 @@ the state of the cubit</li>
 </div>
 </div>
 
-<div id="outline-container-org9e25698" class="outline-2">
-<h2 id="org9e25698"><span class="section-number-2">3</span> Introduction</h2>
+<div id="outline-container-org385a6e5" class="outline-2">
+<h2 id="org385a6e5"><span class="section-number-2">3</span> Introduction</h2>
 <div class="outline-text-2" id="text-3">
 \begin{equation}
    |ud \big> = u \big> \otimes |d\big> = \begin{pmatrix}
@@ -343,8 +345,8 @@ Change in perspective! Instead of simulating the behavior of cubits with bits, w
 </div>
 </div>
 
-<div id="outline-container-org2687e20" class="outline-2">
-<h2 id="org2687e20"><span class="section-number-2">4</span> Shrödinger's Equations</h2>
+<div id="outline-container-org2d01a5b" class="outline-2">
+<h2 id="org2d01a5b"><span class="section-number-2">4</span> Shrödinger's Equations</h2>
 <div class="outline-text-2" id="text-4">
 \begin{equation}
    |\Psi (t) \big> = U(t) | \Psi(0)\big> 
@@ -355,8 +357,8 @@ We will use \(\Psi\) to represents a function that dumps a cubit. We will act on
 </p>
 </div>
 
-<div id="outline-container-org7c4a097" class="outline-3">
-<h3 id="org7c4a097"><span class="section-number-3">4.1</span> What's a unitary matrix again?</h3>
+<div id="outline-container-orgdbefecc" class="outline-3">
+<h3 id="orgdbefecc"><span class="section-number-3">4.1</span> What's a unitary matrix again?</h3>
 <div class="outline-text-3" id="text-4-1">
 \begin{equation}
    U^*U = I 
@@ -364,8 +366,8 @@ We will use \(\Psi\) to represents a function that dumps a cubit. We will act on
 </div>
 </div>
 
-<div id="outline-container-org8f54882" class="outline-3">
-<h3 id="org8f54882"><span class="section-number-3">4.2</span> What is a Hermitian again?</h3>
+<div id="outline-container-orgf87320d" class="outline-3">
+<h3 id="orgf87320d"><span class="section-number-3">4.2</span> What is a Hermitian again?</h3>
 <div class="outline-text-3" id="text-4-2">
 \begin{equation}
    H = H^* 
@@ -373,8 +375,8 @@ We will use \(\Psi\) to represents a function that dumps a cubit. We will act on
 </div>
 </div>
 
-<div id="outline-container-orgd9fd169" class="outline-3">
-<h3 id="orgd9fd169"><span class="section-number-3">4.3</span> Basic Properties</h3>
+<div id="outline-container-org7281ae9" class="outline-3">
+<h3 id="org7281ae9"><span class="section-number-3">4.3</span> Basic Properties</h3>
 <div class="outline-text-3" id="text-4-3">
 \begin{equation}
    \big< \Psi (0) | \Phi (0) \big> = 0  \Rightarrow  \big< \Psi (t) | \Phi (t) \big> = 0
@@ -406,8 +408,8 @@ because \(\epsilon^2\) is really small, so you get the same thing back.
 </div>
 </div>
 
-<div id="outline-container-org48434c5" class="outline-3">
-<h3 id="org48434c5"><span class="section-number-3">4.4</span> The Schrodinger Equation at the Last Bit of Class</h3>
+<div id="outline-container-orgcaaa315" class="outline-3">
+<h3 id="orgcaaa315"><span class="section-number-3">4.4</span> The Schrodinger Equation at the Last Bit of Class</h3>
 <div class="outline-text-3" id="text-4-4">
 \begin{equation}
    \hbar \frac{\partial | \Psi \big>}{\partial t}  = -i H | \Psi \big>
@@ -428,8 +430,8 @@ Partial differential equations can be treated as a limit of a system of ordinary
 </div>
 </div>
 
-<div id="outline-container-org27c6cfb" class="outline-2">
-<h2 id="org27c6cfb"><span class="section-number-2">5</span> Solving Shrödinger's Equations</h2>
+<div id="outline-container-orga02b56e" class="outline-2">
+<h2 id="orga02b56e"><span class="section-number-2">5</span> Solving Shrödinger's Equations</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Let's start with a state:
@@ -495,7 +497,7 @@ We will get:
 </p>
 
 
-<div id="org9d2c232" class="figure">
+<div id="orgbcb88b5" class="figure">
 <p><img src="2022-03-04_09-28-18_screenshot.png" alt="2022-03-04_09-28-18_screenshot.png" />
 </p>
 </div>
@@ -537,7 +539,7 @@ We can actually decompose \(|\Psi(t)\big>\) down into the sum of all components 
 </p>
 
 
-<div id="orgbd813fa" class="figure">
+<div id="org43e20af" class="figure">
 <p><img src="2022-03-04_09-56-38_screenshot.png" alt="2022-03-04_09-56-38_screenshot.png" />
 </p>
 </div>
@@ -545,12 +547,12 @@ We can actually decompose \(|\Psi(t)\big>\) down into the sum of all components 
 </div>
 
 
-<div id="outline-container-org67fbc25" class="outline-2">
-<h2 id="org67fbc25"><span class="section-number-2">6</span> Boolean Operators, etc.</h2>
+<div id="outline-container-orga96602b" class="outline-2">
+<h2 id="orga96602b"><span class="section-number-2">6</span> Boolean Operators, etc.</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-orge39586d" class="outline-3">
-<h3 id="orge39586d"><span class="section-number-3">6.1</span> Boolean Inner Product</h3>
+<div id="outline-container-org42f03b3" class="outline-3">
+<h3 id="org42f03b3"><span class="section-number-3">6.1</span> Boolean Inner Product</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Boolean strings of length \(m\), \(x \cdot y\) is their <b><b>boolean inner product</b></b>, defined to be:
@@ -566,15 +568,15 @@ here, \(\oplus\) means exclusive or (addition mod 2) (1+1 is zero, 0+1 is 1, etc
 </div>
 </div>
 
-<div id="outline-container-orgcc6dd74" class="outline-3">
-<h3 id="orgcc6dd74"><span class="section-number-3">6.2</span> And now, a boolean network</h3>
+<div id="outline-container-org1bfbee3" class="outline-3">
+<h3 id="org1bfbee3"><span class="section-number-3">6.2</span> And now, a boolean network</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 We can have a boolean network in classical framing:
 </p>
 
 
-<div id="orgd94b510" class="figure">
+<div id="org83985df" class="figure">
 <p><img src="2022-03-02_09-10-04_screenshot.png" alt="2022-03-02_09-10-04_screenshot.png" />
 </p>
 </div>
@@ -593,8 +595,8 @@ Does the number of nodes grow proportionally to the number of inputs? I.e.:
 </div>
 </div>
 
-<div id="outline-container-orga3c9438" class="outline-3">
-<h3 id="orga3c9438"><span class="section-number-3">6.3</span> Controlled Not</h3>
+<div id="outline-container-org9c6a08e" class="outline-3">
+<h3 id="org9c6a08e"><span class="section-number-3">6.3</span> Controlled Not</h3>
 <div class="outline-text-3" id="text-6-3">
 \begin{equation}
    C_{not}(x_1, x_2) = \begin{cases}
@@ -606,8 +608,8 @@ x_1\ if\ x_2 = 0\\
 </div>
 </div>
 
-<div id="outline-container-org8ace7f2" class="outline-2">
-<h2 id="org8ace7f2"><span class="section-number-2">7</span> A Guest Lecture</h2>
+<div id="outline-container-org328a260" class="outline-2">
+<h2 id="org328a260"><span class="section-number-2">7</span> A Guest Lecture</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 <a href="../../../src/mathematics/quantum/KBhtim_hosgood.html#ID-CF365519-4623-44E1-A3EA-591A586C74CF">Tim Hosgood</a>
@@ -615,13 +617,169 @@ x_1\ if\ x_2 = 0\\
 </div>
 </div>
 
-<div id="outline-container-org5cefc09" class="outline-2">
-<h2 id="org5cefc09"><span class="section-number-2">8</span> Parallel vs Series</h2>
+<div id="outline-container-orgd568642" class="outline-2">
+<h2 id="orgd568642"><span class="section-number-2">8</span> Parallel vs Series</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Tensoring matricies are  parallel operations</li>
 <li>Producting matricies are series operations</li>
 </ul>
+</div>
+</div>
+
+<div id="outline-container-org1985eac" class="outline-2">
+<h2 id="org1985eac"><span class="section-number-2">9</span> Not the Uncertainty Principle</h2>
+<div class="outline-text-2" id="text-9">
+<ul class="org-ul">
+<li>Quantum mechanics is a deterministic theory, but the state lives on the Bloch sphere so has an imaginary component that's not imaginable</li>
+<li>It propergates counterfactuals</li>
+</ul>
+
+<p>
+The evolution of the state
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9539298" class="outline-2">
+<h2 id="org9539298"><span class="section-number-2">10</span> The Actual Uncertainty Principle</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+Let's take two operators \(\vec{L}\) and \(\vec{M}\). Perhaps one measuring spin in \(\hat{z}\) and one at \(\hat{y}\).
+</p>
+
+<p>
+If I was to apply \(L\) to \(|\psi\big>\):
+</p>
+
+\begin{equation}
+   L|\psi\big> = \lambda |\psi \big> 
+\end{equation}
+
+<p>
+We know, that we will get back an eigenvector of \(L\). If you try to observe the answer, you <b>will</b> get an eigenvalue \(\lambda_i\), and \(|\psi\big> \to |\lambda_i\big>\); this takes place with probability of \(\big<\lambda_i|\psi\big>\big<\psi|\lambda_i\big>\).
+</p>
+
+<p>
+Because&#x2026;. voodoo witchcraft.
+</p>
+
+<p>
+If, for the sake of argument \(\vec{L}\) and \(\vec{M}\) <i>share</i> an eigenvector \(|\lambda_i\big>\):
+</p>
+
+\begin{equation}
+   \begin{cases}
+L|\lambda_i, \mu_a \big> = \lambda_i | \lambda_i, \mu_a\big>\\
+L|\lambda_i, \mu_a \big> = \mu_a | \lambda_i, \mu_a\big>
+\end{cases}
+\end{equation}
+
+<p>
+in which, \(|\lambda_i,\mu_a\big>\) is a shared eigenvector between the two operators.
+</p>
+
+<p>
+By some trivial commutativity maths, we can get that:
+</p>
+
+\begin{equation}
+   [L, M]\ | \lambda, \mu \big> = 0
+\end{equation}
+
+<p>
+If two operators \(L\), \(M\) share a <i>complete set of basis</i> of the eignespace between the two of them, we can plug that into the top expression to figure that \(\forall\ A \in L \cup M\), there is an linear combination of shared eigenvalues \(|\lambda, \mu\big>_i\) which forms \(A\) for every element in both maps. And therefore, if that's true:
+</p>
+
+\begin{equation}
+   [L,M] = 0 
+\end{equation}
+
+<p>
+"\(L\) and \(M\) is commutative".
+</p>
+
+<p>
+Hence, IFF two operators share a complete set of eigenvalues do they commute ("application order does not matter").
+</p>
+
+<hr />
+
+<p>
+Any two Hermitian matrix \(L\) can be written as:
+</p>
+
+\begin{equation}
+   \vec{L} = a \sigma_x  + b \sigma_y+ c \sigma_z+ d I,\ where\ a,b,c,d\in \mathbb{R}^1
+\end{equation}
+
+<p>
+We can figure the result of computating pairwise of these:
+</p>
+
+<ul class="org-ul">
+<li>\([\sigma_x, \sigma_y] = 2i\sigma_z\)</li>
+<li>\([\sigma_y, \sigma_z] = 2i\sigma_x\)</li>
+<li>\([\sigma_z, \sigma_x] = 2i\sigma_y\)</li>
+</ul>
+
+<p>
+We can see that the testing in various directions are not commutating (their comutator is not 0).
+</p>
+
+<p>
+If two states don't commute (i.e. they don't have shared eigenbases), there <b>will</b> be uncertainty between their measurements. If they do commute, measuring one grantees the measurement of the other.
+</p>
+
+<hr />
+
+<p>
+The expected value of the operator would be:
+</p>
+
+\begin{equation}
+   \bar{A} = A- \big<A\big> I 
+\end{equation}
+
+<p>
+where, \(\big<A\big> = \big<\psi|A|\psi\big> = \sum_a aP(a)\) for any some \(\psi\).
+</p>
+
+<p>
+"the expected value of the state is simply an eigenvalue measuring the state times the probability of it coming up (remember that all results of \(A|\psi\big>\) are eigenvectors of \(A\)).
+</p>
+
+<p>
+Recall also from statistics:
+</p>
+
+\begin{equation}
+   (\Delta A)^2 = \sum_a  (a- \big<A\big>)^2 P(a) 
+\end{equation}
+
+<p>
+And finally, this would be equal to (given the same principle above) the expected value of \((\Delta A)^2\).
+</p>
+
+<p>
+After much skipped linear algebra, we motivate finally to one more result: 
+</p>
+
+\begin{equation}
+   \Delta A \Delta B \leq \frac{1}{2} |\big<\psi|[A,B] |\psi\big>|
+\end{equation}
+
+<p>
+The expected value of the commutator is twice the variance in both \(A\) and \(B\) if they don't commute. "The uncertainty cannot be lower than of the commutator."
+</p>
+
+<p>
+If the comutator is zero, then, it is possible for the uncertainties of the operators to be zero; otherwise the uncertainties in the operator <i>must be</i> nonzero.
+</p>
+
+<p>
+Cool result: for instance, if you recall \([\sigma_x, \sigma_y] = 2 i\sigma_z\). If you keep testing towards the \(x\) and \(y\) directions, you will expect it to eventually converge to the \(z\) direction per the statement above.
+</p>
 </div>
 </div>
 </div>

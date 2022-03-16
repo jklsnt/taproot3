@@ -1,0 +1,51 @@
+---
+title:   Pico Scratchpad
+context: pico
+author:  Huxley Marvit
+date: 2022-03-16
+---
+
+#flo  #disorganized 
+
+***
+
+# let's go!!
+
+
+
+Alice and Bob wanted to exchange information secretly. The two of them agreed to use the Diffie-Hellman key exchange algorithm, using p = 13 and g = 5. They both chose numbers secretly where Alice chose 7 and Bob chose 3. Then, Alice sent Bob some encoded text (with both letters and digits) using the generated key as the shift amount for a Caesar cipher over the alphabet and the decimal digits. Can you figure out the contents of the message?
+
+
+
+
+
+
+
+
+H98A9W_H6UM8W_6A_9_D6C_5ZCI9C8I_JBACIFAI
+
+picoCTF{M43F4B_M1ZR3B_1F_4_I1H_0EHN4H3N_OGFHNKFN}
+h98a9w_h6um8w_6a_9_d6c_5zci9c8i_jbacifai
+
+picoCTF{C43V4R_C1PH3R_1V_4_Y1X_0UXD4X3D_EWVXDAVD}
+?????
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

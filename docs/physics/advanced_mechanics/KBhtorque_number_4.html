@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-11 Fri 23:25 -->
+<!-- 2022-03-15 Tue 14:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Torque Number 4</title>
@@ -263,36 +263,100 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Torque Number 4</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-11 Fri 23:24</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Torque Number 4</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-15 Tue 14:56</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org66d71f4">1. Proving the Parallel Axis Theorem</a></li>
-<li><a href="#orgdb2947e">2. 5-Ring Object</a></li>
-<li><a href="#org4f85839">3. Spinning Top</a>
+<li><a href="#orgf81c615">1. Notes from Within the Lecture</a></li>
+<li><a href="#orgd07ee65">2. Perpendicular Axis Theorem</a></li>
+<li><a href="#org6984ecb">3. Proving the Parallel Axis Theorem</a></li>
+<li><a href="#org3fe0f38">4. 5-Ring Object</a></li>
+<li><a href="#org0eaf239">5. Spinning Top</a>
 <ul>
-<li><a href="#org76947a8">3.1. Torque</a></li>
-<li><a href="#org31ea7f4">3.2. Diagram of \(\vec{\tau}_0\)</a></li>
-<li><a href="#orgad924df">3.3. Balancing Forces</a></li>
-<li><a href="#orgf715d55">3.4. Rotational Inertia</a></li>
-<li><a href="#org2519584">3.5. Kinematics Equations</a></li>
+<li><a href="#org9671c1d">5.1. Torque</a></li>
+<li><a href="#org2d4b949">5.2. Diagram of \(\vec{\tau}_0\)</a></li>
+<li><a href="#org340ae72">5.3. Balancing Forces</a></li>
+<li><a href="#orgc79df61">5.4. Rotational Inertia</a></li>
+<li><a href="#orged9101b">5.5. Kinematics Equations</a></li>
 </ul>
 </li>
-<li><a href="#orgb9fbd0b">4. Rectangular Rod</a>
+<li><a href="#org8c975bf">6. Rectangular Rod</a>
 <ul>
-<li><a href="#org0701866">4.1. Strip</a></li>
-<li><a href="#org66f80d3">4.2. Slice</a></li>
-<li><a href="#org6bfb2cb">4.3. Final Rotational Inertia</a></li>
+<li><a href="#orgb6cc97d">6.1. Strip</a></li>
+<li><a href="#org130b132">6.2. Slice</a></li>
+<li><a href="#org0751e54">6.3. Final Rotational Inertia</a></li>
 </ul>
 </li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org66d71f4" class="outline-2">
-<h2 id="org66d71f4"><span class="section-number-2">1</span> Proving the Parallel Axis Theorem</h2>
+<div id="outline-container-orgf81c615" class="outline-2">
+<h2 id="orgf81c615"><span class="section-number-2">1</span> Notes from Within the Lecture</h2>
 <div class="outline-text-2" id="text-1">
+\begin{equation}
+    CM = \frac{\sum m_i \vec{r_i}}{\sum m_i} = \frac{1}{M} \sum m_i \vec{r}_i
+\end{equation}
+
+<p>
+i.e.: the centre of mass is the weighted average of the centers. "First moment."
+</p>
+
+\begin{equation}
+   I = M \frac{\sum m_i {r_i}^2}{M}=\sum m_i {r_i}^2
+\end{equation}
+
+<p>
+i.e.: the rotational inertia is \(M\) times the weighted average, squared. "Second moment."
+</p>
+
+<ul class="org-ul">
+<li>1st moment: Mean</li>
+<li>2nd moment: Standard Deviation</li>
+<li>3rd moment: Skew</li>
+<li>4th moment: Kurtosis</li>
+</ul>
+
+<p>
+If I take an axis, and shift the direction of the axis, we can compute the rotational inertia about the center of mass and then move it
+</p>
+
+<ul class="org-ul">
+<li>Disk: \(I = \frac{1}{2} MR\).</li>
+<li>Ring: \(I = MR^2\)</li>
+<li>Strip: \(I=\frac{1}{12}Mx^2\)</li>
+<li>Rectangle: \(I= \frac{1}{12}Mx^2\), yes, \(x\) along the axis of rotation. And yes, \(y\) does not matter.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd07ee65" class="outline-2">
+<h2 id="orgd07ee65"><span class="section-number-2">2</span> Perpendicular Axis Theorem</h2>
+<div class="outline-text-2" id="text-2">
+\begin{equation}
+   I_z = I_x + I_y 
+\end{equation}
+
+<p>
+for a laminar object&#x2014;infinitesimally thin, in the X-Y plane (perpendicular to the \(z\) axis).
+</p>
+
+<p>
+Why?
+</p>
+
+\begin{align}
+   I_z &= \sum_i m_i {l_i}^2  \\
+&= \sum_i m_i{x_i}^2+\sum_i m_i{y_i}^2\\
+&= {l_i}^2 = {x_i}^2{y_i}^2
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org6984ecb" class="outline-2">
+<h2 id="org6984ecb"><span class="section-number-2">3</span> Proving the Parallel Axis Theorem</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 We will begin with the definition of rotational inertia about an origin:
 </p>
@@ -358,9 +422,9 @@ Therefore:
 </div>
 </div>
 
-<div id="outline-container-orgdb2947e" class="outline-2">
-<h2 id="orgdb2947e"><span class="section-number-2">2</span> 5-Ring Object</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org3fe0f38" class="outline-2">
+<h2 id="org3fe0f38"><span class="section-number-2">4</span> 5-Ring Object</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 We will leverage the parallel axis theorem to figure the inertia at the center point.
 </p>
@@ -421,13 +485,13 @@ And therefore, the total rotational inertia is:
 </div>
 </div>
 
-<div id="outline-container-org4f85839" class="outline-2">
-<h2 id="org4f85839"><span class="section-number-2">3</span> Spinning Top</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org0eaf239" class="outline-2">
+<h2 id="org0eaf239"><span class="section-number-2">5</span> Spinning Top</h2>
+<div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org76947a8" class="outline-3">
-<h3 id="org76947a8"><span class="section-number-3">3.1</span> Torque</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-org9671c1d" class="outline-3">
+<h3 id="org9671c1d"><span class="section-number-3">5.1</span> Torque</h3>
+<div class="outline-text-3" id="text-5-1">
 <p>
 We are asked to find the magnitude and direction of torque \(\vec{\tau}_0\) applied by the string. This is easily achieved with the expression for torque \(\vec{r} \times \vec{F_0}\).
 </p>
@@ -465,20 +529,20 @@ And therefore:
 </div>
 </div>
 
-<div id="outline-container-org31ea7f4" class="outline-3">
-<h3 id="org31ea7f4"><span class="section-number-3">3.2</span> Diagram of \(\vec{\tau}_0\)</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-org2d4b949" class="outline-3">
+<h3 id="org2d4b949"><span class="section-number-3">5.2</span> Diagram of \(\vec{\tau}_0\)</h3>
+<div class="outline-text-3" id="text-5-2">
 
-<div id="orgb62b896" class="figure">
+<div id="orge7b347e" class="figure">
 <p><img src="2022-03-11_14-24-33_screenshot.png" alt="2022-03-11_14-24-33_screenshot.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgad924df" class="outline-3">
-<h3 id="orgad924df"><span class="section-number-3">3.3</span> Balancing Forces</h3>
-<div class="outline-text-3" id="text-3-3">
+<div id="outline-container-org340ae72" class="outline-3">
+<h3 id="org340ae72"><span class="section-number-3">5.3</span> Balancing Forces</h3>
+<div class="outline-text-3" id="text-5-3">
 <p>
 To figure the net torque on the system, we will need to add the torques contributing to the net torque in the system.
 </p>
@@ -540,9 +604,9 @@ Per the setup of the problem, \(\vec{F_1}\) is in the \(-\hat{i}\) direction, an
 </div>
 </div>
 
-<div id="outline-container-orgf715d55" class="outline-3">
-<h3 id="orgf715d55"><span class="section-number-3">3.4</span> Rotational Inertia</h3>
-<div class="outline-text-3" id="text-3-4">
+<div id="outline-container-orgc79df61" class="outline-3">
+<h3 id="orgc79df61"><span class="section-number-3">5.4</span> Rotational Inertia</h3>
+<div class="outline-text-3" id="text-5-4">
 <p>
 We have already determined the net torque of the system.
 </p>
@@ -580,9 +644,9 @@ If the top has rotational inertia \(I_0\), therefore:
 </div>
 </div>
 
-<div id="outline-container-org2519584" class="outline-3">
-<h3 id="org2519584"><span class="section-number-3">3.5</span> Kinematics Equations</h3>
-<div class="outline-text-3" id="text-3-5">
+<div id="outline-container-orged9101b" class="outline-3">
+<h3 id="orged9101b"><span class="section-number-3">5.5</span> Kinematics Equations</h3>
+<div class="outline-text-3" id="text-5-5">
 <p>
 Our system is angularity accelerating at an constant angular acceleration of \(\vec{\alpha_0}\). As such, we integrate twice to figure the kinematics equations.
 </p>
@@ -630,17 +694,17 @@ where again, as \(\theta=0\) at \(t=0\):
 </div>
 </div>
 
-<div id="outline-container-orgb9fbd0b" class="outline-2">
-<h2 id="orgb9fbd0b"><span class="section-number-2">4</span> Rectangular Rod</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org8c975bf" class="outline-2">
+<h2 id="org8c975bf"><span class="section-number-2">6</span> Rectangular Rod</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 To find the rotational inertia of a rectangular rod, we need to perform three integrations: building up strips, slices, and finally the inertia of the actual rod.
 </p>
 </div>
 
-<div id="outline-container-org0701866" class="outline-3">
-<h3 id="org0701866"><span class="section-number-3">4.1</span> Strip</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-orgb6cc97d" class="outline-3">
+<h3 id="orgb6cc97d"><span class="section-number-3">6.1</span> Strip</h3>
+<div class="outline-text-3" id="text-6-1">
 <p>
 We begin by recalling that the expression for rotational inertia is:
 </p>
@@ -669,9 +733,9 @@ To figure the inertia of an infinitesimal strip of point masses, we perform a si
 </div>
 </div>
 
-<div id="outline-container-org66f80d3" class="outline-3">
-<h3 id="org66f80d3"><span class="section-number-3">4.2</span> Slice</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-org130b132" class="outline-3">
+<h3 id="org130b132"><span class="section-number-3">6.2</span> Slice</h3>
+<div class="outline-text-3" id="text-6-2">
 <p>
 We will now find the inertia of a slice. The procedure is essentially the same, but that there is no longer any non-constant components. Therefore, the inertias, as we are rotating about the same axis of a rigid body together, simply stack ("add"). That is: the rotational inertia of a slice is simply \(H\) times that of a strip.
 </p>
@@ -684,9 +748,9 @@ We will now find the inertia of a slice. The procedure is essentially the same, 
 </div>
 </div>
 
-<div id="outline-container-org6bfb2cb" class="outline-3">
-<h3 id="org6bfb2cb"><span class="section-number-3">4.3</span> Final Rotational Inertia</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-org0751e54" class="outline-3">
+<h3 id="org0751e54"><span class="section-number-3">6.3</span> Final Rotational Inertia</h3>
+<div class="outline-text-3" id="text-6-3">
 <p>
 Finally, we will leverage the parallel axis theorem to deduct rotational inertia of the entire rod.
 </p>

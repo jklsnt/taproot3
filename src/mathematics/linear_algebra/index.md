@@ -75,6 +75,7 @@ source:  #index
 - [[KBx3and4Sprint]]
 - [[KBxAxlerChapter5]]
 - [[KBxModuleOneLinalgTed]]
+- [[KBxAxlerChapter6Sprint]]
 
 
 

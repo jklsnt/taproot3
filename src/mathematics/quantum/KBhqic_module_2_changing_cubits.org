@@ -197,3 +197,98 @@ x_1\ if\ x_2 = 0\\
 - Tensoring matricies are  parallel operations
 - Producting matricies are series operations
 
+* Not the Uncertainty Principle
+- Quantum mechanics is a deterministic theory, but the state lives on the Bloch sphere so has an imaginary component that's not imaginable
+- It propergates counterfactuals
+
+The evolution of the state
+
+* The Actual Uncertainty Principle
+Let's take two operators $\vec{L}$ and $\vec{M}$. Perhaps one measuring spin in $\hat{z}$ and one at $\hat{y}$.
+
+If I was to apply $L$ to $|\psi\big>$:
+
+\begin{equation}
+   L|\psi\big> = \lambda |\psi \big> 
+\end{equation}
+
+We know, that we will get back an eigenvector of $L$. If you try to observe the answer, you *will* get an eigenvalue $\lambda_i$, and $|\psi\big> \to |\lambda_i\big>$; this takes place with probability of $\big<\lambda_i|\psi\big>\big<\psi|\lambda_i\big>$.
+
+Because.... voodoo witchcraft.
+
+If, for the sake of argument $\vec{L}$ and $\vec{M}$ /share/ an eigenvector $|\lambda_i\big>$:
+
+\begin{equation}
+   \begin{cases}
+L|\lambda_i, \mu_a \big> = \lambda_i | \lambda_i, \mu_a\big>\\
+L|\lambda_i, \mu_a \big> = \mu_a | \lambda_i, \mu_a\big>
+\end{cases}
+\end{equation}
+
+in which, $|\lambda_i,\mu_a\big>$ is a shared eigenvector between the two operators.
+
+By some trivial commutativity maths, we can get that:
+
+\begin{equation}
+   [L, M]\ | \lambda, \mu \big> = 0
+\end{equation}
+
+If two operators $L$, $M$ share a /complete set of basis/ of the eignespace between the two of them, we can plug that into the top expression to figure that $\forall\ A \in L \cup M$, there is an linear combination of shared eigenvalues $|\lambda, \mu\big>_i$ which forms $A$ for every element in both maps. And therefore, if that's true:
+
+\begin{equation}
+   [L,M] = 0 
+\end{equation}
+
+"$L$ and $M$ is commutative".
+
+Hence, IFF two operators share a complete set of eigenvalues do they commute ("application order does not matter").
+
+-----
+
+Any two Hermitian matrix $L$ can be written as:
+
+\begin{equation}
+   \vec{L} = a \sigma_x  + b \sigma_y+ c \sigma_z+ d I,\ where\ a,b,c,d\in \mathbb{R}^1
+\end{equation}
+
+We can figure the result of computating pairwise of these:
+
+- $[\sigma_x, \sigma_y] = 2i\sigma_z$
+- $[\sigma_y, \sigma_z] = 2i\sigma_x$
+- $[\sigma_z, \sigma_x] = 2i\sigma_y$
+
+We can see that the testing in various directions are not commutating (their comutator is not 0).
+
+If two states don't commute (i.e. they don't have shared eigenbases), there *will* be uncertainty between their measurements. If they do commute, measuring one grantees the measurement of the other.
+
+-----
+
+The expected value of the operator would be:
+
+\begin{equation}
+   \bar{A} = A- \big<A\big> I 
+\end{equation}
+
+where, $\big<A\big> = \big<\psi|A|\psi\big> = \sum_a aP(a)$ for any some $\psi$.
+
+"the expected value of the state is simply an eigenvalue measuring the state times the probability of it coming up (remember that all results of $A|\psi\big>$ are eigenvectors of $A$).
+
+Recall also from statistics:
+
+\begin{equation}
+   (\Delta A)^2 = \sum_a  (a- \big<A\big>)^2 P(a) 
+\end{equation}
+
+And finally, this would be equal to (given the same principle above) the expected value of $(\Delta A)^2$.
+
+After much skipped linear algebra, we motivate finally to one more result: 
+
+\begin{equation}
+   \Delta A \Delta B \leq \frac{1}{2} |\big<\psi|[A,B] |\psi\big>|
+\end{equation}
+
+The expected value of the commutator is twice the variance in both $A$ and $B$ if they don't commute. "The uncertainty cannot be lower than of the commutator."
+
+If the comutator is zero, then, it is possible for the uncertainties of the operators to be zero; otherwise the uncertainties in the operator /must be/ nonzero.
+
+Cool result: for instance, if you recall $[\sigma_x, \sigma_y] = 2 i\sigma_z$. If you keep testing towards the $x$ and $y$ directions, you will expect it to eventually converge to the $z$ direction per the statement above.

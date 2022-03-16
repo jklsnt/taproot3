@@ -155,7 +155,7 @@ Hence, the total area under the curve would also be $448$ units.
 As we can see, the two integrals agree with respect to the area in that corner.
 
 * Cylindrical Coordinates
-To find the volume beneath $f(x,y) = 7+x+y$ above a circle of radius $5$, we can leverage cylindrical coordinates.
+To find the volume upon $f(x,y) = 7+x+y$ above a circle of radius $5$, we can leverage cylindrical coordinates.
 
 #+begin_src sage
 x,y,z = var("x y z")
@@ -168,7 +168,6 @@ implicit_plot3d(7+x+y-z, (x,-10,10), (y,-10,10), (z,-10,10), region=lambda x,y,z
 #+DOWNLOADED: screenshot @ 2022-03-14 17:11:25
 [[file:2022-03-14_17-11-25_screenshot.png]]
 
-
 Recall that, given an unit circle, we have:
 
 \begin{equation}
@@ -178,54 +177,109 @@ y = r\ sin(\theta)
 \end{cases}
 \end{equation}
 
-and the $z$ value stays Cartesian. Therefore, we can change the expression into that in $r$ and $\theta$:
+Supplying the radius of $5$ to the expression, we have the following parameterization:
 
 \begin{equation}
-   f(r, \theta) = 7+r\ cos(\theta) + r\ sin(\theta)
+   \begin{cases}
+x = 5\ cos(t)\\
+y = 5\ sin(t)
+\end{cases}
 \end{equation}
 
-The "shell" of each circle in the expression would have circumference $r\ d\theta$, therefore, the integral to form a circle of radius $5$ and $\theta \in [0, 2\pi]$ would be:
+We can further figure the change of the function along $t$. That is:
+
+\begin{equation}
+   \begin{cases}
+\frac{dx}{dt} = -5\ sin(t)\\
+\frac{dy}{dt} = 5\ cos(t)
+\end{cases}
+\end{equation}
+
+And furthermore, we can see that $\frac{df}{dt}$ is:
+
+\begin{equation}
+   \frac{df}{dt} = 5 
+\end{equation}
+
+To take the parameterization, we finally get that:
+
+\begin{equation}
+   f(t) = 7+5\ cos(t)+ 5\ sin(t)
+\end{equation}
+
+Finally the integral between $0$ and $2\pi$:
 
 \begin{align}
-   &\int_0^5\ \int_0^{2\pi}\ r(7+r\ cos(\theta) + r\ sin(\theta))\ d\theta\ dr\\
-\Rightarrow  &\int_0^5\ r(\left 7\theta+r\ sin(\theta) - r\ cos(\theta) \right|_0^{2\pi}\ )dr\\
-\Rightarrow  &\int_0^5\ (14\pi - r)-(-r)\ dr\\
-\Rightarrow  &\int_0^5\ 14\pi\ r\ dr \\
-\Rightarrow  &175\pi
+    &\int_0^{2\pi} 5f(t)\ dt\\
+\Rightarrow\ &\int_0^{2\pi} 5(7+5\ cos(t)+ 5\ sin(t))\ dt\\
+\Rightarrow\ &\int_0^{2\pi} 35+25\ cos(t)+ 25\ sin(t)\ dt\\
+\Rightarrow\ &\left 35t+25\ sin(t)- 25\ cos(t)\ \right|_0^{2\pi}\\
+\Rightarrow\ &\left 70\pi- 25
 \end{align}
 
-We can check this value by taking vertical slices of the function. A circle of radius five centered about the origin can be modeled by the expression:
+The line integral under the curve is $70\pi-25$.
 
-\begin{equation}
-    y = \pm\sqrt{5^2-x^2}
-\end{equation}
 
-We will take the integral along the $y$ dimension first, bounded by this function; then, we will sum the results along $[-5,5]$ for the $x$ dimension.
+# * Cylindrical Coordinates
+# To find the volume beneath $f(x,y) = 7+x+y$ above a circle of radius $5$, we can leverage cylindrical coordinates.
 
-Taking the integral in $y$:
+# Recall that, given an unit circle, we have:
 
-\begin{align}
-   &\int_0^{\sqrt{25-x^2}} 7+x+y\ dy +  \int_{-\sqrt{25-x^2}}^0 7+x+y\ dy\\
-\Rightarrow& \left \left(7y+xy+\frac{y^2}{2}\right)\right|_0^{\sqrt{25-x^2}} + \left \left(7y+xy+\frac{y^2}{2}\right)\right|_{-\sqrt{25-x^2}}^0\\
-\Rightarrow& \left(7\sqrt{25-x^2}+x\sqrt{25-x^2}+\frac{25-x^2}{2}\right) + \left \left(7\sqrt{25-x^2}+x\sqrt{25-x^2}-\frac{25-x^2}{2}\right)\\
-\Rightarrow& 14\sqrt{25-x^2}+2x\sqrt{25-x^2}
-\end{align}
+# \begin{equation}
+#    \begin{cases}
+# x = r\ cos(\theta)\\
+# y = r\ sin(\theta)
+# \end{cases}
+# \end{equation}
 
-We will leverage Sage to take the integral in $x$.
+# and the $z$ value stays Cartesian. Therefore, we can change the expression into that in $r$ and $\theta$:
 
-\begin{equation}
-   \int_{-5}^{5} 14\sqrt{25-x^2}+2x\sqrt{25-x^2}\ dx
-\end{equation}
+# \begin{equation}
+#    f(r, \theta) = 7+r\ cos(\theta) + r\ sin(\theta)
+# \end{equation}
 
-#+begin_src sage
-f(x,y)=7+x+y
-(f.integrate(y, 0, sqrt(25-x^2)) + f.integrate(y, -sqrt(25-x^2), 0)).integrate(x,-5,5)
-#+end_src
+# The "shell" of each circle in the expression would have circumference $r\ d\theta$, therefore, the integral to form a circle of radius $5$ and $\theta \in [0, 2\pi]$ would be:
 
-#+RESULTS:
-: 175*pi
+# \begin{align}
+#    &\int_0^5\ \int_0^{2\pi}\ r(7+r\ cos(\theta) + r\ sin(\theta))\ d\theta\ dr\\
+# \Rightarrow  &\int_0^5\ r(\left 7\theta+r\ sin(\theta) - r\ cos(\theta) \right|_0^{2\pi}\ )dr\\
+# \Rightarrow  &\int_0^5\ (14\pi - r)-(-r)\ dr\\
+# \Rightarrow  &\int_0^5\ 14\pi\ r\ dr \\
+# \Rightarrow  &175\pi
+# \end{align}
 
-As we can see, the result from both expressions are the same, $175\pi$.
+# We can check this value by taking vertical slices of the function. A circle of radius five centered about the origin can be modeled by the expression:
+
+# \begin{equation}
+#     y = \pm\sqrt{5^2-x^2}
+# \end{equation}
+
+# We will take the integral along the $y$ dimension first, bounded by this function; then, we will sum the results along $[-5,5]$ for the $x$ dimension.
+
+# Taking the integral in $y$:
+
+# \begin{align}
+#    &\int_0^{\sqrt{25-x^2}} 7+x+y\ dy +  \int_{-\sqrt{25-x^2}}^0 7+x+y\ dy\\
+# \Rightarrow& \left \left(7y+xy+\frac{y^2}{2}\right)\right|_0^{\sqrt{25-x^2}} + \left \left(7y+xy+\frac{y^2}{2}\right)\right|_{-\sqrt{25-x^2}}^0\\
+# \Rightarrow& \left(7\sqrt{25-x^2}+x\sqrt{25-x^2}+\frac{25-x^2}{2}\right) + \left \left(7\sqrt{25-x^2}+x\sqrt{25-x^2}-\frac{25-x^2}{2}\right)\\
+# \Rightarrow& 14\sqrt{25-x^2}+2x\sqrt{25-x^2}
+# \end{align}
+
+# We will leverage Sage to take the integral in $x$.
+
+# \begin{equation}
+#    \int_{-5}^{5} 14\sqrt{25-x^2}+2x\sqrt{25-x^2}\ dx
+# \end{equation}
+
+# #+begin_src sage
+# f(x,y)=7+x+y
+# (f.integrate(y, 0, sqrt(25-x^2)) + f.integrate(y, -sqrt(25-x^2), 0)).integrate(x,-5,5)
+# #+end_src
+
+# #+RESULTS:
+# : 175*pi
+
+# As we can see, the result from both expressions are the same, $175\pi$.
 
 
 

@@ -40,7 +40,8 @@ a graph of citations, clustered?
 
 handwriting-note taking app extravaganza
 
-
+## ctf 
+[[KBxPicoScratchpad]]
 
 
 
