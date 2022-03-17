@@ -1,6 +1,23 @@
 n
 ***
 
+ datum, being the singular form of data! 
+ this is why you say "these data" instead of "this data"
+
+***
+
+ https://docs.google.com/document/d/1Dos29w-PMHbPD9ZFyTp_8CkZP3e72KeR6VxetFOnRR4/edit category theory mahn doc
+
+***
+
+ dil·et·tante
+ 
+ a person who cultivates an area of interest, such as the arts, without real commitment or knowledge.
+
+"a wealthy literary dilettante"
+
+***
+
  mahn, [https://github.com/starship/starship](https://github.com/starship/starship "https://github.com/starship/starship")
 
 ***

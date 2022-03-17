@@ -109,9 +109,70 @@ this is crazy cool!!!
 
 do your own thing, not someone elses thing.
 
+# we are back!
+
+*prototyping, so we can come back!*
+
+- he has a new type of thinking about algebra
+	- node based?
+ideas borrowed from functional 
+
+> "writing is an antique interface"
+
+so, what is better?
+alternatives to written notation: gesture calculaters
+very visual 
+
+why is written notation so powerful? you can switch between models without having to switch representation systems
+
+five years later!
+
+instead of operational, we have constraint systems
+
+functional -> flexible relational framework
+
+he's making "gateway games"
+
+## the circuit system
+remember: no ui is in here yet! this is all about the relational interface under the hood
+the big idea: everything is reversible
+just about structure, devoid of data
+
+the model and the data are separate 
+
+solution through emergent property
+
+abstraction through node collections
+this is node based but with dynamic directionality
+
+
+## linage system
+
+new models of numbers come from exceptions from the previous
+
+algebra as geomatrey
+"kinematic" system
+
+operators first instead of numbers first
+
+u should be able to drag anythingl
 
 
 
+both are: unknown agnostic. orientation agnostic?
+
+identities become emergent
+
+
+what defines a different language is what is obvious and what isn't
+
+## ideas
+vector field
+3d -> ar
+build math yourself
+
+
+how does the third dimension come into play?
 
 
 
