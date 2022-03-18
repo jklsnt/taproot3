@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-15 Tue 14:03 -->
+<!-- 2022-03-17 Thu 23:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Chapter 6 Spring</title>
@@ -263,12 +263,16 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Chapter 6 Spring</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2022-03-15 Tue 14:03</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Chapter 6 Spring</h1> <h2 class="subtitle"></h2> <span class="author">Huxley Marvit</span> <span class="date">2022-03-17 Thu 23:03</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#inner-product-spaces">1. Inner product spaces!</a></li>
+<li><a href="#inner-product-spaces">1. Inner product spaces!</a>
+<ul>
+<li><a href="#b-orthonormal-bases">1.1. 6.b! orthonormal bases</a></li>
+</ul>
+</li>
 </ul>
 </div></div>
 </div>
@@ -299,7 +303,7 @@ we denote this inner product with \(\langle u, v \rangle\). now we get
 to the definition of the inner product:
 </p>
 
-<pre class="example" id="org3188d1e">
+<pre class="example" id="org4c43fde">
 takes an inner product of two elements $\in V$ and goes to a number $\langle u,v \rangle \in F$
 has the following properties:
 **positivity**                      $\langle v, v \rangle \geq 0$ for all $v \in V$
@@ -324,11 +328,11 @@ now with the inner product, we can define an <b>inner product space</b> which
 is just a
 </p>
 
-<pre class="example" id="org8c246e2">
+<pre class="example" id="orga58b2d8">
 vector space along with an inner product
 </pre>
 
-<pre class="example" id="orgbc5ea0e">
+<pre class="example" id="orgd13415c">
 V is an inner product space for the rest of the chapter
 </pre>
 
@@ -351,7 +355,7 @@ the norm is also also ~homogenous:
 we also get to define the concept of orthogonality:
 </p>
 
-<pre class="example" id="org4ce83fb">
+<pre class="example" id="org92f37af">
 title: orthogonal
 two vecs are othogonal if $\langle u, v \rangle = 0$
 </pre>
@@ -359,6 +363,100 @@ two vecs are othogonal if $\langle u, v \rangle = 0$
 <p>
 ending on 169 <b>*</b>
 </p>
+
+<p>
+iteresting, 0 is the only vec orthogonal to itself
+</p>
+
+<p>
+with orthogonal decomposition, which i dont really get yet, we can prove
+the cauchy-schwarz inequality!
+</p>
+
+<pre class="example" id="orgd492291">
+title: cauchy-scharz inequality
+$$|\langle u,v \rangle| \leq ||u|| \space ||v||$$
+holds iff u or v is a scalar multiple of the other.
+</pre>
+
+<p>
+and now we get to prove all kinds of geometric properties, like the
+triangle equality, the parelleogram equailty, ect
+</p>
+</div>
+
+<div id="outline-container-b-orthonormal-bases" class="outline-3">
+<h3 id="b-orthonormal-bases"><span class="section-number-3">1.1</span> 6.b! orthonormal bases</h3>
+<div class="outline-text-3" id="text-b-orthonormal-bases">
+<p>
+a list of vecs can be othernormal if they are all other and normal ie,
+every vector is orthogonal to all other vector in the list and they are
+of unit len (norm 1)
+</p>
+
+<p>
+we also get orthonormal basis
+</p>
+
+<p>
+and also, an orthonormal list of right len is an orthonormal basis
+</p>
+
+<p>
+the thing with orthonormal basis is that writing out vectors as linear
+combinations of them is really easy
+</p>
+
+<p>
+alright, how do we find them?
+</p>
+
+<p>
+<b>gram-schmidt procedure</b> - takes an LID list and turns it into an
+orthonormal list with the same span - #review the actual procedure
+here..
+</p>
+
+<p>
+we also know that every finite-dim inner product space has an
+orthonormal basis
+</p>
+
+<p>
+and also that every orthonormal list can be extended to an orthonormal
+basis
+</p>
+
+<p>
+<b>schurs theorem</b> states that for some finite-dim complex vec space V and
+some operator T, T has an upper triangular matrix w.r.t. some
+orthonormal basis of V
+</p>
+
+<p>
+all linear functionals can be represented as inner products??
+</p>
+
+<p>
+#review orthogonal projections
+</p>
+
+<p>
+ooh, we can solve minimization problems with the orthogonal projection
+</p>
+
+<p>
+<a href="Screen Shot 2022-03-17 at 10.58.09 PM.png|300.html">Screen Shot
+2022-03-17 at 10.58.09 PM.png|300</a>
+</p>
+
+<p>
+and we can aproximate functions wayyyy better this is sick!
+<a href="Screen Shot 2022-03-17 at 11.00.53 PM.png|300.html">Screen Shot
+2022-03-17 at 11.00.53 PM.png|300</a> <a href="Screen Shot 2022-03-17 at 11.00.20 PM.png|300.html">Screen Shot 2022-03-17 at 11.00.20 PM.png|300</a>
+aproximating sin fun, first is the new way and second is taylor
+</p>
+</div>
 </div>
 </div>
 </div>

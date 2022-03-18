@@ -56,6 +56,7 @@ It's time for... American lit!
 - [[KBxGatsbyInclassWriting]]
 - [[KBxGatbsyInclassCreativeWriting]]
 - [[KBxPassingEssayPlanning]]
+- [[KBxBluestEyeInclass]]
 
 
 

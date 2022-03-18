@@ -80,6 +80,7 @@ the next assignment: historigraphical in nature. synthesithing multiple argument
 - [[KBxS2MA1Hist11]]
 - [[KBxHistResearchProjectPlanning]]
 - [[KBxHarlemRenaissanceSelfGuidedTour]]
+- [[KBxHarlemRenaissanceReadingsAndShareOuts]]
 
 
 

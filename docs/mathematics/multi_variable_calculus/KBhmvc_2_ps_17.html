@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-03-17 Thu 22:18 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MVC 2 PS#17</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#17</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-17 Thu 22:17</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org83076cf">1. Finding Volume</a>
+<ul>
+<li><a href="#org1541545">1.1. Cylindrical Coordinates</a></li>
+<li><a href="#orgeee388d">1.2. Cartesian Coordinates</a></li>
+</ul>
+</li>
+<li><a href="#org7e91294">2. Veena's Double Integral</a></li>
+<li><a href="#orgf1fde0a">3. Average of Function</a></li>
+<li><a href="#orgba36fe1">4. Mark Hurwitz Inherits Triple's Box</a></li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-org83076cf" class="outline-2">
+<h2 id="org83076cf"><span class="section-number-2">1</span> Finding Volume</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Here's the shape:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">x,y,z = var("x y z")
+
+implicit_plot3d((7+x+y)-z, (x,-10,10), (y,-10,10), (z,-10,10), region=lambda x,y,z:(x**2+y**2&lt;5), plot_points=100)
+</pre>
+</div>
+
+
+<div id="orge9b88cc" class="figure">
+<p><img src="2022-03-17_09-15-20_screenshot.png" alt="2022-03-17_09-15-20_screenshot.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1541545" class="outline-3">
+<h3 id="org1541545"><span class="section-number-3">1.1</span> Cylindrical Coordinates</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+To find the volume beneath \(f(x,y) = 7+x+y\) above a circle of radius \(5\), we can leverage cylindrical coordinates.
+</p>
+
+<p>
+Recall that, given an unit circle, we have:
+</p>
+
+\begin{equation}
+   \begin{cases}
+x = r\ cos(\theta)\\
+y = r\ sin(\theta)
+\end{cases}
+\end{equation}
+
+<p>
+and the \(z\) value stays Cartesian. Therefore, we can change the expression into that in \(r\) and \(\theta\):
+</p>
+
+\begin{equation}
+   f(r, \theta) = 7+r\ cos(\theta) + r\ sin(\theta)
+\end{equation}
+
+<p>
+The "shell" of each circle in the expression would have circumference \(r\ d\theta\), therefore, the integral to form a circle of radius \(5\) and \(\theta \in [0, 2\pi]\) would be:
+</p>
+
+\begin{align}
+   &\int_0^5\ \int_0^{2\pi}\ r(7+r\ cos(\theta) + r\ sin(\theta))\ d\theta\ dr\\
+\Rightarrow  &\int_0^5\ r(\left 7\theta+r\ sin(\theta) - r\ cos(\theta) \right|_0^{2\pi}\ )dr\\
+\Rightarrow  &\int_0^5\ (14\pi - r)-(-r)\ dr\\
+\Rightarrow  &\int_0^5\ 14\pi\ r\ dr \\
+\Rightarrow  &175\pi
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgeee388d" class="outline-3">
+<h3 id="orgeee388d"><span class="section-number-3">1.2</span> Cartesian Coordinates</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+We can check this value by taking vertical slices of the function. A circle of radius five centered about the origin can be modeled by the expression:
+</p>
+
+\begin{equation}
+    y = \pm\sqrt{5^2-x^2}
+\end{equation}
+
+<p>
+We will take the integral along the \(y\) dimension first, bounded by this function; then, we will sum the results along \([-5,5]\) for the \(x\) dimension.
+</p>
+
+<p>
+Taking the integral in \(y\):
+</p>
+
+\begin{align}
+   &\int_0^{\sqrt{25-x^2}} 7+x+y\ dy +  \int_{-\sqrt{25-x^2}}^0 7+x+y\ dy\\
+\Rightarrow& \left \left(7y+xy+\frac{y^2}{2}\right)\right|_0^{\sqrt{25-x^2}} + \left \left(7y+xy+\frac{y^2}{2}\right)\right|_{-\sqrt{25-x^2}}^0\\
+\Rightarrow& \left(7\sqrt{25-x^2}+x\sqrt{25-x^2}+\frac{25-x^2}{2}\right) + \left \left(7\sqrt{25-x^2}+x\sqrt{25-x^2}-\frac{25-x^2}{2}\right)\\
+\Rightarrow& 14\sqrt{25-x^2}+2x\sqrt{25-x^2}
+\end{align}
+
+<p>
+We will leverage Sage to take the integral in \(x\).
+</p>
+
+\begin{equation}
+   \int_{-5}^{5} 14\sqrt{25-x^2}+2x\sqrt{25-x^2}\ dx
+\end{equation}
+
+<div class="org-src-container">
+<pre class="src src-sage">f(x,y)=7+x+y
+(f.integrate(y, 0, sqrt(25-x^2)) + f.integrate(y, -sqrt(25-x^2), 0)).integrate(x,-5,5)
+</pre>
+</div>
+
+<p>
+As we can see, the result from both expressions are the same, \(175\pi\).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7e91294" class="outline-2">
+<h2 id="org7e91294"><span class="section-number-2">2</span> Veena's Double Integral</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Here's Veena's double integral:
+</p>
+
+\begin{equation}
+   \int_0^8 \int_{\sqrt[3]{y}}^2 e^{x^4}\ dx\ dy 
+\end{equation}
+
+<div class="org-src-container">
+<pre class="src src-sage">f(x,y) = e^(x^4)
+plot3d(f, (x, 0.5, 1.5), (y, 0,8))
+</pre>
+</div>
+
+
+<div id="orgb73102e" class="figure">
+<p><img src="2022-03-17_09-18-52_screenshot.png" alt="2022-03-17_09-18-52_screenshot.png" />
+</p>
+</div>
+
+<p>
+The surface approaches \(0\) as \(x\) decreases, and approaches \(+\infty\) as \(x\) increases.
+</p>
+
+<p>
+Here's the actual region: 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">x,y,z=var("x y z")
+implicit_plot3d(8*e^(x^4)-z, (x,-1,1),(y,-1,1), (z,8,10), region=lambda x,y,z:y&gt;0 and x&gt;y^(1/3) and x&lt;2 and y&lt;8, plot_points=300)
+</pre>
+</div>
+
+
+<div id="org5e2fd5a" class="figure">
+<p><img src="2022-03-17_09-46-57_screenshot.png" alt="2022-03-17_09-46-57_screenshot.png" />
+</p>
+</div>
+
+
+<p>
+We realize that it is actually much more difficult to take the integral through the order which is stated in the problem, but it becomes dramatically easier to do so in the reverse order of integration.
+</p>
+
+<p>
+Begin by noting the direction of slice drawing. In the original expression, we are slicing by:
+</p>
+
+\begin{align}
+   &[x=\sqrt[3]{y}, x=2]\\
+   &[y=0, y=8]
+\end{align}
+
+<p>
+in that original order. However, we aim to switch the order of integration, to slice along \(y\) first then \(x\).
+</p>
+
+<p>
+The bounds of \(y\) must now be that newly constrained by the constraint function. It is now between \(0\), the same starting point, and \(x^3\), the maximum height at each point:
+</p>
+
+\begin{equation}
+   &[y=0, y=x^3]
+\end{equation}
+
+<p>
+Adjusting the bounds of \(x\) accordingly, at \(8\), the original $y$-maximum, \(x\) would take on the value of \(2\).
+</p>
+
+\begin{equation}
+   &[x=0, x=2]
+\end{equation}
+
+<p>
+Hence, our actual integral becomes:
+</p>
+
+\begin{equation}
+   \int_0^2 \int_{0}^{x^3} e^{x^4}\ dy\ dx
+\end{equation}
+
+<p>
+Let's now take first the inner integral.
+</p>
+
+\begin{align}
+    &\int_{0}^{x^3} e^{x^4}\ dy\\
+&\left e^{x^4}\right|_{0}^{x^3}\\
+&\left x^3 e^{x^4}
+\end{align}
+
+<p>
+Great, now, we take the outer integral.
+</p>
+
+\begin{align}
+   \int_0^2 x^3 e^{x^4}\ dx
+\end{align}
+
+<p>
+This is now easily performable by u-sub.
+</p>
+
+<p>
+Let \(u = x^4\), and:
+</p>
+
+\begin{align}
+   &u = x^4 \\
+\Rightarrow & \frac{du}{dx} = 4x^3\\
+\Rightarrow & du = 4x^3\ dx\\
+\Rightarrow & \frac{1}{4} du = x^3\ dx
+\end{align}
+
+<p>
+Substituting the right side and \(u\) from this expression:
+</p>
+
+\begin{align}
+   &\int_0^2 x^3 e^{x^4}\ dx\\
+\Rightarrow &\int_0^2 \frac{1}{4} e^{u}\ du\\
+\Rightarrow &\frac{1}{4} \int_0^2 e^{u}\ du\\
+\Rightarrow &\left\frac{1}{4}  e^{x^4} \right|_0^2 \\
+\Rightarrow &\left\frac{1}{4} \left(e^{16}-1 \right)
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orgf1fde0a" class="outline-2">
+<h2 id="orgf1fde0a"><span class="section-number-2">3</span> Average of Function</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Here's the function:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">f(x,y) = e^y *sqrt(x+e^y)
+plot3d(f, (x,-10,10), (y,-10,1))
+</pre>
+</div>
+
+
+<div id="orgd309fa7" class="figure">
+<p><img src="2022-03-17_22-14-52_screenshot.png" alt="2022-03-17_22-14-52_screenshot.png" />
+</p>
+</div>
+
+
+<p>
+We wish to find the average value of the function \(f(x,y) = e^y\sqrt{x+e^y}\) between some bounds \((0,0)\), \((4, 0)\), \((4,1)\), \((0,1)\).
+</p>
+
+<p>
+The best way to approach this is to find the integral bounded by these points, than divide by the area under.
+</p>
+
+<p>
+We will take the integral w.r.t. \(y\) first to perform u-substitution, then integral along \(x\).
+</p>
+
+\begin{equation}
+   \int_0^4 \int_0^1  e^y\sqrt{x+e^y}\ dy\ dx
+\end{equation}
+
+<p>
+We first take the inner integral.
+</p>
+
+\begin{equation}
+ \int_0^1  e^y\sqrt{x+e^y}\ dy   
+\end{equation}
+
+<p>
+We will set \(u=x+e^y\). Therefore:
+</p>
+
+\begin{align}
+   &\frac{du}{dy} = e^y\\
+\Rightarrow &du = e^y\ dy
+\end{align}
+
+<p>
+Substituting this expression in:
+</p>
+
+\begin{align}
+ &\int_0^1  e^y\sqrt{x+e^y}\ dy \\
+\Rightarrow & \int_0^1  \sqrt{u}\ du \\
+\Rightarrow & \left \frac{2}{3} {u}^{3/2} \right|_0^1 \\
+\Rightarrow & \left \frac{2}{3} (( x+e )^{3/2}-( x+1 )^{3/2})
+\end{align}
+
+<p>
+At this point, I am not quite sure how to proceed taking the integral. We will continue using Sage.
+</p>
+
+<p>
+According to Sage, the result is:
+</p>
+
+\begin{equation}
+    \frac{4}{15} \, \sqrt{e + 4} e^{2} + \frac{32}{15} \, \sqrt{e + 4} e - \frac{20}{3} \, \sqrt{5} + \frac{64}{15} \, \sqrt{e + 4} - \frac{4}{15} \, e^{\frac{5}{2}} + \frac{4}{15}
+\end{equation}
+
+<p>
+which is roughly \(13.3\).
+</p>
+
+<p>
+As we have \(13.3\) units of value in the expression of area \(4\), the mean value of the function is \(13.3/4 = 3.325\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgba36fe1" class="outline-2">
+<h2 id="orgba36fe1"><span class="section-number-2">4</span> Mark Hurwitz Inherits Triple's Box</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Given that Mark is placing his box at one corner at the origin and the other at \((3,3,4)\), there is no chance of the \(z\) value reaching the discontinuity at \(z=-1\).
+</p>
+
+<p>
+As such, we can simply find the volume of his box by multiplying the side lengths together. The volume would be \(3\cdot 3\cdot 4 =36\).
+</p>
+
+<p>
+We will do the same to find the total mass by taking the integral of the expression:
+</p>
+
+\begin{equation}
+   \int_0^3 \int_0^3 \int_0^4 \frac{1}{z+1} dz\ dy\ dx 
+\end{equation}
+
+<p>
+The first layer in the middle can by taken by u-sub. Setting \(u = z+1\), we have \(du = dz\). Hence:
+</p>
+
+\begin{equation}
+    \int_0^3 \int_0^3 log(5) \ dy\ dx 
+\end{equation}
+
+<p>
+We can see now that our problem is now a matter of taking this value over an area of \(9\). Hence, the total integral is:
+</p>
+
+\begin{equation}
+   9log(5) 
+\end{equation}
+
+<p>
+This also renders the average density this value divided by the volume of the box:
+</p>
+
+\begin{equation}
+   \frac{9log(5)}{3\cdot 3\cdot 4} = \frac{9log(5)}{36} = \frac{log(5)}{4}
+\end{equation}
+
+
+<p>
+The actual box is not very exciting:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">from sage.plot.plot3d.shapes import Box
+Box([3,3,4])
+</pre>
+</div>
+
+
+<div id="org3f5bc8b" class="figure">
+<p><img src="2022-03-17_22-14-04_screenshot.png" alt="2022-03-17_22-14-04_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
