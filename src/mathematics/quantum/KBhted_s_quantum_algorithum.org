@@ -123,8 +123,16 @@ Finally, we solve for the sixth cubit.
 #+begin_src sage
 x10, x11, x20, x21, x30, x31, x40, x41, x50, x51, x60, x61, x70, x71, x80, x81 = var("x10 x11 x20 x21 x30 x31 x40 x41 x50 x51 x60 x61 x70 x71 x80 x81")
 
+s1 = matrix([[x10],[x11]])
+s2 = matrix([[x20],[x21]])
+s3 = matrix([[x30],[x31]])
+s4 = matrix([[x40],[x41]])
+s5 = matrix([[x50],[x51]])
+s6 = matrix([[x60],[x61]])
+s7 = matrix([[x70],[x71]])
+s8 = matrix([[x80],[x81]])
 
+output_solutions = z3.tensor_product(x1).tensor_product(x2).tensor_product(x3).tensor_product(z1).tensor_product(z2).tensor_product(z4).tensor_product(z5)
 #+end_src
 
 #+RESULTS:
-: x10
