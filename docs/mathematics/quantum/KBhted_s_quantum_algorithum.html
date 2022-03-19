@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-18 Fri 23:33 -->
+<!-- 2022-03-18 Fri 23:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ted's Quantum Algorithm</title>
@@ -219,16 +219,58 @@
     /*]]>*///-->
 // @license-end
 </script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Ted's Quantum Algorithm</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-18 Fri 23:32</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Ted's Quantum Algorithm</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-18 Fri 23:35</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org793aa91">1. Check matrix size</a></li>
-<li><a href="#org5e12551">2. Check eigenvalues</a></li>
+<li><a href="#org45ce964">1. Check matrix size</a></li>
+<li><a href="#org0a75136">2. Check eigenvalues</a></li>
+<li><a href="#org1447234">3. The Large Expression</a></li>
 </ul>
 </div></div>
 </div>
@@ -277,8 +319,8 @@ gates = [G1, G2, G3, G4, G5, G6, G7, G8, G9, G10, G11, G12]
 </pre>
 </div>
 
-<div id="outline-container-org793aa91" class="outline-2">
-<h2 id="org793aa91"><span class="section-number-2">1</span> Check matrix size</h2>
+<div id="outline-container-org45ce964" class="outline-2">
+<h2 id="org45ce964"><span class="section-number-2">1</span> Check matrix size</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In order to do this, we check the size of every single matrix (both rows and columns), and ensure they all agree to being 256.
@@ -304,8 +346,8 @@ We can see that they all agree to being 256.
 </div>
 </div>
 
-<div id="outline-container-org5e12551" class="outline-2">
-<h2 id="org5e12551"><span class="section-number-2">2</span> Check eigenvalues</h2>
+<div id="outline-container-org0a75136" class="outline-2">
+<h2 id="org0a75136"><span class="section-number-2">2</span> Check eigenvalues</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We now find the eigenvalues of the matrices in the gates.
@@ -326,11 +368,19 @@ assert sum(is_one_negone) == len(is_one_negone), "not all true"
 <p>
 We can see that all eignenvalues of the matricies are both one and negative one.
 </p>
-
-<div class="org-src-container">
-<pre class="src src-sage">one_two = 
-</pre>
 </div>
+</div>
+
+<div id="outline-container-org1447234" class="outline-2">
+<h2 id="org1447234"><span class="section-number-2">3</span> The Large Expression</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+We now define \(M\):
+</p>
+
+<pre class="example">
+M = G12*G5*G3*G12*G11*G4*G10*G9*G2*G3*G8*G7*G6*G1
+</pre>
 </div>
 </div>
 </div>

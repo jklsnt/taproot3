@@ -78,9 +78,28 @@ assert sum(is_one_negone) == len(is_one_negone), "not all true"
 
 We can see that all eignenvalues of the matricies are both one and negative one.
 
-* The Large Expression
+* The Algorithm
 We now define $M$:
 
-#+begin_src 
+#+begin_src sage
 M = G12*G5*G3*G12*G11*G4*G10*G9*G2*G3*G8*G7*G6*G1
 #+end_src
+
+And, we define $x_1$, $x_2$, $x_3$. We also define $|d\big>$ as $0$, setting the ancillia cubits:
+
+#+begin_src sage
+a,b, c,d, e,f = var("a b c d e f")
+
+x1 = vector([a,b])
+x2 = vector([c,d])
+x3 = vector([e,f])
+
+z1 = vector([0,1])
+z2 = vector([0,1])
+z3 = vector([0,1])
+z4 = vector([0,1])
+z5 = vector([0,1])
+#+end_src
+
+#+RESULTS:
+: (a, b)
