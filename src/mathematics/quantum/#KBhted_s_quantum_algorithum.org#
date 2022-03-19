@@ -12,6 +12,8 @@ S = matrix([[1,0,0,0], [0,0,1,0], [0,1,0,0], [0,0,0,1]])
 TOF = matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
 #+end_src
 
+#+RESULTS:
+
 Furthermore, here's all the identities we are going to use:
 
 #+begin_src sage
@@ -60,6 +62,8 @@ assert (len(cols_set)==1 and list(cols_set)[0] == 256), "cols mismatch"
 assert (len(rows_set)==1 and list(rows_set)[0] == 256), "rows mismatch"
 #+end_src
 
+#+RESULTS:
+
 We can see that they all agree to being 256.
 
 * Check eigenvalues
@@ -76,6 +80,8 @@ is_one_negone = [i == set([1,-1]) for i in eigens]
 assert sum(is_one_negone) == len(is_one_negone), "not all true"
 #+end_src
 
+#+RESULTS:
+
 We can see that all eignenvalues of the matricies are both one and negative one.
 
 * The Algorithm
@@ -84,6 +90,8 @@ We now define $M$:
 #+begin_src sage
 M = G12*G5*G3*G12*G11*G4*G10*G9*G2*G3*G8*G7*G6*G1
 #+end_src
+
+#+RESULTS:
 
 And, we define $x_1$, $x_2$, $x_3$. We also define $|d\big>$ as $0$, setting the ancillia cubits:
 
@@ -136,7 +144,9 @@ output_solutions = s1.tensor_product(s2).tensor_product(s3).tensor_product(s4).t
 
 
 exprs = [i[0] == j[0] for i,j in zip(output_conjoined, output_solutions)]
+
 exprs
+# solution = solve(exprs, [x60, x61])
 #+end_src
 
 #+RESULTS:
