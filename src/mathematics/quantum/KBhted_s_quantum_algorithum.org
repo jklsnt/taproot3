@@ -90,16 +90,24 @@ And, we define $x_1$, $x_2$, $x_3$. We also define $|d\big>$ as $0$, setting the
 #+begin_src sage
 a,b, c,d, e,f = var("a b c d e f")
 
-x1 = vector([a,b])
-x2 = vector([c,d])
-x3 = vector([e,f])
+x1 = matrix([[a],[b]])
+x2 = matrix([[c],[d]])
+x3 = matrix([[e],[f]])
 
-z1 = vector([0,1])
-z2 = vector([0,1])
-z3 = vector([0,1])
-z4 = vector([0,1])
-z5 = vector([0,1])
+z1 = matrix([[0],[1]])
+z2 = matrix([[0],[1]])
+z3 = matrix([[0],[1]])
+z4 = matrix([[0],[1]])
+z5 = matrix([[0],[1]])
+
+input_cubits = z3.tensor_product(x1).tensor_product(x2).tensor_product(x3).tensor_product(z1).tensor_product(z2).tensor_product(z4).tensor_product(z5)
+
+input_cubits
 #+end_src
 
 #+RESULTS:
-: (a, b)
+: 256 x 1 dense matrix over Symbolic Ring (use the '.str()' method to see the entries)
+
+We will now do the computation.
+
+
