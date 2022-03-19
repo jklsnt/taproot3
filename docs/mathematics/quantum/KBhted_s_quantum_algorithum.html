@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-18 Fri 22:01 -->
+<!-- 2022-03-18 Fri 23:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>iStudio Onboarding Meeting</title>
+<title>Ted's Quantum Algorithm</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Houjun Liu" />
 <style type="text/css">
@@ -222,179 +222,65 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">iStudio Onboarding Meeting</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-18 Fri 22:01</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Ted's Quantum Algorithm</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-18 Fri 23:25</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org5854782">1. Design review</a></li>
-<li><a href="#orgff54f8f">2. Design Review</a></li>
-<li><a href="#org23f4bc4">3. Captains</a>
-<ul>
-<li><a href="#org00e0492">3.1. C.L.</a></li>
-<li><a href="#org3f189c1">3.2. Interview</a></li>
-</ul>
-</li>
+<li><a href="#orgfd5f789">1. Check matrix size</a></li>
 </ul>
 </div></div>
 </div>
+<p>
+Here's first our gates that is defined in the problem
+</p>
 
+<div class="org-src-container">
+<pre class="src src-sage">X = matrix([[0,1],[1,0]])
+S = matrix([[1,0,0,0], [0,0,1,0], [0,1,0,0], [0,0,0,1]])
+TOF = matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
+</pre>
+</div>
 
-<div id="outline-container-org5854782" class="outline-2">
-<h2 id="org5854782"><span class="section-number-2">1</span> Design review</h2>
+<p>
+Furthermore, here's all the identities we are going to use:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">I2 = matrix.identity(2)
+I4 = matrix.identity(4)
+I8 = matrix.identity(8)
+I16 = matrix.identity(16)
+I32 = matrix.identity(32)
+</pre>
+</div>
+
+<p>
+And now, we will create the components of our expression:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">G1 = I8.tensor_product(TOF).tensor_product(I4)
+G2 = TOF.tensor_product(I2).tensor_product(TOF).tensor_product(I2)
+G3 = I4.tensor_product(X).tensor_product(I32)
+G4 = I4.tensor_product(TOF).tensor_product(I8)
+G5 = I2.tensor_product(TOF).tensor_product(I16)
+G6 = I32.tensor_product(S).tensor_product(I2)
+G7 = I16.tensor_product(S).tensor_product(S)
+G8 = I4.tensor_product(S).tensor_product(I2).tensor_product(S).tensor_product(I2)
+G9 = I2.tensor_product(S).tensor_product(I32)
+G10 = S.tensor_product(S).tensor_product(X).tensor_product(I8)
+G11 = I16.tensor_product(S).tensor_product(I4)
+G12 = I8.tensor_product(S).tensor_product(I8)
+</pre>
+</div>
+
+<div id="outline-container-orgfd5f789" class="outline-2">
+<h2 id="orgfd5f789"><span class="section-number-2">1</span> Check matrix size</h2>
 <div class="outline-text-2" id="text-1">
-<ul class="org-ul">
-<li>Pair matching of mentors</li>
-<li>Expertise should be in building the thing</li>
-</ul>
-
 <p>
-Mentors
+In order to do this, we check the size of every single matrix (both rows and columns), and ensure they all agree to being 256.
 </p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Person</th>
-<th scope="col" class="org-left">Relations</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">Mar</td>
-<td class="org-left">Parent, prev.</td>
-</tr>
-
-<tr>
-<td class="org-left">Bruce</td>
-<td class="org-left">Prev.</td>
-</tr>
-
-<tr>
-<td class="org-left">Miguel</td>
-<td class="org-left">Prev.</td>
-</tr>
-
-<tr>
-<td class="org-left">Rafi</td>
-<td class="org-left">Prev.</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">Huck's dad?</td>
-<td class="org-left">Parent</td>
-</tr>
-
-<tr>
-<td class="org-left">Morgan's family</td>
-<td class="org-left">Connection</td>
-</tr>
-
-<tr>
-<td class="org-left">Riker's Parents</td>
-<td class="org-left">Parent</td>
-</tr>
-</tbody>
-</table>
-
-<p>
-Next check-in: ask your team to updating the roster?!
-</p>
-
-<ul class="org-ul">
-<li>Advisors fill out short feedback form</li>
-<li>"Out of the team"</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgff54f8f" class="outline-2">
-<h2 id="orgff54f8f"><span class="section-number-2">2</span> Design Review</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-[15 minutes per teams / groups of three]. Fill exactly an hour.
-</p>
-
-<ul class="org-ul">
-<li>Survey mentor every month?</li>
-<li>Mentee survey happens into checkins</li>
-</ul>
-
-<p>
-DWI Second Semester &#x2014;
-</p>
-
-<p>
-Addressing need for external stakeholder; clustering around sustainable development goals.
-</p>
-
-<ul class="org-ul">
-<li>"how to analyze designs"</li>
-<li>"how to measure designs"</li>
-</ul>
-
-<p>
-Using DWI students as design review review. Possible iStudio intro in March. Figuring out when timing is it.
-</p>
-
-<p>
-Ping John one more time to add to mentor list.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org23f4bc4" class="outline-2">
-<h2 id="org23f4bc4"><span class="section-number-2">3</span> Captains</h2>
-<div class="outline-text-2" id="text-3">
-<ul class="org-ul">
-<li>Communication</li>
-<li>Boldness and audacity</li>
-
-<li>Protocolization</li>
-<li>Willingness to bridge partnerships and build community</li>
-<li>Supporting teams: strategy for onboarding</li>
-<li>Structure and accountability</li>
-</ul>
-</div>
-
-<div id="outline-container-org00e0492" class="outline-3">
-<h3 id="org00e0492"><span class="section-number-3">3.1</span> C.L.</h3>
-<div class="outline-text-3" id="text-3-1">
-<p>
-What led you to apply to be Captain; and, if you were to be chosen as captain, what are some of the things you would like to implement/continue for the Studio. Feel free to include any information that you believe would make you qualified for the position, as well as reflect upon your strengths and weaknesses.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org3f189c1" class="outline-3">
-<h3 id="org3f189c1"><span class="section-number-3">3.2</span> Interview</h3>
-<div class="outline-text-3" id="text-3-2">
-<p>
-Joint interview. 
-</p>
-
-<p>
-<a href="https://docs.google.com/document/d/1pizUmLiAzbeuQ38uPqoytaf9fcVO_-6HlWbOy504huA/edit?usp=sharing">https://docs.google.com/document/d/1pizUmLiAzbeuQ38uPqoytaf9fcVO_-6HlWbOy504huA/edit?usp=sharing</a>
-</p>
-
-<ul class="org-ul">
-<li><b><b>People Skills + Networking</b></b> Morgan</li>
-<li><b><b>Protocolization + Audacity + Boldness</b></b> Jack</li>
-<li><b><b>Communication + Community + Accountability</b></b> Karen</li>
-</ul>
-
-<p>
-You gotta be bold, you gotta stick together
-</p>
-</div>
 </div>
 </div>
 </div>

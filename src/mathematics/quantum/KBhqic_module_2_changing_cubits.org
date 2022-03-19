@@ -292,3 +292,85 @@ The expected value of the commutator is twice the variance in both $A$ and $B$ i
 If the comutator is zero, then, it is possible for the uncertainties of the operators to be zero; otherwise the uncertainties in the operator /must be/ nonzero.
 
 Cool result: for instance, if you recall $[\sigma_x, \sigma_y] = 2 i\sigma_z$. If you keep testing towards the $x$ and $y$ directions, you will expect it to eventually converge to the $z$ direction per the statement above.
+
+* Basically Feasible Operations 
+The Hadamand matrix $H_N$ of order $N$ is defined:
+
+\begin{equation}
+    H_2 = H, \forall N \geq 4
+\end{equation}
+
+It is defined as such:
+
+\begin{equation}
+   H_N = H_{N/2} \otimes H = \frac{1}{\sqrt{2}} \begin{bmatrix}
+H_{N/2} & H_{N/2} \\
+H_{N/2} & -H_{N/2} 
+\end{bmatrix}
+\end{equation}
+
+We can also define $H_N$ as:
+
+\begin{equation}
+   H_N[r, c] = (-1)^{r \cdot c} 
+\end{equation}
+
+where $r \cdot c$ is the inner product of $r$ and $c$ are boolean strings.
+
+$N = 2^n$, $N$ is the number of states, $N$ is the number of cubits.
+
+** Fourier Matrix
+:PROPERTIES:
+:ID:       9DE62ED7-65DC-484E-B6E5-80B58DE90241
+:END:
+Some other application, the Fourier matrix:
+
+Let $\omega$ stand for $e^{2\pi i / N}$, which is considered "the" principal $N$ root of unity. The Fourier matrix $F_N$ of order $N$ is defined as:
+
+\begin{equation}
+   F_N [i,j] = \omega^{ij\ mod\ N} 
+\end{equation}
+
+We take the mod-n [[id:4DFDBF99-F2BA-44B6-85A9-83E9710EACDC][Inner Product]] between $i$ and $j$. 
+
+"we take something hugely complicated, put in in a huge space, and make it linear."
+
+** Toffoli Gate
+:PROPERTIES:
+:ID:       0BB32BDD-37DA-420A-B00B-B7787ADCF3CC
+:END:
+
+Define the Tofoli gate as the ternary Boolean function
+
+\begin{equation}
+   TOF(x_1, x_2, x_3) = (x_1, x_2, x_3 \oplus (x_1 \wedge x_3)) 
+\end{equation}
+
+This is very useful:
+
+- $NOT(a) = TOF(1,1,a)$
+- $AND(a,b) = TOF(a,b,0)$
+- $OR(a,b) = NOT(AND(NOT(a), NOT(b)))$
+
+And tada we have all of logic.
+
+The toffoli gate can be represented as a $8$ by $8$ matrix, with only the last smallest quadrant flipped:
+
+\begin{equation}
+   \begin{pmatrix}
+1 & 0 & 0 &0 &0&0&0&0 \\
+0 & 1 & 0 &0 &0&0&0&0 \\
+0 & 0 & 1 &0 &0&0&0&0 \\
+0 & 0 & 0 &1 &0&0&0&0 \\
+0 & 0 & 0 &0 &1&0&0&0 \\
+0 & 0 & 0 &0 &0&1&0&0 \\
+0 & 0 & 0 &0 &0&0&0&1 \\
+0 & 0 & 0 &0 &0&0&1&0 \\
+\end{pmatrix} 
+\end{equation}
+
+You can see that, unless the last values are true, nothing happens (its mostly the identity.) However, if the last group is true, we will flip the last value.
+
+* Ted's Quantum Algorithm
+[[id:B6735806-E842-4039-9215-39EC9131F388][Ted's Quantum Algorithm]]
+

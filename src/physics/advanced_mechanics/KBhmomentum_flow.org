@@ -161,26 +161,26 @@ Before the mitosis starts, for $N$:
 When the process of mitosis begins, our $m' = \frac{m}{2}$ and our $N' = 2N$. We will perform this substitution to the above expression:
 
 \begin{align}
-\vec{v}_{car} &= \frac{m}{2}\vec{u}\sum^{2N-2}_{i=0} \frac{1}{(2N-i)\frac{m}{2}+M} \\
-&= m\vec{u}\sum^{2N-2}_{i=0} \frac{1}{2((2N-i)\frac{m}{2}+M)} \\
-&= m\vec{u}\sum^{2N-2}_{i=0} \frac{1}{(2N-i)m+2M}
+\vec{v}_{car} &= \frac{m}{2}\vec{u}\sum^{2N-1}_{i=0} \frac{1}{(2N-i)\frac{m}{2}+M} \\
+&= m\vec{u}\sum^{2N-1}_{i=0} \frac{1}{2((2N-i)\frac{m}{2}+M)} \\
+&= m\vec{u}\sum^{2N-1}_{i=0} \frac{1}{(2N-i)m+2M}
 \end{align}
 
 After mitosis, therefore, the final expression for $\vec{v}_{car}$ is as follows:
 
 \begin{equation}
-\vec{v}_{car} = m\vec{u}\sum^{2N-2}_{i=0} \frac{1}{(2N-i)m+2M}
+\vec{v}_{car} = m\vec{u}\sum^{2N-1}_{i=0} \frac{1}{(2N-i)m+2M}
 \end{equation}
 
-Pairwise subtracting at every $N$, it is evident that for any $(N,i)$,
+We see that there is two times the amount of components on the post-mitoses expression than there is pre-mitoses. Hence, we can ensure that the prior sum is smaller by ensuring that every latter component is larger than at least /half/ of each of the prior ones.
+
+Pairwise subtracting $\frac{1}{2}$ of the left side at every $N$, then, it is evident that for any $(N,i)$:
 
 \begin{equation}
-   \frac{1}{(N-i)m+M} <  \frac{1}{(2N-i)m+2M}
+   \frac{1}{(2N-2i)m+2M} <  \frac{1}{(2N-i)m+2M}
 \end{equation}
 
-Furthermore, the bounds after mitosis are larger: $N < 2N-2$.
-
-As such, after mitosis, the velocity of the train becomes faster.
+We can see that, for every pair, there is $i$ more subtracted from $2N$. This renders the post-mitosis result in a faster train.
 
 * Differential Momentum Flow
 We are given the following expression:
@@ -202,11 +202,18 @@ We will now figure an expression for the velocity of the car given the mass ejec
 \Rightarrow & M \frac{dv}{dm} = \vec{u}  \\
 \Rightarrow & M dv = \vec{u} dm \\
 \Rightarrow & dv = \frac{\vec{u}}{M} dm \\
-\Rightarrow & \int^{v}_{v_0} dv = \vec{u}\int^{m}_{m_0} \frac{1}{M} dm \\
-\Rightarrow & v \rvert ^{v}_{v_0} = \vec{u}\ln(m) \rvert ^{m}_{m_0} 
+\Rightarrow & \int^{v}_{v_0} dv = \vec{u}\int^{m}_{m_0} \frac{1}{M} dm 
 \end{align}
 
-At this point, we note that $v_0=0$ as the initial velocity is 0. Furthermore, we will define the value of $m_e$ as mass ejected. Note that we are integrating over $dm$, w.r.t. mass /ejected/, so the "initial" state is $M$, no more ejection, and the "final" state is a full tank.
+At this point, we will utilize the fact that $dm$ is in the opposite direction of $dM$ (mass ejected is the mass that is been ejected, resulting in less mass.) Hence, $dm = -dM$.
+
+\begin{align}
+& \int^{v}_{v_0} dv = \vec{u}\int^{m}_{m_0} \frac{1}{M} dm \\
+\Rightarrow & \int^{v}_{v_0} dv = -\vec{u}\int^{m}_{m_0} \frac{1}{M} dM\\
+\Rightarrow & v \rvert ^{v}_{v_0} = -\vec{u}\ln(m) \rvert ^{m}_{m_0} 
+\end{align}
+
+At this point, we note that $v_0=0$ as the initial velocity is 0. Furthermore, we will define the value of $m_e$ as mass ejected. Note that we are integrating over $dM$, w.r.t. mass /remaining/, so the "initial" state is $M$, nothing ejected, and the "final" state $M-m_e$, no more in the tank.
 
 \begin{equation}
    v =  \vec{u}(\ln(M)-\ln(M-m_e)) = \vec{u} \ln(\frac{M}{M-m_e}) 
