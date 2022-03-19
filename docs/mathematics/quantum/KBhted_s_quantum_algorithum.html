@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-18 Fri 23:26 -->
+<!-- 2022-03-18 Fri 23:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ted's Quantum Algorithm</title>
@@ -222,12 +222,13 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Ted's Quantum Algorithm</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-18 Fri 23:25</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Ted's Quantum Algorithm</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-18 Fri 23:29</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfd5f789">1. Check matrix size</a></li>
+<li><a href="#orgda396e4">1. Check matrix size</a></li>
+<li><a href="#org2f142fc">2. Check eigenvalues</a></li>
 </ul>
 </div></div>
 </div>
@@ -272,15 +273,48 @@ G9 = I2.tensor_product(S).tensor_product(I32)
 G10 = S.tensor_product(S).tensor_product(X).tensor_product(I8)
 G11 = I16.tensor_product(S).tensor_product(I4)
 G12 = I8.tensor_product(S).tensor_product(I8)
+gates = [G1, G2, G3, G4, G5, G6, G7, G8, G9, G10, G11, G12]
 </pre>
 </div>
 
-<div id="outline-container-orgfd5f789" class="outline-2">
-<h2 id="orgfd5f789"><span class="section-number-2">1</span> Check matrix size</h2>
+<div id="outline-container-orgda396e4" class="outline-2">
+<h2 id="orgda396e4"><span class="section-number-2">1</span> Check matrix size</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In order to do this, we check the size of every single matrix (both rows and columns), and ensure they all agree to being 256.
 </p>
+
+<div class="org-src-container">
+<pre class="src src-sage">cols = [i.ncols() for i in gates]
+rows = [i.nrows() for i in gates]
+
+# set the components to remove duplicates
+cols_set = set(cols)
+rows_set = set(rows)
+
+# given all sizes equal, we should have one element that's 256
+assert (len(cols_set)==1 and list(cols_set)[0] == 256), "cols mismatch"
+assert (len(rows_set)==1 and list(rows_set)[0] == 256), "rows mismatch"
+</pre>
+</div>
+
+<p>
+We can see that they all agree to being 256.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2f142fc" class="outline-2">
+<h2 id="org2f142fc"><span class="section-number-2">2</span> Check eigenvalues</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+We now find the eigenvalues of the matrices in the gates.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">
+</pre>
+</div>
 </div>
 </div>
 </div>

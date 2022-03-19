@@ -60,13 +60,22 @@ assert (len(cols_set)==1 and list(cols_set)[0] == 256), "cols mismatch"
 assert (len(rows_set)==1 and list(rows_set)[0] == 256), "rows mismatch"
 #+end_src
 
-#+RESULTS:
-
 We can see that they all agree to being 256.
 
 * Check eigenvalues
 We now find the eigenvalues of the matrices in the gates.
 
 #+begin_src sage
+eigens = [i.eigenvalues() for i in gates]
 
+# we remove duplicates 
+eigens = [set(i) for i in eigens]
+
+# and check that they are all -1 and and 1
+is_one_negone = [i == set([1,-1]) for i in eigens]
+assert sum(is_one_negone) == len(is_one_negone), "not all true"
 #+end_src
+
+We can see that all eignenvalues of the matricies are both one and negative one.
+
+
