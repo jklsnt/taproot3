@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-18 Fri 23:39 -->
+<!-- 2022-03-18 Fri 23:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ted's Quantum Algorithm</title>
@@ -263,14 +263,14 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Ted's Quantum Algorithm</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-18 Fri 23:38</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Ted's Quantum Algorithm</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-18 Fri 23:42</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org9836e12">1. Check matrix size</a></li>
-<li><a href="#org5ada6f7">2. Check eigenvalues</a></li>
-<li><a href="#orgede1b12">3. The Algorithm</a></li>
+<li><a href="#org82e7367">1. Check matrix size</a></li>
+<li><a href="#orgb2aeb1e">2. Check eigenvalues</a></li>
+<li><a href="#orgeda149d">3. The Algorithm</a></li>
 </ul>
 </div></div>
 </div>
@@ -319,8 +319,8 @@ gates = [G1, G2, G3, G4, G5, G6, G7, G8, G9, G10, G11, G12]
 </pre>
 </div>
 
-<div id="outline-container-org9836e12" class="outline-2">
-<h2 id="org9836e12"><span class="section-number-2">1</span> Check matrix size</h2>
+<div id="outline-container-org82e7367" class="outline-2">
+<h2 id="org82e7367"><span class="section-number-2">1</span> Check matrix size</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In order to do this, we check the size of every single matrix (both rows and columns), and ensure they all agree to being 256.
@@ -346,8 +346,8 @@ We can see that they all agree to being 256.
 </div>
 </div>
 
-<div id="outline-container-org5ada6f7" class="outline-2">
-<h2 id="org5ada6f7"><span class="section-number-2">2</span> Check eigenvalues</h2>
+<div id="outline-container-orgb2aeb1e" class="outline-2">
+<h2 id="orgb2aeb1e"><span class="section-number-2">2</span> Check eigenvalues</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We now find the eigenvalues of the matrices in the gates.
@@ -371,8 +371,8 @@ We can see that all eignenvalues of the matricies are both one and negative one.
 </div>
 </div>
 
-<div id="outline-container-orgede1b12" class="outline-2">
-<h2 id="orgede1b12"><span class="section-number-2">3</span> The Algorithm</h2>
+<div id="outline-container-orgeda149d" class="outline-2">
+<h2 id="orgeda149d"><span class="section-number-2">3</span> The Algorithm</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 We now define \(M\):
@@ -390,19 +390,25 @@ And, we define \(x_1\), \(x_2\), \(x_3\). We also define \(|d\big>\) as \(0\), s
 <div class="org-src-container">
 <pre class="src src-sage">a,b, c,d, e,f = var("a b c d e f")
 
-x1 = vector([a,b])
-x2 = vector([c,d])
-x3 = vector([e,f])
+x1 = matrix([[a],[b]])
+x2 = matrix([[c],[d]])
+x3 = matrix([[e],[f]])
 
-z1 = vector([0,1])
-z2 = vector([0,1])
-z3 = vector([0,1])
-z4 = vector([0,1])
-z5 = vector([0,1])
+z1 = matrix([[0],[1]])
+z2 = matrix([[0],[1]])
+z3 = matrix([[0],[1]])
+z4 = matrix([[0],[1]])
+z5 = matrix([[0],[1]])
 
+input_cubits = z3.tensor_product(x1).tensor_product(x2).tensor_product(x3).tensor_product(z1).tensor_product(z2).tensor_product(z4).tensor_product(z5)
 
+input_cubits
 </pre>
 </div>
+
+<p>
+We will now do the computation.
+</p>
 </div>
 </div>
 </div>
