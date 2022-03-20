@@ -121,3 +121,21 @@ aproximating sin fun, first is the new way and second is taylor
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
