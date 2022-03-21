@@ -45,10 +45,10 @@ date: 2022-02-26
 
 ## sorting, again
 
-- [blackpanda](https://my.nuevaschool.org/internship/opportunity/#/detail/658) | a
+- [blackpanda](https://my.nuevaschool.org/internship/opportunity/#/detail/658) | a  --  pulled out
 - [MGH](https://my.nuevaschool.org/internship/opportunity/#/detail/652) | a 
 - [caltech!](https://my.nuevaschool.org/internship/opportunity/#/detail/689) | a-
-- [mantra bio](https://my.nuevaschool.org/internship/opportunity/#/detail/686) | a-
+- [mantra bio](https://my.nuevaschool.org/internship/opportunity/#/detail/686) | a- -- interview
 - [stanford material science computation](https://my.nuevaschool.org/internship/opportunity/#/detail/609) | a-
 
 ***
