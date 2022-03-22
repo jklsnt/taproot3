@@ -34,7 +34,6 @@ Wherever it erupts, this Funk, they wipe it away; where it crusts, they dissolve
 
 In this paragraph, Toni Morrison is characterizing a category of woman she has created in describing what they do with "funk."
 
-
 Wherever it erupts, < funk is "erupt[ing]." uncontrolled, violent.
 
 this Funk, they wipe it away; < "wipe" about cleaning, foreshadowing!
@@ -52,7 +51,6 @@ They hold their behind in for fear of a sway too free; when they wear lipstick, 
 
 
 Funk is unhappiness, restlessness. These woman that Morrison is describing provide value in remedying this restlessness, not by addressing it, but by hiding it and distracting from it. In order to be able to do this, they must not cause funk themselves, always concerned about deviating from the norm to much.
-
 
 
 

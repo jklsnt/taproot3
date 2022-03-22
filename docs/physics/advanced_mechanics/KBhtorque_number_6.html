@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-18 Fri 08:51 -->
+<!-- 2022-03-21 Mon 22:37 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MVC 2 PS#17</title>
+<title>Torque Number 6</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Houjun Liu" />
 <style type="text/css">
@@ -263,409 +263,313 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#17</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-18 Fri 08:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Torque Number 6</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-21 Mon 22:36</date></div>
 </div>
 <div id="content">
-<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhHomeworkIndex.html'>MVC Homework Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org97748a0">1. Finding Volume</a>
-<ul>
-<li><a href="#orgcefd8ac">1.1. Cylindrical Coordinates</a></li>
-<li><a href="#org4d7c6b7">1.2. Cartesian Coordinates</a></li>
-</ul>
-</li>
-<li><a href="#orgdbcaea6">2. Veena's Double Integral</a></li>
-<li><a href="#org2ea2f68">3. Average of Function</a></li>
-<li><a href="#org08db1eb">4. Mark Hurwitz Inherits Triple's Box</a></li>
+<li><a href="#orgc22beb8">1. Coefficient of Fiction</a></li>
+<li><a href="#orga281f15">2. Linear Acceleration</a></li>
+<li><a href="#orga2774eb">3. Angular Acceleration</a></li>
+<li><a href="#orgfce4858">4. Coefficient of Friction</a></li>
+<li><a href="#org20b7b25">5. Torque at Rest</a></li>
+<li><a href="#orgac42a5f">6. Derivative of Angular Momentum</a></li>
+<li><a href="#org0380c87">7. Torque and Rest is Equal to Derivative of Angular Momentum</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org97748a0" class="outline-2">
-<h2 id="org97748a0"><span class="section-number-2">1</span> Finding Volume</h2>
+<div id="org6e88871" class="figure">
+<p><img src="2022-03-21_21-24-06_screenshot.png" alt="2022-03-21_21-24-06_screenshot.png" />
+</p>
+</div>
+
+<div id="outline-container-orgc22beb8" class="outline-2">
+<h2 id="orgc22beb8"><span class="section-number-2">1</span> Coefficient of Fiction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Here's the shape:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">x,y,z = var("x y z")
-
-implicit_plot3d((7+x+y)-z, (x,-10,10), (y,-10,10), (z,-10,10), region=lambda x,y,z:(x**2+y**2&lt;5), plot_points=100)
-</pre>
-</div>
-
-
-<div id="org5305ea8" class="figure">
-<p><img src="2022-03-17_09-15-20_screenshot.png" alt="2022-03-17_09-15-20_screenshot.png" />
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgcefd8ac" class="outline-3">
-<h3 id="orgcefd8ac"><span class="section-number-3">1.1</span> Cylindrical Coordinates</h3>
-<div class="outline-text-3" id="text-1-1">
-<p>
-To find the volume beneath \(f(x,y) = 7+x+y\) above a circle of radius \(5\), we can leverage cylindrical coordinates.
-</p>
-
-<p>
-Recall that, given an unit circle, we have:
+When given this scheme, we can understand that friction can be modeled by some:
 </p>
 
 \begin{equation}
-   \begin{cases}
-x = r\ cos(\theta)\\
-y = r\ sin(\theta)
-\end{cases}
+   F_f \leq \mu_s N 
 \end{equation}
 
 <p>
-and the \(z\) value stays Cartesian. Therefore, we can change the expression into that in \(r\) and \(\theta\):
+We will define a system via the picture exactly: up is \(+y\), down is \(-y\), right is \(+x\), and left is \(-x\). Let's first calculate the component of gravity perpendicular to the ramp&#x2014;the only force causing the existence of a normal force.
+</p>
+
+<p>
+We understand that force due to gravity on the object is:
 </p>
 
 \begin{equation}
-   f(r, \theta) = 7+r\ cos(\theta) + r\ sin(\theta)
+   F_g = -gM_0 
 \end{equation}
 
 <p>
-The "shell" of each circle in the expression would have circumference \(r\ d\theta\), therefore, the integral to form a circle of radius \(5\) and \(\theta \in [0, 2\pi]\) would be:
+The component perpendicular to the ramp, then, would be:
+</p>
+
+\begin{equation}
+   N=-F_g\ cos\theta
+\end{equation}
+
+<p>
+Therefore, we can create an expression solving for the coefficient of friction:
 </p>
 
 \begin{align}
-   &\int_0^5\ \int_0^{2\pi}\ r(7+r\ cos(\theta) + r\ sin(\theta))\ d\theta\ dr\\
-\Rightarrow  &\int_0^5\ r(\left 7\theta+r\ sin(\theta) - r\ cos(\theta) \right|_0^{2\pi}\ )dr\\
-\Rightarrow  &\int_0^5\ (14\pi - r)-(-r)\ dr\\
-\Rightarrow  &\int_0^5\ 14\pi\ r\ dr \\
-\Rightarrow  &175\pi
-\end{align}
-</div>
-</div>
-
-<div id="outline-container-org4d7c6b7" class="outline-3">
-<h3 id="org4d7c6b7"><span class="section-number-3">1.2</span> Cartesian Coordinates</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-We can check this value by taking vertical slices of the function. A circle of radius five centered about the origin can be modeled by the expression:
-</p>
-
-\begin{equation}
-    y = \pm\sqrt{5^2-x^2}
-\end{equation}
-
-<p>
-We will take the integral along the \(y\) dimension first, bounded by this function; then, we will sum the results along \([-5,5]\) for the \(x\) dimension.
-</p>
-
-<p>
-Taking the integral in \(y\):
-</p>
-
-\begin{align}
-   &\int_0^{\sqrt{25-x^2}} 7+x+y\ dy +  \int_{-\sqrt{25-x^2}}^0 7+x+y\ dy\\
-\Rightarrow& \left \left(7y+xy+\frac{y^2}{2}\right)\right|_0^{\sqrt{25-x^2}} + \left \left(7y+xy+\frac{y^2}{2}\right)\right|_{-\sqrt{25-x^2}}^0\\
-\Rightarrow& \left(7\sqrt{25-x^2}+x\sqrt{25-x^2}+\frac{25-x^2}{2}\right) + \left \left(7\sqrt{25-x^2}+x\sqrt{25-x^2}-\frac{25-x^2}{2}\right)\\
-\Rightarrow& 14\sqrt{25-x^2}+2x\sqrt{25-x^2}
+   &F_f \leq \mu_s N \\
+\Rightarrow\ & F_f \leq -\mu_s F_g\ cos\theta \\
+\Rightarrow\ & F_f \leq \mu_s gM_0\ cos\theta \\
+\Rightarrow\ & \mu_s \geq \frac{F_f}{gM_0\ cos\theta} 
 \end{align}
 
 <p>
-We will leverage Sage to take the integral in \(x\).
+Supplying the actual numerical values into the expressions, we get that:
 </p>
 
 \begin{equation}
-   \int_{-5}^{5} 14\sqrt{25-x^2}+2x\sqrt{25-x^2}\ dx
+   \mu_s \geq\ \sim 0.236 
 \end{equation}
-
-<div class="org-src-container">
-<pre class="src src-sage">f(x,y)=7+x+y
-(f.integrate(y, 0, sqrt(25-x^2)) + f.integrate(y, -sqrt(25-x^2), 0)).integrate(x,-5,5)
-</pre>
-</div>
-
-<p>
-As we can see, the result from both expressions are the same, \(175\pi\).
-</p>
-</div>
 </div>
 </div>
 
-<div id="outline-container-orgdbcaea6" class="outline-2">
-<h2 id="orgdbcaea6"><span class="section-number-2">2</span> Veena's Double Integral</h2>
+<div id="outline-container-orga281f15" class="outline-2">
+<h2 id="orga281f15"><span class="section-number-2">2</span> Linear Acceleration</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Here's Veena's double integral:
+To figure the linear acceleration upon the system, we will need to create a summation of all forces. Fortunately, we realize that&#x2014;due to the properties of the normal force&#x2014;all components of the contact force perpendicular to the ramp cancel out.
+</p>
+
+<p>
+Therefore, we simply have to figure the sum of all forces in the direction parallel to the ramp.
+</p>
+
+<p>
+As the direction of motion is towards the \(+x\) direction (rel. to ramp), we can see that the force of friction would therefore be applied towards the \(-x\) direction.
+</p>
+
+<p>
+Therefore:
 </p>
 
 \begin{equation}
-   \int_0^8 \int_{\sqrt[3]{y}}^2 e^{x^4}\ dx\ dy 
+   F_{net_{rx}} = F_g_x - F_f 
 \end{equation}
 
-<div class="org-src-container">
-<pre class="src src-sage">f(x,y) = e^(x^4)
-plot3d(f, (x, 0.5, 1.5), (y, 0,8))
-</pre>
-</div>
-
-
-<div id="org64fe49c" class="figure">
-<p><img src="2022-03-17_09-18-52_screenshot.png" alt="2022-03-17_09-18-52_screenshot.png" />
-</p>
-</div>
-
 <p>
-The surface approaches \(0\) as \(x\) decreases, and approaches \(+\infty\) as \(x\) increases.
-</p>
-
-<p>
-Here's the actual region: 
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">x,y,z=var("x y z")
-implicit_plot3d(8*e^(x^4)-z, (x,-1,1),(y,-1,1), (z,8,10), region=lambda x,y,z:y&gt;0 and x&gt;y^(1/3) and x&lt;2 and y&lt;8, plot_points=300)
-</pre>
-</div>
-
-
-<div id="org14ffaf2" class="figure">
-<p><img src="2022-03-17_09-46-57_screenshot.png" alt="2022-03-17_09-46-57_screenshot.png" />
-</p>
-</div>
-
-
-<p>
-We realize that it is actually much more difficult to take the integral through the order which is stated in the problem, but it becomes dramatically easier to do so in the reverse order of integration.
-</p>
-
-<p>
-Begin by noting the direction of slice drawing. In the original expression, we are slicing by:
+The component of gravity parallel to the ramp would be:
 </p>
 
 \begin{align}
-   &[x=\sqrt[3]{y}, x=2]\\
-   &[y=0, y=8]
+   F_{gx} &= -F_g \sin\theta \\
+&=gM_0 \sin\theta 
 \end{align}
 
 <p>
-in that original order. However, we aim to switch the order of integration, to slice along \(y\) first then \(x\).
-</p>
-
-<p>
-The bounds of \(y\) must now be that newly constrained by the constraint function. It is now between \(0\), the same starting point, and \(x^3\), the maximum height at each point:
+Taking these components together, then, we have that:
 </p>
 
 \begin{equation}
-   &[y=0, y=x^3]
+   F_{net_{rx}} = gM_0 \sin\theta - F_f 
 \end{equation}
 
 <p>
-Adjusting the bounds of \(x\) accordingly, at \(8\), the original $y$-maximum, \(x\) would take on the value of \(2\).
+Taking Newton's Second Law:
+</p>
+
+\begin{align}
+   &M_0 a_{rx} = gM_0 \sin\theta - F_f \\
+\Rightarrow&\ a_{rx} = \frac{gM_0 \sin\theta - F_f}{M_0}
+\end{align}
+
+<p>
+Supplying the actual numerical values, we get that:
 </p>
 
 \begin{equation}
-   &[x=0, x=2]
+   a_{rx} = 2.9\ \frac{m}{s^2}
 \end{equation}
 
 <p>
-Hence, our actual integral becomes:
+The object, therefore, slides down the ramp at a linear acceleration of 2.9 metres a second squared.
 </p>
-
-\begin{equation}
-   \int_0^2 \int_{0}^{x^3} e^{x^4}\ dy\ dx
-\end{equation}
-
-<p>
-Let's now take first the inner integral.
-</p>
-
-\begin{align}
-    &\int_{0}^{x^3} e^{x^4}\ dy\\
-&\left e^{x^4}\right|_{0}^{x^3}\\
-&\left x^3 e^{x^4}
-\end{align}
-
-<p>
-Great, now, we take the outer integral.
-</p>
-
-\begin{align}
-   \int_0^2 x^3 e^{x^4}\ dx
-\end{align}
-
-<p>
-This is now easily performable by u-sub.
-</p>
-
-<p>
-Let \(u = x^4\), and:
-</p>
-
-\begin{align}
-   &u = x^4 \\
-\Rightarrow & \frac{du}{dx} = 4x^3\\
-\Rightarrow & du = 4x^3\ dx\\
-\Rightarrow & \frac{1}{4} du = x^3\ dx
-\end{align}
-
-<p>
-Substituting the right side and \(u\) from this expression:
-</p>
-
-\begin{align}
-   &\int_0^2 x^3 e^{x^4}\ dx\\
-\Rightarrow &\int_0^2 \frac{1}{4} e^{u}\ du\\
-\Rightarrow &\frac{1}{4} \int_0^2 e^{u}\ du\\
-\Rightarrow &\left\frac{1}{4}  e^{x^4} \right|_0^2 \\
-\Rightarrow &\left\frac{1}{4} \left(e^{16}-1 \right)
-\end{align}
 </div>
 </div>
 
-<div id="outline-container-org2ea2f68" class="outline-2">
-<h2 id="org2ea2f68"><span class="section-number-2">3</span> Average of Function</h2>
+<div id="outline-container-orga2774eb" class="outline-2">
+<h2 id="orga2774eb"><span class="section-number-2">3</span> Angular Acceleration</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-Here's the function:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">f(x,y) = e^y *sqrt(x+e^y)
-plot3d(f, (x,-10,10), (y,-10,1))
-</pre>
-</div>
-
-
-<div id="orgcdbe1a4" class="figure">
-<p><img src="2022-03-17_22-14-52_screenshot.png" alt="2022-03-17_22-14-52_screenshot.png" />
-</p>
-</div>
-
-
-<p>
-We wish to find the average value of the function \(f(x,y) = e^y\sqrt{x+e^y}\) between some bounds \((0,0)\), \((4, 0)\), \((4,1)\), \((0,1)\).
-</p>
-
-<p>
-The best way to approach this is to find the integral bounded by these points, than divide by the area under.
-</p>
-
-<p>
-We will take the integral w.r.t. \(y\) first to perform u-substitution, then integral along \(x\).
+To figure the angular acceleration we see that:
 </p>
 
 \begin{equation}
-   \int_0^4 \int_0^1  e^y\sqrt{x+e^y}\ dy\ dx
+   a = r\alpha 
 \end{equation}
 
 <p>
-We first take the inner integral.
+that is, given \(\alpha\) is a value measured in radians per second squared, multiplying by \(r\) would be the acceleration over some distance traveled (just like how \(r\theta\) is the circumference.)
 </p>
 
-\begin{equation}
- \int_0^1  e^y\sqrt{x+e^y}\ dy   
-\end{equation}
-
 <p>
-We will set \(u=x+e^y\). Therefore:
+Therefore:
 </p>
 
 \begin{align}
-   &\frac{du}{dy} = e^y\\
-\Rightarrow &du = e^y\ dy
+   &a_{rx} = R\alpha \\
+\Rightarrow\ &\alpha = \frac{a_{rx}}{R}
 \end{align}
 
 <p>
-Substituting this expression in:
-</p>
-
-\begin{align}
- &\int_0^1  e^y\sqrt{x+e^y}\ dy \\
-\Rightarrow & \int_0^1  \sqrt{u}\ du \\
-\Rightarrow & \left \frac{2}{3} {u}^{3/2} \right|_0^1 \\
-\Rightarrow & \left \frac{2}{3} (( x+e )^{3/2}-( x+1 )^{3/2})
-\end{align}
-
-<p>
-At this point, I am not quite sure how to proceed taking the integral. We will continue using Sage.
-</p>
-
-<p>
-According to Sage, the result is:
+Supplying the numerical values:
 </p>
 
 \begin{equation}
-    \frac{4}{15} \, \sqrt{e + 4} e^{2} + \frac{32}{15} \, \sqrt{e + 4} e - \frac{20}{3} \, \sqrt{5} + \frac{64}{15} \, \sqrt{e + 4} - \frac{4}{15} \, e^{\frac{5}{2}} + \frac{4}{15}
+   \alpha = 5.8 \frac{rad}{s^2} 
 \end{equation}
 
 <p>
-which is roughly \(13.3\).
-</p>
-
-<p>
-As we have \(13.3\) units of value in the expression of area \(4\), the mean value of the function is \(13.3/4 = 3.325\).
+The object, therefore, has an angular acceleration of 5.8 radians per second squared.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org08db1eb" class="outline-2">
-<h2 id="org08db1eb"><span class="section-number-2">4</span> Mark Hurwitz Inherits Triple's Box</h2>
+<div id="outline-container-orgfce4858" class="outline-2">
+<h2 id="orgfce4858"><span class="section-number-2">4</span> Coefficient of Friction</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-Given that Mark is placing his box at one corner at the origin and the other at \((3,3,4)\), there is no chance of the \(z\) value reaching the discontinuity at \(z=-1\).
+The coefficient of friction is static as the object, while its rolling down the ramp, never actually maintains content and slide the ramp. This results in no "sliding" motion of the object, and hence no kinetic friction.
 </p>
 
 <p>
-As such, we can simply find the volume of his box by multiplying the side lengths together. The volume would be \(3\cdot 3\cdot 4 =36\).
-</p>
-
-<p>
-We will do the same to find the total mass by taking the integral of the expression:
-</p>
-
-\begin{equation}
-   \int_0^3 \int_0^3 \int_0^4 \frac{1}{z+1} dz\ dy\ dx 
-\end{equation}
-
-<p>
-The first layer in the middle can by taken by u-sub. Setting \(u = z+1\), we have \(du = dz\). Hence:
-</p>
-
-\begin{equation}
-    \int_0^3 \int_0^3 log(5) \ dy\ dx 
-\end{equation}
-
-<p>
-We can see now that our problem is now a matter of taking this value over an area of \(9\). Hence, the total integral is:
-</p>
-
-\begin{equation}
-   9log(5) 
-\end{equation}
-
-<p>
-This also renders the average density this value divided by the volume of the box:
-</p>
-
-\begin{equation}
-   \frac{9log(5)}{3\cdot 3\cdot 4} = \frac{9log(5)}{36} = \frac{log(5)}{4}
-\end{equation}
-
-
-<p>
-The actual box is not very exciting:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">from sage.plot.plot3d.shapes import Box
-Box([3,3,4])
-</pre>
-</div>
-
-
-<div id="orgd8d13e6" class="figure">
-<p><img src="2022-03-17_22-14-04_screenshot.png" alt="2022-03-17_22-14-04_screenshot.png" />
+Every time the object contacts the surface, it is "lifted" and replaced with the next segment of the circumference. This is also why the actual coefficient of friction is given as an inequality as static friction is derived as an inequality.
 </p>
 </div>
+</div>
+
+<div id="outline-container-org20b7b25" class="outline-2">
+<h2 id="org20b7b25"><span class="section-number-2">5</span> Torque at Rest</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+We will define a system \(z\) such that "out of the page" is \(+z\) and "into the page" is \(-z\).
+</p>
+
+<p>
+The torque on a rigid body exerted by gravity is equivalent to that obtained by exerting all of gravity force on the CoM. Therefore, all of \(F_g =M_0g\) is exerted at an angle \(\theta\) tangent to the point of contact by the circle. The circle has additionally radius \(R\); therefore:
+</p>
+
+\begin{align}
+   \vec{\tau}_g &= \vec{R} \times \vec{F_g}\\
+&= \vec{R} \times M_0g(-\hat{y})\\
+&= RM_0g \sin(\theta) \hat{z}
+\end{align}
+
+<p>
+Performing the same idea upon the force of friction, though it is exactly perpendicular to the radius:
+</p>
+
+\begin{align}
+   \vec{\tau}_F_f &= \vec{R} \times \vec{F_f}\\
+&= RF_f(-\hat{z})
+\end{align}
+
+<p>
+The total \(\vec{\tau}_{net}\), therefore, is simply the difference between these two torques:
+</p>
+
+\begin{equation}
+   \vec{\tau}_{net} = R(M_0g\sin(\theta) - F_f)  
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orgac42a5f" class="outline-2">
+<h2 id="orgac42a5f"><span class="section-number-2">6</span> Derivative of Angular Momentum</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+We understand that:
+</p>
+
+\begin{equation}
+   \vec{L} = I_{CM}\vec{\omega} 
+\end{equation}
+
+<p>
+Therefore, taking the first derivative, we see that:
+</p>
+
+\begin{equation}
+   \frac{d\vec{L}}{dt} = I_{CM}\vec{\alpha} 
+\end{equation}
+
+<p>
+Substituting our known values, then:
+</p>
+
+\begin{equation}
+   \frac{d\vec{L}}{dt} = I_{0}\vec{\alpha} 
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org0380c87" class="outline-2">
+<h2 id="org0380c87"><span class="section-number-2">7</span> Torque and Rest is Equal to Derivative of Angular Momentum</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+To set up this equality, we will have to make a few substitutions.
+</p>
+
+<p>
+First, we understand that:
+</p>
+
+\begin{equation}
+   \frac{d\vec{L}}{dt} = I_{0}\vec{\alpha} 
+\end{equation}
+
+<p>
+Recall that the angular inertia of a thin disk is:
+</p>
+
+\begin{equation}
+   I = \frac{1}{2}MR^2 
+\end{equation}
+
+<p>
+Setting the variables for our situation, we have:
+</p>
+
+\begin{equation}
+   I_0 = \frac{1}{2}M_0R^2 
+\end{equation}
+
+<p>
+From previous derivation, we have that:
+</p>
+
+\begin{equation}
+    \alpha = \frac{a_{rx}}{R}
+\end{equation}
+
+<p>
+Substituting in the previously-derived expression for \(a_{rx}\), we have:
+</p>
+
+\begin{equation}
+    \alpha = \frac{gM_0 \sin\theta - F_f}{M_0R}
+\end{equation}
+
+<p>
+Multiplying \(I_0\) and \(\alpha\) together, we have:
+</p>
+
+\begin{align}
+   I_0 \alpha &= \left(\frac{1}{2}M_0R^2 \right)\left(\frac{gM_0 \sin\theta - F_f}{M_0R}\right)\\
+&= \frac{R}{2}\left(M_0g \sin\theta - F_f\right)
+\end{align}
 </div>
 </div>
 </div>
