@@ -104,9 +104,11 @@ Let's take the time derivative on both sides to figure the change in angular mom
 \begin{align}
    \frac{d}{dt} \vec{L}_{sys} &=\frac{d}{dt} \left(\vec{R} \times M\vec{v}_{cm} + \sum_{i=1}^n\  \vec{r_i}' \times m_i\vec{v_i}' \right) \\
 &= \frac{d}{dt} \vec{R} \times M\vec{v}_{cm} + \frac{d}{dt} \sum_{i=1}^n\  \vec{r_i}' \times m_i\vec{v_i}'  \\
-&= \vec{R} \times M\frac{d\vec{v}_{cm}}{dt}  + \sum_{i=1}^n\  \vec{r_i}' \times m_i\frac{d\vec{v_i}'}{dt}   \\
+&= \vec{R} \times M\frac{d\vec{v}_{cm}}{dt}  + \left(\vec{V}_{cm} \times m \vec{V}_{cm}\right)+ \sum_{i=1}^n\  \vec{r_i}' \times m_i\frac{d\vec{v_i}'}{dt} + \left(\sum_{i=1}^N \vec{v}_i' \times m_i \vec{v}_i'\right)  \\
 &= \vec{R} \times M\vec{a}_{cm}  + \sum_{i=1}^n\  \vec{r_i}' \times m_i \vec{a_i}'\ \blacksquare
 \end{align}
+
+The application of the product rule, though causing two other terms, are terms with parallel crossed vectors---which cancels to be $0$.
 
 * Total Torque on a System
 We first have, still, the expression for any point mass in the system:
@@ -188,22 +190,16 @@ The net torque on the system is the first derivative of the angular momentum. Th
 \end{align}
 
 * Angular Momentum on a Spinning Rigid Body
-If, given the object's axial symmetry about the axis of rotation, we have that:
+We begin by working in the axis parallel to the axis of rotation:
 
 \begin{equation}
-   I = \sum_i m_i {l_i}^2 
+   I = \sum_i m_i {l_i'}^2 
 \end{equation}
 
-In the language of the prime reference frame, about $r$, we have that:
+Definitionally, angular velocity is the vector measuring the pace at which the lever arm is moving towards the tangential direction. $\vec{l}$ and $\vec{v}$ are therefore perpendicular to teach other. We hence have that:
 
 \begin{equation}
-   I_{CM'} = \sum_i m_i {r_i'}^2
-\end{equation}
-
-Definitionally, angular velocity is the vector measuring the pace at which the lever arm is moving towards the tangential direction. Therefore, we have that:
-
-\begin{equation}
-   \vec{\omega} = \frac{v\ sin{\theta}}{r} = \frac{\vec{r} \times \vec{v}}{r^2}
+   \vec{\omega} = \frac{v}{l} = \frac{v}{l}\cdot\frac{l}{l} =  \frac{\vec{l} \times \vec{v}}{r^2}
 \end{equation}
 
 where, $\theta$ is the angle between $\vec{r}$ and $\vec{v}$ and $\vec{r}$ is rotating into $\vec{v}$.
@@ -211,21 +207,21 @@ where, $\theta$ is the angle between $\vec{r}$ and $\vec{v}$ and $\vec{r}$ is ro
 Applying this to the right of the above expression, then:
 
 \begin{align}
-   I_{CM} \vec{\omega}' &= \sum_i m_i {r_i}'^2 \\
-&= \sum_i m_i {r_i}'^2\ \frac{\vec{r_i}' \times \vec{v_i}'}{{r_i}'^2}\\
-&= \sum_i \vec{r}_i' \times m_i \vec{v_i}'
+   I_{CM} \vec{\omega}' &= \sum_i m_i {l_i}'^2 \\
+&= \sum_i m_i {l_i}'^2\ \frac{\vec{l_i}' \times \vec{v_i}'}{{l_i}'^2}\\
+&= \sum_i \vec{l}_i' \times m_i \vec{v_i}'
 \end{align}
 
 We will now take the expression for angular momentum in the prime reference frame:
 
 \begin{equation}
-   \vec{L}' = \vec{r}'_i \times m\vec{v_i}'
+   \vec{L}' = \vec{l}'_i \times m\vec{v_i}'
 \end{equation}
 
 If we sum the expression on along all $i$:
 
 \begin{equation}
-   \vec{L'} = \sum_i \vec{r}'_i \times m\vec{v_i}'
+   \vec{L'} = \sum_i \vec{l}'_i \times m\vec{v_i}'
 \end{equation}
 
 As the two expressions are equal, we have that:

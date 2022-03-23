@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-15 Tue 23:12 -->
+<!-- 2022-03-22 Tue 14:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Torque Number 5</title>
@@ -263,24 +263,24 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Torque Number 5</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-15 Tue 23:11</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Torque Number 5</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-22 Tue 14:53</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org249a1f8">1. Properties of the CM Reference Frame</a></li>
-<li><a href="#orga42992a">2. System Angular Momentum</a></li>
-<li><a href="#org9ad4234">3. Change in Angular Momentum</a></li>
-<li><a href="#orgc9eed87">4. Total Torque on a System</a></li>
-<li><a href="#org0922fae">5. Net Torque Equals Change of Angular Momentum</a></li>
-<li><a href="#org2c117cb">6. Angular Momentum on a Spinning Rigid Body</a></li>
-<li><a href="#org26f146a">7. Net Torque on a Spinning Rigid Body</a></li>
+<li><a href="#org67419d2">1. Properties of the CM Reference Frame</a></li>
+<li><a href="#orgbd51cdf">2. System Angular Momentum</a></li>
+<li><a href="#org9750c98">3. Change in Angular Momentum</a></li>
+<li><a href="#orgb9cfe9d">4. Total Torque on a System</a></li>
+<li><a href="#org0170b62">5. Net Torque Equals Change of Angular Momentum</a></li>
+<li><a href="#orgdc672b5">6. Angular Momentum on a Spinning Rigid Body</a></li>
+<li><a href="#orgbc1e8e7">7. Net Torque on a Spinning Rigid Body</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org249a1f8" class="outline-2">
-<h2 id="org249a1f8"><span class="section-number-2">1</span> Properties of the CM Reference Frame</h2>
+<div id="outline-container-org67419d2" class="outline-2">
+<h2 id="org67419d2"><span class="section-number-2">1</span> Properties of the CM Reference Frame</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 At the center of mass reference frame, the center of mass is located at the origin given how the frame is being defined.
@@ -336,8 +336,8 @@ Therefore, all components of the lemma is proven.
 </div>
 </div>
 
-<div id="outline-container-orga42992a" class="outline-2">
-<h2 id="orga42992a"><span class="section-number-2">2</span> System Angular Momentum</h2>
+<div id="outline-container-orgbd51cdf" class="outline-2">
+<h2 id="orgbd51cdf"><span class="section-number-2">2</span> System Angular Momentum</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We will first get the expression for angular momentum. Recall that:
@@ -403,8 +403,8 @@ At which points, we realize that, per our given lemmas, the middle two terms bec
 </div>
 </div>
 
-<div id="outline-container-org9ad4234" class="outline-2">
-<h2 id="org9ad4234"><span class="section-number-2">3</span> Change in Angular Momentum</h2>
+<div id="outline-container-org9750c98" class="outline-2">
+<h2 id="org9750c98"><span class="section-number-2">3</span> Change in Angular Momentum</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 To figure the change in net angular momentum, we simply take the first derivative by time of the above-derived expression.
@@ -425,14 +425,18 @@ Let's take the time derivative on both sides to figure the change in angular mom
 \begin{align}
    \frac{d}{dt} \vec{L}_{sys} &=\frac{d}{dt} \left(\vec{R} \times M\vec{v}_{cm} + \sum_{i=1}^n\  \vec{r_i}' \times m_i\vec{v_i}' \right) \\
 &= \frac{d}{dt} \vec{R} \times M\vec{v}_{cm} + \frac{d}{dt} \sum_{i=1}^n\  \vec{r_i}' \times m_i\vec{v_i}'  \\
-&= \vec{R} \times M\frac{d\vec{v}_{cm}}{dt}  + \sum_{i=1}^n\  \vec{r_i}' \times m_i\frac{d\vec{v_i}'}{dt}   \\
+&= \vec{R} \times M\frac{d\vec{v}_{cm}}{dt}  + \left(\vec{V}_{cm} \times m \vec{V}_{cm}\right)+ \sum_{i=1}^n\  \vec{r_i}' \times m_i\frac{d\vec{v_i}'}{dt} + \left(\sum_{i=1}^N \vec{v}_i' \times m_i \vec{v}_i'\right)  \\
 &= \vec{R} \times M\vec{a}_{cm}  + \sum_{i=1}^n\  \vec{r_i}' \times m_i \vec{a_i}'\ \blacksquare
 \end{align}
+
+<p>
+The application of the product rule, though causing two other terms, are terms with parallel crossed vectors&#x2014;which cancels to be \(0\).
+</p>
 </div>
 </div>
 
-<div id="outline-container-orgc9eed87" class="outline-2">
-<h2 id="orgc9eed87"><span class="section-number-2">4</span> Total Torque on a System</h2>
+<div id="outline-container-orgb9cfe9d" class="outline-2">
+<h2 id="orgb9cfe9d"><span class="section-number-2">4</span> Total Torque on a System</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 We first have, still, the expression for any point mass in the system:
@@ -497,8 +501,8 @@ Hence, all internal forces cancel out on the right hand side of the summation. U
 </div>
 </div>
 
-<div id="outline-container-org0922fae" class="outline-2">
-<h2 id="org0922fae"><span class="section-number-2">5</span> Net Torque Equals Change of Angular Momentum</h2>
+<div id="outline-container-org0170b62" class="outline-2">
+<h2 id="org0170b62"><span class="section-number-2">5</span> Net Torque Equals Change of Angular Momentum</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Recall the previous two conclusions:
@@ -542,31 +546,23 @@ The net torque on the system is the first derivative of the angular momentum. Th
 </div>
 </div>
 
-<div id="outline-container-org2c117cb" class="outline-2">
-<h2 id="org2c117cb"><span class="section-number-2">6</span> Angular Momentum on a Spinning Rigid Body</h2>
+<div id="outline-container-orgdc672b5" class="outline-2">
+<h2 id="orgdc672b5"><span class="section-number-2">6</span> Angular Momentum on a Spinning Rigid Body</h2>
 <div class="outline-text-2" id="text-6">
 <p>
-If, given the object's axial symmetry about the axis of rotation, we have that:
+We begin by working in the axis parallel to the axis of rotation:
 </p>
 
 \begin{equation}
-   I = \sum_i m_i {l_i}^2 
+   I = \sum_i m_i {l_i'}^2 
 \end{equation}
 
 <p>
-In the language of the prime reference frame, about \(r\), we have that:
+Definitionally, angular velocity is the vector measuring the pace at which the lever arm is moving towards the tangential direction. \(\vec{l}\) and \(\vec{v}\) are therefore perpendicular to teach other. We hence have that:
 </p>
 
 \begin{equation}
-   I_{CM'} = \sum_i m_i {r_i'}^2
-\end{equation}
-
-<p>
-Definitionally, angular velocity is the vector measuring the pace at which the lever arm is moving towards the tangential direction. Therefore, we have that:
-</p>
-
-\begin{equation}
-   \vec{\omega} = \frac{v\ sin{\theta}}{r} = \frac{\vec{r} \times \vec{v}}{r^2}
+   \vec{\omega} = \frac{v}{l} = \frac{v}{l}\cdot\frac{l}{l} =  \frac{\vec{l} \times \vec{v}}{r^2}
 \end{equation}
 
 <p>
@@ -578,9 +574,9 @@ Applying this to the right of the above expression, then:
 </p>
 
 \begin{align}
-   I_{CM} \vec{\omega}' &= \sum_i m_i {r_i}'^2 \\
-&= \sum_i m_i {r_i}'^2\ \frac{\vec{r_i}' \times \vec{v_i}'}{{r_i}'^2}\\
-&= \sum_i \vec{r}_i' \times m_i \vec{v_i}'
+   I_{CM} \vec{\omega}' &= \sum_i m_i {l_i}'^2 \\
+&= \sum_i m_i {l_i}'^2\ \frac{\vec{l_i}' \times \vec{v_i}'}{{l_i}'^2}\\
+&= \sum_i \vec{l}_i' \times m_i \vec{v_i}'
 \end{align}
 
 <p>
@@ -588,7 +584,7 @@ We will now take the expression for angular momentum in the prime reference fram
 </p>
 
 \begin{equation}
-   \vec{L}' = \vec{r}'_i \times m\vec{v_i}'
+   \vec{L}' = \vec{l}'_i \times m\vec{v_i}'
 \end{equation}
 
 <p>
@@ -596,7 +592,7 @@ If we sum the expression on along all \(i\):
 </p>
 
 \begin{equation}
-   \vec{L'} = \sum_i \vec{r}'_i \times m\vec{v_i}'
+   \vec{L'} = \sum_i \vec{l}'_i \times m\vec{v_i}'
 \end{equation}
 
 <p>
@@ -609,8 +605,8 @@ As the two expressions are equal, we have that:
 </div>
 </div>
 
-<div id="outline-container-org26f146a" class="outline-2">
-<h2 id="org26f146a"><span class="section-number-2">7</span> Net Torque on a Spinning Rigid Body</h2>
+<div id="outline-container-orgbc1e8e7" class="outline-2">
+<h2 id="orgbc1e8e7"><span class="section-number-2">7</span> Net Torque on a Spinning Rigid Body</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 From the previous theorem, we have an expression of equality:

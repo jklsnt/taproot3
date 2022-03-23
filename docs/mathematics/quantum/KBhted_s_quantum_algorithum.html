@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-19 Sat 00:05 -->
+<!-- 2022-03-22 Tue 09:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ted's Quantum Algorithm</title>
@@ -263,14 +263,14 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Ted's Quantum Algorithm</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-19 Sat 00:05</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Ted's Quantum Algorithm</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-22 Tue 09:20</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org321bb47">1. Check matrix size</a></li>
-<li><a href="#org8be641c">2. Check eigenvalues</a></li>
-<li><a href="#org37f0ef6">3. The Algorithm</a></li>
+<li><a href="#org6dde352">1. Check matrix size</a></li>
+<li><a href="#org7509363">2. Check eigenvalues</a></li>
+<li><a href="#orgae51dfe">3. The Algorithm</a></li>
 </ul>
 </div></div>
 </div>
@@ -319,8 +319,8 @@ gates = [G1, G2, G3, G4, G5, G6, G7, G8, G9, G10, G11, G12]
 </pre>
 </div>
 
-<div id="outline-container-org321bb47" class="outline-2">
-<h2 id="org321bb47"><span class="section-number-2">1</span> Check matrix size</h2>
+<div id="outline-container-org6dde352" class="outline-2">
+<h2 id="org6dde352"><span class="section-number-2">1</span> Check matrix size</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In order to do this, we check the size of every single matrix (both rows and columns), and ensure they all agree to being 256.
@@ -346,8 +346,8 @@ We can see that they all agree to being 256.
 </div>
 </div>
 
-<div id="outline-container-org8be641c" class="outline-2">
-<h2 id="org8be641c"><span class="section-number-2">2</span> Check eigenvalues</h2>
+<div id="outline-container-org7509363" class="outline-2">
+<h2 id="org7509363"><span class="section-number-2">2</span> Check eigenvalues</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We now find the eigenvalues of the matrices in the gates.
@@ -362,6 +362,7 @@ eigens = [set(i) for i in eigens]
 # and check that they are all -1 and and 1
 is_one_negone = [i == set([1,-1]) for i in eigens]
 assert sum(is_one_negone) == len(is_one_negone), "not all true"
+# eigens
 </pre>
 </div>
 
@@ -371,15 +372,15 @@ We can see that all eignenvalues of the matricies are both one and negative one.
 </div>
 </div>
 
-<div id="outline-container-org37f0ef6" class="outline-2">
-<h2 id="org37f0ef6"><span class="section-number-2">3</span> The Algorithm</h2>
+<div id="outline-container-orgae51dfe" class="outline-2">
+<h2 id="orgae51dfe"><span class="section-number-2">3</span> The Algorithm</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 We now define \(M\):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sage">M = G12*G5*G3*G12*G11*G4*G10*G9*G2*G3*G8*G7*G6*G1
+<pre class="src src-sage">M = G1*G6*G7*G8*G3*G2*G9*G10*G4*G11*G12*G3*G5*G12
 </pre>
 </div>
 
@@ -437,7 +438,8 @@ output_solutions = s1.tensor_product(s2).tensor_product(s3).tensor_product(s4).t
 
 exprs = [i[0] == j[0] for i,j in zip(output_conjoined, output_solutions)]
 
-solution = solve(exprs, [x10, x11, x20, x21, x30, x31, x40, x41, x50, x51, x60, x61, x70, x71, x80, x81], algorithm="scipy")
+# solution = solve(exprs, [x10, x11, x20, x21, x30, x31, x40, x41, x50, x51, x60, x61, x70, x71, x80, x81], algorithm="scipy")
+exprs
 </pre>
 </div>
 </div>

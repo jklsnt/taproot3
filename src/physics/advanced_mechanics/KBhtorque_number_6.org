@@ -131,32 +131,50 @@ Performing the same idea upon the force of friction, though it is exactly perpen
 &= RF_f(-\hat{z})
 \end{align}
 
-The total $\vec{\tau}_{net}$, therefore, is simply the difference between these two torques:
+The net force on the center of mass, as per derived above, is:
 
 \begin{equation}
-   \vec{\tau}_{net} = R(M_0g\sin(\theta) - F_f)  
+   F_{net_{rx}} = gM_0 \sin\theta - F_f 
 \end{equation}
 
+At the point indicated, we form another right triangle with hypotenuse $b$. The lever arm of the rotation of the center of cylinder is, therefore, the sum of $R$ plus the side length of the triangle facing $\theta$. Meaning: $R = b\sin\theta + R$.
+
+The total $\vec{\tau}_{net}$, therefore, is simply the difference between these two torques:
+
+\begin{align}
+   \vec{\tau}_{net} &= R(M_0g\sin(\theta) - F_f) + (b\ sin\theta+R)(M_0g\sin(\theta) - F_f)\\
+&=(2R+b\ sin\theta) (M_0g\sin(\theta) - F_f)
+\end{align}
+
 * Derivative of Angular Momentum
+We will work in the prime reference frame entirely first.
+
 We understand that:
 
 \begin{equation}
-   \vec{L} = I_{CM}\vec{\omega} 
+   \vec{L}' = I_{CM}\vec{\omega}'
+\end{equation}
+
+Furthermore, we see from previous derivations that:
+
+\begin{align}
+   \vec{L}_{sys} &= \vec{R} \times M \vec{v}_{cm} + \vec{L}'\\
+&= \vec{R} \times M \vec{v}_{cm} + I_{CM}\vec{\omega}'
+\end{align}
+
+At the point indicated, we form another right triangle with hypotenuse $b$. The lever arm of the rotation of the center of cylinder is, therefore, the sum of $R$ plus the side length of the triangle facing $\theta$. Meaning: $R = b\sin\theta + R$.
+
+The direction of the center of mass' velocity is down the ramp, forming exactly a $90^\circ$ angle with the lever arm. Hence, this renders:
+
+\begin{equation}
+   \vec{L}_{sys} = (b\ sin\theta +R) M_0v_{cm} + I_{CM} \omega'
 \end{equation}
 
 Therefore, taking the first derivative, we see that:
 
 \begin{equation}
-   \frac{d\vec{L}}{dt} = I_{CM}\vec{\alpha} 
+   \frac{d\vec{L}'}{dt} = \vec{\tau}'_{net} = (b\ sin\theta +R)M_0 a_{CM} + I_{CM}\alpha' 
 \end{equation}
-
-Substituting our known values, then:
-
-\begin{equation}
-   \frac{d\vec{L}}{dt} = I_{0}\vec{\alpha} 
-\end{equation}
-
-# .... that's it?
 
 * Torque and Rest is Equal to Derivative of Angular Momentum
 To set up this equality, we will have to make a few substitutions.
@@ -164,19 +182,19 @@ To set up this equality, we will have to make a few substitutions.
 First, we understand that:
 
 \begin{equation}
-   \frac{d\vec{L}}{dt} = I_{0}\vec{\alpha} 
+   \frac{d\vec{L}}{dt} = RM_0 a_{CM} + I_{CM}\alpha' 
 \end{equation}
 
-Recall that the angular inertia of a thin disk is:
+Recall that the angular inertia of an object about its center axis is:
 
 \begin{equation}
-   I = \frac{1}{2}MR^2 
+   I = MR^2 
 \end{equation}
 
 Setting the variables for our situation, we have:
 
 \begin{equation}
-   I_0 = \frac{1}{2}M_0R^2 
+   I_0 = M_0R^2 
 \end{equation}
 
 From previous derivation, we have that:
@@ -185,16 +203,31 @@ From previous derivation, we have that:
     \alpha = \frac{a_{rx}}{R}
 \end{equation}
 
+and that:
+
+\begin{equation}
+     a_{rx} = \frac{gM_0 \sin\theta - F_f}{M_0}
+\end{equation}
+
 Substituting in the previously-derived expression for $a_{rx}$, we have:
 
 \begin{equation}
     \alpha = \frac{gM_0 \sin\theta - F_f}{M_0R}
 \end{equation}
 
-Multiplying $I_0$ and $\alpha$ together, we have:
+Substituting the above-derived expressions here into the expression:
 
 \begin{align}
-   I_0 \alpha &= \left(\frac{1}{2}M_0R^2 \right)\left(\frac{gM_0 \sin\theta - F_f}{M_0R}\right)\\
-&= \frac{R}{2}\left(M_0g \sin\theta - F_f\right)
+   \frac{d\vec{L}}{dt} &= I_{CM}\alpha' + (b\ sin\theta + R)M_0 a_{CM}\\
+&=\left(M_0R^2 \right)\left(\frac{gM_0 \sin\theta - F_f}{M_0R}\right)+\left((b\ sin\theta + R)M_0 \frac{gM_0 \sin\theta - F_f}{M_0}\right)\\
+&=\left(M_0R^2 \right)\left(\frac{gM_0 \sin\theta - F_f}{M_0R}\right)+(b\ sin\theta + R)\left(gM_0 \sin\theta - F_f\right)\\
+&= R\left(M_0g \sin\theta - F_f\right) + (b\ sin\theta + R)\left(M_0 g\sin\theta - F_f\right)\\
+&= (2R+b\ sin\theta)\left(M_0g \sin\theta - F_f\right) 
 \end{align}
 
+Finally, we found that:
+
+\begin{align}
+    (2R+b\ sin\theta)\left(M_0g \sin\theta - F_f\right)&=(2R+b\ sin\theta)\left(M_0g \sin\theta - F_f\right)\\
+\frac{d\vec{L}}{dt} &= \vec{\tau}_{net}\ \blacksquare
+\end{align}

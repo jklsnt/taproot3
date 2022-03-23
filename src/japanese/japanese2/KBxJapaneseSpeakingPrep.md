@@ -134,8 +134,49 @@ dona tabemono ga ichiban suki desuka? // what is your favorite food?
 
 
 
+## pt 2!
+-   Places where you recommend. (Restaurants, shopping places, sightseeing places. Explain what people can do there and why you recommend it)
+
+favorite resturant, shalimar
 
 
+- 
+- i recommend ~
+	- ~をすすめます。
+
+- my favorite resturant is shalimar
+	- わたしは一ばんすきなresturantは shalimar です。
+
+- shalimar is an indian resturant
+	- shalimar は　indo　りょうりのresturant です。
+
+- it is very delicious and it's very spicy
+	- とてもおいしいです、そして　とても　からいです。
+	
+- do you like spicy food?
+	- からいものがすきですか？
+
+- do you like indian food?
+	- indo りょうりがすきですか？
+
+- my favorite dish is the tandoori chicken 
+	- 一ばんすきなりょうりは　tandoori chicken です。
+
+- i recomend the tandoori chicken
+	- tandoori chicken をすすめます。
+
+
+- what is you favorite resturant?
+	- ーばんすきな resturantは なんですか？
+
+- what kind of food?
+	- どんなりょうりですか？
+
+- where is it?
+	- どこ　ですか？
+
+- it's not expensive
+	- たかくないんです。
 
 
 
