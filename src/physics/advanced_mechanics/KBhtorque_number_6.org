@@ -85,35 +85,16 @@ Supplying the actual numerical values, we get that:
 The object, therefore, slides down the ramp at a linear acceleration of 2.9 metres a second squared.
 
 * Angular Acceleration
-To figure the angular acceleration we see that:
+To figure the angular acceleration we see that, based on what previously was derived:
 
 \begin{equation}
-   a = r\alpha 
+   \vec{\tau}'_{net} = I_{CM} \vec{\alpha}' 
 \end{equation}
 
-that is, given $\alpha$ is a value measured in radians per second squared, multiplying by $r$ would be the acceleration over some distance traveled (just like how $r\theta$ is the circumference.)
+We will therefore need to figure first the net torque on the system, and divide it by the rotational inertia about the center of mass.
 
-Therefore:
+To figure the net torque on the object about the center of mass, we first define a coordinate frame and add all forces.
 
-\begin{align}
-   &a_{rx} = R\alpha \\
-\Rightarrow\ &\alpha = \frac{a_{rx}}{R}
-\end{align}
-
-Supplying the numerical values:
-
-\begin{equation}
-   \alpha = 5.8 \frac{rad}{s^2} 
-\end{equation}
-
-The object, therefore, has an angular acceleration of 5.8 radians per second squared.
-
-* Coefficient of Friction
-The coefficient of friction is static as the object, while its rolling down the ramp, never actually maintains content and slide the ramp. This results in no "sliding" motion of the object, and hence no kinetic friction.
-
-Every time the object contacts the surface, it is "lifted" and replaced with the next segment of the circumference. This is also why the actual coefficient of friction is given as an inequality as static friction is derived as an inequality.
-
-* Torque at Rest
 We will define a system $z$ such that "out of the page" is $+z$ and "into the page" is $-z$.
 
 The torque on a rigid body exerted by gravity is equivalent to that obtained by exerting all of gravity force on the CoM. Therefore, all of $F_g =M_0g$ is exerted at an angle $\theta$ tangent to the point of contact by the circle. The circle has additionally radius $R$; therefore:
@@ -131,6 +112,50 @@ Performing the same idea upon the force of friction, though it is exactly perpen
 &= RF_f(-\hat{z})
 \end{align}
 
+The total $\vec{\tau}'_{net}$, therefore, is simply the difference between these two torques:
+
+\begin{equation}
+   \vec{\tau}'_{net} =  RM_0g \sin(\theta)- RF_f
+\end{equation}
+
+We understand from before that:
+
+\begin{equation}
+   \vec{\tau}'_{net} = I_{0} \vec{\alpha}' 
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+   \vec{\alpha}' = \frac{RM_0g \sin(\theta)- RF_f}{I_0} 
+\end{equation}
+
+Supplying the actual constants into the expression:
+
+\begin{align}
+   \vec{\alpha}' &= \frac{RM_0g \sin(\theta)- RF_f}{I_0}\\
+&= 7.25 \frac{rad}{s^2}
+\end{align}
+
+* Coefficient of Friction
+The question that the coefficient of friction is asking is whether or not the object slides. If it does indeed slide, the acceleration calculated with torque should be higher than that calculated by simply dividing radius out of the acceleration (as $r\theta$ is the circumference.)
+
+\begin{align}
+   &a = r\alpha \\
+   \Rightarrow\ &\alpha = \frac{a_{rx}}{R} 
+\end{align}
+
+Supplying the numerical values:
+
+\begin{equation}
+   \alpha = 5.8 \frac{rad}{s^2} 
+\end{equation}
+
+Under no slipping, therefore, the object has an angular acceleration of 5.8 radians per second squared.
+
+This value is evidently smaller than the $7.25$ derived above, meaning that the object does indeed rotate and slip along the ramp. Hence, the coefficient of friction derived above would be a kinetic one.
+
+* Torque at Rest
 The net force on the center of mass, as per derived above, is:
 
 \begin{equation}
@@ -139,7 +164,6 @@ The net force on the center of mass, as per derived above, is:
 
 At the point indicated, we form another right triangle with hypotenuse $b$. The lever arm of the rotation of the center of cylinder is, therefore, the sum of $R$ plus the side length of the triangle facing $\theta$. Meaning: $R = b\sin\theta + R$.
 
-The total $\vec{\tau}_{net}$, therefore, is simply the difference between these two torques:
 
 \begin{align}
    \vec{\tau}_{net} &= R(M_0g\sin(\theta) - F_f) + (b\ sin\theta+R)(M_0g\sin(\theta) - F_f)\\
@@ -185,16 +209,17 @@ First, we understand that:
    \frac{d\vec{L}}{dt} = RM_0 a_{CM} + I_{CM}\alpha' 
 \end{equation}
 
-Recall that the angular inertia of an object about its center axis is:
+Recall that, given what we derived before, we have that:
 
-\begin{equation}
-   I = MR^2 
-\end{equation}
+\begin{align}
+   &\vec{\tau}'_{net} = I_{CM} \vec{\alpha}'\\
+\Rightarrow\ & I_{CM} = \frac{\vec{\tau}'_{net}}{\vec{\alpha}'}
+\end{align}
 
 Setting the variables for our situation, we have:
 
 \begin{equation}
-   I_0 = M_0R^2 
+   I_{CM}a' = \vec{\tau}_{net} = R(M_0g\sin(\theta) - F_f)
 \end{equation}
 
 From previous derivation, we have that:
@@ -219,9 +244,9 @@ Substituting the above-derived expressions here into the expression:
 
 \begin{align}
    \frac{d\vec{L}}{dt} &= I_{CM}\alpha' + (b\ sin\theta + R)M_0 a_{CM}\\
-&=\left(M_0R^2 \right)\left(\frac{gM_0 \sin\theta - F_f}{M_0R}\right)+\left((b\ sin\theta + R)M_0 \frac{gM_0 \sin\theta - F_f}{M_0}\right)\\
-&=\left(M_0R^2 \right)\left(\frac{gM_0 \sin\theta - F_f}{M_0R}\right)+(b\ sin\theta + R)\left(gM_0 \sin\theta - F_f\right)\\
-&= R\left(M_0g \sin\theta - F_f\right) + (b\ sin\theta + R)\left(M_0 g\sin\theta - F_f\right)\\
+&=R(M_0g\sin(\theta) - F_f)+\left((b\ sin\theta + R)M_0 \frac{gM_0 \sin\theta - F_f}{M_0}\right)\\
+&=R(M_0g\sin(\theta) - F_f)+(b\ sin\theta + R)\left(gM_0 \sin\theta - F_f\right)\\
+&= R(M_0g\sin(\theta) - F_f) + (b\ sin\theta + R)\left(M_0 g\sin\theta - F_f\right)\\
 &= (2R+b\ sin\theta)\left(M_0g \sin\theta - F_f\right) 
 \end{align}
 

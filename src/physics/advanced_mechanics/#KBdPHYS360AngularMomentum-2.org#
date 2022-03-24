@@ -66,6 +66,50 @@ We can add the two to get the aggregate angular momentum of the system:
 ** a)
 $\vec{L}_{N} &= \sum_{i=1}^{N} m_{i}l_{i}^2 \cdot \omega\hat{k}$
 ** b)
-$\vec{L} &= \int_{V} l^2 (M/V) \,dV \cdot \omega\hat{k}$
+$\vec{L} &= \int_{V} l^2 (M/V_{0}) \,dV \cdot \omega\hat{k}$
+First, because we know that the object is axially symmetric, the $\hat{i}$ and $\hat{j}$ components of the torque addition will be eliminated by the negative values for those components of the symmetric counterpart, so we will only be left with a $\hat{k}$ component.
+Given this, we can express the angular momentum as an integral over the volume.
+WIP
 
 * 4)
+We can represent the angular momentum of the two points distance $l$ away from the origin as a function of $l$:
+\begin{aligned}
+\vec{v}_{1} &= -\vec{v}_{2} \\
+\vec{l}_{1} &= -\vec{l}_{2} \\
+\vec{L}(r) &= \vec{r}_{1}\times m\vec{v}_{1} + vec{r}_{2}\times m\vec{v}_{1} \\
+&= \vec{r}\times m\vec{v} - \vec{r}\times -m\vec{v} \\
+\\
+\vec{r} &= r\hat{i} \\
+\vec{v} &= L\omega\hat{j} \\
+m &= \frac{M}{L} \\
+\\
+\vec{L}(r) &= r\hat{i}\times M\omega\hat{j} + (-r\hat{i}\times -M\omega\hat{j}) \\
+&= 2rM\omega\hat{k} \\
+\end{aligned}
+
+Now that we have a function of the angular velocity in terms of the distance from the center, we can integrate. Keep in mind that we will integrate from $0$ to $\frac{L}{2}$, because our angular velocity function is the sum of the two point masses that are $r$ away from the center.
+
+\begin{aligned}
+\vec{L} &= \int_{0}^{\frac{L}{2}} \vec{L}(r) dr \\
+&= \int_{0}^{\frac{L}{2}} 2rM\omega\hat{k} dr \\
+&= [r^2M\omega\hat{k}]^{\frac{L}{2}}_{0} \\
+&= \frac{L^2}{4}M\omega\hat{k} \\
+\end{aligned}
+
+* 5)
+Similarly to problem 4, we will create a function $\vec{L}(\theta)$ that represents the angular momentum of a diameter slice. This will rely on a $\vec{L}(r)$ function defined similarly to problem 4:
+
+\begin{aligned}
+\vec{L}(r) &= 2r\frac{M}{\pi R^2}\omega\hat{k} \\
+\vec{L}(\theta) &= \int_{0}^{R} \vec{L}(r) \,dr \\
+&= \int_{0}^{R} 2r\frac{M}{\pi R^2}\omega\hat{k} \,dr \\
+&= [r^2\frac{M}{\pi R^2}\omega\hat{k}]^{R}_{0} \\
+&= \frac{M}{\pi}\omega\hat{k} \\
+\end{aligned}
+
+Now we can integrate the polar function. When integrating a polar function, we must integrate the function $\frac{f(\theta)^2}{2}$ instead. (Note that we integrate up to $\pi$ instead of $2\pi$ because we include the angular momentum of the symmetric counterpart in the calculation for $\vec{L}(\theta)$)
+
+\begin{aligned}
+\vec{L} &= \int_{0}^{\pi} \frac{\vec{L}(\theta)^2}{2} \,d\theta \\
+&= \int_{0}^{\pi} \frac{M^2\omega^2}{2\pi^2}\hat{k} \,d\theta \\
+\end{aligned}
