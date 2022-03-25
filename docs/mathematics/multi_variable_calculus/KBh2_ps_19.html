@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-03-24 Thu 22:56 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MIC 2 PS#19</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MIC 2 PS#19</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-24 Thu 22:55</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhHomeworkIndex.html'>MVC Homework Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org9af498b">1. Basic Information</a></li>
+<li><a href="#orgac87195">2. Nuclear Disaster + Re-Vectoring</a></li>
+<li><a href="#org4d46a53">3. Total Radiation</a>
+<ul>
+<li><a href="#org63a926a">3.1. After Re-Vectoring</a></li>
+<li><a href="#orgd05da82">3.2. Before Re-Vectoring</a></li>
+<li><a href="#orgd276b17">3.3. Will you die?</a></li>
+<li><a href="#org3e551b3">3.4. Post-mortem</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<p>
+Let's first plot the path of your flight over time, to see what you are at in any given time. 
+</p>
+
+\begin{equation}
+   \vec{p}(t\ minutes) = \begin{bmatrix}
+5\ \cos(\frac{\pi}{10}t)\\
+7\ \sin(\frac{\pi}{10}t)\\
+-\frac{1}{60}t + 1
+\end{bmatrix}\ miles
+\end{equation}
+
+<p>
+We will define three functions each in \(t\) representing each parameter.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">f_x(t) = 5*cos((pi/10)*t) 
+f_y(t) = 7*sin((pi/10)*t) 
+f_z(t) = -(1/60)*t + 1
+
+parametric_plot3d((f_x, f_y, f_z), (t, 0, 60), thickness=4)
+</pre>
+</div>
+
+
+
+<div id="orga4acca4" class="figure">
+<p><img src="2022-03-24_09-09-49_screenshot.png" alt="2022-03-24_09-09-49_screenshot.png" />
+</p>
+</div>
+
+<div id="outline-container-org9af498b" class="outline-2">
+<h2 id="org9af498b"><span class="section-number-2">1</span> Basic Information</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+We go from \(t=[0,60]\) as at \(t=60\) the \(z\) axis would be $0$&#x2014;rendering you at the ground.
+</p>
+
+<p>
+The plane makes three full rotations through its descend into the ground; and, it took \(60\) seconds for it to fully descend. Hence, it would take \(\frac{60}{3} = 20\) seconds for each of the rotations.
+</p>
+
+<p>
+Furthermore, we descended from \(1\) mile into the air until being on the ground. This renders us descending \(\frac{1}{3}\) of a mile at each of the loops.
+</p>
+
+<p>
+To figure the speed of the descend, we will need to figure the magnitude of the gradient at each of the points.
+</p>
+
+\begin{align}
+   f_x(t)' &= -\sin\left(\frac{\pi}{10}t\right)\frac{\pi}{2}\\
+   f_y(t)' &= \cos\left(\frac{\pi}{10}t\right)\frac{7\pi}{10}\\
+   f_z(t)' &= -\frac{1}{60}
+\end{align}
+
+<p>
+Therefore, the speed at which you go at can be represented as the magnitude of the above derivative vector:
+</p>
+
+\begin{equation}
+   \sqrt{\left(\sin^2\left(\frac{\pi}{10}t\right) \frac{\pi^2}{4}\right)+\left(\sin^2\left(\frac{\pi}{10}t\right) \frac{49\pi^2}{100}\right)+\left(\frac{1}{3600}\right)}\ (miles\ per\ minute)
+\end{equation}
+
+<p>
+Ok, now that we know where we are supposed to be going, we will move forward towards the nuclear disaster. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgac87195" class="outline-2">
+<h2 id="orgac87195"><span class="section-number-2">2</span> Nuclear Disaster + Re-Vectoring</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Let's figure first the actual direction vector at which you are going. We know that you performed the maneuver at 528 feet in the air. We can now solve for a \(t\) which would make this take place:
+</p>
+
+\begin{align}
+   &-\frac{1}{60}t +1 = 0.1 \\
+&-\frac{1}{60}t = -0.9 \\
+&\frac{1}{60}t = 0.9 \\
+&t = 54 
+\end{align}
+
+<p>
+Supplying the value of \(t\) into the gradient as determined above, we can see that you are going at, without the maneuver:
+</p>
+
+\begin{equation}
+   \begin{bmatrix}
+-\sin\left(5.4\pi \right)\frac{\pi}{2}\\
+ \cos\left(5.4\pi \right)\frac{7\pi}{10}\\
+ -\frac{1}{60}
+\end{bmatrix}
+\end{equation}
+
+<p>
+The vector of the groundspeed is noted by:
+</p>
+
+\begin{equation}
+   \begin{bmatrix}
+-\sin\left(5.4\pi \right)\frac{\pi}{2}\\
+ \cos\left(5.4\pi \right)\frac{7\pi}{10}
+\end{bmatrix}
+\end{equation}
+
+<p>
+Normalizing, we have that:
+</p>
+
+\begin{equation}
+   \begin{bmatrix}
+\frac{-\sin\left(5.4\pi \right)\frac{\pi}{2}}{\sqrt{(\sin\left(5.4\pi \right)\frac{\pi}{2})^2+(\cos\left(5.4\pi \right)\frac{7\pi}{10})^2}}\\
+\frac{\cos\left(5.4\pi \right)\frac{7\pi}{10}}{\sqrt{(\sin\left(5.4\pi \right)\frac{\pi}{2})^2+(\cos\left(5.4\pi \right)\frac{7\pi}{10})^2}}
+\end{bmatrix}
+\end{equation}
+
+<p>
+We know that the max groundspeed of the plane should be \(200mph = \frac{200}{3}\frac{miles}{minute}\). Multiplying the vector by that scalar, we have:
+</p>
+
+\begin{equation}
+   \begin{bmatrix}
+\frac{-200\sin\left(5.4\pi \right)\frac{\pi}{2}}{3\sqrt{(\sin\left(5.4\pi \right)\frac{\pi}{2})^2+(\cos\left(5.4\pi \right)\frac{7\pi}{10})^2}}\\
+\frac{200\cos\left(5.4\pi \right)\frac{7\pi}{10}}{3\sqrt{(\sin\left(5.4\pi \right)\frac{\pi}{2})^2+(\cos\left(5.4\pi \right)\frac{7\pi}{10})^2}}
+\end{bmatrix}
+\end{equation}
+
+<p>
+Solving for the numerical values:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">float((-200*sin(5.4*pi)*(pi/2))/(3*sqrt((sin(5.4*pi)*(pi/2))^2+(cos(5.4*pi)*(7*pi/10))^2)))
+float((200*cos(5.4*pi)*(7*pi/10))/(3*sqrt((sin(5.4*pi)*(pi/2))^2+(cos(5.4*pi)*(7*pi/10))^2)))
+</pre>
+</div>
+
+<p>
+Therefore:
+</p>
+
+\begin{equation}
+   \begin{bmatrix}
+60.68 \\
+-27.6
+\end{bmatrix}
+\end{equation}
+
+<p>
+is the direction of lateral movement.
+</p>
+
+<p>
+The speed of rise is 4 metres a second. The rate of rise is, after conversion:
+</p>
+
+\begin{equation}
+    \frac{4\ meters}{1\ sec}\frac{60\ sec}{1\ min}\frac{1\ mile}{1609.34\ meters} = 0.149\ miles\ per\ minute
+\end{equation}
+
+<p>
+Hence, the taking the actual velocity vector:
+</p>
+
+\begin{equation}
+   \begin{bmatrix}
+60.68 \\
+-27.6\\
+0.149
+\end{bmatrix}
+\end{equation}
+
+<p>
+We will normalize this vector to figure the direction towards which we are going; we first find the magnitude of this vector:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">sqrt(60.68^2 + 27.6^2 + 0.149^2)
+</pre>
+</div>
+
+<p>
+Furthermore, you are going at \(66.66\) miles per minute, as per the normalization above. Now, dividing each of the values by the normalization: 
+</p>
+
+\begin{equation}
+   \begin{bmatrix}
+0.91\\
+-0.414\\
+0.0022
+\end{bmatrix}
+\end{equation}
+
+<p>
+This is the direction vector at which you are going. We can also cast it to a navigational heading:
+</p>
+
+\begin{equation}
+   \begin{bmatrix}
+0.91\\
+-0.414
+\end{bmatrix}
+\end{equation}
+
+<p>
+We can now solve the angle between the incline and the direction: To figure the degree of incline, we take the arccos of the dot product:
+</p>
+
+\begin{align}
+   \begin{bmatrix}
+0.91\\
+-0.414\\
+0
+\end{bmatrix} \cdot  \begin{bmatrix}
+0.91\\
+-0.414\\
+0.0022
+\end{bmatrix} &= 1.242\ cos(\theta)\\
+0.999496 &= 1.242\ cos(\theta)\\
+0.8047 &= cos(\theta)\\
+\theta &= 36.41^{\circ}
+\end{align}
+
+<p>
+This is unfortunately not the direction we should be going in. We are currently at \(t=54\), this renders our location to be:
+</p>
+
+\begin{equation}
+   \begin{bmatrix}
+5\ \cos(\pi 5.4)\\
+7\ \sin(\pi 5.4)\\
+0.1
+\end{bmatrix}
+\end{equation}
+
+<p>
+We will take now the gradient of the function:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">r(x,y,z) = 1/(x^2+y^2+z^2)
+r.diff()
+</pre>
+</div>
+
+\begin{equation}
+\nabla r(x,y,z) = \begin{bmatrix}-\frac{2 \, x}{{\left(x^{2} + y^{2} + z^{2}\right)}^{2}}\\
+\,-\frac{2 \, y}{{\left(x^{2} + y^{2} + z^{2}\right)}^{2}}\\
+\,-\frac{2 \, z}{{\left(x^{2} + y^{2} + z^{2}\right)}^{2}}\end{bmatrix}
+\end{equation}
+
+<p>
+Supplying the location at the point into the gradient function and normalizing by the magnitude to create the direction vector:
+</p>
+
+\begin{equation}
+\frac{\nabla r(t=54)}{||\nabla r(t=54)||} = \begin{bmatrix}
+0.226\\
+0.974\\
+-0.0146
+\end{bmatrix}
+\end{equation}
+
+<p>
+To be able to descend towards the lowest level of radiation, we wish to go in the <i>opposite</i> direction as that which described by the vector above.
+</p>
+
+<p>
+Hence, you should probably be going in
+</p>
+
+\begin{equation}
+\begin{bmatrix}
+-0.226\\
+-0.974\\
+0.0146
+\end{bmatrix}
+\end{equation}
+
+<p>
+to avoid radiation.
+</p>
+
+<p>
+Side-note: "vectoring" is the process in aviation-lingo to orient the flight. Hence, if ATC assigns a new flight path, it is called "re-vectoring" a flight. Hence, we did indeed come up with a new vector and "re-vectored" the 172. I suppose that's why they use the term.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4d46a53" class="outline-2">
+<h2 id="org4d46a53"><span class="section-number-2">3</span> Total Radiation</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+To figure the total radiation over the journey, we have to take the parameterization of radiation from \(t=-\infty\ \to 54\) along the original descend curve, then again from \(t=54 \to \infty\) along the new, linear path.
+</p>
+</div>
+
+<div id="outline-container-org63a926a" class="outline-3">
+<h3 id="org63a926a"><span class="section-number-3">3.1</span> After Re-Vectoring</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+We note that, from before, the speed and direction at which we are going at after re-vectorization is:
+</p>
+
+\begin{equation}
+\begin{bmatrix}
+    -0.0014\\
+-0.0061\\
+9.163 \times 10^{-5}
+\end{bmatrix}
+\end{equation}
+
+<p>
+Adding our start location, and converting the expression into a linear one for location \(t\):
+</p>
+
+\begin{equation}
+   \begin{bmatrix}
+5\ \cos(\pi 5.4) -0.0014t\\
+7\ \sin(\pi 5.4)-0.0061t\\
+0.1+9.163 \times 10^{-5}t
+\end{bmatrix}
+\end{equation}
+
+<p>
+Performing the actual parameterization, then:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">t = var("t")
+change = sqrt(((5*cos(pi*5.4) - 0.0014*t).diff(t))^2 + ((7*sin(pi*5.4) - 0.0061*t).diff(t))^2 + ((0.1 + 3.163e-5 *t).diff(t))^2)
+func = r(5*cos(pi*5.4) - 0.0014*t, 7*sin(pi*5.4) - 0.0061*t, 0.1 + 3.163e-5 *t)
+</pre>
+</div>
+
+<p>
+And finally, we will integrate this function from \(54\) to \(+\infty\):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">(func*change).integral(t, 54, infinity)
+</pre>
+</div>
+
+<p>
+We can see, after our escape we only get about \(0.1394\) sivers of radiation even as we fly off into the sunset.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd05da82" class="outline-3">
+<h3 id="orgd05da82"><span class="section-number-3">3.2</span> Before Re-Vectoring</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Before re-vectoring, we are descending slowly towards the source of radiation.
+</p>
+
+<p>
+From before, we have:
+</p>
+
+\begin{equation}
+   \vec{p}(t\ minutes) = \begin{bmatrix}
+5\ \cos(\frac{\pi}{10}t)\\
+7\ \sin(\frac{\pi}{10}t)\\
+-\frac{1}{60}t + 1
+\end{bmatrix}\ miles
+\end{equation}
+
+<p>
+Converting these values into Sage expressions:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">f_x(t) = 5*cos((pi/10)*t) 
+f_y(t) = 7*sin((pi/10)*t) 
+f_z(t) = -(1/60)*t + 1
+</pre>
+</div>
+
+<p>
+We will again perform the parameterization with these values:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">t = var("t")
+change = sqrt((f_x(t).diff(t))^2+(f_y(t).diff(t))^2+(f_z(t).diff(t))^2)
+func = r(f_x(t), f_y(t), f_z(t))
+</pre>
+</div>
+
+
+<div id="orgd809479" class="figure">
+<p><img src="2022-03-24_22-32-20_screenshot.png" alt="2022-03-24_22-32-20_screenshot.png" />
+</p>
+</div>
+
+<p>
+Plotting the function of \(f\ \frac{df}{dt}\), we see that the function trends towards \(0\) as time becomes more negative&#x2014;which makes sense: you have higher radiation levels as you are closer to the airport.
+</p>
+
+<p>
+And, as before, we integrate from \(-\infty\) up to \(54\). However, Sage (nor Mathematica nor WolframAlpha) seem to be able to compute an exact value for the integral. Hence, we will instead take the Riemann Sum from a very large negative number to 54.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">monte_carlo_integral((func*change), [-10000], [54], 10000000)
+</pre>
+</div>
+
+<p>
+It seems like, with a \(2\%\) margin of uncertainty, we will receive about \(29.57\) siverts. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd276b17" class="outline-3">
+<h3 id="orgd276b17"><span class="section-number-3">3.3</span> Will you die?</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Adding the two components together, we are expected to receive lower than or equal to about \(29.60\) sieverts throughout the journey.
+</p>
+
+<p>
+This is equivalent to \(29600\) milisieverts (mSv), the standard unit for measuring radiation safety.
+</p>
+
+<p>
+To give some sense of how disastrously cancer-inducing it is, take the following reference values:
+</p>
+
+<ul class="org-ul">
+<li>Occupational safety limit: \(50\) mSv per year</li>
+<li>Public safety limit: \(1\) mSv per year</li>
+<li>L/D 50: \(5000\) mSv</li>
+</ul>
+
+<p>
+Given this information, you are much beyond the L/D 50 of ionizing radiation. Hence, you likely died.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3e551b3" class="outline-3">
+<h3 id="org3e551b3"><span class="section-number-3">3.4</span> Post-mortem</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+I feel like leaving the SSet on the "you died" note is not the most cheerful, so here's some food for thought. According to fandom, Dr. Bruce Banner received \(85\) siverts of radiation before becoming the Hulk. You would therefore likely not become the Hulk.
+</p>
+
+<p>
+However, there is a bright side. "Doctor Manhattan" of the DC comics had a real-life counterpart, <a href="https://en.wikipedia.org/wiki/Albert_Stevens">Albert Stevens</a>&#x2014;who, due to a misdiagnosis of terminal cancer&#x2014;involuntarily underwent a high-dose nucleation experiment in which he was injected with enough plutonium amounting to \(64\) siverts. 
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
