@@ -36,31 +36,33 @@ That: the position of the center of mass is simply the weighted average of all p
 * Big Mountain
 Given that the material that makes up Mount Fuji has uniform density, a unit volume will result in a unit mass in any given point. We will define a system where the origin is at the apex of the mountain, and where "downwards" is a positive direction.
 
+For this assignment, because that the big mountain has a uniform density, we will perform the integrations with unit density. Fortunately, the mass on each circular side is evenly distributed about the center, so density---as long as uniform---does not influence the result.
+
 Therefore, we can write the center of mass as follows:
 
 \begin{equation}
-   \vec{r_{CM}} = \frac{\int_0^{h_f} (\pi \tan(65^\circ)h)^2 h\ dh}{\int_0^{h_f} (\pi \tan(65^\circ)h)^2 dh} 
+   \vec{r_{CM}} = \frac{\int_0^{h_f} \pi (\tan(65^\circ)h)^2 h\ dh}{\int_0^{h_f} \pi (\tan(65^\circ)h)^2 dh} 
 \end{equation}
 
 Where, $(\pi \tan(65^\circ)h)^2$ is the "area" (i.e. mass) at any given slice, and $h$ (outside the expression) the $z$ position of the CoM (as we know the $x$ and $y$ coordinates are $(0,0)$ respectively), $h_f=3600$ the apex height.
  
 We will note that the constant components immediately cancel:
 
-\begin{equation}
-   \vec{r_{CM}} = \frac{\int_0^{h_f} (h^2 h = h^3)\ dh}{\int_0^{h_f} h^2 dh} 
-\end{equation}
+\begin{align}
+   \vec{r_{CM}} &= \frac{\int_0^{h_f} (h^2 h)\ dh}{\int_0^{h_f} h^2 dh} \\
+&= \frac{\int_0^{h_f} (h^3)\ dh}{\int_0^{h_f} h^2 dh} 
+\end{align}
 
 And, therefore, taking the integrals:
 
 \begin{align}
-   \vec{r_{CM}} &= \frac{\int_0^{h_f} (h^2 h = h^3)\ dh}{\int_0^{h_f} h^2 dh} \\
-&= \frac{\int_0^{h_f} h^3\ dh}{\int_0^{h_f} h^2 dh}\\
+   \vec{r_{CM}} &= \frac{\int_0^{h_f} h^3\ dh}{\int_0^{h_f} h^2 dh}\\
 &= \frac{\frac{h^4}{4} \rvert_0^{h_f}}{\frac{h^3}{3} \rvert_0^{h_f}}\\
 &= \frac{\frac{{h_f}^4}{4}}{\frac{{h_f}^3}{3}}\\
 &= \frac{3{h_f}}{4}
 \end{align}
 
-We can see that, from the apex, the center of mass will be $\frac{3}{4}$ of the apex height. Therefore, it will be located at $2700$ m from the apex, or $900$ m from the origin.
+We can see that, from the apex, the center of mass will be $\frac{3}{4}$ of the apex height. Therefore, it will be located at $2850$ m from the apex, or $950$ m from the origin.
 
 * Right Triangular Plate
 We again begin with the expression from first-principles of the center of mass of the object.
@@ -69,15 +71,20 @@ We again begin with the expression from first-principles of the center of mass o
 \vec{r_{CM}} = \frac{1}{M} \sum^n_{i=1} m_i \vec{r_i}
 \end{equation}
 
+
+By the shape having uniform density, and the fact than the area of an triangle is equal to $\frac{1}{2}bh$, we have that the mass density of the shape is $\frac{M}{\frac{hb}{2}} = \frac{2M}{hb}$.
+
+For every infinitesimal slice, therefore, we have:
+
+\begin{equation}
+   \frac{2}{hb} dm
+\end{equation}
+
 As per instructed by the problem, for each small strip $\Delta x$ in the system, the center of mass is exactly halfway up from the middle.
 
 At any given strip, therefore, $(x, \frac{xh}{2b})$ would be the coordinate of its "middle"---its CoM: where $x$ is the x-position at the edge of any given strip, $h$ the given height of the triangle, and $b$ the given base. The right expression is given by the properties of similar triangles to figure the height at the strip, then dividing by 2.
 
-Furthermore, by the same token as leveraging $\Delta x$ strip above and similar triangles, each strip has a mass of $\Delta x \frac{xh}{b}$ scaled---as the mass is uniform---by some uniform mass scalar $M$.
-
-We also know that, given the shape of the triangle, the total area (i.e. mass) would be $\frac{1}{2}bh$.
-
-The final center of mass, therefore, can be expressed as two integrals each representing the $x$ and $y$ components of the CoM:
+The final center of mass, therefore, can be expressed as two integrals each representing the $x$ and $y$ components of the CoM, replacing the differentials w.r.t. their similar-triangle-scaled positions on the shape:
 
 \begin{equation}
 \begin{cases}

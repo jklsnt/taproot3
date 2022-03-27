@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-02-08 Tue 15:06 -->
+<!-- 2022-03-26 Sat 18:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Center of Mass Part 2</title>
@@ -263,29 +263,29 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Center of Mass Part 2</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-02-08 Tue 15:06</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Center of Mass Part 2</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-26 Sat 18:14</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org9a538e8">1. Problem 1</a>
+<li><a href="#org7462cf0">1. Problem 1</a>
 <ul>
-<li><a href="#org16cc7d4">1.1. Center of Mass, Definition</a></li>
-<li><a href="#org5d56df8">1.2. N-Object System</a></li>
+<li><a href="#orgd42d048">1.1. Center of Mass, Definition</a></li>
+<li><a href="#orgc8673d0">1.2. N-Object System</a></li>
 </ul>
 </li>
-<li><a href="#orgad549a1">2. Big Mountain</a></li>
-<li><a href="#orgcc73370">3. Right Triangular Plate</a></li>
+<li><a href="#orgf9bd364">2. Big Mountain</a></li>
+<li><a href="#orgd82aaaa">3. Right Triangular Plate</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org9a538e8" class="outline-2">
-<h2 id="org9a538e8"><span class="section-number-2">1</span> Problem 1</h2>
+<div id="outline-container-org7462cf0" class="outline-2">
+<h2 id="org7462cf0"><span class="section-number-2">1</span> Problem 1</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org16cc7d4" class="outline-3">
-<h3 id="org16cc7d4"><span class="section-number-3">1.1</span> Center of Mass, Definition</h3>
+<div id="outline-container-orgd42d048" class="outline-3">
+<h3 id="orgd42d048"><span class="section-number-3">1.1</span> Center of Mass, Definition</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Per our discussion last semester, and derived via taking a double-integral over the expression for net force of a group of point-masses then dividing by mass, the center of mass' position can be figured via the following expression:
@@ -309,8 +309,8 @@ Therefore, for two objects \(A,B\), with masses \(M_A\), \(M_B\), and center of 
 </div>
 </div>
 
-<div id="outline-container-org5d56df8" class="outline-3">
-<h3 id="org5d56df8"><span class="section-number-3">1.2</span> N-Object System</h3>
+<div id="outline-container-orgc8673d0" class="outline-3">
+<h3 id="orgc8673d0"><span class="section-number-3">1.2</span> N-Object System</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 We have shown that the above expression satisfies for two systems \(A\) and \(B\). Furthermore, we have the base cases of zero objects, with the center of mass at the origin.
@@ -331,11 +331,15 @@ That: the position of the center of mass is simply the weighted average of all p
 </div>
 </div>
 
-<div id="outline-container-orgad549a1" class="outline-2">
-<h2 id="orgad549a1"><span class="section-number-2">2</span> Big Mountain</h2>
+<div id="outline-container-orgf9bd364" class="outline-2">
+<h2 id="orgf9bd364"><span class="section-number-2">2</span> Big Mountain</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Given that the material that makes up Mount Fuji has uniform density, a unit volume will result in a unit mass in any given point. We will define a system where the origin is at the apex of the mountain, and where "downwards" is a positive direction.
+</p>
+
+<p>
+For this assignment, because that the big mountain has a uniform density, we will perform the integrations with unit density. Fortunately, the mass on each circular side is evenly distributed about the center, so density&#x2014;as long as uniform&#x2014;does not influence the result.
 </p>
 
 <p>
@@ -343,7 +347,7 @@ Therefore, we can write the center of mass as follows:
 </p>
 
 \begin{equation}
-   \vec{r_{CM}} = \frac{\int_0^{h_f} (\pi \tan(65^\circ)h)^2 h\ dh}{\int_0^{h_f} (\pi \tan(65^\circ)h)^2 dh} 
+   \vec{r_{CM}} = \frac{\int_0^{h_f} \pi (\tan(65^\circ)h)^2 h\ dh}{\int_0^{h_f} \pi (\tan(65^\circ)h)^2 dh} 
 \end{equation}
 
 <p>
@@ -354,30 +358,30 @@ Where, \((\pi \tan(65^\circ)h)^2\) is the "area" (i.e. mass) at any given slice,
 We will note that the constant components immediately cancel:
 </p>
 
-\begin{equation}
-   \vec{r_{CM}} = \frac{\int_0^{h_f} (h^2 h = h^3)\ dh}{\int_0^{h_f} h^2 dh} 
-\end{equation}
+\begin{align}
+   \vec{r_{CM}} &= \frac{\int_0^{h_f} (h^2 h)\ dh}{\int_0^{h_f} h^2 dh} \\
+&= \frac{\int_0^{h_f} (h^3)\ dh}{\int_0^{h_f} h^2 dh} 
+\end{align}
 
 <p>
 And, therefore, taking the integrals:
 </p>
 
 \begin{align}
-   \vec{r_{CM}} &= \frac{\int_0^{h_f} (h^2 h = h^3)\ dh}{\int_0^{h_f} h^2 dh} \\
-&= \frac{\int_0^{h_f} h^3\ dh}{\int_0^{h_f} h^2 dh}\\
+   \vec{r_{CM}} &= \frac{\int_0^{h_f} h^3\ dh}{\int_0^{h_f} h^2 dh}\\
 &= \frac{\frac{h^4}{4} \rvert_0^{h_f}}{\frac{h^3}{3} \rvert_0^{h_f}}\\
 &= \frac{\frac{{h_f}^4}{4}}{\frac{{h_f}^3}{3}}\\
 &= \frac{3{h_f}}{4}
 \end{align}
 
 <p>
-We can see that, from the apex, the center of mass will be \(\frac{3}{4}\) of the apex height. Therefore, it will be located at \(2700\) m from the apex, or \(900\) m from the origin.
+We can see that, from the apex, the center of mass will be \(\frac{3}{4}\) of the apex height. Therefore, it will be located at \(2850\) m from the apex, or \(950\) m from the origin.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgcc73370" class="outline-2">
-<h2 id="orgcc73370"><span class="section-number-2">3</span> Right Triangular Plate</h2>
+<div id="outline-container-orgd82aaaa" class="outline-2">
+<h2 id="orgd82aaaa"><span class="section-number-2">3</span> Right Triangular Plate</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 We again begin with the expression from first-principles of the center of mass of the object.
@@ -385,6 +389,19 @@ We again begin with the expression from first-principles of the center of mass o
 
 \begin{equation}
 \vec{r_{CM}} = \frac{1}{M} \sum^n_{i=1} m_i \vec{r_i}
+\end{equation}
+
+
+<p>
+By the shape having uniform density, and the fact than the area of an triangle is equal to \(\frac{1}{2}bh\), we have that the mass density of the shape is \(\frac{M}{\frac{hb}{2}} = \frac{2M}{hb}\).
+</p>
+
+<p>
+For every infinitesimal slice, therefore, we have:
+</p>
+
+\begin{equation}
+   \frac{2}{hb} dm
 \end{equation}
 
 <p>
@@ -396,15 +413,7 @@ At any given strip, therefore, \((x, \frac{xh}{2b})\) would be the coordinate of
 </p>
 
 <p>
-Furthermore, by the same token as leveraging \(\Delta x\) strip above and similar triangles, each strip has a mass of \(\Delta x \frac{xh}{b}\) scaled&#x2014;as the mass is uniform&#x2014;by some uniform mass scalar \(M\).
-</p>
-
-<p>
-We also know that, given the shape of the triangle, the total area (i.e. mass) would be \(\frac{1}{2}bh\).
-</p>
-
-<p>
-The final center of mass, therefore, can be expressed as two integrals each representing the \(x\) and \(y\) components of the CoM:
+The final center of mass, therefore, can be expressed as two integrals each representing the \(x\) and \(y\) components of the CoM, replacing the differentials w.r.t. their similar-triangle-scaled positions on the shape:
 </p>
 
 \begin{equation}
