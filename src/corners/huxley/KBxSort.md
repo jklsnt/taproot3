@@ -1,6 +1,10 @@
 n
 ***
 
+ huh, looks interesting. check this out later https://docs.helix-editor.com/keymap.html
+
+***
+
  datum, being the singular form of data! 
  this is why you say "these data" instead of "this data"
 
