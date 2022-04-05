@@ -58,6 +58,7 @@ It's time for... American lit!
 - [[KBxPassingEssayPlanning]]
 - [[KBxBluestEyeInclass]]
 - [[KBxHaightAshburyReflection]]
+- [[KBxBluestEyeEssay]]
 
 
 
