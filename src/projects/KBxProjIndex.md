@@ -40,6 +40,8 @@ a graph of citations, clustered?
 
 handwriting-note taking app extravaganza
 
+looking at what happens if 1=2
+
 ## ctf 
 [[KBxPicoScratchpad]]
 

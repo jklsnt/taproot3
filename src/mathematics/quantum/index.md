@@ -10,3 +10,4 @@ title: Quantum Master Index
 - [[KBxQuantumLectureOne]]
 - [[KBxQuantumLectureTwo]]
 - [[KBxQuantumLectureThree]]
+- [[KBxTsungYaoWuLecture]]
