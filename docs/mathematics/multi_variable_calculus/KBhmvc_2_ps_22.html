@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-03 Sun 22:12 -->
+<!-- 2022-04-07 Thu 21:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MVC 2 PS#21</title>
+<title>MVC 2 PS#22</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Houjun Liu" />
 <style type="text/css">
@@ -263,267 +263,313 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#21</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-04-03 Sun 22:12</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#22</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-04-07 Thu 21:51</date></div>
 </div>
 <div id="content">
-<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhHomeworkIndex.html'>MVC Homework Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org99dbb81">1. HVAC</a></li>
-<li><a href="#org34a68b9">2. Average over curve</a></li>
-<li><a href="#org6f62a4d">3. Ice Cream Cone</a></li>
-<li><a href="#org1aac025">4. Timinsky's Sphere</a></li>
-<li><a href="#org9687dd0">5. Postmortem</a></li>
+<li><a href="#orgfeeb8d0">1. Why be a king, when you can be a God?</a></li>
+<li><a href="#org0ecfcc6">2. Area of a Circle</a></li>
+<li><a href="#orga016522">3. Sphere sticking out a cylinder</a></li>
+<li><a href="#org67fad97">4. Volcano Volume</a>
+<ul>
+<li><a href="#orgdab49fb">4.1. General volcano</a></li>
+<li><a href="#org2ac8499">4.2. 1D Volcano</a></li>
+</ul>
+</li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org99dbb81" class="outline-2">
-<h2 id="org99dbb81"><span class="section-number-2">1</span> HVAC</h2>
+<div id="outline-container-orgfeeb8d0" class="outline-2">
+<h2 id="orgfeeb8d0"><span class="section-number-2">1</span> Why be a king, when you can be a God?</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-We need to find the volume of the following shape:
+We are going to take a definite integral across all of infinity by three dimensions.
 </p>
 
 \begin{equation}
-   \begin{cases}
-   x(t) = 30\ cos(t) \\ 
-   y(t) = 20\ sin(t) \\ 
-   r(x,y) = \frac{1}{400}\left(\sqrt{3}x-y\right)^2 - \frac{1}{400}\left(\sqrt{3}y-x\right)^2 + 10
-\end{cases}
+   e(x,y,z) = \frac{1}{7^{(x^2+y^2+z^2)^{\frac{3}{2}}}}
 \end{equation}
 
 <p>
-Due to the squaring and unit subtraction on the lower \(r\) function, conversion to polar actually rendered leveraging the Pythagorean theorem almost impossible. Hence, we will do this problem in Cartesian form.
+Given that universes are spheres and its far easier to take the spherical units here, we will take this integral with spherical coordinates.
 </p>
 
 <p>
-We first begin by again creating the elliptical projection of the shape downwards.
+We realize that \(x^2+y^2+z^2 = {\rho}^2\) in spherical space by pythagoras. Hence:
 </p>
 
-<div class="org-src-container">
-<pre class="src src-sage">x(t) = 30*cos(t)
-y(t) = 20*sin(t)
+\begin{align}
+   e(\rho, \theta, \phi) &= \frac{1}{7^{\rho^2^{\frac{3}{2}}}} \\
+&= \frac{1}{7^{\rho^3}} 
+\end{align}
 
-parametric_plot([x,y], (0, 2*pi))
+<p>
+We note that, to calculate \(dV\), we have \(dV = \rho^2\ sin\theta\ d\phi\ d\theta\ d\rho\).
+</p>
+
+<p>
+Taking the actual \(dV\), then:
+</p>
+
+\begin{equation}
+   \iiint_V \frac{\rho^2\ \sin\theta}{7^{\rho^3}} \ d\phi\ d\theta\ d\rho
+\end{equation}
+
+<p>
+Evidently, its time for \(u\) sub:
+</p>
+
+\begin{align}
+   &u = \rho^3 \\
+&\frac{du}{d\rho} = 3\rho^2 \\
+&du = 3\rho^2\ d\rho
+\end{align}
+
+<p>
+And hence:
+</p>
+
+\begin{equation}
+   \iiint_V \frac{\sin\theta}{7^{u}} \ d\phi\ d\theta\ du
+\end{equation}
+
+<p>
+We will take bounds by \([0, \pi]\), first against \(\phi\):
+</p>
+
+\begin{align}
+   &\int_0^\pi \frac{\sin\theta}{7^{u}} \ d\phi\\
+\Rightarrow &\frac{\pi\sin\theta}{7^{u}} 
+\end{align}
+
+<p>
+Great, we will now take the integral by \(\theta\), again by bounds \([0,\pi]\):
+</p>
+
+\begin{align}
+   &\int_0^\pi \frac{\sin\theta}{7^{u}} \ d\theta\\
+\Rightarrow &\frac{-\pi\cos\pi}{7^{u}} \\
+\Rightarrow &\frac{\pi}{7^{u}} 
+\end{align}
+
+<p>
+And finally, we take the integral \(du\) from infinity:
+</p>
+
+\begin{align}
+   &\int_0^\infty \frac{\pi}{7^{u}}\ du\\
+\Rightarrow & \pi\int_0^\infty \frac{1}{7^{u}}\ du\\
+\Rightarrow & \pi\int_0^\infty {7^{-u}}\ du\\
+\Rightarrow & \left-\pi\ \frac{1}{7^x\ ln(7)}\right|_0^\infty \\
+\Rightarrow & \frac{\pi}{ln(7)} 
+\end{align}
+
+<p>
+Multiplying the spherical result by \(2\) (we got half the circle), we get that the final energy is:
+</p>
+
+\begin{equation}
+   \frac{2\pi}{ln(7)} 
+\end{equation}
+
+<p>
+The actual universe has net energy of \(0\) because its an infinitely large system with no external energy sources (as far as we know).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0ecfcc6" class="outline-2">
+<h2 id="org0ecfcc6"><span class="section-number-2">2</span> Area of a Circle</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+We can essentially leverage the polar expression:
+</p>
+
+\begin{equation}
+   \iint_A \ dA 
+\end{equation}
+
+<p>
+In practice, this looks like:
+</p>
+
+\begin{align}
+   &\int_0^r \int_0^{2\pi} r\ d\theta\ dr\\
+\Rightarrow &\int_0^r 2\pi r\ dr\\
+\Rightarrow & 2\pi \frac{r^2}{2}\\
+\Rightarrow & \pi r^2\ \blacksquare
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-orga016522" class="outline-2">
+<h2 id="orga016522"><span class="section-number-2">3</span> Sphere sticking out a cylinder</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-sage">from sage.plot.plot3d.shapes import Sphere, Cylinder
+Sphere(1) + Cylinder(1/2, 2, color='red').translate(0,0,-1)
 </pre>
 </div>
 
 
-<div id="org6b56202" class="figure">
-<p><img src="2022-04-03_23-37-10_screenshot.png" alt="2022-04-03_23-37-10_screenshot.png" />
+<div id="orgdb31073" class="figure">
+<p><img src="2022-04-07_21-48-34_screenshot.png" alt="2022-04-07_21-48-34_screenshot.png" />
 </p>
 </div>
 
 <p>
-Solving for the top bound function for \(t\), then substituting into \(y\):
+It looks like a little lantern!
 </p>
 
-\begin{align}
-   &x = 30\ cos(t) \\
-\Rightarrow & \frac{x}{30} = cos(t) \\
-\Rightarrow & t = \arccos\left(\frac{x}{30}\right)
-\end{align}
-
 <p>
-substituting into \(y\), then:
+We will first convert all of the system into a cylindrical system:
 </p>
 
-\begin{align}
-   y = 20\ sin\left(\arccos\left(\frac{x}{30}\right)\right)
-\end{align}
-
 <p>
-Now, we know that:
-</p>
-
-\begin{align}
-   &\sin^2\ \theta + \cos^2\ \theta = 1\\
-\Rightarrow &\sin^2\ \theta = 1 - \cos^2\ \theta\\ 
-\Rightarrow &\sin\ \theta = \sqrt{1 - \cos^2\ \theta}\
-\end{align}
-
-<p>
-setting \(\theta = \arccos(x)\):
+the sphere:
 </p>
 
 \begin{equation}
-   \sin(\arccos(x)) = \sqrt{1-x^2} 
+   r^2 + z^2 \leq 1 
 \end{equation}
+
+<p>
+and, the cylinder:
+</p>
+
+\begin{equation}
+   r = \frac{1}{2}
+\end{equation}
+
+<p>
+We can see that our sphere is between \([-1,1]\) in all directions. Furthermore, our cylinder is cut in the middle.
+</p>
+
+<p>
+For every slice, it contains an area of:
+</p>
+
+\begin{equation}
+   \pi\ (r(h))^2\ dh 
+\end{equation}
+
+<p>
+where, \(r(h)\) is a function in \(h\) which maps the radius. We will note now that a large sphere is made of small concentric spheres. At every disk, a sphere's \(h\) (radius by height) would be the same as its \(r\) (radius by width). 
+</p>
+
+<p>
+Hence, we have: 
+</p>
+
+\begin{equation}
+   \pi h^2\ dh 
+\end{equation}
+
+<p>
+for every disk.
+</p>
+
+<p>
+We furthermore have a tiny cut-out in the middle of the shape, of a cylinder of height \(dh\) and area \(\pi r^2 = \frac{\pi}{4}\).
+</p>
+
+<p>
+For every disk, with the cut-out, then:
+</p>
+
+\begin{equation}
+   \pi h^2\ dh - \frac{\pi}{4}\ dh
+\end{equation}
+
+<p>
+We finally perform the integration:
+</p>
+
+\begin{align}
+    &\int_{-1}^{1} \pi h^2\ dh - \frac{\pi}{4}\ dh\\
+\Rightarrow\ &\left\left( \frac{h^3\pi}{3} - \frac{h\pi}{4}\right)\right|_{-1}^{1}\\
+\Rightarrow\ &\frac{2\pi}{3} -\frac{2\pi}{4}
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org67fad97" class="outline-2">
+<h2 id="org67fad97"><span class="section-number-2">4</span> Volcano Volume</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgdab49fb" class="outline-3">
+<h3 id="orgdab49fb"><span class="section-number-3">4.1</span> General volcano</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+To figure the volume of the shape \(f(x,y) = \frac{1}{(x^2+y^2)^k}\). 
+</p>
+
+<p>
+We will convert this system into polar form again for the ease of computation. Recall again that, by pythagoras, \(x^2+y^2 = r^2\).
+</p>
 
 <p>
 Hence:
 </p>
 
 \begin{equation}
-   y = \pm 20 \sqrt{1-\left(\frac{x}{30}\right)^2}
+   f(r,\theta) = \frac{1}{r^{2k}} 
 \end{equation}
 
 <p>
-Great, we can now take the integral of this function. For values of \(y\), along the bounds of the circular function above; for the values of \(x\), 
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">r(x,y) = (1/400)*(sqrt(3)*x-y)^2 - (1/400)*(sqrt(3)*y+x)^2 + 10
-
-r.integrate(y, -20*sqrt(1-(x/30)^2), 20*sqrt(1-(x/30)^2)).integrate(x, -30,30)
-</pre>
-</div>
-
-<p>
-It appears that our shape has volume of \(6375 \pi\); hence the volume is about \(20017.5\) metres squared.
-</p>
-
-<p>
-It is at this point I realized that&#x2014;having spent months calling American Standard about buying a furnace&#x2014;HVAC systems are sold by BTU calculated by square footage by multiplying it by 20.
-</p>
-
-<p>
-Given the function, we can figure the square meterage then covert to foot:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">y(x) = 20*sqrt(1-(x/30)^2)
-y.integrate(x, -30,30)
-</pre>
-</div>
-
-<p>
-the function has an area of \(2\cdot 300\pi = 600\pi\). One square meter is about \(10.76\) foot&#x2014;your <del>house</del> mansion is about \(20282\) square foot.
-</p>
-
-<p>
-The BTU needed for the house is \(405640\) BTU. Daikin, the Japanese air conditioning company, seems to sell <a href="https://www.theacoutlet.com/dbg2403vh00001s-daikin-20-ton-9-8-eer-400-000-btu-commercial-gas-package-air-conditioner-208-230-3-60.html">this commercial furnance</a> selling for $18,439 the brand; if I recall, Daikin had pretty bad customer support in the US, and their resellers were hard to come by. However, perhaps their commercial segment is better.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org34a68b9" class="outline-2">
-<h2 id="org34a68b9"><span class="section-number-2">2</span> Average over curve</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-We will need to convert the expression into polar to figure the value.
-</p>
-
-\begin{equation}
-   f(x,y) = \sqrt{x^2+y^2} 
-\end{equation}
-
-<p>
-We recall that \(\sqrt{x^2+y^2}\), in polar form, represents simply \(r\). Hence:
-</p>
-
-\begin{equation}
-   f(r, \theta) = r
-\end{equation}
-
-<p>
-We are given a parameterization \(r = 3\sin 2\theta\), creating:
-</p>
-
-\begin{equation}
-   f(r,\theta) = 3\sin 2 \theta 
-\end{equation}
-
-<p>
-We now realize that this value is exactly the same as that of the sum over entire curve &#x2014; rendering the mean value:
-</p>
-
-\begin{equation}
-   \frac{\int_B 3\sin 2\theta}{\int_B 3\sin 2\theta} = 1
-\end{equation}
-
-<p>
-where \(B\) is the range given.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org6f62a4d" class="outline-2">
-<h2 id="org6f62a4d"><span class="section-number-2">3</span> Ice Cream Cone</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-Let's plot the ice cream first:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">theta,z=var('theta z')
-
-cylindrical_plot3d(1-z,(theta, 0, 2*pi),(z,-2,2))
-</pre>
-</div>
-
-
-<div id="orge052ecb" class="figure">
-<p><img src="2022-04-04_00-43-18_screenshot.png" alt="2022-04-04_00-43-18_screenshot.png" />
-</p>
-</div>
-
-<p>
-The function has no actually upper or lower bound. A typical ice cream cone is about 10 cm. Hence, \(z\) from \(0\) to \(-9\) would render a \(10\) cm upside-down ice cream cone.
-</p>
-
-<p>
-At the top, it has a radius of \(10\) units (\(1-(-9) = 10\)).  
-</p>
-
-<p>
-At each of the rings, it has height \(dz\), and circumference \(2(1-z)\pi\). Hence, the total density-scaled mass is:
+We will again take the integral, with ranges \(r=[0,1], \theta=[0,2\pi]\) from before, and \(dA=r\ dr\ d\theta\):
 </p>
 
 \begin{align}
-   &\int_0^{-9}  2(1-z)\pi\ dz\\
-\Rightarrow &2\pi\int_0^{-9}  1-z\ dz\\
-\Rightarrow &2\pi\left\left(z - \frac{z^2}{2}\right)\right|_0^{-9}
+&\int_0^{2\pi} \int_0^1 r^{-k}\ dr\ d\theta\\
+\Rightarrow &\int_0^{2\pi} \lim_{x\to 0} \left(\frac{1}{-k+1}-\frac{1}{x^{k-1}}\frac{1}{-k+1}\right)\ d\theta
 \end{align}
 
 <p>
-The resulting density-scaled mass is \(99\pi\).
+Evidently, when \(k\leq 1\), the second term would become infinity large.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org1aac025" class="outline-2">
-<h2 id="org1aac025"><span class="section-number-2">4</span> Timinsky's Sphere</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org2ac8499" class="outline-3">
+<h3 id="org2ac8499"><span class="section-number-3">4.2</span> 1D Volcano</h3>
+<div class="outline-text-3" id="text-4-2">
 <p>
-To calculate the volume of the sphere, we are going to take the volume over the triple integral.
+We will take the same integral again, but in 1-d. We realize that \(\frac{1}{x}=ln(x)\), so, we have two cases:
 </p>
 
 <p>
-Recall that, in spherical coordinates, the differential volume \(dV = \rho^2\ \sin{\theta} d\phi\ d\theta\ d\rho\). 
+Case 1: \(k \neq 1\)
+</p>
+
+\begin{align}
+   &\int_{-1}^1 x^{-k} dx\\
+\Rightarrow &\frac{1}{-k+1}-\frac{{-1}^{-k+1}}{-k+1} 
+\end{align}
+
+<p>
+where the value shifts between a real value for odd negative \(k\), and even for even negative \(k\).
 </p>
 
 <p>
-Therefore, taking the integral of the function over half of a perfect sphere (i.e. \([0, \pi]\)). We do this because, otherwise, the mass would cancel out across two sides.
+Case 2: \(k=1\)
 </p>
 
-<div class="org-src-container">
-<pre class="src src-sage">rho, theta, phi = var("phi theta rho")
-d(rho, theta, phi) = 100-rho^2
-(d*sin(theta)*rho^2).integrate(phi, 0, pi).integrate(theta, 0, pi).integrate(rho, 0, 2)
-</pre>
+\begin{align}
+   &\int_{-1}^1 x^{-1} dx\\
+\Rightarrow &\left ln(x) \right|_{-1}^1
+\end{align}
+
+<p>
+Where, the second value would tend towards \(+\infty\). 
+</p>
+
+<p>
+Hence, when \(k=1\), the second term would become infinity large.
+</p>
 </div>
-
-<p>
-Therefore, the actual is two times this amount: \(\frac{15616}{15}\pi \approx 3270.60\) kg.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org9687dd0" class="outline-2">
-<h2 id="org9687dd0"><span class="section-number-2">5</span> Postmortem</h2>
-<div class="outline-text-2" id="text-5">
-<p>
-Its now 1:10AM in Philly, and we are due for a 7:30 wake up to a 8A poster session. Fortunately, I will be only be presenting in the afternoon&#x2014;and I hope the coffee would kick in by then.
-</p>
-
-<p>
-Thanks as always for posting the PSets early and designing a fun set; apologies in advance for any careless mistakes, I will be back later this week before Wednesday to clean them up.
-</p>
-
-<p>
-Time for bed now.
-</p>
 </div>
 </div>
 </div>

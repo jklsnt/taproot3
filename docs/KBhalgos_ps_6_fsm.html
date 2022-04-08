@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-03 Sun 22:12 -->
+<!-- 2022-04-07 Thu 11:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MVC 2 PS#21</title>
+<title>Algos PS#6 FSM</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Houjun Liu" />
 <style type="text/css">
@@ -263,267 +263,41 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#21</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-04-03 Sun 22:12</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Algos PS#6 FSM</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-04-07 Thu 11:21</date></div>
 </div>
 <div id="content">
-<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhHomeworkIndex.html'>MVC Homework Index</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org99dbb81">1. HVAC</a></li>
-<li><a href="#org34a68b9">2. Average over curve</a></li>
-<li><a href="#org6f62a4d">3. Ice Cream Cone</a></li>
-<li><a href="#org1aac025">4. Timinsky's Sphere</a></li>
-<li><a href="#org9687dd0">5. Postmortem</a></li>
+<li><a href="#orgfc843d9">1. Fifteen Square Puzzle</a>
+<ul>
+<li><a href="#org3ed9f47">1.1. Defining Transitions</a></li>
+</ul>
+</li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org99dbb81" class="outline-2">
-<h2 id="org99dbb81"><span class="section-number-2">1</span> HVAC</h2>
+<div id="outline-container-orgfc843d9" class="outline-2">
+<h2 id="orgfc843d9"><span class="section-number-2">1</span> Fifteen Square Puzzle</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-We need to find the volume of the following shape:
+From the definition of the problem, we have the state \((A,B)\):
 </p>
 
-\begin{equation}
-   \begin{cases}
-   x(t) = 30\ cos(t) \\ 
-   y(t) = 20\ sin(t) \\ 
-   r(x,y) = \frac{1}{400}\left(\sqrt{3}x-y\right)^2 - \frac{1}{400}\left(\sqrt{3}y-x\right)^2 + 10
-\end{cases}
-\end{equation}
+<ul class="org-ul">
+<li>\(A\) is a list \((a_1\ldots a_{15})\) with all the values skipping the empty square</li>
+<li>\(B\) is a tuple \((X,Y)\) containing the coordinates of the empty square</li>
+</ul>
 
 <p>
-Due to the squaring and unit subtraction on the lower \(r\) function, conversion to polar actually rendered leveraging the Pythagorean theorem almost impossible. Hence, we will do this problem in Cartesian form.
-</p>
-
-<p>
-We first begin by again creating the elliptical projection of the shape downwards.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">x(t) = 30*cos(t)
-y(t) = 20*sin(t)
-
-parametric_plot([x,y], (0, 2*pi))
-</pre>
-</div>
-
-
-<div id="org6b56202" class="figure">
-<p><img src="2022-04-03_23-37-10_screenshot.png" alt="2022-04-03_23-37-10_screenshot.png" />
+We also define "out of order" as pairs of not-necessarily-continuous values that are not strictly increasing, and "parity" as \(mod\ 2\) of the number of out-of-order pairs plus the row number of the empty square.
 </p>
 </div>
 
-<p>
-Solving for the top bound function for \(t\), then substituting into \(y\):
-</p>
-
-\begin{align}
-   &x = 30\ cos(t) \\
-\Rightarrow & \frac{x}{30} = cos(t) \\
-\Rightarrow & t = \arccos\left(\frac{x}{30}\right)
-\end{align}
-
-<p>
-substituting into \(y\), then:
-</p>
-
-\begin{align}
-   y = 20\ sin\left(\arccos\left(\frac{x}{30}\right)\right)
-\end{align}
-
-<p>
-Now, we know that:
-</p>
-
-\begin{align}
-   &\sin^2\ \theta + \cos^2\ \theta = 1\\
-\Rightarrow &\sin^2\ \theta = 1 - \cos^2\ \theta\\ 
-\Rightarrow &\sin\ \theta = \sqrt{1 - \cos^2\ \theta}\
-\end{align}
-
-<p>
-setting \(\theta = \arccos(x)\):
-</p>
-
-\begin{equation}
-   \sin(\arccos(x)) = \sqrt{1-x^2} 
-\end{equation}
-
-<p>
-Hence:
-</p>
-
-\begin{equation}
-   y = \pm 20 \sqrt{1-\left(\frac{x}{30}\right)^2}
-\end{equation}
-
-<p>
-Great, we can now take the integral of this function. For values of \(y\), along the bounds of the circular function above; for the values of \(x\), 
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">r(x,y) = (1/400)*(sqrt(3)*x-y)^2 - (1/400)*(sqrt(3)*y+x)^2 + 10
-
-r.integrate(y, -20*sqrt(1-(x/30)^2), 20*sqrt(1-(x/30)^2)).integrate(x, -30,30)
-</pre>
+<div id="outline-container-org3ed9f47" class="outline-3">
+<h3 id="org3ed9f47"><span class="section-number-3">1.1</span> Defining Transitions</h3>
+<div class="outline-text-3" id="text-1-1">
 </div>
-
-<p>
-It appears that our shape has volume of \(6375 \pi\); hence the volume is about \(20017.5\) metres squared.
-</p>
-
-<p>
-It is at this point I realized that&#x2014;having spent months calling American Standard about buying a furnace&#x2014;HVAC systems are sold by BTU calculated by square footage by multiplying it by 20.
-</p>
-
-<p>
-Given the function, we can figure the square meterage then covert to foot:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">y(x) = 20*sqrt(1-(x/30)^2)
-y.integrate(x, -30,30)
-</pre>
-</div>
-
-<p>
-the function has an area of \(2\cdot 300\pi = 600\pi\). One square meter is about \(10.76\) foot&#x2014;your <del>house</del> mansion is about \(20282\) square foot.
-</p>
-
-<p>
-The BTU needed for the house is \(405640\) BTU. Daikin, the Japanese air conditioning company, seems to sell <a href="https://www.theacoutlet.com/dbg2403vh00001s-daikin-20-ton-9-8-eer-400-000-btu-commercial-gas-package-air-conditioner-208-230-3-60.html">this commercial furnance</a> selling for $18,439 the brand; if I recall, Daikin had pretty bad customer support in the US, and their resellers were hard to come by. However, perhaps their commercial segment is better.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org34a68b9" class="outline-2">
-<h2 id="org34a68b9"><span class="section-number-2">2</span> Average over curve</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-We will need to convert the expression into polar to figure the value.
-</p>
-
-\begin{equation}
-   f(x,y) = \sqrt{x^2+y^2} 
-\end{equation}
-
-<p>
-We recall that \(\sqrt{x^2+y^2}\), in polar form, represents simply \(r\). Hence:
-</p>
-
-\begin{equation}
-   f(r, \theta) = r
-\end{equation}
-
-<p>
-We are given a parameterization \(r = 3\sin 2\theta\), creating:
-</p>
-
-\begin{equation}
-   f(r,\theta) = 3\sin 2 \theta 
-\end{equation}
-
-<p>
-We now realize that this value is exactly the same as that of the sum over entire curve &#x2014; rendering the mean value:
-</p>
-
-\begin{equation}
-   \frac{\int_B 3\sin 2\theta}{\int_B 3\sin 2\theta} = 1
-\end{equation}
-
-<p>
-where \(B\) is the range given.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org6f62a4d" class="outline-2">
-<h2 id="org6f62a4d"><span class="section-number-2">3</span> Ice Cream Cone</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-Let's plot the ice cream first:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">theta,z=var('theta z')
-
-cylindrical_plot3d(1-z,(theta, 0, 2*pi),(z,-2,2))
-</pre>
-</div>
-
-
-<div id="orge052ecb" class="figure">
-<p><img src="2022-04-04_00-43-18_screenshot.png" alt="2022-04-04_00-43-18_screenshot.png" />
-</p>
-</div>
-
-<p>
-The function has no actually upper or lower bound. A typical ice cream cone is about 10 cm. Hence, \(z\) from \(0\) to \(-9\) would render a \(10\) cm upside-down ice cream cone.
-</p>
-
-<p>
-At the top, it has a radius of \(10\) units (\(1-(-9) = 10\)).  
-</p>
-
-<p>
-At each of the rings, it has height \(dz\), and circumference \(2(1-z)\pi\). Hence, the total density-scaled mass is:
-</p>
-
-\begin{align}
-   &\int_0^{-9}  2(1-z)\pi\ dz\\
-\Rightarrow &2\pi\int_0^{-9}  1-z\ dz\\
-\Rightarrow &2\pi\left\left(z - \frac{z^2}{2}\right)\right|_0^{-9}
-\end{align}
-
-<p>
-The resulting density-scaled mass is \(99\pi\).
-</p>
-</div>
-</div>
-
-<div id="outline-container-org1aac025" class="outline-2">
-<h2 id="org1aac025"><span class="section-number-2">4</span> Timinsky's Sphere</h2>
-<div class="outline-text-2" id="text-4">
-<p>
-To calculate the volume of the sphere, we are going to take the volume over the triple integral.
-</p>
-
-<p>
-Recall that, in spherical coordinates, the differential volume \(dV = \rho^2\ \sin{\theta} d\phi\ d\theta\ d\rho\). 
-</p>
-
-<p>
-Therefore, taking the integral of the function over half of a perfect sphere (i.e. \([0, \pi]\)). We do this because, otherwise, the mass would cancel out across two sides.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sage">rho, theta, phi = var("phi theta rho")
-d(rho, theta, phi) = 100-rho^2
-(d*sin(theta)*rho^2).integrate(phi, 0, pi).integrate(theta, 0, pi).integrate(rho, 0, 2)
-</pre>
-</div>
-
-<p>
-Therefore, the actual is two times this amount: \(\frac{15616}{15}\pi \approx 3270.60\) kg.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org9687dd0" class="outline-2">
-<h2 id="org9687dd0"><span class="section-number-2">5</span> Postmortem</h2>
-<div class="outline-text-2" id="text-5">
-<p>
-Its now 1:10AM in Philly, and we are due for a 7:30 wake up to a 8A poster session. Fortunately, I will be only be presenting in the afternoon&#x2014;and I hope the coffee would kick in by then.
-</p>
-
-<p>
-Thanks as always for posting the PSets early and designing a fun set; apologies in advance for any careless mistakes, I will be back later this week before Wednesday to clean them up.
-</p>
-
-<p>
-Time for bed now.
-</p>
 </div>
 </div>
 </div>
