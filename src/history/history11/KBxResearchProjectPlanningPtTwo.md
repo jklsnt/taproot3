@@ -89,6 +89,9 @@ sputnik launch,
 
 ## qoute bin
 
+
+“Decades after Sputnik burned in the atmosphere, we’re still talking about science education as a means of security,” Miller said.
+
 ## outlinin!
 
 THESIS: 
@@ -152,6 +155,7 @@ The Eisenhower administration, with its alarmingly unalarmed supposed "smiling i
 
 - massive focus on stem in schools
 - qoutes from maclen 
+- tech as the way to success
 
 
 
