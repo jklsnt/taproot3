@@ -166,7 +166,7 @@ The Eisenhower administration, with its alarmingly unalarmed supposed "smiling i
 - qoutes from maclen 
 - tech as the way to success
 
-After the initial panic, Sputnik was met with an insurgence of focus on science and technology in American Society. The importance placed on science and technology today, especially in education, in large part resulted from this seemingly "dated and irrelevant" launch of "Sputnik I, [which] provoked a monumental transformation in the nation's science policy." (CITE https://www.jstor.org/stable/41821079). At the time, along with the pressure on President Eisenhower, the consensus became that "the nation's youth must be taught to appreciate the importance of science." 
+After the initial panic, Sputnik was met with an insurgence of focus on science and technology in American Society. The importance placed on science and technology today, especially in education, in large part resulted from this seemingly "dated and irrelevant" launch of "Sputnik I, [which] provoked a monumental transformation in the nation's science policy." (CITE https://www.jstor.org/stable/41821079). At the time, along with the pressure on President Eisenhower, the consensus became that "the nation's youth must be taught to appreciate the importance of science," said the New York Times in 1957. "The United States' way of life is 'doomed to rapid extinction,' the director of the American Institute of Physics said yesterday."
 
 
 
