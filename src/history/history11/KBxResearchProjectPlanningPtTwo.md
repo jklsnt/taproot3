@@ -168,7 +168,11 @@ The Eisenhower administration, with its alarmingly unalarmed supposed "smiling i
 
 After the initial panic, Sputnik was met with an insurgence of focus on science and technology in American Society. The importance placed on science and technology today, especially in education, in large part resulted from this seemingly "dated and irrelevant" launch of "Sputnik I, [which] provoked a monumental transformation in the nation's science policy." (CITE https://www.jstor.org/stable/41821079). At the time, along with the pressure on President Eisenhower, the consensus became that "the nation's youth must be taught to appreciate the importance of science," said the New York Times in 1957. "The United States' way of life is 'doomed to rapid extinction,' the director of the American Institute of Physics said yesterday," unless "future generations appreciate the role of science in modern society." (CITE https://archive.nytimes.com/www.nytimes.com/partners/aol/special/sputnik/sput-15.html). Thus, the Eisenhower administration launched NASA, as well as created "a cornucopia of federal support" for science and technology. The country was using "science education as a means of security." (CITE https://news.harvard.edu/gazette/story/2007/10/how-sputnik-changed-u-s-education/). The culture had shifted, and science and technology became viewed as not only vital but as the path to prosperity, ushering in a new age of techno-utopianism. "
 
+This new cultural ideology "what it was all about," says former rocket-scientist Maclen Marvit, born just after the Sputnik Launch.
 
+technology was the way to 
+
+I now recognize that the historical context I grew up, and much of my personal ideology, was the product of Sputnik.
 
 
 
