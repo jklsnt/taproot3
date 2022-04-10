@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-10 Sun 13:33 -->
+<!-- 2022-04-10 Sun 13:37 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Algos PS#6 FSM</title>
@@ -263,37 +263,37 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Algos PS#6 FSM</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-04-10 Sun 13:33</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Algos PS#6 FSM</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-04-10 Sun 13:36</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org19d814a">1. Fifteen Square Puzzle</a>
+<li><a href="#orgbd9eeb1">1. Fifteen Square Puzzle</a>
 <ul>
-<li><a href="#orgf3eada3">1.1. Defining Transitions</a></li>
-<li><a href="#org7659c87">1.2. Proving Invariant</a></li>
-<li><a href="#org4c6f5e5">1.3. Proving Invariant through Transitions</a>
+<li><a href="#orgf6fd580">1.1. Defining Transitions</a></li>
+<li><a href="#orga819499">1.2. Proving Invariant</a></li>
+<li><a href="#org5c8a612">1.3. Proving Invariant through Transitions</a>
 <ul>
-<li><a href="#org61fb764">1.3.1. Moving Up-Down</a></li>
-<li><a href="#orgc36e069">1.3.2. Moving Left-Right</a></li>
+<li><a href="#org21fad41">1.3.1. Moving Up-Down</a></li>
+<li><a href="#org7d0f722">1.3.2. Moving Left-Right</a></li>
 </ul>
 </li>
-<li><a href="#orge811e79">1.4. Proving Invariant to End</a></li>
+<li><a href="#org45cf5fa">1.4. Proving Invariant to End</a></li>
 </ul>
 </li>
-<li><a href="#org4acecd6">2. Fast Exponentiation</a>
+<li><a href="#org756af2e">2. Fast Exponentiation</a>
 <ul>
-<li><a href="#orgf58fb08">2.1. Analyzing Traditional Exponentiation</a></li>
-<li><a href="#org6bab7a5">2.2. Fast Exponentiation as FSM</a></li>
-<li><a href="#orgd26661d">2.3. FSM Proof</a></li>
+<li><a href="#org5cebbe1">2.1. Analyzing Traditional Exponentiation</a></li>
+<li><a href="#org4fe6a03">2.2. Fast Exponentiation as FSM</a></li>
+<li><a href="#org6344413">2.3. FSM Proof</a></li>
 </ul>
 </li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org19d814a" class="outline-2">
-<h2 id="org19d814a"><span class="section-number-2">1</span> Fifteen Square Puzzle</h2>
+<div id="outline-container-orgbd9eeb1" class="outline-2">
+<h2 id="orgbd9eeb1"><span class="section-number-2">1</span> Fifteen Square Puzzle</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 From the definition of the problem, we have the state \((A,B)\):
@@ -309,8 +309,8 @@ We also define "out of order" as pairs of not-necessarily-continuous values that
 </p>
 </div>
 
-<div id="outline-container-orgf3eada3" class="outline-3">
-<h3 id="orgf3eada3"><span class="section-number-3">1.1</span> Defining Transitions</h3>
+<div id="outline-container-orgf6fd580" class="outline-3">
+<h3 id="orgf6fd580"><span class="section-number-3">1.1</span> Defining Transitions</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 For every single case, there is four possible transitions to make
@@ -325,8 +325,8 @@ For every single case, there is four possible transitions to make
 </div>
 </div>
 
-<div id="outline-container-org7659c87" class="outline-3">
-<h3 id="org7659c87"><span class="section-number-3">1.2</span> Proving Invariant</h3>
+<div id="outline-container-orga819499" class="outline-3">
+<h3 id="orga819499"><span class="section-number-3">1.2</span> Proving Invariant</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 We will show that the base state has a specific parity. At \(((1\ldots 15), (4,4))\), the starting base state, it has parity \(0 + 4 = 0 (mod\ 2)\).
@@ -338,16 +338,16 @@ Let's declare parity \(=0\ (mod\ 2)\) as the invariant.
 </div>
 </div>
 
-<div id="outline-container-org4c6f5e5" class="outline-3">
-<h3 id="org4c6f5e5"><span class="section-number-3">1.3</span> Proving Invariant through Transitions</h3>
+<div id="outline-container-org5c8a612" class="outline-3">
+<h3 id="org5c8a612"><span class="section-number-3">1.3</span> Proving Invariant through Transitions</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Let's prove that invariant is invariant through all transitions. We will do so in pairs, as the "moving square" operation is isomorphic by up-down and left-right pairs.
 </p>
 </div>
 
-<div id="outline-container-org61fb764" class="outline-4">
-<h4 id="org61fb764"><span class="section-number-4">1.3.1</span> Moving Up-Down</h4>
+<div id="outline-container-org21fad41" class="outline-4">
+<h4 id="org21fad41"><span class="section-number-4">1.3.1</span> Moving Up-Down</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 Moving the empty square up-down constitutes adding/removing three pairs of out-of-order items&#x2014;shifting a empty square up would result in the item three-items-back to be moved ahead by three items. 
@@ -363,8 +363,8 @@ Shifting up/down does not change the invariant.
 </div>
 </div>
 
-<div id="outline-container-orgc36e069" class="outline-4">
-<h4 id="orgc36e069"><span class="section-number-4">1.3.2</span> Moving Left-Right</h4>
+<div id="outline-container-org7d0f722" class="outline-4">
+<h4 id="org7d0f722"><span class="section-number-4">1.3.2</span> Moving Left-Right</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
 Moving an empty square left-right neither changes the row number for the empty row nor the order of the items. Hence, it does not change the items that constitute the parity&#x2014;making the parity the same and invariant.
@@ -373,8 +373,8 @@ Moving an empty square left-right neither changes the row number for the empty r
 </div>
 </div>
 
-<div id="outline-container-orge811e79" class="outline-3">
-<h3 id="orge811e79"><span class="section-number-3">1.4</span> Proving Invariant to End</h3>
+<div id="outline-container-org45cf5fa" class="outline-3">
+<h3 id="org45cf5fa"><span class="section-number-3">1.4</span> Proving Invariant to End</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 At the final end state, there is \({15 \choose 2}-1\) out of order pairs (choose any of the tiles, choose any other one, swapping the order would be the same choice, but choosing two of the same is not.)
@@ -399,12 +399,12 @@ By Floyd's invariant method, we see that the final state is still invariant and 
 </div>
 </div>
 
-<div id="outline-container-org4acecd6" class="outline-2">
-<h2 id="org4acecd6"><span class="section-number-2">2</span> Fast Exponentiation</h2>
+<div id="outline-container-org756af2e" class="outline-2">
+<h2 id="org756af2e"><span class="section-number-2">2</span> Fast Exponentiation</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgf58fb08" class="outline-3">
-<h3 id="orgf58fb08"><span class="section-number-3">2.1</span> Analyzing Traditional Exponentiation</h3>
+<div id="outline-container-org5cebbe1" class="outline-3">
+<h3 id="org5cebbe1"><span class="section-number-3">2.1</span> Analyzing Traditional Exponentiation</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 The running time of traditional exponentiation is \(O(k)\), where \(k\) is the power by which to raise. This is simply because an increase in the power of \(k\) will result in a linear \(+1\) increase in the number of multiplications.
@@ -412,8 +412,8 @@ The running time of traditional exponentiation is \(O(k)\), where \(k\) is the p
 </div>
 </div>
 
-<div id="outline-container-org6bab7a5" class="outline-3">
-<h3 id="org6bab7a5"><span class="section-number-3">2.2</span> Fast Exponentiation as FSM</h3>
+<div id="outline-container-org4fe6a03" class="outline-3">
+<h3 id="org4fe6a03"><span class="section-number-3">2.2</span> Fast Exponentiation as FSM</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Base state: \((a,1,b)\).
@@ -450,15 +450,27 @@ Furthermore, \(z\) is our derived variable counting down to \(0\). If \(z=0\), \
 </div>
 </div>
 
-<div id="outline-container-orgd26661d" class="outline-3">
-<h3 id="orgd26661d"><span class="section-number-3">2.3</span> FSM Proof</h3>
+<div id="outline-container-org6344413" class="outline-3">
+<h3 id="org6344413"><span class="section-number-3">2.3</span> FSM Proof</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 We will set the fact that \(x\ (mod\ y) = 0\) as our invariant. At the base state, where \(y=1\), this is trivially true.
 </p>
 
 <p>
-At every state update, the value of \(y\) either stays unchanged or is scaled by \(x\). In the latter case, the new value of $x$---\(x^2\), per every step&#x2014; 
+At every state update, the value of \(y\) either stays unchanged or is scaled by \(x\).
+</p>
+
+<p>
+In the former case, our new value of \(x={x_0}^2\) is also \(0\ (mod\ y_0)\) as \(na=0\ (mod\ b)\) if \(a=0\ (mod\ b)\).
+</p>
+
+<p>
+In the latter case, the new value of $x$---\(x^2\), per every step&#x2014;is also \(0\ (mod\ y)\) as we can separate the new value of y into \(y = xy_0\), which the former \(x\) term dividing out one of the two \(x\) in \(x^2\) and the \(x\) remaining known to be \(0\ (mod\ y_0)\). 
+</p>
+
+<p>
+Hence, the invariant is shown for all state updates  
 </p>
 </div>
 </div>
