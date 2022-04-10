@@ -39,16 +39,16 @@ Shifting up/down does not change the invariant.
 Moving an empty square left-right neither changes the row number for the empty row nor the order of the items. Hence, it does not change the items that constitute the parity---making the parity the same and invariant.
 
 ** Proving Invariant to End
-At the final end state, there is $15 \choose 2$ out of order pairs (choose any of the tiles, choose any other one, swapping the order would be the same choice.)
+At the final end state, there is ${15 \choose 2}-1$ out of order pairs (choose any of the tiles, choose any other one, swapping the order would be the same choice, but choosing two of the same is not.)
 
 Hence:
 
 \begin{equation}
-\frac{15!}{2!(13!)} = \frac{15\times14}{2} = 105
+\frac{15!}{2!(13!)} -1 = \frac{15\times14}{2} -1 = 104
 \end{equation}
 
-At the final state
+At the final state, the empty row is at row $4$. $4+104 = 0\ (mod\ 2)$, maintaining the invariant.
 
-** Final Proof
-By 
+By Floyd's invariant method, we see that the final state is still invariant and hence reachable from the base state via the Moving Up-Down and Moving Left-Right operations.
 
+* Fast Exponentiation 
