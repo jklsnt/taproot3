@@ -86,5 +86,6 @@ In the latter case, the new value of $x$---$x^2$, per every step---is also $0\ (
 Hence, the condition $x\ (mod\ y)$ is shown for all state updates and bases state to be invariant, completing the proof by Floyd's invariant method.
 
 ** The Algorithm Terminates
-If we set $z$ as our derived variable, and $\forall z>0$, we see that 
+If we set $z$ as our derived variable, and $\forall z>1$, we see that every step converges $z$ to the integer divisor of itself to two. At $z=1$, $z$ is set to $0$. Therefore, the state machine follows a strictly descending derived variable which converges, meaning the algorithm terminates.
 
+The new running time of the exponentiation, as we are constantly dividing by $2$ on the derived variable count, is $O(log(k))$ --- where $k$ is the power by which to raise, a significant increase to the $O(k)$ implementation.
