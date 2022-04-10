@@ -157,6 +157,19 @@ The Eisenhower administration, with its alarmingly unalarmed supposed "smiling i
 - qoutes from maclen 
 - tech as the way to success
 
+part of the cultural impact 
+sputnik led to a massive boom in stem education 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
