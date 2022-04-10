@@ -83,7 +83,7 @@ sputnik launch,
 	- https://archive.nytimes.com/www.nytimes.com/partners/aol/special/sputnik/sput-20.html Vanguard Rocket Burns on Beach; Failure to Launch Test Satellite Assailed as Blow to U.S. Prestige
 - https://www.pbs.org/wgbh/nova/military/sputnik-declassified.html# the org nova vid
 - https://guides.loc.gov/sputnik-and-the-space-race/primary-resources
-https://digitalarchive.wilsoncenter.org/collection/383/space-race
+- https://digitalarchive.wilsoncenter.org/collection/383/space-race
 
 ## qoute bin
 
@@ -123,6 +123,33 @@ The Sputnik lie, and with it massive cultural impacts, was born of a confluence 
 	- eisenhower : 6
 	- dems : 7 
 - conclusions? : 8
+
+
+
+## f\*ck it. lets write.
+
+{SPUTNIK INTRO AND EXPLANATION} 
+The Sputnik lie, and with it massive cultural impacts, was born of a confluence of competing political interests.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
