@@ -111,8 +111,18 @@ The Sputnik lie, and with it massive cultural impacts, was born of a confluence 
 
 #### the cultural impact of sputnik
 
+### rougher?
 
-
+- intro : 1
+- cultural impact
+	- hysteria : 2 
+	- STEM focus : 3
+- what actually happened : 4 
+- what actually happened pt.2? : 5
+- why it was a lie 
+	- eisenhower : 6
+	- dems : 7 
+- conclusions? : 8
 
 
 
