@@ -148,7 +148,7 @@ The Kremlin knows it all,
 We hope our golfer knows enough
 To get us on the ball. (CITE find) 
 
-
+With this immense pressure on the Eisenhower administration 
 
 
 
