@@ -166,8 +166,7 @@ The Eisenhower administration, with its alarmingly unalarmed supposed "smiling i
 - qoutes from maclen 
 - tech as the way to success
 
-After the initial panic, Sputnik was met with an insurgence of focus on science and technology in American Society.
-
+After the initial panic, Sputnik was met with an insurgence of focus on science and technology in American Society. The importance placed on science and technology today, especially in education, 
 
 
 
