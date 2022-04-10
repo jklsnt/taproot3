@@ -160,8 +160,9 @@ The Eisenhower administration, with its alarmingly unalarmed supposed "smiling i
 part of the cultural impact 
 sputnik led to a massive boom in stem education 
 
+led to the feel for a need 
 
-
+massively increased importance on science and technology 
 
 
 
