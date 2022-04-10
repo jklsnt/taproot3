@@ -59,4 +59,15 @@ The running time of traditional exponentiation is $O(k)$, where $k$ is the power
 ** Fast Exponentiation as FSM
 At every state $(x,y,z)$, we have two possible moves:
 
-- 
+If $z$ is odd:
+
+- Set $y=xy$
+- Set $z=\frac{z-1}{2}$
+
+If $z$ is even:
+
+- Set $z= \frac{z}{2}$
+
+Furthermore, $z$ is our derived variable counting down to $0$. If $z=0$, $y$ is the result.
+
+** FSM Proof
