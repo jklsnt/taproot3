@@ -137,18 +137,43 @@ With Sputnik floating amidst the atmosphere, American society was thrown into cr
 
 
 Widely accused for letting the Soviet Union overtake the U.S., the seemingly unfazed President Eisenhower became a target of national ridicule. Eisenhower was already widely viewed as a "do-nothing [...] golf and goof" of a president, and Sputnik's launch was no help to his public perception (CITE https://digitalcommons.cedarville.edu/channels/vol5/iss1/3/). However, despite the rest of the nation, Eisenhower seemed unfazed by what became known as the "Sputnik Crisis" -- "it seemed as though President Eisenhower," writes Space Age expert Martha Ackmann, "was the only American who did not initially understand the military, scientific, or cultural significance of Sputnik's chirp." (CITE https://www.bookbrowse.com/excerpts/index.cfm/book_number/1249/page_number/3/the-mercury-13). G. Mennen Williams, the governor of Michigan at the time, characterized public perception of the Eisenhower administration with a poem: 
-
-Oh little Sputnik, flying high
+> Oh little Sputnik, flying high
 With made-in-Moscow beep,
 You tell the world it's a Commie sky
 and Uncle Sam's asleep.
-
+>
 You say on fairway and on rough
 The Kremlin knows it all,
 We hope our golfer knows enough
 To get us on the ball. (CITE find) 
 
 The Eisenhower administration, with its alarmingly unalarmed supposed "smiling incompetent" of a spearhead, was put under immense pressure. This pressure, combined with the national panic, led to lasting and extensive shifts in American society at large.
+
+
+- massive focus on stem in schools
+- qoutes from maclen 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
