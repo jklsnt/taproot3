@@ -131,14 +131,14 @@ The Sputnik lie, and with it massive cultural impacts, was born of a confluence 
 {SPUTNIK INTRO AND EXPLANATION} 
 The Sputnik lie, and with it massive cultural impacts, was born of a confluence of competing political interests.
 
-With Sputnik 
+With Sputnik floating amidst the atmosphere, American society was thrown into crisis.
 
 
 
 
 
 
-
+In a period defined by national pride -- especially over technological superiority -- 
 
 
 
