@@ -148,8 +148,7 @@ The Kremlin knows it all,
 We hope our golfer knows enough
 To get us on the ball. (CITE find) 
 
-With this immense pressure on the Eisenhower administration, 
-The Eisenhower administration, with its alarmingly unalarmed supposed "smiling incompetent" of spearhead 
+The Eisenhower administration, with its alarmingly unalarmed supposed "smiling incompetent" of a spearhead, was put under immense pressure. This pressure, combined with the national panic, led to lasting and extensive shifts in American society at large.
 
 
 
