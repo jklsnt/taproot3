@@ -86,11 +86,20 @@ sputnik launch,
 - https://digitalarchive.wilsoncenter.org/collection/383/space-race
 - https://www.bookbrowse.com/excerpts/index.cfm/book_number/1249/page_number/3/the-mercury-13 
 - https://digitalcommons.cedarville.edu/channels/vol5/iss1/3/
+- https://www.jstor.org/stable/41821079
 
 ## qoute bin
 
 
 “Decades after Sputnik burned in the atmosphere, we’re still talking about science education as a means of security,” Miller said.
+
+
+ 
+
+ce. Deeply shocked, the country responded by pouring vast sum education, science, and the space programme, which reasserted Ame leadership a decade later by putting a man on the moon. For univer science, in particular, sputnik is credited with bringing in a cornuco federal support for research, graduate study, buildings and laborato
+
+Eventually, this largesse was choked off by the Vietnam war and the presidency.6 Sputnik was not the direct cause of this chain of events, but conventional wisdom is not entirely wrong in seeing it as the catalys hence their appropriate s
+
 
 ## outlinin!
 
