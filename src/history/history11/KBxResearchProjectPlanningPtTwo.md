@@ -138,7 +138,7 @@ With Sputnik floating amidst the atmosphere, American society was thrown into cr
 
 
 
-In a period defined by national pride -- especially over technological superiority -- the Russians being first to space was catastrophic for American society: "words do not easily convey the American reaction to the Soviet satellite," writes NASA, "the only appropriate characterization that begins to capture the mood on 5 October involves the use of the word hysteria."
+In a period defined by national pride -- especially over technological superiority -- the Russians being first to space was catastrophic for American society: "words do not easily convey the American reaction to the Soviet satellite," writes NASA, "the only appropriate characterization that begins to capture the mood on 5 October involves the use of the word hysteria." Not only was the nation's pride damaged, but its very identity was thrown into question.
 
 
 
