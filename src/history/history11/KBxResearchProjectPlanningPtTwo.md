@@ -85,6 +85,7 @@ sputnik launch,
 - https://guides.loc.gov/sputnik-and-the-space-race/primary-resources
 - https://digitalarchive.wilsoncenter.org/collection/383/space-race
 - https://www.bookbrowse.com/excerpts/index.cfm/book_number/1249/page_number/3/the-mercury-13 
+- https://digitalcommons.cedarville.edu/channels/vol5/iss1/3/
 
 ## qoute bin
 
