@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-10 Sun 10:47 -->
+<!-- 2022-04-10 Sun 10:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Algos PS#6 FSM</title>
@@ -263,18 +263,18 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Algos PS#6 FSM</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-04-10 Sun 10:47</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Algos PS#6 FSM</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-04-10 Sun 10:50</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org42bc556">1. Fifteen Square Puzzle</a>
+<li><a href="#org1474341">1. Fifteen Square Puzzle</a>
 <ul>
-<li><a href="#org0c6b9ec">1.1. Defining Transitions</a></li>
-<li><a href="#org82d2264">1.2. Proving Invariant</a></li>
-<li><a href="#org0f053a6">1.3. Proving Invariant through Transitions</a>
+<li><a href="#orgd96aed4">1.1. Defining Transitions</a></li>
+<li><a href="#org17e133d">1.2. Proving Invariant</a></li>
+<li><a href="#org3fe88d0">1.3. Proving Invariant through Transitions</a>
 <ul>
-<li><a href="#org5671d5c">1.3.1. Moving Up-Down</a></li>
+<li><a href="#orgb7b93d3">1.3.1. Moving Up-Down</a></li>
 </ul>
 </li>
 </ul>
@@ -283,8 +283,8 @@
 </div></div>
 </div>
 
-<div id="outline-container-org42bc556" class="outline-2">
-<h2 id="org42bc556"><span class="section-number-2">1</span> Fifteen Square Puzzle</h2>
+<div id="outline-container-org1474341" class="outline-2">
+<h2 id="org1474341"><span class="section-number-2">1</span> Fifteen Square Puzzle</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 From the definition of the problem, we have the state \((A,B)\):
@@ -300,8 +300,8 @@ We also define "out of order" as pairs of not-necessarily-continuous values that
 </p>
 </div>
 
-<div id="outline-container-org0c6b9ec" class="outline-3">
-<h3 id="org0c6b9ec"><span class="section-number-3">1.1</span> Defining Transitions</h3>
+<div id="outline-container-orgd96aed4" class="outline-3">
+<h3 id="orgd96aed4"><span class="section-number-3">1.1</span> Defining Transitions</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 For every single case, there is four possible transitions to make
@@ -316,8 +316,8 @@ For every single case, there is four possible transitions to make
 </div>
 </div>
 
-<div id="outline-container-org82d2264" class="outline-3">
-<h3 id="org82d2264"><span class="section-number-3">1.2</span> Proving Invariant</h3>
+<div id="outline-container-org17e133d" class="outline-3">
+<h3 id="org17e133d"><span class="section-number-3">1.2</span> Proving Invariant</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 We will show that the base state has a specific parity. At \(((1\ldots 15), (4,4))\), the starting base state, it has parity \(0 + 4 = 0 (mod\ 2)\).
@@ -329,19 +329,23 @@ Let's declare parity \(=0\ (mod\ 2)\) as the invariant.
 </div>
 </div>
 
-<div id="outline-container-org0f053a6" class="outline-3">
-<h3 id="org0f053a6"><span class="section-number-3">1.3</span> Proving Invariant through Transitions</h3>
+<div id="outline-container-org3fe88d0" class="outline-3">
+<h3 id="org3fe88d0"><span class="section-number-3">1.3</span> Proving Invariant through Transitions</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Let's prove that invariant is invariant through all transitions. We will do so in pairs, as the "moving square" operation is isomorphic by up-down and left-right pairs.
 </p>
 </div>
 
-<div id="outline-container-org5671d5c" class="outline-4">
-<h4 id="org5671d5c"><span class="section-number-4">1.3.1</span> Moving Up-Down</h4>
+<div id="outline-container-orgb7b93d3" class="outline-4">
+<h4 id="orgb7b93d3"><span class="section-number-4">1.3.1</span> Moving Up-Down</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 Moving the empty square up-down constitutes adding/removing three pairs of out-of-order items&#x2014;shifting a empty square up would result in the item three-items-back to be moved ahead by three items. 
+</p>
+
+<p>
+Adding three out-of-order pairs, plus subtracting one row from the empty square position, would result in a change in parity of \(3-1 = 0\ (mod\ 2)\). 
 </p>
 </div>
 </div>
