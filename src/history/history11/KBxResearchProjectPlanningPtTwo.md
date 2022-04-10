@@ -136,10 +136,17 @@ The Sputnik lie, and with it massive cultural impacts, was born of a confluence 
 With Sputnik floating amidst the atmosphere, American society was thrown into crisis. In a period defined by national pride -- especially over technological superiority -- the Russians being first to space was catastrophic for American society: "words do not easily convey the American reaction to the Soviet satellite," writes NASA, "the only appropriate characterization that begins to capture the mood on 5 October involves the use of the word hysteria." (CITE nasa) Not only was the nation's pride damaged, but its very identity was thrown into question. Lyndon B. Johnson, the Senate Majority Leader at the time, commented that "Now, somehow, in some new way, the sky seemed almost alien. I also remember the profound shock of realizing that it might be possible for another nation to achieve technological superiority over this great country of ours." (CITE find source) Sputnik was equipped with a radio, sending out what America "believed to be impulse signals from the Soviet satellite." (CITE https://archive.nytimes.com/www.nytimes.com/partners/aol/special/sputnik/sput-04.html) This eerie and alien reminder of failure was not only received by The National Broadcasting Company, who "broke into their radio and television programs to enable their audiences to hear the pinging sound of the 'moon's' signal," but as the Soviets frequently mentioned, by anyone with a radio. Virtually anyone could -- and did -- hear and track what otherwise would have been an "invisible emissary." The radio transformed Sputnik into something "very real and very close," capturing and frightening "the public's imagination." (CITE https://archive.nytimes.com/www.nytimes.com/partners/aol/special/sputnik/main.html) Sputnik had launched, America was in crisis, and the Space Age had officially begun. The blame had to fall somewhere.
 
 
-Widely accused for letting the Soviet Union overtake the U.S., the seemingly unfazed President Eisenhower became a target of national ridicule. Eisenhower was already widely viewed as a "do-nothing [...] golf and goof" of a president, and Sputnik's launch was no help to his public perception (CITE https://digitalcommons.cedarville.edu/channels/vol5/iss1/3/). However, despite the rest of the nation, Eisenhower seemed unfazed by what became known as the "Sputnik Crisis" -- "it seemed as though President Eisenhower," writes Space Age expert Martha Ackmann, "was the only American who did not initially understand the military, scientific, or cultural significance of Sputnik's chirp." (CITE https://www.bookbrowse.com/excerpts/index.cfm/book_number/1249/page_number/3/the-mercury-13). The current 
+Widely accused for letting the Soviet Union overtake the U.S., the seemingly unfazed President Eisenhower became a target of national ridicule. Eisenhower was already widely viewed as a "do-nothing [...] golf and goof" of a president, and Sputnik's launch was no help to his public perception (CITE https://digitalcommons.cedarville.edu/channels/vol5/iss1/3/). However, despite the rest of the nation, Eisenhower seemed unfazed by what became known as the "Sputnik Crisis" -- "it seemed as though President Eisenhower," writes Space Age expert Martha Ackmann, "was the only American who did not initially understand the military, scientific, or cultural significance of Sputnik's chirp." (CITE https://www.bookbrowse.com/excerpts/index.cfm/book_number/1249/page_number/3/the-mercury-13). G. Mennen Williams, the governor of Michigan at the time, characterized public perception of the Eisenhower administration with a poem: 
 
+Oh little Sputnik, flying high
+With made-in-Moscow beep,
+You tell the world it's a Commie sky
+and Uncle Sam's asleep.
 
-
+You say on fairway and on rough
+The Kremlin knows it all,
+We hope our golfer knows enough
+To get us on the ball. (CITE find) 
 
 
 
