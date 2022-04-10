@@ -139,7 +139,7 @@ President Eisenhower was widely accused as having let the U bested by the Soviet
 And fall it did onto President Eisenhower.
 President Eisenhower was though of 
 
-Widely accused for letting the Soviet Union 
+Widely accused for letting the Soviet Union defeat the U.S., the seemingly unfazed President Eisenhower became a of national ridicule.
 
 
 
