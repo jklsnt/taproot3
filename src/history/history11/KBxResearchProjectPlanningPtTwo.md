@@ -138,7 +138,7 @@ With Sputnik floating amidst the atmosphere, American society was thrown into cr
 
 
 
-In a period defined by national pride -- especially over technological superiority -- 
+In a period defined by national pride -- especially over technological superiority -- the Russians being first to space was catastrophic for American society. Years after the event, 
 
 
 
