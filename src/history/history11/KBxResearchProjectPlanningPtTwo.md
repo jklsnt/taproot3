@@ -149,28 +149,23 @@ With Sputnik floating amidst the atmosphere, American society was thrown into cr
 
 
 Widely accused for letting the Soviet Union overtake the U.S., the seemingly unfazed President Eisenhower became a target of national ridicule. Eisenhower was already widely viewed as a "do-nothing [...] golf and goof" of a president, and Sputnik's launch was no help to his public perception (CITE https://digitalcommons.cedarville.edu/channels/vol5/iss1/3/). However, despite the rest of the nation, Eisenhower seemed unfazed by what became known as the "Sputnik Crisis" -- "it seemed as though President Eisenhower," writes Space Age expert Martha Ackmann, "was the only American who did not initially understand the military, scientific, or cultural significance of Sputnik's chirp." (CITE https://www.bookbrowse.com/excerpts/index.cfm/book_number/1249/page_number/3/the-mercury-13). G. Mennen Williams, the governor of Michigan at the time, characterized public perception of the Eisenhower administration with a poem: 
-> Oh little Sputnik, flying high
+```Oh little Sputnik, flying high
 With made-in-Moscow beep,
 You tell the world it's a Commie sky
 and Uncle Sam's asleep.
->
+
 You say on fairway and on rough
 The Kremlin knows it all,
 We hope our golfer knows enough
-To get us on the ball. (CITE find) 
-
+To get us on the ball. (CITE find)
+```
 The Eisenhower administration, with its alarmingly unalarmed supposed "smiling incompetent" of a spearhead was put under immense pressure. This pressure, combined with the national panic, led to lasting and extensive shifts in American society at large.
-
-
-- massive focus on stem in schools
-- qoutes from maclen 
-- tech as the way to success
 
 After the initial panic, Sputnik was met with an insurgence of focus on science and technology in American Society. The importance placed on science and technology today, especially in education, in large part resulted from this seemingly "dated and irrelevant" launch of "Sputnik I, [which] provoked a monumental transformation in the nation's science policy." (CITE https://www.jstor.org/stable/41821079). At the time, along with the pressure on President Eisenhower, the consensus became that "the nation's youth must be taught to appreciate the importance of science," said the New York Times in 1957. "The United States' way of life is 'doomed to rapid extinction,' the director of the American Institute of Physics said yesterday," unless "future generations appreciate the role of science in modern society." (CITE https://archive.nytimes.com/www.nytimes.com/partners/aol/special/sputnik/sput-15.html). Thus, the Eisenhower administration launched NASA, as well as created "a cornucopia of federal support" for science and technology. The country was using "science education as a means of security." (CITE https://news.harvard.edu/gazette/story/2007/10/how-sputnik-changed-u-s-education/). The culture had shifted, and science and technology became viewed as not only vital but as the path to prosperity, ushering in a new age of techno-utopianism. This new cultural ideology was "what it was all about," says former rocket-scientist Maclen Marvit, born just after the Sputnik Launch. "Technology was the way to go [...] if you wanted a better world," he continued. "I now recognize that the historical context I grew up [in], and much of my personal ideology, is the product of Sputnik."
 
 
 
-
+but it was a lie! 
 
 
 
