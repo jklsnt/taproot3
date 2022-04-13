@@ -88,6 +88,13 @@ sputnik launch,
 - https://digitalcommons.cedarville.edu/channels/vol5/iss1/3/
 - https://www.jstor.org/stable/41821079
 
+##############################
+
+- https://web.archive.org/web/20201107232126/https://www.cia.gov/library/readingroom/collection/intelligence-warning-1957-launch-sputnik
+- https://www.nytimes.com/2017/10/06/science/sputnik-launch-cia.html
+- https://web.archive.org/web/20201111165816/https://www.cia.gov/library/readingroom/collection/what-was-missile-gap
+- https://web.archive.org/web/20201020003055/https://www.cia.gov/library/readingroom/collection/intelligence-warning-1957-launch-sputnik?page=1
+
 ## qoute bin
 
 
@@ -99,6 +106,44 @@ sputnik launch,
 ce. Deeply shocked, the country responded by pouring vast sum education, science, and the space programme, which reasserted Ame leadership a decade later by putting a man on the moon. For univer science, in particular, sputnik is credited with bringing in a cornuco federal support for research, graduate study, buildings and laborato
 
 Eventually, this largesse was choked off by the Vietnam war and the presidency.6 Sputnik was not the direct cause of this chain of events, but conventional wisdom is not entirely wrong in seeing it as the catalys hence their appropriate s
+
+
+
+##########################
+***
+b. CIA has a long-term interest in the development of true reconnaissance satellite, for which the vehicle con- 2
+templated by NSC 5520 would provide valuable data and exper- ience. While the Defense Department would probably be dele- gated responsibility for the planning and launching of a reconnaissance satellite, CIA would be a principal user and beneficiary of the data collected by such means.
+https://web.archive.org/web/20201020044621/https://www.cia.gov/library/readingroom/docs/DOC_0002287889.pdf
+***
+5. Earth Satellite.
+to develop such a vehicle We estimate that the Soviets are attempting at the earliest practicable date and could have a relatively uninstrumented, vehicle by 1958. A vehicle which could gather and transmit upper atmosphere scientific data could be available by 1963.
+https://web.archive.org/web/20201104054707/https://www.cia.gov/library/readingroom/docs/DOC_0003192764.pdf
+***
+"Freparations for launching 8A artiflcial satallite were
+taking piaes In the USSR and that the prakiminary etages in selentifi
+resdarob for aakting ouch a satollito had already beaa carried cut.,.8
+
+IZVESTIA EO 1352
+https://web.archive.org/web/20201104054820/https://www.cia.gov/library/readingroom/docs/DOC_0006687257.pdf
+***
+Soviets plan to launch 12 t0 14 satellite vehicles from a launching site located in the "middle" of the USSR end on such an orbit that the USSR will have "maximum length of time for observation."
+https://web.archive.org/web/20201104054952/https://www.cia.gov/library/readingroom/docs/DOC_0006687256.pdf
+13 july 1956
+***
+We belive that the USSR will make a major effort to be the first country to orbit an earth satellite. We further belive it has the capability of orbiting a small vehicle, in early 1957, which could aquire sceintific information and data of limited military value.
+https://web.archive.org/web/20201104055145/https://www.cia.gov/library/readingroom/docs/DOC_0006687232.pdf
+8 oct 1956
+***
+Four days after Sputnik I, poor Quarles was called on the White House carpet. "There was no doubt," he confessed, "that the Redstone, had it been used, could have orbited a satellite a year or more ago."
+...
+Quarles then accentuated the positive: "... the Russians have in fact done us a good turn, unintentionally, in establishing the concept of freedom of international space.... The President then looked ahead five years, and asked about a reconnaissance vehicle."1
+`Walter A. McDougall - The Heavens and the Earth_ A Political History of the Space Age-Johns Hopkins University Press (1997).pdf` 134
+ 
+
+
+
+
+##########################
 
 
 ## outlinin!
@@ -168,9 +213,13 @@ After the initial panic, Sputnik was met with an insurgence of focus on science 
 but it was a lie! 
 
 
+what was the lie?
+there wasnt some big tech gap. america was not really behind. america already had the tech for the satellite. america knew sputnik was about to launch
+sputnik launch was viewed as a good thing
 
+Despite the immense impact of the Sputnik launch, the popular narrative that drove this crisis was woven from lies. In reality, the Sputnik launch was not a surprise to the Eisenhower Administration, nor did the supposed Missile Gap exist. The government was able to predict the launch of Sputnik with high accuracy years before the launch. "We believe that the USSR will make a major effort to be the first country to orbit an earth satellite," wrote Assistant Director of Scientific Intelligence Herbert Scoville Jr.  in a classified government briefing released sixty years later. "We further believe it has the capability of orbiting a small vehicle, in early 1957, which could acquire scientific information and data of limited military value." (CITE https://web.archive.org/web/20201104055145/https://www.cia.gov/library/readingroom/docs/DOC_0006687232.pdf). Until its recent release, the public was not informed of any of these predictions, explaining President Eisenhower's unsurprised and thus unusual demeanor. Furthermore, not only did the government predict Sputnik's launch, but they had the technology to have beat it.
 
-
+Despite the immense impact of the Sputnik launch, the popular narrative that drove this crisis was woven from lies. In reality, the Sputnik launch was not a surprise to the Eisenhower Administration, nor did the supposed Missile Gap exist. The government had actually predicted the launch of Sputnik with surprising accuracy well before the launch. "We believe that the USSR will make a major effort to be the first country to orbit an earth satellite," wrote Assistant Director of Scientific Intelligence Herbert Scoville Jr.  in a 1956 classified government briefing released sixty years later. "We further believe it has the capability of orbiting a small vehicle, in early 1957, which could acquire scientific information and data of limited military value." (CITE https://web.archive.org/web/20201104055145/https://www.cia.gov/library/readingroom/docs/DOC_0006687232.pdf). Until its recent release, the public was not informed of any of these predictions. However, President Eisenhower knew them well and this explains his unsurprised (and misinterpreted) demeanor. Furthermore, not only did the government predict Sputnik's launch, but they had the technology to have outraced it, and the Soviets, into space. Donald A. Quarles, the Deputy Secretary of Defense at the time, confessed just four days after the launch that "there was no doubt that the Redstone, had it been used, could have orbited a satellite a year or more ago." (CITE Walter A. McDougall - The Heavens and the Earth_ A Political History of the Space Age-Johns Hopkins University Press (1997).pdf 134). But the Eisenhower Administration simply chose not to to use it, or reveal that they could.
 
 
 

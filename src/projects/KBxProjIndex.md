@@ -15,6 +15,7 @@ date: 2021-12-23
 - [[KBxChaosPlanning]]
 - [[KBxR3F]]
 - [[KBxcliExperiments]]
+- [[KBxQuestScratch22]]
 
 
 ## blender things
