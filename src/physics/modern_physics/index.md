@@ -56,6 +56,7 @@ source: #index
 # Nuclear Physics
 - [[KBhPHYS201NuclearPhysics]] 
 - [[KBxNuclearPhysicsReview]]
+- [[KBxNuclearLabScratch]]
 
 # Relativity
 - [[KBhPHYS201SpecialRelativity]] 

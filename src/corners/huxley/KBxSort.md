@@ -1,6 +1,15 @@
 n
 ***
 
+ [https://www.townscapergame.com/](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbWU5b05DZzZyX0syeGltbVAzSUZGWkFySTFEZ3xBQ3Jtc0tuX1VZUTFUcHFsaklnd2FFYnlFV1pseDU3Q1hxMm40aWcybXVtMGNkVXhrYWVQaThuY0E2dXJNR2dkVm1rZ3A3NkVTZ2pJWEhVblVDV0ZKcXdFdFZTdHA5b3V4aXExVWFRLXVpeVhtSlpnNDhBYjU5Yw&q=https%3A%2F%2Fwww.townscapergame.com%2F) 
+ https://www.youtube.com/watch?v=0bcZb-SsnrA
+
+***
+
+ "most of the time, you are stuck." - Sheldon Axler
+
+***
+
  huh, looks interesting. check this out later https://docs.helix-editor.com/keymap.html
 
 ***

@@ -1,0 +1,184 @@
+#+TITLE: Rotational Dynamics Theorem: Torque and Angular Momentum 5
+#+AUTHOR: Dylan Wallace
+
+* Problem 1)
+We will take the liberty of claiming that $g &= 10 ms^{-2}$ for the simple reason that I am lazy and that we are dealing with objects that we can hold in our hands, hypothetically, and therefore this level of precision is adequate.
+** a)
+We know the force of friction that is acting on the cylinder. We can find the friction coefficient by solving for the normal and dividing it from the force of friction.
+We know the mass of the cylinder, so we know the force of gravity. We also know the angle of the ramp. Therefore, we can calculate the normal force as being
+
+\begin{aligned}
+F_{N} &= Mg\cos{(\theta)} \\
+\end{aligned}
+
+Therefore,
+
+\begin{aligned}
+\mu \ge \frac{F_f}{F_N} &= \frac{F_f}{Mg\cos{(\theta)}}
+\end{aligned}
+
+We plug in our values:
+
+\begin{aligned}
+\mu \ge \frac{2N}{1kg \cdot 9.8ms^{-2}\cdot \cos{(30^{\circ})}} \\
+&= \frac{2N}{10N \cdot \frac{\sqrt{3}}{2}} \\
+&= \frac{2N}{10N} \cdot \frac{2}{\sqrt{3}} \\
+&= \frac{4\sqrt{3}}{10\cdot 3} \\
+&= \frac{2\sqrt{3}}{15} \\
+\end{aligned}
+** b)
+We can find the linear acceleration of the CM by summing all the forces and dividing by the mass.
+The forces acting on the cylinder are those of gravity, normal force, and friction. Note that the force of friction applies in the opposite direction as the direction of the sum of gravity and normal force. Due to the normal force, we can disregard any force perpendicular to the ramp:
+
+\begin{aligned}
+F_{net} &= F_{g,ramp} - F_{f} \\
+F_{g,ramp} &= -F_{g}\sin{(\theta)} \\
+&= gM\sin{(\theta)} \\
+F_{net} &= gM\sin{(\theta)} - F_{f} \\
+\end{aligned}
+
+We know that $F &= ma$, so
+
+\begin{aligned}
+a_{ramp} &= \frac{F_{net}}{M} \\
+&= \frac{gM\sin{(\theta)} - F_{f}}{M} \\
+&= g\sin{(\theta)} - \frac{F_{f}}{M} \\
+\end{aligned}
+
+Plugging in values:
+\begin{aligned}
+a_{ramp} &= 10 ms^{-2} \sin{(30^{\circ})} - \frac{2.0N}{1.0 kg} \\
+&= 5ms^{-2} - 2ms^{-2} \\
+&= 3ms^{-2} \\
+\end{aligned}
+
+** c)
+We've established in a different problemset that the following is true:
+
+\begin{aligned}
+\vec{\tau}_{net}' &= I_{CM}\vec{\alpha}' \\
+\vec{\alpha}' &= \frac{\vec{\tau}_{net}'}{I_{CM}} \\
+\end{aligned}
+
+We know the rotational inertia. We can solve for the torque of the cylinder and divide by inertia to find acceleration.
+We can find the torque by adding up all torques by all forces. To find the torque, we define a coordinate system where $\hat{z}$ is pointing towards the page. We also consider "right" to be $\hat{x}$ and "up" to be $\hat{y}$.
+
+First, we compute gravitational torque. We know that the torque on a rigid body by gravity is equivalent to the torque by gravity on the center of mass. Therefore, we can consider the torque as the torque applied by gravity on the point of contact of the cylinder on the ramp:
+
+\begin{aligned}
+\vec{\tau}_{g} &= \vec{R} \times \vec{F}_{g} \\
+&= (-R\sin{(\theta)}\hat{x} - R\cos{(\theta)}\hat{y}) \times -Mg\hat{y} \\
+&= -R\sin{(\theta)}\hat{x} \times -Mg\hat{y} + -R\cos{(\theta)}\hat{y} \times -Mg\hat{y} \\
+&= -R\sin{(\theta)}\hat{x} \times -Mg\hat{y} \\
+&= RMg\sin{(\theta)}\hat{z} \\
+\end{aligned}
+
+We can effectively do the same thing with the force of friction, as it is also a force being applied to the cylinder at a point. We know that the force of friction is perpendicular to the point of contact vector:
+
+\begin{aligned}
+\vec{\tau}_{f} &= \vec{R} \times \vec{F}_{f} \\
+&= -RF_{f}\hat{z} \\
+\end{aligned}
+
+We sum the two to get the net torque:
+
+\begin{aligned}
+\vec{\tau}_{net}' &= \vec{\tau}_{g}' + \vec{\tau}_{f}'
+&= \vec{\tau}_{g} + \vec{\tau}_{f} \\
+&= RMg\sin{(\theta)}\hat{z} - RF_{f} \hat{z} \\
+&= R(Mg\sin{(\theta)} - F_f)\hat{z} \\
+\end{aligned}
+
+As such,
+
+\begin{aligned}
+\vec{\alpha}' &= \frac{\vec{\tau}_{net}'}{I_{0}} \\
+&= \frac{R(Mg\sin{(\theta)} - F_{f})}{I_{0}}\hat{z} \\
+\end{aligned}
+
+We plug in values:
+
+\begin{aligned}
+\vec{a}' &= \frac{0.5m(1.0kg \cdot 10ms^{-2}\cdot \sin{(30^{\cdot})} - 2.0 N)}{0.2 kg\cdotm^2} \\
+&= \frac{0.5m(5N - 2N)}{0.2kg\cdot m^2} \\
+&= \frac{1.5 kg\cdot m^2s^{-2}}{0.2kg\cdot m^2} \\
+&= 7.5 \frac{rad}{s^{2}} \\
+\end{aligned}
+
+** d)
+If the cylinder slides, the friction is considered dynamic. If it does not, it is considered static.
+If the cylinder slides, the acceleration calculated by the torque should be higher than the acceleration calculated from the linear acceleration. We can find this acceleration simply by dividing by the radius:
+
+\begin{aligned}
+\alpha &= \frac{a_{ramp}}{R} \\
+&= \frac{3ms^{-2}}{0.5m} \\
+&= 6\frac{rad}{s^2} \\
+\end{aligned}
+
+This value is less than the $7.5 \frac{rad}{s^2}$ we got from the torque method, so we know that the cylinder slips, and the coefficient is kinetic.
+
+** e)
+To find the initial torque of the cylinder from the reference frame of the right vertex of the triangle, we need the distance from the vertex to the Center of Mass of the cylinder, as well as the net force acting on the cylinder.
+
+We know the net force acting on the cylinder to be the following:
+
+\begin{aligned}
+\vec{F_{net}} &= \vec{F}_{g} + \vec{F}_{N} + \vec{F}_{f} \\
+&= -Mg\hat{y} + Mg\cos^2{(\theta)}\hat{x} + Mg\cos{(\theta)}\sin{(\theta)}\hat{y} + \vec{F}_{f} \\
+&= Mg\cos{(\theta)}(\cos{(\theta)}\hat{x} + (\sin{(\theta)} - 1)\hat{y}) + \vec{F}_{f} \\
+\end{aligned}
+
+Friction acts against the sum of gravity and normal force, so
+
+\begin{aligned}
+\vec{F}_{net} &= (Mg\cos{(\theta)} - F_{f})(\cos{(\theta)}\hat{x} + (\sin{(\theta)}  -1)\hat{y}) \\
+\end{aligned}
+
+In addition, given a base length $b$ and a ramp length $L$, we can solve the position of the point where the cylinder makes contact with the ramp:
+
+\begin{aligned}
+\vec{R}_{contact} &= (b - L\cos{(\theta)})\hat{x} + L\sin{(\theta)}\hat{y} \\
+\end{aligned}
+
+We can add the (inverse of the) radius vector to this position vector to find the position of the center of mass:
+
+\begin{aligned}
+\vec{R}_{CM} &= \vec{R}_{contact} - \vec{R} \\
+&= (b - L\cos{(\theta)})\hat{x} + L\sin{(\theta)}\hat{y} + R\sin{(\theta)}\hat{x} + R\cos{(\theta)}\hat{y} \\
+&= (R\sin{(\theta)} - L\cos{(\theta)} + b)\hat{x} + (R\cos{(\theta)} + L\sin{(\theta)})\hat{y} \\
+\end{aligned}
+
+We now just take the cross product to get the torque:
+
+\begin{aligned}
+\vec{\tau} &= \vec{R}_{CM} \times \vec{F}_{net} \\
+&= \left((R\sin{(\theta)} - L\cos{(\theta)} + b)\hat{x} + (R\cos{(\theta)} + L\sin{(\theta)})\hat{y}\right) \\
+&\,\,\,\times \left((Mg\cos{(\theta)} - F_{f})(\cos{(\theta)}\hat{x} + (\sin{(\theta)} - 1)\hat{y})\right) \\
+&= (R\sin{(\theta)} - L\cos{(\theta)} + b)\hat{x} \times (Mg\cos{(\theta)} - F_f)(\sin{(\theta)} - 1)\hat{y} \\
+&\,\,\,+ (R\cos{(\theta)} + L\sin{(\theta)})\hat{y} \times (Mg\cos{(\theta)} - F_f)\cos{(\theta)}\hat{x} \\
+\end{aligned}
+
+We can take liberties and assume that the parameters $b$ and $L$ are such that $L &= b\cos{(\theta)}$; in other words, $b$ and $L$ form a right triangle. This will simplify our expression for computing the torque, as the force and the position vector will be tangential to each other. For the sake of simplicity, we will replace $H &= L\sin{(\theta)}$.
+
+\begin{aligned}
+\vec{\tau} &= (R\sin{(\theta)} - b\cos^2{(\theta)} + b)\hat{x} \times (Mg\cos{(\theta)} - F_f\cos{(\theta)})(\sin{(\theta)} - 1)\hat{y} \\
+&\,\,\,+ (R\cos{(\theta)} + H)\hat{y} \times (Mg\cos^2{(\theta)} - F_f\cos{(\theta)}) \hat{x} \\
+&= (R\sin{(\theta)} + b(1 - \cos^2{(\theta)}))\hat{x} \times (Mg\cos{(\theta)} - F_f\cos{(\theta)})(\sin{(\theta)} - 1)\hat{y} \\
+&\,\,\,+ (R\cos{(\theta)} + H)\hat{y} \times (Mg\cos^2{(\theta)} - F_f\cos{(\theta)}) \hat{x} \\
+&= (R\sin{(\theta)} + b(1 - \cos^2{(\theta)}))(Mg\cos{(\theta)} - F_f\cos{(\theta)})(\sin{(\theta)} - 1)\hat{z} \\
+&\,\,\,- (R\cos{(\theta)} + H)(Mg\cos^2{(\theta)} - F_f\cos{(\theta)})\hat{z} \\
+\end{aligned}
+
+We simplify further:
+
+\begin{aligned}
+\tau &= RMg\sin{(\theta)}\cos{(\theta)}(\sin{(\theta)} - 1) \\
+&\, - RF_f\sin{(\theta)}\cos{(\theta)}(\sin{(\theta)} - 1) \\
+&\, + bMg(1 - \cos^2{(\theta)})\cos{(\theta)}(\sin{(\theta)} - 1) \\
+&\, - bF_f(1 - \cos^2{(\theta)})\cos{(\theta)}(\sin{(\theta)} - 1) \\
+&\, - RMg\cos^3{(\theta)} + RF_f\cos^2{(\theta)} - HMg\cos^2{(\theta)} + HF_f\cos{(\theta)} \\
+\end{aligned}
+
+At this point, the simplification becomes trivial. It is therefore left as an exercise to the reader.
+
+** f)

@@ -26,6 +26,11 @@ inspo: https://miro.medium.com/max/2000/1*9XUTmFn8Ok0CeJ2QkI1_ig.png
 auth: https://www.youtube.com/watch?v=oXWImFqsQF4&ab_channel=NaderDabit
 or, https://www.pullrequest.com/blog/authentication-with-nextjs-and-supabase/
 
+fitting https://subprotocol.com/system/genetic-js.html
+gradient? https://codepen.io/grayghostvisuals/pen/gpROOz
+
+## bugs
+- reload on day doesnt show / fetch the data
 
 ## database planning
 *alright.*

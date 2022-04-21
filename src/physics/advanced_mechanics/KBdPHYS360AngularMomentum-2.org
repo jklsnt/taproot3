@@ -31,14 +31,14 @@ We know that the direction of the two cross products are orthogonal to the plane
 The law of sines states that for a triangle $\triangle ABC$, $\frac{\overline{\rm BC}}{\sin{\theta_{A}}} = \frac{\overline{\rm AC}}{\sin{\theta_{B}}}$. We know that this applies in our particular proof because the objects $A$, $B$, and the origin form a triangle. As such,
 
 \begin{aligned}
-|\vec{r}_{A}|\sin{\theta_{A}} &= |\vec{r}_{B}|\sin{\theta{B}} \\
+|\vec{r}_{A}|\sin{\theta_{A}} &= |\vec{r}_{B}|\sin{\theta_{B}} \\
 \tau_{AB} &= 0 \\
 \end{aligned}
 
 The internal torque of any two objects of a system is zero, so the total internal torque must also be zero.
 
 * 2)
-We know that for one of the $\vec{L}$s: 
+We know that for one of the $\vec{L}$ s: 
 \begin{aligned}
 \vec{r} &= R\hat{i} + h\hat{k} \\
 \vec{L}_{1} &= \vec{r} \times m\vec{v} \\
@@ -64,53 +64,60 @@ We can add the two to get the aggregate angular momentum of the system:
 
 * 3)
 ** a)
+We can think of the total angular momentum of an $N$-mass system as the sum of the z-components of their angular momentum. We only have to worry about their z components because it is given that the masses are symmetric about the center, and as such, the x and y components should cancel out.
 $\vec{L}_{N} &= \sum_{i=1}^{N} m_{i}l_{i}^2 \cdot \omega\hat{k}$
 ** b)
-$\vec{L} &= \int_{V} l^2 (M/V_{0}) \,dV \cdot \omega\hat{k}$
-First, because we know that the object is axially symmetric, the $\hat{i}$ and $\hat{j}$ components of the torque addition will be eliminated by the negative values for those components of the symmetric counterpart, so we will only be left with a $\hat{k}$ component.
-Given this, we can express the angular momentum as an integral over the volume.
-WIP
+We can think of the total angular momentum as the above sum as $N$ approaches infinity.
+\begin{aligned}
+\vec{L} &= \hat{k}\omega\sum_{i=1}^{N} m_{i}l_{i}^2 \\
+\end{aligned}
+We can think of $l$ as a function of $m$. We can turn our sum into an integral over the volume:
+
+\begin{aligned}
+\vec{L} &= \hat{k}\omega \int_{V} l^2 dm \\
+dm &= \frac{M}{V_0} dV \\
+\vec{L} &= \hat{k}\omega \int_{V} l^2 \frac{M}{V_0} dV \\
+\end{aligned}
 
 * 4)
-We can represent the angular momentum of the two points distance $l$ away from the origin as a function of $l$:
+We can represent the angular momentum of each point on the rod and integrate over them to find the total angular momentum.
 \begin{aligned}
-\vec{v}_{1} &= -\vec{v}_{2} \\
-\vec{l}_{1} &= -\vec{l}_{2} \\
-\vec{L}(r) &= \vec{r}_{1}\times m\vec{v}_{1} + vec{r}_{2}\times m\vec{v}_{1} \\
-&= \vec{r}\times m\vec{v} - \vec{r}\times -m\vec{v} \\
-\\
-\vec{r} &= r\hat{i} \\
-\vec{v} &= L\omega\hat{j} \\
-m &= \frac{M}{L} \\
-\\
-\vec{L}(r) &= r\hat{i}\times M\omega\hat{j} + (-r\hat{i}\times -M\omega\hat{j}) \\
-&= 2rM\omega\hat{k} \\
+L(r) &= r\hat{i} \times m_r\vec{v}_r \\
+\vec{v}_r &= r\omega\hat{j} \\
+L(r) &= r\hat{i} \times r m_r \omega\hat{j} \\
+&= |rm_r\omega||r|\hat{k} \\
+&= r^2 m_r\omega\hat{k}
 \end{aligned}
 
-Now that we have a function of the angular velocity in terms of the distance from the center, we can integrate. Keep in mind that we will integrate from $0$ to $\frac{L}{2}$, because our angular velocity function is the sum of the two point masses that are $r$ away from the center.
+We can now integrate this with respect to $r$, from $-\frac{L}{2}$ to $\frac{L}{2}$. As we are integrating, we will remove $m_r$ from our function and replace it with $\lambda$, as the point mass will be infinitessimally small but will sum to $M$, and the integral without the mass component will sum to $L$.
 
 \begin{aligned}
-\vec{L} &= \int_{0}^{\frac{L}{2}} \vec{L}(r) dr \\
-&= \int_{0}^{\frac{L}{2}} 2rM\omega\hat{k} dr \\
-&= [r^2M\omega\hat{k}]^{\frac{L}{2}}_{0} \\
-&= \frac{L^2}{4}M\omega\hat{k} \\
+\vec{L} &= \int_{-\frac{L}{2}}^{\frac{L}{2}} r^2 \omega \lambda \hat{k} dr \\
+&= \omega\lambda\hat{k} \int_{-\frac{L}{2}}^{\frac{L}{2}} r^2 dr \\
+&= \omega\lambda\hat{k} \cdot \left[\frac{r^3}{3}\right]_{-\frac{L}{2}}^{\frac{L}{2}} \\
+&= \omega\lambda\hat{k} \cdot 2\frac{L^3}{24} \\
+&= \omega\lambda\hat{k}\cdot \frac{L^3}{12} \\
+&= \omega\hat{k} \cdot \frac{1}{12}L^2M \\
+&= \frac{1}{12}ML^2\omega\hat{k} \\
 \end{aligned}
+
 
 * 5)
-Similarly to problem 4, we will create a function $\vec{L}(\theta)$ that represents the angular momentum of a diameter slice. This will rely on a $\vec{L}(r)$ function defined similarly to problem 4:
-
+We can first take an equation for the angular momentum of a point, and integrate it polar-ly and then about $R$. We take som e inspiration from Problem 4:
 \begin{aligned}
-\vec{L}(r) &= 2r\frac{M}{\pi R^2}\omega\hat{k} \\
-\vec{L}(\theta) &= \int_{0}^{R} \vec{L}(r) \,dr \\
-&= \int_{0}^{R} 2r\frac{M}{\pi R^2}\omega\hat{k} \,dr \\
-&= [r^2\frac{M}{\pi R^2}\omega\hat{k}]^{R}_{0} \\
-&= \frac{M}{\pi}\omega\hat{k} \\
+\vec{L}_{\theta, r} &= r^2\omega\sigma\hat{k} \,d\theta dr \\
+\end{aligned}
+Now we integrate:
+\begin{aligned}
+\vec{L} &= \int \int_{A} \vec{L}_{\theta, r} \, d\theta dr \\
+&= \int_{0}^{R} \int_{0}^{2\pi} r^2\omega\sigma\hat{k} \,d\theta dr \\
+&= \omega\sigma\hat{k} \int_{0}^{R} \int_{0}^{2\pi} r^2 \,d\theta dr \\
+&= \omega\sigma\hat{k} \int_{0}^{R} 2\pi r^2 \,dr \\
+&= \omega\sigma\hat{k} \cdot 2\pi \frac{R^3}{3} \\
+&= \omega\hat{k} \cdot 2\pi \frac{M}{\pi R^2} \cdot \frac{R^3}{3} \\
+&= \omega\hat{k} \cdot \frac{2MR}{3} \\
 \end{aligned}
 
-Now we can integrate the polar function. When integrating a polar function, we must integrate the function $\frac{f(\theta)^2}{2}$ instead. (Note that we integrate up to $\pi$ instead of $2\pi$ because we include the angular momentum of the symmetric counterpart in the calculation for $\vec{L}(\theta)$)
+Wait, What? I need help on this
 
-\begin{aligned}
-\vec{L} &= \int_{0}^{\pi} \frac{\vec{L}(\theta)^2}{2} \,d\theta \\
-&= \int_{0}^{\pi} \frac{M^2\omega^2}{2\pi^2}\hat{k} \,d\theta \\
-&= \frac{M^2\omega^2}{2\pi}
-\end{aligned}
+
