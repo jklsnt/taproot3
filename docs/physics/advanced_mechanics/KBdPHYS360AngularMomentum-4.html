@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-04-20 Wed 21:32 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Torque Theorems: Torque and Angular Momentum 4</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Dylan Wallace" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Torque Theorems: Torque and Angular Momentum 4</h1> <h2 class="subtitle"></h2> <span class="author">Dylan Wallace</span> <span class="date">2022-04-20 Wed 21:31</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org61a7358">1. Lemma 1</a>
+<ul>
+<li><a href="#orgef41c28">1.1. a)</a></li>
+<li><a href="#orgfdf5a60">1.2. b, c)</a></li>
+</ul>
+</li>
+<li><a href="#org333c61c">2. Theorem 1</a></li>
+<li><a href="#org465576f">3. Theorem 2</a></li>
+<li><a href="#orgafbfe4c">4. Theorem 3</a></li>
+<li><a href="#org9d3dadc">5. Theorem 4</a></li>
+<li><a href="#org985facb">6. Theorem 5</a></li>
+<li><a href="#org66cfaa6">7. Theorem 6</a></li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-org61a7358" class="outline-2">
+<h2 id="org61a7358"><span class="section-number-2">1</span> Lemma 1</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgef41c28" class="outline-3">
+<h3 id="orgef41c28"><span class="section-number-3">1.1</span> a)</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+The vector \(\vec{r}'_{i}\) is the distance of the $i$-th point mass from the center of mass.
+As such, the expression
+</p>
+
+\begin{aligned}
+\sum m_i \vec{r_{i}}' \\
+\end{aligned}
+
+<p>
+represents the weighted sum of each point mass, or, by definition, the Center of Mass of the system. Because each position vector is the distance from the Center of Mass, the expression represents the position of the Center of Mass from the reference frame of the Center of Mass. As such, we reach the statement
+</p>
+
+\begin{aligned}
+\sum m_i \vec{r}_{i}' &= 0
+\end{aligned}
+</div>
+</div>
+
+<div id="outline-container-orgfdf5a60" class="outline-3">
+<h3 id="orgfdf5a60"><span class="section-number-3">1.2</span> b, c)</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+We already established the following:
+</p>
+
+\begin{aligned}
+\sum m_i \vec{r_{i}}' &= 0 \\
+\end{aligned}
+
+<p>
+We know the following as well:
+</p>
+
+\begin{aligned}
+\frac{d}{dt} \vec{r_{i}}' &= \vec{v_{i}}' \\
+\frac{d}{dt} \vec{v_{i}}' &= \vec{a_{i}}' \\
+\end{aligned}
+
+<p>
+The derivative of a sum is the sum of the derivative:
+</p>
+
+\begin{aligned}
+\frac{d}{dt} \sum_{i = 1}^{N} f(t)_{i} &= \sum_{i = 1}^{N} \frac{d}{dt} f(t)_{i} \\
+\end{aligned}
+
+<p>
+This holds because \(\frac{d}{dt} (f(t) + g(t) + h(t) + ...) = (f'(t) + g'(t) + h'(t) + ...)\)
+</p>
+
+<p>
+As such, the following hold true as well:
+</p>
+
+\begin{aligned}
+\frac{d}{dt} \sum m_i \vec{r_{i}}' &= \frac{d}{dt} 0 \\
+\sum \frac{d}{dt} m_i \vec{r_{i}}' &= 0 \\
+\sum m_i \vec{v_{i}}' &= 0 \\
+\end{aligned}
+
+<p>
+and
+</p>
+
+\begin{aligned}
+\frac{d}{dt} \sum m_i \vec{v_{i}}' &= \frac{d}{dt} \\
+\sum \frac{d}{dt} m_i \vec{v_{i}}' &= 0 \\
+\sum m_i \vec{a_{i}}' &= 0 \\
+\end{aligned}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org333c61c" class="outline-2">
+<h2 id="org333c61c"><span class="section-number-2">2</span> Theorem 1</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The total angular momentum of a system is equal to the sum of each object's angular momentum:
+</p>
+
+\begin{aligned}
+\vec{L}_{sys} &= \sum \vec{L}_{i} \\
+&= \sum \vec{r_{i}} \times m_{i} \vec{v_{i}} \\
+&= \sum (\vec{R} + \vec{r_{i}}') \times m_{i} \vec{v_{i}} \\
+&= \sum \vec{R} \times m_{i} \vec{v_{i}} + \sum \vec{r_{i}}' \times m_{i} \vec{v_{i}} \\
+&= \vec{R} \times \sum m_{i} \vec{v_{i}} + \sum \vec{r_{i}}' \times m_{i} \vec{v_{i}} \\
+\end{aligned}
+
+<p>
+We replaced \(\vec{r_{i}}\) with \(\vec{R} + \vec{r_i}'\); we will also replace \(\vec{v_i}\) with \(\vec{V} + \vec{v_{i}}'\):
+</p>
+
+\begin{aligned}
+\vec{L}_{sys} &= \vec{R} \times \sum m_i \vec{v_i} + \sum \vec{r_{i}}' \times m_i \vec{v_{i}} \\
+&= \vec{R} \times \sum m_i \left(\vec{V} + \vec{v_{i}}'\right) + \sum \vec{r_{i}}' \times m_{i} \left(\vec{V} + \vec{v_i}'\right) \\
+&= \vec{R} \times \sum \left(m_i \vec{V}\right) + \vec{R} \times \sum \left(m_i \vec{v_{i}}'\right) + \sum \left(\vec{r_{i}}' \times m_{i} \vec{V}\right) + \sum \left(\vec{r_{i}}' \times m_i \vec{v_{i}}'\right) \\
+\end{aligned}
+
+<p>
+By our lemma, the second term goes to zero. In addition, we can manipulate our third sum to read \(\sum m_i \vec{r_{i}}' \times \vec{V}\); Because the left side of the cross product simplifies to zero, the whole sum goes to zero. As a result, we reach the simplified form
+</p>
+
+\begin{aligned}
+\vec{L}_{sys} &= \vec{R} \times \sum m_i \vec{V} + \sum \vec{r_{i}}' \times m_i \vec{v_{i}}' \\
+\end{aligned}
+
+<p>
+The first term represents the sum of the angular momentum of each point mass if they were located at the Center of Mass. The sum of the first term represents the sum of the momentum of each point mass from the reference point of the Center of Mass, which can be simplified down just to the momentum of the whole system from the reference frame of the Center of Mass.
+The second term represents the angular momentum of the system from the reference frame of the center of mass.
+</p>
+
+\begin{aligned}
+\vec{L}_{sys} &= \vec{R} \times \sum m_{i} \vec{v_{i}}' + \sum \vec{r_{i}}' \times m_{i} \vec{v_{i}}' \\
+&= \vec{R} \times M\vec{v}_{CM} + \sum \vec{r_{i}}' \times m_{i} \vec{v_{i}}' \\
+\end{aligned}
+</div>
+</div>
+
+<div id="outline-container-org465576f" class="outline-2">
+<h2 id="org465576f"><span class="section-number-2">3</span> Theorem 2</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+To find an expression for the derivative of the angular momentum of the system, we will use Theorem 1:
+</p>
+
+\begin{aligned}
+\vec{L}_{sys} &= \vec{R} \times M\vec{v}_{CM} + \sum \vec{r_{i}}' \times m_{i} \vec{v}_{i}' \\
+\frac{d}{dt} \vec{L}_{sys} &= \frac{d}{dt} \left(\vec{R} \times M\vec{v}_{CM} + \sum \vec{r_{i}}' \times m_{i} \vec{v_{i}}'\right) \\
+&= \frac{d}{dt} \left(\vec{R} \times M\vec{v}_{CM}\right) + \frac{d}{dt} \sum \vec{r_{i}}' \times m_{i} \vec{v_{i}}' \\
+\end{aligned}
+
+<p>
+We established above how to take the derivative of a sum. We also use product rule for the first term:
+</p>
+
+\begin{aligned}
+\frac{d}{dt} \vec{L}_{sys} &= \vec{R} \times M\vec{a}_{CM} + \vec{V} \times M\vec{v}_{CM}+  \sum \frac{d}{dt} (\vec{r_{i}}' \times m_i \vec{v_{i}}') \\
+\end{aligned}
+
+<p>
+Recall that by definition \(\vec{V} &= \vec{v}_{CM}\). Therefore, the second term goes to zero:
+</p>
+
+\begin{aligned}
+\frac{d}{dt} \vec{L}_{sys} &= \vec{R} \times M\vec{a}_{CM} + \sum \vec{v_{i}}' \times m_{i} \vec{v_{i}}' + \vec{r_{i}}' \times m_i \vec{a_{i}}' \\
+&= \vec{R} \times M\vec{a}_{CM} + \sum \vec{r_{i}}' \times m_i \vec{a_{i}}' \\
+\end{aligned}
+</div>
+</div>
+
+<div id="outline-container-orgafbfe4c" class="outline-2">
+<h2 id="orgafbfe4c"><span class="section-number-2">4</span> Theorem 3</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+The net torque on a system is equivalent to the sum of torque on all point masses:
+</p>
+
+\begin{aligned}
+\vec{\tau}_{net} &= \sum \vec{\tau}_{i} \\
+&= \sum \vec{r}_{i} \times \vec{F}_{i} \\
+\end{aligned}
+
+<p>
+We use \(\vec{r_{i}} &= \vec{R} + \vec{r_{i}}'\):
+</p>
+
+\begin{aligned}
+\vec{\tau}_{net} &= \sum \vec{r_{i}} \times \vec{F_{i}} \\
+&= \sum \left(\vec{R} + \vec{r_{i}}'\right) \times \vec{F_{i}} \\
+&= \sum \vec{R} \times \vec{F_{i}} + \sum \vec{r_{i}}' \times \vec{F_{i}} \\
+\end{aligned}
+
+<p>
+The left sum represents the torque of each point mass as if they were all at the Center of Mass. The sum of all forces is the net force.
+</p>
+
+\begin{aligned}
+\vec{\tau}_{net} &= \sum \vec{R} \times \vec{F_{i}} + \sum \vec{r_{i}}' \times \vec{F_{i}} \\
+&= \vec{R} \times \vec{F_{net}} + \sum \vec{r_{i}}' \times \vec{F_{i}} \\
+\end{aligned}
+
+<p>
+To demonstrate that the right sum simplifies to only external forces, we rewrite the force as the following:
+</p>
+
+\begin{aligned}
+\sum_{i} \vec{r_{i}}' \times \vec{F}_{i} &= \sum_{i} \vec{r_{i}}' \times \vec{F}_{i,net ext} + \sum_{i} \vec{r_{i}}' \times \vec{F}_{i,net \,int} \\
+\sum_{i} \vec{r_{i}}' \times \vec{F}_{i, net\,int} &= \sum_{i} \left(\vec{r_{i}}' \times \sum_{j} \vec{F}_{j\to i} \right)\\
+\end{aligned}
+
+<p>
+Note that for any \(a, b\), Newton 3 states that the following holds true:
+</p>
+
+\begin{aligned}
+\vec{F}_{a\to b} &= -\vec{F}_{b\to a}
+\end{aligned}
+
+<p>
+In addition, the sum \(\sum_i \vec{r_{i}}' \times \vec{F_{i,net\,int}}\) consists of expressions \(\vec{r_a}' \times \vec{F_{b\to a}}\) and \(\vec{r_{b}}' \times \vec{F_{a\to b}}\) for all pairs of point masses \(a\) and \(b\), as the sum represents the torque brought by internal forces.
+Newton 3 affirms that the following is true:
+</p>
+
+\begin{aligned}
+\vec{r_{a}}' \times \vec{F_{b\to a}} + \vec{r_{b}}' \times \vec{F_{a\to b}} &= \vec{r_{a}}' \times \vec{F_{b\to a}} - \vec{r_{b}}' \times \vec{F_{b\to a}} \\
+&= (\vec{r_{a}}' - \vec{r_{b}}')\times \vec{F_{b\to a}} \\
+&= 0
+\end{aligned}
+
+<p>
+The direction of the left and right terms of the cross product are the same; as a result, the cross product goes to zero.
+We are able to rewrite the net internal force torque sum as the following:
+</p>
+
+\begin{aligned}
+\sum_{i} \vec{r_{i}}' \times \vec{F}_{i,net\,int} &= \sum_{i < j}^{N} \vec{r_{i}}' \times \vec{F}_{j\to i} + \vec{r_{j}}' \vec{F}_{i\to j} \\
+\end{aligned}
+
+<p>
+We've already established that the sum's internals go to 0. As a result, the entire sum goes to zero.
+Therefore, the original sum can be rewritten:
+</p>
+
+\begin{aligned}
+\sum_{i} \vec{r_{i}}' \times \vec{F_{i}} &= \sum_{i} \vec{r_{i}}' \times \vec{F}_{i,net\, ext} + \sum_{i} \vec{r_{i}}' \times \vec{F}_{i,net\, int} \\
+&= \sum_{i} \vec{r_{i}}' \times \vec{F}_{i,net\,ext} \\
+\vec{\tau}_{net} &= \vec{R} \times \vec{F}_{net} + \sum \vec{r_{i}}' \times \vec{F}_{i} \\
+&= \vec{R} \times \vec{F}_{net} + \sum \vec{r_{i}}' \times \vec{F}_{i,net\,int} \\
+\end{aligned}
+</div>
+</div>
+
+<div id="outline-container-org9d3dadc" class="outline-2">
+<h2 id="org9d3dadc"><span class="section-number-2">5</span> Theorem 4</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+We combine Theorem 2 and 3 to find an equivelence relation between the net torque from the reference frame of the Center of Mass and the time derivative of the net angular momentum from the reference frame of the Center of Mass.
+</p>
+
+<p>
+First, we take our equations for the net torque and time derivative of net angular momentum from an arbitrary reference frame and modify them to fit the reference frame of the Center of Mass.
+</p>
+
+<p>
+In the case of the net torque, our original equation is as follows:
+</p>
+
+\begin{aligned}
+\vec{\tau}_{net} &= \vec{R} \times \vec{F}_{net} + \sum \vec{r_{i}}' \times \vec{F}_{i,net\,int} \\
+\end{aligned}
+
+<p>
+From the reference frame of the Center of Mass, the position of the Center of Mass is at zero. As such, the torque equation becomes
+</p>
+
+\begin{aligned}
+\vec{\tau}_{net}' &= \sum \vec{r_{i}}' \times \vec{F}_{i,net\,int} \\
+\end{aligned}
+
+<p>
+Similarly, the derivative of the net angular velocity is as follows:
+</p>
+
+\begin{aligned}
+\frac{d L_{net}}{dt} &= \vec{R} \times M\vec{a}_{CM} + \sum \vec{r_{i}}' \times m_i \vec{a_{i}}' \\
+\end{aligned}
+
+<p>
+Again, \(\vec{R} &= 0\):
+</p>
+
+\begin{aligned}
+\frac{d L_{net}'}{dt} &= \sum \vec{r_{i}}' \times m_{i}\vec{a_{i}}' \\
+\end{aligned}
+
+<p>
+The mass of an object multiplied by its acceleration is equal to its force:
+</p>
+
+\begin{aligned}
+\frac{dL_{net}'}{dt} &= \sum \vec{r_{i}}' \times F_{i} \\
+\end{aligned}
+
+<p>
+Recall that in theorem 3 we stated that the sum of torque of all objects from the CM reference frame is equivalent to the sum of torque of all objects by external forces (from the CM reference frame). In theorem 3, we used this to "simplify" our equation and helped deepen our understanding; in this proof, we reverse the process:
+</p>
+
+\begin{aligned}
+\vec{\tau}_{net}' &= \sum \vec{r_{i}}' \times \vec{F}_{i,net\,int} \\
+&= \sum \vec{r_{i}}' \times \vec{F}_{i} \\
+&= \frac{dL_{net}'}{dt} \\
+\end{aligned}
+</div>
+</div>
+
+<div id="outline-container-org985facb" class="outline-2">
+<h2 id="org985facb"><span class="section-number-2">6</span> Theorem 5</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+We try to find the angular momentum of a rigid body in the reference frame of the Center of Mass. Note that we hold true that the axis of rotation passes through the center of mass.
+</p>
+
+<p>
+We know that the angular momentum takes the form of the following:
+</p>
+
+\begin{aligned}
+\vec{L}_{sys} &= \vec{R} \times M\vec{v}_{CM} + \sum \vec{r_{i}}' \times m_i \vec{v_{i}}' \\
+\end{aligned}
+
+<p>
+Similar to Theorem 4, \(\vec{R} &= 0\):
+</p>
+
+\begin{aligned}
+\vec{L}' &= \sum \vec{r_{i}}' \times m_{i}\vec{v_{i}}' \\
+\end{aligned}
+
+<p>
+We know that we are dealing with a rigid body, so we know that the angular velocity of each point mass should be the same. This means that the following is true for all \(i\):
+</p>
+
+\begin{aligned}
+\vec{\omega}' &= \frac{\vec{r_{i}}' \times \vec{v_{i}}'}{r_{i}'^2} \\
+\end{aligned}
+
+<p>
+As such, we can simplify our expression:
+</p>
+
+\begin{aligned}
+\vec{L}' &= \sum \vec{r_{i}}' \times m_{i} \vec{v_{i}}' \\
+&= \sum m_{i} r_{i}'^2 \vec{\omega}' \\
+&= \vec{\omega}' \sum m_{i} r_{i}'^2
+\end{aligned}
+
+<p>
+Recall that the rotational inertia of the rigid body from the CM reference frame is the sum of the rotational inertia of each point mass in the rigid body.
+</p>
+
+\begin{aligned}
+I_{CM} &= \sum I_{i} \\
+&= \sum m_i r_{i}'^2 \\
+\end{aligned}
+
+<p>
+Therefore, our expression for angular momentum becomes
+</p>
+
+\begin{aligned}
+\vec{L}' &= \vec{\omega}' \sum m_i \vec{r_{i}}'^2 \\
+&= I_{CM} \vec{\omega}'
+\end{aligned}
+</div>
+</div>
+
+<div id="outline-container-org66cfaa6" class="outline-2">
+<h2 id="org66cfaa6"><span class="section-number-2">7</span> Theorem 6</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+We try to find an expression similar to Theorem 5 but with torque.
+We first start off with an expression for torque:
+</p>
+
+\begin{aligned}
+\vec{\tau}_{net} &= \vec{R}\times F_{net} + \sum \vec{r_{i}}' \times \vec{F}_{i,net\,ext} \\
+\end{aligned}
+
+<p>
+In our case, \(\vec{R} &= 0\). For the sake of simplifying, we use \(\vec{F}_{i}\) in place of \(\vec{F}_{i,net\,ext}\).
+</p>
+
+\begin{aligned}
+\vec{\tau}_{net}' &= \sum \vec{r_{i}}' \times \vec{F}_{i} \\
+\end{aligned}
+
+<p>
+We expand force:
+</p>
+
+\begin{aligned}
+\vec{\tau_{net}}' &= \sum \vec{r_{i}}' \times m_i \vec{a_{i}}' \\
+\end{aligned}
+
+<p>
+We know that angular velocity can be given by the equation
+</p>
+
+\begin{aligned}
+\vec{\omega} &= \frac{\vec{r} \times \vec{v}}{r^2} \\
+\end{aligned}
+
+<p>
+We take the time derivative to get the expression for angular acceleration:
+</p>
+
+\begin{aligned}
+\frac{d\vec{\omega}}{dt} &= \frac{d}{dt} \frac{\vec{r}\times \vec{v}}{r^2} \\
+&= \frac{d}{dt} \frac{1}{r^2} (\vec{r} \times \vec{v}) \\
+&= -\frac{2v}{r^3} (\vec{r} \times \vec{v}) + \frac{1}{r^2} (\vec{v} \times \vec{v} + \vec{r} \times \vec{a}) \\
+&= -\frac{2v}{r^3} (\vec{r} \times \vec{v}) + \frac{1}{r^2} (\vec{r} \times \vec{a}) \\
+\end{aligned}
+
+<p>
+We know that \(\vec{r} \times \vec{v}\) is just \(r^2 \vec{\omega}\):
+</p>
+
+\begin{aligned}
+\frac{d\vec{\omega}}{dt} &= -\frac{2v}{r^3}(\vec{r}\times\vec{v}) + \frac{1}{r^2}(\vec{r}\times\vec{a}) \\
+&= -\frac{2v}{r}\vec{\omega} + \frac{\vec{r}\times \vec{a}}{r^2} \\
+\end{aligned}
+
+<p>
+Because we are dealing with a rigid body, the distance of each point mass from the axis of rotation should stay constant. Therefore, \(v = 0\) , and as a result,
+</p>
+
+\begin{aligned}
+\frac{d\vec{\omega}}{dt} &= \vec{\alpha} &= \frac{\vec{r}\times\vec{a}}{r^2}
+\end{aligned}
+
+<p>
+in our particular context.
+Going back to our torque equation, we can simplify this:
+</p>
+
+\begin{aligned}
+\vec{\tau}_{net}' &= \sum \vec{r}_{i}' \times m_{i} \vec{a}_{i}' \\
+&= \sum m_{i} r_{i}'^2 \vec{\alpha}_{i}' \\
+\end{aligned}
+
+<p>
+Because we are dealing with a rigid body, the angular acceleration of the body should be equivalent to the angular acceleration of each point mass:
+</p>
+
+\begin{aligned}
+\vec{\tau}_{net}' &= \vec{\alpha}' \sum m_{i} \vec{r_{i}}'^2 \\
+&= I_{CM} \vec{\alpha}'
+\end{aligned}
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-04-20 Wed 21:32 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Torque and Angular Momentum 3</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Dyan Wallace" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Torque and Angular Momentum 3</h1> <h2 class="subtitle"></h2> <span class="author">Dyan Wallace</span> <span class="date">2022-04-20 Wed 21:31</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#orgdc31fb7">1. Problem 1)</a></li>
+<li><a href="#orge8bf520">2. Problem 2)</a></li>
+<li><a href="#orgf36b70e">3. Problem 3)</a>
+<ul>
+<li><a href="#org1dbf9d5">3.1. a)</a></li>
+<li><a href="#orgf9f4abe">3.2. c)</a></li>
+<li><a href="#org22830f9">3.3. d)</a></li>
+<li><a href="#orgf79b19f">3.4. e)</a></li>
+</ul>
+</li>
+<li><a href="#orgeef6b59">4. Problem 4)</a></li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-orgdc31fb7" class="outline-2">
+<h2 id="orgdc31fb7"><span class="section-number-2">1</span> Problem 1)</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Given an object with a center of mass at \(\vec{r}_{CM}\) rotating around an axis \(z\), we can evaluate the inertia of the object from a different frame of reference rotating around an axis \(z'\) parallel to \(z\).
+First, the rotational inertia of an object around a particular axis can be thought of as the sum of the rotational inertia of each of its horizontal slices (with respect to the axis). This means that our equation can take into consideration only 2 dimensions and still work with 3 dimensions.
+We can also consider that we can translate between the two axis by a constant vector, the distance between the axes:
+</p>
+
+\begin{aligned}
+\vec{l}_{i}' &= \vec{R}_{CM} + \vec{l}_{i} \\
+\end{aligned}
+
+<p>
+Note that we will consider the origin of the system as the point on \(z'\) such that the distance from it to the center of mass is minimized. In other words, the center of mass is located at \(\vec{R}_{CM}\).
+</p>
+
+<p>
+Now, we can evaluate the inertia of a particular slice from the reference frame of the origin:
+</p>
+
+\begin{aligned}
+I &= \sum_{i = 1}^{N} m_i \vec{l_i'}^2 \\
+\end{aligned}
+
+<p>
+We expand:
+</p>
+
+\begin{aligned}
+I &= \sum_{i = 1}^{N} m_i \vec{l_i'}^2 \\
+&= \sum_{i = 1}^{N} m_i (\vec{R_{CM}}^2 + \vec{l_i}^2 + 2\vec{R_{CM}}\vec{l_i}) \\
+&= \vec{R}^2_{CM} \sum_{i = 1}^{N} m_i + \sum_{i = 1}^{N} m_i \vec{l_i}^2 + 2\vec{R}_{CM} \sum_{i = 1}^{N} m_i \vec{l_i} \\
+\end{aligned}
+
+<p>
+Recall that \(\vec{l_i}\) is the distance from the center of mass to the point on the object. This means that the rightmost term represents the center of mass, from the reference frame of the center of mass, i.e. zero:
+</p>
+
+\begin{aligned}
+\sum_{i = 1}^{N} m_i \vec{l_i} &= 0
+\end{aligned}
+
+<p>
+As such, we simplify \(I\) further:
+</p>
+\begin{aligned}
+I &= \vec{R}_{CM}^2 \sum_{i = 1}^{N} + \sum_{i = 1}^{N} m_i \vec{l_i}^2 \\
+&= \vec{R}_{CM}^2 \cdot M + I_{CM} \\
+&= D^2 M + I_{CM} \\
+\end{aligned}
+</div>
+</div>
+
+
+<div id="outline-container-orge8bf520" class="outline-2">
+<h2 id="orge8bf520"><span class="section-number-2">2</span> Problem 2)</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+First, we evaluate the rotational inertia of each circle from the reference frame of their center. We know this is just \(\frac{1}{5}MR^2\) for each circle.
+We know that one circle has its center as the origin of the system, while the other four have their centers \(2R\) away from the origin. As such:
+</p>
+
+\begin{aligned}
+I &= \frac{1}{5}MR^2 + 4\cdot (\frac{1}{5}MD^2 + \frac{1}{5}MR^2) \\
+&= \frac{1}{5}MR^2 + 4\cdot (\frac{4}{5}MR^2 + \frac{1}{5}MR^2) \\
+&= \frac{1}{5}MR^2 + 4\cdot (MR^2) \\
+&= \frac{21}{5}MR^2 \\
+\end{aligned}
+</div>
+</div>
+
+<div id="outline-container-orgf36b70e" class="outline-2">
+<h2 id="orgf36b70e"><span class="section-number-2">3</span> Problem 3)</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org1dbf9d5" class="outline-3">
+<h3 id="org1dbf9d5"><span class="section-number-3">3.1</span> a)</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+We consider the force applied by the string is \(\vec{F}_{0} &= F_{0}\hat{x}\). The force is applied at \(z = H\), where the radius of the object is \(R\). We also know that the string's contact point is tangential to the object. As such, the point at which \(\vec{F}_{0}\) is applied can be given by
+</p>
+
+\begin{aligned}
+\vec{r} &= R\hat{y} + H\hat{z} \\
+\end{aligned}
+
+<p>
+From this we can calculate torque:
+</p>
+
+\begin{aligned}
+\vec{\tau} &= \vec{r} \times \vec{F}_{0} \\
+&= R\hat{y} \times F_{0}\hat{x} + H\vec{z} \times F_{0}\hat{x} \\
+&= HF_{0}\hat{y} -RF_{0}\hat{z}
+\end{aligned}
+</div>
+</div>
+
+<div id="outline-container-orgf9f4abe" class="outline-3">
+<h3 id="orgf9f4abe"><span class="section-number-3">3.2</span> c)</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+We know the torque that \(\vec{F}_{0}\) contributes to the system:
+</p>
+
+\begin{aligned}
+\vec{\tau}_{0} &= HF_{0}\hat{y} - RF_{0}\hat{z} \\
+\end{aligned}
+
+<p>
+We know that \(\vec{F}_{1}\) is at the origin so it contributes no torque.
+We can calculate the torque that \(\vec{F}_{2}\) contributes to the system. We know that \(\vec{F}_{2}\) is in the \(\hat{x}\) direction because it counteracts the torque by \(\vec{F}_{0}\):
+</p>
+
+\begin{aligned}
+\vec{\tau}_{2} &= -\frac{H}{2}\hat{z} \times F_{2}\hat{x} \\
+&= -\frac{F_{2}H}{2}\hat{y} \\
+\end{aligned}
+
+<p>
+If the object only rotates around the \(\hat{z}\) axis, then the torque along the \(\hat{y}\) axis by the two forces should cancel out:
+</p>
+
+\begin{aligned}
+HF_{0} - \frac{F_{2}H}{2} &= 0 \\
+F_{0} - \frac{F_{2}}{2} &= 0 \\
+F_{2} &= 2F_{0} \\
+\end{aligned}
+
+<p>
+We know that \(\vec{F}_{1}\) is counteracting the forces on the object, but not the torque, so the sum of all forces should add up to zero:
+</p>
+
+\begin{aligned}
+\vec{F}_{0} + \vec{F}_{1} + \vec{F}_{2} &= 0 \\
+F_{0}\hat{x} + \vec{F}_{1} + F_{2}\hat{x} &= 0 \\
+3F_{0}\hat{x} + \vec{F}_{1} &= 0 \\
+\vec{F}_{1} &= -3F_{0}\hat{x} \\
+\end{aligned}
+</div>
+</div>
+
+<div id="outline-container-org22830f9" class="outline-3">
+<h3 id="org22830f9"><span class="section-number-3">3.3</span> d)</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+We already solved for our net torque. We already established that \(\tau_{0}\) and \(\tau_{2}\) in the \(\hat{y}\) direction cancel out. Therefore,
+</p>
+
+\begin{aligned}
+\vec{\tau}_{Net} &= -RF_{0}\hat{z} \\
+\end{aligned}
+
+<p>
+Newton 2 establishes that
+</p>
+
+\begin{aligned}
+\vec{\tau}_{Net} &= I\vec{\alpha} \\
+\end{aligned}
+
+<p>
+Therefore, if the top has rotational inertia \(I_{0}\), the angular acceleration should be
+</p>
+
+\begin{aligned}
+\vec{\alpha} &= \frac{\vec{\tau}_{Net}}{I_{0}} \\
+&= -\frac{RF_{0}}{I_{0}}\hat{z} \\
+\end{aligned}
+</div>
+</div>
+
+<div id="outline-container-orgf79b19f" class="outline-3">
+<h3 id="orgf79b19f"><span class="section-number-3">3.4</span> e)</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+We know \(\vec{\alpha}(t)\). We need to solve for \(\vec{\omega}(t)\) and \(\vec{\theta}(t)\). We can just integrate \(\vec{\alpha}(t)\) to solve for these functions.
+First, we solve for \(\vec{\omega}(t)\):
+</p>
+
+\begin{aligned}
+\vec{\omega}(t) &= \int \vec{\alpha}(t) \,dt \\
+&= \int -\frac{RF_{0}}{I_{0}} \hat{z} \,dt \\
+&= -\frac{RF_{0}}{I_{0}}t \hat{z} + C\\
+\end{aligned}
+
+<p>
+We know that at \(\vec{\omega}(0) &= 0\), so we know that \(C = 0\) and the function just becomes
+</p>
+
+\begin{aligned}
+\vec{\omega}(t) &= -\frac{RF_{0}}{I_{0}}t\hat{z} \\
+\end{aligned}
+
+<p>
+We can now integrate this function to solve for \(\vec{\theta}(t)\):
+</p>
+
+\begin{aligned}
+\vec{\theta}(t) &= \int \vec{\omega}(t) \,dt \\
+&= \int -\frac{RF_{0}}{I_{0}}t\hat{z} \,dt \\
+&= -\frac{RF_{0}}{2I_{0}}t^2\hat{z} + C \\
+\end{aligned}
+
+<p>
+Again, \(\vec{\theta}(0) &= 0\), so \(C = 0\):
+</p>
+
+\begin{aligned}
+\vec{\theta}(t) &= -\frac{RF_{0}}{2I_{0}}t^2\hat{z} \\
+\end{aligned}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeef6b59" class="outline-2">
+<h2 id="orgeef6b59"><span class="section-number-2">4</span> Problem 4)</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+We first find the rotational inertia of a thin slice of dimensions \(W\times H\). Then, we integrate along \(L\) to find the total inertia. We can do this because we can use the parallel axis theorem for each slice, where the distance is the distance of the slice from the center of mass.
+</p>
+
+<p>
+First, we solve for the inertia of the slice. The mass density can be given by
+</p>
+
+\begin{aligned}
+M_{Strip} &= \frac{M}{HWL} \\
+\end{aligned}
+
+<p>
+because we assume the density of the rod is constant.
+We can now find the inertia of the slice. First, we integrate along the \(\hat{i}\) axis to find to find the inertia of a small strip, then integrate again along \(\hat{k}\) to find the final integral of the slice.
+We recall the integral for inertia:
+</p>
+
+\begin{aligned}
+I_{strip} &= \int_{-\frac{W}{2}}^{\frac{W}{2}} l^2 \,dm \\
+&= \int_{-\frac{W}{2}}^{\frac{W}{2}} l^2 \frac{M}{HWL} \,dl \\
+&= \frac{M}{HWL} \int_{-\frac{W}{2}}^{\frac{W}{2}} l^2 \,dl \\
+&= \frac{M}{HWL} \left[\frac{l^3}{3}\right]_{-\frac{W}{2}}^{\frac{W}{2}} \\
+&= \frac{M}{HWL} \left(\frac{W^3}{24} - \frac{-W^3}{24}\right) \\
+&= \frac{M}{HWL} \left(\frac{W^3}{12}\right) \\
+&= \frac{MW^2}{12HL} \\
+\end{aligned}
+
+<p>
+To find the slice inertia, we just need to integrate along the \(\hat{k}\) axis. Because the slice is rotating along the same axis, the integral will just take the form of a product along \(H\):
+</p>
+
+\begin{aligned}
+I_{slice} &= H I_{strip} \\
+&= \frac{MW^2}{12L} \\
+\end{aligned}
+
+<p>
+Now, we can just integrate from \(-\frac{L}{2}\) to \(\frac{L}{2}\). We can use the parallel axis theorem to find the inertia at each distance from the center.
+</p>
+
+\begin{aligned}
+I_{slice} &= \frac{MW^2}{12L} \\
+I_{slice,CM} &= I_{slice} + mD^2 \\
+\end{aligned}
+
+<p>
+We know that \(m &= \frac{M}{L}\). We also know that the distance between the slice and the center of mass is the variable that we integrate along.
+</p>
+
+\begin{aligned}
+I_{Net} &= \int_{-\frac{L}{2}}^{\frac{L}{2}} I_{slice,CM} \,dD \\
+&= \int_{-\frac{L}{2}}^{\frac{L}{2}} I_{slice} + ml^2 \,dl \\
+&= \int_{-\frac{L}{2}}^{\frac{L}{2}} \frac{MW^2}{12L} + \frac{M}{L}l^2 \,dl \\
+&= \frac{MW^2}{12} + \frac{M}{L} \int_{-\frac{L}{2}}^{\frac{L}{2}} l^2 \,dl \\
+&= \frac{MW^2}{12} + \frac{M}{L} \left[\frac{l^3}{3}\right]_{-\frac{L}{2}}^{\frac{L}{2}} \\
+&= \frac{MW^2}{12} + \frac{M}{L} \left(\frac{L^3}{24} - \frac{-L^3}{24}\right) \\
+&= \frac{MW^2}{12} + \frac{M}{L} \left(\frac{L^3}{12}\right) \\
+&= \frac{MW^2}{12} + \frac{ML^2}{12} \\
+&= \frac{M(W^2 + L^2)}{12} \\
+&= \frac{1}{12}M(W^2 + L^2) \\
+\end{aligned}
+</div>
+</div>
+</div>
+</body>
+</html>

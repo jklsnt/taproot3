@@ -1,0 +1,109 @@
+<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Dylan Wallace" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Rotational Dynamics Theorem: Torque and Angular Momentum 5</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        'displayAlign': 'center',
+        'displayIndent': '0em',
+        'extensions': ['tex2jax.js'],
+        'tex2jax': {
+        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
+        'processEscapes': true
+        },
+        'HTML-CSS': { scale: 100,
+                        linebreaks: { automatic: 'false' },
+                        webFont: 'TeX'
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: 'false' },
+              font: 'TeX'},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: 'AMS'},
+               MultLineWidth: '85%',
+               TagSide: 'right',
+               TagIndent: '.8em'
+             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Rotational Dynamics Theorem: Torque and Angular Momentum 5</h1></div><div class="metamble"><span><span>Written by </span><span>Dylan Wallace</span></span></div><div class="notebody"><div><section></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="problem-1)"><span class="firn-headline-text"><span>Problem 1)</span></span></h1><section><p><span>We will take the liberty of claiming that $g &= 10 ms^{-2}$ for the simple reason that I am lazy and that we are dealing with objects that we can hold in our hands, hypothetically, and therefore this level of precision is adequate.</span></p></section><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="a)"><span class="firn-headline-text"><span>a)</span></span></h2><section><p><span>We know the force of friction that is acting on the cylinder. We can find the friction coefficient by solving for the normal and dividing it from the force of friction.
+We know the mass of the cylinder, so we know the force of gravity. We also know the angle of the ramp. Therefore, we can calculate the normal force as being</span></p><p><span>\begin{aligned}
+F_{N} &= Mg\cos{(\theta)} \\
+\end{aligned}</span></p><p><span>Therefore,</span></p><p><span>\begin{aligned}
+\mu \ge \frac{F_f}{F_N} &= \frac{F_f}{Mg\cos{(\theta)}}
+\end{aligned}</span></p><p><span>We plug in our values:</span></p><p><span>\begin{aligned}
+\mu \ge \frac{2N}{1kg \cdot 9.8ms^{-2}\cdot \cos{(30^{\circ})}} \\
+&= \frac{2N}{10N \cdot \frac{\sqrt{3}}{2}} \\
+&= \frac{2N}{10N} \cdot \frac{2}{\sqrt{3}} \\
+&= \frac{4\sqrt{3}}{10\cdot 3} \\
+&= \frac{2\sqrt{3}}{15} \\
+\end{aligned}</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="b)"><span class="firn-headline-text"><span>b)</span></span></h2><section><p><span>We can find the linear acceleration of the CM by summing all the forces and dividing by the mass.
+The forces acting on the cylinder are those of gravity, normal force, and friction. Note that the force of friction applies in the opposite direction as the direction of the sum of gravity and normal force. Due to the normal force, we can disregard any force perpendicular to the ramp:</span></p><p><span>\begin{aligned}
+F_{net} &= F_{g,ramp} - F_{f} \\
+F_{g,ramp} &= -F_{g}\sin{(\theta)} \\
+&= gM\sin{(\theta)} \\
+F_{net} &= gM\sin{(\theta)} - F_{f} \\
+\end{aligned}</span></p><p><span>We know that $F &= ma$, so</span></p><p><span>\begin{aligned}
+a_{ramp} &= \frac{F_{net}}{M} \\
+&= \frac{gM\sin{(\theta)} - F_{f}}{M} \\
+&= g\sin{(\theta)} - \frac{F_{f}}{M} \\
+\end{aligned}</span></p><p><span>Plugging in values:
+\begin{aligned}
+a_{ramp} &= 10 ms^{-2} \sin{(30^{\circ})} - \frac{2.0N}{1.0 kg} \\
+&= 5ms^{-2} - 2ms^{-2} \\
+&= 3ms^{-2} \\
+\end{aligned}</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="c)"><span class="firn-headline-text"><span>c)</span></span></h2><section><p><span>We've established in a different problemset that the following is true:</span></p><p><span>\begin{aligned}
+\vec{\tau}_{net}' &= I_{CM}\vec{\alpha}' \\
+\vec{\alpha}' &= \frac{\vec{\tau}_{net}'}{I_{CM}} \\
+\end{aligned}</span></p><p><span>We know the rotational inertia. We can solve for the torque of the cylinder and divide by inertia to find acceleration.
+We can find the torque by adding up all torques by all forces. To find the torque, we define a coordinate system where $\hat{z}$ is pointing towards the page. We also consider "right" to be $\hat{x}$ and "up" to be $\hat{y}$.</span></p><p><span>First, we compute gravitational torque. We know that the torque on a rigid body by gravity is equivalent to the torque by gravity on the center of mass. Therefore, we can consider the torque as the torque applied by gravity on the point of contact of the cylinder on the ramp:</span></p><p><span>\begin{aligned}
+\vec{\tau}_{g} &= \vec{R} \times \vec{F}_{g} \\
+&= (-R\sin{(\theta)}\hat{x} - R\cos{(\theta)}\hat{y}) \times -Mg\hat{y} \\
+&= -R\sin{(\theta)}\hat{x} \times -Mg\hat{y} + -R\cos{(\theta)}\hat{y} \times -Mg\hat{y} \\
+&= -R\sin{(\theta)}\hat{x} \times -Mg\hat{y} \\
+&= RMg\sin{(\theta)}\hat{z} \\
+\end{aligned}</span></p><p><span>We can effectively do the same thing with the force of friction, as it is also a force being applied to the cylinder at a point. We know that the force of friction is perpendicular to the point of contact vector:</span></p><p><span>\begin{aligned}
+\vec{\tau}_{f} &= \vec{R} \times \vec{F}_{f} \\
+&= -RF_{f}\hat{z} \\
+\end{aligned}</span></p><p><span>We sum the two to get the net torque:</span></p><p><span>\begin{aligned}
+\vec{\tau}_{net}' &= \vec{\tau}_{g}' + \vec{\tau}_{f}'
+&= \vec{\tau}_{g} + \vec{\tau}_{f} \\
+&= RMg\sin{(\theta)}\hat{z} - RF_{f} \hat{z} \\
+&= R(Mg\sin{(\theta)} - F_f)\hat{z} \\
+\end{aligned}</span></p><p><span>As such,</span></p><p><span>\begin{aligned}
+\vec{\alpha}' &= \frac{\vec{\tau}_{net}'}{I_{0}} \\
+&= \frac{R(Mg\sin{(\theta)} - F_{f})}{I_{0}}\hat{z} \\
+\end{aligned}</span></p><p><span>We plug in values:</span></p><p><span>\begin{aligned}
+\vec{a}' &= \frac{0.5m(1.0kg \cdot 10ms^{-2}\cdot \sin{(30^{\cdot})} - 2.0 N)}{0.2 kg\cdotm^2} \\
+&= \frac{0.5m(5N - 2N)}{0.2kg\cdot m^2} \\
+&= \frac{1.5 kg\cdot m^2s^{-2}}{0.2kg\cdot m^2} \\
+&= 7.5 \frac{rad}{s^{2}} \\
+\end{aligned}</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="d)"><span class="firn-headline-text"><span>d)</span></span></h2><section><p><span>If the cylinder slides, the friction is considered dynamic. If it does not, it is considered static.
+If the cylinder slides, the acceleration calculated by the torque should be higher than the acceleration calculated from the linear acceleration. We can find this acceleration simply by dividing by the radius:</span></p><p><span>\begin{aligned}
+\alpha &= \frac{a_{ramp}}{R} \\
+&= \frac{3ms^{-2}}{0.5m} \\
+&= 6\frac{rad}{s^2} \\
+\end{aligned}</span></p><p><span>This value is less than the $7.5 \frac{rad}{s^2}$ we got from the torque method, so we know that the cylinder slips, and the coefficient is kinetic.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="e)"><span class="firn-headline-text"><span>e)</span></span></h2><section><p><span>To find the initial torque of the cylinder from the reference frame of the right vertex of the triangle, we need the distance from the vertex to the Center of Mass of the cylinder, as well as the net force acting on the cylinder.</span></p><p><span>We know the net force acting on the cylinder to be the following:</span></p><p><span>\begin{aligned}
+\vec{F_{net}} &= \vec{F}_{g} + \vec{F}_{N} + \vec{F}_{f} \\
+&= -Mg\hat{y} + Mg\cos^2{(\theta)}\hat{x} + Mg\cos{(\theta)}\sin{(\theta)}\hat{y} + \vec{F}_{f} \\
+&= Mg\cos{(\theta)}(\cos{(\theta)}\hat{x} + (\sin{(\theta)} - 1)\hat{y}) + \vec{F}_{f} \\
+\end{aligned}</span></p><p><span>Friction acts against the sum of gravity and normal force, so</span></p><p><span>\begin{aligned}
+\vec{F}_{net} &= (Mg\cos{(\theta)} - F_{f})(\cos{(\theta)}\hat{x} + (\sin{(\theta)}  -1)\hat{y}) \\
+\end{aligned}</span></p><p><span>In addition, given a base length $b$ and a ramp length $L$, we can solve the position of the point where the cylinder makes contact with the ramp:</span></p><p><span>\begin{aligned}
+\vec{R}_{contact} &= (b - L\cos{(\theta)})\hat{x} + L\sin{(\theta)}\hat{y} \\
+\end{aligned}</span></p><p><span>We can add the (inverse of the) radius vector to this position vector to find the position of the center of mass:</span></p><p><span>\begin{aligned}
+\vec{R}_{CM} &= \vec{R}_{contact} - \vec{R} \\
+&= (b - L\cos{(\theta)})\hat{x} + L\sin{(\theta)}\hat{y} + R\sin{(\theta)}\hat{x} + R\cos{(\theta)}\hat{y} \\
+&= (R\sin{(\theta)} - L\cos{(\theta)} + b)\hat{x} + (R\cos{(\theta)} + L\sin{(\theta)})\hat{y} \\
+\end{aligned}</span></p><p><span>We now just take the cross product to get the torque:</span></p><p><span>\begin{aligned}
+\vec{\tau} &= \vec{R}_{CM} \times \vec{F}_{net} \\
+&= \left((R\sin{(\theta)} - L\cos{(\theta)} + b)\hat{x} + (R\cos{(\theta)} + L\sin{(\theta)})\hat{y}\right) \\
+&\,\,\,\times \left((Mg\cos{(\theta)} - F_{f})(\cos{(\theta)}\hat{x} + (\sin{(\theta)} - 1)\hat{y})\right) \\
+&= (R\sin{(\theta)} - L\cos{(\theta)} + b)\hat{x} \times (Mg\cos{(\theta)} - F_f)(\sin{(\theta)} - 1)\hat{y} \\
+&\,\,\,+ (R\cos{(\theta)} + L\sin{(\theta)})\hat{y} \times (Mg\cos{(\theta)} - F_f)\cos{(\theta)}\hat{x} \\
+\end{aligned}</span></p><p><span>We can take liberties and assume that the parameters $b$ and $L$ are such that $L &= b\cos{(\theta)}$; in other words, $b$ and $L$ form a right triangle. This will simplify our expression for computing the torque, as the force and the position vector will be tangential to each other. For the sake of simplicity, we will replace $H &= L\sin{(\theta)}$.</span></p><p><span>\begin{aligned}
+\vec{\tau} &= (R\sin{(\theta)} - b\cos^2{(\theta)} + b)\hat{x} \times (Mg\cos{(\theta)} - F_f\cos{(\theta)})(\sin{(\theta)} - 1)\hat{y} \\
+&\,\,\,+ (R\cos{(\theta)} + H)\hat{y} \times (Mg\cos^2{(\theta)} - F_f\cos{(\theta)}) \hat{x} \\
+&= (R\sin{(\theta)} + b(1 - \cos^2{(\theta)}))\hat{x} \times (Mg\cos{(\theta)} - F_f\cos{(\theta)})(\sin{(\theta)} - 1)\hat{y} \\
+&\,\,\,+ (R\cos{(\theta)} + H)\hat{y} \times (Mg\cos^2{(\theta)} - F_f\cos{(\theta)}) \hat{x} \\
+&= (R\sin{(\theta)} + b(1 - \cos^2{(\theta)}))(Mg\cos{(\theta)} - F_f\cos{(\theta)})(\sin{(\theta)} - 1)\hat{z} \\
+&\,\,\,- (R\cos{(\theta)} + H)(Mg\cos^2{(\theta)} - F_f\cos{(\theta)})\hat{z} \\
+\end{aligned}</span></p><p><span>We simplify further:</span></p><p><span>\begin{aligned}
+\tau &= RMg\sin{(\theta)}\cos{(\theta)}(\sin{(\theta)} - 1) \\
+&\, - RF_f\sin{(\theta)}\cos{(\theta)}(\sin{(\theta)} - 1) \\
+&\, + bMg(1 - \cos^2{(\theta)})\cos{(\theta)}(\sin{(\theta)} - 1) \\
+&\, - bF_f(1 - \cos^2{(\theta)})\cos{(\theta)}(\sin{(\theta)} - 1) \\
+&\, - RMg\cos^3{(\theta)} + RF_f\cos^2{(\theta)} - HMg\cos^2{(\theta)} + HF_f\cos{(\theta)} \\
+\end{aligned}</span></p><p><span>At this point, the simplification becomes trivial. It is therefore left as an exercise to the reader.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="f)"><span class="firn-headline-text"><span>f)</span></span></h2><section></section></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#problem-1)">Problem 1)</a><ol><li><a href="#a)">a)</a></li><li><a href="#b)">b)</a></li><li><a href="#c)">c)</a></li><li><a href="#d)">d)</a></li><li><a href="#e)">e)</a></li><li><a href="#f)">f)</a></li></ol></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>

@@ -1,0 +1,151 @@
+<html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta content="Dylan Wallace" name="author" /><meta content="A note on Taproot, a connected notes system." name="description" /><title>Torque Theorems: Torque and Angular Momentum 4</title><link href="/static/css/firn_base.css" rel="stylesheet" /><link href="/static/css/prism.css" rel="stylesheet" /><link href="/static/css/global.css" rel="stylesheet" /><link href="/static/css/admonition.css" rel="stylesheet" /><script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        'displayAlign': 'center',
+        'displayIndent': '0em',
+        'extensions': ['tex2jax.js'],
+        'tex2jax': {
+        'inlineMath': [ ['$','$'], ['\\(','\\)'] ],
+        'processEscapes': true
+        },
+        'HTML-CSS': { scale: 100,
+                        linebreaks: { automatic: 'false' },
+                        webFont: 'TeX'
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: 'false' },
+              font: 'TeX'},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: 'AMS'},
+               MultLineWidth: '85%',
+               TagSide: 'right',
+               TagIndent: '.8em'
+             }})</script></head><body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js" type="text/javascript"></script><script crossorigin=="anonymous" src="https://kit.fontawesome.com/76c5ce8bda.js"></script><div class="headerline"><a class="wordmark" href="https://taproot3.sanity.gq/" style="border:0">TR3</a></div><main><article class="content rss"><div class="preamble"><h1 class="title">Torque Theorems: Torque and Angular Momentum 4</h1></div><div class="metamble"><span><span>Written by </span><span>Dylan Wallace</span></span></div><div class="notebody"><div><section></section><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="lemma-1"><span class="firn-headline-text"><span>Lemma 1</span></span></h1><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="a)"><span class="firn-headline-text"><span>a)</span></span></h2><section><p><span>The vector $\vec{r}'_{i}$ is the distance of the $i$-th point mass from the center of mass.
+As such, the expression</span></p><p><span>\begin{aligned}
+\sum m_i \vec{r_{i}}' \\
+\end{aligned}</span></p><p><span>represents the weighted sum of each point mass, or, by definition, the Center of Mass of the system. Because each position vector is the distance from the Center of Mass, the expression represents the position of the Center of Mass from the reference frame of the Center of Mass. As such, we reach the statement</span></p><p><span>\begin{aligned}
+\sum m_i \vec{r}_{i}' &= 0
+\end{aligned}</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="b,-c)"><span class="firn-headline-text"><span>b, c)</span></span></h2><section><p><span>We already established the following:</span></p><p><span>\begin{aligned}
+\sum m_i \vec{r_{i}}' &= 0 \\
+\end{aligned}</span></p><p><span>We know the following as well:</span></p><p><span>\begin{aligned}
+\frac{d}{dt} \vec{r_{i}}' &= \vec{v_{i}}' \\
+\frac{d}{dt} \vec{v_{i}}' &= \vec{a_{i}}' \\
+\end{aligned}</span></p><p><span>The derivative of a sum is the sum of the derivative:</span></p><p><span>\begin{aligned}
+\frac{d}{dt} \sum_{i = 1}^{N} f(t)_{i} &= \sum_{i = 1}^{N} \frac{d}{dt} f(t)_{i} \\
+\end{aligned}</span></p><p><span>This holds because $\frac{d}{dt} (f(t) + g(t) + h(t) + ...) = (f'(t) + g'(t) + h'(t) + ...)$</span></p><p><span>As such, the following hold true as well:</span></p><p><span>\begin{aligned}
+\frac{d}{dt} \sum m_i \vec{r_{i}}' &= \frac{d}{dt} 0 \\
+\sum \frac{d}{dt} m_i \vec{r_{i}}' &= 0 \\
+\sum m_i \vec{v_{i}}' &= 0 \\
+\end{aligned}</span></p><p><span>and</span></p><p><span>\begin{aligned}
+\frac{d}{dt} \sum m_i \vec{v_{i}}' &= \frac{d}{dt} \\
+\sum \frac{d}{dt} m_i \vec{v_{i}}' &= 0 \\
+\sum m_i \vec{a_{i}}' &= 0 \\
+\end{aligned}</span></p></section></div></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="theorem-1"><span class="firn-headline-text"><span>Theorem 1</span></span></h1><section><p><span>The total angular momentum of a system is equal to the sum of each object's angular momentum:</span></p><p><span>\begin{aligned}
+\vec{L}_{sys} &= \sum \vec{L}_{i} \\
+&= \sum \vec{r_{i}} \times m_{i} \vec{v_{i}} \\
+&= \sum (\vec{R} + \vec{r_{i}}') \times m_{i} \vec{v_{i}} \\
+&= \sum \vec{R} \times m_{i} \vec{v_{i}} + \sum \vec{r_{i}}' \times m_{i} \vec{v_{i}} \\
+&= \vec{R} \times \sum m_{i} \vec{v_{i}} + \sum \vec{r_{i}}' \times m_{i} \vec{v_{i}} \\
+\end{aligned}</span></p><p><span>We replaced $\vec{r_{i}}$ with $\vec{R} + \vec{r_i}'$; we will also replace $\vec{v_i}$ with $\vec{V} + \vec{v_{i}}'$:</span></p><p><span>\begin{aligned}
+\vec{L}_{sys} &= \vec{R} \times \sum m_i \vec{v_i} + \sum \vec{r_{i}}' \times m_i \vec{v_{i}} \\
+&= \vec{R} \times \sum m_i \left(\vec{V} + \vec{v_{i}}'\right) + \sum \vec{r_{i}}' \times m_{i} \left(\vec{V} + \vec{v_i}'\right) \\
+&= \vec{R} \times \sum \left(m_i \vec{V}\right) + \vec{R} \times \sum \left(m_i \vec{v_{i}}'\right) + \sum \left(\vec{r_{i}}' \times m_{i} \vec{V}\right) + \sum \left(\vec{r_{i}}' \times m_i \vec{v_{i}}'\right) \\
+\end{aligned}</span></p><p><span>By our lemma, the second term goes to zero. In addition, we can manipulate our third sum to read $\sum m_i \vec{r_{i}}' \times \vec{V}$; Because the left side of the cross product simplifies to zero, the whole sum goes to zero. As a result, we reach the simplified form</span></p><p><span>\begin{aligned}
+\vec{L}_{sys} &= \vec{R} \times \sum m_i \vec{V} + \sum \vec{r_{i}}' \times m_i \vec{v_{i}}' \\
+\end{aligned}</span></p><p><span>The first term represents the sum of the angular momentum of each point mass if they were located at the Center of Mass. The sum of the first term represents the sum of the momentum of each point mass from the reference point of the Center of Mass, which can be simplified down just to the momentum of the whole system from the reference frame of the Center of Mass.
+The second term represents the angular momentum of the system from the reference frame of the center of mass.</span></p><p><span>\begin{aligned}
+\vec{L}_{sys} &= \vec{R} \times \sum m_{i} \vec{v_{i}}' + \sum \vec{r_{i}}' \times m_{i} \vec{v_{i}}' \\
+&= \vec{R} \times M\vec{v}_{CM} + \sum \vec{r_{i}}' \times m_{i} \vec{v_{i}}' \\
+\end{aligned}</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="theorem-2"><span class="firn-headline-text"><span>Theorem 2</span></span></h1><section><p><span>To find an expression for the derivative of the angular momentum of the system, we will use Theorem 1:</span></p><p><span>\begin{aligned}
+\vec{L}_{sys} &= \vec{R} \times M\vec{v}_{CM} + \sum \vec{r_{i}}' \times m_{i} \vec{v}_{i}' \\
+\frac{d}{dt} \vec{L}_{sys} &= \frac{d}{dt} \left(\vec{R} \times M\vec{v}_{CM} + \sum \vec{r_{i}}' \times m_{i} \vec{v_{i}}'\right) \\
+&= \frac{d}{dt} \left(\vec{R} \times M\vec{v}_{CM}\right) + \frac{d}{dt} \sum \vec{r_{i}}' \times m_{i} \vec{v_{i}}' \\
+\end{aligned}</span></p><p><span>We established above how to take the derivative of a sum. We also use product rule for the first term:</span></p><p><span>\begin{aligned}
+\frac{d}{dt} \vec{L}_{sys} &= \vec{R} \times M\vec{a}_{CM} + \vec{V} \times M\vec{v}_{CM}+  \sum \frac{d}{dt} (\vec{r_{i}}' \times m_i \vec{v_{i}}') \\
+\end{aligned}</span></p><p><span>Recall that by definition $\vec{V} &= \vec{v}_{CM}$. Therefore, the second term goes to zero:</span></p><p><span>\begin{aligned}
+\frac{d}{dt} \vec{L}_{sys} &= \vec{R} \times M\vec{a}_{CM} + \sum \vec{v_{i}}' \times m_{i} \vec{v_{i}}' + \vec{r_{i}}' \times m_i \vec{a_{i}}' \\
+&= \vec{R} \times M\vec{a}_{CM} + \sum \vec{r_{i}}' \times m_i \vec{a_{i}}' \\
+\end{aligned}</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="theorem-3"><span class="firn-headline-text"><span>Theorem 3</span></span></h1><section><p><span>The net torque on a system is equivalent to the sum of torque on all point masses:</span></p><p><span>\begin{aligned}
+\vec{\tau}_{net} &= \sum \vec{\tau}_{i} \\
+&= \sum \vec{r}_{i} \times \vec{F}_{i} \\
+\end{aligned}</span></p><p><span>We use $\vec{r_{i}} &= \vec{R} + \vec{r_{i}}'$:</span></p><p><span>\begin{aligned}
+\vec{\tau}_{net} &= \sum \vec{r_{i}} \times \vec{F_{i}} \\
+&= \sum \left(\vec{R} + \vec{r_{i}}'\right) \times \vec{F_{i}} \\
+&= \sum \vec{R} \times \vec{F_{i}} + \sum \vec{r_{i}}' \times \vec{F_{i}} \\
+\end{aligned}</span></p><p><span>The left sum represents the torque of each point mass as if they were all at the Center of Mass. The sum of all forces is the net force.</span></p><p><span>\begin{aligned}
+\vec{\tau}_{net} &= \sum \vec{R} \times \vec{F_{i}} + \sum \vec{r_{i}}' \times \vec{F_{i}} \\
+&= \vec{R} \times \vec{F_{net}} + \sum \vec{r_{i}}' \times \vec{F_{i}} \\
+\end{aligned}</span></p><p><span>To demonstrate that the right sum simplifies to only external forces, we rewrite the force as the following:</span></p><p><span>\begin{aligned}
+\sum_{i} \vec{r_{i}}' \times \vec{F}_{i} &= \sum_{i} \vec{r_{i}}' \times \vec{F}_{i,net ext} + \sum_{i} \vec{r_{i}}' \times \vec{F}_{i,net \,int} \\
+\sum_{i} \vec{r_{i}}' \times \vec{F}_{i, net\,int} &= \sum_{i} \left(\vec{r_{i}}' \times \sum_{j} \vec{F}_{j\to i} \right)\\
+\end{aligned}</span></p><p><span>Note that for any $a, b$, Newton 3 states that the following holds true:</span></p><p><span>\begin{aligned}
+\vec{F}_{a\to b} &= -\vec{F}_{b\to a}
+\end{aligned}</span></p><p><span>In addition, the sum $\sum_i \vec{r_{i}}' \times \vec{F_{i,net\,int}}$ consists of expressions $\vec{r_a}' \times \vec{F_{b\to a}}$ and $\vec{r_{b}}' \times \vec{F_{a\to b}}$ for all pairs of point masses $a$ and $b$, as the sum represents the torque brought by internal forces.
+Newton 3 affirms that the following is true:</span></p><p><span>\begin{aligned}
+\vec{r_{a}}' \times \vec{F_{b\to a}} + \vec{r_{b}}' \times \vec{F_{a\to b}} &= \vec{r_{a}}' \times \vec{F_{b\to a}} - \vec{r_{b}}' \times \vec{F_{b\to a}} \\
+&= (\vec{r_{a}}' - \vec{r_{b}}')\times \vec{F_{b\to a}} \\
+&= 0
+\end{aligned}</span></p><p><span>The direction of the left and right terms of the cross product are the same; as a result, the cross product goes to zero.
+We are able to rewrite the net internal force torque sum as the following:</span></p><p><span>\begin{aligned}
+\sum_{i} \vec{r_{i}}' \times \vec{F}_{i,net\,int} &= \sum_{i < j}^{N} \vec{r_{i}}' \times \vec{F}_{j\to i} + \vec{r_{j}}' \vec{F}_{i\to j} \\
+\end{aligned}</span></p><p><span>We've already established that the sum's internals go to 0. As a result, the entire sum goes to zero.
+Therefore, the original sum can be rewritten:</span></p><p><span>\begin{aligned}
+\sum_{i} \vec{r_{i}}' \times \vec{F_{i}} &= \sum_{i} \vec{r_{i}}' \times \vec{F}_{i,net\, ext} + \sum_{i} \vec{r_{i}}' \times \vec{F}_{i,net\, int} \\
+&= \sum_{i} \vec{r_{i}}' \times \vec{F}_{i,net\,ext} \\
+\vec{\tau}_{net} &= \vec{R} \times \vec{F}_{net} + \sum \vec{r_{i}}' \times \vec{F}_{i} \\
+&= \vec{R} \times \vec{F}_{net} + \sum \vec{r_{i}}' \times \vec{F}_{i,net\,int} \\
+\end{aligned}</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="theorem-4"><span class="firn-headline-text"><span>Theorem 4</span></span></h1><section><p><span>We combine Theorem 2 and 3 to find an equivelence relation between the net torque from the reference frame of the Center of Mass and the time derivative of the net angular momentum from the reference frame of the Center of Mass.</span></p><p><span>First, we take our equations for the net torque and time derivative of net angular momentum from an arbitrary reference frame and modify them to fit the reference frame of the Center of Mass.</span></p><p><span>In the case of the net torque, our original equation is as follows:</span></p><p><span>\begin{aligned}
+\vec{\tau}_{net} &= \vec{R} \times \vec{F}_{net} + \sum \vec{r_{i}}' \times \vec{F}_{i,net\,int} \\
+\end{aligned}</span></p><p><span>From the reference frame of the Center of Mass, the position of the Center of Mass is at zero. As such, the torque equation becomes</span></p><p><span>\begin{aligned}
+\vec{\tau}_{net}' &= \sum \vec{r_{i}}' \times \vec{F}_{i,net\,int} \\
+\end{aligned}</span></p><p><span>Similarly, the derivative of the net angular velocity is as follows:</span></p><p><span>\begin{aligned}
+\frac{d L_{net}}{dt} &= \vec{R} \times M\vec{a}_{CM} + \sum \vec{r_{i}}' \times m_i \vec{a_{i}}' \\
+\end{aligned}</span></p><p><span>Again, $\vec{R} &= 0$:</span></p><p><span>\begin{aligned}
+\frac{d L_{net}'}{dt} &= \sum \vec{r_{i}}' \times m_{i}\vec{a_{i}}' \\
+\end{aligned}</span></p><p><span>The mass of an object multiplied by its acceleration is equal to its force:</span></p><p><span>\begin{aligned}
+\frac{dL_{net}'}{dt} &= \sum \vec{r_{i}}' \times F_{i} \\
+\end{aligned}</span></p><p><span>Recall that in theorem 3 we stated that the sum of torque of all objects from the CM reference frame is equivalent to the sum of torque of all objects by external forces (from the CM reference frame). In theorem 3, we used this to "simplify" our equation and helped deepen our understanding; in this proof, we reverse the process:</span></p><p><span>\begin{aligned}
+\vec{\tau}_{net}' &= \sum \vec{r_{i}}' \times \vec{F}_{i,net\,int} \\
+&= \sum \vec{r_{i}}' \times \vec{F}_{i} \\
+&= \frac{dL_{net}'}{dt} \\
+\end{aligned}</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="theorem-5"><span class="firn-headline-text"><span>Theorem 5</span></span></h1><section><p><span>We try to find the angular momentum of a rigid body in the reference frame of the Center of Mass. Note that we hold true that the axis of rotation passes through the center of mass.</span></p><p><span>We know that the angular momentum takes the form of the following:</span></p><p><span>\begin{aligned}
+\vec{L}_{sys} &= \vec{R} \times M\vec{v}_{CM} + \sum \vec{r_{i}}' \times m_i \vec{v_{i}}' \\
+\end{aligned}</span></p><p><span>Similar to Theorem 4, $\vec{R} &= 0$:</span></p><p><span>\begin{aligned}
+\vec{L}' &= \sum \vec{r_{i}}' \times m_{i}\vec{v_{i}}' \\
+\end{aligned}</span></p><p><span>We know that we are dealing with a rigid body, so we know that the angular velocity of each point mass should be the same. This means that the following is true for all $i$:</span></p><p><span>\begin{aligned}
+\vec{\omega}' &= \frac{\vec{r_{i}}' \times \vec{v_{i}}'}{r_{i}'^2} \\
+\end{aligned}</span></p><p><span>As such, we can simplify our expression:</span></p><p><span>\begin{aligned}
+\vec{L}' &= \sum \vec{r_{i}}' \times m_{i} \vec{v_{i}}' \\
+&= \sum m_{i} r_{i}'^2 \vec{\omega}' \\
+&= \vec{\omega}' \sum m_{i} r_{i}'^2
+\end{aligned}</span></p><p><span>Recall that the rotational inertia of the rigid body from the CM reference frame is the sum of the rotational inertia of each point mass in the rigid body.</span></p><p><span>\begin{aligned}
+I_{CM} &= \sum I_{i} \\
+&= \sum m_i r_{i}'^2 \\
+\end{aligned}</span></p><p><span>Therefore, our expression for angular momentum becomes</span></p><p><span>\begin{aligned}
+\vec{L}' &= \vec{\omega}' \sum m_i \vec{r_{i}}'^2 \\
+&= I_{CM} \vec{\omega}'
+\end{aligned}</span></p></section></div><div class="firn-headline-section firn-headline-section-1"><h1 class="firn-headline firn-headline-1" id="theorem-6"><span class="firn-headline-text"><span>Theorem 6</span></span></h1><section><p><span>We try to find an expression similar to Theorem 5 but with torque.
+We first start off with an expression for torque:</span></p><p><span>\begin{aligned}
+\vec{\tau}_{net} &= \vec{R}\times F_{net} + \sum \vec{r_{i}}' \times \vec{F}_{i,net\,ext} \\
+\end{aligned}</span></p><p><span>In our case, $\vec{R} &= 0$. For the sake of simplifying, we use $\vec{F}_{i}$ in place of $\vec{F}_{i,net\,ext}$.</span></p><p><span>\begin{aligned}
+\vec{\tau}_{net}' &= \sum \vec{r_{i}}' \times \vec{F}_{i} \\
+\end{aligned}</span></p><p><span>We expand force:</span></p><p><span>\begin{aligned}
+\vec{\tau_{net}}' &= \sum \vec{r_{i}}' \times m_i \vec{a_{i}}' \\
+\end{aligned}</span></p><p><span>We know that angular velocity can be given by the equation</span></p><p><span>\begin{aligned}
+\vec{\omega} &= \frac{\vec{r} \times \vec{v}}{r^2} \\
+\end{aligned}</span></p><p><span>We take the time derivative to get the expression for angular acceleration:</span></p><p><span>\begin{aligned}
+\frac{d\vec{\omega}}{dt} &= \frac{d}{dt} \frac{\vec{r}\times \vec{v}}{r^2} \\
+&= \frac{d}{dt} \frac{1}{r^2} (\vec{r} \times \vec{v}) \\
+&= -\frac{2v}{r^3} (\vec{r} \times \vec{v}) + \frac{1}{r^2} (\vec{v} \times \vec{v} + \vec{r} \times \vec{a}) \\
+&= -\frac{2v}{r^3} (\vec{r} \times \vec{v}) + \frac{1}{r^2} (\vec{r} \times \vec{a}) \\
+\end{aligned}</span></p><p><span>We know that $\vec{r} \times \vec{v}$ is just $r^2 \vec{\omega}$:</span></p><p><span>\begin{aligned}
+\frac{d\vec{\omega}}{dt} &= -\frac{2v}{r^3}(\vec{r}\times\vec{v}) + \frac{1}{r^2}(\vec{r}\times\vec{a}) \\
+&= -\frac{2v}{r}\vec{\omega} + \frac{\vec{r}\times \vec{a}}{r^2} \\
+\end{aligned}</span></p><p><span>Because we are dealing with a rigid body, the distance of each point mass from the axis of rotation should stay constant. Therefore, $v = 0$ , and as a result,</span></p><p><span>\begin{aligned}
+\frac{d\vec{\omega}}{dt} &= \vec{\alpha} &= \frac{\vec{r}\times\vec{a}}{r^2}
+\end{aligned}</span></p><p><span>in our particular context.
+Going back to our torque equation, we can simplify this:</span></p><p><span>\begin{aligned}
+\vec{\tau}_{net}' &= \sum \vec{r}_{i}' \times m_{i} \vec{a}_{i}' \\
+&= \sum m_{i} r_{i}'^2 \vec{\alpha}_{i}' \\
+\end{aligned}</span></p><p><span>Because we are dealing with a rigid body, the angular acceleration of the body should be equivalent to the angular acceleration of each point mass:</span></p><p><span>\begin{aligned}
+\vec{\tau}_{net}' &= \vec{\alpha}' \sum m_{i} \vec{r_{i}}'^2 \\
+&= I_{CM} \vec{\alpha}'
+\end{aligned}</span></p></section></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#lemma-1">Lemma 1</a><ol><li><a href="#a)">a)</a></li><li><a href="#b,-c)">b, c)</a></li></ol></li><li><a href="#theorem-1">Theorem 1</a></li><li><a href="#theorem-2">Theorem 2</a></li><li><a href="#theorem-3">Theorem 3</a></li><li><a href="#theorem-4">Theorem 4</a></li><li><a href="#theorem-5">Theorem 5</a></li><li><a href="#theorem-6">Theorem 6</a></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>

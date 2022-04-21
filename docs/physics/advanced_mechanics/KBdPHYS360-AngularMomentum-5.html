@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-04-20 Wed 21:32 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rotational Dynamics Theorem: Torque and Angular Momentum 5</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Dylan Wallace" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Rotational Dynamics Theorem: Torque and Angular Momentum 5</h1> <h2 class="subtitle"></h2> <span class="author">Dylan Wallace</span> <span class="date">2022-04-20 Wed 21:31</date></div>
+</div>
+<div id="content">
+<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<ul>
+<li><a href="#org74e7006">1. Problem 1)</a>
+<ul>
+<li><a href="#org778130b">1.1. a)</a></li>
+<li><a href="#org0c1cd48">1.2. b)</a></li>
+<li><a href="#org34144ec">1.3. c)</a></li>
+<li><a href="#org525a457">1.4. d)</a></li>
+<li><a href="#orge8b8882">1.5. e)</a></li>
+<li><a href="#org712f37d">1.6. f)</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+
+<div id="outline-container-org74e7006" class="outline-2">
+<h2 id="org74e7006"><span class="section-number-2">1</span> Problem 1)</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+We will take the liberty of claiming that \(g &= 10 ms^{-2}\) for the simple reason that I am lazy and that we are dealing with objects that we can hold in our hands, hypothetically, and therefore this level of precision is adequate.
+</p>
+</div>
+<div id="outline-container-org778130b" class="outline-3">
+<h3 id="org778130b"><span class="section-number-3">1.1</span> a)</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+We know the force of friction that is acting on the cylinder. We can find the friction coefficient by solving for the normal and dividing it from the force of friction.
+We know the mass of the cylinder, so we know the force of gravity. We also know the angle of the ramp. Therefore, we can calculate the normal force as being
+</p>
+
+\begin{aligned}
+F_{N} &= Mg\cos{(\theta)} \\
+\end{aligned}
+
+<p>
+Therefore,
+</p>
+
+\begin{aligned}
+\mu \ge \frac{F_f}{F_N} &= \frac{F_f}{Mg\cos{(\theta)}}
+\end{aligned}
+
+<p>
+We plug in our values:
+</p>
+
+\begin{aligned}
+\mu \ge \frac{2N}{1kg \cdot 9.8ms^{-2}\cdot \cos{(30^{\circ})}} \\
+&= \frac{2N}{10N \cdot \frac{\sqrt{3}}{2}} \\
+&= \frac{2N}{10N} \cdot \frac{2}{\sqrt{3}} \\
+&= \frac{4\sqrt{3}}{10\cdot 3} \\
+&= \frac{2\sqrt{3}}{15} \\
+\end{aligned}
+</div>
+</div>
+<div id="outline-container-org0c1cd48" class="outline-3">
+<h3 id="org0c1cd48"><span class="section-number-3">1.2</span> b)</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+We can find the linear acceleration of the CM by summing all the forces and dividing by the mass.
+The forces acting on the cylinder are those of gravity, normal force, and friction. Note that the force of friction applies in the opposite direction as the direction of the sum of gravity and normal force. Due to the normal force, we can disregard any force perpendicular to the ramp:
+</p>
+
+\begin{aligned}
+F_{net} &= F_{g,ramp} - F_{f} \\
+F_{g,ramp} &= -F_{g}\sin{(\theta)} \\
+&= gM\sin{(\theta)} \\
+F_{net} &= gM\sin{(\theta)} - F_{f} \\
+\end{aligned}
+
+<p>
+We know that \(F &= ma\), so
+</p>
+
+\begin{aligned}
+a_{ramp} &= \frac{F_{net}}{M} \\
+&= \frac{gM\sin{(\theta)} - F_{f}}{M} \\
+&= g\sin{(\theta)} - \frac{F_{f}}{M} \\
+\end{aligned}
+
+<p>
+Plugging in values:
+</p>
+\begin{aligned}
+a_{ramp} &= 10 ms^{-2} \sin{(30^{\circ})} - \frac{2.0N}{1.0 kg} \\
+&= 5ms^{-2} - 2ms^{-2} \\
+&= 3ms^{-2} \\
+\end{aligned}
+</div>
+</div>
+
+<div id="outline-container-org34144ec" class="outline-3">
+<h3 id="org34144ec"><span class="section-number-3">1.3</span> c)</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+We've established in a different problemset that the following is true:
+</p>
+
+\begin{aligned}
+\vec{\tau}_{net}' &= I_{CM}\vec{\alpha}' \\
+\vec{\alpha}' &= \frac{\vec{\tau}_{net}'}{I_{CM}} \\
+\end{aligned}
+
+<p>
+We know the rotational inertia. We can solve for the torque of the cylinder and divide by inertia to find acceleration.
+We can find the torque by adding up all torques by all forces. To find the torque, we define a coordinate system where \(\hat{z}\) is pointing towards the page. We also consider "right" to be \(\hat{x}\) and "up" to be \(\hat{y}\).
+</p>
+
+<p>
+First, we compute gravitational torque. We know that the torque on a rigid body by gravity is equivalent to the torque by gravity on the center of mass. Therefore, we can consider the torque as the torque applied by gravity on the point of contact of the cylinder on the ramp:
+</p>
+
+\begin{aligned}
+\vec{\tau}_{g} &= \vec{R} \times \vec{F}_{g} \\
+&= (-R\sin{(\theta)}\hat{x} - R\cos{(\theta)}\hat{y}) \times -Mg\hat{y} \\
+&= -R\sin{(\theta)}\hat{x} \times -Mg\hat{y} + -R\cos{(\theta)}\hat{y} \times -Mg\hat{y} \\
+&= -R\sin{(\theta)}\hat{x} \times -Mg\hat{y} \\
+&= RMg\sin{(\theta)}\hat{z} \\
+\end{aligned}
+
+<p>
+We can effectively do the same thing with the force of friction, as it is also a force being applied to the cylinder at a point. We know that the force of friction is perpendicular to the point of contact vector:
+</p>
+
+\begin{aligned}
+\vec{\tau}_{f} &= \vec{R} \times \vec{F}_{f} \\
+&= -RF_{f}\hat{z} \\
+\end{aligned}
+
+<p>
+We sum the two to get the net torque:
+</p>
+
+\begin{aligned}
+\vec{\tau}_{net}' &= \vec{\tau}_{g}' + \vec{\tau}_{f}'
+&= \vec{\tau}_{g} + \vec{\tau}_{f} \\
+&= RMg\sin{(\theta)}\hat{z} - RF_{f} \hat{z} \\
+&= R(Mg\sin{(\theta)} - F_f)\hat{z} \\
+\end{aligned}
+
+<p>
+As such,
+</p>
+
+\begin{aligned}
+\vec{\alpha}' &= \frac{\vec{\tau}_{net}'}{I_{0}} \\
+&= \frac{R(Mg\sin{(\theta)} - F_{f})}{I_{0}}\hat{z} \\
+\end{aligned}
+
+<p>
+We plug in values:
+</p>
+
+\begin{aligned}
+\vec{a}' &= \frac{0.5m(1.0kg \cdot 10ms^{-2}\cdot \sin{(30^{\cdot})} - 2.0 N)}{0.2 kg\cdotm^2} \\
+&= \frac{0.5m(5N - 2N)}{0.2kg\cdot m^2} \\
+&= \frac{1.5 kg\cdot m^2s^{-2}}{0.2kg\cdot m^2} \\
+&= 7.5 \frac{rad}{s^{2}} \\
+\end{aligned}
+</div>
+</div>
+
+<div id="outline-container-org525a457" class="outline-3">
+<h3 id="org525a457"><span class="section-number-3">1.4</span> d)</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+If the cylinder slides, the friction is considered dynamic. If it does not, it is considered static.
+If the cylinder slides, the acceleration calculated by the torque should be higher than the acceleration calculated from the linear acceleration. We can find this acceleration simply by dividing by the radius:
+</p>
+
+\begin{aligned}
+\alpha &= \frac{a_{ramp}}{R} \\
+&= \frac{3ms^{-2}}{0.5m} \\
+&= 6\frac{rad}{s^2} \\
+\end{aligned}
+
+<p>
+This value is less than the \(7.5 \frac{rad}{s^2}\) we got from the torque method, so we know that the cylinder slips, and the coefficient is kinetic.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge8b8882" class="outline-3">
+<h3 id="orge8b8882"><span class="section-number-3">1.5</span> e)</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+To find the initial torque of the cylinder from the reference frame of the right vertex of the triangle, we need the distance from the vertex to the Center of Mass of the cylinder, as well as the net force acting on the cylinder.
+</p>
+
+<p>
+We know the net force acting on the cylinder to be the following:
+</p>
+
+\begin{aligned}
+\vec{F_{net}} &= \vec{F}_{g} + \vec{F}_{N} + \vec{F}_{f} \\
+&= -Mg\hat{y} + Mg\cos^2{(\theta)}\hat{x} + Mg\cos{(\theta)}\sin{(\theta)}\hat{y} + \vec{F}_{f} \\
+&= Mg\cos{(\theta)}(\cos{(\theta)}\hat{x} + (\sin{(\theta)} - 1)\hat{y}) + \vec{F}_{f} \\
+\end{aligned}
+
+<p>
+Friction acts against the sum of gravity and normal force, so
+</p>
+
+\begin{aligned}
+\vec{F}_{net} &= (Mg\cos{(\theta)} - F_{f})(\cos{(\theta)}\hat{x} + (\sin{(\theta)}  -1)\hat{y}) \\
+\end{aligned}
+
+<p>
+In addition, given a base length \(b\) and a ramp length \(L\), we can solve the position of the point where the cylinder makes contact with the ramp:
+</p>
+
+\begin{aligned}
+\vec{R}_{contact} &= (b - L\cos{(\theta)})\hat{x} + L\sin{(\theta)}\hat{y} \\
+\end{aligned}
+
+<p>
+We can add the (inverse of the) radius vector to this position vector to find the position of the center of mass:
+</p>
+
+\begin{aligned}
+\vec{R}_{CM} &= \vec{R}_{contact} - \vec{R} \\
+&= (b - L\cos{(\theta)})\hat{x} + L\sin{(\theta)}\hat{y} + R\sin{(\theta)}\hat{x} + R\cos{(\theta)}\hat{y} \\
+&= (R\sin{(\theta)} - L\cos{(\theta)} + b)\hat{x} + (R\cos{(\theta)} + L\sin{(\theta)})\hat{y} \\
+\end{aligned}
+
+<p>
+We now just take the cross product to get the torque:
+</p>
+
+\begin{aligned}
+\vec{\tau} &= \vec{R}_{CM} \times \vec{F}_{net} \\
+&= \left((R\sin{(\theta)} - L\cos{(\theta)} + b)\hat{x} + (R\cos{(\theta)} + L\sin{(\theta)})\hat{y}\right) \\
+&\,\,\,\times \left((Mg\cos{(\theta)} - F_{f})(\cos{(\theta)}\hat{x} + (\sin{(\theta)} - 1)\hat{y})\right) \\
+&= (R\sin{(\theta)} - L\cos{(\theta)} + b)\hat{x} \times (Mg\cos{(\theta)} - F_f)(\sin{(\theta)} - 1)\hat{y} \\
+&\,\,\,+ (R\cos{(\theta)} + L\sin{(\theta)})\hat{y} \times (Mg\cos{(\theta)} - F_f)\cos{(\theta)}\hat{x} \\
+\end{aligned}
+
+<p>
+We can take liberties and assume that the parameters \(b\) and \(L\) are such that \(L &= b\cos{(\theta)}\); in other words, \(b\) and \(L\) form a right triangle. This will simplify our expression for computing the torque, as the force and the position vector will be tangential to each other. For the sake of simplicity, we will replace \(H &= L\sin{(\theta)}\).
+</p>
+
+\begin{aligned}
+\vec{\tau} &= (R\sin{(\theta)} - b\cos^2{(\theta)} + b)\hat{x} \times (Mg\cos{(\theta)} - F_f\cos{(\theta)})(\sin{(\theta)} - 1)\hat{y} \\
+&\,\,\,+ (R\cos{(\theta)} + H)\hat{y} \times (Mg\cos^2{(\theta)} - F_f\cos{(\theta)}) \hat{x} \\
+&= (R\sin{(\theta)} + b(1 - \cos^2{(\theta)}))\hat{x} \times (Mg\cos{(\theta)} - F_f\cos{(\theta)})(\sin{(\theta)} - 1)\hat{y} \\
+&\,\,\,+ (R\cos{(\theta)} + H)\hat{y} \times (Mg\cos^2{(\theta)} - F_f\cos{(\theta)}) \hat{x} \\
+&= (R\sin{(\theta)} + b(1 - \cos^2{(\theta)}))(Mg\cos{(\theta)} - F_f\cos{(\theta)})(\sin{(\theta)} - 1)\hat{z} \\
+&\,\,\,- (R\cos{(\theta)} + H)(Mg\cos^2{(\theta)} - F_f\cos{(\theta)})\hat{z} \\
+\end{aligned}
+
+<p>
+We simplify further:
+</p>
+
+\begin{aligned}
+\tau &= RMg\sin{(\theta)}\cos{(\theta)}(\sin{(\theta)} - 1) \\
+&\, - RF_f\sin{(\theta)}\cos{(\theta)}(\sin{(\theta)} - 1) \\
+&\, + bMg(1 - \cos^2{(\theta)})\cos{(\theta)}(\sin{(\theta)} - 1) \\
+&\, - bF_f(1 - \cos^2{(\theta)})\cos{(\theta)}(\sin{(\theta)} - 1) \\
+&\, - RMg\cos^3{(\theta)} + RF_f\cos^2{(\theta)} - HMg\cos^2{(\theta)} + HF_f\cos{(\theta)} \\
+\end{aligned}
+
+<p>
+At this point, the simplification becomes trivial. It is therefore left as an exercise to the reader.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org712f37d" class="outline-3">
+<h3 id="org712f37d"><span class="section-number-3">1.6</span> f)</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
