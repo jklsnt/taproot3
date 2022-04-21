@@ -140,45 +140,61 @@ In addition, given a base length $b$ and a ramp length $L$, we can solve the pos
 \vec{R}_{contact} &= (b - L\cos{(\theta)})\hat{x} + L\sin{(\theta)}\hat{y} \\
 \end{aligned}
 
-We can add the (inverse of the) radius vector to this position vector to find the position of the center of mass:
+We make an assumption about the nature of $b$ and $L$, namely that $L &= b\cos{(\theta)}$, meaning that the two segments form a right triangle at $\vec{R}_{contact}$. This has two added benefits. First, we can easily compute the magnitude of $\vec{R}_{contact}$ as $b\sin{(\theta)}$. Second, in this case $\vec{R}_{CM} \perp \vec{F}_{net}$, which means that their cross product will have magnitude $R_{contact}\cdot F_{net}$. The direction of the cross product is also trivial: $\vec{R}_{CM}$ points in the $\hat{x} + \hat{y}$ direction, roughly, while $\vec{F}_{net}$ points in the $\hat{x} - \hat{y}$ direction; their cross product will point in the $-\hat{z}$ direction, or pointing into the page/screen.
+
+Notice that we only have the position vector of the point where the cylinder makes contact with the ramp. The position of the center of mass is in the same direction as the point of contact, which keeps the previous statements correct. The magnitude of the new vector is merely $R_{CM} &= R_{contact} + R$.
+
+Also, recall that we solved for the magnitude of the net force on the cylinder in a previous problem, rendering our computations for the net force for this problem redundant (although they were a good exercise). The magnitude of the force is given by
 
 \begin{aligned}
-\vec{R}_{CM} &= \vec{R}_{contact} - \vec{R} \\
-&= (b - L\cos{(\theta)})\hat{x} + L\sin{(\theta)}\hat{y} + R\sin{(\theta)}\hat{x} + R\cos{(\theta)}\hat{y} \\
-&= (R\sin{(\theta)} - L\cos{(\theta)} + b)\hat{x} + (R\cos{(\theta)} + L\sin{(\theta)})\hat{y} \\
+F_{net} &= Mg\sin{(\theta)} - F_f \\
 \end{aligned}
 
-We now just take the cross product to get the torque:
+Recall that the net torque of a system is given by the sum of the torque from the net force on the center of mass and the torque around the center of mass:
 
 \begin{aligned}
-\vec{\tau} &= \vec{R}_{CM} \times \vec{F}_{net} \\
-&= \left((R\sin{(\theta)} - L\cos{(\theta)} + b)\hat{x} + (R\cos{(\theta)} + L\sin{(\theta)})\hat{y}\right) \\
-&\,\,\,\times \left((Mg\cos{(\theta)} - F_{f})(\cos{(\theta)}\hat{x} + (\sin{(\theta)} - 1)\hat{y})\right) \\
-&= (R\sin{(\theta)} - L\cos{(\theta)} + b)\hat{x} \times (Mg\cos{(\theta)} - F_f)(\sin{(\theta)} - 1)\hat{y} \\
-&\,\,\,+ (R\cos{(\theta)} + L\sin{(\theta)})\hat{y} \times (Mg\cos{(\theta)} - F_f)\cos{(\theta)}\hat{x} \\
+\vec{\tau}_{net} &= \vec{R}_{CM} \times \vec{F}_{net} + \sum \vec{r_{i}}' \times \vec{F}_{i,net\,ext} \\
+&= \vec{R}_{CM} \times \vec{F}_{net} + \sum \vec{r_{i}}' \times \vec{F}_{net} \\
 \end{aligned}
 
-We can take liberties and assume that the parameters $b$ and $L$ are such that $L &= b\cos{(\theta)}$; in other words, $b$ and $L$ form a right triangle. This will simplify our expression for computing the torque, as the force and the position vector will be tangential to each other. For the sake of simplicity, we will replace $H &= L\sin{(\theta)}$.
+We can now calculate torque:
 
 \begin{aligned}
-\vec{\tau} &= (R\sin{(\theta)} - b\cos^2{(\theta)} + b)\hat{x} \times (Mg\cos{(\theta)} - F_f\cos{(\theta)})(\sin{(\theta)} - 1)\hat{y} \\
-&\,\,\,+ (R\cos{(\theta)} + H)\hat{y} \times (Mg\cos^2{(\theta)} - F_f\cos{(\theta)}) \hat{x} \\
-&= (R\sin{(\theta)} + b(1 - \cos^2{(\theta)}))\hat{x} \times (Mg\cos{(\theta)} - F_f\cos{(\theta)})(\sin{(\theta)} - 1)\hat{y} \\
-&\,\,\,+ (R\cos{(\theta)} + H)\hat{y} \times (Mg\cos^2{(\theta)} - F_f\cos{(\theta)}) \hat{x} \\
-&= (R\sin{(\theta)} + b(1 - \cos^2{(\theta)}))(Mg\cos{(\theta)} - F_f\cos{(\theta)})(\sin{(\theta)} - 1)\hat{z} \\
-&\,\,\,- (R\cos{(\theta)} + H)(Mg\cos^2{(\theta)} - F_f\cos{(\theta)})\hat{z} \\
+\vec{\tau}_{net} &= \vec{R}_{CM} \times \vec{F}_{net} \\
+&= -(R_{contact} + R)(Mg\sin{(\theta)} - F_f)\hat{z} \\
+&= -(b\sin{(\theta)} + R)(Mg\sin{(\theta)} - F_f)\hat{z} \\
+&= -(bMg\sin^2{(\theta)} + (RMg - bF_f)\sin{(\theta) - RF_f})\hat{z} \\
 \end{aligned}
-
-We simplify further:
-
-\begin{aligned}
-\tau &= RMg\sin{(\theta)}\cos{(\theta)}(\sin{(\theta)} - 1) \\
-&\, - RF_f\sin{(\theta)}\cos{(\theta)}(\sin{(\theta)} - 1) \\
-&\, + bMg(1 - \cos^2{(\theta)})\cos{(\theta)}(\sin{(\theta)} - 1) \\
-&\, - bF_f(1 - \cos^2{(\theta)})\cos{(\theta)}(\sin{(\theta)} - 1) \\
-&\, - RMg\cos^3{(\theta)} + RF_f\cos^2{(\theta)} - HMg\cos^2{(\theta)} + HF_f\cos{(\theta)} \\
-\end{aligned}
-
-At this point, the simplification becomes trivial. It is therefore left as an exercise to the reader.
 
 ** f)
+We know that $\vec{L}' &= I_{CM}\vec{\omega}'$. Therefore, we know that
+
+\begin{aligned}
+\vec{L}_{sys} &= \vec{R} \times M\vec{v}_{CM} + \sum \vec{r_{i}}' \times m_i \vec{v_{i}}' \\
+&= \vec{R} \times M\vec{v}_{CM} + \vec{L}' \\
+&= \vec{R} \times M\vec{v}_{CM} + I_{CM}\vec{\omega}' \\
+\end{aligned}
+
+We established above that the length of the position vector is $b\sin{(\theta)} + R$. In addition, we know that the velocity of the center of mass is in the same direction as the net force, so the cross product will be in the direction $-\hat{z}$. We get
+
+\begin{aligned}
+\vec{L}_{sys} &= -(b\sin{(\theta)} + R)Mv_{CM} \hat{z} + I_{CM} \vec{\omega}' \\
+\end{aligned}
+
+In fact, we already know that our angular velocity is in the direction $\hat{z}$ because from our frame the cylinder is rotating clockwise:
+
+\begin{aligned}
+\vec{L}_{sys} &= -((b\sin{(\theta)} + R)Mv_{CM} + I_{CM}\omega')\hat{z} \\
+\end{aligned}
+
+We take the time derivative:
+
+\begin{aligned}
+\frac{d\vec{L}}{dt} &= -\frac{d}{dt} (b\sin{(\theta)} + R)Mv_{CM}\hat{z} - \frac{d}{dt} I_{CM}\omega'\hat{z} \\
+&= -((b\sin{(\theta)} + R)Ma_{CM} + I_{CM}\alpha')\hat{z} \\
+\end{aligned}
+** g)
+
+We know that _e_ and _f_ are equivalent if we plug in _b_ and _c_.
+
+Recall that according to _b_ and _c_,

@@ -83,27 +83,25 @@ If the cylinder slides, the acceleration calculated by the torque should be high
 \vec{F}_{net} &= (Mg\cos{(\theta)} - F_{f})(\cos{(\theta)}\hat{x} + (\sin{(\theta)}  -1)\hat{y}) \\
 \end{aligned}</span></p><p><span>In addition, given a base length $b$ and a ramp length $L$, we can solve the position of the point where the cylinder makes contact with the ramp:</span></p><p><span>\begin{aligned}
 \vec{R}_{contact} &= (b - L\cos{(\theta)})\hat{x} + L\sin{(\theta)}\hat{y} \\
-\end{aligned}</span></p><p><span>We can add the (inverse of the) radius vector to this position vector to find the position of the center of mass:</span></p><p><span>\begin{aligned}
-\vec{R}_{CM} &= \vec{R}_{contact} - \vec{R} \\
-&= (b - L\cos{(\theta)})\hat{x} + L\sin{(\theta)}\hat{y} + R\sin{(\theta)}\hat{x} + R\cos{(\theta)}\hat{y} \\
-&= (R\sin{(\theta)} - L\cos{(\theta)} + b)\hat{x} + (R\cos{(\theta)} + L\sin{(\theta)})\hat{y} \\
-\end{aligned}</span></p><p><span>We now just take the cross product to get the torque:</span></p><p><span>\begin{aligned}
-\vec{\tau} &= \vec{R}_{CM} \times \vec{F}_{net} \\
-&= \left((R\sin{(\theta)} - L\cos{(\theta)} + b)\hat{x} + (R\cos{(\theta)} + L\sin{(\theta)})\hat{y}\right) \\
-&\,\,\,\times \left((Mg\cos{(\theta)} - F_{f})(\cos{(\theta)}\hat{x} + (\sin{(\theta)} - 1)\hat{y})\right) \\
-&= (R\sin{(\theta)} - L\cos{(\theta)} + b)\hat{x} \times (Mg\cos{(\theta)} - F_f)(\sin{(\theta)} - 1)\hat{y} \\
-&\,\,\,+ (R\cos{(\theta)} + L\sin{(\theta)})\hat{y} \times (Mg\cos{(\theta)} - F_f)\cos{(\theta)}\hat{x} \\
-\end{aligned}</span></p><p><span>We can take liberties and assume that the parameters $b$ and $L$ are such that $L &= b\cos{(\theta)}$; in other words, $b$ and $L$ form a right triangle. This will simplify our expression for computing the torque, as the force and the position vector will be tangential to each other. For the sake of simplicity, we will replace $H &= L\sin{(\theta)}$.</span></p><p><span>\begin{aligned}
-\vec{\tau} &= (R\sin{(\theta)} - b\cos^2{(\theta)} + b)\hat{x} \times (Mg\cos{(\theta)} - F_f\cos{(\theta)})(\sin{(\theta)} - 1)\hat{y} \\
-&\,\,\,+ (R\cos{(\theta)} + H)\hat{y} \times (Mg\cos^2{(\theta)} - F_f\cos{(\theta)}) \hat{x} \\
-&= (R\sin{(\theta)} + b(1 - \cos^2{(\theta)}))\hat{x} \times (Mg\cos{(\theta)} - F_f\cos{(\theta)})(\sin{(\theta)} - 1)\hat{y} \\
-&\,\,\,+ (R\cos{(\theta)} + H)\hat{y} \times (Mg\cos^2{(\theta)} - F_f\cos{(\theta)}) \hat{x} \\
-&= (R\sin{(\theta)} + b(1 - \cos^2{(\theta)}))(Mg\cos{(\theta)} - F_f\cos{(\theta)})(\sin{(\theta)} - 1)\hat{z} \\
-&\,\,\,- (R\cos{(\theta)} + H)(Mg\cos^2{(\theta)} - F_f\cos{(\theta)})\hat{z} \\
-\end{aligned}</span></p><p><span>We simplify further:</span></p><p><span>\begin{aligned}
-\tau &= RMg\sin{(\theta)}\cos{(\theta)}(\sin{(\theta)} - 1) \\
-&\, - RF_f\sin{(\theta)}\cos{(\theta)}(\sin{(\theta)} - 1) \\
-&\, + bMg(1 - \cos^2{(\theta)})\cos{(\theta)}(\sin{(\theta)} - 1) \\
-&\, - bF_f(1 - \cos^2{(\theta)})\cos{(\theta)}(\sin{(\theta)} - 1) \\
-&\, - RMg\cos^3{(\theta)} + RF_f\cos^2{(\theta)} - HMg\cos^2{(\theta)} + HF_f\cos{(\theta)} \\
-\end{aligned}</span></p><p><span>At this point, the simplification becomes trivial. It is therefore left as an exercise to the reader.</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="f)"><span class="firn-headline-text"><span>f)</span></span></h2><section></section></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#problem-1)">Problem 1)</a><ol><li><a href="#a)">a)</a></li><li><a href="#b)">b)</a></li><li><a href="#c)">c)</a></li><li><a href="#d)">d)</a></li><li><a href="#e)">e)</a></li><li><a href="#f)">f)</a></li></ol></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>
+\end{aligned}</span></p><p><span>We make an assumption about the nature of $b$ and $L$, namely that $L &= b\cos{(\theta)}$, meaning that the two segments form a right triangle at $\vec{R}_{contact}$. This has two added benefits. First, we can easily compute the magnitude of $\vec{R}_{contact}$ as $b\sin{(\theta)}$. Second, in this case $\vec{R}_{CM} \perp \vec{F}_{net}$, which means that their cross product will have magnitude $R_{contact}\cdot F_{net}$. The direction of the cross product is also trivial: $\vec{R}_{CM}$ points in the $\hat{x} + \hat{y}$ direction, roughly, while $\vec{F}_{net}$ points in the $\hat{x} - \hat{y}$ direction; their cross product will point in the $-\hat{z}$ direction, or pointing into the page/screen.</span></p><p><span>Notice that we only have the position vector of the point where the cylinder makes contact with the ramp. The position of the center of mass is in the same direction as the point of contact, which keeps the previous statements correct. The magnitude of the new vector is merely $R_{CM} &= R_{contact} + R$.</span></p><p><span>Also, recall that we solved for the magnitude of the net force on the cylinder in a previous problem, rendering our computations for the net force for this problem redundant (although they were a good exercise). The magnitude of the force is given by</span></p><p><span>\begin{aligned}
+F_{net} &= Mg\sin{(\theta)} - F_f \\
+\end{aligned}</span></p><p><span>Recall that the net torque of a system is given by the sum of the torque from the net force on the center of mass and the torque around the center of mass:</span></p><p><span>\begin{aligned}
+\vec{\tau}_{net} &= \vec{R}_{CM} \times \vec{F}_{net} + \sum \vec{r_{i}}' \times \vec{F}_{i,net\,ext} \\
+&= \vec{R}_{CM} \times \vec{F}_{net} + \sum \vec{r_{i}}' \times \vec{F}_{net} \\
+\end{aligned}</span></p><p><span>We can now calculate torque:</span></p><p><span>\begin{aligned}
+\vec{\tau}_{net} &= \vec{R}_{CM} \times \vec{F}_{net} \\
+&= -(R_{contact} + R)(Mg\sin{(\theta)} - F_f)\hat{z} \\
+&= -(b\sin{(\theta)} + R)(Mg\sin{(\theta)} - F_f)\hat{z} \\
+&= -(bMg\sin^2{(\theta)} + (RMg - bF_f)\sin{(\theta) - RF_f})\hat{z} \\
+\end{aligned}</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="f)"><span class="firn-headline-text"><span>f)</span></span></h2><section><p><span>We know that $\vec{L}' &= I_{CM}\vec{\omega}'$. Therefore, we know that</span></p><p><span>\begin{aligned}
+\vec{L}_{sys} &= \vec{R} \times M\vec{v}_{CM} + \sum \vec{r_{i}}' \times m_i \vec{v_{i}}' \\
+&= \vec{R} \times M\vec{v}_{CM} + \vec{L}' \\
+&= \vec{R} \times M\vec{v}_{CM} + I_{CM}\vec{\omega}' \\
+\end{aligned}</span></p><p><span>We established above that the length of the position vector is $b\sin{(\theta)} + R$. In addition, we know that the velocity of the center of mass is in the same direction as the net force, so the cross product will be in the direction $-\hat{z}$. We get</span></p><p><span>\begin{aligned}
+\vec{L}_{sys} &= -(b\sin{(\theta)} + R)Mv_{CM} \hat{z} + I_{CM} \vec{\omega}' \\
+\end{aligned}</span></p><p><span>In fact, we already know that our angular velocity is in the direction $\hat{z}$ because from our frame the cylinder is rotating clockwise:</span></p><p><span>\begin{aligned}
+\vec{L}_{sys} &= -((b\sin{(\theta)} + R)Mv_{CM} + I_{CM}\omega')\hat{z} \\
+\end{aligned}</span></p><p><span>We take the time derivative:</span></p><p><span>\begin{aligned}
+\frac{d\vec{L}}{dt} &= -\frac{d}{dt} (b\sin{(\theta)} + R)Mv_{CM}\hat{z} - \frac{d}{dt} I_{CM}\omega'\hat{z} \\
+&= -((b\sin{(\theta)} + R)Ma_{CM} + I_{CM}\alpha')\hat{z} \\
+\end{aligned}</span></p></section></div><div class="firn-headline-section firn-headline-section-2"><h2 class="firn-headline firn-headline-2" id="g)"><span class="firn-headline-text"><span>g)</span></span></h2><section><p><span>We know that </span><u><span>e</span></u><span> and </span><u><span>f</span></u><span> are equivalent if we plug in </span><u><span>b</span></u><span> and </span><u><span>c</span></u><span>.</span></p><p><span>Recall that according to </span><u><span>b</span></u><span> and </span><u><span>c</span></u><span>,</span></p></section></div></div></div></div></article><div class="metapanel"><div class="metalabel">Contents</div><ol><li><a href="#problem-1)">Problem 1)</a><ol><li><a href="#a)">a)</a></li><li><a href="#b)">b)</a></li><li><a href="#c)">c)</a></li><li><a href="#d)">d)</a></li><li><a href="#e)">e)</a></li><li><a href="#f)">f)</a></li><li><a href="#g)">g)</a></li></ol></li></ol><div class="metalabel">Backlinks</div></div></main></body></html>
