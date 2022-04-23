@@ -462,7 +462,19 @@ also, inverses of things you are dividing by is simply 1/(whatever you are divid
 
 lesson: pause for one second, sanity check the equation you are using.
 ***
+nc12 :: tip
+if you see a subtraction, think about making it viable. ie. multiply the top and bottom to get it to equal the same thing, and then it should / might fall out.
+***
+nc13 :: tip
+if an equation has no real solutions, that means that it never touches the x axis. you can put it into vertex form and find what needs to happen for the y value to be appropiate (higher than 0 or lower depending on if the parabola is facing upwards or downwards).
+***
+nc19 :: geuss 2, 1.5
+i got this wrong because i didn't factor in the number i was adding into the divisor for the average.
+tip: convert decimals / percentages to numbers! either on paper or in head. 
 
+lesson: write it out on paper. percentages 
+
+***
 
 # To review
 - polynomial division [ x ]
