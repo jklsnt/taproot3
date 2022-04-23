@@ -454,6 +454,16 @@ also, look for pythagorean triples! if they give you the ration of a sin functio
 lesson: write out your algebra. be careful with ratios. consider trig functions as clueing you in on pythagorean triples
 ***
 
+## blub6
+***
+nc20 :: 1/3, 1/6
+i got this wrong because i used $\pi r^{2}=c$ instead of $2 \pi r = c$. always make sure to double check you are using the right equation!
+also, inverses of things you are dividing by is simply 1/(whatever you are dividing by). don't confuse yourself.
+
+lesson: pause for one second, sanity check the equation you are using.
+***
+
+
 # To review
 - polynomial division [ x ]
 - remainder theorem [ x ]
