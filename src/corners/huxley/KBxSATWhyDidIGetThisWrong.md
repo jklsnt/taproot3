@@ -472,8 +472,7 @@ nc19 :: geuss 2, 1.5
 i got this wrong because i didn't factor in the number i was adding into the divisor for the average.
 tip: convert decimals / percentages to numbers! either on paper or in head. 
 
-lesson: write it out on paper. percentages 
-
+lesson: write it out on paper. percentages of things equaling some other percentage is just averaging. 
 ***
 
 # To review
