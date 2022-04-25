@@ -49,5 +49,20 @@ What's the area of this function?
 Therefore, taking the integral:
 
 \begin{align}
-   \int_0^5 \int_0^7 = 
+   &\int_0^5 \int_0^7 \sqrt{14}(2x+3y+10)\ dy\ dx \\
+\Rightarrow & \sqrt{14}\int_0^5 \int_0^7 (2x+3y+10)\ dy\ dx 
+\end{align}
+
+At this point, we absolve the need to leverage a tonne of fractions by taking the inner integral digitally.
+
+#+begin_src sage
+f(x,y) = 2*x+3*y+10
+f.integrate(y, 0, 7).integrate(x, 0,5)
+#+end_src
+
+#+RESULTS:
+: 1785/2
+
+\begin{align}
+    
 \end{align}
