@@ -1,0 +1,93 @@
+:PROPERTIES:
+:ID:       86FDDD14-672A-4474-B568-52A644AC2228
+:END:
+#+title: MVC 2 PS#24
+#+author: Houjun Liu
+
+Here are four easy integrals.
+
+* Single Value Function
+#+begin_quote
+\begin{align}
+   &f_1: \mathbb{R}^2 \to \mathbb{R}^1 \\ 
+&f_1(x,y) = 0
+\end{align}
+
+What's the area of this function?
+#+end_quote
+
+We can take the area of the shape, essentially by taking the volume by height $1$: that is, for a rectangle of $l,w,h$, its top-area is simply $l\cdot w$, also known as $lw\cdot 1$. Therefore:
+
+\begin{equation}
+   \int_0^7 \int_0^5 1 dx\ dy = 35
+\end{equation}
+
+The area of the shape is therefore $35$.
+
+* Area of the Plane
+We want to first figure the correction per every given slice $dA=n\ dV$ to setup a surface integral. By pythagoras (i.e. projecting the changes to the parallelity of the surface), we have that:
+
+\begin{equation}
+   dA = \sqrt{1+\left(\frac{\partial f}{\partial x}\right)^2+\left(\frac{\partial f}{\partial y}\right)^2}\ dV
+\end{equation}
+
+#+begin_quote
+What's the area of the following function by $(5,7)$?
+
+\begin{align}
+   &f_2: \mathbb{R}^2 \to \mathbb{R}^1 \\ 
+&f_2(x,y) = 2x+3y+10
+\end{align}
+#+end_quote
+
+\begin{equation}
+   dA = \sqrt{1+4+9} dV = \sqrt{14}\ dV
+\end{equation}
+
+Therefore, taking the integral:
+
+\begin{align}
+   &\int_0^5 \int_0^7 \sqrt{14}(2x+3y+10)\ dy\ dx \\
+\Rightarrow & \sqrt{14}\int_0^5 \int_0^7 (2x+3y+10)\ dy\ dx 
+\end{align}
+
+At this point, we absolve the need to leverage a tonne of fractions by taking the inner integral digitally.
+
+#+begin_src sage
+f(x,y) = 2*x+3*y+10
+f.integrate(y, 0, 7).integrate(x, 0,5)
+#+end_src
+
+#+RESULTS:
+: 1785/2
+
+\begin{align}
+    &\sqrt{14}\int_0^5 \int_0^7 (2x+3y+10)\ dy\ dx \\
+\Rightarrow &\sqrt{14}\frac{1785}{2}\\
+\Rightarrow &3339.43
+\end{align}
+
+It appears that the surface area is about $3339.43$ units.
+
+* Area of a Parabola 
+#+begin_quote
+What's the area of the following function by $(5,7)$?
+
+\begin{align}
+   &f_3: \mathbb{R}^2 \to \mathbb{R}^1 \\ 
+&f_3(x,y) = x^2
+\end{align}
+#+end_quote
+
+We will again find the area correction factor:
+
+\begin{equation}
+   dA = \sqrt{1+4x^2}\ dV
+\end{equation}
+
+And therefore, taking the integral:
+
+\begin{equation}
+  \int_0^5 \int_0^7 \sqrt{1+4x^2}\ d
+\end{equation}
+
