@@ -16,6 +16,16 @@ Here are four easy integrals.
 What's the area of this function?
 #+end_quote
 
+#+begin_src sage
+f(x,y) = 0
+plot3d(f, (x,0,5), (y,0,7))
+#+end_src
+
+#+RESULTS:
+
+#+DOWNLOADED: screenshot @ 2022-04-25 09:53:13
+[[file:2022-04-25_09-53-13_screenshot.png]]
+
 We can take the area of the shape, essentially by taking the volume by height $1$: that is, for a rectangle of $l,w,h$, its top-area is simply $l\cdot w$, also known as $lw\cdot 1$. Therefore:
 
 \begin{equation}
@@ -127,3 +137,14 @@ We will again take this integral, digitally this time:
   \int_0^5 \int_0^7 (x^2-y^2) \sqrt{1+4x^2+4y^2} \ dy\ dx
 \end{equation}
 
+#+begin_src sage
+f(x,y) = (x^2-y^2)*sqrt(1+4*x^2+4*y^2)
+f.integrate(y, 0,7).integrate(x,0,5)
+float(f.integrate(y, 0,7).integrate(x,0,5))
+#+end_src
+
+#+RESULTS:
+: -315*sqrt(33) - 271663/128*log(197) + 51005/64*log(1/101*sqrt(101)*(3*sqrt(101)*sqrt(33/101) + 14)) + 271663/64*log(3*sqrt(33) - 10)
+: -3719.4769634382606
+
+The shape is underneath the x-axis during the area on the rectangle. Therefore, we have an negative area! It is about $3719.47$ units.
