@@ -474,6 +474,12 @@ tip: convert decimals / percentages to numbers! either on paper or in head.
 
 lesson: write it out on paper. percentages of things equaling some other percentage is just averaging. 
 ***
+c31 :: 9, 10
+i got this wrong because i conceptually messed up what it means to *increase*. if one side of an equation is greater than the other, and you want to set them equal, then you have to *subtract* the increase, not add it. 
+
+this is every evident when you just have an intermediary variable. do that!
+lesson: think about that it means to increase! use intermediary variables!
+***
 
 # To review
 - polynomial division [ x ]
