@@ -480,7 +480,6 @@ i got this wrong because i conceptually messed up what it means to *increase*. i
 this is every evident when you just have an intermediary variable. do that!
 lesson: think about that it means to increase! use intermediary variables!
 ***
-
 # To review
 - polynomial division [ x ]
 - remainder theorem [ x ]
