@@ -88,6 +88,19 @@ We will again find the area correction factor:
 And therefore, taking the integral:
 
 \begin{equation}
-    
+  \int_0^5 \int_0^7 x^2 \sqrt{1+4x^2}\ dy\ dx
 \end{equation}
 
+This problem is solvable by trig substitution followed by integration by parts. For now, however, we will leverage a calculator.
+
+#+begin_src sage
+f(x,y) = x^2*sqrt(1+4*x^2)
+f.integrate(y, 0,7).integrate(x,0,5)
+float(f.integrate(y, 0,7).integrate(x,0,5))
+#+end_src
+
+#+RESULTS:
+: 7035/32*sqrt(101) - 7/64*arcsinh(10)
+: 2209.074412945607
+
+Evidently, the surface area of the shape   
