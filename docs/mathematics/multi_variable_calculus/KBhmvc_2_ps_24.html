@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-25 Mon 09:27 -->
+<!-- 2022-04-25 Mon 09:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MVC 2 PS#24</title>
@@ -263,13 +263,14 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#24</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-04-25 Mon 09:27</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#24</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-04-25 Mon 09:33</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org408ccca">1. Single Value Function</a></li>
-<li><a href="#org785f5c7">2. Area of the Plane</a></li>
+<li><a href="#orgafc666f">1. Single Value Function</a></li>
+<li><a href="#orgc2e7dcf">2. Area of the Plane</a></li>
+<li><a href="#orga74f6a5">3. Area of a Parabola</a></li>
 </ul>
 </div></div>
 </div>
@@ -277,8 +278,8 @@
 Here are four easy integrals.
 </p>
 
-<div id="outline-container-org408ccca" class="outline-2">
-<h2 id="org408ccca"><span class="section-number-2">1</span> Single Value Function</h2>
+<div id="outline-container-orgafc666f" class="outline-2">
+<h2 id="orgafc666f"><span class="section-number-2">1</span> Single Value Function</h2>
 <div class="outline-text-2" id="text-1">
 <blockquote>
 \begin{align}
@@ -305,8 +306,8 @@ The area of the shape is therefore \(35\).
 </div>
 </div>
 
-<div id="outline-container-org785f5c7" class="outline-2">
-<h2 id="org785f5c7"><span class="section-number-2">2</span> Area of the Plane</h2>
+<div id="outline-container-orgc2e7dcf" class="outline-2">
+<h2 id="orgc2e7dcf"><span class="section-number-2">2</span> Area of the Plane</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We want to first figure the correction per every given slice \(dA=n\ dV\) to setup a surface integral. By pythagoras (i.e. projecting the changes to the parallelity of the surface), we have that:
@@ -325,15 +326,56 @@ What's the area of the following function by \((5,7)\)?
    &f_2: \mathbb{R}^2 \to \mathbb{R}^1 \\ 
 &f_2(x,y) = 2x+3y+10
 \end{align}
-
-<p>
-What's the area of this function?
-</p>
 </blockquote>
 
 \begin{equation}
    dA = \sqrt{1+4+9} dV = \sqrt{14}\ dV
 \end{equation}
+
+<p>
+Therefore, taking the integral:
+</p>
+
+\begin{align}
+   &\int_0^5 \int_0^7 \sqrt{14}(2x+3y+10)\ dy\ dx \\
+\Rightarrow & \sqrt{14}\int_0^5 \int_0^7 (2x+3y+10)\ dy\ dx 
+\end{align}
+
+<p>
+At this point, we absolve the need to leverage a tonne of fractions by taking the inner integral digitally.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">f(x,y) = 2*x+3*y+10
+f.integrate(y, 0, 7).integrate(x, 0,5)
+</pre>
+</div>
+
+\begin{align}
+    &\sqrt{14}\int_0^5 \int_0^7 (2x+3y+10)\ dy\ dx \\
+\Rightarrow &\sqrt{14}\frac{1785}{2}\\
+\Rightarrow &3339.43
+\end{align}
+
+<p>
+It appears that the surface area is about \(3339.43\) units.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga74f6a5" class="outline-2">
+<h2 id="orga74f6a5"><span class="section-number-2">3</span> Area of a Parabola</h2>
+<div class="outline-text-2" id="text-3">
+<blockquote>
+<p>
+What's the area of the following function by \((5,7)\)?
+</p>
+
+\begin{align}
+   &f_3: \mathbb{R}^2 \to \mathbb{R}^1 \\ 
+&f_3(x,y) = x^2
+\end{align}
+</blockquote>
 </div>
 </div>
 </div>
