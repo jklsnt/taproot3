@@ -50,6 +50,16 @@ What's the area of the following function by $(5,7)$?
 \end{align}
 #+end_quote
 
+#+begin_src sage
+f(x,y) = 2*x+3*y+10
+plot3d(f, (x,0,5), (y,0,7))
+#+end_src
+
+#+RESULTS:
+
+#+DOWNLOADED: screenshot @ 2022-04-25 09:53:43
+[[file:2022-04-25_09-53-43_screenshot.png]]
+
 \begin{equation}
    dA = \sqrt{1+4+9} dV = \sqrt{14}\ dV
 \end{equation}
@@ -89,6 +99,17 @@ What's the area of the following function by $(5,7)$?
 \end{align}
 #+end_quote
 
+#+begin_src sage
+f(x,y) = x^2
+plot3d(f, (x,0,5), (y,0,7))
+#+end_src
+
+#+RESULTS:
+
+#+DOWNLOADED: screenshot @ 2022-04-25 09:54:21
+[[file:2022-04-25_09-54-21_screenshot.png]]
+
+
 We will again find the area correction factor:
 
 \begin{equation}
@@ -125,6 +146,16 @@ What's the area of the following function by $(5,7)$?
 \end{align}
 #+end_quote
 
+#+begin_src sage
+f(x,y) = (x^2-y^2)*sqrt(1+4*x^2+4*y^2)
+plot3d(f, (x,0,5), (y,0,7))
+#+end_src
+
+#+RESULTS:
+
+#+DOWNLOADED: screenshot @ 2022-04-25 09:54:54
+[[file:2022-04-25_09-54-54_screenshot.png]]
+
 We will find the correction factor, again:
 
 \begin{equation}
@@ -147,4 +178,4 @@ float(f.integrate(y, 0,7).integrate(x,0,5))
 : -315*sqrt(33) - 271663/128*log(197) + 51005/64*log(1/101*sqrt(101)*(3*sqrt(101)*sqrt(33/101) + 14)) + 271663/64*log(3*sqrt(33) - 10)
 : -3719.4769634382606
 
-The shape is underneath the x-axis during the area on the rectangle. Therefore, we have an negative area! It is about $3719.47$ units.
+The shape is largely underneath the x-axis during the area on the rectangle. Therefore, we have an negative area! It is about $3719.47$ units.
