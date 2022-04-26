@@ -28,3 +28,18 @@ canada deal meant that the non-slave states of the north could outnumber the sou
 ofc, south didn't want to let this happen
 
 dred scott case meant that north would have to achieve supermajority if they wanted change
+
+
+ 
+
+>"Likewise, because selective col leges and professional schools recruited heavily through legacy admissions and well-established institutional pipelines, the only realistic way to desegregate higher education was to require admis sions officials to expand their applicant pools."
+
+...
+
+pausing, start of pg 10
+
+
+
+
+
+
