@@ -83,6 +83,7 @@ the next assignment: historigraphical in nature. synthesithing multiple argument
 - [[KBxHarlemRenaissanceReadingsAndShareOuts]]
 - [[KBxResearchProjectPlanningPtTwo]]
 - [[KBxCivilDisobedienceEvolutionofDemocracyIntro]]
+- [[KBxCivRtMasseyNotes]]
 
 
 
