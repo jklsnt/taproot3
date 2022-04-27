@@ -36,8 +36,6 @@ dred scott case meant that north would have to achieve supermajority if they wan
 
 ...
 
-pausing, start of pg 10
-
 
 
 
