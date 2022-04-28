@@ -1,6 +1,10 @@
 n
 ***
 
+ while discord is down: #contact angstrom
+
+***
+
  https://www.youtube.com/watch?v=Qnos8aApa9g vim harpoon demo 
 
 ***
