@@ -4,7 +4,7 @@
 #+title: MVC 2 PS#25
 #+author: Houjun Liu
 
-We 
+We do the problems again, but corrected!
 
 * Single Value Function
 #+begin_quote
@@ -168,28 +168,26 @@ Taking their cross product for the differential area, then:
 \Rightarrow & (\hat{k} - 2x \hat{i} + 2y \hat{j})
 \end{align}
 
-
-
-We will find the correction factor, again:
+We will take now the magnitude of this expression:
 
 \begin{equation}
-   dA = \sqrt{1+4x^2+4y^2}\ dV 
+   \sqrt{1^2 + (-2x)^2 + (2y) ^2 } = \sqrt{1 + 4x^2 + 4y^2}
 \end{equation}
 
 We will again take this integral, digitally this time:
 
 \begin{equation}
-  \int_0^5 \int_0^7 (x^2-y^2) \sqrt{1+4x^2+4y^2} \ dy\ dx
+  \int_0^5 \int_0^7 \sqrt{1+4x^2+4y^2} \ dy\ dx
 \end{equation}
 
 #+begin_src sage
-f(x,y) = (x^2-y^2)*sqrt(1+4*x^2+4*y^2)
+f(x,y) = sqrt(1+4*x^2+4*y^2)
 f.integrate(y, 0,7).integrate(x,0,5)
 float(f.integrate(y, 0,7).integrate(x,0,5))
 #+end_src
 
 #+RESULTS:
-: -315*sqrt(33) - 271663/128*log(197) + 51005/64*log(1/101*sqrt(101)*(3*sqrt(101)*sqrt(33/101) + 14)) + 271663/64*log(3*sqrt(33) - 10)
-: -3719.4769634382606
+: 35*sqrt(33) - 1/12*arctan(1/14) + 1/12*arctan(-15/7*sqrt(33) + 101/14) + 1393/24*log(197) + 515/12*log(1/101*sqrt(101)*(3*sqrt(101)*sqrt(33/101) + 14)) - 1393/12*log(3*sqrt(33) - 10)
+: 326.54996642727804
 
-The shape is largely underneath the x-axis during the area on the rectangle. Therefore, we have an negative area! It is about $3719.47$ units.
+The shape is largely underneath the x-axis during the area on the rectangle. Therefore, we have an negative area! It is about $326.55$ units.
