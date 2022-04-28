@@ -4,7 +4,7 @@
 #+title: MVC 2 PS#25
 #+author: Houjun Liu
 
-Here are four easy integrals.
+We 
 
 * Single Value Function
 #+begin_quote
@@ -67,27 +67,18 @@ plot3d(f, (x,0,5), (y,0,7))
 Therefore, taking the integral:
 
 \begin{align}
-   &\int_0^5 \int_0^7 \sqrt{14}(2x+3y+10)\ dy\ dx \\
-\Rightarrow & \sqrt{14}\int_0^5 \int_0^7 (2x+3y+10)\ dy\ dx 
+   &\int_0^5 \int_0^7 \sqrt{14}\ dy\ dx \\
+\Rightarrow & 35\sqrt{14}
 \end{align}
 
-At this point, we absolve the need to leverage a tonne of fractions by taking the inner integral digitally.
-
 #+begin_src sage
-f(x,y) = 2*x+3*y+10
-f.integrate(y, 0, 7).integrate(x, 0,5)
+float(35*sqrt(14))
 #+end_src
 
 #+RESULTS:
-: 1785/2
+: 130.95800853708795
 
-\begin{align}
-    &\sqrt{14}\int_0^5 \int_0^7 (2x+3y+10)\ dy\ dx \\
-\Rightarrow &\sqrt{14}\frac{1785}{2}\\
-\Rightarrow &3339.43
-\end{align}
-
-It appears that the surface area is about $3339.43$ units.
+It appears that the surface area is about $130.958$ units.
 
 * Area of a Parabola 
 #+begin_quote
@@ -119,22 +110,22 @@ We will again find the area correction factor:
 And therefore, taking the integral:
 
 \begin{equation}
-  \int_0^5 \int_0^7 x^2 \sqrt{1+4x^2}\ dy\ dx
+  \int_0^5 \int_0^7 \sqrt{1+4x^2}\ dy\ dx
 \end{equation}
 
 This problem is solvable by trig substitution followed by integration by parts. For now, however, we will leverage a calculator.
 
 #+begin_src sage
-f(x,y) = x^2*sqrt(1+4*x^2)
+f(x,y) = sqrt(1+4*x^2)
 f.integrate(y, 0,7).integrate(x,0,5)
 float(f.integrate(y, 0,7).integrate(x,0,5))
 #+end_src
 
 #+RESULTS:
-: 7035/32*sqrt(101) - 7/64*arcsinh(10)
-: 2209.074412945607
+: 35/2*sqrt(101) + 7/4*arcsinh(10)
+: 181.119713532637
 
-Evidently, the surface area of the shape is about $2209$ units.
+Evidently, the surface area of the shape is about $181.1197$ units.
 
 * Another Surface Area
 #+begin_quote
