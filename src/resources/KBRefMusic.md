@@ -54,6 +54,7 @@ date: 2021-12-26
 -  [Makin Bacon Pancakes](https://www.youtube.com/watch?v=4W5Ol1EqR7o&ab_channel=GunterTheEvilPenguin) - strangely happy and upbeat 
 -  [I Don't Love You Anymore](https://www.youtube.com/watch?v=2e7_NaFiPQY&ab_channel=MR-StarkSan) - epic old song w/ lyrics and satisfying payoff
 -  [The Who - Baba O'riley](https://www.youtube.com/watch?v=x2KRpRMSu4g) really epic credits song
+-  Solitary Summer - Dylan Sitts: nice drop, kinda dark
 
 ## For working
 - [Limitless Dada Da Dada Da The Black Keys - Howlin' For You](https://www.youtube.com/watch?v=57TAXjGmiIc&ab_channel=0Daftpunks0) - the song from limitless. i mean, cmon
