@@ -454,6 +454,19 @@ also, look for pythagorean triples! if they give you the ration of a sin functio
 lesson: write out your algebra. be careful with ratios. consider trig functions as clueing you in on pythagorean triples
 ***
 
+## blb7, again
+***
+nc14 :: c,a
+i got this wrong because, when i subbed in my variable, i forgot to keep the coefficiant. 
+
+lesson: be careful about coefficiants! consider writing out exactly what you are doing whenever you substitute!
+***
+nc12 :: 6620, 6632
+i got this wrong because i fucked up my subtraction. stop it. use the *actual* subtraction stuff.
+
+lesson: use the actual subtraction method! don't fuck around.
+***
+
 ## blub6
 ***
 nc20 :: 1/3, 1/6
