@@ -32,14 +32,28 @@ Lastly, we understand that the angular momentum is conserved through a collision
 
 We now have a system of three equations that can be combined to solve for three unknowns $v_f$, $v_{CM}$, and $\omega$.
 
+Performing the actual solution digitally:
 
+\begin{equation}
+   v_{cm} = \frac{4I_0m_1v_0}{m_1m_2r^2+I_0m_1+2I_0m_2} 
+\end{equation}
 
-#+begin_src sage
-var("I m1 v0 m2 r vf vcm w")
+\begin{equation}
+   v_f = \frac{(m_1m_2r^2 + I_0m_1 - 2I_0m_2)v_0}{m_1m_2r^2 + I_0m_1+2I_0m_2} 
+\end{equation}
 
-expand(solve([m1*v0 == m1*vf+m2*vcm, 2*m1*v0^2==2*m1*vf^2+m2*vcm^2+I*w^2, m1*r^2*(v0/r)==m1*r^2*(vf/r)+I*w], vf, vcm, w, to_poly_solve=True))
-#+end_src
+and finally, we have
 
-#+RESULTS:
-: (I, m1, v0, m2, r, vf, vcm, w)
-: [[vf == (m1*m2*r^2 + I*m1 - I*m2)*v0/(m1*m2*r^2 + I*m1 + I*m2), vcm == 2*I*m1*v0/(m1*m2*r^2 + I*m1 + I*m2), w == 2*m1*m2*r*v0/(m1*m2*r^2 + I*m1 + I*m2)], [vf == v0, vcm == 0, w == 0]]
+\begin{equation}
+   \omega = \frac{4m_1m_2rv_0}{m_1m_2r^2+I_0m_1+2Im_2} 
+\end{equation}
+
+# #+begin_src sage
+# var("I m1 v0 m2 r vf vcm w")
+
+# expand(solve([m1*v0 == m1*vf+m2*vcm, 2*m1*v0^2==2*m1*vf^2+m2*vcm^2+I*w^2, m1*r^2*(v0/r)==m1*r^2*(vf/r)+I*w], vf, vcm, w, to_poly_solve=True))
+# #+end_src
+
+# #+RESULTS:
+# : (I, m1, v0, m2, r, vf, vcm, w)
+# : [[vf == (m1*m2*r^2 + I*m1 - 2*I*m2)*v0/(m1*m2*r^2 + I*m1 + 2*I*m2), vcm == 4*I*m1*v0/(m1*m2*r^2 + I*m1 + 2*I*m2), w == 4*m1*m2*r*v0/(m1*m2*r^2 + I*m1 + 2*I*m2)], [vf == v0, vcm == 0, w == 0]]
