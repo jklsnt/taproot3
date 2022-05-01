@@ -23,10 +23,10 @@ Furthermore, we understand that kinetic energy is also conserved here; therefore
 
 as the point mass does not have any rotational inertia, and the rod is not rotating at the start.
 
-Lastly, we understand that the angular momentum is also conserved; setting the origin at the centre of mass:
+Lastly, we understand that the angular velocity is the same as that which the ball travels after the collision; that:
 
 \begin{equation}
-   v_0 (m_1r^2) = v_f (m_1 r^2) + v_{CM} I_0
+   v_f = \omega R
 \end{equation}
 
 Actually setting up to solve the expressions, then:
@@ -35,7 +35,7 @@ Actually setting up to solve the expressions, then:
 var("I m1 v0 m2 r")
 var("vf vcm w")
 
-solve([m1*v0 == m1*vf+m2*vcm, m1*v0^2==m1*vf^2+m2*vcm^2+I*w^2, v0*m1*r^2 == vf*m1*r^2+vcm*I], vf, vcm, w)
+solve([m1*v0 == m1*vf+m2*vcm, m1*v0^2==m1*vf^2+m2*vcm^2+I*w^2, vf==w*R], vf, vcm, w, to_poly_solve=True)
 #+end_src
 
 #+RESULTS:
