@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-30 Sat 22:28 -->
+<!-- 2022-04-30 Sat 22:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Elastic Collision</title>
@@ -263,7 +263,7 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Elastic Collision</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-04-30 Sat 22:27</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Elastic Collision</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-04-30 Sat 22:30</date></div>
 </div>
 <div id="content">
 <p>
@@ -299,22 +299,21 @@ as the point mass does not have any rotational inertia, and the rod is not rotat
 Lastly, we understand that the angular momentum is conserved through a collision; letting the origin as the center of mass of the rod:
 </p>
 
-\begin{equation}
-   m_0 r^2 \left(\frac{v_0}{r}\right) = m_0 r^2 \left(\frac{v_f}{r}\right) + I_0 \omega
-\end{equation}
+\begin{align}
+   &m_1 r^2 \left(\frac{v_0}{r}\right) = m_1 r^2 \left(\frac{v_f}{r}\right) + I_0 \omega\\
+\Rightarrow &m_1 r v_0 = m_1 r v_f + I_0 \omega
+\end{align}
 
 <p>
 We now have a system of three equations that can be combined to solve for three unknowns \(v_f\), \(v_{CM}\), and \(\omega\).
 </p>
 
-<p>
-Performing the actual solution, 
-</p>
+
 
 <div class="org-src-container">
 <pre class="src src-sage">var("I m1 v0 m2 r vf vcm w")
 
-expand(solve([m1*v0 == m1*vf+m2*vcm, m1*v0^2==m1*vf^2+m2*vcm^2+I*w^2, vf==w*r], vf, vcm, w, to_poly_solve=True))
+expand(solve([m1*v0 == m1*vf+m2*vcm, m1*v0^2==m1*vf^2+m2*vcm^2+I*w^2, m1*r^2*(v0/r)==m1*r^2*(vf/r)+I*w], vf, vcm, w, to_poly_solve=True))
 </pre>
 </div>
 </div>
