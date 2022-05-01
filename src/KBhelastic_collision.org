@@ -21,5 +21,24 @@ Furthermore, we understand that kinetic energy is also conserved here; therefore
 \Rightarrow & m_1{v_0}^2 = \left( m_1{v_f}^2\right)+\left( m_2{v_{CM}}^2\right)+\left( I_0{\omega}^2\right)
 \end{align}
 
-as the point mass does not have any rotational inertia, and the rod is not rotating at the start
+as the point mass does not have any rotational inertia, and the rod is not rotating at the start.
 
+Lastly, we understand that the angular momentum is also conserved; setting the origin at the centre of mass:
+
+\begin{equation}
+   v_0 (m_1r^2) = v_f (m_1 r^2) + v_{CM} I_0
+\end{equation}
+
+Actually setting up to solve the expressions, then:
+
+#+begin_src sage
+var("I m1 v0 m2 r")
+var("vf vcm w")
+
+solve([m1*v0 == m1*vf+m2*vcm, m1*v0^2==m1*vf^2+m2*vcm^2+I*w^2, v0*m1*r^2 == vf*m1*r^2+vcm*I], vf, vcm, w)
+#+end_src
+
+#+RESULTS:
+: (I, m1, v0, m2, r)
+: (vf, vcm, w)
+: [[vf == v0, vcm == 0, w == 0]]
