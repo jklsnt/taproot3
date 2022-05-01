@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-30 Sat 22:33 -->
+<!-- 2022-04-30 Sat 22:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Elastic Collision</title>
@@ -263,7 +263,7 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Elastic Collision</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-04-30 Sat 22:33</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Elastic Collision</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-04-30 Sat 22:36</date></div>
 </div>
 <div id="content">
 <p>
@@ -308,14 +308,25 @@ Lastly, we understand that the angular momentum is conserved through a collision
 We now have a system of three equations that can be combined to solve for three unknowns \(v_f\), \(v_{CM}\), and \(\omega\).
 </p>
 
+<p>
+Performing the actual solution digitally:
+</p>
 
+\begin{equation}
+   v_{cm} = \frac{4I_0m_1v_0}{m_1m_2r^2+I_0m_1+2I_0m_2} 
+\end{equation}
 
-<div class="org-src-container">
-<pre class="src src-sage">var("I m1 v0 m2 r vf vcm w")
+\begin{equation}
+   v_f = \frac{(m_1m_2r^2 + I_0m_1 - 2I_0m_2)v_0}{m_1m_2r^2 + I_0m_1+2I_0m_2} 
+\end{equation}
 
-expand(solve([m1*v0 == m1*vf+m2*vcm, 2*m1*v0^2==2*m1*vf^2+m2*vcm^2+I*w^2, m1*r^2*(v0/r)==m1*r^2*(vf/r)+I*w], vf, vcm, w, to_poly_solve=True))
-</pre>
-</div>
+<p>
+and finally, we have
+</p>
+
+\begin{equation}
+   \omega = \frac{4m_1m_2rv_0}{m_1m_2r^2+I_0m_1+2Im_2} 
+\end{equation}
 </div>
 </body>
 </html>

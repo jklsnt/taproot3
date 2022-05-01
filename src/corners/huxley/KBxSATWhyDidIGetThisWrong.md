@@ -526,3 +526,12 @@ lesson: think about that it means to increase! use intermediary variables!
 18 + 37 = 55 -> 
 -> 760
 
+51, 43
+
+
+51 -> 39
+43 -> 39
+-> 780
+
+18 + 37
+55 -> 760
