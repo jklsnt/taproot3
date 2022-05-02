@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-05-02 Mon 09:19 -->
+<!-- 2022-05-02 Mon 09:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MVC 2 PS#26</title>
@@ -263,18 +263,18 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#26</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-02 Mon 09:19</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#26</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-02 Mon 09:25</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org755fb85">1. Tiling the Pringlehouse</a></li>
+<li><a href="#org2898d3f">1. Tiling the Pringlehouse</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org755fb85" class="outline-2">
-<h2 id="org755fb85"><span class="section-number-2">1</span> Tiling the Pringlehouse</h2>
+<div id="outline-container-org2898d3f" class="outline-2">
+<h2 id="org2898d3f"><span class="section-number-2">1</span> Tiling the Pringlehouse</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 As a review, our pringles shaped house has the following parametres:
@@ -334,8 +334,27 @@ f.integrate(y, -20*sqrt(1-(x/30)^2), 20*sqrt(1-(x/30)^2)).integrate(x, -30,30)
 </div>
 
 <p>
-It appears that the 
+It appears that the area of the floor is \(600\pi\).
 </p>
+
+<p>
+We can do this something for the function of the roof. We will first figure correction factor \(dA\), then take the integral as prescribed.
+</p>
+
+\begin{align}
+   dA &= \sqrt{1+\left(\frac{\partial f}{\partial x}\right)^2+\left(\frac{\partial f}{\partial y}\right)^2} 
+\end{align}
+
+<p>
+At this point, we realize that the actual function will turn to be much too complicated to integrate by hand at this moment; therefore, we will create the expression digitally.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">r(x,y) = (1/400)*(sqrt(3)*x-y)^2 - (1/400)*(sqrt(3)*y+x)^2 + 10
+da = sqrt(1+r.diff(x)^2+r.diff(y)^2)
+da.numerical_integral(y, -20*sqrt(1-(x/30)^2), 20*sqrt(1-(x/30)^2))
+</pre>
+</div>
 </div>
 </div>
 </div>

@@ -53,4 +53,27 @@ f.integrate(y, -20*sqrt(1-(x/30)^2), 20*sqrt(1-(x/30)^2)).integrate(x, -30,30)
 : (x, y)
 : 600*pi
 
-It appears that the 
+It appears that the area of the floor is $600\pi$.
+
+We can do this something for the function of the roof. We will first figure correction factor $dA$, then take the integral as prescribed.
+
+\begin{align}
+   dA &= \sqrt{1+\left(\frac{\partial f}{\partial x}\right)^2+\left(\frac{\partial f}{\partial y}\right)^2} 
+\end{align}
+
+At this point, we realize that the actual function will turn to be much too complicated to integrate by hand at this moment; therefore, we will create the expression digitally.
+
+#+begin_src sage
+r(x,y) = (1/400)*(sqrt(3)*x-y)^2 - (1/400)*(sqrt(3)*y+x)^2 + 10
+da = sqrt(1+r.diff(x)^2+r.diff(y)^2)
+monte_carlo_integral(da.integrate(y, -20*sqrt(1-(x/30)^2), 20*sqrt(1-(x/30)^2)), [-30], [30], 10000000)
+#+end_src
+
+#+RESULTS:
+: (2002.2850495295995, 0.16423722045912287)
+
+Looks like the result is converting to about $2002.2$ for this shape.
+
+* Three Dimensional Region!
+
+
