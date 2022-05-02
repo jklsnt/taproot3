@@ -58,7 +58,16 @@ It appears that the area of the floor is $600\pi$.
 We can do this something for the function of the roof. We will first figure correction factor $dA$, then take the integral as prescribed.
 
 \begin{align}
-   dA &= \sqrt{1+\left(\frac{\partial f}{\partial x})\right+\left(\frac{\partial f}{\partial y}\right)} 
+   dA &= \sqrt{1+\left(\frac{\partial f}{\partial x}\right)^2+\left(\frac{\partial f}{\partial y}\right)^2} 
 \end{align}
 
-At this point, we realize that the actual function is much to complicated to integrate by hand at this moment; therefore, we will create the expression digital.
+At this point, we realize that the actual function will turn to be much too complicated to integrate by hand at this moment; therefore, we will create the expression digitally.
+
+#+begin_src sage
+r(x,y) = (1/400)*(sqrt(3)*x-y)^2 - (1/400)*(sqrt(3)*y+x)^2 + 10
+da = sqrt(1+r.diff(x)^2+r.diff(y)^2)
+da.integrate(y, -20*sqrt(1-(x/30)^2), 20*sqrt(1-(x/30)^2)).integrate(x, -30,30)
+#+end_src
+
+#+RESULTS:
+: (x, y) |--> 1/200*sqrt((sqrt(3)*(sqrt(3)*x - y) - sqrt(3)*y - x)^2 + (sqrt(3)*(sqrt(3)*y + x) + sqrt(3)*x - y)^2 + 40000)
