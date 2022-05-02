@@ -23,7 +23,7 @@ plot3d(f, (x,0,5), (y,0,7))
 
 \begin{align}
    &\iint_V 1 dV \\
-\Rightarrow &\int_0^5 \int_0^7 1 dx\ dy \\
+\Rightarrow &\int_0^5 \int_0^7 1 dy\ dx \\
 \Rightarrow &35
 \end{align}
 
@@ -49,7 +49,7 @@ plot3d(f, (x,0,5), (y,0,7))
 
 \begin{align}
    &\iint_V \sqrt{14} dV \\
-\Rightarrow &\int_0^5 \int_0^7 \sqrt{14} dx\ dy \\
+\Rightarrow &\int_0^5 \int_0^7 \sqrt{14} dy\ dx \\
 \Rightarrow &35\sqrt{14}
 \end{align}
 
@@ -70,4 +70,18 @@ plot3d(f, (x,0,5), (y,0,7))
 &= \sqrt{1 + (2x)^2} dV\\
 &= \sqrt{1 + 4x^2} dV
 \end{align}
+
+\begin{align}
+   &\iint_V \sqrt{1+4x^2} dV \\
+\Rightarrow &\int_0^5 \int_0^7 \sqrt{1+4x^2}\ dy\ dx\\
+\Rightarrow & \frac{35}{2} \sqrt{ 101 } + \frac{7}{4} arcsinh(10) 
+\end{align}
+
+#+begin_src sage
+f(x,y) = sqrt(1+4*x^2)
+f.integrate(y, 0,7).integrate(x, 0,5)
+#+end_src
+
+#+RESULTS:
+: 35/2*sqrt(101) + 7/4*arcsinh(10)
 
