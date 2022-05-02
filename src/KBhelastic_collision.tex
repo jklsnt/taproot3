@@ -1,4 +1,4 @@
-% Created 2022-05-01 Sun 23:11
+% Created 2022-05-01 Sun 23:14
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -61,7 +61,7 @@
 
 
 \section{Elastic collision}
-\label{sec:orge7811dd}
+\label{sec:orga657e5a}
 We are given that the object \(m_1\) collides with the rod with velocity \(v_0\), and the rod is floating in free space. Given \(m_1\), \(v_0\), \(m_2\), \(I_0\), and \(r\), we are to figure to the final velocity of \(m_1\) after collision \(v_f\), the velocity of \(m_2\) after collision \(v_{CM}\), and of course the rotation of the rod after collision \(\omega\).
 
 We are assuming that this collision elastic.
@@ -107,7 +107,7 @@ and finally, we have
 \end{equation}
 
 \section{Rigid Body Kinetic Energy}
-\label{sec:orgaa34344}
+\label{sec:org9559dec}
 We will start with the known expression that:
 
 \begin{equation}
@@ -133,8 +133,13 @@ At which point, we realize that we have in the middle arrived at the definition 
 
 \begin{align}
    KE &= \frac{1}{2}  M {V_{CM}}^2+ V_{CM}\sum_i  m_i v'_i+\sum_i  \frac{1}{2} m_i {v'_i}^2 \\
-   &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} \sum_i m_i {v'_i}^2 \\
-   &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} \sum_i m_i ( r'_i \omega )^2 \\ 
+   &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} \sum_i m_i {v'_i}^2 
+\end{align}
+
+We now note that this is a rigid body. Therefore, each point mass will not "slip" from the center of mass---they remain the same distance relative each other. Therefore, we can leverage the no slipping assumption to claim that \(v'_i = r'_i \omega\).
+
+\begin{align}
+   KE &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} \sum_i m_i ( r'_i \omega )^2 \\ 
    &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} \sum_i m_i r'_i^2 \omega^2  \\
    &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} \omega^2 \sum_i m_i r'_i^2   \\
    &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} I \omega^2\ \blacksquare
