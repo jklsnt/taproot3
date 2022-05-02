@@ -118,11 +118,11 @@ Shockingly, the resulting integral is $0$. However, we can actually move the bou
 
 #+begin_src sage
 a(x,y,z) = 1-x^2-y^2-z^2
-a.integrate(x,-1,1).integrate(y,-1,1).integrate(z,-1,2)
+a.integrate(x,-1,1).integrate(y,-1,1).integrate(z,-1,1)
 #+end_src
 
 #+RESULTS:
-: -8
+: 0
 
 Taking the Jacobian matrix of this expression would reveal that:
 
@@ -133,4 +133,8 @@ Taking the Jacobian matrix of this expression would reveal that:
 -2z
 \end{bmatrix} 
 \end{equation}
+
+We see that there is no other point but $(0,0,0)$ is the maxima, and---by the pattern of the function---holding any two variables constant and squaring the remaining one will approach $0$ (the smallest non-negative value) at bounds $[-1,1]$. Therefore, it makes sense that the bounds prescribed would be the actual bounds desired.
+
+* 
 
