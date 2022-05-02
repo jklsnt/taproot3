@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-05-02 Mon 09:43 -->
+<!-- 2022-05-02 Mon 09:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MVC 2 PS#26</title>
@@ -263,19 +263,20 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#26</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-02 Mon 09:43</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#26</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-02 Mon 09:46</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org46eee1b">1. Tiling the Pringlehouse</a></li>
-<li><a href="#orgbcbceb2">2. Three Dimensional Region!</a></li>
+<li><a href="#orgca67866">1. Tiling the Pringlehouse</a></li>
+<li><a href="#orgc303e98">2. Three Dimensional Region!</a></li>
+<li><a href="#org1eb7bea">3. </a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org46eee1b" class="outline-2">
-<h2 id="org46eee1b"><span class="section-number-2">1</span> Tiling the Pringlehouse</h2>
+<div id="outline-container-orgca67866" class="outline-2">
+<h2 id="orgca67866"><span class="section-number-2">1</span> Tiling the Pringlehouse</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 As a review, our pringles shaped house has the following parametres:
@@ -363,8 +364,8 @@ Looks like the result is converting to about \(2002.2\) for this shape.
 </div>
 </div>
 
-<div id="outline-container-orgbcbceb2" class="outline-2">
-<h2 id="orgbcbceb2"><span class="section-number-2">2</span> Three Dimensional Region!</h2>
+<div id="outline-container-orgc303e98" class="outline-2">
+<h2 id="orgc303e98"><span class="section-number-2">2</span> Three Dimensional Region!</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Slowly adding up the arguments to this figure reveals its general shape:
@@ -377,7 +378,7 @@ plot(f, -2, 2)
 </div>
 
 
-<div id="org9b7571d" class="figure">
+<div id="org76fea06" class="figure">
 <p><img src="2022-05-02_09-33-32_screenshot.png" alt="2022-05-02_09-33-32_screenshot.png" />
 </p>
 </div>
@@ -393,7 +394,7 @@ plot3d(f, (x,-2,2), (y,-2,2)) + plot3d(0, (x,-2,2), (y,-2,2))
 </div>
 
 
-<div id="org43c27e9" class="figure">
+<div id="org09d047b" class="figure">
 <p><img src="2022-05-02_09-35-11_screenshot.png" alt="2022-05-02_09-35-11_screenshot.png" />
 </p>
 </div>
@@ -422,7 +423,7 @@ Shockingly, the resulting integral is \(0\). However, we can actually move the b
 
 <div class="org-src-container">
 <pre class="src src-sage">a(x,y,z) = 1-x^2-y^2-z^2
-a.integrate(x,-1,1).integrate(y,-1,1).integrate(z,-1,2)
+a.integrate(x,-1,1).integrate(y,-1,1).integrate(z,-1,1)
 </pre>
 </div>
 
@@ -437,6 +438,16 @@ Taking the Jacobian matrix of this expression would reveal that:
 -2z
 \end{bmatrix} 
 \end{equation}
+
+<p>
+We see that there is no other point but \((0,0,0)\) is the maxima, and&#x2014;by the pattern of the function&#x2014;holding any two variables constant and squaring the remaining one will approach \(0\) (the smallest non-negative value) at bounds \([-1,1]\). Therefore, it makes sense that the bounds prescribed would be the actual bounds desired.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1eb7bea" class="outline-2">
+<h2 id="org1eb7bea"><span class="section-number-2">3</span> </h2>
+<div class="outline-text-2" id="text-3">
 </div>
 </div>
 </div>
