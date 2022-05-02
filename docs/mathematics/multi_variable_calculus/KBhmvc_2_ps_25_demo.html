@@ -6,7 +6,7 @@
 <!-- 2022-05-01 Sun 23:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Elastic Collision</title>
+<title>MVC 2 PS#25 Demo</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Houjun Liu" />
 <style type="text/css">
@@ -219,179 +219,13 @@
     /*]]>*///-->
 // @license-end
 </script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/javascript">
-<!--/*--><![CDATA[/*><!--*/
-    MathJax.Hub.Config({
-        jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
-        showProcessingMessages: true,
-        displayAlign: "center",
-        displayIndent: "2em",
-
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
-             }
-        }
-    });
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Elastic Collision</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-01 Sun 23:16</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#25 Demo</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-01 Sun 23:16</date></div>
 </div>
 <div id="content">
-<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
-<ul>
-<li><a href="#org3838c19">1. Elastic collision</a></li>
-<li><a href="#org52a198f">2. Rigid Body Kinetic Energy</a></li>
-</ul>
-</div></div>
-</div>
 
-<div id="outline-container-org3838c19" class="outline-2">
-<h2 id="org3838c19"><span class="section-number-2">1</span> Elastic collision</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-We are given that the object \(m_1\) collides with the rod with velocity \(v_0\), and the rod is floating in free space. Given \(m_1\), \(v_0\), \(m_2\), \(I_0\), and \(r\), we are to figure to the final velocity of \(m_1\) after collision \(v_f\), the velocity of \(m_2\) after collision \(v_{CM}\), and of course the rotation of the rod after collision \(\omega\).
-</p>
-
-<p>
-We are assuming that this collision elastic.
-</p>
-
-<p>
-We have, then, for conservation of linear momentum:
-</p>
-
-\begin{equation}
- m_1 v_0 = m_1v_f + m_2 v_{CM} 
-\end{equation}
-
-<p>
-Furthermore, we understand that kinetic energy is also conserved here; therefore:
-</p>
-
-\begin{align}
-&\frac{1}{2} m_1{v_0}^2 + \frac{1}{2} m_1 {v_0}^2 = \left(\frac{1}{2} m_1{v_f}^2\right)+\left(\frac{1}{2} m_1{v_f}^2\right)+\left(\frac{1}{2} m_2{v_{CM}}^2\right)+\left(\frac{1}{2} I_0{\omega}^2\right)\\
-\Rightarrow & 2m_1{v_0}^2 = \left( 2m_1{v_f}^2\right)+\left( m_2{v_{CM}}^2\right)+\left( I_0{\omega}^2\right)
-\end{align}
-
-<p>
-as the point mass does not have any rotational inertia, and the rod is not rotating at the start.
-</p>
-
-<p>
-Lastly, we understand that the angular momentum is conserved through a collision; letting the origin as the center of mass of the rod:
-</p>
-
-\begin{align}
-   &m_1 r^2 \left(\frac{v_0}{r}\right) = m_1 r^2 \left(\frac{v_f}{r}\right) + I_0 \omega\\
-\Rightarrow &m_1 r v_0 = m_1 r v_f + I_0 \omega
-\end{align}
-
-<p>
-We now have a system of three equations that can be combined to solve for three unknowns \(v_f\), \(v_{CM}\), and \(\omega\).
-</p>
-
-<p>
-Performing the actual solution digitally:
-</p>
-
-\begin{equation}
-   v_{cm} = \frac{4I_0m_1v_0}{m_1m_2r^2+I_0m_1+2I_0m_2} 
-\end{equation}
-
-\begin{equation}
-   v_f = \frac{(m_1m_2r^2 + I_0m_1 - 2I_0m_2)v_0}{m_1m_2r^2 + I_0m_1+2I_0m_2} 
-\end{equation}
-
-<p>
-and finally, we have
-</p>
-
-\begin{equation}
-   \omega = \frac{4m_1m_2rv_0}{m_1m_2r^2+I_0m_1+2Im_2} 
-\end{equation}
-</div>
-</div>
-
-<div id="outline-container-org52a198f" class="outline-2">
-<h2 id="org52a198f"><span class="section-number-2">2</span> Rigid Body Kinetic Energy</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-We will start with the known expression that:
-</p>
-
-\begin{equation}
-   KE = \sum_i \frac{1}{2} m_i{v_i}^2
-\end{equation}
-
-<p>
-Because of the fact a point \(v_i\) can be defined as a sum of the velocity from the origin plus the displace from from origin (\(v_i = v_{CM}+v'_i\)), we can rewrite the kinetic energy expression:
-</p>
-
-\begin{equation}
-   KE = \sum_i  \frac{1}{2}  m_i (V_{CM}+v'_i)(V_{CM}+v'_i)
-\end{equation}
-
-<p>
-Now, we shall foil the above expression:
-</p>
-
-\begin{align}
-   KE &= \sum_i  \frac{1}{2}  m_i ({V_{CM}}^2+2v_{CM}v'_i+{v'_i}^2) \\
-&= \sum_i  \frac{1}{2}  m_i {V_{CM}}^2+ \sum_i  m_i V_{CM}v'_i+\sum_i  \frac{1}{2}  m_i {v'_i}^2 \\
-&= \frac{1}{2}  M {V_{CM}}^2+ \sum_i  m_i V_{CM}v'_i+\sum_i  \frac{1}{2} m_i {v'_i}^2 \\
-&= \frac{1}{2}  M {V_{CM}}^2+ V_{CM}\sum_i  m_i v'_i+\sum_i  \frac{1}{2} m_i {v'_i}^2 
-\end{align}
-
-<p>
-At which point, we realize that we have in the middle arrived at the definition of the center of mass in the reference frame of the center of mass&#x2014;meaning that it is indeed \(0\) because the center of mass is at the origin of the center of mass. Moving on, then:
-</p>
-
-\begin{align}
-   KE &= \frac{1}{2}  M {V_{CM}}^2+ V_{CM}\sum_i  m_i v'_i+\sum_i  \frac{1}{2} m_i {v'_i}^2 \\
-   &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} \sum_i m_i {v'_i}^2 
-\end{align}
-
-<p>
-We now note that this is a rigid body. Therefore, each point mass will not "slip" from the center of mass&#x2014;they remain the same distance relative each other. Therefore, we can leverage the no slipping assumption to claim that \(v'_i = r'_i \omega\).
-</p>
-
-\begin{align}
-   KE &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} \sum_i m_i ( r'_i \omega )^2 \\ 
-   &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} \sum_i m_i r'_i^2 \omega^2  \\
-   &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} \omega^2 \sum_i m_i r'_i^2   \\
-   &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} I \omega^2\ \blacksquare
-\end{align}
-</div>
-</div>
 </div>
 </body>
 </html>
