@@ -1,0 +1,85 @@
+:PROPERTIES:
+:ID:       B533849C-0F42-41EE-BE67-4430EDC9B9B3
+:END:
+#+title: Elastic Collision
+#+author: Houjun Liu
+
+* Elastic collision
+We are given that the object $m_1$ collides with the rod with velocity $v_0$, and the rod is floating in free space. Given $m_1$, $v_0$, $m_2$, $I_0$, and $r$, we are to figure to the final velocity of $m_1$ after collision $v_f$, the velocity of $m_2$ after collision $v_{CM}$, and of course the rotation of the rod after collision $\omega$.
+
+We are assuming that this collision elastic.
+
+We have, then, for conservation of linear momentum:
+
+\begin{equation}
+ m_1 v_0 = m_1v_f + m_2 v_{CM} 
+\end{equation}
+
+Furthermore, we understand that kinetic energy is also conserved here; therefore:
+
+\begin{align}
+&\frac{1}{2} m_1{v_0}^2 + \frac{1}{2} m_1 {v_0}^2 = \left(\frac{1}{2} m_1{v_f}^2\right)+\left(\frac{1}{2} m_1{v_f}^2\right)+\left(\frac{1}{2} m_2{v_{CM}}^2\right)+\left(\frac{1}{2} I_0{\omega}^2\right)\\
+\Rightarrow & 2m_1{v_0}^2 = \left( 2m_1{v_f}^2\right)+\left( m_2{v_{CM}}^2\right)+\left( I_0{\omega}^2\right)
+\end{align}
+
+as the point mass does not have any rotational inertia, and the rod is not rotating at the start.
+
+Lastly, we understand that the angular momentum is conserved through a collision; letting the origin as the center of mass of the rod:
+
+\begin{align}
+   &m_1 r^2 \left(\frac{v_0}{r}\right) = m_1 r^2 \left(\frac{v_f}{r}\right) + I_0 \omega\\
+\Rightarrow &m_1 r v_0 = m_1 r v_f + I_0 \omega
+\end{align}
+
+We now have a system of three equations that can be combined to solve for three unknowns $v_f$, $v_{CM}$, and $\omega$.
+
+Performing the actual solution digitally:
+
+\begin{equation}
+   v_{cm} = \frac{4I_0m_1v_0}{m_1m_2r^2+I_0m_1+2I_0m_2} 
+\end{equation}
+
+\begin{equation}
+   v_f = \frac{(m_1m_2r^2 + I_0m_1 - 2I_0m_2)v_0}{m_1m_2r^2 + I_0m_1+2I_0m_2} 
+\end{equation}
+
+and finally, we have
+
+\begin{equation}
+   \omega = \frac{4m_1m_2rv_0}{m_1m_2r^2+I_0m_1+2Im_2} 
+\end{equation}
+
+* Rigid Body Kinetic Energy
+We will start with the known expression that:
+
+\begin{equation}
+   KE = \sum_i \frac{1}{2} m_i{v_i}^2
+\end{equation}
+
+Because of the fact a point $v_i$ can be defined as a sum of the velocity from the origin plus the displace from from origin ($v_i = v_{CM}+v'_i$), we can rewrite the kinetic energy expression:
+
+\begin{equation}
+   KE = \sum_i  \frac{1}{2}  m_i (V_{CM}+v'_i)(V_{CM}+v'_i)
+\end{equation}
+
+Now, we shall foil the above expression:
+
+\begin{align}
+   KE &= \sum_i  \frac{1}{2}  m_i ({V_{CM}}^2+2v_{CM}v'_i+{v'_i}^2) \\
+&= \sum_i  \frac{1}{2}  m_i {V_{CM}}^2+ \sum_i  m_i V_{CM}v'_i+\sum_i  \frac{1}{2}  m_i {v'_i}^2 \\
+&= \frac{1}{2}  M {V_{CM}}^2+ \sum_i  m_i V_{CM}v'_i+\sum_i  \frac{1}{2} m_i {v'_i}^2 \\
+&= \frac{1}{2}  M {V_{CM}}^2+ V_{CM}\sum_i  m_i v'_i+\sum_i  \frac{1}{2} m_i {v'_i}^2 
+\end{align}
+
+At which point, we realize that we have in the middle arrived at the definition of the center of mass in the reference frame of the center of mass---meaning that it is indeed $0$ because the center of mass is at the origin of the center of mass. Moving on, then:
+
+\begin{align}
+   KE &= \frac{1}{2}  M {V_{CM}}^2+ V_{CM}\sum_i  m_i v'_i+\sum_i  \frac{1}{2} m_i {v'_i}^2 \\
+   &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} \sum_i m_i {v'_i}^2 
+\end{align}
+
+\begin{equation}
+   m_i \frac{{r'_i}^3}{3}
+\end{equation}
+
+
