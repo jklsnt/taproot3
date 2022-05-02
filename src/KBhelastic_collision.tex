@@ -1,0 +1,142 @@
+% Created 2022-05-01 Sun 23:11
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{tikz}
+\usepackage{cancel}
+\usepackage{pgfplots}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = HelveticaNeue-Italic, BoldFont = HelveticaNeue-Bold, BoldItalicFont = HelveticaNeue-BoldItalic]{HelveticaNeue}
+\newfontfamily\NHLight[ItalicFont = HelveticaNeue-LightItalic, BoldFont       = HelveticaNeue-UltraLight, BoldItalicFont = HelveticaNeue-UltraLightItalic]{HelveticaNeue-Light}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Written} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Houjun Liu}
+\date{\today}
+\title{Elastic Collision}
+\hypersetup{
+ pdfauthor={Houjun Liu},
+ pdftitle={Elastic Collision},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.91 (Org mode 9.5.2)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Elastic collision}
+\label{sec:orge7811dd}
+We are given that the object \(m_1\) collides with the rod with velocity \(v_0\), and the rod is floating in free space. Given \(m_1\), \(v_0\), \(m_2\), \(I_0\), and \(r\), we are to figure to the final velocity of \(m_1\) after collision \(v_f\), the velocity of \(m_2\) after collision \(v_{CM}\), and of course the rotation of the rod after collision \(\omega\).
+
+We are assuming that this collision elastic.
+
+We have, then, for conservation of linear momentum:
+
+\begin{equation}
+ m_1 v_0 = m_1v_f + m_2 v_{CM} 
+\end{equation}
+
+Furthermore, we understand that kinetic energy is also conserved here; therefore:
+
+\begin{align}
+&\frac{1}{2} m_1{v_0}^2 + \frac{1}{2} m_1 {v_0}^2 = \left(\frac{1}{2} m_1{v_f}^2\right)+\left(\frac{1}{2} m_1{v_f}^2\right)+\left(\frac{1}{2} m_2{v_{CM}}^2\right)+\left(\frac{1}{2} I_0{\omega}^2\right)\\
+\Rightarrow & 2m_1{v_0}^2 = \left( 2m_1{v_f}^2\right)+\left( m_2{v_{CM}}^2\right)+\left( I_0{\omega}^2\right)
+\end{align}
+
+as the point mass does not have any rotational inertia, and the rod is not rotating at the start.
+
+Lastly, we understand that the angular momentum is conserved through a collision; letting the origin as the center of mass of the rod:
+
+\begin{align}
+   &m_1 r^2 \left(\frac{v_0}{r}\right) = m_1 r^2 \left(\frac{v_f}{r}\right) + I_0 \omega\\
+\Rightarrow &m_1 r v_0 = m_1 r v_f + I_0 \omega
+\end{align}
+
+We now have a system of three equations that can be combined to solve for three unknowns \(v_f\), \(v_{CM}\), and \(\omega\).
+
+Performing the actual solution digitally:
+
+\begin{equation}
+   v_{cm} = \frac{4I_0m_1v_0}{m_1m_2r^2+I_0m_1+2I_0m_2} 
+\end{equation}
+
+\begin{equation}
+   v_f = \frac{(m_1m_2r^2 + I_0m_1 - 2I_0m_2)v_0}{m_1m_2r^2 + I_0m_1+2I_0m_2} 
+\end{equation}
+
+and finally, we have
+
+\begin{equation}
+   \omega = \frac{4m_1m_2rv_0}{m_1m_2r^2+I_0m_1+2Im_2} 
+\end{equation}
+
+\section{Rigid Body Kinetic Energy}
+\label{sec:orgaa34344}
+We will start with the known expression that:
+
+\begin{equation}
+   KE = \sum_i \frac{1}{2} m_i{v_i}^2
+\end{equation}
+
+Because of the fact a point \(v_i\) can be defined as a sum of the velocity from the origin plus the displace from from origin (\(v_i = v_{CM}+v'_i\)), we can rewrite the kinetic energy expression:
+
+\begin{equation}
+   KE = \sum_i  \frac{1}{2}  m_i (V_{CM}+v'_i)(V_{CM}+v'_i)
+\end{equation}
+
+Now, we shall foil the above expression:
+
+\begin{align}
+   KE &= \sum_i  \frac{1}{2}  m_i ({V_{CM}}^2+2v_{CM}v'_i+{v'_i}^2) \\
+&= \sum_i  \frac{1}{2}  m_i {V_{CM}}^2+ \sum_i  m_i V_{CM}v'_i+\sum_i  \frac{1}{2}  m_i {v'_i}^2 \\
+&= \frac{1}{2}  M {V_{CM}}^2+ \sum_i  m_i V_{CM}v'_i+\sum_i  \frac{1}{2} m_i {v'_i}^2 \\
+&= \frac{1}{2}  M {V_{CM}}^2+ V_{CM}\sum_i  m_i v'_i+\sum_i  \frac{1}{2} m_i {v'_i}^2 
+\end{align}
+
+At which point, we realize that we have in the middle arrived at the definition of the center of mass in the reference frame of the center of mass---meaning that it is indeed \(0\) because the center of mass is at the origin of the center of mass. Moving on, then:
+
+\begin{align}
+   KE &= \frac{1}{2}  M {V_{CM}}^2+ V_{CM}\sum_i  m_i v'_i+\sum_i  \frac{1}{2} m_i {v'_i}^2 \\
+   &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} \sum_i m_i {v'_i}^2 \\
+   &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} \sum_i m_i ( r'_i \omega )^2 \\ 
+   &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} \sum_i m_i r'_i^2 \omega^2  \\
+   &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} \omega^2 \sum_i m_i r'_i^2   \\
+   &= \frac{1}{2}  M {V_{CM}}^2+\frac{1}{2} I \omega^2\ \blacksquare
+\end{align}
+\end{document}
