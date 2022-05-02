@@ -28,7 +28,29 @@ We will first convert the above function into rectangular bounds to take the are
 \Rightarrow &t = arccos\left(\frac{x}{30}\right) 
 \end{align}
 
-Supplying this back to the original expression: 
+Supplying this back to the original expression for y: 
 
+\begin{align}
+   y &= 20sin\left(arccos\left(\frac{x}{30}\right)\right) \\
+&=20\sqrt{1-\left(\frac{x}{30}\right)^2}
+\end{align}
 
+Therefore, the actual integral:
 
+\begin{equation}
+   \int_{-30}^{30} \int_{-20\sqrt{1-\left(\frac{x}{30}\right)^2}}^{20\sqrt{1-\left(\frac{x}{30}\right)^2}}\ 1 dy\ dx
+\end{equation}
+
+We will endeavor now to use technology.
+
+#+begin_src sage
+var("x y")
+f(x,y) = 1
+f.integrate(y, -20*sqrt(1-(x/30)^2), 20*sqrt(1-(x/30)^2)).integrate(x, -30,30)
+#+end_src
+
+#+RESULTS:
+: (x, y)
+: 600*pi
+
+It appears that the 

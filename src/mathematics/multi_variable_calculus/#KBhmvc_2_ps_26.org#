@@ -31,7 +31,34 @@ We will first convert the above function into rectangular bounds to take the are
 Supplying this back to the original expression for y: 
 
 \begin{align}
-   y &= 30sin\left(arccos\left(\frac{x}{30}\right)\right) \\
-\Rightarrow 30\sqrt{1-\left()\right}
+   y &= 20sin\left(arccos\left(\frac{x}{30}\right)\right) \\
+&=20\sqrt{1-\left(\frac{x}{30}\right)^2}
 \end{align}
 
+Therefore, the actual integral:
+
+\begin{equation}
+   \int_{-30}^{30} \int_{-20\sqrt{1-\left(\frac{x}{30}\right)^2}}^{20\sqrt{1-\left(\frac{x}{30}\right)^2}}\ 1 dy\ dx
+\end{equation}
+
+We will endeavor now to use technology.
+
+#+begin_src sage
+var("x y")
+f(x,y) = 1
+f.integrate(y, -20*sqrt(1-(x/30)^2), 20*sqrt(1-(x/30)^2)).integrate(x, -30,30)
+#+end_src
+
+#+RESULTS:
+: (x, y)
+: 600*pi
+
+It appears that the area of the floor is $600\pi$.
+
+We can do this something for the function of the roof. We will first figure correction factor $dA$, then take the integral as prescribed.
+
+\begin{align}
+   dA &= \sqrt{1+\left(\frac{\partial f}{\partial x})\right+\left(\frac{\partial f}{\partial y}\right)} 
+\end{align}
+
+At this point, we realize that the actual function is much to complicated to integrate by hand at this moment; therefore, we will create the expression digital.
