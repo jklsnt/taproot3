@@ -1,6 +1,10 @@
 n
 ***
 
+ fatherly config plans: https://topnotch.app
+
+***
+
  https://www.youtube.com/watch?v=Qnos8aApa9g vim harpoon demo 
 
 ***
