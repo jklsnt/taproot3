@@ -112,6 +112,39 @@ plot3d(f, (x,0,5), (y,0,7))
 \begin{align}
     &\frac{\partial \vec{v}}{\partial x} \times \frac{\partial \vec{v}}{\partial y} \\
 \Rightarrow & (\hat{i} + 2x\hat{k}) \times (\hat{j} - 2y\hat{k})\\ 
-\Rightarrow & (\hat{i}\hat{j} + \hat{k}2x\hat{k} - \hat{i}2y\hat{k} - 2x\hat{k}2y\hat{k})\\ 
+\Rightarrow & (\hat{i}\hat{j} + \hat{k}2x\hat{j} - \hat{i}2y\hat{k} - 2x\hat{k}2y\hat{k})\\ 
+\Rightarrow & (\hat{i}\hat{j} + \hat{k}2x\hat{j} - \hat{i}2y\hat{k} )\\ 
+\Rightarrow & (\hat{k} -2x\hat{i} + 2y\hat{j} )\
 \end{align}
+
+\begin{equation}
+   \begin{pmatrix} 
+-2x \\
+2y \\
+1
+   \end{pmatrix} 
+\end{equation}
+
+
+\begin{equation}
+    dA = \sqrt{1 + 4x^2 + 4y^2}\ dx\ dy
+\end{equation}
+
+
+\begin{align}
+   &\iint_V \sqrt{1 + 4x^2 + 4y^2} dV \\
+\Rightarrow &\int_0^5 \int_0^7 \sqrt{1 + 4x^2 + 4y^2}\ dy\ dx\\
+&\approx 326.54
+\end{align}
+
+#+begin_src sage
+f(x,y) = sqrt(1+4*x^2 + 4*y^2)
+float(f.integrate(y, 0, 7).integrate(x,0,5))
+#+end_src
+
+#+RESULTS:
+: 326.54996642727804
+
+
+
 
