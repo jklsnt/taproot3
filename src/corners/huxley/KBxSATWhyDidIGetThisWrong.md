@@ -456,6 +456,11 @@ lesson: write out your algebra. be careful with ratios. consider trig functions 
 
 ## blb7, again
 ***
+w19 :: a, b
+i got this wrong because i messed up what part of the sentence the word was referencing.
+
+lesson: if you are struggling to find out what part of the sentence is being reference, try changing the sentence to being plural / singular, and see what actully changes!
+***
 nc14 :: c,a
 i got this wrong because, when i subbed in my variable, i forgot to keep the coefficiant. 
 
@@ -465,6 +470,11 @@ nc12 :: 6620, 6632
 i got this wrong because i fucked up my subtraction. stop it. use the *actual* subtraction stuff.
 
 lesson: use the actual subtraction method! don't fuck around.
+***
+c36 :: 4, 6
+i got this wrong because i wrote down 3\*3 as 6, not nine. 
+
+lesson: when something is going wrong, redo, all the assumptions! nothing is sacred! you cannot trust anything. look at every part of what is considered truth.
 ***
 
 ## blub6
