@@ -9,6 +9,7 @@ n
  https://www.youtube.com/watch?v=0bcZb-SsnrA
  wave function collapse maybe with genetic algorythym?? 
  human selection factor
+ ray style land construction?
 
 ***
 
