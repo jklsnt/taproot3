@@ -1,6 +1,10 @@
 n
 ***
 
+ constructor theory? look into this later #review 
+
+***
+
  fatherly config plans: https://topnotch.app
 
 ***
