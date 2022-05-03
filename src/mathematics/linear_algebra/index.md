@@ -76,6 +76,7 @@ source:  #index
 - [[KBxAxlerChapter5]]
 - [[KBxModuleOneLinalgTed]]
 - [[KBxAxlerChapter6Sprint]]
+- [[KBxTaiDanaeBradleyTalk]]
 
 
 
