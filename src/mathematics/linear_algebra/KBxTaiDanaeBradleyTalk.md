@@ -51,9 +51,53 @@ this is, up to isomorphism [[KBx3DInclass#isomorphism]] [[KBx3DInclass#isomorphi
 two sets have the same cardinality iff they have the same num of elements
 set's Z and X, $X^{Z}$ is the set of all functions from Z → X 
 
-- the actual definition
-given sets X and Y, then X is isomorphic to Y iff $X^{Z} \cong Y^Z$ for all sets Z.
+- **the actual definition** :: given sets X and Y, then X is isomorphic to Y iff $X^{Z} \cong Y^Z$ for all sets Z.
 
+thinks of taking $X^Z$ for a given Z as a given 'vantage point'
+so saying that they are iso from all vantage points means they are themselves iso
+
+but apparently, this is way overkill, because all need is one set? 
+
+$Z - \{*\}$, set with single element
+$\{*\} \to X$ is just a choice of an element in X
+so we can say that $X \cong Y$ iff $X^{\{*\}} \to Y^{\{*\}}$
+
+we can think about specifying words in the same way
+
+once we assign probabilities to morphisms, then we have what is called 
+
+**enriched category theory**
+where each morphism has its own structure, with probability 
+
+in the category of *sets*, the Yoneda lemma turns out to be overkill.
+
+#### classical → quantum probability
+we know that a joint probability distribution gives rise to marginal probabilities, and that marginalizing loses info [[KBxJointAndMarginalProbabilities]]
+marginal probabilities are just the sums of rows and column
+but! classically, marginalizing loses info, unless we do some quantum witchery?
+
+##### quantum witchery
+represent's as a matrix $M$
+then does $M^{\intercal}M$
+
+%%$$\begin{pmatrix} 
+ \frac{1}{3} & \frac{1}{3} & 0 \\ \frac{1}{3}
+\end{pmatrix}$$%%
+
+the squares of the entries of the eigenvalues of $M^{\intercal}M$ are the conditional probability distributions on our org $X$??
+*wtf?*
+
+sets? bad. not enough structure. instead, we look at functions on sets? and this gives us the structure we need?
+
+density operators is a special type of linear operator, which is self adjoint and positie semidefinite with trace one
+and these density operators ***are*** quantum states
+
+we can visually represent tensors and morphisms graphically, called tensor network diagrams [[KBxModuleOneLinalgTed#Tensor Products]] [[KBxQuantumLectureThree#tensor products]]
+
+also the concept of a projection operator? where you map every vec to its projection onto a given vec?
+
+and this gets us to entanglement?? whatta what what?
+i am lost. #review this on her website
 
 
 
