@@ -531,9 +531,12 @@ lesson: just do it. espec when there are no exponents. also, distribute WITH THE
 ***
 nc15 :: c, b
 i got this wrong because i didn't carry my logic through, and because i didn't know some key equations about parabolas.
-lesson: REMEMBER, the x value of the vertex of a parabola is $\frac{-b}{2a}$!! also, 
+lesson: REMEMBER, the x value of the vertex of a parabola is $\frac{-b}{2a}$!! also, if x+1 is a solution, that means that x = -1... solve things all the way through!
 ***
-
+nc18 :: 8, 6
+i got this wrong because i made a simple arithmetic error: 24-10 = 12.
+lesson: be RIGORIOUS about checking the answers. no, wishy washy "yeah that looks right." DO it OUT. 
+***
 # To review
 - polynomial division [ x ]
 - remainder theorem [ x ]
@@ -548,6 +551,7 @@ lesson: REMEMBER, the x value of the vertex of a parabola is $\frac{-b}{2a}$!! a
 - Pythagorean triples [ x ]
 
 - unit circle! radians!
+- long division (learn)
 
 
 # misc / scratch
