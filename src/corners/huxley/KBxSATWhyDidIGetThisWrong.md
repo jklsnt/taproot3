@@ -521,6 +521,19 @@ nc12 :: tip
 multiply the top and bottom of fractions w/o expanding!! and can get all the bottoms to be equal and divide everything out. 
 ***
 
+## april 2019
+***
+nc6 :: c, b
+i got this wrong for two reasons: 
+- first, i was too reluctant just to do the algebra. don't be reluctant — just do it out. 
+- second, when distributing, i did not account for the negative sign. always think about the sign when distributing!!
+lesson: just do it. espec when there are no exponents. also, distribute WITH THE SIGN. be wary that this is a mistake they are looking for, also. 
+***
+nc15 :: c, b
+i got this wrong because i didn't carry my logic through, and because i didn't know some key equations about parabolas.
+lesson: REMEMBER, the x value of the vertex of a parabola is $\frac{-b}{2a}$!! also, 
+***
+
 # To review
 - polynomial division [ x ]
 - remainder theorem [ x ]
@@ -532,8 +545,12 @@ multiply the top and bottom of fractions w/o expanding!! and can get all the bot
 - vertex form [ x ]
 - 30-60-90 triangles [ x ]
 - radian and degree conversions [ x ]
-- pythagorean triples [ x ]
+- Pythagorean triples [ x ]
 
+- unit circle! radians!
+
+
+# misc / scratch
 (52-5)+(44-10)+(20-9)+(38-7)
 
 33+37
@@ -576,19 +593,3 @@ multiply the top and bottom of fractions w/o expanding!! and can get all the bot
 
 18 + 37
 55 -> 760
-
-
-
-
-
-
-```math
-||{"id":445319923376}||
-```
-
-```math
-||{"id":445319923376}||
-```
-
-
-
