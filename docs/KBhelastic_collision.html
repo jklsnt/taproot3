@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-05-03 Tue 22:14 -->
+<!-- 2022-05-03 Tue 22:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Elastic Collision</title>
@@ -263,19 +263,19 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Elastic Collision</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-03 Tue 22:13</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Elastic Collision</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-03 Tue 22:28</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc353a6e">1. Elastic collision</a></li>
-<li><a href="#orga74c820">2. Rigid Body Kinetic Energy</a></li>
+<li><a href="#orgc98d954">1. Elastic collision</a></li>
+<li><a href="#orgae3f3f9">2. Rigid Body Kinetic Energy</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-orgc353a6e" class="outline-2">
-<h2 id="orgc353a6e"><span class="section-number-2">1</span> Elastic collision</h2>
+<div id="outline-container-orgc98d954" class="outline-2">
+<h2 id="orgc98d954"><span class="section-number-2">1</span> Elastic collision</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We are given that the object \(m_1\) collides with the rod with velocity \(v_0\), and the rod is floating in free space. Given \(m_1\), \(v_0\), \(m_2\), \(I_0\), and \(r\), we are to figure to the final velocity of \(m_1\) after collision \(v_f\), the velocity of \(m_2\) after collision \(v_{CM}\), and of course the rotation of the rod after collision \(\omega\).
@@ -320,28 +320,53 @@ We now have a system of three equations that can be combined to solve for three 
 </p>
 
 <p>
-Performing the actual solution, then. We will first note that the first and second expressions are simply scaled by \(v_0\), so we will perform that and set an equality:
+We will begin with the kinetic energy expression:
+</p>
+
+\begin{equation}
+ m_1{v_0}^2 = \left( m_1{v_f}^2\right)+\left( m_2{v_{CM}}^2\right)+\left( I_0{\omega}^2\right)   
+\end{equation}
+
+<p>
+Now, this last term seems a little concerning to deal with. Therefore, we will use the final expression to simplify it:
 </p>
 
 \begin{align}
-&m_1v_0 = m_1v_f + m_2v_{CM}\\
-\Rightarrow &m_1{v_0}^2 = m_1v_0v_f + m_2v_0v_{CM}
+   &m_1 rv_0 = m_1rv_f + I_0 \omega\\
+\Rightarrow & m_1 rv_0 - m_1rv_f = I_0 \omega
 \end{align}
 
 <p>
-Great. Performing the equality, then:
+and also:
+</p>
+
+\begin{equation}
+ \frac{m_1 rv_0 - m_1rv_f}{I_0} = \omega   
+\end{equation}
+
+<p>
+Therefore, \(I_0 \omega^2\) would be:
+</p>
+
+\begin{equation}
+    \frac{(m_1 rv_0 - m_1rv_f)^2}{I_0}
+\end{equation}
+
+<p>
+Supplying that back:
 </p>
 
 \begin{align}
-    &\left( m_1{v_f}^2\right)+\left( m_2{v_{CM}}^2\right)+\left( I_0{\omega}^2\right) = m_1v_0v_f + m_2v_0v_{CM}\\
-\Rightarrow & m_1{v_f}^2-m_1v_0v_f + m_2{v_{CM}}^2- m_2v_0v_{CM}+ I_0{\omega}^2 = 0
+ &m_1{v_0}^2 =  m_1{v_f}^2+m_2{v_{CM}}^2+\left( I_0{\omega}^2\right)\\
+\Rightarrow & m_1{v_0}^2 = m_1{v_f}^2+ m_2{v_{CM}}^2+\frac{(m_1 rv_0 - m_1rv_f)^2}{I_0}\\
+\Rightarrow & m_1{v_0}^2 = m_1{v_f}^2+ m_2{v_{CM}}^2+\frac{r^2(m_1 v_0 - m_1v_f)^2}{I_0}\\
+\Rightarrow & m_1{v_0}^2 -m_1{v_f}^2 =  m_2{v_{CM}}^2+\frac{r^2(m_1 v_0 - m_1v_f)^2}{I_0}\\
+\Rightarrow & m_1I_0{v_0}^2 -m_1I_0{v_f}^2 =  m_2I_0{v_{CM}}^2+r^2(m_1 v_0 - m_1v_f)^2
 \end{align}
 
 <p>
-Now, this last term seems a little 
+At this point, we realize that we haven't use the first expression yet. Therefore, we will endeavour to use it to rid of the one \(v_{CM}\) we have here.
 </p>
-
-
 
 
 
@@ -368,8 +393,8 @@ and finally, we have
 </div>
 </div>
 
-<div id="outline-container-orga74c820" class="outline-2">
-<h2 id="orga74c820"><span class="section-number-2">2</span> Rigid Body Kinetic Energy</h2>
+<div id="outline-container-orgae3f3f9" class="outline-2">
+<h2 id="orgae3f3f9"><span class="section-number-2">2</span> Rigid Body Kinetic Energy</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We will start with the known expression that:
