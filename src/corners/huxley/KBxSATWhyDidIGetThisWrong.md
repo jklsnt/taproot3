@@ -503,6 +503,17 @@ i got this wrong because i conceptually messed up what it means to *increase*. i
 this is every evident when you just have an intermediary variable. do that!
 lesson: think about that it means to increase! use intermediary variables!
 ***
+## october 2019
+***
+nc13 :: guess, a
+i got this wrong because i used the equation for a cylinder instead of the equation for a cone.
+
+lesson: ALWAYS check what equation you are using! after you write down the equation, check it! think, "what is this an equation for?" and then check the question.
+***
+nc15 :: tip
+remember vertex form bro! jeezzz
+***
+
 # To review
 - polynomial division [ x ]
 - remainder theorem [ x ]
