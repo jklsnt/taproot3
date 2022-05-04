@@ -512,6 +512,13 @@ lesson: ALWAYS check what equation you are using! after you write down the equat
 ***
 nc15 :: tip
 remember vertex form bro! jeezzz
+$a(x-h)^{2} + k \to \text{vertex }(h, k)$
+***
+nc18 :: tip
+setting $y=\sqrt{x}$ is a valuable trick when you have to deal with an x and a root x term! just remember to square the answer on the other end of solving. 
+***
+nc12 :: tip
+multiply the top and bottom of fractions w/o expanding!! and can get all the bottoms to be equal and divide everything out. 
 ***
 
 # To review
