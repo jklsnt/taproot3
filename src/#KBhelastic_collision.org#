@@ -149,17 +149,47 @@ and,
 Therefore, subtracting the two terms, we will note that they are only different by:
 
 \begin{equation}
-   b^2-4ac = -4{I_0 
+   b^2-4ac = 4{I_0}^2{v_0}^2
 \end{equation}
 
+Finally, then; performing the square root:
 
+\begin{equation}
+    \sqrt{b^2-4ac}  = 2{I_0}{v_0}
+\end{equation}
+
+Adding negative $b$ to this expression:
 
 \begin{align}
- &(4{m_1}^2{v_0}^2{I_0}^2+8{m_1}^2{v_0}^2I_0r^2+4{m_1}^2{v_0}^2r^4) - 8I_0r^2{v_0}^2+4r^4{v_0}^2\\
-\Rightarrow &(8{m_1}^2{v_0}^2I_0r^2-8I_0r^2{v_0}^2)+(4{m_1}^2{v_0}^2r^4+4r^4{v_0}^2) +4{m_1}^2{v_0}^2{I_0}^2\\
-\Rightarrow &4{v_0}^2((2{m_1}^2I_0r^2-2I_0r^2)+({m_1}^2r^4+r^4) +{m_1}^2{I_0}^2)\\
+   &2m_1v_0(I_0+r^2) + 2{I_0}{v_0}\\
+\Rightarrow &2m_1v_0I_0+ 2{I_0}{v_0}+2m_1v_0r^2 
 \end{align}
------
+
+An
+
+
+
+#+begin_src sage
+var("m1 m2 I vf v0 r w vcm")
+a = -(I+m1*I+m1*r^2)
+b = 2*m1*v0*(I+r^2)
+c = -(m1*I+m1*r^2-I)*v0^2
+expand(b^2)
+expand(4*(I+m1*I+m1*r^2)*(m1*I+m1*r^2-I)*v0^2)
+expand((2*m1*v0*(I+r^2)2*I*v0)/2*a)
+expand((m1*r^2*v0 + (m1*v0 - v0)*I)/(m1*r^2 + I*(m1 + 1)))
+# expand(sqrt(expand(b^2-4*a*c)))
+#+end_src
+
+#+RESULTS:
+: (m1, m2, I, vf, v0, r, w, vcm)
+: 4*m1^2*r^4*v0^2 + 8*I*m1^2*r^2*v0^2 + 4*I^2*m1^2*v0^2
+: 4*m1^2*r^4*v0^2 + 8*I*m1^2*r^2*v0^2 + 4*I^2*m1^2*v0^2 - 4*I^2*v0^2
+: -m1^2*r^4*v0 - 2*I*m1^2*r^2*v0 - I^2*m1^2*v0 + I^2*v0
+: m1*r^2*v0/(m1*r^2 + I*m1 + I) + I*m1*v0/(m1*r^2 + I*m1 + I) - I*v0/(m1*r^2 + I*m1 + I)
+
+
+
 
 Performing the actual solution digitally:
 

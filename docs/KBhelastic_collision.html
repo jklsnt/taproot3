@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-05-04 Wed 23:27 -->
+<!-- 2022-05-04 Wed 23:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Elastic Collision</title>
@@ -263,19 +263,19 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Elastic Collision</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-04 Wed 23:26</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Elastic Collision</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-04 Wed 23:32</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org30b45d4">1. Elastic collision</a></li>
-<li><a href="#org8a668c6">2. Rigid Body Kinetic Energy</a></li>
+<li><a href="#org6528a6f">1. Elastic collision</a></li>
+<li><a href="#orgd933af0">2. Rigid Body Kinetic Energy</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org30b45d4" class="outline-2">
-<h2 id="org30b45d4"><span class="section-number-2">1</span> Elastic collision</h2>
+<div id="outline-container-org6528a6f" class="outline-2">
+<h2 id="org6528a6f"><span class="section-number-2">1</span> Elastic collision</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We are given that the object \(m_1\) collides with the rod with velocity \(v_0\), and the rod is floating in free space. Given \(m_1\), \(v_0\), \(m_2\), \(I_0\), and \(r\), we are to figure to the final velocity of \(m_1\) after collision \(v_f\), the velocity of \(m_2\) after collision \(v_{CM}\), and of course the rotation of the rod after collision \(\omega\).
@@ -442,25 +442,51 @@ and,
 \begin{align}
    4ac &=  4(I_0+m_1I_0+m_1r^2)(m_1I_0+m_1r^2-I_0){v_0}^2\\
 &= 4{v_0}^2((m_1{I_0}^2+m_1I_0r^2-{I_0}^2)+((m_1I_0)^2+{m_1}^2I_0r^2-m_1{I_0}^2)+({m_1}^2r^2I_0+(m_1r^2)^2-m_1I_0r^2))\\
-&= 4{v_0}^2(m_1{I_0}^2+m_1I_0r^2-{I_0}^2)+4{v_0}^2({m_1}^2{I_0}^2+{m_1}^2I_0r^2-m_1{I_0}^2)+4{v_0}^2({m_1}^2r^2I_0+{m_1}^2r^4-m_1I_0r^2)
+&= 4{m_1}^2{v_0}^2{I_0}^2+8{m_1}^2{v_0}^2I_0r^2+4{m_1}^2{v_0}^2r^4 - 4{I_0}^2{v_0}^2
 \end{align}
 
-<div class="org-src-container">
-<pre class="src src-sage">var("m1 m2 I vf v0 r w vcm")
-expand(sqrt(expand((2*m1*v0*(I+r^2))^2 - 4*(I*m1*I+m1*r^2)*(m1*I+m1*r^2-I)*v0^2)))
-</pre>
-</div>
+<p>
+Therefore, subtracting the two terms, we will note that they are only different by:
+</p>
+
+\begin{equation}
+   b^2-4ac = 4{I_0}^2{v_0}^2
+\end{equation}
 
 <p>
-Therefore, subtracting the two terms
+Finally, then; performing the square root:
+</p>
+
+\begin{equation}
+    \sqrt{b^2-4ac}  = 2{I_0}{v_0}
+\end{equation}
+
+<p>
+Adding negative \(b\) to this expression:
 </p>
 
 \begin{align}
- &(4{m_1}^2{v_0}^2{I_0}^2+8{m_1}^2{v_0}^2I_0r^2+4{m_1}^2{v_0}^2r^4) - 8I_0r^2{v_0}^2+4r^4{v_0}^2\\
-\Rightarrow &(8{m_1}^2{v_0}^2I_0r^2-8I_0r^2{v_0}^2)+(4{m_1}^2{v_0}^2r^4+4r^4{v_0}^2) +4{m_1}^2{v_0}^2{I_0}^2\\
-\Rightarrow &4{v_0}^2((2{m_1}^2I_0r^2-2I_0r^2)+({m_1}^2r^4+r^4) +{m_1}^2{I_0}^2)\\
+   &2m_1v_0(I_0+r^2) + 2{I_0}{v_0}\\
+\Rightarrow &2m_1v_0I_0+ 2{I_0}{v_0}+2m_1v_0r^2 
 \end{align}
-<hr />
+
+
+
+
+
+<div class="org-src-container">
+<pre class="src src-sage">var("m1 m2 I vf v0 r w vcm")
+a = -(I+m1*I+m1*r^2)
+b = 2*m1*v0*(I+r^2)
+c = -(m1*I+m1*r^2-I)*v0^2
+expand(b^2)
+expand(4*(I+m1*I+m1*r^2)*(m1*I+m1*r^2-I)*v0^2)
+# expand(sqrt(expand(b^2-4*a*c)))
+</pre>
+</div>
+
+
+
 
 <p>
 Performing the actual solution digitally:
@@ -484,8 +510,8 @@ and finally, we have
 </div>
 </div>
 
-<div id="outline-container-org8a668c6" class="outline-2">
-<h2 id="org8a668c6"><span class="section-number-2">2</span> Rigid Body Kinetic Energy</h2>
+<div id="outline-container-orgd933af0" class="outline-2">
+<h2 id="orgd933af0"><span class="section-number-2">2</span> Rigid Body Kinetic Energy</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We will start with the known expression that:
