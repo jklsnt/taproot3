@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-05-05 Thu 09:56 -->
+<!-- 2022-05-05 Thu 09:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MVC 2 PS#27</title>
@@ -263,19 +263,19 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#27</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-05 Thu 09:55</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#27</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-05 Thu 09:58</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd1a69e7">1. Electric Change</a></li>
-<li><a href="#orgcf81fc0">2. Infinite wire</a></li>
+<li><a href="#org8496b8f">1. Electric Change</a></li>
+<li><a href="#org371a8f4">2. Infinite wire</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-orgd1a69e7" class="outline-2">
-<h2 id="orgd1a69e7"><span class="section-number-2">1</span> Electric Change</h2>
+<div id="outline-container-org8496b8f" class="outline-2">
+<h2 id="org8496b8f"><span class="section-number-2">1</span> Electric Change</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We are finally taking a surface integral! This is essentially multiplying the surface area of the shape of the function to the value of the function itself.
@@ -302,11 +302,15 @@ Supplying the value into the function:
 \Rightarrow &\sqrt{14} \left\left(\frac{33x^2}{2}+198x\right)\right|_0^7\\
 \Rightarrow & \frac{4389\sqrt{14}}{2}
 \end{align}
+
+<p>
+The charge, therefore, is proportional to \(\frac{4389\sqrt{14}}{2}\rho\).
+</p>
 </div>
 </div>
 
-<div id="outline-container-orgcf81fc0" class="outline-2">
-<h2 id="orgcf81fc0"><span class="section-number-2">2</span> Infinite wire</h2>
+<div id="outline-container-org371a8f4" class="outline-2">
+<h2 id="org371a8f4"><span class="section-number-2">2</span> Infinite wire</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Recall first that a semicircle with radius 7 can be defined as:
@@ -318,8 +322,19 @@ Recall first that a semicircle with radius 7 can be defined as:
 \end{align}
 
 <p>
-Let's first figure the 
+Let's first figure the value of this function \(dA\):
 </p>
+
+\begin{align}
+   dA &= \sqrt{1+\frac{d}{dx}\sqrt{49-x^2}} \\
+&= \sqrt{1+\frac{d}{dx}\sqrt{49-x^2}}
+\end{align}
+
+<div class="org-src-container">
+<pre class="src src-sage">f(x) = sqrt(49-x^2)
+f.diff()
+</pre>
+</div>
 
 <p>
 We will take the line integral of this function, and proceed to multiply by the value of \(xy\) at that point.
