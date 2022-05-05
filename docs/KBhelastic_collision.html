@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-05-03 Tue 23:01 -->
+<!-- 2022-05-04 Wed 23:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Elastic Collision</title>
@@ -263,19 +263,19 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Elastic Collision</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-03 Tue 23:01</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">Elastic Collision</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-04 Wed 23:26</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgffa986f">1. Elastic collision</a></li>
-<li><a href="#org64f6cc7">2. Rigid Body Kinetic Energy</a></li>
+<li><a href="#org30b45d4">1. Elastic collision</a></li>
+<li><a href="#org8a668c6">2. Rigid Body Kinetic Energy</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-orgffa986f" class="outline-2">
-<h2 id="orgffa986f"><span class="section-number-2">1</span> Elastic collision</h2>
+<div id="outline-container-org30b45d4" class="outline-2">
+<h2 id="org30b45d4"><span class="section-number-2">1</span> Elastic collision</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We are given that the object \(m_1\) collides with the rod with velocity \(v_0\), and the rod is floating in free space. Given \(m_1\), \(v_0\), \(m_2\), \(I_0\), and \(r\), we are to figure to the final velocity of \(m_1\) after collision \(v_f\), the velocity of \(m_2\) after collision \(v_{CM}\), and of course the rotation of the rod after collision \(\omega\).
@@ -359,6 +359,7 @@ Supplying that back:
 \begin{align}
  &m_1{v_0}^2 =  m_1{v_f}^2+m_2{v_{CM}}^2+\left( I_0{\omega}^2\right)\\
 \Rightarrow & m_1{v_0}^2 = m_1{v_f}^2+ m_2{v_{CM}}^2+\frac{(m_1 rv_0 - m_1rv_f)^2}{I_0}\\
+\Rightarrow & m_1{v_0}^2 = m_1{v_f}^2+ m_2{v_{CM}}^2+\frac{(r(m_1 v_0 - m_1v_f))^2}{I_0}\\
 \Rightarrow & m_1{v_0}^2 = m_1{v_f}^2+ m_2{v_{CM}}^2+\frac{r^2(m_1 v_0 - m_1v_f)^2}{I_0}\\
 \Rightarrow & m_1{v_0}^2 -m_1{v_f}^2 =  m_2{v_{CM}}^2+\frac{r^2(m_1 v_0 - m_1v_f)^2}{I_0}\\
 \Rightarrow & m_1I_0{v_0}^2 -m_1I_0{v_f}^2 =  m_2I_0{v_{CM}}^2+r^2(m_1 v_0 - m_1v_f)^2
@@ -374,6 +375,20 @@ At this point, we realize that we haven't use the first expression yet. Therefor
 \Rightarrow &\frac{m_1 v_0 -m_1v_f}{m_2} = v_{CM} 
 \end{align}
 
+
+<div class="org-src-container">
+<pre class="src src-sage">var("m1 m2 I vf v0 r w vcm")
+# eqn = m1*I*v0^2 - m1*I*vf^2 == m2*I*((m1*v0-m1*vf)/m2)^2 + r^2*(m1*v0-m1*vf)^2
+# eqn = m1*m2*I*v0^2-m1*m2*I*vf^2 ==m2*I*(m1*v0-m1*vf)^2 + m2*r^2*(m1*v0-m1*vf)^2
+# eqn = m1*m2*I*v0^2 - m1*m2*I*vf^2 == m2*I*((m1*v0)^2-2*((m1)^2*vf*v0)+(m1*vf)^2) + m2*r^2*((m1*v0)^2-2*((m1)^2*vf*v0)+(m1*vf)^2)
+# eqn = I*v0^2 - I*vf^2 == m1*I*(v0^2-2*vf*v0+vf^2) + m1*r^2 *(v0^2-2*vf*v0+vf^2)
+# eqn = -2*I*vf^2 == -2*m1*I*vf*v0 + r^2*v0^2-2*r^2*m1*vf*v0+r^2*vf^2
+# eqn = -(2*I-r^2)*vf^2 == -2*m1*vf*v0*(I+r^2)+r^2*v0^2
+eqn = -(I+m1*I+m1*r^2)*vf^2 + 2*m1*v0*(I+r^2)*vf-(m1*I+m1*r^2-I)*v0^2==0
+simplify(solve(eqn, vf))
+</pre>
+</div>
+
 <p>
 Ok, so now, supplying all of this back:
 </p>
@@ -384,12 +399,12 @@ Ok, so now, supplying all of this back:
 \Rightarrow & m_1I_0{v_0}^2 -m_1I_0{v_f}^2 =  m_2I_0{\frac{(m_1 v_0 -m_1v_f)^2}{{m_2}^2}}+r^2(m_1 v_0 - m_1v_f)^2\\
 \Rightarrow & m_1m_2I_0{v_0}^2 -m_1m_2I_0{v_f}^2 =  m_2I_0(m_1 v_0 -m_1v_f)^2+m_2r^2(m_1 v_0 - m_1v_f)^2\\
 \Rightarrow & m_1m_2I_0{v_0}^2 -m_1m_2I_0{v_f}^2 =  m_2I_0((m_1 v_0)^2 -2((m_1)^2v_fv_0) \\&+ (m_1 v_f)^2)+m_2r^2((m_1 v_0)^2 -2((m_1)^2v_fv_0) + (m_1 v_f)^2)\\
-\Rightarrow & I_0{v_0}^2 -I_0{v_f}^2 =  I_0({v_0}^2 -2m_1v_fv_0 + {v_f}^2)+r^2({v_0}^2 -2m_1v_fv_0 + {v_f}^2)\\
-\Rightarrow & -2I_0{v_f}^2 =  -2m_1I_0v_fv_0 +r^2{v_0}^2 -2r^2m_1v_fv_0 + r^2{v_f}^2\\
-\Rightarrow & -2I_0{v_f}^2 =  -2m_1v_fv_0(I_0+r^2) +r^2{v_0}^2  + r^2{v_f}^2\\
-\Rightarrow & -2I_0{v_f}^2 - r^2{v_f}^2 = -2m_1v_fv_0(I_0+r^2) +r^2{v_0}^2 \\
-\Rightarrow & -(2I_0-r^2){v_f}^2 = -2m_1v_fv_0(I_0+r^2) +r^2{v_0}^2 \\
-\Rightarrow & -(2I_0-r^2){v_f}^2 +2m_1v_0(I_0+r^2)v_f -r^2{v_0}^2 = 0  
+\Rightarrow & I_0{v_0}^2 -I_0{v_f}^2 =  m_1I_0({v_0}^2 -2v_fv_0 + {v_f}^2)+m_1r^2({v_0}^2 -2v_fv_0 + {v_f}^2)\\
+\Rightarrow & I_0{v_0}^2 -I_0{v_f}^2 =  (m_1I_0{v_0}^2 -2m_1I_0v_fv_0 + m_1I_0{v_f}^2)+(m_1r^2{v_0}^2 -2m_1r^2v_fv_0 +m_1r^2 {v_f}^2)\\
+\Rightarrow & -I_0{v_f}^2 +2m_1I_0v_fv_0 - m_1I_0{v_f}^2+2m_1r^2v_fv_0 -m_1r^2 {v_f}^2=  (m_1I_0{v_0}^2)+(m_1r^2{v_0}^2 )- I_0{v_0}^2 \\
+\Rightarrow & -(I_0+m_1I_0+m_1r^2){v_f}^2 +2m_1v_0(I_0+r^2)v_f =  (m_1I_0{v_0}^2)+(m_1r^2{v_0}^2 )- I_0{v_0}^2 \\
+\Rightarrow & -(I_0+m_1I_0+m_1r^2){v_f}^2 +2m_1v_0(I_0+r^2)v_f =  (m_1I_0+m_1r^2-I_0){v_0}^2 \\
+\Rightarrow & -(I_0+m_1I_0+m_1r^2){v_f}^2 +2m_1v_0(I_0+r^2)v_f-(m_1I_0+m_1r^2-I_0){v_0}^2 = 0  
 \end{align}
 
 <p>
@@ -402,9 +417,9 @@ There are probably more elegant ways to do this, but now, its quadratic equation
 
 \begin{equation}
    \begin{cases}
-   a = -(2I_0-r^2)\\ 
+   a = -(I_0+m_1I_0+m_1r^2)\\ 
    b = 2m_1v_0(I_0+r^2)\\ 
-   c = -r^2{v_0}^2\\ 
+   c = -(m_1I_0+m_1r^2-I_0){v_0}^2\\ 
    x = v_f\\ 
 \end{cases}
 \end{equation}
@@ -425,9 +440,16 @@ and,
 </p>
 
 \begin{align}
-   4ac &=  4(2I_0-r^2)r^2{v_0}^2\\
-&= 8I_0r^2{v_0}^2-4r^4{v_0}^2
+   4ac &=  4(I_0+m_1I_0+m_1r^2)(m_1I_0+m_1r^2-I_0){v_0}^2\\
+&= 4{v_0}^2((m_1{I_0}^2+m_1I_0r^2-{I_0}^2)+((m_1I_0)^2+{m_1}^2I_0r^2-m_1{I_0}^2)+({m_1}^2r^2I_0+(m_1r^2)^2-m_1I_0r^2))\\
+&= 4{v_0}^2(m_1{I_0}^2+m_1I_0r^2-{I_0}^2)+4{v_0}^2({m_1}^2{I_0}^2+{m_1}^2I_0r^2-m_1{I_0}^2)+4{v_0}^2({m_1}^2r^2I_0+{m_1}^2r^4-m_1I_0r^2)
 \end{align}
+
+<div class="org-src-container">
+<pre class="src src-sage">var("m1 m2 I vf v0 r w vcm")
+expand(sqrt(expand((2*m1*v0*(I+r^2))^2 - 4*(I*m1*I+m1*r^2)*(m1*I+m1*r^2-I)*v0^2)))
+</pre>
+</div>
 
 <p>
 Therefore, subtracting the two terms
@@ -462,8 +484,8 @@ and finally, we have
 </div>
 </div>
 
-<div id="outline-container-org64f6cc7" class="outline-2">
-<h2 id="org64f6cc7"><span class="section-number-2">2</span> Rigid Body Kinetic Energy</h2>
+<div id="outline-container-org8a668c6" class="outline-2">
+<h2 id="org8a668c6"><span class="section-number-2">2</span> Rigid Body Kinetic Energy</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We will start with the known expression that:
