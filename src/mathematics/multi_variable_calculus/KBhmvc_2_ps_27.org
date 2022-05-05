@@ -25,6 +25,8 @@ Supplying the value into the function:
 \Rightarrow & \frac{4389\sqrt{14}}{2}
 \end{align}
 
+The charge, therefore, is proportional to $\frac{4389\sqrt{14}}{2}\rho$.
+
 * Infinite wire
 Recall first that a semicircle with radius 7 can be defined as:
 
@@ -33,12 +35,24 @@ Recall first that a semicircle with radius 7 can be defined as:
 &= \sqrt{49 - x^2}
 \end{align}
 
-Let's first figure the 
+Let's first figure the value of this function $dA$:
+
+\begin{align}
+   dA &= \sqrt{1+\frac{d}{dx}\sqrt{49-x^2}} \\
+&= \sqrt{1+\frac{d}{dx}\sqrt{49-x^2}}
+\end{align}
+
+#+begin_src sage
+f(x) = sqrt(49-x^2)
+f.diff()
+#+end_src
+
+#+RESULTS:
+: x |--> -x/sqrt(-x^2 + 49)
 
 We will take the line integral of this function, and proceed to multiply by the value of $xy$ at that point.
 
 \begin{equation}
    \int_0^7 \int_0^7\ xy\ \sqrt{49-x^2}\ dx\ dy
 \end{equation}
-
 
