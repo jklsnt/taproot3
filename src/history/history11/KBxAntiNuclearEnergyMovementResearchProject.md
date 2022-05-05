@@ -17,7 +17,6 @@ date: 2022-05-02
 - individual bibliographies?
 
 ## Give earth a chance notes
-
 - doesn't like the current history on the environmental movement in the 60's
 - *** 
 - jump 
@@ -40,7 +39,7 @@ date: 2022-05-02
 	- very similar sentiment as towards pesticides
 - this is all about nuclear weapons, not energy..	
 
-
+## 
 
 
 
