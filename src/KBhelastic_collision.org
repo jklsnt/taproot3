@@ -77,27 +77,6 @@ At this point, we realize that we haven't use the first expression yet. Therefor
 \Rightarrow &\frac{m_1 v_0 -m_1v_f}{m_2} = v_{CM} 
 \end{align}
 
-
-#+begin_src sage
-var("m1 m2 I vf v0 r w vcm")
-# eqn = m1*I*v0^2 - m1*I*vf^2 == m2*I*((m1*v0-m1*vf)/m2)^2 + r^2*(m1*v0-m1*vf)^2
-# eqn = m1*m2*I*v0^2-m1*m2*I*vf^2 ==m2*I*(m1*v0-m1*vf)^2 + m2*r^2*(m1*v0-m1*vf)^2
-# eqn = m1*m2*I*v0^2 - m1*m2*I*vf^2 == m2*I*((m1*v0)^2-2*((m1)^2*vf*v0)+(m1*vf)^2) + m2*r^2*((m1*v0)^2-2*((m1)^2*vf*v0)+(m1*vf)^2)
-# eqn = I*v0^2 - I*vf^2 == m1*I*(v0^2-2*vf*v0+vf^2) + m1*r^2 *(v0^2-2*vf*v0+vf^2)
-# eqn = -2*I*vf^2 == -2*m1*I*vf*v0 + r^2*v0^2-2*r^2*m1*vf*v0+r^2*vf^2
-# eqn = -(2*I-r^2)*vf^2 == -2*m1*vf*v0*(I+r^2)+r^2*v0^2
-eqn = -(I+m1*I+m1*r^2)*vf^2 + 2*m1*v0*(I+r^2)*vf-(m1*I+m1*r^2-I)*v0^2==0
-simplify(solve(eqn, vf))
-#+end_src
-
-#+RESULTS:
-: (m1, m2, I, vf, v0, r, w, vcm)
-: [vf == (m1*r^2*v0 + (m1*v0 - v0)*I)/(m1*r^2 + I*(m1 + 1)), vf == v0]
-
-# #+RESULTS:
-# : (m1, m2, I, vf, v0, r, w, vcm)
-# : [vf == (m1*r^2*v0 + (m1*v0 - v0)*I)/(m1*r^2 + I*(m1 + 1)), vf == v0]
-
 Ok, so now, supplying all of this back:
 
 \begin{align}
@@ -158,50 +137,98 @@ Finally, then; performing the square root:
     \sqrt{b^2-4ac}  = 2{I_0}{v_0}
 \end{equation}
 
-Adding negative $b$ to this expression:
+Subtracting negative $b$ to this expression:
 
 \begin{align}
-   &2m_1v_0(I_0+r^2) + 2{I_0}{v_0}\\
-\Rightarrow &2m_1v_0I_0+ 2{I_0}{v_0}+2m_1v_0r^2 
+   &-2m_1v_0(I_0+r^2) - 2{I_0}{v_0}\\
+\Rightarrow &-2m_1v_0I_0- 2{I_0}{v_0}-2m_1v_0r^2 
 \end{align}
 
+And finally, dividing by $2a$:
 
+\begin{align}
+   \frac{-2m_1v_0I_0- 2{I_0}{v_0}-2m_1v_0r^2}{-2(I_0+m_1I_0+m_1r^2)} &=\frac{m_1v_0I_0+{I_0}{v_0}+m_1v_0r^2}{(I_0+m_1I_0+m_1r^2)}\\
+&= v_0
+\end{align}
 
+Ok, I suppose this is a very valid solution, but not a very exciting one ("nothing happened"). Let's rewind and add negative $b$ instead.
 
+Subtracting negative $b$ to this expression:
 
-#+begin_src sage
-var("m1 m2 I vf v0 r w vcm")
-a = -(I+m1*I+m1*r^2)
-b = 2*m1*v0*(I+r^2)
-c = -(m1*I+m1*r^2-I)*v0^2
-expand(b^2)
-expand(4*(I+m1*I+m1*r^2)*(m1*I+m1*r^2-I)*v0^2)
-# expand(sqrt(expand(b^2-4*a*c)))
-#+end_src
+\begin{align}
+   &-2m_1v_0(I_0+r^2) + 2{I_0}{v_0}\\
+\Rightarrow &-2m_1v_0I_0- 2{I_0}{v_0}+2m_1v_0r^2 
+\end{align}
 
-#+RESULTS:
-: (m1, m2, I, vf, v0, r, w, vcm)
-: 4*m1^2*r^4*v0^2 + 8*I*m1^2*r^2*v0^2 + 4*I^2*m1^2*v0^2
-: 4*m1^2*r^4*v0^2 + 8*I*m1^2*r^2*v0^2 + 4*I^2*m1^2*v0^2 - 4*I^2*v0^2
+And finally, dividing by $2a$:
 
+\begin{align}
+   \frac{-2m_1v_0I_0- 2{I_0}{v_0}+2m_1v_0r^2}{-2(I_0+m_1I_0+m_1r^2)} &=\frac{m_1v_0I_0+{I_0}{v_0}-m_1v_0r^2}{(I_0+m_1I_0+m_1r^2)}\\
+&= \frac{(m_1I_0+{I_0}-m_1r^2)v_0}{(I_0+m_1I_0+m_1r^2)}\ \blacksquare
+\end{align}
 
+Phew. Now, we simply have to leverage the top expression to figure the rest of the expressions.
 
+We have that:
 
-Performing the actual solution digitally:
+\begin{align}
+\frac{m_1 v_0 -m_1v_f}{m_2} = v_{CM}
+\end{align}
+
+from the previous figuring of $v_f$, therefore:
+
+\begin{align}
+&\frac{m_1 v_0 -m_1v_f}{m_2} = v_{CM}\\
+\Rightarrow &\frac{m_1 v_0 -m_1\frac{(m_1I_0+{I_0}-m_1r^2)v_0}{(I_0+m_1I_0+m_1r^2)}}{m_2} = v_{CM} \\
+\Rightarrow &m_1 v_0 -m_1\frac{(m_1I_0+{I_0}-m_1r^2)v_0}{(I_0+m_1I_0+m_1r^2)} = m_2v_{CM} \\
+\Rightarrow &\frac{m_1 v_0(I_0+m_1I_0+m_1r^2)}{(I_0+m_1I_0+m_1r^2)} -\frac{m_1v_0(m_1I_0+{I_0}-m_1r^2)}{(I_0+m_1I_0+m_1r^2)} = m_2v_{CM} \\
+\Rightarrow &\frac{2m_1 v_0m_1r^2}{(I_0+m_1I_0+m_1r^2)}  = m_2v_{CM} \\
+\Rightarrow &v_{CM} = \frac{2m_1 v_0m_1r^2}{m_2(I_0+m_1I_0+m_1r^2)}\ \blacksquare
+\end{align}
+
+We finally have, to figure $\omega$:
 
 \begin{equation}
-   v_{cm} = \frac{2I_0m_1v_0}{m_1m_2r^2+I_0m_1+I_0m_2} 
+m_1 rv_0 - m_1rv_f = I_0 \omega
 \end{equation}
+
+Therefore:
+
+\begin{align}
+ &m_1 rv_0 - m_1rv_f = I_0 \omega   \\
+\Rightarrow &\frac{r(m_1 v_0 - m_1v_f)}{I_0} = \omega\\
+\Rightarrow &(m_1 v_0 - m_1v_f) = \frac{I_0}{r}\omega
+\end{align}
+
+From halfway through the expression block before, we have figured this result, that:
 
 \begin{equation}
-   v_f = \frac{(m_1m_2r^2 + I_0m_1 - I_0m_2)v_0}{m_1m_2r^2 + I_0m_1+I_0m_2} 
+ (m_1 v_0 - m_1v_f) = \frac{2m_1 v_0m_1r^2}{(I_0+m_1I_0+m_1r^2)}
 \end{equation}
 
-and finally, we have
+Therefore, we have finally that:
 
 \begin{equation}
-   \omega = \frac{2m_1m_2rv_0}{m_1m_2r^2+I_0m_1+Im_2} 
+    \omega = \frac{2m_1 v_0m_1r}{(I_0+m_1I_0+m_1r^2)I_0}\ \blacksquare
 \end{equation}
+
+And we are done.
+
+# Performing the actual solution digitally:
+
+# \begin{equation}
+#    v_{cm} = \frac{2I_0m_1v_0}{m_1m_2r^2+I_0m_1+I_0m_2} 
+# \end{equation}
+
+# \begin{equation}
+#    v_f = \frac{(m_1m_2r^2 + I_0m_1 - I_0m_2)v_0}{m_1m_2r^2 + I_0m_1+I_0m_2} 
+# \end{equation}
+
+# and finally, we have
+
+# \begin{equation}
+#    \omega = \frac{2m_1m_2rv_0}{m_1m_2r^2+I_0m_1+Im_2} 
+# \end{equation}
 
 * Rigid Body Kinetic Energy
 We will start with the known expression that:

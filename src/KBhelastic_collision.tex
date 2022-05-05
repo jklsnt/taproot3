@@ -1,4 +1,4 @@
-% Created 2022-05-01 Sun 23:14
+% Created 2022-05-04 Wed 23:54
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -61,7 +61,7 @@
 
 
 \section{Elastic collision}
-\label{sec:orga657e5a}
+\label{sec:org0e469a7}
 We are given that the object \(m_1\) collides with the rod with velocity \(v_0\), and the rod is floating in free space. Given \(m_1\), \(v_0\), \(m_2\), \(I_0\), and \(r\), we are to figure to the final velocity of \(m_1\) after collision \(v_f\), the velocity of \(m_2\) after collision \(v_{CM}\), and of course the rotation of the rod after collision \(\omega\).
 
 We are assuming that this collision elastic.
@@ -75,8 +75,8 @@ We have, then, for conservation of linear momentum:
 Furthermore, we understand that kinetic energy is also conserved here; therefore:
 
 \begin{align}
-&\frac{1}{2} m_1{v_0}^2 + \frac{1}{2} m_1 {v_0}^2 = \left(\frac{1}{2} m_1{v_f}^2\right)+\left(\frac{1}{2} m_1{v_f}^2\right)+\left(\frac{1}{2} m_2{v_{CM}}^2\right)+\left(\frac{1}{2} I_0{\omega}^2\right)\\
-\Rightarrow & 2m_1{v_0}^2 = \left( 2m_1{v_f}^2\right)+\left( m_2{v_{CM}}^2\right)+\left( I_0{\omega}^2\right)
+&\frac{1}{2} m_1{v_0}^2 = \left(\frac{1}{2} m_1{v_f}^2\right)+\left(\frac{1}{2} m_2{v_{CM}}^2\right)+\left(\frac{1}{2} I_0{\omega}^2\right)\\
+\Rightarrow & m_1{v_0}^2 = \left( m_1{v_f}^2\right)+\left( m_2{v_{CM}}^2\right)+\left( I_0{\omega}^2\right)
 \end{align}
 
 as the point mass does not have any rotational inertia, and the rod is not rotating at the start.
@@ -90,24 +90,189 @@ Lastly, we understand that the angular momentum is conserved through a collision
 
 We now have a system of three equations that can be combined to solve for three unknowns \(v_f\), \(v_{CM}\), and \(\omega\).
 
-Performing the actual solution digitally:
+We will begin with the kinetic energy expression:
 
 \begin{equation}
-   v_{cm} = \frac{4I_0m_1v_0}{m_1m_2r^2+I_0m_1+2I_0m_2} 
+ m_1{v_0}^2 = \left( m_1{v_f}^2\right)+\left( m_2{v_{CM}}^2\right)+\left( I_0{\omega}^2\right)   
+\end{equation}
+
+Now, this last term seems a little concerning to deal with. Therefore, we will use the final expression to simplify it:
+
+\begin{align}
+   &m_1 rv_0 = m_1rv_f + I_0 \omega\\
+\Rightarrow & m_1 rv_0 - m_1rv_f = I_0 \omega
+\end{align}
+
+and also:
+
+\begin{equation}
+ \frac{m_1 rv_0 - m_1rv_f}{I_0} = \omega   
+\end{equation}
+
+Therefore, \(I_0 \omega^2\) would be:
+
+\begin{equation}
+    \frac{(m_1 rv_0 - m_1rv_f)^2}{I_0}
+\end{equation}
+
+Supplying that back:
+
+\begin{align}
+ &m_1{v_0}^2 =  m_1{v_f}^2+m_2{v_{CM}}^2+\left( I_0{\omega}^2\right)\\
+\Rightarrow & m_1{v_0}^2 = m_1{v_f}^2+ m_2{v_{CM}}^2+\frac{(m_1 rv_0 - m_1rv_f)^2}{I_0}\\
+\Rightarrow & m_1{v_0}^2 = m_1{v_f}^2+ m_2{v_{CM}}^2+\frac{(r(m_1 v_0 - m_1v_f))^2}{I_0}\\
+\Rightarrow & m_1{v_0}^2 = m_1{v_f}^2+ m_2{v_{CM}}^2+\frac{r^2(m_1 v_0 - m_1v_f)^2}{I_0}\\
+\Rightarrow & m_1{v_0}^2 -m_1{v_f}^2 =  m_2{v_{CM}}^2+\frac{r^2(m_1 v_0 - m_1v_f)^2}{I_0}\\
+\Rightarrow & m_1I_0{v_0}^2 -m_1I_0{v_f}^2 =  m_2I_0{v_{CM}}^2+r^2(m_1 v_0 - m_1v_f)^2
+\end{align}
+
+At this point, we realize that we haven't use the first expression yet. Therefore, we will endeavor to use it to rid of the one \(v_{CM}\) we have here.
+
+\begin{align}
+ &m_1 v_0 = m_1v_f + m_2 v_{CM} \\
+\Rightarrow &m_1 v_0 -m_1v_f =  m_2 v_{CM} \\
+\Rightarrow &\frac{m_1 v_0 -m_1v_f}{m_2} = v_{CM} 
+\end{align}
+
+Ok, so now, supplying all of this back:
+
+\begin{align}
+& m_1I_0{v_0}^2 -m_1I_0{v_f}^2 =  m_2I_0{v_{CM}}^2+r^2(m_1 v_0 - m_1v_f)^2\\
+\Rightarrow & m_1I_0{v_0}^2 -m_1I_0{v_f}^2 =  m_2I_0{\left(\frac{m_1 v_0 -m_1v_f}{m_2}\right)}^2+r^2(m_1 v_0 - m_1v_f)^2\\
+\Rightarrow & m_1I_0{v_0}^2 -m_1I_0{v_f}^2 =  m_2I_0{\frac{(m_1 v_0 -m_1v_f)^2}{{m_2}^2}}+r^2(m_1 v_0 - m_1v_f)^2\\
+\Rightarrow & m_1m_2I_0{v_0}^2 -m_1m_2I_0{v_f}^2 =  m_2I_0(m_1 v_0 -m_1v_f)^2+m_2r^2(m_1 v_0 - m_1v_f)^2\\
+\Rightarrow & m_1m_2I_0{v_0}^2 -m_1m_2I_0{v_f}^2 =  m_2I_0((m_1 v_0)^2 -2((m_1)^2v_fv_0) \\&+ (m_1 v_f)^2)+m_2r^2((m_1 v_0)^2 -2((m_1)^2v_fv_0) + (m_1 v_f)^2)\\
+\Rightarrow & I_0{v_0}^2 -I_0{v_f}^2 =  m_1I_0({v_0}^2 -2v_fv_0 + {v_f}^2)+m_1r^2({v_0}^2 -2v_fv_0 + {v_f}^2)\\
+\Rightarrow & I_0{v_0}^2 -I_0{v_f}^2 =  (m_1I_0{v_0}^2 -2m_1I_0v_fv_0 + m_1I_0{v_f}^2)+(m_1r^2{v_0}^2 -2m_1r^2v_fv_0 +m_1r^2 {v_f}^2)\\
+\Rightarrow & -I_0{v_f}^2 +2m_1I_0v_fv_0 - m_1I_0{v_f}^2+2m_1r^2v_fv_0 -m_1r^2 {v_f}^2=  (m_1I_0{v_0}^2)+(m_1r^2{v_0}^2 )- I_0{v_0}^2 \\
+\Rightarrow & -(I_0+m_1I_0+m_1r^2){v_f}^2 +2m_1v_0(I_0+r^2)v_f =  (m_1I_0{v_0}^2)+(m_1r^2{v_0}^2 )- I_0{v_0}^2 \\
+\Rightarrow & -(I_0+m_1I_0+m_1r^2){v_f}^2 +2m_1v_0(I_0+r^2)v_f =  (m_1I_0+m_1r^2-I_0){v_0}^2 \\
+\Rightarrow & -(I_0+m_1I_0+m_1r^2){v_f}^2 +2m_1v_0(I_0+r^2)v_f-(m_1I_0+m_1r^2-I_0){v_0}^2 = 0  
+\end{align}
+
+There are probably more elegant ways to do this, but now, its quadratic equation time!
+
+\begin{equation}
+   x = \frac{-b\pm\sqrt{b^2-4ac}}{2a} 
 \end{equation}
 
 \begin{equation}
-   v_f = \frac{(m_1m_2r^2 + I_0m_1 - 2I_0m_2)v_0}{m_1m_2r^2 + I_0m_1+2I_0m_2} 
+   \begin{cases}
+   a = -(I_0+m_1I_0+m_1r^2)\\ 
+   b = 2m_1v_0(I_0+r^2)\\ 
+   c = -(m_1I_0+m_1r^2-I_0){v_0}^2\\ 
+   x = v_f\\ 
+\end{cases}
 \end{equation}
 
-and finally, we have
+Let's tackle that middle term first.
+
+\begin{align}
+   b^2 &=  (2m_1v_0(I_0+r^2))^2\\
+&= 4{m_1}^2{v_0}^2(I_0+r^2)^2\\
+&= 4{m_1}^2{v_0}^2({I_0}^2+2I_0r^2+r^4)\\
+&= (4{m_1}^2{v_0}^2{I_0}^2+8{m_1}^2{v_0}^2I_0r^2+4{m_1}^2{v_0}^2r^4)
+\end{align}
+
+and,
+
+\begin{align}
+   4ac &=  4(I_0+m_1I_0+m_1r^2)(m_1I_0+m_1r^2-I_0){v_0}^2\\
+&= 4{v_0}^2((m_1{I_0}^2+m_1I_0r^2-{I_0}^2)+((m_1I_0)^2+{m_1}^2I_0r^2-m_1{I_0}^2)+({m_1}^2r^2I_0+(m_1r^2)^2-m_1I_0r^2))\\
+&= 4{m_1}^2{v_0}^2{I_0}^2+8{m_1}^2{v_0}^2I_0r^2+4{m_1}^2{v_0}^2r^4 - 4{I_0}^2{v_0}^2
+\end{align}
+
+Therefore, subtracting the two terms, we will note that they are only different by:
 
 \begin{equation}
-   \omega = \frac{4m_1m_2rv_0}{m_1m_2r^2+I_0m_1+2Im_2} 
+   b^2-4ac = 4{I_0}^2{v_0}^2
 \end{equation}
+
+Finally, then; performing the square root:
+
+\begin{equation}
+    \sqrt{b^2-4ac}  = 2{I_0}{v_0}
+\end{equation}
+
+Subtracting negative \(b\) to this expression:
+
+\begin{align}
+   &-2m_1v_0(I_0+r^2) - 2{I_0}{v_0}\\
+\Rightarrow &-2m_1v_0I_0- 2{I_0}{v_0}-2m_1v_0r^2 
+\end{align}
+
+And finally, dividing by \(2a\):
+
+\begin{align}
+   \frac{-2m_1v_0I_0- 2{I_0}{v_0}-2m_1v_0r^2}{-2(I_0+m_1I_0+m_1r^2)} &=\frac{m_1v_0I_0+{I_0}{v_0}+m_1v_0r^2}{(I_0+m_1I_0+m_1r^2)}\\
+&= v_0
+\end{align}
+
+Ok, I suppose this is a very valid solution, but not a very exciting one ("nothing happened"). Let's rewind and add negative \(b\) instead.
+
+Subtracting negative \(b\) to this expression:
+
+\begin{align}
+   &-2m_1v_0(I_0+r^2) + 2{I_0}{v_0}\\
+\Rightarrow &-2m_1v_0I_0- 2{I_0}{v_0}+2m_1v_0r^2 
+\end{align}
+
+And finally, dividing by \(2a\):
+
+\begin{align}
+   \frac{-2m_1v_0I_0- 2{I_0}{v_0}+2m_1v_0r^2}{-2(I_0+m_1I_0+m_1r^2)} &=\frac{m_1v_0I_0+{I_0}{v_0}-m_1v_0r^2}{(I_0+m_1I_0+m_1r^2)}\\
+&= \frac{(m_1I_0+{I_0}-m_1r^2)v_0}{(I_0+m_1I_0+m_1r^2)}\ \blacksquare
+\end{align}
+
+Phew. Now, we simply have to leverage the top expression to figure the rest of the expressions.
+
+We have that:
+
+\begin{align}
+\frac{m_1 v_0 -m_1v_f}{m_2} = v_{CM}
+\end{align}
+
+from the previous figuring of \(v_f\), therefore:
+
+\begin{align}
+&\frac{m_1 v_0 -m_1v_f}{m_2} = v_{CM}\\
+\Rightarrow &\frac{m_1 v_0 -m_1\frac{(m_1I_0+{I_0}-m_1r^2)v_0}{(I_0+m_1I_0+m_1r^2)}}{m_2} = v_{CM} \\
+\Rightarrow &m_1 v_0 -m_1\frac{(m_1I_0+{I_0}-m_1r^2)v_0}{(I_0+m_1I_0+m_1r^2)} = m_2v_{CM} \\
+\Rightarrow &\frac{m_1 v_0(I_0+m_1I_0+m_1r^2)}{(I_0+m_1I_0+m_1r^2)} -\frac{m_1v_0(m_1I_0+{I_0}-m_1r^2)}{(I_0+m_1I_0+m_1r^2)} = m_2v_{CM} \\
+\Rightarrow &\frac{2m_1 v_0m_1r^2}{(I_0+m_1I_0+m_1r^2)}  = m_2v_{CM} \\
+\Rightarrow &v_{CM} = \frac{2m_1 v_0m_1r^2}{m_2(I_0+m_1I_0+m_1r^2)}\ \blacksquare
+\end{align}
+
+We finally have, to figure \(\omega\):
+
+\begin{equation}
+m_1 rv_0 - m_1rv_f = I_0 \omega
+\end{equation}
+
+Therefore:
+
+\begin{align}
+ &m_1 rv_0 - m_1rv_f = I_0 \omega   \\
+\Rightarrow &\frac{r(m_1 v_0 - m_1v_f)}{I_0} = \omega\\
+\Rightarrow &(m_1 v_0 - m_1v_f) = \frac{I_0}{r}\omega
+\end{align}
+
+From halfway through the expression block before, we have figured this result, that:
+
+\begin{equation}
+ (m_1 v_0 - m_1v_f) = \frac{2m_1 v_0m_1r^2}{(I_0+m_1I_0+m_1r^2)}
+\end{equation}
+
+Therefore, we have finally that:
+
+\begin{equation}
+    \omega = \frac{2m_1 v_0m_1r}{(I_0+m_1I_0+m_1r^2)I_0}\ \blacksquare
+\end{equation}
+
+And we are done.
 
 \section{Rigid Body Kinetic Energy}
-\label{sec:org9559dec}
+\label{sec:org988cefc}
 We will start with the known expression that:
 
 \begin{equation}
