@@ -38,22 +38,26 @@ Recall first that a semicircle with radius 7 can be defined as:
 Let's first figure the value of this function $dA$:
 
 \begin{align}
-   dA &= \sqrt{1+\frac{d}{dx}\sqrt{49-x^2}} \\
-&= \sqrt{1+\frac{d}{dx}\sqrt{49-x^2}}\\
-&= \sqrt{1-\frac{x}{\sqrt{-x^2+19}}}
+   dA &= \sqrt{1+\left(\frac{d}{dx}\sqrt{49-x^2}\right)^2} \\
+&= \sqrt{1+\left(\frac{d}{dx}\sqrt{49-x^2}\right)^2}\\
+&= \sqrt{1-\frac{x^2}{x^2-49}}
 \end{align}
-
-#+begin_src sage
-f(x) = sqrt(49-x^2)
-f.diff()
-#+end_src
-
-#+RESULTS:
-: x |--> -x/sqrt(-x^2 + 49)
 
 We will take the line integral of this function, and proceed to multiply by the value of $xy$ at that point.
 
 \begin{equation}
-   \int_0^7 \int_0^7\ xy\ \sqrt{49-x^2}\ dx\ dy
+   \int_0^7 \int_0^7\ xy\ \sqrt{1-\frac{x^2}{x^2-49}}\ dx\ dy
 \end{equation}
 
+#+begin_src sage
+f(x,y) = x*y*sqrt(1-x^2/(x^2-49))
+f.integrate(x, 0,7).integrate(y,0,7)
+#+end_src
+
+#+RESULTS:
+: 2401/2
+
+Looks like the solution for the wire's weight is about $\frac{2401}{2}$ grams.
+
+* 
+i
