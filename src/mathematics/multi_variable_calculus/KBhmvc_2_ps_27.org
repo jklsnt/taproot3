@@ -83,5 +83,26 @@ Now, we essentially want to take this idea and expand it to $n$ dimensions, to f
 
 Turns out, the [[https://math.stackexchange.com/questions/1482747/integral-in-n-dimensional-spherical-coordinates][naïve version]] of the $n$ sphere integral is the same correction factor multiplied by $\sin^{n-\{2\ldots(n-1)\}}$. Therefore, the same logic from above actually holds for $n$ volcano as well: that, by very high dimension Pythagoras, ${x_1}^2 + {x_2}^2 + \ldots + {x_n}^2 = r^2$.
 
+Therefore:
+
+\begin{equation}
+   \frac{1}{\left({x_1}^2 + {x_2}^2 + \cdots + {x_n}^2\right)^k}  = \frac{1}{r^{2k}}
+\end{equation}
+
 We will again note than the correction factor: $dA = r^{n-1}\ sin^{n-2}\ sin^{n-3}\ dr\ d\theta_1\ \ldots\ d\theta_n$.
 
+Therefore:
+
+\begin{align}
+    & \int \ldots \int_0^1 \frac{1}{r^{2k-n+1}}\ sin^{n-2}\ sin^{n-3}\ dr\ d\theta_1\ \ldots\ d\theta_n\\
+\Rightarrow & \int \ldots \int_0^1 {r^{-2k+n-1}}\ sin^{n-2}\ sin^{n-3}\ dr\ d\theta_1\ \ldots\ d\theta_n\\
+\Rightarrow & \int \ldots \int \left \frac{r^{-2k+n}}{-2k+n} \right|_0^1\ sin^{n-2}\ sin^{n-3}\ dr\ d\theta_1\ \ldots\ d\theta_n
+\end{align}
+
+At this point, we can analyze the solution. The first term will always be $1$ over a certain value. The second term, however, is more interesting.
+
+Case 1: $-2k+n<0$. If the value of $-2k+n <0$ , the $r$ would have to be transported below the fraction. Therefore, taking $\lim_{r\to 0}\frac{1}{r^{2k-n}(-2k+n)}$ would $= +\infty$. 
+
+Case 2: $-2k+n>=0$. This would render no problem: the second term would be simply $0$.
+
+Therefore, if the terms that make up the infinite volcano $-2k+n >0$, the results would be infinite. Otherwise, the results are finite.

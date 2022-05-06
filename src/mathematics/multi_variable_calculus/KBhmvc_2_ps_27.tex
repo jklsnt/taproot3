@@ -1,0 +1,170 @@
+% Created 2022-05-05 Thu 23:58
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{tikz}
+\usepackage{cancel}
+\usepackage{pgfplots}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = HelveticaNeue-Italic, BoldFont = HelveticaNeue-Bold, BoldItalicFont = HelveticaNeue-BoldItalic]{HelveticaNeue}
+\newfontfamily\NHLight[ItalicFont = HelveticaNeue-LightItalic, BoldFont       = HelveticaNeue-UltraLight, BoldItalicFont = HelveticaNeue-UltraLightItalic]{HelveticaNeue-Light}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Written} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Houjun Liu}
+\date{\today}
+\title{MVC 2 PS\#27}
+\hypersetup{
+ pdfauthor={Houjun Liu},
+ pdftitle={MVC 2 PS\#27},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.91 (Org mode 9.5.2)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Electric Change}
+\label{sec:orgab846a4}
+We are finally taking a surface integral! This is essentially multiplying the surface area of the shape of the function to the value of the function itself.
+
+Firstly, taking the area \(dA\) by \(dV\):
+
+\begin{align}
+   dA &= \sqrt{1+\left(\frac{\partial z}{\partial x}\right)^2+\left(\frac{\partial z}{\partial y}\right)^2} \\
+&= \sqrt{1+\left(3\right)^2+\left(2\right)^2} \\
+&= \sqrt{14} 
+\end{align}
+
+Supplying the value into the function:
+
+\begin{align}
+   &\int_0^7 \int_0^{11} (3x+2y+7)\sqrt{14}\ dy\ dx\\
+\Rightarrow &\sqrt{14}\int_0^7 \int_0^{11} (3x+2y+7)\ dy\ dx\\
+\Rightarrow &\sqrt{14}\int_0^7 \left (3xy+y^2+7y)\right|_0^{11} \ dy\ dx\\
+\Rightarrow &\sqrt{14} \left\left(\frac{33x^2}{2}+198x\right)\right|_0^7\\
+\Rightarrow & \frac{4389\sqrt{14}}{2}
+\end{align}
+
+The charge, therefore, is proportional to \(\frac{4389\sqrt{14}}{2}\rho\).
+
+\section{Infinite wire}
+\label{sec:orgbbebccc}
+Recall first that a semicircle with radius 7 can be defined as:
+
+\begin{align}
+   y &= \sqrt{7^2 - x^2} \\
+&= \sqrt{49 - x^2}
+\end{align}
+
+Let's first figure the value of this function \(dA\):
+
+\begin{align}
+   dA &= \sqrt{1+\left(\frac{d}{dx}\sqrt{49-x^2}\right)^2} \\
+&= \sqrt{1+\left(\frac{d}{dx}\sqrt{49-x^2}\right)^2}\\
+&= \sqrt{1-\frac{x^2}{x^2-49}}
+\end{align}
+
+We will take the line integral of this function, and proceed to multiply by the value of \(xy\) at that point.
+
+\begin{equation}
+   \int_0^7 \int_0^7\ xy\ \sqrt{1-\frac{x^2}{x^2-49}}\ dx\ dy
+\end{equation}
+
+\begin{verbatim}
+f(x,y) = x*y*sqrt(1-x^2/(x^2-49))
+f.integrate(x, 0,7).integrate(y,0,7)
+\end{verbatim}
+
+\begin{verbatim}
+2401/2
+\end{verbatim}
+
+
+Looks like the solution for the wire's weight is about \(\frac{2401}{2}\) grams.
+
+\section{More Difficult Polar Coordinates}
+\label{sec:org3c25cf7}
+Recall that, to figure the unit sphere volume, we can convert an \(\mathbb{R}^2\to\mathbb{R}^1\) result into circular coordinates.
+
+That, by pythagoras, \(x^2+y^2=r^2\). Therefore, the expression of:
+
+\begin{equation}
+   f(x,y) = \frac{1}{(x^2+y^2)^k} \Rightarrow f(r,\theta) = \frac{1}{r^{2k}}
+\end{equation}
+
+We also note that, due to the correction factor, \(dA = r\ dr\ d\theta\).
+
+Taking the actual integral, therefore, will result in:
+
+\begin{align}
+&\int_0^{2\pi} \int_0^1 r^{-k}\ dr\ d\theta\\
+\Rightarrow &\int_0^{2\pi} \lim_{x\to 0} \left(\frac{1}{-k+1}-\frac{1}{x^{k-1}}\frac{1}{-k+1}\right)\ d\theta
+\end{align}
+
+Evidently, when \(k\leq 1\), the second term would become infinity large.
+
+Now, we essentially want to take this idea and expand it to \(n\) dimensions, to figure the correct spherical coordinates.
+
+Turns out, the \href{https://math.stackexchange.com/questions/1482747/integral-in-n-dimensional-spherical-coordinates}{naïve version} of the \(n\) sphere integral is the same correction factor multiplied by \(\sin^{n-\{2\ldots(n-1)\}}\). Therefore, the same logic from above actually holds for \(n\) volcano as well: that, by very high dimension Pythagoras, \({x_1}^2 + {x_2}^2 + \ldots + {x_n}^2 = r^2\).
+
+Therefore:
+
+\begin{equation}
+   \frac{1}{\left({x_1}^2 + {x_2}^2 + \cdots + {x_n}^2\right)^k}  = \frac{1}{r^{2k}}
+\end{equation}
+
+We will again note than the correction factor: \(dA = r^{n-1}\ sin^{n-2}\ sin^{n-3}\ dr\ d\theta_1\ \ldots\ d\theta_n\).
+
+Therefore:
+
+\begin{align}
+    & \int \ldots \int_0^1 \frac{1}{r^{2k-n+1}}\ sin^{n-2}\ sin^{n-3}\ dr\ d\theta_1\ \ldots\ d\theta_n\\
+\Rightarrow & \int \ldots \int_0^1 {r^{-2k+n-1}}\ sin^{n-2}\ sin^{n-3}\ dr\ d\theta_1\ \ldots\ d\theta_n\\
+\Rightarrow & \int \ldots \int \left \frac{r^{-2k+n}}{-2k+n} \right|_0^1\ sin^{n-2}\ sin^{n-3}\ dr\ d\theta_1\ \ldots\ d\theta_n
+\end{align}
+
+At this point, we can analyze the solution. The first term will always be \(1\) over a certain value. The second term, however, is more interesting.
+
+Case 1: \(-2k+n<0\). If the value of \(-2k+n <0\) , the \(r\) would have to be transported below the fraction. Therefore, taking \(\lim_{r\to 0}\frac{1}{r^{2k-n}(-2k+n)}\) would \(= +\infty\). 
+
+Case 2: \(-2k+n>=0\). This would render no problem: the second term would be simply \(0\).
+
+Therefore, if the terms that make up the infinite volcano \(-2k+n >0\), the results would be infinite. Otherwise, the results are finite.
+\end{document}
