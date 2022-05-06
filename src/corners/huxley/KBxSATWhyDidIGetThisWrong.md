@@ -552,7 +552,7 @@ lesson: be RIGORIOUS about checking the answers. no, wishy washy "yeah that look
 - radian and degree conversions [ x ]
 - Pythagorean triples [ x ]
 
-- unit circle! radians!
+- unit circle! radians! ~[ x ]
 - long division (learn) [ x ]
 
 
