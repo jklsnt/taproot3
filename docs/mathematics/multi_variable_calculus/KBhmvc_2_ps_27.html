@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-05-05 Thu 23:41 -->
+<!-- 2022-05-05 Thu 23:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MVC 2 PS#27</title>
@@ -263,20 +263,20 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#27</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-05 Thu 23:41</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#27</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-05 Thu 23:58</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org9d76109">1. Electric Change</a></li>
-<li><a href="#orgcf2fc6c">2. Infinite wire</a></li>
-<li><a href="#orga09120e">3. More Difficult Polar Coordinates</a></li>
+<li><a href="#org69dd7d7">1. Electric Change</a></li>
+<li><a href="#orgbfa8442">2. Infinite wire</a></li>
+<li><a href="#org58e8bf8">3. More Difficult Polar Coordinates</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org9d76109" class="outline-2">
-<h2 id="org9d76109"><span class="section-number-2">1</span> Electric Change</h2>
+<div id="outline-container-org69dd7d7" class="outline-2">
+<h2 id="org69dd7d7"><span class="section-number-2">1</span> Electric Change</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We are finally taking a surface integral! This is essentially multiplying the surface area of the shape of the function to the value of the function itself.
@@ -310,8 +310,8 @@ The charge, therefore, is proportional to \(\frac{4389\sqrt{14}}{2}\rho\).
 </div>
 </div>
 
-<div id="outline-container-orgcf2fc6c" class="outline-2">
-<h2 id="orgcf2fc6c"><span class="section-number-2">2</span> Infinite wire</h2>
+<div id="outline-container-orgbfa8442" class="outline-2">
+<h2 id="orgbfa8442"><span class="section-number-2">2</span> Infinite wire</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Recall first that a semicircle with radius 7 can be defined as:
@@ -352,8 +352,8 @@ Looks like the solution for the wire's weight is about \(\frac{2401}{2}\) grams.
 </div>
 </div>
 
-<div id="outline-container-orga09120e" class="outline-2">
-<h2 id="orga09120e"><span class="section-number-2">3</span> More Difficult Polar Coordinates</h2>
+<div id="outline-container-org58e8bf8" class="outline-2">
+<h2 id="org58e8bf8"><span class="section-number-2">3</span> More Difficult Polar Coordinates</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Recall that, to figure the unit sphere volume, we can convert an \(\mathbb{R}^2\to\mathbb{R}^1\) result into circular coordinates.
@@ -393,7 +393,41 @@ Turns out, the <a href="https://math.stackexchange.com/questions/1482747/integra
 </p>
 
 <p>
+Therefore:
+</p>
+
+\begin{equation}
+   \frac{1}{\left({x_1}^2 + {x_2}^2 + \cdots + {x_n}^2\right)^k}  = \frac{1}{r^{2k}}
+\end{equation}
+
+<p>
 We will again note than the correction factor: \(dA = r^{n-1}\ sin^{n-2}\ sin^{n-3}\ dr\ d\theta_1\ \ldots\ d\theta_n\).
+</p>
+
+<p>
+Therefore:
+</p>
+
+\begin{align}
+    & \int \ldots \int_0^1 \frac{1}{r^{2k-n+1}}\ sin^{n-2}\ sin^{n-3}\ dr\ d\theta_1\ \ldots\ d\theta_n\\
+\Rightarrow & \int \ldots \int_0^1 {r^{-2k+n-1}}\ sin^{n-2}\ sin^{n-3}\ dr\ d\theta_1\ \ldots\ d\theta_n\\
+\Rightarrow & \int \ldots \int \left \frac{r^{-2k+n}}{-2k+n} \right|_0^1\ sin^{n-2}\ sin^{n-3}\ dr\ d\theta_1\ \ldots\ d\theta_n
+\end{align}
+
+<p>
+At this point, we can analyze the solution. The first term will always be \(1\) over a certain value. The second term, however, is more interesting.
+</p>
+
+<p>
+Case 1: \(-2k+n<0\). If the value of \(-2k+n <0\) , the \(r\) would have to be transported below the fraction. Therefore, taking \(\lim_{r\to 0}\frac{1}{r^{2k-n}(-2k+n)}\) would \(= +\infty\). 
+</p>
+
+<p>
+Case 2: \(-2k+n>=0\). This would render no problem: the second term would be simply \(0\).
+</p>
+
+<p>
+Therefore, if the terms that make up the infinite volcano \(-2k+n >0\), the results would be infinite. Otherwise, the results are finite.
 </p>
 </div>
 </div>
