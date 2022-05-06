@@ -537,6 +537,8 @@ nc18 :: 8, 6
 i got this wrong because i made a simple arithmetic error: 24-10 = 12.
 lesson: be RIGORIOUS about checking the answers. no, wishy washy "yeah that looks right." DO it OUT. 
 ***
+## may 2021
+
 # To review
 - polynomial division [ x ]
 - remainder theorem [ x ]
@@ -551,7 +553,7 @@ lesson: be RIGORIOUS about checking the answers. no, wishy washy "yeah that look
 - Pythagorean triples [ x ]
 
 - unit circle! radians!
-- long division (learn)
+- long division (learn) [ x ]
 
 
 # misc / scratch
@@ -597,3 +599,5 @@ lesson: be RIGORIOUS about checking the answers. no, wishy washy "yeah that look
 
 18 + 37
 55 -> 760
+
+#
