@@ -472,7 +472,7 @@ i got this wrong because i fucked up my subtraction. stop it. use the *actual* s
 lesson: use the actual subtraction method! don't fuck around.
 ***
 c36 :: 4, 6
-i got this wrong because i wrote down 3\*3 as 6, not nine. 
+i got this wrong because i wrote down 3\*3 as 6, not 9. 
 
 lesson: when something is going wrong, redo, all the assumptions! nothing is sacred! you cannot trust anything. look at every part of what is considered truth.
 ***
