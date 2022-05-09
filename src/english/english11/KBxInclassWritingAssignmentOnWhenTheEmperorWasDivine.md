@@ -69,6 +69,7 @@ THESIS :: Horses serve as a symbolic representation of the rapidly changing expe
 
 - meta, dreams of rising up and failing.
 
+https://docs.google.com/document/d/1V4ei73_I9srDp-yaKVXCDBgoVG1n_aS6LTQ32BXZ2JE/edit
 
 ## qoute bin
 

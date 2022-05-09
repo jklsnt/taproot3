@@ -35,6 +35,7 @@ date: 2021-12-23
 	- or, show air qual
 - vector space visualizer
 - text -> graph structure, with connected references and definitions
+- chrome extension that just creates citations
 
 ## loose
 flow field that takes weather data as the vector field. inspired by sebastain leuge!
