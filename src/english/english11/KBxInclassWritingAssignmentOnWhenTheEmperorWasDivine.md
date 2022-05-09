@@ -52,4 +52,71 @@ dreams to no longer be a horse, and instead ride the horse like a cowboy (repres
 The progression of horses throughout the novel represents how Japanese Americans are treated?
 Horses are a symbol for Japanese Americans
 
-Horses serve as a symbolic representation of the rapidly changing experiences of being Japanese in America.
+THESIS :: Horses serve as a symbolic representation of the rapidly changing experiences of being Japanese in America.
+
+
+- Intro and thesis
+	- Horses — and the evolution of their treatment throughout the novel — serve as symbolic representations of Japanese Americans.
+
+- successful
+- available to cowboys?
+
+- rounded up 
+- leaving
+
+- neglected
+- de-individulized
+
+- meta, dreams of rising up and failing.
+
+
+## qoute bin
+
+- p1 
+	- “I don’t know,” said the girl. Then she remembered the mustangs she had read about in National Geographic. The Spaniards had brought them over hundreds of years ago and now there were thousands of horses just roaming around, wild. Every autumn they came down from the hills to graze on the high desert plains. If a cowboy needed a new horse all he had to do was go out into the desert and get himself one. It was as simple as that. She imagined a cowboy snapping his fingers and a horse, a wild white stallion, galloping up to him in a cloud of hot swirling dust.
+- p2 
+	- It had begun, she was almost sure of it, at Tanforan. All summer long they had lived in the old horse stalls in the stables behind the racetrack.
+	- Some of the horse meat, she explained, came from the racetrack. If a horse went down with a broken leg they destroyed it after the race and sent it to the cannery. But most of the horse meat came from wild horses.
+	-  “They round them up in the desert,” she said, “and then they shoot them.” She asked if he remembered the wild mustangs they had seen through the window of the train and he said that he did. They had long black tails and dark flowing manes and he had watched them galloping in the moonlight across the flat dusty plain and then for three nights in a row he had dreamed of them.
+	-  She pulled back the shade and looked out into the black Nevada night and saw a herd of wild mustangs galloping across the desert. The sky was lit up by the moon and the dark bodies of the horses were drifting and turning in the moonlight and wherever they went they left behind great billowing clouds of dust as proof of their passage. The girl lifted the shade and pulled her brother to the window and pressed his face gently to the glass and when he saw the mustangs with their long legs and their flying manes and their sleek brown coats he let out a low moan that sounded like a cry of pain but was not. He watched the horses as they galloped toward the mountains and he said, very softly, “They are going away.”
+- p3 
+	- (in the midst of his stay) "Once he came across a horse skull bleached white by the sun."
+	- “The horse meat.”   “What about it?”   “Where do they get it?”   She puckered her lips. “From horses.” “What kind?”  She looked at him in the mirror. “The dead kind.”
+- conclusion
+	- One night when the flies were very bad and they could not sleep he had sat up suddenly in his cot and told her that when he grew up he wanted to be a jockey. The boy had never been on a horse before in his life. “A jockey is a small man,” she had said to him. “Do you want to grow up to be a small man?” He could not make up his mind. Did he want to ride the horses? He did. Did he want to be a small man? He did not. “Ride horses!” Mr. Okamura had shouted from the stall on the other side of the partition. “Eat lots, grow up to be big American boy!”
+	- "HE COULD COME BACK on a horse"
+
+
+## writing! 
+
+potential? Horses — and the evolution of their treatment throughout the novel — serve as a symbolic representation of Japanese Americans.
+
+{INTRO} Horses serve as a symbolic representation of the rapidly changing experiences of being Japanese in America.
+
+
+Initially in the novel, horses are portrayed as successful immigrants, reflecting the experience of Japanese Americans prior to the war. The first characterization of horses in *When the Emperor was Divine* takes place on the train. While reminiscing about the past, the girl remembers "the mustangs she had read about in National Geographic." She recalls that "the Spaniards had brought them over hundreds of years ago," and now "there were thousands of horses just roaming around, wild." Horses, after immigrating far in the past, now numbered in the "thousands," thriving and free. Furthermore, the girl mentions "mustangs" specifically, a symbol of freedom and elegance especially prominent during the era of cowboy media. However, not only are horses free, but also available to meet the needs of the cowboys: "If a cowboy needed a new horse all he had to do was go out into the desert and get himself one. It was as simple as that." With cowboys serving as the prototypical embodiment of the American, this scenario reflects another common aspect of being 
+
+
+
+
+She imagined a cowboy snapping his fingers and a horse, a wild white stallion, galloping up to him in a cloud of hot swirling dust.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
