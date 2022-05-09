@@ -82,11 +82,23 @@ Therefore, we will have to take the quarter-integral in three parts:
 \begin{align}
 &\int_0^{\tan^{-1}\left(\frac{a}{b}\right)} \int_0^{\tan^{-1}\left(\frac{c}{b}\cos\theta\right)} \frac{b}{2\cos\theta\cos\phi}\ d\phi\ d\theta\\
 &\int_0^{\tan^{-1}\left(\frac{a}{b}\right)}\frac{b}{2\cos\theta} \int_0^{\tan^{-1}\left(\frac{c}{b}\cos\theta\right)} \frac{1}{\cos\phi}\ d\phi\ d\theta\\
+&\int_0^{\tan^{-1}\left(\frac{a}{b}\right)}\frac{b}{2\cos\theta} \left \frac{\sin \phi}{\cos^2\phi} \right|_0^{\tan^{-1}\left(\frac{c}{b}\cos\theta\right)}\ d\theta\\
+&\int_0^{\tan^{-1}\left(\frac{a}{b}\right)} \frac{1}{2} \, c \sqrt{\frac{c^{2} \cos\left(\theta\right)^{2} + b^{2}}{b^{2}}} \cos\left(\theta\right)^{2} \ d\theta
 \end{align}
 
 
 #+begin_src sage
-f(x) = 1/cos(x)
+var("a b c")
+f(theta) = 1/2*c*sqrt((c^2*cos(theta)^2 + b^2)/b^2)*cos(theta)^2
+assume(a*b>0)
+f.integrate(theta, 0, arctan(a/b))
 #+end_src
 
 #+RESULTS:
+: (a, b, c)
+
+\begin{equation}
+    \frac{1}{2} \, c \sqrt{\frac{c^{2} \cos\left(\theta\right)^{2} + b^{2}}{b^{2}}} \cos\left(\theta\right)^{2}
+\end{equation}
+
+
