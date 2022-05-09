@@ -82,11 +82,14 @@ Therefore, we will have to take the quarter-integral in three parts:
 \begin{align}
 &\int_0^{\tan^{-1}\left(\frac{a}{b}\right)} \int_0^{\tan^{-1}\left(\frac{c}{b}\cos\theta\right)} \frac{b}{2\cos\theta\cos\phi}\ d\phi\ d\theta\\
 &\int_0^{\tan^{-1}\left(\frac{a}{b}\right)}\frac{b}{2\cos\theta} \int_0^{\tan^{-1}\left(\frac{c}{b}\cos\theta\right)} \frac{1}{\cos\phi}\ d\phi\ d\theta\\
+&\int_0^{\tan^{-1}\left(\frac{a}{b}\right)}\frac{b}{2\cos\theta} \frac{1}{\cos\phi} \left \right|_0^{\tan^{-1}\left(\frac{c}{b}\cos\theta\right)}\ d\theta\\
 \end{align}
 
 
 #+begin_src sage
 f(x) = 1/cos(x)
+f.diff()
 #+end_src
 
 #+RESULTS:
+: x |--> sin(x)/cos(x)^2
