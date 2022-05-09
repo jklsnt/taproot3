@@ -94,12 +94,19 @@ potential? Horses — and the evolution of their treatment throughout the novel 
 {INTRO} Horses serve as a symbolic representation of the rapidly changing experiences of being Japanese in America.
 
 
-Initially in the novel, horses are portrayed as successful immigrants, reflecting the experience of Japanese Americans prior to the war. The first characterization of horses in *When the Emperor was Divine* takes place on the train. While reminiscing about the past, the girl remembers "the mustangs she had read about in National Geographic." She recalls that "the Spaniards had brought them over hundreds of years ago," and now "there were thousands of horses just roaming around, wild." Horses, after immigrating far in the past, now numbered in the "thousands," thriving and free. Furthermore, the girl mentions "mustangs" specifically, a symbol of freedom and elegance especially prominent during the era of cowboy media. However, not only are horses free, but also available to meet the needs of the cowboys: "If a cowboy needed a new horse all he had to do was go out into the desert and get himself one. It was as simple as that." With cowboys serving as the prototypical embodiment of the American, this scenario reflects another common aspect of being 
+Initially in the novel, horses are portrayed as successful immigrants, reflecting the experience of Japanese Americans prior to the war. The first characterization of horses in *When the Emperor was Divine* takes place on the train. While reminiscing about the past, the girl remembers "the mustangs she had read about in National Geographic." She recalls that "the Spaniards had brought them over hundreds of years ago," and now "there were thousands of horses just roaming around, wild." Horses, after immigrating far in the past, now numbered in the "thousands," thriving and free. Furthermore, the girl mentions "mustangs" specifically, a symbol of freedom and elegance especially prominent during the era of cowboy media. However, not only are horses free, but also available to meet the needs of the cowboys: "If a cowboy needed a new horse all he had to do was go out into the desert and get himself one. It was as simple as that." With cowboys serving as the prototypical embodiment of the American, this scenario reflects another common aspect of being an immigrant: forced to be readily available to meet the needs of the white American. The initial mention of horses reflects the initial state of Japanese Americans, however this depiction as free, prosperous, and successful immigrants does not last.
+
+Horses are next depicted as first rounded up and then sent away. Just after Evacuation Order #19, was given, The Tanforan Racetrack located in San Bruno was repurposed as a temporary holding facility for Japanese Americans while they were being collected. For long stretches of time, Japanese Americans were forced to live "in the old horse stalls in the stables behind the racetrack." Just like the horses who were "round[ed] up in the desert," Japanese Americans were gathered and then sent to live in the horse stables. After living in the horse stables, Japanese Americans were sent away to internment camps on trains. During the train ride depicted in the novel, the girl looks outside her window and sees "a herd of wild mustangs galloping across the desert." After showing her brother, the brother softly whispers: "They are going away." Just like the horses 
 
 
 
 
-She imagined a cowboy snapping his fingers and a horse, a wild white stallion, galloping up to him in a cloud of hot swirling dust.
+
+
+
+
+
+
 
 
 
