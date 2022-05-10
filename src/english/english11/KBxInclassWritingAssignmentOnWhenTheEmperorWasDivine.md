@@ -106,7 +106,7 @@ Horses are no longer individual,
 
 
 
-After returning from the internment, the use of horse imagery as symbolic of the experience of Japanese Americans jumps a level of abstraction. 
+After returning from internment, the use of horse imagery as symbolic of the experience of Japanese Americans jumps a level of abstraction. 
 
 
 
