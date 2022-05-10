@@ -11,3 +11,6 @@ title: Quantum Master Index
 - [[KBxQuantumLectureTwo]]
 - [[KBxQuantumLectureThree]]
 - [[KBxTsungYaoWuLecture]]
+- [[KBx
+
+Chiara Marletto(https://www.chiaramarletto.com/)
