@@ -88,16 +88,21 @@ Therefore, we will have to take the quarter-integral in three parts:
 
 
 #+begin_src sage
-var("a b c")
-f(theta) = 1/2*c*sqrt((c^2*cos(theta)^2 + b^2)/b^2)*cos(theta)^2
-# assume((a*b)>0)
-f.integrate(theta, 0, arctan(a/b))
+var("a b c theta")
+# f(x) = 1/cos(x)
+# f.diff()
+f(x) = (sin(x)/cos(x)^2)*b/(2*cos(theta))
+latex(f(arctan((c/b)*cos(theta))))
+# f(theta) = 1/2*c*sqrt((c^2*cos(theta)^2 + b^2)/b^2)*cos(theta)^2
+# f.integrate(theta, 0, arctan(a/b))
 #+end_src
 
 #+RESULTS:
+: (a, b, c, theta)
+: \frac{1}{2} \, \sqrt{\frac{c^{2} \cos\left(\theta\right)^{2}}{b^{2}} + 1} c
 
 \begin{equation}
-    \frac{1}{2} \, c \sqrt{\frac{c^{2} \cos\left(\theta\right)^{2} + b^{2}}{b^{2}}} \cos\left(\theta\right)^{2}
+\frac{1}{2} \, \sqrt{\frac{c^{2} \cos\left(\theta\right)^{2}}{b^{2}} + 1} c
 \end{equation}
 
 
