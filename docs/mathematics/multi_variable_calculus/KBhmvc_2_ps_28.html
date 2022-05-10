@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-05-09 Mon 21:26 -->
+<!-- 2022-05-09 Mon 21:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MVC 2 PS#28</title>
@@ -263,19 +263,19 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#28</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-09 Mon 21:25</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#28</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-09 Mon 21:28</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orga1a6016">1. Evaluating a Cylindrical Integral</a></li>
-<li><a href="#orgb706186">2. Uselessly Spherical Integral</a></li>
+<li><a href="#org828514d">1. Evaluating a Cylindrical Integral</a></li>
+<li><a href="#org9dfb2f8">2. Uselessly Spherical Integral</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-orga1a6016" class="outline-2">
-<h2 id="orga1a6016"><span class="section-number-2">1</span> Evaluating a Cylindrical Integral</h2>
+<div id="outline-container-org828514d" class="outline-2">
+<h2 id="org828514d"><span class="section-number-2">1</span> Evaluating a Cylindrical Integral</h2>
 <div class="outline-text-2" id="text-1">
 <blockquote>
 <p>
@@ -352,8 +352,8 @@ Therefore, the value of the integral is \(16\pi\).
 </div>
 </div>
 
-<div id="outline-container-orgb706186" class="outline-2">
-<h2 id="orgb706186"><span class="section-number-2">2</span> Uselessly Spherical Integral</h2>
+<div id="outline-container-org9dfb2f8" class="outline-2">
+<h2 id="org9dfb2f8"><span class="section-number-2">2</span> Uselessly Spherical Integral</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We first recall that the differential volume can be written as:
@@ -400,14 +400,18 @@ Therefore, we will have to take the quarter-integral in three parts:
 
 
 <div class="org-src-container">
-<pre class="src src-sage">var("a b c")
-f(theta) = 1/2*c*sqrt((c^2*cos(theta)^2 + b^2)/b^2)*cos(theta)^2
-f.integrate(theta, 0, arctan(a/b))
+<pre class="src src-sage">var("a b c theta")
+# f(x) = 1/cos(x)
+# f.diff()
+f(x) = (sin(x)/cos(x)^2)*b/(2*cos(theta))
+latex(f(arctan((c/b)*cos(theta))))
+# f(theta) = 1/2*c*sqrt((c^2*cos(theta)^2 + b^2)/b^2)*cos(theta)^2
+# f.integrate(theta, 0, arctan(a/b))
 </pre>
 </div>
 
 \begin{equation}
-    \frac{1}{2} \, c \sqrt{\frac{c^{2} \cos\left(\theta\right)^{2} + b^{2}}{b^{2}}} \cos\left(\theta\right)^{2}
+\frac{1}{2} \, \sqrt{\frac{c^{2} \cos\left(\theta\right)^{2}}{b^{2}} + 1} c
 \end{equation}
 </div>
 </div>
