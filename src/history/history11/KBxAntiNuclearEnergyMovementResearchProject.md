@@ -41,6 +41,16 @@ date: 2022-05-02
 
 ## 
 
+deaths per megawatt comparison
+all the deaths from major accidents
+talk about three mile island
+all nuclear waste can be stored in a football field nine feet high, and a huge amount is reusable 
+
+
+
+
+
+
 
 
 
