@@ -82,17 +82,18 @@ At every state update, the value of $y$ either stays unchanged ($z$ is even) or 
 In the former case, our new value of $x={x_0}^2$ and $z$ is divided by half. Therefore, the new state update would be:
 
 \begin{equation}
-   x^zy = {x_0}^{2 \frac{z}{2}} y = {x_0}^{z} y = a^b
+   x^zy = {x_0}^{2 \frac{z}{2}} y_0 = {x_0}^{z} y_0 = a^b
 \end{equation}
 
 So we can see, then that we still maintain the invariant.
 
-In the latter case, our new value of $x={x_0}^2$, $y$ is scaled by $x_0$, and $z$ is floored and divided by half.
+In the latter case, our new value of $x={x_0}^2$, $y$ is scaled by $x_0$, and $z$ is floored and divided by half. Therefore, the new state update would be:
 
+\begin{equation}
+   x^zy = {x_0}^{2\frac{z-1}{2}}{y_0}{x_0} = {x_0}^{z-1}{y_0}{x_0} = {x_0}^{z-1+1}{y_0} = a^b
+\end{equation}
 
-In the latter case, the new value of $x$ --- $x^2$, per every step --- is also $0\ (mod\ y)$ as we can separate the new value of y into $y = xy_0$, which the former $x$ term dividing out one of the two $x$ in $x^2$ and the $x$ remaining known to be $0\ (mod\ y_0)$. 
-
-Hence, the condition $x\ (mod\ y)$ is shown for all state updates and bases state to be invariant, completing the proof by Floyd's invariant method.
+Hence, the condition $x^zy = a^b$ is shown for all state updates and bases state to be invariant. At the final state, we know that $z=0$. $x^0y = 1y = y=a^b$, achieving the result we want to be returned for $y$ --- completing the proof by Floyd's invariant method.
 
 ** The Algorithm Terminates
 If we set $z$ as our derived variable, and $\forall z>1$, we see that every step converges $z$ to the integer divisor of itself to two. At $z=1$, $z$ is set to $0$. Therefore, the state machine follows a strictly descending derived variable which converges, meaning the algorithm terminates.
