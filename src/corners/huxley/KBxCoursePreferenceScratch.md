@@ -17,7 +17,7 @@ date: 2022-05-13
 ## backups 
 
 
-
+## bin
 - computer vision
 - software engineering 
 - // comp bio
@@ -33,6 +33,35 @@ date: 2022-05-13
 - // number theory
 - multi
 - diffeq
+- expiermental bioochem
+
+## sorting
+
+- software engineering 
+- DE for social good
+- abstract algebra
+- expiermental bioochem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
