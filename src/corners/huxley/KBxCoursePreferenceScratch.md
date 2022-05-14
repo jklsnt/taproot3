@@ -57,6 +57,7 @@ date: 2022-05-13
  -  ECON210 Environmental Economics
 	
 ## note
+
 I feel strongly about (no order): 
 - CS350 - Software Engineering
 - MATH435 - Graph Theory and Applications
@@ -70,21 +71,21 @@ My top choices are (ordered, top at top):
 - CHEM230 - Experimental Bioorganic Chemistry
 - CS280 - Computer Vision
 
-I would also be happy with: 
+I would also be happy with (ordered): 
  - MATH520 - Multivariable Calculus
  - PHYS210 - Physics Research
  - PHYS360 - Advanced Mechanics 
  - MATH570 - Differential Equations 
 
-And if necessary, I could also do:
+And if necessary, I could also do (ordered):
+ - ECON210 - Environmental Economics
  - ECON320 - Financial Econometrics
  - MATH540 - Applied Statistics and Probability
  - ECON120 - Business Dynamics and Operations Research
- - PHYS220 - Optics, Imaging, and Astrophysics
- - ECON210 - Environmental Economics
  - ECON101 - Intro to Microeconomics
+ - PHYS220 - Optics, Imaging, and Astrophysics
 
-
+Thanks so much! 
 
 
 
