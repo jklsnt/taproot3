@@ -37,13 +37,24 @@ date: 2022-05-13
 
 ## sorting
 
-- software engineering 
-- DE for social good
-- abstract algebra
-- expiermental bioochem
-- graph theory 
+- top choices 
+	- software engineering 
+	- DE for social good
+	- abstract algebra
+	- expiermental bioochem
+	- graph theory 
+	
+	- computer vision?
 
+- next 
+ -  4. PHYS210 Physics Research
 
+## backups?
+ -  ECON210 Environmental Economics
+ -  3. MATH510 Complex Analysis
+ -  8. MATH570 Differential Equations 9. ECON120 Business Dynamics and Operations Research
+ -  12. PHYS360 Advanced Mechanics 13. PHYS220 Optics, Imaging, and Astrophysics
+ -  15. MATH540 Applied Statistics and Probability
 
 
 
