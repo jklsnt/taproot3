@@ -56,9 +56,21 @@ date: 2022-05-13
  -  15. MATH540 Applied Statistics and Probability
  -  ECON210 Environmental Economics
 	
-## backups?
+## note
+I feel strongly about: 
+- CS350 - Software Engineering
+- MATH435 - Graph Theory and Applications
+- EFD211 - Design Engineering for Social Good
 
+My top choices are: 
+- CS350 - Software Engineering
+- MATH435 - Graph Theory and Applications
+- EFD211 - Design Engineering for Social Good
+- MATH330 - Abstract Algebra
+- CHEM230 - Experimental Bioorganic Chemistry
+- CS280 - Computer Vision
 
+I would also be happy with: 
 
 
 
