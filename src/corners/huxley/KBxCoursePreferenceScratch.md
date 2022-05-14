@@ -48,13 +48,15 @@ date: 2022-05-13
 
 - next 
  -  4. PHYS210 Physics Research
-
-## backups?
- -  ECON210 Environmental Economics
- -  3. MATH510 Complex Analysis
+ - 13. PHYS220 Optics, Imaging, and Astrophysics
+ -  12. PHYS360 Advanced Mechanics 
  -  8. MATH570 Differential Equations 9. ECON120 Business Dynamics and Operations Research
- -  12. PHYS360 Advanced Mechanics 13. PHYS220 Optics, Imaging, and Astrophysics
+- nexter
+ -  3. MATH510 Complex Analysis
  -  15. MATH540 Applied Statistics and Probability
+ -  ECON210 Environmental Economics
+	
+## backups?
 
 
 
