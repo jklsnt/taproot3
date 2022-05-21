@@ -45,6 +45,12 @@ handwriting-note taking app extravaganza
 
 looking at what happens if 1=2
 
+- crowd-sourcing beauty with an evolutionary algo
+	- ie. upload some art work (image?) and allow people to choose variations of it on a massive synced scaled
+	- use human preference as the selection factor
+
+
+
 ## ctf 
 [[KBxPicoScratchpad]]
 
