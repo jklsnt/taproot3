@@ -9,9 +9,10 @@ date: 2022-05-23
 
 ***
 
-# ben :clap: to :clap
-
-
+# bento 
+## research
+- japanese oldest historical record: the *Nihon Shoki*, 720 A.D.
+	- mentions bento boxes as a way to have portable food
 
 
 
