@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-05-22 Sun 22:39 -->
+<!-- 2022-05-22 Sun 22:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MVC 2 PS#29</title>
@@ -263,18 +263,18 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#29</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-22 Sun 22:38</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#29</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-22 Sun 22:41</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org990dd1a">1. A surface integral</a></li>
+<li><a href="#org370fc4e">1. A surface integral</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org990dd1a" class="outline-2">
-<h2 id="org990dd1a"><span class="section-number-2">1</span> A surface integral</h2>
+<div id="outline-container-org370fc4e" class="outline-2">
+<h2 id="org370fc4e"><span class="section-number-2">1</span> A surface integral</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We are defining a function:
@@ -289,8 +289,24 @@ and slicing out a vertical organ pipe shape with a sliced edge. That is:
 </p>
 
 \begin{equation}
-   x^2 + y^2 + z^2  
+   x^2 + z^2 = 1 
 \end{equation}
+
+<p>
+bounded by \(y>0\) and \(y<3-x\).
+</p>
+
+<p>
+Let's plot this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">var('x,y,z')
+f = y^2
+
+implicit_plot3d(x^2+z^2 == 1, (y,-1,1), (x,-1,1), (z, -1,1), region=(lambda x,y,z: y &gt; 0 and y&lt;3-x), color=(f,colormaps.cool))
+</pre>
+</div>
 
 
 
