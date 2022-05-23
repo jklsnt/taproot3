@@ -34,12 +34,14 @@ date: 2022-05-23
 		- school lunch programs partly began to help combat this 
 			- these school lunches helped standardize the bento, especially during the reconstruction period of WWII (1954)
 - the rise of radio and tv (~1980) was also met with a rise in convenience focused dishes like the bento 
-	- 
+	- also spread the bento worldwide
+- a good resource for inspiration https://www.reddit.com/r/Bento/
 
 ## research sources
 - https://web-japan.org/kidsweb/virtual/bento/bento02.html#:~:text=The%20word%20"bento"%20is%20often,were%20distributed%20in%20this%20manner.
 - https://timeline.com/bento-box-history-27b04153c6f6
 - https://en.wikipedia.org/wiki/Taishō
+- https://www.reddit.com/r/Bento/
 
 
 
