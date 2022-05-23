@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-05-22 Sun 23:32 -->
+<!-- 2022-05-22 Sun 23:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MVC 2 PS#29</title>
@@ -263,23 +263,26 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#29</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-22 Sun 23:32</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#29</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-22 Sun 23:35</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org5a22128">1. A surface integral</a></li>
-<li><a href="#org0925e78">2. Jacobian Matrix</a>
+<li><a href="#orgd926df4">1. A surface integral</a></li>
+<li><a href="#org113a7cc">2. Jacobian Matrix</a>
 <ul>
-<li><a href="#org094ab0a">2.1. \(f_x\)</a></li>
+<li><a href="#orgf2cbfd9">2.1. \(f_x\)</a></li>
+<li><a href="#org7794f3a">2.2. \(f_y\)</a></li>
+<li><a href="#orgb148e4a">2.3. \(f_z\)</a></li>
+<li><a href="#org1158a0a">2.4. Jacobian</a></li>
 </ul>
 </li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org5a22128" class="outline-2">
-<h2 id="org5a22128"><span class="section-number-2">1</span> A surface integral</h2>
+<div id="outline-container-orgd926df4" class="outline-2">
+<h2 id="orgd926df4"><span class="section-number-2">1</span> A surface integral</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We are defining a function:
@@ -314,7 +317,7 @@ implicit_plot3d(x^2+z^2 == 1, (y,-1,3), (x,-1,1), (z, -1,1), region=(lambda x,y,
 </div>
 
 
-<div id="org8357e6e" class="figure">
+<div id="org9385012" class="figure">
 <p><img src="2022-05-22_22-56-34_screenshot.png" alt="2022-05-22_22-56-34_screenshot.png" />
 </p>
 </div>
@@ -400,8 +403,8 @@ TODO
 </div>
 </div>
 
-<div id="outline-container-org0925e78" class="outline-2">
-<h2 id="org0925e78"><span class="section-number-2">2</span> Jacobian Matrix</h2>
+<div id="outline-container-org113a7cc" class="outline-2">
+<h2 id="org113a7cc"><span class="section-number-2">2</span> Jacobian Matrix</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We will attempt to take the derivative matrix for this expression methodically.
@@ -416,16 +419,57 @@ Let's define the function as:
 \end{equation}
 </div>
 
-<div id="outline-container-org094ab0a" class="outline-3">
-<h3 id="org094ab0a"><span class="section-number-3">2.1</span> \(f_x\)</h3>
+<div id="outline-container-orgf2cbfd9" class="outline-3">
+<h3 id="orgf2cbfd9"><span class="section-number-3">2.1</span> \(f_x\)</h3>
 <div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>\(f_x \cdot {\hat{h}} = 0\)</li>
+<li>\(f_x \cdot {\hat{i}} = 1\)</li>
+<li>\(f_x \cdot {\hat{j}} = 7\)</li>
+<li>\(f_x \cdot {\hat{k}} = \frac{1}{x+y-2z}\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7794f3a" class="outline-3">
+<h3 id="org7794f3a"><span class="section-number-3">2.2</span> \(f_y\)</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>\(f_y \cdot {\hat{h}} = -cos(y)\)</li>
+<li>\(f_y \cdot {\hat{i}} = 1\)</li>
+<li>\(f_y \cdot {\hat{j}} = e^y\)</li>
+<li>\(f_y \cdot {\hat{k}} = \frac{1}{x+y-2z}\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb148e4a" class="outline-3">
+<h3 id="orgb148e4a"><span class="section-number-3">2.3</span> \(f_z\)</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>\(f_z \cdot {\hat{h}} = 0\)</li>
+<li>\(f_z \cdot {\hat{i}} = 1\)</li>
+<li>\(f_z \cdot {\hat{j}} = 0\)</li>
+<li>\(f_z \cdot {\hat{k}} = \frac{-2}{x+y-2z}\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1158a0a" class="outline-3">
+<h3 id="org1158a0a"><span class="section-number-3">2.4</span> Jacobian</h3>
+<div class="outline-text-3" id="text-2-4">
 <p>
-Let's take the \(x\) dimension partials first.
+Finally, we can assemble the Jacobian matrix
 </p>
 
-<ul class="org-ul">
-<li>\(f_x \cdot {\hat{h}} = 2\)</li>
-</ul>
+\begin{equation}
+   \nabla f = \begin{bmatrix} 
+0 & -\cos(y) & 0  \\
+1 & 1 & 1 \\
+7 & e^y & 0 \\
+\frac{1}{x+y-2z} & \frac{1}{x+y-2z} & \frac{-2}{x+y-2z}
+   \end{bmatrix} 
+\end{equation}
 </div>
 </div>
 </div>
