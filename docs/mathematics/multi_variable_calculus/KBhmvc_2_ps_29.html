@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-05-23 Mon 10:15 -->
+<!-- 2022-05-23 Mon 10:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MVC 2 PS#29</title>
@@ -263,26 +263,26 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#29</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-23 Mon 10:15</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#29</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-23 Mon 10:18</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd1a5e6f">1. A surface integral</a></li>
-<li><a href="#org6ff9032">2. Jacobian Matrix</a>
+<li><a href="#org0e557bf">1. A surface integral</a></li>
+<li><a href="#orgfb02ded">2. Jacobian Matrix</a>
 <ul>
-<li><a href="#org8fbd4c2">2.1. \(f_x\)</a></li>
-<li><a href="#orgd0fadd6">2.2. \(f_y\)</a></li>
-<li><a href="#orgb3e0841">2.3. \(f_z\)</a></li>
-<li><a href="#orgea39b14">2.4. Jacobian</a></li>
+<li><a href="#orgf925e62">2.1. \(f_x\)</a></li>
+<li><a href="#org0cddcbf">2.2. \(f_y\)</a></li>
+<li><a href="#org9612d22">2.3. \(f_z\)</a></li>
+<li><a href="#org7074ccd">2.4. Jacobian</a></li>
 </ul>
 </li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-orgd1a5e6f" class="outline-2">
-<h2 id="orgd1a5e6f"><span class="section-number-2">1</span> A surface integral</h2>
+<div id="outline-container-org0e557bf" class="outline-2">
+<h2 id="org0e557bf"><span class="section-number-2">1</span> A surface integral</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We are defining a function:
@@ -312,13 +312,13 @@ Let's plot this:
 <pre class="src src-sage">var('x,y,z')
 f = y^2
 
-implicit_plot3d(x^2+z^2 == 1, (x,-10,10), (y,-10,10), (z, -10,10), region=(lambda x,y,z: y&gt;0 and y&lt;3-x), color=(f,colormaps.cool))
+implicit_plot3d(x^2+z^2 == 1, (x,-1,1), (y,0,4), (z, -1,1), region=(lambda x,y,z: y&gt;0 and y&lt;3-x), color=(f,colormaps.cool), plot_points=100)
 </pre>
 </div>
 
 
-<div id="orgccd9c76" class="figure">
-<p><img src="2022-05-22_22-56-34_screenshot.png" alt="2022-05-22_22-56-34_screenshot.png" />
+<div id="orgba8828c" class="figure">
+<p><img src="2022-05-23_10-16-40_screenshot.png" alt="2022-05-23_10-16-40_screenshot.png" />
 </p>
 </div>
 
@@ -390,7 +390,7 @@ Furthermore, our bounds are also a little complicated:
 </p>
 
 \begin{equation}
-   \int_0^3 \int_0^{3-x} \ y^2\ \sqrt{\frac{1}{-x^2+1}}\ dx\ dy
+   \int_0^3 \int_0^{4} \ y^2\ \sqrt{\frac{1}{-x^2+1}}\ dx\ dy
 \end{equation}
 
 <p>
@@ -400,8 +400,8 @@ Great, we will now ask Sage to take the actual integral for us:
 </div>
 
 
-<div id="outline-container-org6ff9032" class="outline-2">
-<h2 id="org6ff9032"><span class="section-number-2">2</span> Jacobian Matrix</h2>
+<div id="outline-container-orgfb02ded" class="outline-2">
+<h2 id="orgfb02ded"><span class="section-number-2">2</span> Jacobian Matrix</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We will attempt to take the derivative matrix for this expression methodically.
@@ -416,8 +416,8 @@ Let's define the function as:
 \end{equation}
 </div>
 
-<div id="outline-container-org8fbd4c2" class="outline-3">
-<h3 id="org8fbd4c2"><span class="section-number-3">2.1</span> \(f_x\)</h3>
+<div id="outline-container-orgf925e62" class="outline-3">
+<h3 id="orgf925e62"><span class="section-number-3">2.1</span> \(f_x\)</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>\(f_x \cdot {\hat{h}} = 0\)</li>
@@ -428,8 +428,8 @@ Let's define the function as:
 </div>
 </div>
 
-<div id="outline-container-orgd0fadd6" class="outline-3">
-<h3 id="orgd0fadd6"><span class="section-number-3">2.2</span> \(f_y\)</h3>
+<div id="outline-container-org0cddcbf" class="outline-3">
+<h3 id="org0cddcbf"><span class="section-number-3">2.2</span> \(f_y\)</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>\(f_y \cdot {\hat{h}} = -cos(y)\)</li>
@@ -440,8 +440,8 @@ Let's define the function as:
 </div>
 </div>
 
-<div id="outline-container-orgb3e0841" class="outline-3">
-<h3 id="orgb3e0841"><span class="section-number-3">2.3</span> \(f_z\)</h3>
+<div id="outline-container-org9612d22" class="outline-3">
+<h3 id="org9612d22"><span class="section-number-3">2.3</span> \(f_z\)</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>\(f_z \cdot {\hat{h}} = 0\)</li>
@@ -452,8 +452,8 @@ Let's define the function as:
 </div>
 </div>
 
-<div id="outline-container-orgea39b14" class="outline-3">
-<h3 id="orgea39b14"><span class="section-number-3">2.4</span> Jacobian</h3>
+<div id="outline-container-org7074ccd" class="outline-3">
+<h3 id="org7074ccd"><span class="section-number-3">2.4</span> Jacobian</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 Finally, we can assemble the Jacobian matrix
