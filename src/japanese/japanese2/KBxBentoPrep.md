@@ -32,7 +32,9 @@ date: 2022-05-23
 			- instead of the normal finished wood and etc. 
 	- also after WWI, rampant economic inequality meant that poorer families could not afford bentos 
 		- school lunch programs partly began to help combat this 
-			- these school lunches helped standarize the bento, 
+			- these school lunches helped standardize the bento, especially during the reconstruction period of WWII (1954)
+- the rise of radio and tv (~1980) was also met with a rise in convenience focused dishes like the bento 
+	- 
 
 ## research sources
 - https://web-japan.org/kidsweb/virtual/bento/bento02.html#:~:text=The%20word%20"bento"%20is%20often,were%20distributed%20in%20this%20manner.
