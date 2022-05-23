@@ -27,11 +27,17 @@ date: 2022-05-23
 	- and also into it, as time goes on!
 	
 - but were not always cheap / able to be used by the laboring class like farmers
-	- 
+	- different types of bento boxes were also symbols of status
+		- for example in the Taisho period (1912) when aluminum bento boxes became prominent
+			- instead of the normal finished wood and etc. 
+	- also after WWI, rampant economic inequality meant that poorer families could not afford bentos 
+		- school lunch programs partly began to help combat this 
+			- these school lunches helped standarize the bento, 
 
 ## research sources
 - https://web-japan.org/kidsweb/virtual/bento/bento02.html#:~:text=The%20word%20"bento"%20is%20often,were%20distributed%20in%20this%20manner.
 - https://timeline.com/bento-box-history-27b04153c6f6
+- https://en.wikipedia.org/wiki/Taishō
 
 
 
