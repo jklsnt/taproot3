@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-05-22 Sun 22:51 -->
+<!-- 2022-05-22 Sun 22:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MVC 2 PS#29</title>
@@ -263,18 +263,18 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#29</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-22 Sun 22:50</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#29</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-22 Sun 22:53</date></div>
 </div>
 <div id="content">
 <div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul></ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
 <ul>
-<li><a href="#org91b8eb9">1. A surface integral</a></li>
+<li><a href="#org0bda281">1. A surface integral</a></li>
 </ul>
 </div></div>
 </div>
 
-<div id="outline-container-org91b8eb9" class="outline-2">
-<h2 id="org91b8eb9"><span class="section-number-2">1</span> A surface integral</h2>
+<div id="outline-container-org0bda281" class="outline-2">
+<h2 id="org0bda281"><span class="section-number-2">1</span> A surface integral</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We are defining a function:
@@ -304,12 +304,12 @@ Let's plot this:
 <pre class="src src-sage">var('x,y,z')
 f = y^2
 
-implicit_plot3d(x^2+z^2 == 1, (y,-1,1), (x,-1,1), (z, -1,1), region=(lambda x,y,z: y &gt; 0 and y&lt;3-x), color=(f,colormaps.cool))
+implicit_plot3d(x^2+z^2 == 1, (y,-1,1), (x,-1,1), (z, -1,1), region=(lambda x,y,z: y &gt; 0 and y&lt;3-x), color=(f,colormaps.cool)) + implicit_plot3d(y==3-x, (y,-10,10), (x,-10,10), (z, -10,10))
 </pre>
 </div>
 
 
-<div id="orgffd0bde" class="figure">
+<div id="org021d5aa" class="figure">
 <p><img src="2022-05-22_22-41-34_screenshot.png" alt="2022-05-22_22-41-34_screenshot.png" />
 </p>
 </div>
@@ -371,6 +371,14 @@ And finally, we have the correction factor:
 
 <p>
 Lastly, we can multiply the actual value function to this to this expression to get the expression for the integral:
+</p>
+
+\begin{equation}
+   \iint_V\ y^2\ \sqrt{\frac{1}{-x^2+1}}\ dx\ dy
+\end{equation}
+
+<p>
+Furthermore, our bounds are also a little complicated:
 </p>
 
 \begin{equation}
