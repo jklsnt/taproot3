@@ -20,3 +20,4 @@ source: #index
 [[KBxJapaneseSpeakingPrep]]
 [[KBxPrezFinalJapanese]]
 [[KBxDanielHuxleyJapaneseScript]]
+[[KBxBentoPrep]]
