@@ -25,15 +25,15 @@ Let's plot this:
 var('x,y,z')
 f = y^2
 
-implicit_plot3d(x^2+z^2 == 1, (x,-10,10), (y,-10,10), (z, -10,10), region=(lambda x,y,z: y>0 and y<3-x), color=(f,colormaps.cool))
+implicit_plot3d(x^2+z^2 == 1, (x,-1,1), (y,0,4), (z, -1,1), region=(lambda x,y,z: y>0 and y<3-x), color=(f,colormaps.cool), plot_points=100)
 #+end_src
 
 #+RESULTS:
 : (x, y, z)
 : Launched html viewer for Graphics3d Object
 
-#+DOWNLOADED: screenshot @ 2022-05-22 22:56:34
-[[file:2022-05-22_22-56-34_screenshot.png]]
+#+DOWNLOADED: screenshot @ 2022-05-23 10:16:40
+[[file:2022-05-23_10-16-40_screenshot.png]]
 
 that's honestly pretty cool!
 
@@ -83,7 +83,7 @@ Lastly, we can multiply the actual value function to this to this expression to 
 Furthermore, our bounds are also a little complicated:
 
 \begin{equation}
-   \int_0^3 \int_0^{3-x} \ y^2\ \sqrt{\frac{1}{-x^2+1}}\ dx\ dy
+   \int_0^3 \int_0^{4} \ y^2\ \sqrt{\frac{1}{-x^2+1}}\ dx\ dy
 \end{equation}
 
 Great, we will now ask Sage to take the actual integral for us:
