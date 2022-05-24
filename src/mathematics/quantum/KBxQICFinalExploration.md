@@ -12,6 +12,7 @@ date: 2022-05-24
 # Strong Free Will
 - free will as a commodity
 	- argues that if we have free will then so do particles?
+- proof never uses the concept of probability?
 - 
 
 
