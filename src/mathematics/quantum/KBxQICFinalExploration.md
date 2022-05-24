@@ -15,10 +15,15 @@ date: 2022-05-24
 - proof never uses the concept of probability?
 - 
 
+## ted talk
+bells inequalities prove that we arn't just suffering from a lack of knowledge
 
+it's not the sock, because even *it* (the qbit) doesn't know. bells theorem means we know that is isn't *in* a state until we measure it.
 
+## questions
+what even is free will? what is will?
 
-
+can we equate free will with randomness (ie. lack of determinism)?
 
 
 
