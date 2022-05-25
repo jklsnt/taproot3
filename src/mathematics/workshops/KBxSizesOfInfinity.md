@@ -27,18 +27,13 @@ we think about the "gold standard" of infinity as the set of all natural numbers
 	- ie. $|\mathbb{N}|=\infty = \aleph_0$
 	
 we also get integers
-cool: denote the set of rational nums
-$\mathbb{Q}=\{\frac{a}{b}|a,b \in \mathbb{Z}, b \neq 0\}$
+- cool: denote the set of rational nums
+	- $\mathbb{Q}=\{\frac{a}{b}|a,b \in \mathbb{Z}, b \neq 0\}$
+	- cayley dickson construction allow us to navigate to higher algebras with double the dimension as the previous 
+	- $2 \mathbb{Z}$ as the set of all things in Z that are divisible by two (ie. we are just multiplying it by two)
+	- can think of real numbers as "adding all the grout" into rational numbers
 
-cayley dickson construction allow us to navigate to higher algebras with double the dimension as the previous 
-
-
-$2 \mathbb{Z}$ as the set of all things in Z that are divisible by two (ie. we are just multiplying it by two)
-
-
-can think of real numbers as "adding all the grout" into 
-
-
+- 
 
 
 
