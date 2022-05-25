@@ -36,7 +36,7 @@ cayley dickson construction allow us to navigate to higher algebras with double 
 $2 \mathbb{Z}$ as the set of all things in Z that are divisible by two (ie. we are just multiplying it by two)
 
 
-
+can think of real numbers as "adding all the grout" into 
 
 
 
