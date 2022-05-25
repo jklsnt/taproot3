@@ -202,9 +202,10 @@ topic: trips
 	- deep dish pizza がすきですか？
 
 - do you want to try it?
-	- 
+	- たべたいですか？
 
-
+- it is good
+	- おいしいですよ。
 
 
 
