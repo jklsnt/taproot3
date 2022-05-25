@@ -40,3 +40,10 @@ $2 \mathbb{Z}$ as the set of all things in Z that are divisible by two (ie. we a
 
 
 
+
+
+
+
+
+
+
