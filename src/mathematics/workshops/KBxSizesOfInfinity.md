@@ -17,4 +17,6 @@ $|x|$ essentially corresponds to the question of "how big?"
 - it can represent
 	- absolute value
 	- magnitude
-	- 
+	- determinant
+
+
