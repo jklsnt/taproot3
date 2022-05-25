@@ -23,4 +23,4 @@ but things break when we get to infinity.
 we think about the "gold standard" of infinity as the set of all natural numbers.
 - this set is countably infinite
 	- you can count em! you can "make progress"
-	- 
+	- $\aleph$
