@@ -190,7 +190,9 @@ topic: trips
 	- せんしゅう、わたしは　chicago　にいきました。
 	
 - the food was very good
-	- たべものはとてもおいし
+	- たべものはとてもおいしかったです。
+	
+- i ate 
 
 
 
