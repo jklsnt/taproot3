@@ -199,9 +199,10 @@ topic: trips
 	- chicago が　すきですが？
 	
 - do you want to go?
-	- chicago に　いきたいと　おもいますか
+	- chicago に　いきたいと　おもいますか？
 	
 - it was very hot
+	- あつかったです。
 
 - the food was very good
 	- たべものはとてもおいしかったです。
