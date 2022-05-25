@@ -196,12 +196,12 @@ topic: trips
 	- deep dish pizza をたべました。
 
 - have you had deep dish pizza?
-	- deep dish pizza 
+	- deep dish pizza をたべた　ことが　ありますか？
 	
 - do you like deep dish pizza?
-	- 
+	- deep dish pizza がすきですか？
 
-
+- 
 
 
 
