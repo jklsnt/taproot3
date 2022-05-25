@@ -25,3 +25,18 @@ we think about the "gold standard" of infinity as the set of all natural numbers
 	- you can count em! you can "make progress"
 	- we can denote this as $\aleph_0$
 	- ie. $|\mathbb{N}|=\infty = \aleph_0$
+	
+we also get integers
+cool: denote the set of rational nums
+
+
+
+
+
+
+
+
+
+
+
+
