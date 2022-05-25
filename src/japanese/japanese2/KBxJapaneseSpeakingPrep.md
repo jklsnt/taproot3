@@ -193,6 +193,9 @@ topic: trips
 	- たべものはとてもおいしかったです。
 	
 - i ate `deep dish pizza` x 
+	- deep dish pizza をたべました。
+	
+- do you like deep dish pizza?
 	- 
 
 
