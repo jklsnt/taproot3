@@ -49,7 +49,7 @@ any set of mathematical elemements under one operation such that there is an ide
 
 
 can add dimensions, like complex
-adding more leads to quaternions or hamiltonians, then to sadonians?
+adding more leads to quaternions or hamiltonians, then to sadonians? ^c966ca
 ```ad-tip
 called the cayley dickson construction, or smt
 ```
