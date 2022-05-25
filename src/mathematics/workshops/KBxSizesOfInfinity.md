@@ -30,8 +30,7 @@ we also get integers
 cool: denote the set of rational nums
 $\mathbb{Q}=\{\frac{a}{b}|a,b \in \mathbb{Z}, b \neq 0\}$
 
-caley
-
+cayley dickson construction allow us to navigate to higher algebras with double the dimension as the previous 
 
 
 
