@@ -190,7 +190,7 @@ topic: trips
 	- せんしゅう、わたしは　chicago　にいきました。
 
 - we did things like see museums and go clothes shopping
-	- 
+	- はくぶつかん　に　いったり、ふくをかったりしました。
 
 - have you been to chicago?
 
