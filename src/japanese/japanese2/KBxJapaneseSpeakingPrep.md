@@ -185,7 +185,8 @@ topic: trips
 ### some words
 さんさく : walking
 
-
+### some sentences 
+- last week i went to Chicago 
 
 
 
