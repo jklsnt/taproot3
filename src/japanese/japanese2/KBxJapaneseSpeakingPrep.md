@@ -189,7 +189,8 @@ topic: trips
 - last week i went to Chicago 
 	- せんしゅう、わたしは　chicago　にいきました。
 
-- we did things like see museums 
+- we did things like see museums and go clothes shopping
+	- 
 
 - have you been to chicago?
 
