@@ -24,3 +24,4 @@ we think about the "gold standard" of infinity as the set of all natural numbers
 - this set is countably infinite
 	- you can count em! you can "make progress"
 	- we can denote this as $\aleph_0$
+	- ie. $|\mathbb{N}|=\infin$
