@@ -193,6 +193,7 @@ topic: trips
 	- はくぶつかん　に　いったり、ふくをかったりしました。
 
 - have you been to chicago?
+	- chicago に　いったことが　ありますか？
 
 - the food was very good
 	- たべものはとてもおいしかったです。
