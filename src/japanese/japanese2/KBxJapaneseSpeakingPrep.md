@@ -210,7 +210,11 @@ topic: trips
 - our hotel was called the essex inn
 	- essex inn という　hotelu にとまりました。
 
-- 
+- how was your trip?
+	- 
+
+- where did you go?
+- what did you do?
 
 
 
