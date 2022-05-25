@@ -93,7 +93,7 @@ more variables than equations means u cant be injective
 
 under-determined system, and over-determined system
 
-injective and surjective -> bijective
+injective and surjective -> bijective ^216fc0
 
 
 

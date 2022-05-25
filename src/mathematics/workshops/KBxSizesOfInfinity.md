@@ -34,7 +34,7 @@ we also get integers
 	- can think of real numbers as "adding all the grout" into rational numbers
 
 how do we **actully** check? 
-we see if we can construct a bijection [[KBrefBijectiveFunction.org]] [[KBx3BInclass
+we see if we can construct a bijection [[KBrefBijectiveFunction.org]] [[KBx3BInclass#^216fc0]]
 
 
 
