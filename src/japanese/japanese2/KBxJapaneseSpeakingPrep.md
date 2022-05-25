@@ -211,7 +211,7 @@ topic: trips
 	- essex inn という　hotelu にとまりました。
 
 - how was your trip?
-	- 
+	- せんせいの
 
 - where did you go?
 - what did you do?
