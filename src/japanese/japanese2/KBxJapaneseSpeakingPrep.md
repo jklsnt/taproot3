@@ -195,6 +195,11 @@ topic: trips
 - have you been to chicago?
 	- chicago に　いったことが　ありますか？
 
+- did you like it?
+	- chicago が　すきですが？
+	
+- it was very hot
+
 - the food was very good
 	- たべものはとてもおいしかったです。
 	
