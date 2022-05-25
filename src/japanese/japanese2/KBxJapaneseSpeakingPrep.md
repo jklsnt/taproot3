@@ -192,7 +192,7 @@ topic: trips
 - the food was very good
 	- たべものはとてもおいしかったです。
 	
-- i ate `deep dish pizza`
+- i ate `deep dish pizza` x 
 	- 
 
 
