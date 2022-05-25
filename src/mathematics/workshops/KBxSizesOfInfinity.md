@@ -12,7 +12,7 @@ date: 2022-05-25
 # sizes of infinity!
 
 what is cardinality? just the number of elements in a set.
-$|x|$ essentially corresponds to the question of "how big?"
+$|x|$ essentially corresponds to the question of "how big?" [[KBxLInAlgDayTwo#Types of Numbers]]
 
 - it can represent
 	- absolute value
@@ -34,7 +34,7 @@ we also get integers
 	- can think of real numbers as "adding all the grout" into rational numbers
 
 how do we **actully** check? 
-we see if we can construct a bijection [[KBrefBijectiveFunction.org]]
+we see if we can construct a bijection [[KBrefBijectiveFunction.org]] [[KBx3BInclass
 
 
 
