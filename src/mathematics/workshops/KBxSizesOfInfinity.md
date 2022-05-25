@@ -38,7 +38,7 @@ we see if we can construct a bijection [[KBrefBijectiveFunction.org]] [[KBx3BInc
 
 with this we can finally say that infin and infin+1 are equal
 and 2\*infin = infin
-
+and infin = infin^2 (tho this notation is not technically correct)
 
 
 
