@@ -12,4 +12,9 @@ date: 2022-05-25
 # sizes of infinity!
 
 what is cardinality? just the number of elements in a set.
-$|x|$ just 
+$|x|$ essentially corresponds to the question of "how big?"
+
+- it can represent
+	- absolute value
+	- magnitude
+	- 
