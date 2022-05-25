@@ -198,6 +198,9 @@ topic: trips
 - did you like it?
 	- chicago が　すきですが？
 	
+- do you want to go?
+	- chicago に　いきたいと　おもいますか
+	
 - it was very hot
 
 - the food was very good
