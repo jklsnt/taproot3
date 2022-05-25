@@ -187,6 +187,10 @@ topic: trips
 
 ### some sentences 
 - last week i went to Chicago 
+	- せんしゅう、わたしは　chicago　にいきました。
+	
+- the food was very good
+	- 
 
 
 
