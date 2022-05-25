@@ -182,6 +182,8 @@ favorite resturant, shalimar
 
 topic: trips
 
+### some words
+さんさく : walking
 
 
 
