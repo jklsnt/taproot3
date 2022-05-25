@@ -1,0 +1,99 @@
+% Created 2022-05-24 Tue 22:26
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{tikz}
+\usepackage{cancel}
+\usepackage{pgfplots}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = LiberationSans-Italic, BoldFont = LiberationSans-Bold, BoldItalicFont = LiberationSans-BoldItalic]{LiberationSans}
+\newfontfamily\NHLight[ItalicFont = LiberationSansNarrow-Italic, BoldFont       = LiberationSansNarrow-Bold, BoldItalicFont = LiberationSansNarrow-BoldItalic]{LiberationSansNarrow}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Compiled} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Houjun Liu}
+\date{\today}
+\title{Gyroscoop}
+\hypersetup{
+ pdfauthor={Houjun Liu},
+ pdftitle={Gyroscoop},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+
+\section{Precessional Velocity}
+\label{sec:orgc287a0e}
+Taking the setup, we can figure the sum of the angular momentums and leverage it to figure the spin angular momentum.
+
+Let's first define a system: \(\hat{i}\) is "right" on the figure, \(\hat{j}\) "in" the page, \(\hat{k}\) "up" the figure.
+
+We note that the normal spin of the flywheel gives us:
+
+\begin{equation}
+   \vec{L}_s = I\vec{\omega}_s \hat{i}
+\end{equation}
+
+As the flywheel is rotating at a constant speed, we have actually no torque that this contributes to the net system --- that is \(\frac{d\vec{L}_s}{dt} = 0\). 
+
+Furthermore, we can figure torque---and subsequent angular momentum contribution---of gravity as follows:
+
+\begin{equation}
+    \vec{\tau}_g = lmg \hat{j}
+\end{equation}
+
+The total net torque on the system, then:
+
+\begin{align}
+   \vec{\tau}_{net} &= \vec{\tau}_g + 0 \\
+&= \vec{\tau}_g
+\end{align}
+
+We also have that:
+
+\begin{equation}
+   \vec{\tau}_{net} = \frac{\vec{L}_{net}}{dt}
+\end{equation}
+
+We see that, because of small-angle approximation, \(\Delta \vec{L}_s = L_s \Omega\)
+
+Therefore, we 
+\end{document}
