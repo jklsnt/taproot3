@@ -217,11 +217,13 @@ topic: trips
 	- どこにいきましたか？
 	
 - what did you do?
-	- 
+	- なにをしましたか？
 	
 - was it cold?
+	- さむ　かったですか？
 
 - did it rain?
+	- あめ
 
 
 
