@@ -28,6 +28,7 @@ we think about the "gold standard" of infinity as the set of all natural numbers
 	
 we also get integers
 cool: denote the set of rational nums
+$\mathbb{Q}=\{\frac{a}{b}|a,b \in \mathbb{Z}, b \neq 0\}$
 
 
 
