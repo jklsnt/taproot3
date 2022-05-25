@@ -211,11 +211,17 @@ topic: trips
 	- essex inn という　hotelu にとまりました。
 
 - how was your trip?
-	- せんせいの
+	- せんせいの　りょこうは　どうでしたか？
 
 - where did you go?
+	- どこにいきましたか？
+	
 - what did you do?
+	- 
+	
+- was it cold?
 
+- did it rain?
 
 
 
