@@ -33,7 +33,7 @@ $\mathbb{Q}=\{\frac{a}{b}|a,b \in \mathbb{Z}, b \neq 0\}$
 cayley dickson construction allow us to navigate to higher algebras with double the dimension as the previous 
 
 
-
+$2 \mathbb{z}$ as the set of all things in Z that are divisible by two
 
 
 
