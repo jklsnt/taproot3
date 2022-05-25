@@ -188,7 +188,11 @@ topic: trips
 ### some sentences 
 - last week i went to Chicago 
 	- せんしゅう、わたしは　chicago　にいきました。
-	
+
+- we did things like see museums 
+
+- have you been to chicago?
+
 - the food was very good
 	- たべものはとてもおいしかったです。
 	
@@ -223,7 +227,7 @@ topic: trips
 	- さむ　かったですか？
 
 - did it rain?
-	- あめ
+	- あめがふりましたか？
 
 
 
