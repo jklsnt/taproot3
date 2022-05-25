@@ -194,6 +194,9 @@ topic: trips
 	
 - i ate `deep dish pizza` x 
 	- deep dish pizza をたべました。
+
+- have you had deep dish pizza?
+	- deep dish pizza 
 	
 - do you like deep dish pizza?
 	- 
