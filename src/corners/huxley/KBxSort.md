@@ -1,6 +1,10 @@
 n
 ***
 
+ sneak vim plugin https://www.youtube.com/watch?v=HkY3LoQqKVA
+
+***
+
  constructor theory? look into this later #review 
 
 ***
