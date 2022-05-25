@@ -207,7 +207,8 @@ topic: trips
 - it is good
 	- おいしいですよ。
 
-
+- our hotel was called the essex inn
+	- essex inn という　hotelu にとまりました。
 
 
 
