@@ -210,6 +210,7 @@ topic: trips
 - our hotel was called the essex inn
 	- essex inn という　hotelu にとまりました。
 
+- 
 
 
 
