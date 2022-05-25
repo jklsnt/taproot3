@@ -33,7 +33,8 @@ we also get integers
 	- $2 \mathbb{Z}$ as the set of all things in Z that are divisible by two (ie. we are just multiplying it by two)
 	- can think of real numbers as "adding all the grout" into rational numbers
 
-- 
+how do we **actully** check? 
+we see if we can construct a bijection [[KBrefBijectiveFunction.org]]
 
 
 
