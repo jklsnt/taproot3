@@ -37,8 +37,7 @@ how do we **actully** check?
 we see if we can construct a bijection [[KBrefBijectiveFunction.org]] [[KBx3BInclass#^216fc0]]
 
 with this we can finally say that infin and infin+1 are equal
-
-
+and 2\*infin = infin
 
 
 
