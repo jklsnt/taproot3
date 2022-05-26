@@ -77,6 +77,7 @@ source:  #index
 - [[KBxModuleOneLinalgTed]]
 - [[KBxAxlerChapter6Sprint]]
 - [[KBxTaiDanaeBradleyTalk]]
+- [[KBxDataTopologyFinal]]
 
 
 
