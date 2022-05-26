@@ -21,7 +21,7 @@ date: 2022-05-26
 - something called *chains* which let us represent these simplicies in a vec space
 - *boundry homomorphism* is a linmap on these chains?
 - **homology groups** are defined as quotient spaces
-	- $H_k(X)={\ker \partial_{k}/{\text{im \partial_{k+1}}}}$
+	- $H_k(X)=\frac{\ker \partial_k}/{\text{im} \partial_{k+1}}$
 
 
 
