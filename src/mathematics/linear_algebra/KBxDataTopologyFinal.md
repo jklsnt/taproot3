@@ -13,9 +13,27 @@ date: 2022-05-26
 *what more can you ask for?*
 
 ## readings
-
 ### computing homology
 → [article](https://jeremykun.com/2013/04/10/computing-homology/)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
