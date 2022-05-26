@@ -18,7 +18,9 @@ date: 2022-05-25
 	- image node??
 - canvas mode?
 - command pallete
+	- keybindsss
 - actully good perspective creator
 - a button for the quick switcher
 - and the settings page..
 - meta-data display on the task (project, dates, ect)
+- extension packing
