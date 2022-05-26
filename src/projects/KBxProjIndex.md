@@ -52,7 +52,7 @@ looking at what happens if 1=2
 	- ie. upload some art work (image?) and allow people to choose variations of it on a massive synced scaled
 	- use human preference as the selection factor
 
-
+- wiki link-hover but global
 
 ## ctf 
 [[KBxPicoScratchpad]]
