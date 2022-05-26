@@ -22,3 +22,18 @@ date: 2022-05-23
 "All the way home the words she read flamed before me: “We go forth all to seek America. And in the seeking we create her. In the quality of our search shall be the nature of the America that we create.”
 
 So all those lonely years of seeking and praying were not in vain! How glad I was that I had not stopped at the husk—a good job—a good living—but pressed on, through the barriers of materialism."
+
+## the reflection
+
+
+
+
+
+
+
+
+
+
+
+
+
