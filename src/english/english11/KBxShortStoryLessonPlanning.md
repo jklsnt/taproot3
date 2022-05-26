@@ -29,7 +29,7 @@ https://docs.google.com/document/d/1vE2O42HTwQAg15uehRQe-LeSU4SCjrqz8_I5K1-hqhw/
 So all those lonely years of seeking and praying were not in vain! How glad I was that I had not stopped at the husk—a good job—a good living—but pressed on, through the barriers of materialism."
 
 ## the reflection
-
+https://docs.google.com/document/d/1mDosJYUQiS4wSo57eOfNTd9DlwEfZ4NmzAAzBla4Das/edit
 
 
 
