@@ -30,7 +30,7 @@ something about $C_x$ and spans?? of.. verticies? edges?? #question what is this
 
 what are the $\partial_k$ matricies?
 
-
+$\partial^2 = \partial_k \partial_{k+1} = 0$ ???
 
 
 
