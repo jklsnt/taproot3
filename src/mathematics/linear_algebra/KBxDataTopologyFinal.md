@@ -24,7 +24,7 @@ date: 2022-05-26
 	- $H_k(X)=\frac{{\ker \partial_k}}{\text{im} \partial_{k+1}}$ 
 		- can think of this as removing the filled in space
 		- the dim of this space gives us the number of holes in $X$
-
+- we can represent stuff as matricies and then look at the dim of them
 
 
 
