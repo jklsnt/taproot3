@@ -28,6 +28,8 @@ date: 2021-12-23
 
 
 ## the stack
+
+- minute physics atom model
 - flow field
 - chaos exploration
 - boids
