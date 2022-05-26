@@ -14,6 +14,7 @@ date: 2022-05-23
 ## links
 https://miro.com/app/board/uXjVOybSOJM=/
 https://docs.google.com/document/d/1rKqnMFHbzMYBowl58fMEjKupuwhAiH3HFXG04L5tMV8/edit
+https://docs.google.com/document/d/1vE2O42HTwQAg15uehRQe-LeSU4SCjrqz8_I5K1-hqhw/edit
 
 ## notes on the story
 - part 1
