@@ -16,7 +16,9 @@ date: 2022-05-26
 ### computing homology
 → [article](https://jeremykun.com/2013/04/10/computing-homology/)
 
-
+- a *simplicial complex* can define a topo-space
+	- essentially just think of it as glued together triangles (simplicies? are we just working in 2d?)
+- 
 
 
 
