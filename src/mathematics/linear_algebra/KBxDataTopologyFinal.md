@@ -28,7 +28,7 @@ date: 2022-05-26
 
 something about $C_x$ and spans?? of.. verticies? edges?? #question what is this
 
-
+what are the $\partial_k$ matricies?
 
 
 
