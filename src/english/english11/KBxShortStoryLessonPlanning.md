@@ -11,7 +11,10 @@ date: 2022-05-23
 ***
 
 # how i found America
+## links
+https://miro.com/app/board/uXjVOybSOJM=/
 
+## notes on the story
 - part 1
 	- all about how bad and poor living in russia was, and how great it was to come to america
 
