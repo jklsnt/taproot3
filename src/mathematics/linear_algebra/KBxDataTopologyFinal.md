@@ -35,7 +35,8 @@ $\partial^2 = \partial_k \partial_{k+1} = 0$ ???
 ohh, is it that boundry maps return to the same place when you traverse them again?
 no that doesn't make sense..
 
-row operations ←> changing a basis for the codomain
+row operations ←> changing basis for the range
+column operations ←> changing basis for the domain
 
 
 
