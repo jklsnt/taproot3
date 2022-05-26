@@ -14,4 +14,10 @@ date: 2022-05-25
 - multiple other types of nodes
 	- like a 'scratch' / note node
 	- maybe a category node 
-	- line / sepera
+	- line / seperator node?
+	- image node??
+- canvas mode?
+- command pallete
+- actully good perspective creator
+- a button for the quick switcher
+- and the settings page..
