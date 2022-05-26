@@ -32,7 +32,7 @@ what are the $\partial_k$ matricies?
 
 $\partial^2 = \partial_k \partial_{k+1} = 0$ ???
 
-
+ohh, is it that boundry maps 
 
 
 
