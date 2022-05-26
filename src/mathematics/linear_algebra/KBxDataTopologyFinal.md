@@ -26,6 +26,8 @@ date: 2022-05-26
 		- the dim of this space gives us the number of holes in $X$
 - we can represent stuff as matricies and then look at the dim of them
 
+something about $C_x$ and spans?? of.. verticies? edges?? #question what is this
+
 
 
 
