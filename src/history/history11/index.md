@@ -85,7 +85,7 @@ the next assignment: historigraphical in nature. synthesithing multiple argument
 - [[KBxCivilDisobedienceEvolutionofDemocracyIntro]]
 - [[KBxCivRtMasseyNotes]]
 - [[KBxAntiNuclearEnergyMovementResearchProject]]
-- [[KBxHistoryFinal
+- [[KBxContemporaryChallengesHistFinal]]
 
 
 
