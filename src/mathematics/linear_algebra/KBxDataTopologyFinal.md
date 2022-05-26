@@ -18,8 +18,10 @@ date: 2022-05-26
 
 - a *simplicial complex* can define a topo-space
 	- essentially just think of it as glued together triangles (simplicies? are we just working in 2d?)
-- 
-
+- something called *chains* which let us represent these simplicies in a vec space
+- *boundry homomorphism* is a linmap on these chains?
+- **homology groups** are defined as quotient spaces
+	- $H_{k(X)=}\ker$
 
 
 
