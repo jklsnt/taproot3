@@ -8,7 +8,7 @@ date: 2022-05-23
  #ret #incomplete #inclass #hw
 
 ***
-
+**words**
 # bento 
 ## research
 - japanese oldest historical record: the *Nihon Shoki*, 720 A.D.
