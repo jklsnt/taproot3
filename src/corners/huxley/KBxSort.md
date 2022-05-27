@@ -1,9 +1,10 @@
 n
 ***
-```
-```jsx // add a colon to activate
+`
+```jsx
+// add a colon to activate
+
 <g.C />
-```
 ```
 
 ***
