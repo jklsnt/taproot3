@@ -1,4 +1,4 @@
-% Created 2022-05-26 Thu 22:49
+% Created 2022-05-26 Thu 22:50
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -61,7 +61,7 @@
 
 
 \section{Jacobian Determinant for Polar}
-\label{sec:orgc48a2e1}
+\label{sec:org8251eab}
 We are to determine (pun not intended) the polar correction factor for a double integral, \(dA= r\ dr\ d\theta\).
 
 To do this, we will have to first figure the change of bases expressions such that we can take:
@@ -107,7 +107,7 @@ And therefore, the change-of-basis result would be:
 \end{equation}
 
 \section{Jacobian Determinant for Spherical}
-\label{sec:orgb94117a}
+\label{sec:org4d3e6df}
 We again need to figure a correction factor for \(dx\ dy\ dz = \rho^2\ \sin\phi\ d\rho\ d\theta\ d\phi\).
 
 We therefore have to figure a change of bases for the expression:
@@ -138,7 +138,7 @@ sin\phi & 0 & \rho \cos \phi\\
 
 \begin{verbatim}
 var("rho phi theta")
-M = matrix([[cos(phi)*cos(theta), -rho*cos(phi)*sin(theta), -rho*sin(phi)*cos(theta)], [cos(phi)*sin(theta), rho*sin(phi)*cos(theta), rho*cos(phi)*sin(theta)], [cos(phi), 0, -rho*sin(phi)]])
+M = matrix([[cos(phi)*cos(theta), -rho*cos(phi)*sin(theta), -rho*sin(phi)*cos(theta)], [cos(phi)*sin(theta), rho*cos(phi)*cos(theta), -rho*sin(phi)*sin(theta)], [sin(phi), 0, rho*cos(phi)]])
 M.det().full_simplify()
 \end{verbatim}
 \end{document}
