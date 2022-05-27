@@ -18,6 +18,8 @@ looks good to me
 looks good to me
 @normalhhhhhhhhhhhhhA
 @normal
+@normal 
+yeet 
 # Data! Topology!
 *what more can you ask for?*
 ## readings
