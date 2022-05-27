@@ -1,7 +1,1 @@
-%%end  \`\`\`
-ooga|booga
-
-test|akldfj%%
-
-yeet||@normal
-```<CARET>||end
+```<CARET> \n ```||end

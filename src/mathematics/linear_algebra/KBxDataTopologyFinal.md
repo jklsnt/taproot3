@@ -8,22 +8,6 @@ date: 2022-05-26
 #flo #scratch  #inclass #hw
 
 ***
-cocktail ooga booga end 
-
-end
-test
-akldfj 
-looks good to me 
-
-looks good to me
-@normalhhhhhhhhhhhhhA
-@normal
-@normal 
-yeet 
-``` 
-```<CARET> 
-\`\`\` 
-```whee!
 # Data! Topology!
 *what more can you ask for?*
 ## readings
