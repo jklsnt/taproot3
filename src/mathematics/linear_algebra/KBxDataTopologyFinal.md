@@ -50,7 +50,7 @@ a nice formula for counting dimension? i dont understand why this is the case.
 ### homology using linear algebra
 → [article](https://osebje.famnit.upr.si/~russ.woodroofe/joshua-dean.pdf)
 
-- incidence matrix like adjacency matrix but encoding whether an edge enters or leaves a vertex (with 1 and -1 respectively)
+- incidence matrix like adjacency matrix but encoding whether an edge enters or leaves a vertex (with -1 and 1 respectively)
 	- and cycles in this graph are linearly dependent columns, so the number of LD columns is the number of cycles!
 - 
 
