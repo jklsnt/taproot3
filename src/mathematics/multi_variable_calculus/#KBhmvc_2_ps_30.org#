@@ -80,5 +80,10 @@ cos\phi & 0 & -\rho \sin \phi\\
 
  #+begin_src sage
 var("rho phi theta")
-M = matrix([[sin(phi)*cos(theta), -rho*sin(phi)*sin(theta), rho*cos(phi)*cos(theta)], []])
+M = matrix([[sin(phi)*cos(theta), -rho*sin(phi)*sin(theta), rho*cos(phi)*cos(theta)], [sin(phi)*cos(theta), rho*sin(phi)*cos(theta), rho*cos(phi)*sin(theta)], [cos(phi), 0, -rho*sin(phi)]])
+M.det()
  #+end_src
+
+ #+RESULTS:
+ : (rho, phi, theta)
+ : -rho^2*cos(theta)^2*sin(phi)^3 - rho^2*cos(theta)*sin(phi)^3*sin(theta) - (rho^2*cos(phi)*cos(theta)^2*sin(phi) + rho^2*cos(phi)*sin(phi)*sin(theta)^2)*cos(phi)
