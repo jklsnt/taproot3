@@ -8,7 +8,6 @@ react-components-namespace: g
 return <div>Hewwo {props.name}!</div>
 ```
 
-```
 ```jsx:component:Testin
 import { Canvas, useFrame } from 'https://cdn.skypack.dev/react-three-fiber'
 
@@ -42,7 +41,6 @@ function Box(props) {
   <Box position={[-1.2, 0, 0]} />
   <Box position={[1.2, 0, 0]} />
 </Canvas>
-
 ```
 
 
