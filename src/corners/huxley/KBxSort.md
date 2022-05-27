@@ -1,6 +1,13 @@
 n
 ***
 
+```jsx:
+import moment from 'https://cdn.skypack.dev/moment';
+<div>{moment()}</div>
+```
+
+***
+
  
 ```jsx:
 import { Canvas, useFrame } from 'https://cdn.skypack.dev/react-three-fiber'
