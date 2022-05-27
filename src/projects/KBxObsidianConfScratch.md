@@ -10,7 +10,9 @@ date: 2022-05-27
 ***
 
 ## things that need work
-- navigating 
+- navigating | index only search?
 - creating new notes (a hassle)
 - naming conventions 
+
 ## general ideas
+

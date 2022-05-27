@@ -13,6 +13,7 @@ title:   Advanced Probability
 - [[KBxMonteHall]]
 - [[KBxFirstStepAnalysis]]
 - [[KBxRandomVariables]]
+- [[KBxProbabilityInequalities]]
 
 
 
