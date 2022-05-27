@@ -80,7 +80,7 @@ cos\phi & 0 & -\rho \sin \phi\\
 
  #+begin_src sage
 var("rho phi theta")
-M = matrix([[sin(phi)*cos(theta), -rho*sin(phi)*sin(theta), rho*cos(phi)*cos(theta)], [sin(phi)*cos(theta), rho*sin(phi)*cos(theta), rho*cos(phi)*sin(theta)], [cos(phi), 0, -rho*sin(phi)]])
+M = matrix([[sin(phi)*cos(theta), -rho*sin(phi)*sin(theta), rho*cos(phi)*cos(theta)], [sin(phi)*sin(theta), rho*sin(phi)*cos(theta), rho*cos(phi)*sin(theta)], [cos(phi), 0, -rho*sin(phi)]])
 M
 M.det().full_simplify()
  #+end_src
@@ -88,6 +88,8 @@ M.det().full_simplify()
  #+RESULTS:
  : (rho, phi, theta)
  : [     cos(theta)*sin(phi) -rho*sin(phi)*sin(theta)  rho*cos(phi)*cos(theta)]
- : [     cos(theta)*sin(phi)  rho*cos(theta)*sin(phi)  rho*cos(phi)*sin(theta)]
+ : [     sin(phi)*sin(theta)  rho*cos(theta)*sin(phi)  rho*cos(phi)*sin(theta)]
  : [                cos(phi)                        0            -rho*sin(phi)]
- : -rho^2*cos(theta)*sin(phi)^3*sin(theta) + rho^2*sin(phi)^3*sin(theta)^2 - rho^2*sin(phi)
+ : -rho^2*sin(phi)
+
+Not quite sure why 
