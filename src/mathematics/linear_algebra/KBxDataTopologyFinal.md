@@ -60,5 +60,7 @@ a nice formula for counting dimension? i dont understand why this is the case.
 ## some definitions
 - $\partial(\text{edge}) = \text{final point} - \text{initial point}$
 	- same thing as the vector representation 
+	![[KBxDataTopologyFinal 2022-05-27 13.19.42.excalidraw||200]] 
+	$\partial(c) = x-z$
 
-![[KBxDataTopologyFinal 2022-05-27 13.19.42.excalidraw]]
+
