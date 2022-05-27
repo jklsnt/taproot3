@@ -58,4 +58,3 @@ a nice formula for counting dimension? i dont understand why this is the case.
 	- ie. a higher-dimensional simplex
 
 
-[[KBhBIO101Watah]]
