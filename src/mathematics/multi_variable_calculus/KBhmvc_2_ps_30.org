@@ -149,27 +149,10 @@ We have, trivially:
 \frac{\partial r}{\partial x} = \frac{1}{cos\theta}
 \end{equation}
 
+Therefore:
 
+\begin{equation}
+   \frac{\partial f}{\partial x} = -\frac{\partial f}{\partial \theta}\cdot \frac{1}{r\sin\theta} + \frac{\partial f}{\partial r}\cdot \frac{1}{\cos\theta}
+\end{equation}
 
-Taking its partial derivative by $x$:
-
-#+begin_src sage
-pft,pfr,t = var("pft pfr t")
-
-f(x,r)= arccos(x/r)
-expand((pft*(f.diff(x)) + pfr/cos(t))^2)
-#+end_src
-
-#+RESULTS:
-: (x, r) |--> pfr^2/cos(t)^2 - 2*pfr*pft/(r*sqrt(-x^2/r^2 + 1)*cos(t)) - pft^2/(r^2*(x^2/r^2 - 1))
-
-We can continue this chain of relations:
-
-#+begin_src sage
-f(y,r)= arcsin(y/r)
-f.diff(y)
-#+end_src
-
-#+RESULTS:
-: (y, r) |--> 1/(r*sqrt(-y^2/r^2 + 1))
-
+We can repeat this for $y$:
