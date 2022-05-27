@@ -73,7 +73,11 @@ function hello(name){
 hello("Bob")
 ```
 
-
+```python
+import numpy
+x = 12
+print(x)
+```
 
 
 
