@@ -37,7 +37,10 @@ some convex function g:
 
 
 ## chebychev inequality 
-$P(|X - \mu| > a) < \frac{\mu^{2}}{a^2}$ 
+$P(|X - \mu| > a) \leq \frac{\sigma^{2}}{a^2}$ 
+where $\sigma^{2} \to \text{Var(X)}$
+and $\mu \to E(X)$
+
 
 
 
