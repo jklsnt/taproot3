@@ -37,7 +37,7 @@ some convex function g:
 
 
 ## chebychev inequality 
-$P(|X - \mu| > a) <
+$P(|X - \mu| > a) < \frac{\mu^{2}}{a^2}$ 
 
 
 
