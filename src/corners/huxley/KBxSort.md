@@ -6,6 +6,20 @@ import moment from 'https://cdn.skypack.dev/moment';
 <div>{moment().valueOf()}</div>
 ```
 
+```jsx:
+ const [date, setDate] = useState(new Date());
+ useEffect(() => {
+  var timerID = setInterval( () => setDate(new Date()), 1000 );
+  return function cleanup() {
+      clearInterval(timerID);
+    };
+ });
+  <div>
+	<h1>Hello, world!</h1>
+	<h2>It is {date.toLocaleTimeString()}.</h2>
+  </div>
+```
+
 ***
 
  
