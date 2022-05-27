@@ -64,34 +64,10 @@ a nice formula for counting dimension? i dont understand why this is the case.
 [[KBxSort]]
 
 
-
-```js
-const x = () => console.log("yuh.")
-x()
-```
-
-```python
-import numpy
-x = 12
-print(x)
-```
 ```cpp
 #include <iostream>
-using namespace std;
-
-void hello(char name[]) {
-    cout << "Hello " << name << "!\n";
-}
-
-int main() {
-    hello("Alice");
-}
+int main() { cout << "yuh."; }
 ```
-```cpp
-#include <iostream>
-int main() { std::cout << "yuh."; }
-```
-
 
 
 
