@@ -11,6 +11,7 @@ date: 2022-05-26
 cocktail ooga booga end 
 
 end
+ooga
 # Data! Topology!
 *what more can you ask for?*
 ## readings
