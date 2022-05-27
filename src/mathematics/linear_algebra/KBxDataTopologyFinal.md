@@ -76,9 +76,19 @@ x = 12
 print(x)
 ```
 ```cpp
+#include <iostream>
+using namespace std;
 
+void hello(char name[]) {
+    cout << "Hello " << name << "!\n";
+}
 
-
+int main() {
+    hello("Alice");
+}
+```
+```cpp
+end
 
 
 
