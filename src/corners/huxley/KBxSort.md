@@ -2,6 +2,7 @@ n
 ***
 
 ```jsx:
+
 import moment from 'https://cdn.skypack.dev/moment';
 <div>{moment().format('dddd')</div>
 ```
