@@ -1,9 +1,12 @@
 n
 ***
 
+super clean proof that $1 = 0. \overline{999}$
 $x = 0.\overline{999}$
 $10x = 9.\overline{999}$
-$9x = 9.\overline{999}$
+$9x = 9$
+$x = 1$
+
 ***
 
  https://jeremykun.com "math $\cap$ programming"
