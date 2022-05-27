@@ -53,9 +53,8 @@ a nice formula for counting dimension? i dont understand why this is the case.
 
 
 
+matr
 
-
-com
 
 
 
