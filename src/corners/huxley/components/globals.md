@@ -9,7 +9,7 @@ return <div>Hewwo {props.name}!</div>
 ```
 
 ```jsx:component:Testin
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame } from 'https://cdn.skypack.dev/react-three-fiber'
 
 function Box(props) {
   // This reference gives us direct access to the THREE.Mesh object
