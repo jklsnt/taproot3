@@ -30,6 +30,8 @@ some convex function g:
 - consider a setup where
 	- you ask a bunch of people what their income is
 		- you get an average of $100,000
+			- then 2/3 group having income over $200,00 is **impossible**
+			- 
 
 
 
