@@ -61,7 +61,7 @@
 
 
 \section{Jacobian Determinant for Polar}
-\label{sec:org059f24c}
+\label{sec:orgf10b71f}
 We are to determine (pun not intended) the polar correction factor for a double integral, \(dA= r\ dr\ d\theta\).
 
 To do this, we will have to first figure the change of bases expressions such that we can take:
@@ -107,7 +107,7 @@ And therefore, the change-of-basis result would be:
 \end{equation}
 
 \section{Jacobian Determinant for Spherical}
-\label{sec:orgade69ad}
+\label{sec:orge18ac06}
 We again need to figure a correction factor for \(dx\ dy\ dz = \rho^2\ \sin\phi\ d\rho\ d\theta\ d\phi\).
 
 We therefore have to figure a change of bases for the expression:
@@ -150,7 +150,7 @@ Not quite sure why Sage didn't simply \((-\rho)^2\) into \(\rho^2\), but, we can
 \end{equation}
 
 \section{Surface area in polar}
-\label{sec:orgaf88de5}
+\label{sec:org648d1bc}
 Given the fact that:
 
 \begin{equation}
@@ -201,21 +201,11 @@ We have, trivially:
 \frac{\partial r}{\partial x} = \frac{1}{cos\theta}
 \end{equation}
 
+Therefore:
 
+\begin{equation}
+   \frac{\partial f}{\partial x} = -\frac{\partial f}{\partial \theta}\cdot \frac{1}{r\sin\theta} + \frac{\partial f}{\partial r}\cdot \frac{1}{\cos\theta}
+\end{equation}
 
-Taking its partial derivative by \(x\):
-
-\begin{verbatim}
-pft,pfr,t = var("pft pfr t")
-
-f(x,r)= arccos(x/r)
-expand((pft*(f.diff(x)) + pfr/cos(t))^2)
-\end{verbatim}
-
-We can continue this chain of relations:
-
-\begin{verbatim}
-f(y,r)= arcsin(y/r)
-f.diff(y)
-\end{verbatim}
+We can repeat this for \(y\):
 \end{document}
