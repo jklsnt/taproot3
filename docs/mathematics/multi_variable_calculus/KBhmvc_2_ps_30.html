@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-05-26 Thu 23:27 -->
+<!-- 2022-05-26 Thu 23:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MVC 2 PS#30</title>
@@ -270,15 +270,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3618d56">1. Jacobian Determinant for Polar</a></li>
-<li><a href="#org75e5965">2. Jacobian Determinant for Spherical</a></li>
-<li><a href="#org3b7db4e">3. Surface area in polar</a></li>
+<li><a href="#orgf603591">1. Jacobian Determinant for Polar</a></li>
+<li><a href="#orgd245801">2. Jacobian Determinant for Spherical</a></li>
+<li><a href="#org20a4534">3. Surface area in polar</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org3618d56" class="outline-2">
-<h2 id="org3618d56"><span class="section-number-2">1</span> Jacobian Determinant for Polar</h2>
+<div id="outline-container-orgf603591" class="outline-2">
+<h2 id="orgf603591"><span class="section-number-2">1</span> Jacobian Determinant for Polar</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We are to determine (pun not intended) the polar correction factor for a double integral, \(dA= r\ dr\ d\theta\).
@@ -340,8 +340,8 @@ And therefore, the change-of-basis result would be:
 </div>
 </div>
 
-<div id="outline-container-org75e5965" class="outline-2">
-<h2 id="org75e5965"><span class="section-number-2">2</span> Jacobian Determinant for Spherical</h2>
+<div id="outline-container-orgd245801" class="outline-2">
+<h2 id="orgd245801"><span class="section-number-2">2</span> Jacobian Determinant for Spherical</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We again need to figure a correction factor for \(dx\ dy\ dz = \rho^2\ \sin\phi\ d\rho\ d\theta\ d\phi\).
@@ -397,8 +397,8 @@ Not quite sure why Sage didn't simply \((-\rho)^2\) into \(\rho^2\), but, we can
 </div>
 </div>
 
-<div id="outline-container-org3b7db4e" class="outline-2">
-<h2 id="org3b7db4e"><span class="section-number-2">3</span> Surface area in polar</h2>
+<div id="outline-container-org20a4534" class="outline-2">
+<h2 id="org20a4534"><span class="section-number-2">3</span> Surface area in polar</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Given the fact that:
@@ -451,9 +451,19 @@ To actually figure this, then, we have to find expressions for each of the right
 Take, first, \(\frac{\partial \theta}{\partial x}\); we have:
 </p>
 
-\begin{equation}
-   x = r\ cos\theta 
-\end{equation}
+\begin{align}
+   &x = r\ cos\theta \\
+\Rightarrow &\theta = arccos\left(\frac{x}{r}\right)
+\end{align}
+
+<p>
+Taking its partial derivative by \(x\):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">f(r,t) = arccos(x/r)
+</pre>
+</div>
 </div>
 </div>
 </div>
