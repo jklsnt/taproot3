@@ -33,9 +33,11 @@ some convex function g:
 			- then 2/3 group having income over $200,000 is **impossible**
 				- instead, the maximum fraction of people over $200,000 is 1/2
 				- or, $P(|X| > a) < \frac{E(|X|)}{a}$ 
+					- a > 0 
 
 
-
+## chebychev inequality 
+$P(|X - \mu| > a) <
 
 
 
