@@ -23,6 +23,8 @@ given a [[KBxRandomVariables]] $X$,
 some convex function g:
 	$E(g(X) \geq g(E(X))$
 
+> **convex** :: concave up
+> 	equivalent to second derivative being ≥ 0
 
 
 
