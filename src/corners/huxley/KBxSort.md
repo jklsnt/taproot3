@@ -38,10 +38,13 @@ function Box(props) {
   <Box position={[4, 0, 0]} />
 </Canvas>
 ```
+
 ```jsx:
-<div style={{text: "center"}}>oh no</div>
+<div style={{textAlign: "center", fontStyle: "italic"}}>oh no</div>
 ```
+
 ***
+
 
  this is better because you dont even need to think about escaping. try, see if can change muscle mem? https://github.com/zhou13/vim-easyescape
 
