@@ -20,6 +20,8 @@ looks good to me
 @normal
 @normal 
 yeet 
+\`\`\` 
+```whee!
 # Data! Topology!
 *what more can you ask for?*
 ## readings
