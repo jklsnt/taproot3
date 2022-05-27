@@ -8,7 +8,7 @@ react-components-namespace: g
 return <div>Hewwo {props.name}!</div>
 ```
 
-```jsx
+```jsx:
 import { Canvas, useFrame } from 'https://cdn.skypack.dev/react-three-fiber'
 
 function Box(props) {
