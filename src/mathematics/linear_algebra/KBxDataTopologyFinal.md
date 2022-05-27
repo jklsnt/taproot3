@@ -44,7 +44,8 @@ column operations ←> changing basis for the domain
 a nice formula for counting dimension? i dont understand why this is the case.
 
 - computing homology is as simple as counting pivots in the simutaniously-reduced matricies
-	- 
+	- this man also provides code to straight up find the betti number
+- 
 
 
 
