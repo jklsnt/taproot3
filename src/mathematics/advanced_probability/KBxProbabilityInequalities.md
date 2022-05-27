@@ -17,7 +17,11 @@ date: 2022-05-27
 			- E(Y^2) = Var(Y)
 		- which means that $|\text{Corr}(X, Y)| \leq 1$
 
+## jensen's inequality
+given a [[KBxRandomVariables]] $X$,
 
+some convex function g:
+	$E(g(X) \geq g(E(X))$
 
 
 
