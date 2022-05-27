@@ -1,7 +1,7 @@
 n
 ***
 
- https://jeremykun.com math $\cup$
+ https://jeremykun.com "math $\cap$ programming"
 
 ***
 
