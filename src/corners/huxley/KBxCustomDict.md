@@ -4,4 +4,4 @@ ooga|booga
 test|akldfj%%
 
 yeet||@normal
-```||end
+```<CARET>||end
