@@ -3,4 +3,7 @@ nmap k gk
 
 unmap <Space>
 
-nmap <Space>t :obcommand editor:toggle-comment
+exmap comment obcommand editor:toggle-comment
+nmap <Space>t :comment
+
+imap jf <Esc>
