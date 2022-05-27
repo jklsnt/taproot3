@@ -263,22 +263,22 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#30</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-26 Thu 23:37</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#30</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-26 Thu 23:38</date></div>
 </div>
 <div id="content">
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf805eea">1. Jacobian Determinant for Polar</a></li>
-<li><a href="#org413e261">2. Jacobian Determinant for Spherical</a></li>
-<li><a href="#org906f196">3. Surface area in polar</a></li>
+<li><a href="#orgcd12da0">1. Jacobian Determinant for Polar</a></li>
+<li><a href="#org2e5ff04">2. Jacobian Determinant for Spherical</a></li>
+<li><a href="#org169a963">3. Surface area in polar</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf805eea" class="outline-2">
-<h2 id="orgf805eea"><span class="section-number-2">1</span> Jacobian Determinant for Polar</h2>
+<div id="outline-container-orgcd12da0" class="outline-2">
+<h2 id="orgcd12da0"><span class="section-number-2">1</span> Jacobian Determinant for Polar</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We are to determine (pun not intended) the polar correction factor for a double integral, \(dA= r\ dr\ d\theta\).
@@ -340,8 +340,8 @@ And therefore, the change-of-basis result would be:
 </div>
 </div>
 
-<div id="outline-container-org413e261" class="outline-2">
-<h2 id="org413e261"><span class="section-number-2">2</span> Jacobian Determinant for Spherical</h2>
+<div id="outline-container-org2e5ff04" class="outline-2">
+<h2 id="org2e5ff04"><span class="section-number-2">2</span> Jacobian Determinant for Spherical</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We again need to figure a correction factor for \(dx\ dy\ dz = \rho^2\ \sin\phi\ d\rho\ d\theta\ d\phi\).
@@ -397,8 +397,8 @@ Not quite sure why Sage didn't simply \((-\rho)^2\) into \(\rho^2\), but, we can
 </div>
 </div>
 
-<div id="outline-container-org906f196" class="outline-2">
-<h2 id="org906f196"><span class="section-number-2">3</span> Surface area in polar</h2>
+<div id="outline-container-org169a963" class="outline-2">
+<h2 id="org169a963"><span class="section-number-2">3</span> Surface area in polar</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Given the fact that:
@@ -461,10 +461,10 @@ Taking its partial derivative by \(x\):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sage">pft,pfr = var("pft pfr t")
+<pre class="src src-sage">pft,pfr,t = var("pft pfr t")
 
 f(x,r)= arccos(x/r)
-pft*(f.diff(x)) + 1/cos(t)
+expand((pft*(f.diff(x)) + pfr/cos(t))^2)
 </pre>
 </div>
 

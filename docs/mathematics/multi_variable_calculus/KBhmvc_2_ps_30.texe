@@ -61,7 +61,7 @@
 
 
 \section{Jacobian Determinant for Polar}
-\label{sec:orgca70363}
+\label{sec:org3144d3c}
 We are to determine (pun not intended) the polar correction factor for a double integral, \(dA= r\ dr\ d\theta\).
 
 To do this, we will have to first figure the change of bases expressions such that we can take:
@@ -107,7 +107,7 @@ And therefore, the change-of-basis result would be:
 \end{equation}
 
 \section{Jacobian Determinant for Spherical}
-\label{sec:org05391fe}
+\label{sec:orgb90c1e9}
 We again need to figure a correction factor for \(dx\ dy\ dz = \rho^2\ \sin\phi\ d\rho\ d\theta\ d\phi\).
 
 We therefore have to figure a change of bases for the expression:
@@ -150,7 +150,7 @@ Not quite sure why Sage didn't simply \((-\rho)^2\) into \(\rho^2\), but, we can
 \end{equation}
 
 \section{Surface area in polar}
-\label{sec:org4ab07da}
+\label{sec:org16b09e0}
 Given the fact that:
 
 \begin{equation}
@@ -194,10 +194,10 @@ Take, first, \(\frac{\partial \theta}{\partial x}\); we have:
 Taking its partial derivative by \(x\):
 
 \begin{verbatim}
-pft,pfr = var("pft pfr t")
+pft,pfr,t = var("pft pfr t")
 
 f(x,r)= arccos(x/r)
-pft*(f.diff(x)) + 1/cos(t)
+expand((pft*(f.diff(x)) + pfr/cos(t))^2)
 \end{verbatim}
 
 We can continue this chain of relations:

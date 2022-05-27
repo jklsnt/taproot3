@@ -142,14 +142,14 @@ Take, first, $\frac{\partial \theta}{\partial x}$; we have:
 Taking its partial derivative by $x$:
 
 #+begin_src sage
-pft,pfr = var("pft pfr t")
+pft,pfr,t = var("pft pfr t")
 
 f(x,r)= arccos(x/r)
-pft*(f.diff(x)) + 1/cos(t)
+expand((pft*(f.diff(x)) + pfr/cos(t))^2)
 #+end_src
 
 #+RESULTS:
-: (x, r) |--> -1/(r*sqrt(-x^2/r^2 + 1))
+: (x, r) |--> pfr^2/cos(t)^2 - 2*pfr*pft/(r*sqrt(-x^2/r^2 + 1)*cos(t)) - pft^2/(r^2*(x^2/r^2 - 1))
 
 We can continue this chain of relations:
 
