@@ -1,6 +1,10 @@
 n
 ***
 
+ $x = 0.999$
+
+***
+
  https://jeremykun.com "math $\cap$ programming"
 
 ***
