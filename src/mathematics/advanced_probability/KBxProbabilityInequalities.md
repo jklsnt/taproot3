@@ -27,6 +27,16 @@ some convex function g:
 > 	equivalent to second derivative being ≥ 0
 
 ## markovs inequality 
+- consider a setup where
+	- you ask a bunch of people what their income is
+		- you get an average of $100,000
+
+
+
+
+
+
+
 
 
 
