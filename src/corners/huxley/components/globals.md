@@ -48,6 +48,7 @@ function Box(props) {
 
 ```
 ```jsx:component:C
+ import moment from 'https://cdn.skypack.dev/moment'; 
  const [date, setDate] = useState(new Date());
  useEffect(() => {
   var timerID = setInterval( () => setDate(new Date()), 1000 );
@@ -57,6 +58,7 @@ function Box(props) {
  });
 return (
   <div>
+  {moment().valueOf()}
   </div>
 ); 
 ```
