@@ -57,4 +57,8 @@ a nice formula for counting dimension? i dont understand why this is the case.
 - to navigate to higher dimensions we can create an SIM (signed incidence matrix) out of edges and *triangles*
 	- ie. a higher-dimensional simplex
 
+## some definitions
+- $\partial(\text{edge}) = \text{final point} - \text{initial point}$
+	- same thing as the vector representation 
+
 
