@@ -29,3 +29,4 @@ fre
 
 can we equate free will with randomness determinism
  commo
+defines theorem suffering 
