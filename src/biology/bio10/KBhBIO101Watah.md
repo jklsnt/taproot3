@@ -17,7 +17,7 @@ source: KBBiologyMasterIndex
 
 See [[KBhBIO101BondingReview]], bonding review
 
-[[Test]]
+[[globals]]
 
 ## Why is ice less dense? 
 * Freezing usually bring new ordering of molecules to make it paced
