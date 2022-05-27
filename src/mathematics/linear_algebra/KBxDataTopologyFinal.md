@@ -47,7 +47,8 @@ a nice formula for counting dimension? i dont understand why this is the case.
 	- this man also provides code to straight up find the betti number
 - 
 
-
+### homology using linear algebra
+→ [article](https://osebje.famnit.upr.si/~russ.woodroofe/joshua-dean.pdf)
 
 
 
