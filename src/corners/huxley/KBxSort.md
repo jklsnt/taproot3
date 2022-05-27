@@ -1,6 +1,10 @@
 n
 ***
 
+ this is better because you dont even need to think about escaping. try, see if can change muscle mem? https://github.com/zhou13/vim-easyescape
+
+***
+
  might be interesting: obsidian://show-plugin?id=obsidian-latex-suite 
  better than the current plugin?
 
