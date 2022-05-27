@@ -26,3 +26,6 @@ what even is free will? what is will?
 can we equate free will with randomness (ie. lack of determinism)?
 
 fre
+
+can we equate free will with randomness determinism
+ commo
