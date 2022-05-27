@@ -61,7 +61,7 @@
 
 
 \section{Jacobian Determinant for Polar}
-\label{sec:orgd955b33}
+\label{sec:orgc2e5cf2}
 We are to determine (pun not intended) the polar correction factor for a double integral, \(dA= r\ dr\ d\theta\).
 
 To do this, we will have to first figure the change of bases expressions such that we can take:
@@ -107,7 +107,7 @@ And therefore, the change-of-basis result would be:
 \end{equation}
 
 \section{Jacobian Determinant for Spherical}
-\label{sec:org745fd7e}
+\label{sec:orge097760}
 We again need to figure a correction factor for \(dx\ dy\ dz = \rho^2\ \sin\phi\ d\rho\ d\theta\ d\phi\).
 
 We therefore have to figure a change of bases for the expression:
@@ -150,7 +150,7 @@ Not quite sure why Sage didn't simply \((-\rho)^2\) into \(\rho^2\), but, we can
 \end{equation}
 
 \section{Surface area in polar}
-\label{sec:org01ce485}
+\label{sec:org452909a}
 Given the fact that:
 
 \begin{equation}
@@ -229,6 +229,15 @@ We have, trivially:
 Therefore:
 
 \begin{equation}
-   \frac{\partial f}{\partial x} = \frac{\partial f}{\partial \theta}\cdot \frac{1}{r\cos\theta} + \frac{\partial f}{\partial r}\cdot \frac{1}{\sin\theta}
+   \frac{\partial f}{\partial y} = \frac{\partial f}{\partial \theta}\cdot \frac{1}{r\cos\theta} + \frac{\partial f}{\partial r}\cdot \frac{1}{\sin\theta}
 \end{equation}
+
+Lastly, we recall that \(dx\ dy = r\ dr\ d\theta\)
+
+Finally, putting it all together:
+
+\begin{align}
+  dA &= \sqrt{1 + \left(\frac{\partial f}{\partial x}\right)^2 + \left(\frac{\partial f}{\partial y}\right)^2}\ dx\ dy\\
+&= \sqrt{1 + \left(\frac{\partial f}{\partial r}\cdot \frac{1}{\cos\theta}-\frac{\partial f}{\partial \theta}\right)^2 + \left(\frac{\partial f}{\partial \theta}\cdot \frac{1}{r\cos\theta} + \frac{\partial f}{\partial r}\cdot \frac{1}{\sin\theta}\right)^2}\ dx\ dy\\
+\end{align}
 \end{document}

@@ -1,11 +1,68 @@
-:PROPERTIES:
-:ID:       E6E7D8CC-AAD2-4C16-A851-C6FC4A6DB128
-:END:
-#+title: MVC 2 PS#30
-#+author: Houjun Liu
+% Created 2022-05-26 Thu 23:52
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{tikz}
+\usepackage{cancel}
+\usepackage{pgfplots}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = HelveticaNeue-Italic, BoldFont = HelveticaNeue-Bold, BoldItalicFont = HelveticaNeue-BoldItalic]{HelveticaNeue}
+\newfontfamily\NHLight[ItalicFont = HelveticaNeue-LightItalic, BoldFont       = HelveticaNeue-UltraLight, BoldItalicFont = HelveticaNeue-UltraLightItalic]{HelveticaNeue-Light}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Written} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Houjun Liu}
+\date{\today}
+\title{MVC 2 PS\#30}
+\hypersetup{
+ pdfauthor={Houjun Liu},
+ pdftitle={MVC 2 PS\#30},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.91 (Org mode 9.5.2)}, 
+ pdflang={English}}
+\begin{document}
 
-* Jacobian Determinant for Polar
-We are to determine (pun not intended) the polar correction factor for a double integral, $dA= r\ dr\ d\theta$.
+\maketitle
+\tableofcontents
+
+
+\section{Jacobian Determinant for Polar}
+\label{sec:org9d2dab1}
+We are to determine (pun not intended) the polar correction factor for a double integral, \(dA= r\ dr\ d\theta\).
 
 To do this, we will have to first figure the change of bases expressions such that we can take:
 
@@ -28,7 +85,7 @@ Therefore, we have that:
    f(x,y) = f(r\cos\theta, r\sin\theta) 
 \end{equation}
 
-And therefore, we can figure $J_{r,\theta}$:
+And therefore, we can figure \(J_{r,\theta}\):
 
 \begin{equation}
    J = \begin{bmatrix} 
@@ -49,8 +106,9 @@ And therefore, the change-of-basis result would be:
    dx\ dy = r\ dr\ d\theta 
 \end{equation}
 
-* Jacobian Determinant for Spherical
-We again need to figure a correction factor for $dx\ dy\ dz = \rho^2\ \sin\phi\ d\rho\ d\theta\ d\phi$.
+\section{Jacobian Determinant for Spherical}
+\label{sec:orgdd1c57f}
+We again need to figure a correction factor for \(dx\ dy\ dz = \rho^2\ \sin\phi\ d\rho\ d\theta\ d\phi\).
 
 We therefore have to figure a change of bases for the expression:
 
@@ -68,7 +126,7 @@ We can leverage the shape of the object to determine the parameterization:
 \end{cases}
 \end{equation}
 
-We will now figure the matrix for $J_{\rho, \theta, \phi}$:
+We will now figure the matrix for \(J_{\rho, \theta, \phi}\):
 
 \begin{equation}
    J = \begin{bmatrix} 
@@ -78,27 +136,30 @@ cos\phi & 0 & -\rho \sin \phi\\
 \end{bmatrix} 
 \end{equation}
 
- #+begin_src sage
+\begin{verbatim}
 var("rho phi theta")
 M = matrix([[sin(phi)*cos(theta), -rho*sin(phi)*sin(theta), rho*cos(phi)*cos(theta)], [sin(phi)*sin(theta), rho*sin(phi)*cos(theta), rho*cos(phi)*sin(theta)], [cos(phi), 0, -rho*sin(phi)]])
 M
 M.det().full_simplify()
- #+end_src
+\end{verbatim}
 
- #+RESULTS:
- : (rho, phi, theta)
- : [     cos(theta)*sin(phi) -rho*sin(phi)*sin(theta)  rho*cos(phi)*cos(theta)]
- : [     sin(phi)*sin(theta)  rho*cos(theta)*sin(phi)  rho*cos(phi)*sin(theta)]
- : [                cos(phi)                        0            -rho*sin(phi)]
- : -rho^2*sin(phi)
+\begin{verbatim}
+(rho, phi, theta)
+[     cos(theta)*sin(phi) -rho*sin(phi)*sin(theta)  rho*cos(phi)*cos(theta)]
+[     sin(phi)*sin(theta)  rho*cos(theta)*sin(phi)  rho*cos(phi)*sin(theta)]
+[                cos(phi)                        0            -rho*sin(phi)]
+-rho^2*sin(phi)
+\end{verbatim}
 
-Not quite sure why Sage didn't simply $(-\rho)^2$ into $\rho^2$, but, we can see that:
+
+Not quite sure why Sage didn't simply \((-\rho)^2\) into \(\rho^2\), but, we can see that:
 
 \begin{equation}
    dx\ dy\ dz = \rho^2\sin\phi\ d\rho\ d \theta\ d\phi 
 \end{equation}
 
-* Surface area in polar
+\section{Surface area in polar}
+\label{sec:orgdcd8111}
 Given the fact that:
 
 \begin{equation}
@@ -107,7 +168,7 @@ Given the fact that:
 
 We are to figure the corresponding for a function in polar.
 
-I suppose we can work this out as if we are doing traditional u-substitution: that is, we are to find a function that corrects for the correction factor as well as the $dx$ and $dy$ components.
+I suppose we can work this out as if we are doing traditional u-substitution: that is, we are to find a function that corrects for the correction factor as well as the \(dx\) and \(dy\) components.
 
 Recall again, that:
 
@@ -132,7 +193,7 @@ and,
 
 To actually figure this, then, we have to find expressions for each of the rightward partials.
 
-Take, first, $\frac{\partial \theta}{\partial x}$; we have:
+Take, first, \(\frac{\partial \theta}{\partial x}\); we have:
 
 \begin{align}
    &x = r\ cos\theta \\
@@ -141,7 +202,7 @@ Take, first, $\frac{\partial \theta}{\partial x}$; we have:
 \Rightarrow &\frac{\partial \theta}{\partial x} = \frac{-1}{r\ sin\theta} 
 \end{align}
 
-Furthermore, for $\frac{\partial r}{\partial x}$
+Furthermore, for \(\frac{\partial r}{\partial x}\)
 
 We have, trivially:
 
@@ -155,9 +216,9 @@ Therefore:
    \frac{\partial f}{\partial x} = -\frac{\partial f}{\partial \theta}\cdot \frac{1}{r\sin\theta} + \frac{\partial f}{\partial r}\cdot \frac{1}{\cos\theta}
 \end{equation}
 
-We can repeat this for $y$:
+We can repeat this for \(y\):
 
-For $\frac{\partial \theta}{\partial y}$; we have:
+For \(\frac{\partial \theta}{\partial y}\); we have:
 
 \begin{align}
    &y = r\ sin\theta \\
@@ -166,7 +227,7 @@ For $\frac{\partial \theta}{\partial y}$; we have:
 \Rightarrow &\frac{\partial \theta}{\partial x} = \frac{1}{r\ cos\theta} 
 \end{align}
 
-Furthermore, for $\frac{\partial r}{\partial y}$
+Furthermore, for \(\frac{\partial r}{\partial y}\)
 
 We have, trivially:
 
@@ -180,13 +241,12 @@ Therefore:
    \frac{\partial f}{\partial y} = \frac{\partial f}{\partial \theta}\cdot \frac{1}{r\cos\theta} + \frac{\partial f}{\partial r}\cdot \frac{1}{\sin\theta}
 \end{equation}
 
-Lastly, we recall that $dx\ dy = r\ dr\ d\theta$
+Lastly, we recall that \(dx\ dy = r\ dr\ d\theta\)
 
 Finally, putting it all together:
 
-
 \begin{align}
-  &dA = \sqrt{1 + \left(\frac{\partial f}{\partial x}\right)^2 + \left(\frac{\partial f}{\partial y}\right)^2}\ dx\ dy\\
-\Right
+  dA &= \sqrt{1 + \left(\frac{\partial f}{\partial x}\right)^2 + \left(\frac{\partial f}{\partial y}\right)^2}\ dx\ dy\\
+&= \sqrt{1 + \left(\frac{\partial f}{\partial r}\cdot \frac{1}{\cos\theta}-\frac{\partial f}{\partial \theta}\right)^2 + \left(\frac{\partial f}{\partial \theta}\cdot \frac{1}{r\cos\theta} + \frac{\partial f}{\partial r}\cdot \frac{1}{\sin\theta}\right)^2}\ dx\ dy\\
 \end{align}
-
+\end{document}

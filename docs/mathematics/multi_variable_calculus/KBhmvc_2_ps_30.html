@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-05-26 Thu 23:51 -->
+<!-- 2022-05-26 Thu 23:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MVC 2 PS#30</title>
@@ -263,22 +263,22 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#30</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-26 Thu 23:51</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#30</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-05-26 Thu 23:53</date></div>
 </div>
 <div id="content">
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org99ebee7">1. Jacobian Determinant for Polar</a></li>
-<li><a href="#org6709e88">2. Jacobian Determinant for Spherical</a></li>
-<li><a href="#org88122b7">3. Surface area in polar</a></li>
+<li><a href="#org18194b0">1. Jacobian Determinant for Polar</a></li>
+<li><a href="#org1c767a4">2. Jacobian Determinant for Spherical</a></li>
+<li><a href="#org5c4d43a">3. Surface area in polar</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org99ebee7" class="outline-2">
-<h2 id="org99ebee7"><span class="section-number-2">1</span> Jacobian Determinant for Polar</h2>
+<div id="outline-container-org18194b0" class="outline-2">
+<h2 id="org18194b0"><span class="section-number-2">1</span> Jacobian Determinant for Polar</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We are to determine (pun not intended) the polar correction factor for a double integral, \(dA= r\ dr\ d\theta\).
@@ -340,8 +340,8 @@ And therefore, the change-of-basis result would be:
 </div>
 </div>
 
-<div id="outline-container-org6709e88" class="outline-2">
-<h2 id="org6709e88"><span class="section-number-2">2</span> Jacobian Determinant for Spherical</h2>
+<div id="outline-container-org1c767a4" class="outline-2">
+<h2 id="org1c767a4"><span class="section-number-2">2</span> Jacobian Determinant for Spherical</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We again need to figure a correction factor for \(dx\ dy\ dz = \rho^2\ \sin\phi\ d\rho\ d\theta\ d\phi\).
@@ -397,8 +397,8 @@ Not quite sure why Sage didn't simply \((-\rho)^2\) into \(\rho^2\), but, we can
 </div>
 </div>
 
-<div id="outline-container-org88122b7" class="outline-2">
-<h2 id="org88122b7"><span class="section-number-2">3</span> Surface area in polar</h2>
+<div id="outline-container-org5c4d43a" class="outline-2">
+<h2 id="org5c4d43a"><span class="section-number-2">3</span> Surface area in polar</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Given the fact that:
@@ -510,8 +510,21 @@ Therefore:
 </p>
 
 \begin{equation}
-   \frac{\partial f}{\partial x} = \frac{\partial f}{\partial \theta}\cdot \frac{1}{r\cos\theta} + \frac{\partial f}{\partial r}\cdot \frac{1}{\sin\theta}
+   \frac{\partial f}{\partial y} = \frac{\partial f}{\partial \theta}\cdot \frac{1}{r\cos\theta} + \frac{\partial f}{\partial r}\cdot \frac{1}{\sin\theta}
 \end{equation}
+
+<p>
+Lastly, we recall that \(dx\ dy = r\ dr\ d\theta\)
+</p>
+
+<p>
+Finally, putting it all together:
+</p>
+
+\begin{align}
+  dA &= \sqrt{1 + \left(\frac{\partial f}{\partial x}\right)^2 + \left(\frac{\partial f}{\partial y}\right)^2}\ dx\ dy\\
+&= \sqrt{1 + \left(\frac{\partial f}{\partial r}\cdot \frac{1}{\cos\theta}-\frac{\partial f}{\partial \theta}\right)^2 + \left(\frac{\partial f}{\partial \theta}\cdot \frac{1}{r\cos\theta} + \frac{\partial f}{\partial r}\cdot \frac{1}{\sin\theta}\right)^2}\ dx\ dy\\
+\end{align}
 </div>
 </div>
 </div>
