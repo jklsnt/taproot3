@@ -65,7 +65,13 @@ a nice formula for counting dimension? i dont understand why this is the case.
 
 
 
+```js
+function hello(name){
+    console.log(`Hello ${name}!`);
+}
 
+hello("Bob")
+```
 
 
 
