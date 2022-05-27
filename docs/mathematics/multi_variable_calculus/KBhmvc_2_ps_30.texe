@@ -1,4 +1,4 @@
-% Created 2022-05-26 Thu 22:47
+% Created 2022-05-26 Thu 22:48
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -61,7 +61,7 @@
 
 
 \section{Jacobian Determinant for Polar}
-\label{sec:orgd4bf41c}
+\label{sec:org9a31c3b}
 We are to determine (pun not intended) the polar correction factor for a double integral, \(dA= r\ dr\ d\theta\).
 
 To do this, we will have to first figure the change of bases expressions such that we can take:
@@ -107,7 +107,7 @@ And therefore, the change-of-basis result would be:
 \end{equation}
 
 \section{Jacobian Determinant for Spherical}
-\label{sec:orgd3b4cf4}
+\label{sec:orgefc7c61}
 We again need to figure a correction factor for \(dx\ dy\ dz = \rho^2\ \sin\phi\ d\rho\ d\theta\ d\phi\).
 
 We therefore have to figure a change of bases for the expression:
@@ -122,7 +122,7 @@ We can leverage the shape of the object to determine the parameterization:
    \begin{cases}
    x = \rho\cos\phi\cos\theta \\
    y = \rho\cos\phi\sin\theta \\
-   z = \rho\cos\phi \\
+   z = \rho\sin\phi \\
 \end{cases}
 \end{equation}
 
@@ -132,7 +132,7 @@ We will now figure the matrix for \(J_{\rho, \theta, \phi}\):
    J = \begin{bmatrix} 
 cos\phi\cos\theta & -\rho\ cos\phi\sin\theta & \rho\ cos\phi\cos\theta \\
 cos\phi\sin\theta & \rho\ cos\phi\cos\theta & \rho\ cos\phi\sin\theta \\
-cos\phi & 0 & -\rho \sin \phi\\
+sin\phi & 0 & \rho \cos \phi\\
 \end{bmatrix} 
 \end{equation}
 
