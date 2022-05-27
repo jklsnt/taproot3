@@ -58,16 +58,3 @@ a nice formula for counting dimension? i dont understand why this is the case.
 	- ie. a higher-dimensional simplex
 
 
-
-
-
-[[KBxSort]]
-
-
-
-```cpp
-#include <iostream>
-int main() { cout << "yuh."; }
-```
-
-
