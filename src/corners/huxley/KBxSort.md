@@ -1,7 +1,7 @@
 n
 ***
 
-```jsx:
+```jsx // add a : to activate
 <g.C />
 ```
 
