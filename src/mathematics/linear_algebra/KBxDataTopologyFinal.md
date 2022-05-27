@@ -38,7 +38,7 @@ no that doesn't make sense..
 row operations ←> changing basis for the range
 column operations ←> changing basis for the domain
 
-
+we can change into rref, look at the pivot collumns (the ones which inform the dim of the range) 
 
 
 
