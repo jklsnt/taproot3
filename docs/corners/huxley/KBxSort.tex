@@ -1,4 +1,4 @@
-% Created 2022-05-26 Thu 22:17
+% Created 2022-05-26 Thu 22:19
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -62,7 +62,21 @@ n \textbf{*}
 
 \begin{verbatim}
 import moment from 'https://cdn.skypack.dev/moment';
-<div>{moment().minutes(0).second(2).format('m:ss')}</div>
+<div>{moment().valueOf()}</div>
+\end{verbatim}
+
+\begin{verbatim}
+const [date, setDate] = useState(new Date());
+useEffect(() => {
+ var timerID = setInterval( () => setDate(new Date()), 1000 );
+ return function cleanup() {
+     clearInterval(timerID);
+   };
+});
+ <div>
+   <h1>Hello, world!</h1>
+   <h2>It is {date.toLocaleTimeString()}.</h2>
+ </div>
 \end{verbatim}
 
 \noindent\rule{\textwidth}{0.5pt}
@@ -461,7 +475,7 @@ good scoring in this scene. use for later}
 \noindent\rule{\textwidth}{0.5pt}
 
 \section{moonshot}
-\label{sec:org5e530ac}
+\label{sec:orgab20005}
 Google X Moonshot. Dream job?
 
 \noindent\rule{\textwidth}{0.5pt}

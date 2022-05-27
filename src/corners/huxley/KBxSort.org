@@ -8,7 +8,21 @@ n ***
 
 #+begin_example
 import moment from 'https://cdn.skypack.dev/moment';
-<div>{moment().minutes(0).second(2).format('m:ss')}</div>
+<div>{moment().valueOf()}</div>
+#+end_example
+
+#+begin_example
+ const [date, setDate] = useState(new Date());
+ useEffect(() => {
+  var timerID = setInterval( () => setDate(new Date()), 1000 );
+  return function cleanup() {
+      clearInterval(timerID);
+    };
+ });
+  <div>
+    <h1>Hello, world!</h1>
+    <h2>It is {date.toLocaleTimeString()}.</h2>
+  </div>
 #+end_example
 
 --------------
