@@ -35,7 +35,7 @@ function Box(props) {
   )
 }
 
-export default function App() {
+const Test = () => {
   return (
     <Canvas>
       <ambientLight intensity={0.5} />
