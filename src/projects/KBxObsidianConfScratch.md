@@ -17,3 +17,6 @@ date: 2022-05-27
 ## general ideas
 - easily graphing functions?
 
+## to configure
+[https://github.com/Exr0nProjects/obsidian-sage](https://github.com/Exr0nProjects/obsidian-sage "https://github.com/Exr0nProjects/obsidian-sage")
+
