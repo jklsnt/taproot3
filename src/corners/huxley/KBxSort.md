@@ -39,7 +39,7 @@ function Box(props) {
 </Canvas>
 ```
 ```jsx:
-return <div>oh no </div>
+<div style={{text: "center"}}>oh no</div>
 ```
 ***
 

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-05-26 Thu 22:04 -->
+<!-- 2022-05-26 Thu 22:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -277,6 +277,47 @@
 n <b>*</b>
 </p>
 
+<pre class="example" id="org29c5cd2">
+import { Canvas, useFrame } from 'https://cdn.skypack.dev/react-three-fiber'
+
+function Box(props) {
+  // This reference gives us direct access to the THREE.Mesh object
+  const ref = useRef()
+  // Hold state for hovered and clicked events
+  const [hovered, hover] = useState(false)
+  const [clicked, click] = useState(false)
+  // Subscribe this component to the render-loop, rotate the mesh every frame
+  useFrame((state, delta) =&gt; (ref.current.rotation.x += 0.01))
+  // Return the view, these are regular Threejs elements expressed in JSX
+  return (
+    &lt;mesh
+      {...props}
+      ref={ref}
+      scale={clicked ? 1.5 : 1}
+      onClick={(event) =&gt; click(!clicked)}
+      onPointerOver={(event) =&gt; hover(true)}
+      onPointerOut={(event) =&gt; hover(false)}&gt;
+      &lt;boxGeometry args={[1, 1, 1]} /&gt;
+      &lt;meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} /&gt;
+    &lt;/mesh&gt;
+  )
+}
+
+&lt;Canvas&gt;
+  &lt;ambientLight intensity={0.5} /&gt;
+  &lt;spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} /&gt;
+  &lt;pointLight position={[-10, -10, -10]} /&gt;
+  &lt;Box position={[-1.2, 0, 0]} /&gt;
+  &lt;Box position={[-1.2, 2, 0]} /&gt;
+  &lt;Box position={[1.2, 0, 0]} /&gt;
+  &lt;Box position={[4, 0, 0]} /&gt;
+&lt;/Canvas&gt;
+</pre>
+
+<pre class="example" id="org85cbce4">
+return &lt;div&gt;oh no &lt;/div&gt;
+</pre>
+
 <hr />
 
 <p>
@@ -512,7 +553,7 @@ can't tell you anything about any of its parts."
 
 <hr />
 
-<pre class="example" id="orge8b40c9">
+<pre class="example" id="org9dd6d9d">
 dbg!(foo) // the superior way to print debug in rust.
 // no more wack dedub traik prinln!-ing!
 </pre>
@@ -1003,7 +1044,7 @@ new note
 
 <hr />
 
-<pre class="example" id="orgb086f88">
+<pre class="example" id="org4d85756">
 CodeMirror.Vim.map('jf', '&lt;Esc&gt;', 'insert')
 CodeMirror.Vim.map('j', 'gj', 'normal')
 CodeMirror.Vim.map('k', 'gk', 'normal')
