@@ -16,6 +16,7 @@ akldfj
 looks good to me 
 
 looks good to me
+@normal
 # Data! Topology!
 *what more can you ask for?*
 ## readings
