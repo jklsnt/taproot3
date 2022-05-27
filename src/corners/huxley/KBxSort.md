@@ -1,6 +1,13 @@
 n
 ***
 
+ - one
+	 - two
+	 - three
+		 - four
+
+***
+
 super clean proof that $1 = 0. \overline{999}$:
 $$x = 0.\overline{999}$$
 $$10x = 9.\overline{999}$$
