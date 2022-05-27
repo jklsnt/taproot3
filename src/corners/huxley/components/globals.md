@@ -51,7 +51,7 @@ function Box(props) {
  import moment from 'https://cdn.skypack.dev/moment'; 
  const [date, setDate] = useState(new Date());
  useEffect(() => {
-  var timerID = setInterval( () => setDate(new Date()), 1000 );
+  var timerID = setInterval( () => setDate(new Date()), 100 );
   return function cleanup() {
       clearInterval(timerID);
     };

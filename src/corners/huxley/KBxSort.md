@@ -2,12 +2,6 @@ n
 ***
 
 ```jsx:
-import moment from 'https://cdn.skypack.dev/moment';
-<div>{moment().valueOf()}</div>
-```
-
-
-```jsx:
 <g.C />
 ```
 
