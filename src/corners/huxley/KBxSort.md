@@ -1,6 +1,10 @@
 n
 ***
 
+ https://jeremykun.com math $\cup$
+
+***
+
  sneak vim plugin https://www.youtube.com/watch?v=HkY3LoQqKVA
 
 ***
