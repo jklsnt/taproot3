@@ -8,9 +8,13 @@ react-components-namespace: g
 return <div>Hewwo {props.name}!</div>
 ```
 
-```
-```jsx:component:MyComponent
-return <div>Hewwo {props.name}!</div>
+```jsx:component:Testin
+
+return ( 
+	<>
+		<div>Hewwo {props.name}!</div>
+	</>
+)
 ```
 
 
