@@ -88,7 +88,9 @@ int main() {
 }
 ```
 ```cpp
-end
+#include <iostream>
+int main() { std::cout << "yuh."; }
+```
 
 
 
