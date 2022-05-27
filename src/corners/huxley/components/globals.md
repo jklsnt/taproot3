@@ -8,6 +8,7 @@ react-components-namespace: g
 return <div>Hewwo {props.name}!</div>
 ```
 
+```
 ```jsx:component:Testin
 import { Canvas, useFrame } from 'https://cdn.skypack.dev/react-three-fiber'
 
@@ -34,7 +35,6 @@ function Box(props) {
   )
 }
 
-const Test = () => {
   return (
     <Canvas>
       <ambientLight intensity={0.5} />
