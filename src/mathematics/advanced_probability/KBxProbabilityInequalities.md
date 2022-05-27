@@ -28,7 +28,7 @@ some convex function g:
 
 if it is concave down, flip the inequality! 
 
-## markovs inequality 
+## markhovs inequality 
 - consider a setup where
 	- you ask a bunch of people what their income is
 		- you get an average of $100,000
