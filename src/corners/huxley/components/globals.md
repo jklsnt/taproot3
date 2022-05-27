@@ -9,7 +9,6 @@ return <div>Hewwo {props.name}!</div>
 ```
 
 ```jsx:component:Testin
-import { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 
 function Box(props) {
