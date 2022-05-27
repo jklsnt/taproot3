@@ -56,7 +56,10 @@ a nice formula for counting dimension? i dont understand why this is the case.
 		- also work as linear transformations between the edge space, denoted as $C_1$, and the vertex space $C_0$ 
 			- $\partial_{1}: C_{1} \to C_{0}$
 - trees have no cycles, which means they have no holes, at least in $\tilde{H_1}$
-- 
+- to navigate to higher dimensions we can create an SIM (signed incidence matrix) out of edges and *triangles*
+	- ie. a higher-dimensional simplex
+
+
 
 
 
