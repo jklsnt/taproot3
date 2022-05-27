@@ -59,5 +59,8 @@ a nice formula for counting dimension? i dont understand why this is the case.
 
 
 ```jsx:
-<g.MyComponent name={"World"}/>
+<>
+	<g.MyComponent name={"World"}/>
+	<g.MyComponent name={"World"}/>
+</>
 ```
