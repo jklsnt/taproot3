@@ -3,7 +3,7 @@ n
 
 ```jsx:
 import moment from 'https://cdn.skypack.dev/moment';
-<div>{moment()}</div>
+<div>{moment().format('dddd')</div>
 ```
 
 ***
