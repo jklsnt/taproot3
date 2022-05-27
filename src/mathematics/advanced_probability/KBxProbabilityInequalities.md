@@ -41,5 +41,3 @@ some convex function g:
 
 
 
-
-
