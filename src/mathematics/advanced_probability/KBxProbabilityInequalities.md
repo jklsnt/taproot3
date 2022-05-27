@@ -31,8 +31,8 @@ some convex function g:
 	- you ask a bunch of people what their income is
 		- you get an average of $100,000
 			- then 2/3 group having income over $200,000 is **impossible**
-				- instead, the maximum fraction of people over $200,000 is $(1212)/(x+12) $
-
+				- instead, the maximum fraction of people over $200,000 is 1/2
+				- or, $P(|X| > a) < \frac{E(|X|}}}{a}$ 
 
 
 
