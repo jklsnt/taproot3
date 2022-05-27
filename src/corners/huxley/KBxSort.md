@@ -3,6 +3,7 @@ n
 
 $x = 0.\overline{999}$
 $10x = 9.\overline{999}$
+$9x = 9.\overline{999}$
 ***
 
  https://jeremykun.com "math $\cap$ programming"
