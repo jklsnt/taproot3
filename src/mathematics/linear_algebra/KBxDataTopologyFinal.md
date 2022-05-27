@@ -41,6 +41,8 @@ column operations ←> changing basis for the domain
 - we can change into rref, look at the pivot collumns (the ones which inform the dim of the range)
 	- the span of the pivots represents the image, so we can use that as the denominator of our quotient group?
 
+a nice formula for counting dimension? i dont understand why this is the case.
+
 
 
 
