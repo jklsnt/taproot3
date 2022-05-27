@@ -12,4 +12,5 @@ date: 2022-05-27
 # Inequalities!
 
 ## cauchy-scharzt
-says that $|E(XY) $
+- says that $|E(XY)| \leq \sqrt{E(X)^{2}E(Y)^{2}}$
+	- 
