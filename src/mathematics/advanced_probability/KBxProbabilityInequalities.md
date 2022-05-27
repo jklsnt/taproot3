@@ -26,6 +26,8 @@ some convex function g:
 > **convex** :: concave up
 > 	equivalent to second derivative being ≥ 0
 
+if it is concave down, flip the inequality! 
+
 ## markovs inequality 
 - consider a setup where
 	- you ask a bunch of people what their income is
