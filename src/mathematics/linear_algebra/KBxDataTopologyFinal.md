@@ -8,7 +8,7 @@ date: 2022-05-26
 #flo #scratch  #inclass #hw
 
 ***
-
+cocktail ooga booga end 
 # Data! Topology!
 *what more can you ask for?*
 ## readings
