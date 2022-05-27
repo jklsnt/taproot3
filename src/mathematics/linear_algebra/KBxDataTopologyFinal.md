@@ -55,7 +55,8 @@ a nice formula for counting dimension? i dont understand why this is the case.
 	- this is also called a signed incidence matrix
 		- also work as linear transformations between the edge space, denoted as $C_1$, and the vertex space $C_0$ 
 			- $\partial_{1}: C_{1} \to C_{0}$
-		- 
+- trees have no cycles, which means they have no holes
+- 
 
 
 
