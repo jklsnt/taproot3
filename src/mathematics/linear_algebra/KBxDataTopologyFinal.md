@@ -64,8 +64,11 @@ a nice formula for counting dimension? i dont understand why this is the case.
 	$\partial(c) = x-z$
 
 
-fff
 
 ![[KBxDataTopologyFinal 2022-05-28 15.05.41.excalidraw]]
 
 
+
+
+
+![[KBxDataTopologyFinal 2022-05-28 15.17.46.excalidraw]]
