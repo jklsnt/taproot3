@@ -64,3 +64,5 @@ a nice formula for counting dimension? i dont understand why this is the case.
 	$\partial(c) = x-z$
 
 
+fff
+

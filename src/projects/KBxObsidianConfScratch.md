@@ -22,4 +22,6 @@ date: 2022-05-27
 ## to configure
 [https://github.com/Exr0nProjects/obsidian-sage](https://github.com/Exr0nProjects/obsidian-sage "https://github.com/Exr0nProjects/obsidian-sage")
 https://youtu.be/o0exK-xFP3k
+https://www.npmjs.com/package/desmos-react
+
 
