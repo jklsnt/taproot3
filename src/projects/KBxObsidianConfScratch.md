@@ -32,6 +32,7 @@ https://www.npmjs.com/package/desmos-react
 
 excalidraw https://youtu.be/o0exK-xFP3k
 
-
+## graveyard
+https://mauriciopoppe.github.io/function-plot/ :((
 
 

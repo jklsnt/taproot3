@@ -62,3 +62,22 @@ return (
   </div>
 ); 
 ```
+***
+```jsx:component:CurTest
+<div>hi </div>
+```
+```
+```jsx:component:TT
+import { nanoid } from 'https://cdn.skypack.dev/nanoid';
+// import * from 'https://cdn.skypack.dev/function-plot';
+var m = require("../ssfs/nanoid")
+
+let l = nanoid()
+return (
+<>
+<div> hiii {l} </div>
+</>
+)
+
+```
+

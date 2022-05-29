@@ -9,6 +9,8 @@ date: 2022-05-28
 
 ***
 
-```jsx:
-{window.location.pathname}
-```
+
+
+
+
+`jsx:<g.TT />`
