@@ -20,11 +20,11 @@ date: 2022-05-27
 - sectioning with `</end section>` component
 
 ## possibilities
-react components! + custom dict in varios complements for easy insert
+react components! + custom dict in various complements for easy insert
 
 ## to configure
 [https://github.com/Exr0nProjects/obsidian-sage](https://github.com/Exr0nProjects/obsidian-sage "https://github.com/Exr0nProjects/obsidian-sage")
-https://www.npmjs.com/package/desmos-react
+obsidian://show-plugin?id=obsidian-annotator
 
 > needs conf
 *** 
@@ -34,5 +34,5 @@ excalidraw https://youtu.be/o0exK-xFP3k
 
 ## graveyard
 https://mauriciopoppe.github.io/function-plot/ :((
-
+https://www.npmjs.com/package/desmos-react
 

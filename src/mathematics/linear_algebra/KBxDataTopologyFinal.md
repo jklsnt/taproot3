@@ -8,8 +8,8 @@ date: 2022-05-26
 #flo #scratch  #inclass #hw
 
 ***
-# Data! Topology!
-*what more can you ask for?*
+# Data! Topology! 
+*what more can you ask for?* 
 ## readings
 ### computing homology
 → [article](https://jeremykun.com/2013/04/10/computing-homology/)
@@ -62,9 +62,26 @@ a nice formula for counting dimension? i dont understand why this is the case.
 	- same thing as the vector representation 
 	- example:
 		- ![[KBxDataTopologyFinal 2022-05-28 15.05.41.excalidraw||200]]
+		- 
 			→ $\partial(c) = x-z$
 
 
 ## the plan
 
 ![[KBxDataTopologyFinal 2022-05-28 15.17.46.excalidraw]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -31,8 +31,8 @@ So all those lonely years of seeking and praying were not in vain! How glad I wa
 ## the reflection
 https://docs.google.com/document/d/1mDosJYUQiS4wSo57eOfNTd9DlwEfZ4NmzAAzBla4Das/edit
 
-
-
+### outlinin
+- some stuff about the
 
 
 
