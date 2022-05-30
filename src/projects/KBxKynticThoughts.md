@@ -14,8 +14,6 @@ date: 2022-01-08
 [the repo](https://github.com/TheEnquirer/kyntic)
 [the designs](https://www.figma.com/file/i2i4nugfhshJLqCwftb4wf/kyntic?node-id=0%3A1)
 
-
-
 gradient:
 https://cssgradient.io
 background: rgb(171,197,197);  

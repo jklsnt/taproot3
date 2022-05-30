@@ -54,6 +54,8 @@ looking at what happens if 1=2
 
 - wiki link-hover but global
 
+- shared numi style scratchpad the instant sync across devices w/ discord style groupchats?
+
 ## ctf 
 [[KBxPicoScratchpad]]
 
