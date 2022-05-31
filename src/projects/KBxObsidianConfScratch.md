@@ -14,10 +14,13 @@ date: 2022-05-27
 - creating new notes (a hassle)
 - naming conventions 
 - being able to start and end sections? not just start
+- linking to org files
 
 ## general ideas
 - easily graphing functions?
 - sectioning with `</end section>` component
+- daily org → md conversion
+- style links, cus rn they look kinda like trash. take inspo from https://mochi.cards links
 
 ## possibilities
 react components! + custom dict in various complements for easy insert

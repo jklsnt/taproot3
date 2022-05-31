@@ -55,9 +55,13 @@ date: 2021-12-26
 -  [I Don't Love You Anymore](https://www.youtube.com/watch?v=2e7_NaFiPQY&ab_channel=MR-StarkSan) - epic old song w/ lyrics and satisfying payoff
 -  [The Who - Baba O'riley](https://www.youtube.com/watch?v=x2KRpRMSu4g) really epic credits song
 -  Solitary Summer - Dylan Sitts: nice drop, kinda dark
+- [Your Choice - Fabiel Tell](https://www.youtube.com/watch?v=E6mLk0m4iA0&ab_channel=FabienTell-Topic) - brad outro song
+- [Here's Hoping](https://www.youtube.com/watch?v=RuddydvmGzI&ab_channel=FabienTell-Topic) - really upbeat happy instrumental music 
+	- feels like winning an adventure
 
 ## For working
 - [Limitless Dada Da Dada Da The Black Keys - Howlin' For You](https://www.youtube.com/watch?v=57TAXjGmiIc&ab_channel=0Daftpunks0) - the song from limitless. i mean, cmon
+- [fabien tell violin music](https://www.youtube.com/watch?v=2__B9Va3dQg&ab_channel=FabienTell-Topic) mans is epic
 
 ## Good uses
 https://www.youtube.com/watch?v=5UTnCf_Fg84 mc vid 
