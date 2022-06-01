@@ -142,6 +142,19 @@ Quarles then accentuated the positive: "... the Russians have in fact done us a 
 
 
 
+## final notes
+STRICLY introduce speakers (in hist).
+
+Mention what makes it special. "Leave the breadcrumbs!"
+
+
+Direct reader
+
+Show your work (thinking)
+-> delineate between yours and not yours
+
+
+
 
 ##########################
 
