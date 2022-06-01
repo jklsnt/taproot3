@@ -17,3 +17,17 @@ date: 2022-05-26
 	- look at the last medium shift, and draw connections to this modern one
 - elon buying twitter?
 - attention as commodity, like with [[KBxMA3PitchAPlayPlanning]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
