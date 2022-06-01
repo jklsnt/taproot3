@@ -99,6 +99,7 @@ source: #index
 $$S(h, \nu) \equiv \sum\limits_{i=1}^{N} \frac{[D_{i}-(h \cdot \nu_i - w)]^{2}}{\sigma_i^2}$$
 
 [[KBxRickWallaceTalk]]
+[[KBxBellsTheorems]]
 
 
 
