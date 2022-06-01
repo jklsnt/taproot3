@@ -142,20 +142,6 @@ Quarles then accentuated the positive: "... the Russians have in fact done us a 
 
 
 
-## final notes
-STRICLY introduce speakers (in hist).
-
-Mention what makes it special. "Leave the breadcrumbs!"
-
-
-Direct reader
-
-Show your work (thinking)
--> delineate between yours and not yours
-
-
-
-
 ##########################
 
 
@@ -233,6 +219,20 @@ sputnik launch was viewed as a good thing
 Despite the immense impact of the Sputnik launch, the popular narrative that drove this crisis was woven from lies. In reality, the Sputnik launch was not a surprise to the Eisenhower Administration, nor did the supposed Missile Gap exist. The government was able to predict the launch of Sputnik with high accuracy years before the launch. "We believe that the USSR will make a major effort to be the first country to orbit an earth satellite," wrote Assistant Director of Scientific Intelligence Herbert Scoville Jr.  in a classified government briefing released sixty years later. "We further believe it has the capability of orbiting a small vehicle, in early 1957, which could acquire scientific information and data of limited military value." (CITE https://web.archive.org/web/20201104055145/https://www.cia.gov/library/readingroom/docs/DOC_0006687232.pdf). Until its recent release, the public was not informed of any of these predictions, explaining President Eisenhower's unsurprised and thus unusual demeanor. Furthermore, not only did the government predict Sputnik's launch, but they had the technology to have beat it.
 
 Despite the immense impact of the Sputnik launch, the popular narrative that drove this crisis was woven from lies. In reality, the Sputnik launch was not a surprise to the Eisenhower Administration, nor did the supposed Missile Gap exist. The government had actually predicted the launch of Sputnik with surprising accuracy well before the launch. "We believe that the USSR will make a major effort to be the first country to orbit an earth satellite," wrote Assistant Director of Scientific Intelligence Herbert Scoville Jr.  in a 1956 classified government briefing released sixty years later. "We further believe it has the capability of orbiting a small vehicle, in early 1957, which could acquire scientific information and data of limited military value." (CITE https://web.archive.org/web/20201104055145/https://www.cia.gov/library/readingroom/docs/DOC_0006687232.pdf). Until its recent release, the public was not informed of any of these predictions. However, President Eisenhower knew them well and this explains his unsurprised (and misinterpreted) demeanor. Furthermore, not only did the government predict Sputnik's launch, but they had the technology to have outraced it, and the Soviets, into space. Donald A. Quarles, the Deputy Secretary of Defense at the time, confessed just four days after the launch that "there was no doubt that the Redstone, had it been used, could have orbited a satellite a year or more ago." (CITE Walter A. McDougall - The Heavens and the Earth_ A Political History of the Space Age-Johns Hopkins University Press (1997).pdf 134). But the Eisenhower Administration simply chose not to to use it, or reveal that they could.
+
+
+
+## final notes
+STRICLY introduce speakers (in hist).
+
+Mention what makes it special. "Leave the breadcrumbs!"
+
+
+Direct reader
+
+Show your work (thinking)
+-> delineate between yours and not yours
+
 
 
 
