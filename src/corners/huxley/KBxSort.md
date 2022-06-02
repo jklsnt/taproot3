@@ -1,6 +1,10 @@
 n
 ***
 
+ https://github.com/casey/just looks handy.
+
+***
+
  to review: [alberts analog circuit bmi thing](https://docs.google.com/document/d/1d2NWvdbHJqsHG9eh84hhAl_Epmglv-XHA3ptm8njbPE/edit?usp=sharing "https://docs.google.com/document/d/1d2NWvdbHJqsHG9eh84hhAl_Epmglv-XHA3ptm8njbPE/edit?usp=sharing")
 
 ***
