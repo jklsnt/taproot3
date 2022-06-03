@@ -10,6 +10,13 @@ date: 2022-06-02
 ***
 
 # Config!
+
+## index
 - [[KBxObsidianConfScratch]]
 
-## scratch
+
+## bin
+ - https://github.com/casey/just looks handy.
+
+
+
