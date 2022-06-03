@@ -15,6 +15,7 @@ date: 2022-05-25
 	- like a 'scratch' / note node
 	- maybe a category node 
 	- line / seperator node?
+	- counter node (for mogus aka streaks)
 	- image node??
 - canvas mode?
 - command pallete

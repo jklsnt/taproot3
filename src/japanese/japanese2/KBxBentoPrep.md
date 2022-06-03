@@ -24,7 +24,7 @@ date: 2022-05-31
 - scrambled egg whites
 	- done
 - deviled eggs
-	- https://free3d.com/3d-model/deviled-egg-v1--291260.html
+	- https://free3d.com/3d-model/deviled-egg-kv1--291260.html
 	- https://cults3d.com/en/3d-model/art/deviled-egg
 - steamed egg
 
