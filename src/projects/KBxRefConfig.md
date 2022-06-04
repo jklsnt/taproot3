@@ -17,6 +17,10 @@ date: 2022-06-02
 
 ## bin
  - https://github.com/casey/just looks handy.
+ - tmux conf: a whole new world!
+	 - https://github.com/rothgar/awesome-tmux#status-bar
+	 - https://github.com/gcla/tmux-wormhole
+	 - https://github.com/fcsonline/tmux-thumbs
 
 
 

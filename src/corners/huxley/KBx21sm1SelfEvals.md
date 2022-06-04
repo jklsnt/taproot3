@@ -146,6 +146,60 @@ In this history class, we have the freedom to explore things we are genuinely in
 I want to do more with historiography and the concept of how context changes how our view of historical events evolve. I also want to work on dealing with multiple different levels of abstraction elegantly in my writing.
 
 
+# part two!
+*ending junior year.*
+
+## japanese
+1) Highlights
+What were some of the highlights for you in Japanese this semester? What work are you most proud of? What area(s) did you make the most progress in this semester? How have you grown as a learner of Japanese and Japanese culture?
+- I'm perhaps most proud of my growth in the speaking projects throughout the year. In the beginning I was barely able to form sentences, but by the end of the year, I was able to truly converse! I'm also proud of the final essay I wrote for Japanese — I spent a lot of time trying to make sure my sentences were clear and correct, and it was fun to be able to choose what I wanted to communicate in a fuller form. 
+
+2) Challenges
+What area(s) challenged you the most this semester? How did you deal with these challenges? What can you do to improve in these areas? What can I do to help you improve?
+- Kanji is still a challenge, although less so. It takes me much longer to study the kanji than the other content. What has helped is a new flashcard system, and studying in much much smaller bursts more regularly and over a longer period of time.
+
+3) Goals
+What were your goals for this semester? Did you reach them? What are your goals for next semester? What topics or skills do you want to focus on next semester? What are your long-term goals in Japanese? How can I help you reach those goals?
+- Last semester, I wrote: "for next semester, I want to focus on improving the fluidity of my sentences." In my most recent essay, and most recent speaking assignment, I think I definitely did this! For the future, I want to improve on the speed of going from meaning to sentence, or thinking on my feet.
+
+## probability
+1.  What were three things you particularly enjoyed about this class?
+	- The clear progression in concepts over the course of the semester was incredibly rewarding.
+	- I enjoyed the amount of problems that focused on clever problem solving.
+	- I enjoyed the sense of math-for-fun and math-as-communal that was omnipresent in the class.
+
+2. If you could retake this class, what would you change about your approach?  What would you keep the same?
+	- If I could retake the class, I would:
+		- Make sure to have a better organizational system between my notes and my classwork
+		- Brush up on calculus...
+		- Spend more time out of class going through the textbook and problems we didn't get to in class
+	- I would continue reviewing the in class lectures out of class
+	- I would continue seeking out places to do simulation
+
+3. If you could redesign this class from a teacher's perspective, what would you change? What would you keep the same?
+	- I would add some consistent but minor homework (maybe 2-4 easy-ish problems per class) that focus on clear concept review
+	- I might make some of the problems less algebra heavy — sometimes, it felt like a lot of grinding that focused on algebra tricks instead of understanding
+	- I would keep the low stress curiosity driven collaborative environment
+	- The conceptual progression and worksheets are really well designed.
+
+4. How might you imagine using the material from this class in future work?
+	- I'm looking forward to doing a lot of ML in the near future — having an understanding of probability and the actual math behind all these systems that utilize differing distributions will be incredibly helpful.
+	- I will continue to enjoy having a better background to argue about Bayesian Statistics with my uncles every Sunday :)
+	- More broadly, knowing the actual math behind probability will help me make more informed and thus better decisions. In a sense, it's the language of prediction — something we try to do multiple times a day.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
