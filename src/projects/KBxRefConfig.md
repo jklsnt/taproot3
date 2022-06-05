@@ -22,5 +22,6 @@ date: 2022-06-02
 	 - https://github.com/gcla/tmux-wormhole
 	 - https://github.com/fcsonline/tmux-thumbs
 
-
+## todo!
+- fix darkreader on macos..
 
