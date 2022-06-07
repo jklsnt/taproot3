@@ -1,10 +1,67 @@
-:PROPERTIES:
-:ID:       A422D423-9971-4A74-AA45-6CFA2ED4497C
-:END:
-#+title: Torque Number 5
-#+author: Houjun Liu
+% Created 2022-06-07 Tue 14:50
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{tikz}
+\usepackage{cancel}
+\usepackage{pgfplots}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = HelveticaNeue-Italic, BoldFont = HelveticaNeue-Bold, BoldItalicFont = HelveticaNeue-BoldItalic]{HelveticaNeue}
+\newfontfamily\NHLight[ItalicFont = HelveticaNeue-LightItalic, BoldFont       = HelveticaNeue-UltraLight, BoldItalicFont = HelveticaNeue-UltraLightItalic]{HelveticaNeue-Light}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Written} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Houjun Liu}
+\date{\today}
+\title{Torque Number 5}
+\hypersetup{
+ pdfauthor={Houjun Liu},
+ pdftitle={Torque Number 5},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.91 (Org mode 9.5.2)}, 
+ pdflang={English}}
+\begin{document}
 
-* Properties of the CM Reference Frame
+\maketitle
+\tableofcontents
+
+
+\section{Properties of the CM Reference Frame}
+\label{sec:org4682269}
 At the center of mass reference frame, the center of mass is located at the origin given how the frame is being defined.
 
 Recall that the expression for the center of mass is
@@ -41,7 +98,8 @@ We can take again the derivative tho figure that for acceleration:
 
 Therefore, all components of the lemma is proven.
 
-* System Angular Momentum
+\section{System Angular Momentum}
+\label{sec:org8edc9f1}
 We will first get the expression for angular momentum. Recall that:
 
 \begin{equation}
@@ -70,7 +128,7 @@ Taking the derivative of this expression, we also have:
 &\vec{v_i} = \vec{V} + \vec{v_i}'
 \end{align}
 
-Substituting these values into that for $\vec{L}_{net}$, we have:
+Substituting these values into that for \(\vec{L}_{net}\), we have:
 
 \begin{align}
  \vec{L}_{sys} &= \sum_{i=1}^n\ (\vec{R} + \vec{r_i}') \times m_i(\vec{V} + \vec{v_i}')\\
@@ -80,7 +138,7 @@ Substituting these values into that for $\vec{L}_{net}$, we have:
 &= \sum_{i=1}^n\ (\vec{R} \times m_i\vec{V}) +\sum_{i=1}^n\  (\vec{R} \times m_i\vec{v_i}') +\sum_{i=1}^n\  (m_i\vec{r_i}' \times \vec{V}) +\sum_{i=1}^n\  (\vec{r_i}' \times m_i\vec{v_i}')
 \end{align}
 
-At which points, we realize that, per our given lemmas, the middle two terms become $0$.
+At which points, we realize that, per our given lemmas, the middle two terms become \(0\).
 
 \begin{align}
  \vec{L}_{sys} &= \sum_{i=1}^n\ (\vec{R} \times m_i\vec{V}) +\sum_{i=1}^n\  (\vec{R} \times m_i\vec{v_i}') +\sum_{i=1}^n\  (m_i\vec{r_i}' \times \vec{V}) +\sum_{i=1}^n\  (\vec{r_i}' \times m_i\vec{v_i}')\\
@@ -90,7 +148,8 @@ At which points, we realize that, per our given lemmas, the middle two terms bec
 &= \vec{R} \times M\vec{v}_{cm} + \sum_{i=1}^n\  \vec{r_i}' \times m_i\vec{v_i}'\ \blacksquare
 \end{align}
 
-* Change in Angular Momentum
+\section{Change in Angular Momentum}
+\label{sec:org8953b12}
 To figure the change in net angular momentum, we simply take the first derivative by time of the above-derived expression.
 
 Recall that:
@@ -108,9 +167,10 @@ Let's take the time derivative on both sides to figure the change in angular mom
 &= \vec{R} \times M\vec{a}_{cm}  + \sum_{i=1}^n\  \vec{r_i}' \times m_i \vec{a_i}'\ \blacksquare
 \end{align}
 
-The application of the product rule, though causing two other terms, are terms with parallel crossed vectors---which cancels to be $0$.
+The application of the product rule, though causing two other terms, are terms with parallel crossed vectors---which cancels to be \(0\).
 
-* Total Torque on a System
+\section{Total Torque on a System}
+\label{sec:orgaef346d}
 We first have, still, the expression for any point mass in the system:
 
 \begin{equation}
@@ -123,7 +183,7 @@ We will begin by recalling the expression for Torque:
    \vec{\tau} = \vec{r} \times \vec{F} 
 \end{equation}
 
-For the net torque on a system, we sum up all torque $\vec{\tau}_i$.
+For the net torque on a system, we sum up all torque \(\vec{\tau}_i\).
 
 \begin{align}
    \vec{\tau}_{net} &= \sum_i \vec{r}_i \times \vec{F}_i\\
@@ -147,7 +207,7 @@ Hence, there are pairwise:
 \Rightarrow & (\vec{r_j}'- \vec{r_i}') \times \vec{F}_{i\to j} 
 \end{align}
 
-We realist that $(\vec{r_j}'- \vec{r_i}')$ is a vector from $i \to j$, and $\vec{F}_{i\to j}$ would be $i \to j$. Crossing two parallel vectors would result in $0$.
+We realist that \((\vec{r_j}'- \vec{r_i}')\) is a vector from \(i \to j\), and \(\vec{F}_{i\to j}\) would be \(i \to j\). Crossing two parallel vectors would result in \(0\).
 
 Hence, all internal forces cancel out on the right hand side of the summation. Ultimately, we have that:
 
@@ -156,7 +216,8 @@ Hence, all internal forces cancel out on the right hand side of the summation. U
 \Rightarrow &\vec{\tau}_{net} = \vec{R}\times \vec{F}_{net} + \sum_i \vec{r_i}'\times \vec{F}_{i, ext}\right)\ \blacksquare\\
 \end{align}
 
-* Net Torque Equals Change of Angular Momentum 
+\section{Net Torque Equals Change of Angular Momentum}
+\label{sec:org184a3e6}
 Recall the previous two conclusions:
 
 \begin{equation}
@@ -189,20 +250,21 @@ The net torque on the system is the first derivative of the angular momentum. Th
 \vec{\tau}_{net}' &= \frac{d}{dt} \vec{L}_{sys}'\ \blacksquare
 \end{align}
 
-* Angular Momentum on a Spinning Rigid Body
+\section{Angular Momentum on a Spinning Rigid Body}
+\label{sec:orgbd56941}
 We begin by working in the axis parallel to the axis of rotation:
 
 \begin{equation}
    I = \sum_i m_i {l_i'}^2 
 \end{equation}
 
-Definitionally, angular velocity is the vector measuring the pace at which the lever arm is moving towards the tangential direction. $\vec{l}$ and $\vec{v}$ are therefore perpendicular to teach other. We hence have that:
+Definitionally, angular velocity is the vector measuring the pace at which the lever arm is moving towards the tangential direction. \(\vec{l}\) and \(\vec{v}\) are therefore perpendicular to teach other. We hence have that:
 
 \begin{equation}
    \vec{\omega} = \frac{v}{l} = \frac{v}{l}\cdot\frac{l}{l} =  \frac{\vec{l} \times \vec{v}}{r^2}
 \end{equation}
 
-where, $\theta$ is the angle between $\vec{r}$ and $\vec{v}$ and $\vec{r}$ is rotating into $\vec{v}$.
+where, \(\theta\) is the angle between \(\vec{r}\) and \(\vec{v}\) and \(\vec{r}\) is rotating into \(\vec{v}\).
 
 Applying this to the right of the above expression, then:
 
@@ -212,7 +274,7 @@ Applying this to the right of the above expression, then:
 &= \sum_i \vec{l}_i' \times m_i \vec{v_i}'
 \end{align}
 
-Under this case, non $\hat{k}$ component cancels out as you are crossing the results of parallel vectors.
+Under this case, non \(\hat{k}\) component cancels out as you are crossing the results of parallel vectors.
 
 We will now take the expression for angular momentum in the prime reference frame:
 
@@ -220,7 +282,7 @@ We will now take the expression for angular momentum in the prime reference fram
    \vec{L}'_i = \vec{l}'_i \times m_i\vec{v_i}'
 \end{equation}
 
-If we sum the expression on along all $i$:
+If we sum the expression on along all \(i\):
 
 \begin{equation}
    \vec{L'} = \sum_i \vec{l}'_i \times m_i\vec{v_i}'
@@ -233,7 +295,8 @@ As the two expressions are equal, we have that:
 \end{equation}
 
 
-* Net Torque on a Spinning Rigid Body
+\section{Net Torque on a Spinning Rigid Body}
+\label{sec:org6a32e27}
 From the previous theorem, we have an expression of equality:
 
 \begin{equation}
@@ -249,3 +312,4 @@ Taking the first derivative by time of the above expression:
 \end{align}
 
 As we are working completely in the prime reference frame, the derivatives would hold as if they were in another reference frame. Furthermore, the requirment for axial symmetry carries from the previous theorem.
+\end{document}
