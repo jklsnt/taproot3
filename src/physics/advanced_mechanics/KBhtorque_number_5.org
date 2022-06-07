@@ -10,7 +10,7 @@ At the center of mass reference frame, the center of mass is located at the orig
 Recall that the expression for the center of mass is
 
 \begin{equation}
-   \sum_{i=1}^n m_i \vec{r_i}
+   \frac{1}{M} \sum_{i=1}^n m_i \vec{r_i}
 \end{equation}
 
 the "mass scaled location" of each point mass. 
@@ -186,7 +186,7 @@ The net torque on the system is the first derivative of the angular momentum. Th
 \begin{align}
   \vec{R}\times \vec{F}_{net} + \sum_i \vec{r_i}'\times \vec{F}_{i, ext}\right) &= \vec{R} \times \vec{F}_{net}  + \sum_{i=1}^n\  \vec{r_i}' \times m_i \vec{a_i}' \\
   \sum_i \vec{r_i}'\times \vec{F}_{i, ext}\right) &= \sum_{i=1}^n\  \vec{r_i}' \times m_i \vec{a_i}'\\
-\vec{\tau}_{net}' &= \vec{L}_{sys}'\ \blacksquare
+\vec{\tau}_{net}' &= \frac{d}{dt} \vec{L}_{sys}'\ \blacksquare
 \end{align}
 
 * Angular Momentum on a Spinning Rigid Body
@@ -215,13 +215,13 @@ Applying this to the right of the above expression, then:
 We will now take the expression for angular momentum in the prime reference frame:
 
 \begin{equation}
-   \vec{L}' = \vec{l}'_i \times m\vec{v_i}'
+   \vec{L}'_i = \vec{l}'_i \times m_i\vec{v_i}'
 \end{equation}
 
 If we sum the expression on along all $i$:
 
 \begin{equation}
-   \vec{L'} = \sum_i \vec{l}'_i \times m\vec{v_i}'
+   \vec{L'} = \sum_i \vec{l}'_i \times m_i\vec{v_i}'
 \end{equation}
 
 As the two expressions are equal, we have that:
@@ -229,6 +229,8 @@ As the two expressions are equal, we have that:
 \begin{equation}
     \vec{L}' = I_{CM} \vec{\omega}'\ \blacksquare
 \end{equation}
+
+Under this case, non $\hat{k}$ component cancels out meaning that the equations here shows that 
 
 * Net Torque on a Spinning Rigid Body
 From the previous theorem, we have an expression of equality:
