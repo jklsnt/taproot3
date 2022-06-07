@@ -76,6 +76,38 @@ a nice formula for counting dimension? i dont understand why this is the case.
 
 
 
+## final application outlines
+- mouse brains
+
+- spatial memory
+- cancer cells
+- traffic pace
+- measure of complexity
+
+- "higher order topological features in noisy data"
+
+
+- cancer
+- spatial memory
+- traffic
+- mouse?
+
+- cancer
+	- higher topo complexity → greater mortality
+	- barcode → cancer clusters with the greatest
+		- tells us where to focus
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
