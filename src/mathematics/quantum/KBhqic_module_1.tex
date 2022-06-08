@@ -1,0 +1,466 @@
+% Created 2022-06-08 Wed 09:26
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{tikz}
+\usepackage{cancel}
+\usepackage{pgfplots}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = HelveticaNeue-Italic, BoldFont = HelveticaNeue-Bold, BoldItalicFont = HelveticaNeue-BoldItalic]{HelveticaNeue}
+\newfontfamily\NHLight[ItalicFont = HelveticaNeue-LightItalic, BoldFont       = HelveticaNeue-UltraLight, BoldItalicFont = HelveticaNeue-UltraLightItalic]{HelveticaNeue-Light}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Written} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Houjun Liu}
+\date{\today}
+\title{QIC Module 1: Cubits}
+\hypersetup{
+ pdfauthor={Houjun Liu},
+ pdftitle={QIC Module 1: Cubits},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.91 (Org mode 9.5.2)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{How to deal with quantum}
+\label{sec:org4deb7b9}
+\begin{itemize}
+\item It is not particularly the \emph{instance} of something that we are talking about; we are actually talking about how the instances \emph{transform} against and into each other
+\item That \emph{what} we are talking about doesn't really matter; i.e. "cubits" instantiated as Protons, or Electrons, no need to worry. Just apply operations on cubits
+\end{itemize}
+
+\section{Lecture 1: Cubits}
+\label{sec:orgdec5fff}
+Instead of looking at fields, we then proceed to look at their interactions.
+
+\subsection{Cubits}
+\label{sec:org3757d69}
+So what's a cubit? Its information. We will think about a Cubit as a pair: its a question and answer --- a type of property. We don't care what cubits are, we need to describe instead their properties and interactions with the world.
+
+Cubits are essentially a game: you specify a direction and ask a question to the cubit:
+
+"Given this direction, what are you?" The cubit answers:
+
+\begin{itemize}
+\item Up, 1, yes!
+\item Down, 0, no.
+\end{itemize}
+
+It can only answer yes or no.
+
+All quantum properties are described using a cubit, which interacts in a similar way.
+
+Spin and Charge are not physical properties: points in spacetime have numerical "spin" , "charge", which do not correlate to actual motion and are instead just arbitrary actions. "Spacetime" --- where you are physically in a space --- are also arbitrary.
+
+Cubits, therefore, is simply "the ability to encode and answer the above questions for properties."
+
+\subsection{Elementary Particles}
+\label{sec:org1733692}
+Protons and electrons are point particles: they have no special extent; they themselves are the basis of other materials. Each point can have several degr. of freedom. 
+
+\subsection{More Cubit Properties}
+\label{sec:org124d012}
+Cubits remember the answer you give it in the past. If you point it to one direction, it will always return that answer. If you point it to the opposite direction, it will return the opposite answer.
+
+Once you do that, if you point it to the orthogonal direction, it will return with 50\% chance once answer, 50\% chance the other answer.
+
+Before your very first measurement, there is no modeling of the probability of spin of the cubit before the first measurement. It is essentially both spin at once.
+
+What if you take a priming, turn it around by \(\theta\)? i.e.
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{2022-01-25_09-57-15_screenshot.png}
+\end{center}
+
+\begin{equation}
+    \left<\sigma\right> = \hat{n} \cdot \hat{m}
+\end{equation}
+
+As in: the expected value of the result at an angle is the dot product of the directions together.
+
+For instance, if we did do the turn by 90 degrees thing, we will find \(\sigma =0\), that its neither up nor down (\(1+(-1)=0\)), with a \(50%\) chance of each.
+
+\noindent\rule{\textwidth}{0.5pt}
+
+The quantum or is not commutative. See notes.
+
+\subsection{Quantum Logic}
+\label{sec:org44c0c98}
+We are interested in the process of quantum logic --- the operations of things in quantum space. Don't think about "what is a cubit", instead, think about it as a series of questions and answers, like points in spacetime.
+
+Quantum logic is built using the following rules.
+
+We start with \(\mathbb{R}^3\). We will rotate our assay to the \(z\) direction. According to quantum mechanics, we have \(50\%\) chance of any orientation in \(\sigma_z\) (\(\pm1\ in\ \sigma_z\)); furthermore, there is \(25\%\) chance that the event produces \(\sigma_x = -1\) and \(\sigma_z = -1\) (\(\frac{1}{2^2}\)).
+
+\subsubsection{Quantum OR}
+\label{sec:org81f5b81}
+Measuring via assay \(z\), then measuring via assay \(x\) later, therefore does \emph{not} result the same probabilities as \(x\) then \(z\). Therefore, quantum OR is not commutative --- first thing vs second thing changes the probabilities --- as the first assay will prime the result of the second assay.
+
+\subsubsection{Quantum AND}
+\label{sec:orgf8fe9f7}
+Quantum AND is more intense then quantum OR. If you measure two things: \(x\) AND \(z\), you will get one result with probability. If you measure this again, you will \(100\%\) get the same result again. 
+
+\subsection{Hey remember complex numbers?}
+\label{sec:org5c356d6}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{2022-01-28_09-22-27_screenshot.png}
+\end{center}
+
+\subsection{Bra-Ket Notation}
+\label{sec:org1623e7b}
+Take the following expression:
+
+\begin{equation}
+z | A \big>
+\end{equation}
+
+Where \(|A\big>\) is a column vector ("a ket"), \(z\) is some complex number.
+
+\subsubsection{What if we took its conjugate?}
+\label{sec:orgc9b5822}
+
+\begin{equation}
+    z | a\big>^* = \big<A|z*
+\end{equation}
+
+What just happened?
+
+Remember that:
+
+\begin{equation}
+   |A\big> * = \big<A|
+\end{equation}
+
+transposing a ket (a column vector) results in a bra (a row vector, which is a function (map))
+
+So therefore, transposing around involves transposing both components.
+
+\subsubsection{Applying a function}
+\label{sec:orgc28d58d}
+\begin{equation}
+   \big<B|A\big> 
+\end{equation}
+
+"apply the bra \(B\) upon the ket \(A\)".
+
+Transposing works like how you thin.
+
+\subsubsection{Kets by themselves}
+\label{sec:org7ad0b62}
+\begin{equation}
+    |A\big> = |i\big> \big<i|A\big>
+\end{equation}
+
+"For every element in column vector \(i\), we first dot-product it upon the basis \(i\), then scale the basis back, and then add".
+
+Also known as:
+
+\begin{equation}
+   |A\big> = \sum_i \alpha_i | i \big> 
+\end{equation}
+
+("every element multiplied by")
+
+\subsubsection{Sandwhiches}
+\label{sec:org86d923d}
+\begin{equation}
+   \big<k|M|j\big> 
+\end{equation}
+
+\(M\) is some intermediate multiplication operation.
+
+So, this is essentially
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{2022-02-01_09-08-14_screenshot.png}
+\end{center}
+
+
+\subsection{Simple Cubits}
+\label{sec:orgf42dc43}
+Let \(u,d\) be some basis in two dimension ("up, down"), as in:
+
+\begin{equation}
+    | u \big> = \begin{pmatrix} 1 \\ 0\end{pmatrix}
+\end{equation}
+
+\begin{equation}
+    | d \big> = \begin{pmatrix} 0 \\ 1\end{pmatrix}
+\end{equation}
+
+And therefore:
+
+\begin{align}
+   \big<u|d\big> = 0  \\
+   \big<d|u\big> = 0  
+\end{align}
+
+"If a cubit is prepared \emph{up} (has ket \(u\)), the probability to detect it \emph{down} again (the bra \(d\)) is zero. Visa, versa."
+
+And furthermore, for the overall probabilities:
+
+\begin{equation}
+    |A \big> = \alpha_u | u \big > + \alpha_d | d \big>
+\end{equation}
+
+Given that the spin has been prepared in the state \(|A\big>\), and the apparatus is oriented along \(z\), the quantity \(a_u^*a_u\) is the probability that the spin would be measured as \(\alpha_z = +1\). In other words:
+
+\begin{equation}
+    \alpha_u^*\alpha_u + \alpha_d^*\alpha_d = 1
+\end{equation}
+
+Furthermore:
+
+\begin{equation}
+   \big<A|A\big> = 1 
+\end{equation}
+
+"the probability of getting state \(A\) given primed \(A\) is 1". Plug this into the above expression and try it out for yourself.
+
+\subsection{Algebraic Representation}
+\label{sec:org10f24bd}
+To make quantum laws work, we have to allow for a part of what's going on to be non-observable. As the thing propergates, the imaginary and real compoents gets mixed up --- you cann't \emph{a priori} determine the observable parts.
+
+Duality of meaning between \(5\) the rvalue and \(5\) the operator. 
+
+\subsection{Results are not Measurements}
+\label{sec:org165b63c}
+"The results of a measurement are the eigenvalues of the operator that represents the observable."
+
+\begin{equation}
+   M | \lambda_1 \big> = \lambda_1 | \lambda_1 \big >
+\end{equation}
+
+\begin{equation}
+   M | \lambda_2 \big> = \lambda_2 | \lambda_2 \big >
+\end{equation}
+
+Given its an eigenvalue, the above claims makes sense. Eigenvalues don't move except for scale after a matrix transformation.
+
+Take two expressions representing the eigenvector/eigenvalues of a 2x2 matrix \(M\). The "ket" operator here represent the eigenvector, whereas \(\lambda _1\) isolated represent the eigenvalue.
+
+We will set:
+
+\begin{equation}
+   \lambda_1 = \begin{pmatrix} 
+\alpha_1 \\
+\alpha_2
+\end{pmatrix}, M = \begin{pmatrix}
+0 & 1 \\
+1& 0\end{pmatrix}
+\end{equation}
+
+\(M\) is here represented as one of the Pauli matricies.
+
+Therefore, now, we can say the following expression:
+
+\begin{equation}
+   \begin{pmatrix}
+0 & 1 \\
+1&0
+   \end{pmatrix}\begin{pmatrix}
+\alpha_1 \\\alpha_2
+\end{pmatrix} = \lambda_1 \begin{pmatrix}
+\alpha_1 \\
+\alpha_2 \end{pmatrix}
+\end{equation}
+
+And, by staring at this expression, we get that:
+
+\begin{equation}
+\begin{cases}    
+\alpha_2 = \lambda_1 \alpha_1 \\
+\alpha_1 = \lambda_1 \alpha_2
+\end{cases}    
+\end{equation}
+
+Therefore, it follows that:
+
+\begin{align}
+   &\alpha_1 = {\lambda_1}^2 \alpha_1 \\
+   \Rightarrow &{\lambda_1}^2 = 1
+\end{align}
+
+So the eigenvalue is \(\pm 1\).
+
+Supplying the expression back to the original, and solving, we will get \(\alpha_1 = \alpha_2\).
+
+Given that \(\lambda_1\) is a state vector, we know that its a probability. We have discussed from before, that, for a state vectoContri
+
+r:
+
+\begin{equation}
+   {\alpha_1}^*\alpha_1 + {\alpha_2}^*\alpha_2 = 1
+\end{equation}
+
+And then, filling that in:
+
+\begin{align}
+   &2{\alpha_1}^* \alpha_1 = \pm 1 \\
+\Rightarrow &{\alpha_1}^* \alpha_1 = \frac{1}{2}
+\end{align}
+
+And so \(\alpha_1 = \frac{1}{\sqrt{2}}\) is one case among many.
+
+\subsection{Crash Course on Operators}
+\label{sec:orgefe41e7}
+
+\subsubsection{Unitary Matrices ("orthogonal matrices")}
+\label{sec:orgd54fa0b}
+Some \(A\) where
+
+\begin{equation}
+   A^*A = I \Leftrightarrow A^* = A^{-1}
+\end{equation}
+
+where, \(A^*\) is the \emph{conjugate transpose} (conjugate the complex numbers, transpose the matrix), i.e. the "hermitian", of the matrix.
+
+Properties:
+
+\begin{itemize}
+\item If \(U\) is unitary matrix, and \(a\) is a vector, \(||Ua|| = ||a|||\).
+\end{itemize}
+
+\subsubsection{Hermitian Matricqs ("symmetric matrices")}
+\label{sec:org2f97f7e}
+Some \(A\) where
+
+\begin{equation}
+A^* = A    
+\end{equation}
+
+where the matrix its own hermitian as hermitian is defined above.
+
+\subsubsection{Adjoin}
+\label{sec:org17847af}
+Define \textbf{adjoin} of a matrix \(U\) to be the matrix \(V = U^*\) such that:
+
+\begin{equation}
+   V[r,c] = \bar{U}[c,r] 
+\end{equation}
+
+\subsubsection{Tensor Product of Matrices}
+\label{sec:org411c2fd}
+if \(U\) in \(m\times n\), and \(V\) is \(r \times s\), \(\vec{c}(ij) = \vec{a}(i)\vec{b}(j)\), then \(W = U \otimes V\) is the \(mr \times ns\) matrix, where:
+
+\begin{equation}
+   (Wc)(ij) = (Ua)(i)(Vb)(j)
+\end{equation}
+
+
+\section{Lecture 2: Quantum Logic}
+\label{sec:org563965a}
+Let's take some vector \(a\), we will index it using binary:
+
+\begin{equation}
+   \vec{a}(00), \vec{a}(01) \cdots
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+  \vec{e}_{00} = \begin{pmatrix}
+1 \\ 0 \\0 \\ 0 \end{pmatrix}, \vec{e}_{01} = \begin{pmatrix}
+0 \\ 1 \\0 \\ 0 \end{pmatrix}, \ldots
+\end{equation}
+
+where \(e\) is the basis.
+
+\subsection{Tensor Products}
+\label{sec:orgf3bd671}
+Their \emph{tensor product}, \(\mathbb{H}_1 \otimes \mathbb{H}_2\) has the vectors of form \(\vec{a}(k)\), where \(1 \leq k \leq mn\). The tensor product of two vectors \(\vec{a}\) and \(\vec{b}\) is the vector \(\vec{c}=\vec{a} \bigotimes \vec{b}\), where:
+
+\begin{equation}
+   \vec{c}(ij) = \vec{a}(i)\vec{b}(j)
+\end{equation}
+
+it has to do with state spaces of individual cubits. Its not motivated but that's fine.
+
+The important thing about tensor products is that they can be easily indexed using binaries according to the \(ij\) rule above.
+
+\subsection{Entanglement}
+\label{sec:org89265ba}
+A vector denoting a pure quantum state is \textbf{separable} if its the tensor product of two other vectors; otherwise its \textbf{entangled}.
+
+Take the tensor product of the basis:
+
+\begin{equation}
+   | u \big > \otimes | d \big > = \begin{pmatrix}
+1 \begin{pmatrix} 0 \\ 1 \end{pmatrix} \\
+0 \begin{pmatrix} 0 \\ 1 \end{pmatrix} \\
+\end{pmatrix} = \begin{pmatrix}
+0 \\ 1 \\ 0 \\ 0
+\end{pmatrix}
+\end{equation}
+
+You can think of the combined state, therefore, \(|ud \big>\) is \emph{not} entangled.
+
+Let's take another example, what if we have a state:
+
+\begin{equation}
+\begin{pmatrix}
+1 \\ 0 \\ 1 \\ 1
+\end{pmatrix}
+\end{equation}
+
+If we attempt to solve for some 
+
+\begin{equation}
+\begin{pmatrix}
+ac \\ ad \\ bc \\ bd
+\end{pmatrix}
+\end{equation}
+
+we will not get vectors \([a,b]\), \([c,d]\) which would then qualify as being a state.
+
+\subsection{More Stuff}
+\label{sec:org6ebe683}
+Often, our quantum algorithms will operate on the product of two Hilbert spaces, using binary strings as indices, and giving us the space of vectors in the form \(\vec{a}(xy)\). \(x\) ranges over the indices of the first space, \(y\) over that of the second space.
+
+We can also index things like:
+
+\begin{equation}
+   a(01\ 10) 
+\end{equation}
+
+That would be the 6th element in \(a\) (\(01_2\) (2) + \(10_2\) + (3) = \(5_{10}\) which is the 6th element.)
+\end{document}
