@@ -69,6 +69,7 @@ a nice formula for counting dimension? i dont understand why this is the case.
 ## the plan
 
 ![[KBxDataTopologyFinal 2022-05-28 15.17.46.excalidraw]]
+
 ## final application outlines
 - mouse brains
 
