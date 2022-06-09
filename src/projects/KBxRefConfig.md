@@ -25,3 +25,9 @@ date: 2022-06-02
 ## todo!
 - fix darkreader on macos..
 
+## would like to do
+- collaborative editing in vim??
+
+
+
+

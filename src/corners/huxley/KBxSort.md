@@ -1,7 +1,12 @@
 n
 ***
 
- https://devxconf.org is a conf all about dx. 
+ https://www.youtube.com/watch?v=hZuYICAEN9Y i wannaa do thiss
+ #SoME2!!
+
+***
+
+ https://devxconf.org is a conf all about dx. also where https://zed.dev presented, which also sounds cool!
 
 ***
 
