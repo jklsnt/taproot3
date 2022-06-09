@@ -201,10 +201,9 @@ In what ways did you lean into this course that were new or difficult for you, w
 How did your experience as a discussant meet your expectations? Similarly, was your research experience fulfilling and if so how or why not?
 
 
-This semester was the first semester where I truly dived headfirst into research. In the past, I've had plans about where I wanted to go, and I got skilled at finding sources that would be helpful in making my argument. This semester, I went in with a plan, but I quickly ditched it. Instead, I focused on being driven purely out of curiosity. I had no idea where I was going — I stumbled across some inconsistencies between the commonly accepted historical records and the recently declassified CIA documents, and spent the next five hours parsing through the primary source documents from the time.
+This semester was the first semester where I truly dived headfirst into research. In the past, I've had plans about where I wanted to go, and I got skilled at finding sources that would be helpful in making my argument. This semester, I went in with a plan, but I quickly ditched it. Instead, I focused on being driven purely out of curiosity. I had no idea where I was going — I stumbled across some inconsistencies between the commonly accepted historical records and the recently declassified CIA documents, and spent the next six hours prying through the official primary source documents from the time. In the end, I emerged with my own novel understanding and narrative of the piece of history I was researching, and I did my best to make an essay out of it; my research wasn't geared towards making the essay. This class has made me realize that history is far from static. Our understanding of what "actually" happened is constantly evolving, being driven by new information but also new outlooks. And this evolution is not something that only "the greats" can cause — it's something that us students can drive as well! 
 
-
-
+Thanks for the wonderful semester Barry :)
 
 
 
