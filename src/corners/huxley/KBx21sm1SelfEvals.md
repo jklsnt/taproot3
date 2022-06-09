@@ -216,11 +216,13 @@ What was the hardest challenge you overcame in this class? How did you do that?
 
 // This class made me rethink and update my entire note-taking system. I used to work purely in text files, using a very [custom system](https://taproot3.sanity.gq) I made with my friends, but this class has made me realize the importance of the freedom that comes with drawing. 
 
-Physics is a class where it is really hard to ask "why." It seems like the things we are learning are at the edge of our understanding, in the sense that we know the phenomenon we study exist but we don't yet understand the underlying reasoning behind it.
+Physics is a class where it is really hard to ask "why." It seems like the things we are learning are at the edge of human understanding, in the sense that we know the phenomenon we study exist but we don't yet understand the underlying reasoning behind why they exist — or even if there is one. This lack of "why" is something that extends to even the most basic concepts we have covered in physics. This lack of ability to ask "why" has made it harder than normal for me to learn and study through rigorously trying to gain intuitive understanding, like I normally do in most of my classes. When I can't ask "why," the content we are learning becomes my understanding as opposed to emergent through my understanding.
 
+I sense that in my future there will be many topics I want to learn that are of the same nature — topics where my normal "intuition first" method doesn't work as well. This class forced me to create a new system — one with lots of handwritten notes and diagrams that I then later fill in and carefully convert to notes. These dual-notes combined with practice problems seem to be a good replacement for the "intuition first" method when I need to use it.
 
+I'm still working on figuring this all out, but Physics Class has given me a head start and made me aware of the different methods of learning inherent in different fields. 
 
-
+Thanks for the wonderful semester! 
 
 
 
