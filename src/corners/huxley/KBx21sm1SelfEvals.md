@@ -188,10 +188,20 @@ What were your goals for this semester? Did you reach them? What are your goals 
 	- More broadly, knowing the actual math behind probability will help me make more informed and thus better decisions. In a sense, it's the language of prediction — something we try to do multiple times a day.
 
 
+## hist
+
+ Feel free to reflect in response to any part of the prompt, certainly not all of them and do feel free to construct your own self-evaluation in your own style.
+
+When you consider strengths you brought with you into this semester, into this course, did you have some upon which you were able to build further?
+
+Did you have areas that you grew as an individual student, and/or as a collaborator in communication with your classmates in our cohort?
+
+In what ways did you lean into this course that were new or difficult for you, whether in class or outside of it?
+
+How did your experience as a discussant meet your expectations? Similarly, was your research experience fulfilling and if so how or why not?
 
 
-
-
+This semester was the first semester where I truly dived headfirst into research. In the past, I've had plans about where I wanted to go, and I got skilled at finding sources that would be helpful in making my argument. This semester, I went in with a plan, but I quickly ditched it. Instead, I focused on being driven purely out of curiosity. I had no idea where I was going — I stumbled across some inconsistencies between the commonly accepted historical records and the recently declassified CIA documents, and spent the next five hours parsing through the primary source documents from the time.
 
 
 
