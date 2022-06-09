@@ -205,6 +205,19 @@ This semester was the first semester where I truly dived headfirst into research
 
 Thanks for the wonderful semester Barry :)
 
+## modern
+
+What did you learn in this class about how you learn?
+
+How will you be able to transfer this meta-knowledge to other endeavors?
+
+What was the hardest challenge you overcame in this class? How did you do that?
+
+
+// This class made me rethink and update my entire note-taking system. I used to work purely in text files, using a very [custom system](https://taproot3.sanity.gq) I made with my friends, but this class has made me realize the importance of the freedom that comes with drawing. 
+
+
+
 
 
 
