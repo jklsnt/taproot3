@@ -40,17 +40,31 @@ The internal torque of any two objects of a system is zero, so the total interna
 * 2)
 We know that for one of the $\vec{L}$ s: 
 \begin{aligned}
-\vec{r} &= R\hat{i} + h\hat{k} \\
-\vec{L}_{1} &= \vec{r} \times m\vec{v} \\
-\vec{v} &= R\omega\hat{j}\\
+\vec{r_1} &= R\hat{i} + h\hat{k} \\
+\vec{L}_{1} &= \vec{r_1} \times m\vec{v_1} \\
+\vec{v_1} &= R\omega\hat{j}\\
 \vec{L}_{1} &= (R\hat{i} + h\hat{k}) \times mR\omega\hat{j} \\
 &= -hmR\omega\hat{i} + mR^2\omega\hat{k}\\
 \end{aligned}
 
-We know that there are two masses, symmetric about the z-axis, so we know that the angular momentum of the other object can be derived just by multiplying the $\hat{i}$ and $\hat{j}$ terms by -1.
+We can show that the angular momentum of the two masses are symmetric by showing that $\vec{r}\times \vec{v}$ is symmetric for both masses:
 
 \begin{aligned}
-\vec{L}_{2} &= \vec{L}_{1} \,\cdot \begin{bmatrix}-1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & 1\end{bmatrix} \\
+\vec{r_{2}} &= -R\hat{i} + h\hat{k} \\
+\vec{v_{2}} &= -R\omega\hat{j} \\
+\\
+\vec{r_1}\times \vec{v_1} &= (R\hat{i} + h\hat{k}) \times R\omega\hat{j} \\
+&= -hR\omega\hat{i} + R^2\omega\hat{k} \\
+\vec{r_2}\times \vec{v_2} &= (-R\hat{i} + h\hat{k}) \times R\omega\hat{j} \\
+&= hR\omega\hat{i} + R^2\omega\hat{k} \\
+\end{aligned}
+
+Now we merely multiply by the mass (which is the same for both masses) to find the angular momentum:
+
+\begin{aligned}
+\vec{L_1} &= m(\vec{r_1}\times \vec{v_1}) \\
+&= -hmR\omega\hat{i} + mR^2\omega\hat{k} \\
+\vec{L_2} &= m(\vec{r_2}\times \vec{v_2}) \\
 &= hmR\omega\hat{i} + mR^2\omega\hat{k} \\
 \end{aligned}
 
@@ -80,6 +94,32 @@ dm &= \frac{M}{V_0} dV \\
 \end{aligned}
 
 * 4)
+
+We treat the rod as a line segment with length L and mass M, with density $\lambda = M/L$. We also know the angular velocity as $\vec{\omega} = \omega\hat{z}$.
+Then, for each point on the line segment, we can find the angular momentum at that point. We can represent this as a function:
+
+\begin{aligned}
+\vec{L}(r) &= r\hat{x} \times \lambda r\omega\hat{y} \\
+&= \lambda r^2 \omega \hat{z} \\
+\end{aligned}
+
+Then, we can integrate $\vec{L}(r)$ from $-L/2$ to $L/2$:
+
+\begin{aligned}
+\vec{L}_{cum} &= \int_{-L/2}^{L/2} \vec{L}(r) dr \\
+&= \int_{-L/2}^{L/2} \lambda r^2 \omega \hat{z} dr \\
+&= [\frac{r^3}{3}]_{-L/2}^{L/2} \lambda\omega\hat{z} \\
+&= 2\frac{L^3}{24} \lambda \omega \hat{z} \\
+&= \frac{L^3}{12}\lambda\omega\hat{z} \\
+&= \frac{L^3}{12}\frac{M}{L}\omega \hat{z} \\
+&= \frac{1}{12}ML^2\omega \hat{z} \\
+\end{aligned}
+
+
+
+
+
+
 We can represent the angular momentum of each point on the rod and integrate over them to find the total angular momentum.
 \begin{aligned}
 L(r) &= r\hat{i} \times m_r\vec{v}_r \\
@@ -103,7 +143,7 @@ We can now integrate this with respect to $r$, from $-\frac{L}{2}$ to $\frac{L}{
 
 
 * 5)
-We can first take an equation for the angular momentum of a point, and integrate it polar-ly and then about $R$. We take som e inspiration from Problem 4:
+We can first take an equation for the angular momentum of a point, and integrate it polar-ly and then about $R$. We take some inspiration from Problem 4:
 \begin{aligned}
 \vec{L}_{\theta, r} &= r^2\omega\sigma\hat{k} \,d\theta dr \\
 \end{aligned}
@@ -117,7 +157,3 @@ Now we integrate:
 &= \omega\hat{k} \cdot 2\pi \frac{M}{\pi R^2} \cdot \frac{R^3}{3} \\
 &= \omega\hat{k} \cdot \frac{2MR}{3} \\
 \end{aligned}
-
-Wait, What? I need help on this
-
-
