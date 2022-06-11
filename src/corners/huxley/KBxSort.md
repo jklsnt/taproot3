@@ -1,6 +1,10 @@
 n
 ***
 
+ https://casper.com/pillows/foam-pillow/?material=snow cooler pillor, might be interesting
+
+***
+
  https://www.youtube.com/watch?v=hZuYICAEN9Y i wannaa do thiss
  #SoME2!!
 

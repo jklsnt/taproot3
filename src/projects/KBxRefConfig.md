@@ -24,6 +24,8 @@ date: 2022-06-02
 
 ## todo!
 - fix darkreader on macos..
+- spotify
+	- [spicitify themes](https://github.com/spicetify/spicetify-themes/blob/master/THEMES.md)
 
 ## would like to do
 - collaborative editing in vim??

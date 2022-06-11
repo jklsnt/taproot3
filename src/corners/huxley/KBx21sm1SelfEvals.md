@@ -224,6 +224,26 @@ I'm still working on figuring this all out, but Physics Class has given me a hea
 
 Thanks for the wonderful semester! 
 
+## linalg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
