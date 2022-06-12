@@ -1,4 +1,4 @@
-% Created 2022-06-12 Sun 10:42
+% Created 2022-06-12 Sun 10:43
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -61,14 +61,14 @@
 
 
 \section{To Do}
-\label{sec:org7007e23}
+\label{sec:org4864e73}
 \begin{itemize}
 \item Read chapters
 \item Watch videos
 \end{itemize}
 
 \section{Core Concepts}
-\label{sec:orge721e4f}
+\label{sec:org83785df}
 \begin{itemize}
 \item Solving the Shrödinger equation
 \item We still look at a cubit at a time, but time will now pass: which impacts
@@ -77,7 +77,7 @@ the state of the cubit
 \end{itemize}
 
 \section{Introduction}
-\label{sec:org10061db}
+\label{sec:org877ff43}
 
 \begin{equation}
    |ud \big> = u \big> \otimes |d\big> = \begin{pmatrix}
@@ -95,7 +95,7 @@ Every \emph{property} in the quantum work as a cubit.
 Change in perspective! Instead of simulating the behavior of cubits with bits, we can simulate them with OTHER CUBITS! So, our tools are now manipulating groups of cubits to simulate other, more complicated groups of cubits.
 
 \section{Shrödinger's Equations}
-\label{sec:org61979b2}
+\label{sec:orgd873c2a}
 \begin{equation}
    |\Psi (t) \big> = U(t) | \Psi(0)\big> 
 \end{equation}
@@ -103,21 +103,21 @@ Change in perspective! Instead of simulating the behavior of cubits with bits, w
 We will use \(\Psi\) to represents a function that dumps a cubit. We will act on it by a unitary matrix function \(U\), so \(U(t) | \Psi(0) \big>\), represents an evolution. \(U\) encode all possible next transition states.
 
 \subsection{What's a unitary matrix again?}
-\label{sec:org73b693d}
+\label{sec:org350577f}
 
 \begin{equation}
    U^*U = I 
 \end{equation}
 
 \subsection{What is a Hermitian again?}
-\label{sec:org66754fb}
+\label{sec:orge921818}
 
 \begin{equation}
    H = H^* 
 \end{equation}
 
 \subsection{Basic Properties}
-\label{sec:org007f012}
+\label{sec:org387a5ba}
 \begin{equation}
    \big< \Psi (0) | \Phi (0) \big> = 0  \Rightarrow  \big< \Psi (t) | \Phi (t) \big> = 0
 \end{equation}
@@ -139,7 +139,7 @@ We can see, of course:
 because \(\epsilon^2\) is really small, so you get the same thing back.
 
 \subsection{The Schrodinger Equation at the Last Bit of Class}
-\label{sec:org7960c8a}
+\label{sec:orga4a84ec}
 \begin{equation}
    \hbar \frac{\partial | \Psi \big>}{\partial t}  = -i H | \Psi \big>
 \end{equation}
@@ -151,7 +151,7 @@ And solving it for \(|\Psi\big>\), we will result in the state at any point to m
 Partial differential equations can be treated as a limit of a system of ordinary differential equations.
 
 \section{Solving Shrödinger's Equations}
-\label{sec:orgb822d2c}
+\label{sec:org22f0260}
 Let's start with a state:
 
 \begin{equation}
@@ -229,10 +229,10 @@ We can actually decompose \(|\Psi(t)\big>\) down into the sum of all components 
 
 
 \section{Boolean Operators, etc.}
-\label{sec:org5fd1004}
+\label{sec:org088974d}
 
 \subsection{Boolean Inner Product}
-\label{sec:orgef2acde}
+\label{sec:org6a6a4da}
 Boolean strings of length \(m\), \(x \cdot y\) is their \textbf{\textbf{boolean inner product}}, defined to be:
 
 \begin{equation}
@@ -242,7 +242,7 @@ x_1 y_1 \oplus \cdots \oplus x_my_m
 here, \(\oplus\) means exclusive or (addition mod 2) (1+1 is zero, 0+1 is 1, etc.). Odd number of trues is true, even number of trues is false.
 
 \subsection{And now, a boolean network}
-\label{sec:orgc097581}
+\label{sec:org9e40d37}
 We can have a boolean network in classical framing:
 
 \begin{center}
@@ -258,7 +258,7 @@ Does the number of nodes grow proportionally to the number of inputs? I.e.:
 \end{equation}
 
 \subsection{Controlled Not}
-\label{sec:org39b23a1}
+\label{sec:orgd8ac7df}
 \begin{equation}
    C_{not}(x_1, x_2) = \begin{cases}
 x_1\ if\ x_2 = 0\\
@@ -268,14 +268,14 @@ x_1\ if\ x_2 = 0\\
 
 
 \section{Parallel vs Series}
-\label{sec:org825433d}
+\label{sec:org9c13228}
 \begin{itemize}
 \item Tensoring matricies are  parallel operations
 \item Producting matricies are series operations
 \end{itemize}
 
 \section{Not the Uncertainty Principle}
-\label{sec:org7fccc0f}
+\label{sec:orgf024800}
 \begin{itemize}
 \item Quantum mechanics is a deterministic theory, but the state lives on the Bloch sphere so has an imaginary component that's not imaginable
 \item It propergates counterfactuals
@@ -284,7 +284,7 @@ x_1\ if\ x_2 = 0\\
 The evolution of the state
 
 \section{The Actual Uncertainty Principle}
-\label{sec:orga9c9d46}
+\label{sec:org70dbcc3}
 Let's take two operators \(\vec{L}\) and \(\vec{M}\). Perhaps one measuring spin in \(\hat{z}\) and one at \(\hat{y}\).
 
 If I was to apply \(L\) to \(|\psi\big>\):
@@ -377,7 +377,7 @@ If the comutator is zero, then, it is possible for the uncertainties of the oper
 Cool result: for instance, if you recall \([\sigma_x, \sigma_y] = 2 i\sigma_z\). If you keep testing towards the \(x\) and \(y\) directions, you will expect it to eventually converge to the \(z\) direction per the statement above.
 
 \section{Basically Feasible Operations}
-\label{sec:orgfcb9c1e}
+\label{sec:orgf447bfd}
 The Hadamand matrix \(H_N\) of order \(N\) is defined:
 
 \begin{equation}
@@ -404,7 +404,7 @@ where \(r \cdot c\) is the inner product of \(r\) and \(c\) are boolean strings.
 \(N = 2^n\), \(N\) is the number of states, \(N\) is the number of cubits.
 
 \subsection{Fourier Matrix}
-\label{sec:orgcc0e94f}
+\label{sec:org3966105}
 Some other application, the Fourier matrix:
 
 Let \(\omega\) stand for \(e^{2\pi i / N}\), which is considered "the" principal \(N\) root of unity. The Fourier matrix \(F_N\) of order \(N\) is defined as:
@@ -418,7 +418,7 @@ We take the mod-n between \(i\) and \(j\).
 "we take something hugely complicated, put in in a huge space, and make it linear."
 
 \subsection{Toffoli Gate}
-\label{sec:org4ef10c3}
+\label{sec:orgaf54fca}
 Define the Tofoli gate as the ternary Boolean function
 
 \begin{equation}
