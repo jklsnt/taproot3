@@ -224,34 +224,6 @@ I'm still working on figuring this all out, but Physics Class has given me a hea
 
 Thanks for the wonderful semester! 
 
-## linalg
-
-> How has our class influenced your worldview?
-
-> What is one thing you are proud of having learned in our class?
-
-> How have you grown as a learner in our class?
-
-> What role did collaboration play for you in our class?
-
-> What have you enjoyed about your experience in our class?
-
-> What would you change in our class?
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## quantum
 
 ### portfolio essay
@@ -271,3 +243,74 @@ This semester in QIC, we took a deep dive into an entirely different way of thin
 This semester felt like starting from the beginning again. Climbing into a foreign world and trying to wrap my head around what it is and how to use it was an incredibly interesting experience — and I have a feeling that it's something I will be doing a lot in my future, especially as the rate at which the world changes continues to accelerate. At a lower level of abstraction, QIC has combined (and validated, which isn't necessary but is still nice) everything I'm learning in Linear Algebra, Modern Physics, and Advanced Probability to allow me to learn a topic that I'm sure will be very big in the not-so-distant future. 
 
 Thanks so much for the wonderful semester.
+
+
+
+## linalg
+
+> How has our class influenced your worldview?
+
+> What is one thing you are proud of having learned in our class?
+
+> How have you grown as a learner in our class?
+
+> What role did collaboration play for you in our class?
+
+> What have you enjoyed about your experience in our class?
+
+> What would you change in our class?
+
+
+### portfolio essay
+
+- FDG graph 
+- tensor products and sqrts of the identity
+- aproximations w/ wavelets
+- graphical linear algebra
+- data topology
+
+
+
+
+Linear algebra has quickly become my favorite field of math. The interconnectedness, beauty, but also applicability of linear algebra is simply staggering. A common joke between my friends and I is that all of our classes are just linear algebra — it truly does show up everywhere (especially during conversations with my friends over lunch). Taking linear algebra this year has made me rethink the way I think about understanding. It's a subject where intuition reigns supreme, and relationships dominate the learning content. Before linear algebra, math was primarily just a tool to me. Now, I see that math has so much elegance in its own right, and has more explanatory power than I ever could have imagined. So many concepts in conversations seemingly not at all related to math have been communicated with ideas of linear independence, bases, injectivity, eigenvectors, and etc. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
