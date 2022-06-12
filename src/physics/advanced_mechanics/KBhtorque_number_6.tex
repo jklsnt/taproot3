@@ -1,20 +1,77 @@
-:PROPERTIES:
-:ID:       444AE3B1-7C7E-4F47-A43C-914A4FCEEAD5
-:END:
-#+title: Torque Number 6
-#+author: Houjun Liu
+% Created 2022-06-11 Sat 21:17
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{tikz}
+\usepackage{cancel}
+\usepackage{pgfplots}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = HelveticaNeue-Italic, BoldFont = HelveticaNeue-Bold, BoldItalicFont = HelveticaNeue-BoldItalic]{HelveticaNeue}
+\newfontfamily\NHLight[ItalicFont = HelveticaNeue-LightItalic, BoldFont       = HelveticaNeue-UltraLight, BoldItalicFont = HelveticaNeue-UltraLightItalic]{HelveticaNeue-Light}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Written} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Houjun Liu}
+\date{\today}
+\title{Torque Number 6}
+\hypersetup{
+ pdfauthor={Houjun Liu},
+ pdftitle={Torque Number 6},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.91 (Org mode 9.5.2)}, 
+ pdflang={English}}
+\begin{document}
 
-#+DOWNLOADED: screenshot @ 2022-03-21 21:24:06
-[[file:2022-03-21_21-24-06_screenshot.png]]
+\maketitle
+\tableofcontents
 
-* Coefficient of Fiction
+\begin{center}
+\includegraphics[width=.9\linewidth]{2022-03-21_21-24-06_screenshot.png}
+\end{center}
+
+\section{Coefficient of Fiction}
+\label{sec:org04655df}
 When given this scheme, we can understand that friction can be modeled by some:
 
 \begin{equation}
    F_f \leq \mu_s N 
 \end{equation}
 
-We will define a system via the picture exactly: up is $+y$, down is $-y$, right is $+x$, and left is $-x$. Let's first calculate the component of gravity perpendicular to the ramp---the only force causing the existence of a normal force.
+We will define a system via the picture exactly: up is \(+y\), down is \(-y\), right is \(+x\), and left is \(-x\). Let's first calculate the component of gravity perpendicular to the ramp---the only force causing the existence of a normal force.
 
 We understand that force due to gravity on the object is:
 
@@ -43,12 +100,13 @@ Supplying the actual numerical values into the expressions, we get that:
    \mu_s \geq\ \sim 0.236 
 \end{equation}
 
-* Linear Acceleration
+\section{Linear Acceleration}
+\label{sec:org94c8f80}
 \To figure the linear acceleration upon the system, we will need to create a summation of all forces. Fortunately, we realize that---due to the properties of the normal force---all components of the contact force perpendicular to the ramp cancel out.
 
 Therefore, we simply have to figure the sum of all forces in the direction parallel to the ramp.
 
-As the direction of motion is towards the $+x$ direction (rel. to ramp), we can see that the force of friction would therefore be applied towards the $-x$ direction.
+As the direction of motion is towards the \(+x\) direction (rel. to ramp), we can see that the force of friction would therefore be applied towards the \(-x\) direction.
 
 Therefore:
 
@@ -84,7 +142,8 @@ Supplying the actual numerical values, we get that:
 
 The object, therefore, slides and rolls down the ramp at a linear acceleration of 2.9 metres a second squared.
 
-* Angular Acceleration
+\section{Angular Acceleration}
+\label{sec:org4b9621e}
 We want to figure out the angular acceleration of the cylinder rotating around its center of mass. Namely, we want to find the rotational acceleration of the object rotating around the center of mass.
 
 To figure the angular acceleration we see that, based on what previously was derived:
@@ -97,7 +156,7 @@ We will therefore need to figure first the net torque on the system, and divide 
 
 To figure the net torque on the object about the center of mass, we first define a coordinate frame and add all forces.
 
-We will define a system $z$ such that "out of the page" is $+z$ and "into the page" is $-z$. We understand that we are in the reference frame of the object, meaning gravity is coaxial with the center of mass. It therefore plays no part in the angular acceleration around the center of mass.
+We will define a system \(z\) such that "out of the page" is \(+z\) and "into the page" is \(-z\). We understand that we are in the reference frame of the object, meaning gravity is coaxial with the center of mass. It therefore plays no part in the angular acceleration around the center of mass.
 
 The only force which is not coaxial to our object is the force of friction; it is exactly perpendicular to the radius (therefore, the angle of the ramp plays no part):
 
@@ -106,7 +165,7 @@ The only force which is not coaxial to our object is the force of friction; it i
 &= RF_f(-\hat{z})
 \end{align}
 
-The total $\vec{\tau}'_{net}$, therefore, is simply the value we indicated above:
+The total \(\vec{\tau}'_{net}\), therefore, is simply the value we indicated above:
 
 \begin{equation}
    \vec{\tau}'_{net} =  - RF_f
@@ -131,8 +190,9 @@ Supplying the actual constants into the expression:
 &= 5 \frac{rad}{s^2}
 \end{align}
 
-* Coefficient of Friction
-The question that the coefficient of friction is asking is whether or not the object slides. If it does indeed slide, the acceleration calculated with torque should be higher than that calculated by simply dividing radius out of the acceleration (as $r\theta$ is the circumference.)
+\section{Coefficient of Friction}
+\label{sec:org72dee80}
+The question that the coefficient of friction is asking is whether or not the object slides. If it does indeed slide, the acceleration calculated with torque should be higher than that calculated by simply dividing radius out of the acceleration (as \(r\theta\) is the circumference.)
 
 \begin{align}
    &a = r\alpha \\
@@ -147,10 +207,11 @@ Supplying the numerical values:
 
 Under no slipping, therefore, the object has an angular acceleration of 5.8 radians per second squared.
 
-This value is evidently larger than the $5$ radians per second derived above, meaning that the object does indeed rotate and slip along the ramp. Hence, the coefficient of friction derived above would be a kinetic one.
+This value is evidently larger than the \(5\) radians per second derived above, meaning that the object does indeed rotate and slip along the ramp. Hence, the coefficient of friction derived above would be a kinetic one.
 
-* Torque at Rest
-At the point indicated, we form another right triangle with hypotenuse $b$. The lever arm of the rotation of the center of cylinder is, therefore, the sum of $R$ plus the side length of the triangle facing $\theta$. Meaning: the lever arm is $b\sin\theta + R$.
+\section{Torque at Rest}
+\label{sec:org45735b7}
+At the point indicated, we form another right triangle with hypotenuse \(b\). The lever arm of the rotation of the center of cylinder is, therefore, the sum of \(R\) plus the side length of the triangle facing \(\theta\). Meaning: the lever arm is \(b\sin\theta + R\).
 
 We again note that gravity is coaxial to the object; however, it still plays a part in the net force of the object.
 
@@ -158,9 +219,10 @@ We again note that gravity is coaxial to the object; however, it still plays a p
    \vec{\tau}_{net} &= (b\ sin\theta+R)(M_0g\sin(\theta) - F_f)-RF_f 
 \end{align}
 
-Note here again that we define "right" is $+x$, and "out of the page" as $+z$.
+Note here again that we define "right" is \(+x\), and "out of the page" as \(+z\).
 
-* Derivative of Angular Momentum
+\section{Derivative of Angular Momentum}
+\label{sec:org6b487cc}
 We will work in the prime reference frame entirely first.
 
 We understand that:
@@ -176,9 +238,9 @@ Furthermore, we see from previous derivations that:
 &= \vec{R} \times M \vec{v}_{cm} + I_{CM}\vec{\omega}'
 \end{align}
 
-At the point indicated, we form another right triangle with hypotenuse $b$. The lever arm of the rotation of the center of cylinder is, therefore, the sum of $R$ plus the side length of the triangle facing $\theta$. Meaning: $R = b\sin\theta + R$.
+At the point indicated, we form another right triangle with hypotenuse \(b\). The lever arm of the rotation of the center of cylinder is, therefore, the sum of \(R\) plus the side length of the triangle facing \(\theta\). Meaning: \(R = b\sin\theta + R\).
 
-The direction of the center of mass' velocity is down the ramp, forming exactly a $90^\circ$ angle with the lever arm. Hence, this renders:
+The direction of the center of mass' velocity is down the ramp, forming exactly a \(90^\circ\) angle with the lever arm. Hence, this renders:
 
 \begin{equation}
    \vec{L}_{sys} = (b\ sin\theta +R) M_0v_{cm} + I_{CM} \omega'
@@ -190,7 +252,8 @@ Therefore, taking the first derivative, we see that:
    \frac{d\vec{L}'}{dt} = \vec{\tau}'_{net} = (b\ sin\theta +R)M_0 a_{CM} + I_{CM}\alpha' 
 \end{equation}
 
-* Torque and Rest is Equal to Derivative of Angular Momentum
+\section{Torque and Rest is Equal to Derivative of Angular Momentum}
+\label{sec:orgaaeefea}
 To set up this equality, we will have to make a few substitutions.
 
 First, we understand that:
@@ -224,7 +287,7 @@ and that:
      a_{rx} = \frac{gM_0 \sin\theta - F_f}{M_0}
 \end{equation}
 
-Substituting in the previously-derived expression for $a_{rx}$, we have:
+Substituting in the previously-derived expression for \(a_{rx}\), we have:
 
 \begin{equation}
     \alpha = \frac{gM_0 \sin\theta - F_f}{M_0R}
@@ -245,3 +308,4 @@ Finally, we found that:
     (b\ sin\theta + R)(gM_0 \sin\theta - F_f)- F_fR &= (b\ sin\theta + R)(gM_0 \sin\theta - F_f)- F_fR\\
 \frac{d\vec{L}}{dt} &= \vec{\tau}_{net}\ \blacksquare
 \end{align}
+\end{document}

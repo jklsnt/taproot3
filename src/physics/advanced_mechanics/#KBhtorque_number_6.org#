@@ -127,7 +127,7 @@ Therefore:
 Supplying the actual constants into the expression:
 
 \begin{align}
-   \vec{\alpha}' &= \frac{- RF_f}{I_0}\\
+   \alpha' &= \frac{RF_f}{I_0}\\
 &= 5 \frac{rad}{s^2}
 \end{align}
 
@@ -147,22 +147,18 @@ Supplying the numerical values:
 
 Under no slipping, therefore, the object has an angular acceleration of 5.8 radians per second squared.
 
-This value is evidently smaller than the $7.25$ derived above, meaning that the object does indeed rotate and slip along the ramp. Hence, the coefficient of friction derived above would be a kinetic one.
+This value is evidently larger than the $5$ radians per second derived above, meaning that the object does indeed rotate and slip along the ramp. Hence, the coefficient of friction derived above would be a kinetic one.
 
 * Torque at Rest
-The net force on the center of mass, as per derived above, is:
+At the point indicated, we form another right triangle with hypotenuse $b$. The lever arm of the rotation of the center of cylinder is, therefore, the sum of $R$ plus the side length of the triangle facing $\theta$. Meaning: the lever arm is $b\sin\theta + R$.
 
-\begin{equation}
-   F_{net_{rx}} = gM_0 \sin\theta - F_f 
-\end{equation}
-
-At the point indicated, we form another right triangle with hypotenuse $b$. The lever arm of the rotation of the center of cylinder is, therefore, the sum of $R$ plus the side length of the triangle facing $\theta$. Meaning: $R = b\sin\theta + R$.
-
+We again note that gravity is coaxial to the object; however, it still plays a part in the net force of the object.
 
 \begin{align}
-   \vec{\tau}_{net} &= R(M_0g\sin(\theta) - F_f) + (b\ sin\theta+R)(M_0g\sin(\theta) - F_f)\\
-&=(2R+b\ sin\theta) (M_0g\sin(\theta) - F_f)
+   \vec{\tau}_{net} &= (b\ sin\theta+R)(M_0g\sin(\theta) - F_f)-RF_f 
 \end{align}
+
+Note here again that we define "right" is $+x$, and "out of the page" as $+z$.
 
 * Derivative of Angular Momentum
 We will work in the prime reference frame entirely first.
@@ -213,7 +209,7 @@ Recall that, given what we derived before, we have that:
 Setting the variables for our situation, we have:
 
 \begin{equation}
-   I_{CM}a' = \vec{\tau}_{net} = R(M_0g\sin(\theta) - F_f)
+   I_{CM}a' = \vec{\tau}_{net} = - F_fR
 \end{equation}
 
 From previous derivation, we have that:
@@ -238,15 +234,19 @@ Substituting the above-derived expressions here into the expression:
 
 \begin{align}
    \frac{d\vec{L}}{dt} &= I_{CM}\alpha' + (b\ sin\theta + R)M_0 a_{CM}\\
-&=R(M_0g\sin(\theta) - F_f)+\left((b\ sin\theta + R)M_0 \frac{gM_0 \sin\theta - F_f}{M_0}\right)\\
-&=R(M_0g\sin(\theta) - F_f)+(b\ sin\theta + R)\left(gM_0 \sin\theta - F_f\right)\\
-&= R(M_0g\sin(\theta) - F_f) + (b\ sin\theta + R)\left(M_0 g\sin\theta - F_f\right)\\
-&= (2R+b\ sin\theta)\left(M_0g \sin\theta - F_f\right) 
+&= - F_fR + (b\ sin\theta + R)M_0 \frac{gM_0 \sin\theta - F_f}{M_0}\\
+&= - F_fR + (b\ sin\theta + R)(gM_0 \sin\theta - F_f)\\
+&= (b\ sin\theta + R)(gM_0 \sin\theta - F_f)- F_fR 
 \end{align}
 
 Finally, we found that:
 
 \begin{align}
-    (2R+b\ sin\theta)\left(M_0g \sin\theta - F_f\right)&=(2R+b\ sin\theta)\left(M_0g \sin\theta - F_f\right)\\
+    (b\ sin\theta + R)(gM_0 \sin\theta - F_f)- F_fR = \\
 \frac{d\vec{L}}{dt} &= \vec{\tau}_{net}\ \blacksquare
 \end{align}
+
+\begin{align}
+   \vec{\tau}_{net} &= (b\ sin\theta+R)(M_0g\sin(\theta) - F_f)-RF_f 
+\end{align}
+
