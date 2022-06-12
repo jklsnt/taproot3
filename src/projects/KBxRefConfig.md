@@ -31,6 +31,7 @@ date: 2022-06-02
 ## would like to do
 - collaborative editing in vim??
 - learn ag rq
+- buy new headphones
 
 
 

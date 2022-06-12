@@ -226,6 +226,30 @@ Thanks for the wonderful semester!
 
 ## linalg
 
+> How has our class influenced your worldview?
+
+> What is one thing you are proud of having learned in our class?
+
+> How have you grown as a learner in our class?
+
+> What role did collaboration play for you in our class?
+
+> What have you enjoyed about your experience in our class?
+
+> What would you change in our class?
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## quantum
