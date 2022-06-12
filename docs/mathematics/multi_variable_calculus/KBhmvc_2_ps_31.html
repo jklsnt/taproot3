@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-06-12 Sun 10:40 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MVC 2 PS#31</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Houjun Liu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="/global.css" type="text/css"/>
+<link rel="stylesheet" href="/admonition.css" type="text/css"/>
+<link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
+<script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js", "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        TeX: {extensions: ["AMSmath.js","AMSsymbols.js",  "[Contrib]/siunitx/siunitx.js", "[Contrib]/mhchem/mhchem.js"]},
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">MVC 2 PS#31</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-06-12 Sun 10:38</date></div>
+</div>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org73ec7c0">1. Correction factor in Cylindrical</a></li>
+<li><a href="#orgfaed0b2">2. Frankenstein coordinates</a>
+<ul>
+<li><a href="#org2eb519a">2.1. Draw a point!</a></li>
+<li><a href="#orge4f14b5">2.2. Draw another point!</a></li>
+<li><a href="#orgdf9bb76">2.3. A function!</a></li>
+<li><a href="#org335a51e">2.4. Another function.</a></li>
+<li><a href="#orgeca2483">2.5. First, integral</a></li>
+<li><a href="#org47eb1fd">2.6. Second Integral</a></li>
+</ul>
+</li>
+<li><a href="#orgfbe4ff3">3. Parabolic Choordinates</a></li>
+<li><a href="#orgced2610">4. Loxodromic Coordinates</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org73ec7c0" class="outline-2">
+<h2 id="org73ec7c0"><span class="section-number-2">1</span> Correction factor in Cylindrical</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+For this question, we are actually essentially just doing the Jacobian determinant form for <i>cylindrical</i> coordinates.
+</p>
+
+<p>
+Turns out, this is actually just saying the same expression for polar, but doing it with an additional, trivial \(z=z\) component.
+</p>
+
+\begin{equation}
+   f(x,y,z) = g(r, \theta,z) 
+\end{equation}
+
+<p>
+Fortunately, this is already derived to use from before.
+</p>
+
+\begin{equation}
+   \begin{cases}
+   x = r\cos\theta \\
+   y = r\sin\theta \\
+   z = z
+\end{cases}
+\end{equation}
+
+<p>
+We can then figure out, then the Jacobian determinant. Since the last parameter is \(z=z\), we have:
+</p>
+
+<p>
+And therefore, we can figure \(J_{r,\theta,z}\):
+</p>
+
+\begin{equation}
+   J = \begin{bmatrix} 
+cos\theta & -r\sin\theta & 0\\
+sin\theta & r\cos\theta & 0\\
+0 & 0 & 1
+\end{bmatrix} 
+\end{equation}
+
+<p>
+The determinant would still, unsurprisingly, be \(r\): you can see this by the fact that each of the "valued" column is multiplied by \(1\), and the last column's determinant is just canceled by \(0\).
+</p>
+
+<p>
+Taking its determinant, then:
+</p>
+
+\begin{equation}
+   det(J) = r\cos^2\theta +r\sin^2\theta = r
+\end{equation}
+
+<p>
+And therefore, the change-of-basis result would be:
+</p>
+
+\begin{equation}
+   dx\ dy\ dz = r\ dr\ d\theta\ dz
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orgfaed0b2" class="outline-2">
+<h2 id="orgfaed0b2"><span class="section-number-2">2</span> Frankenstein coordinates</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+It seems like Frankenstein coordinates are just the same coordinate system that we are used to, but rotated!
+</p>
+
+<p>
+We can actually apply a transformation upon the \((r,\theta)\) choordinates to better describe the system:
+</p>
+
+\begin{equation}
+\begin{cases}
+   r = \frac{y}{\cos\phi} \\
+   \theta = 90-\phi 
+\end{cases}
+\end{equation}
+</div>
+
+<div id="outline-container-org2eb519a" class="outline-3">
+<h3 id="org2eb519a"><span class="section-number-3">2.1</span> Draw a point!</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Draw the point \((\phi = \frac{\pi}{4}, y = 378)\).
+</p>
+
+\begin{equation}
+\begin{cases}
+   r = \frac{378}{\frac{\sqrt{2}}{2}} = 378\sqrt{2} \\
+   \theta = \frac{\pi}{4}
+\end{cases}
+\end{equation}
+
+<p>
+We note that: \(x = r\cos\theta, y=r\sin\theta\), and \(\sin\theta = \cos\theta = \frac{\sqrt{2}}{2}\).
+</p>
+
+\begin{equation}
+\begin{cases}
+   x = 378\\
+   y = 378
+\end{cases}
+\end{equation}
+
+<div class="org-src-container">
+<pre class="src src-sage">f_dots = points([[378,378]])
+plot(f_dots)
+</pre>
+</div>
+
+
+<div id="org41a2a48" class="figure">
+<p><img src="2022-06-01_09-38-21_screenshot.png" alt="2022-06-01_09-38-21_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge4f14b5" class="outline-3">
+<h3 id="orge4f14b5"><span class="section-number-3">2.2</span> Draw another point!</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Draw the point \((\phi = \frac{11\pi}{12}, y=-7)\).
+</p>
+
+\begin{equation}
+\begin{cases}
+   r = \frac{7}{\frac{1}{4\sqrt{6}} + \frac{1}{4\sqrt{2}}} = \frac{56\sqrt{3}}{\sqrt{2}+\sqrt{6}} \\
+   \theta = \frac{-5\pi}{12}
+\end{cases}
+\end{equation}
+
+<p>
+We note that: \(x = r\cos\theta, y=r\sin\theta\), \(\sin\theta \approx -0.9659\), \(\cos\theta \approx 0.2588\). Furthermore, we can give \(r=25.1041\). 
+</p>
+
+<p>
+Therefore:
+</p>
+
+\begin{equation}
+\begin{cases}
+     x = 6.4969\\
+    y = -24.2481
+\end{cases}
+\end{equation}
+
+<div class="org-src-container">
+<pre class="src src-sage">f_dots = points([[6.4969, -24.2481]])
+plot(f_dots)
+</pre>
+</div>
+
+
+<div id="org8bfbb68" class="figure">
+<p><img src="2022-06-01_09-51-33_screenshot.png" alt="2022-06-01_09-51-33_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdf9bb76" class="outline-3">
+<h3 id="orgdf9bb76"><span class="section-number-3">2.3</span> A function!</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Our nameless function is simply a line at \(y=5\):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sage">plot(5)
+</pre>
+</div>
+
+
+<div id="org2a638ea" class="figure">
+<p><img src="2022-06-01_09-57-14_screenshot.png" alt="2022-06-01_09-57-14_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org335a51e" class="outline-3">
+<h3 id="org335a51e"><span class="section-number-3">2.4</span> Another function.</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+This function should be more interesting. We are here presented with a shape that increases in its y-dimension radius as the angle increases. Of course, Sage can't actually plot something in our new coordinate frame, so we will convert it to polar to begin:
+</p>
+
+
+<p>
+Recall that&#x2014;
+</p>
+
+\begin{equation}
+\begin{cases}
+   r = \frac{y}{\cos\phi} \\
+   \theta = 90-\phi 
+\end{cases}
+\end{equation}
+
+<p>
+We therefore convert \((\phi=\phi, y=2\phi)\) to polar:
+</p>
+
+\begin{equation}
+\begin{cases}
+r = \frac{2\phi}{\cos\phi}\\
+\theta = 90-\phi
+\end{cases}
+\end{equation}
+
+<p>
+Manipulating the bottom expression:
+</p>
+
+\begin{equation}
+   \phi = 90-\theta 
+\end{equation}
+
+<p>
+And therefore:
+</p>
+
+\begin{equation}
+   r = \frac{180-2\theta}{sin\theta} 
+\end{equation}
+
+
+<div id="org099194f" class="figure">
+<p><img src="2022-06-01_10-38-51_screenshot.png" alt="2022-06-01_10-38-51_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeca2483" class="outline-3">
+<h3 id="orgeca2483"><span class="section-number-3">2.5</span> First, integral</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+We can first figure a set of parameterizations for \((x,y)\) for the above choordinates:
+</p>
+
+<p>
+Let's figure the \(x\) value. \(x = r\cos\theta = r \sin\phi = \frac{y\sin\phi}{cos\phi} = y\tan\phi\).
+</p>
+
+\begin{equation}
+\begin{cases}
+   x = y\tan\phi\\
+   y = y 
+\end{cases}
+\end{equation}
+
+<p>
+We can take the derivative matrix of this set of parameterizations:
+</p>
+
+\begin{equation}
+   J = \begin{bmatrix} 
+\tan\phi & ysec^2\phi \\
+1 & 0 
+\end{bmatrix} 
+\end{equation}
+
+<p>
+Therefore, the correction factor in this case would be \(\sec^2\phi\).
+</p>
+
+<p>
+Hence, the integral \(dA = y\ sec^2\phi\ d\phi\ dy\).
+</p>
+
+\begin{align}
+   &\int_5^7 \int_0^{\frac{\pi}{3}} y\ sec^2\phi\ d\phi\ dy\\
+& \int_5^7 y\sqrt{3} dy\\
+& 12\sqrt{3} 
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-org47eb1fd" class="outline-3">
+<h3 id="org47eb1fd"><span class="section-number-3">2.6</span> Second Integral</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+We change the bound for or the integral around:
+</p>
+
+\begin{align}
+   &\int_0^\frac{\pi}{4} \int_0^{\frac{y}{2}} y\ sec^2\phi\ d\phi\ dy\\
+& \int_0^\frac{\pi}{4} y \tan\frac{y}{2} dy\\
+& -2log\left(\frac{\sqrt{\sqrt{2}+2}}{2}\right)
+\end{align}
+
+<p>
+The last step here is computed via Sage.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfbe4ff3" class="outline-2">
+<h2 id="orgfbe4ff3"><span class="section-number-2">3</span> Parabolic Choordinates</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Parabolic choordinates are a set of choordinates particularly useful for marginalizing intersecting curved spaces in a parabolic manner. This makes parabolic functions particularly useful to describe.
+</p>
+
+<p>
+Its change of bases expressions are:
+</p>
+
+\begin{equation}
+   \begin{cases}
+   x = \sigma \tau \\ 
+   y = \frac{1}{2}(\tau^2-\sigma^2) 
+\end{cases}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orgced2610" class="outline-2">
+<h2 id="orgced2610"><span class="section-number-2">4</span> Loxodromic Coordinates</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Loxodromic Coordinates are choordinates that traverse a spherical surface, crossing the meridians of longitudes at equal angles. This is particularly useful for early navigation, where the sun's angles rendered an important part of the navigation process.
+</p>
+
+<p>
+It is a circular path down the shape (take, for instance, the "top-down" projection of the path looks like \(r=\theta\)), yet it winds around a sphere.
+</p>
+
+<p>
+The change of bases expressions are:
+</p>
+
+\begin{equation}
+\begin{cases}
+x = \cos\lambda \cos\varphi\\
+y = \cos\lambda \cos\varphi\\
+z = \sin\varphi
+\end{cases}
+\end{equation}
+
+<p>
+Where, each point that exhibit intersection with meridian at equal angle is accessible by \(r(\lambda, \varphi)\).
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

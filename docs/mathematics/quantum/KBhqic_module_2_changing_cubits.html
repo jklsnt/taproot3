@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-18 Fri 09:57 -->
+<!-- 2022-06-12 Sun 10:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>QIC Module 2: Changing Cubits</title>
@@ -193,7 +193,6 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="/global.css" type="text/css"/>
 <link rel="stylesheet" href="/admonition.css" type="text/css"/>
 <link rel="stylesheet" href="https://quantumish.github.io/admonition.css" />
 <script src="https://kit.fontawesome.com/76c5ce8bda.js" crossorigin="anonymous" />
@@ -263,47 +262,47 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">QIC Module 2: Changing Cubits</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-03-18 Fri 09:56</date></div>
+<div class="header"><span class="site"><a href="https://taproot3.sanity.gq">TR3.5</a></span></div><div class="datarow"><h1 class="title">QIC Module 2: Changing Cubits</h1> <h2 class="subtitle"></h2> <span class="author">Houjun Liu</span> <span class="date">2022-06-12 Sun 10:38</date></div>
 </div>
 <div id="content">
-<div id="linktables"><div id="table-of-backlinks"><h2>Backlinks</h2><ul><li><a class='backlink' href='KBhtim_hosgood.html'>Tim Hosgood</a></li> </ul></div><div id="table-of-contents"><h2>Table of Contents</h2><div id="text-table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
 <ul>
-<li><a href="#org07a921e">1. To Do</a></li>
-<li><a href="#org01e36e5">2. Core Concepts</a></li>
-<li><a href="#org5230234">3. Introduction</a></li>
-<li><a href="#org09cbaf0">4. Shrödinger's Equations</a>
+<li><a href="#org8624d0d">1. To Do</a></li>
+<li><a href="#orgc286f8d">2. Core Concepts</a></li>
+<li><a href="#org326562d">3. Introduction</a></li>
+<li><a href="#org16bc7ae">4. Shrödinger's Equations</a>
 <ul>
-<li><a href="#orga5aa628">4.1. What's a unitary matrix again?</a></li>
-<li><a href="#org5a2399e">4.2. What is a Hermitian again?</a></li>
-<li><a href="#org136ea9e">4.3. Basic Properties</a></li>
-<li><a href="#org18d43be">4.4. The Schrodinger Equation at the Last Bit of Class</a></li>
+<li><a href="#org658eb35">4.1. What's a unitary matrix again?</a></li>
+<li><a href="#orga4d3d8d">4.2. What is a Hermitian again?</a></li>
+<li><a href="#org46b61e2">4.3. Basic Properties</a></li>
+<li><a href="#org89c4f43">4.4. The Schrodinger Equation at the Last Bit of Class</a></li>
 </ul>
 </li>
-<li><a href="#orgedb6fb7">5. Solving Shrödinger's Equations</a></li>
-<li><a href="#orgee48320">6. Boolean Operators, etc.</a>
+<li><a href="#orge7bb054">5. Solving Shrödinger's Equations</a></li>
+<li><a href="#orgb570cf2">6. Boolean Operators, etc.</a>
 <ul>
-<li><a href="#org759b762">6.1. Boolean Inner Product</a></li>
-<li><a href="#org1bbca01">6.2. And now, a boolean network</a></li>
-<li><a href="#org5cdfa00">6.3. Controlled Not</a></li>
+<li><a href="#org88a46ed">6.1. Boolean Inner Product</a></li>
+<li><a href="#org7a25564">6.2. And now, a boolean network</a></li>
+<li><a href="#orgfb542c2">6.3. Controlled Not</a></li>
 </ul>
 </li>
-<li><a href="#org558abbe">7. A Guest Lecture</a></li>
-<li><a href="#orgf9c5ff5">8. Parallel vs Series</a></li>
-<li><a href="#orgbbafabd">9. Not the Uncertainty Principle</a></li>
-<li><a href="#org24a03d1">10. The Actual Uncertainty Principle</a></li>
-<li><a href="#orga8f118b">11. Basically Feasible Operations</a>
+<li><a href="#org43c9450">7. Parallel vs Series</a></li>
+<li><a href="#orgb942b63">8. Not the Uncertainty Principle</a></li>
+<li><a href="#org715e03f">9. The Actual Uncertainty Principle</a></li>
+<li><a href="#orgbea8623">10. Basically Feasible Operations</a>
 <ul>
-<li><a href="#org061a93a">11.1. Fourier Matrix</a></li>
-<li><a href="#org76e59a1">11.2. Toffoli Gate</a></li>
+<li><a href="#orgccf648a">10.1. Fourier Matrix</a></li>
+<li><a href="#orgdb19d8e">10.2. Toffoli Gate</a></li>
 </ul>
 </li>
-<li><a href="#org8f72a35">12. Ted's Quantum Algorithm</a></li>
 </ul>
-</div></div>
+</div>
 </div>
 
-<div id="outline-container-org07a921e" class="outline-2">
-<h2 id="org07a921e"><span class="section-number-2">1</span> To Do</h2>
+<div id="outline-container-org8624d0d" class="outline-2">
+<h2 id="org8624d0d"><span class="section-number-2">1</span> To Do</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Read chapters</li>
@@ -312,8 +311,8 @@
 </div>
 </div>
 
-<div id="outline-container-org01e36e5" class="outline-2">
-<h2 id="org01e36e5"><span class="section-number-2">2</span> Core Concepts</h2>
+<div id="outline-container-orgc286f8d" class="outline-2">
+<h2 id="orgc286f8d"><span class="section-number-2">2</span> Core Concepts</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Solving the Shrödinger equation</li>
@@ -324,8 +323,8 @@ the state of the cubit</li>
 </div>
 </div>
 
-<div id="outline-container-org5230234" class="outline-2">
-<h2 id="org5230234"><span class="section-number-2">3</span> Introduction</h2>
+<div id="outline-container-org326562d" class="outline-2">
+<h2 id="org326562d"><span class="section-number-2">3</span> Introduction</h2>
 <div class="outline-text-2" id="text-3">
 \begin{equation}
    |ud \big> = u \big> \otimes |d\big> = \begin{pmatrix}
@@ -352,8 +351,8 @@ Change in perspective! Instead of simulating the behavior of cubits with bits, w
 </div>
 </div>
 
-<div id="outline-container-org09cbaf0" class="outline-2">
-<h2 id="org09cbaf0"><span class="section-number-2">4</span> Shrödinger's Equations</h2>
+<div id="outline-container-org16bc7ae" class="outline-2">
+<h2 id="org16bc7ae"><span class="section-number-2">4</span> Shrödinger's Equations</h2>
 <div class="outline-text-2" id="text-4">
 \begin{equation}
    |\Psi (t) \big> = U(t) | \Psi(0)\big> 
@@ -364,8 +363,8 @@ We will use \(\Psi\) to represents a function that dumps a cubit. We will act on
 </p>
 </div>
 
-<div id="outline-container-orga5aa628" class="outline-3">
-<h3 id="orga5aa628"><span class="section-number-3">4.1</span> What's a unitary matrix again?</h3>
+<div id="outline-container-org658eb35" class="outline-3">
+<h3 id="org658eb35"><span class="section-number-3">4.1</span> What's a unitary matrix again?</h3>
 <div class="outline-text-3" id="text-4-1">
 \begin{equation}
    U^*U = I 
@@ -373,8 +372,8 @@ We will use \(\Psi\) to represents a function that dumps a cubit. We will act on
 </div>
 </div>
 
-<div id="outline-container-org5a2399e" class="outline-3">
-<h3 id="org5a2399e"><span class="section-number-3">4.2</span> What is a Hermitian again?</h3>
+<div id="outline-container-orga4d3d8d" class="outline-3">
+<h3 id="orga4d3d8d"><span class="section-number-3">4.2</span> What is a Hermitian again?</h3>
 <div class="outline-text-3" id="text-4-2">
 \begin{equation}
    H = H^* 
@@ -382,8 +381,8 @@ We will use \(\Psi\) to represents a function that dumps a cubit. We will act on
 </div>
 </div>
 
-<div id="outline-container-org136ea9e" class="outline-3">
-<h3 id="org136ea9e"><span class="section-number-3">4.3</span> Basic Properties</h3>
+<div id="outline-container-org46b61e2" class="outline-3">
+<h3 id="org46b61e2"><span class="section-number-3">4.3</span> Basic Properties</h3>
 <div class="outline-text-3" id="text-4-3">
 \begin{equation}
    \big< \Psi (0) | \Phi (0) \big> = 0  \Rightarrow  \big< \Psi (t) | \Phi (t) \big> = 0
@@ -415,8 +414,8 @@ because \(\epsilon^2\) is really small, so you get the same thing back.
 </div>
 </div>
 
-<div id="outline-container-org18d43be" class="outline-3">
-<h3 id="org18d43be"><span class="section-number-3">4.4</span> The Schrodinger Equation at the Last Bit of Class</h3>
+<div id="outline-container-org89c4f43" class="outline-3">
+<h3 id="org89c4f43"><span class="section-number-3">4.4</span> The Schrodinger Equation at the Last Bit of Class</h3>
 <div class="outline-text-3" id="text-4-4">
 \begin{equation}
    \hbar \frac{\partial | \Psi \big>}{\partial t}  = -i H | \Psi \big>
@@ -437,8 +436,8 @@ Partial differential equations can be treated as a limit of a system of ordinary
 </div>
 </div>
 
-<div id="outline-container-orgedb6fb7" class="outline-2">
-<h2 id="orgedb6fb7"><span class="section-number-2">5</span> Solving Shrödinger's Equations</h2>
+<div id="outline-container-orge7bb054" class="outline-2">
+<h2 id="orge7bb054"><span class="section-number-2">5</span> Solving Shrödinger's Equations</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Let's start with a state:
@@ -504,7 +503,7 @@ We will get:
 </p>
 
 
-<div id="orga77a113" class="figure">
+<div id="org00c13af" class="figure">
 <p><img src="2022-03-04_09-28-18_screenshot.png" alt="2022-03-04_09-28-18_screenshot.png" />
 </p>
 </div>
@@ -546,7 +545,7 @@ We can actually decompose \(|\Psi(t)\big>\) down into the sum of all components 
 </p>
 
 
-<div id="org8e79ed3" class="figure">
+<div id="orgb9bf10b" class="figure">
 <p><img src="2022-03-04_09-56-38_screenshot.png" alt="2022-03-04_09-56-38_screenshot.png" />
 </p>
 </div>
@@ -554,12 +553,12 @@ We can actually decompose \(|\Psi(t)\big>\) down into the sum of all components 
 </div>
 
 
-<div id="outline-container-orgee48320" class="outline-2">
-<h2 id="orgee48320"><span class="section-number-2">6</span> Boolean Operators, etc.</h2>
+<div id="outline-container-orgb570cf2" class="outline-2">
+<h2 id="orgb570cf2"><span class="section-number-2">6</span> Boolean Operators, etc.</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org759b762" class="outline-3">
-<h3 id="org759b762"><span class="section-number-3">6.1</span> Boolean Inner Product</h3>
+<div id="outline-container-org88a46ed" class="outline-3">
+<h3 id="org88a46ed"><span class="section-number-3">6.1</span> Boolean Inner Product</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Boolean strings of length \(m\), \(x \cdot y\) is their <b><b>boolean inner product</b></b>, defined to be:
@@ -575,15 +574,15 @@ here, \(\oplus\) means exclusive or (addition mod 2) (1+1 is zero, 0+1 is 1, etc
 </div>
 </div>
 
-<div id="outline-container-org1bbca01" class="outline-3">
-<h3 id="org1bbca01"><span class="section-number-3">6.2</span> And now, a boolean network</h3>
+<div id="outline-container-org7a25564" class="outline-3">
+<h3 id="org7a25564"><span class="section-number-3">6.2</span> And now, a boolean network</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 We can have a boolean network in classical framing:
 </p>
 
 
-<div id="orgc8d186b" class="figure">
+<div id="org68c944d" class="figure">
 <p><img src="2022-03-02_09-10-04_screenshot.png" alt="2022-03-02_09-10-04_screenshot.png" />
 </p>
 </div>
@@ -602,8 +601,8 @@ Does the number of nodes grow proportionally to the number of inputs? I.e.:
 </div>
 </div>
 
-<div id="outline-container-org5cdfa00" class="outline-3">
-<h3 id="org5cdfa00"><span class="section-number-3">6.3</span> Controlled Not</h3>
+<div id="outline-container-orgfb542c2" class="outline-3">
+<h3 id="orgfb542c2"><span class="section-number-3">6.3</span> Controlled Not</h3>
 <div class="outline-text-3" id="text-6-3">
 \begin{equation}
    C_{not}(x_1, x_2) = \begin{cases}
@@ -615,18 +614,10 @@ x_1\ if\ x_2 = 0\\
 </div>
 </div>
 
-<div id="outline-container-org558abbe" class="outline-2">
-<h2 id="org558abbe"><span class="section-number-2">7</span> A Guest Lecture</h2>
-<div class="outline-text-2" id="text-7">
-<p>
-<a href="../../../src/mathematics/quantum/KBhtim_hosgood.html#ID-CF365519-4623-44E1-A3EA-591A586C74CF">Tim Hosgood</a>
-</p>
-</div>
-</div>
 
-<div id="outline-container-orgf9c5ff5" class="outline-2">
-<h2 id="orgf9c5ff5"><span class="section-number-2">8</span> Parallel vs Series</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-org43c9450" class="outline-2">
+<h2 id="org43c9450"><span class="section-number-2">7</span> Parallel vs Series</h2>
+<div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Tensoring matricies are  parallel operations</li>
 <li>Producting matricies are series operations</li>
@@ -634,9 +625,9 @@ x_1\ if\ x_2 = 0\\
 </div>
 </div>
 
-<div id="outline-container-orgbbafabd" class="outline-2">
-<h2 id="orgbbafabd"><span class="section-number-2">9</span> Not the Uncertainty Principle</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-orgb942b63" class="outline-2">
+<h2 id="orgb942b63"><span class="section-number-2">8</span> Not the Uncertainty Principle</h2>
+<div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Quantum mechanics is a deterministic theory, but the state lives on the Bloch sphere so has an imaginary component that's not imaginable</li>
 <li>It propergates counterfactuals</li>
@@ -648,9 +639,9 @@ The evolution of the state
 </div>
 </div>
 
-<div id="outline-container-org24a03d1" class="outline-2">
-<h2 id="org24a03d1"><span class="section-number-2">10</span> The Actual Uncertainty Principle</h2>
-<div class="outline-text-2" id="text-10">
+<div id="outline-container-org715e03f" class="outline-2">
+<h2 id="org715e03f"><span class="section-number-2">9</span> The Actual Uncertainty Principle</h2>
+<div class="outline-text-2" id="text-9">
 <p>
 Let's take two operators \(\vec{L}\) and \(\vec{M}\). Perhaps one measuring spin in \(\hat{z}\) and one at \(\hat{y}\).
 </p>
@@ -790,9 +781,9 @@ Cool result: for instance, if you recall \([\sigma_x, \sigma_y] = 2 i\sigma_z\).
 </div>
 </div>
 
-<div id="outline-container-orga8f118b" class="outline-2">
-<h2 id="orga8f118b"><span class="section-number-2">11</span> Basically Feasible Operations</h2>
-<div class="outline-text-2" id="text-11">
+<div id="outline-container-orgbea8623" class="outline-2">
+<h2 id="orgbea8623"><span class="section-number-2">10</span> Basically Feasible Operations</h2>
+<div class="outline-text-2" id="text-10">
 <p>
 The Hadamand matrix \(H_N\) of order \(N\) is defined:
 </p>
@@ -829,9 +820,9 @@ where \(r \cdot c\) is the inner product of \(r\) and \(c\) are boolean strings.
 </p>
 </div>
 
-<div id="outline-container-org061a93a" class="outline-3">
-<h3 id="org061a93a"><span class="section-number-3">11.1</span> Fourier Matrix</h3>
-<div class="outline-text-3" id="text-11-1">
+<div id="outline-container-orgccf648a" class="outline-3">
+<h3 id="orgccf648a"><span class="section-number-3">10.1</span> Fourier Matrix</h3>
+<div class="outline-text-3" id="text-10-1">
 <p>
 Some other application, the Fourier matrix:
 </p>
@@ -845,7 +836,7 @@ Let \(\omega\) stand for \(e^{2\pi i / N}\), which is considered "the" principal
 \end{equation}
 
 <p>
-We take the mod-n <a href="../../../src/mathematics/linear_algebra/KBrefInnerProduct.html#ID-4DFDBF99-F2BA-44B6-85A9-83E9710EACDC">Inner Product</a> between \(i\) and \(j\). 
+We take the mod-n between \(i\) and \(j\). 
 </p>
 
 <p>
@@ -854,9 +845,9 @@ We take the mod-n <a href="../../../src/mathematics/linear_algebra/KBrefInnerPro
 </div>
 </div>
 
-<div id="outline-container-org76e59a1" class="outline-3">
-<h3 id="org76e59a1"><span class="section-number-3">11.2</span> Toffoli Gate</h3>
-<div class="outline-text-3" id="text-11-2">
+<div id="outline-container-orgdb19d8e" class="outline-3">
+<h3 id="orgdb19d8e"><span class="section-number-3">10.2</span> Toffoli Gate</h3>
+<div class="outline-text-3" id="text-10-2">
 <p>
 Define the Tofoli gate as the ternary Boolean function
 </p>
@@ -897,18 +888,9 @@ The toffoli gate can be represented as a \(8\) by \(8\) matrix, with only the la
 \end{equation}
 
 <p>
-You can see that, unless the last values are true, nothing happens (its mostly the identity.) However, if the last group is true, we will flip the last value.
+You can see that, unless the last values are true, nothing happens (its mostly the identity.) However, if the last group is true, we will flip the last value.#+HTML<sub>HEAD</sub><sub>EXTRA</sub>: &lt;link rel="stylesheet" href="/global.css" type="text/css"/&gt;
 </p>
 </div>
-</div>
-</div>
-
-<div id="outline-container-org8f72a35" class="outline-2">
-<h2 id="org8f72a35"><span class="section-number-2">12</span> Ted's Quantum Algorithm</h2>
-<div class="outline-text-2" id="text-12">
-<p>
-
-</p>
 </div>
 </div>
 </div>
