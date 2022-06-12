@@ -242,40 +242,8 @@ strong free will.
 
 ***
 
-This semester in QIC, we took a deep dive into an entirely different way of thinking. The world that has been made intuitive through our experience with it no longer applied. Instead, we operated within the world of the quantum — a world which seems to defy the reality that we experience. Through the lens of essentially linear algebra, we began to familiarize ourselves with this foreign landscape and even began to learn how to utilize its strange traits to solve our problems. I began this exploration by tackling the Quantum Dice design challenge. Through this first module, I started thinking about how to represent our non-quantum world with the language of QIC, converting between classical representations and quantum ones. Our group did this through heavy utilization of the Bloch sphere, and thinking about how to update it as our "dice rolled." The next module, my group and I took on the Quantum Checkers design challenge. We explored how qubits evolve over time, diving into wave functions and the Schrödinger equation. Next, we implemented all the math we learned in code, forcing us to gain a more rigorous understanding. In the end, we created a fully functional, interactive, and internet-accessible simulation of the Quantum Checkers design challenge. For the third module, my group and I did the Quantum Switches research question. This module really focused on algorithm design, where we had a problem that we could solve trivially classically but more efficiently and not-so-trivially quantumly. We spent a lot of time bashing at this problem, coming up with multiple quantum-superior if not elegant solutions in the end. This module allowed us to focus on the utilization of the quantum traits we had learned about as opposed to the quantum traits themselves — combining what we had learned and teaching us how to apply it.
+This semester in QIC, we took a deep dive into an entirely different way of thinking. The world that has been made intuitive through our experience with it no longer applied. Instead, we operated within the world of the quantum — a world which seems to defy the reality that we experience. Through the lens of essentially linear algebra, we began to familiarize ourselves with this foreign landscape and even began to learn how to utilize its strange traits to solve our problems. I began this exploration by tackling the Quantum Dice design challenge. Through this first module, I started thinking about how to represent our non-quantum world with the language of QIC, converting between classical representations and quantum ones. Our group did this through heavy utilization of the Bloch sphere, and thinking about how to update it as our "dice rolled." The next module, my group and I took on the Quantum Checkers design challenge. We explored how qubits evolve over time, diving into wave functions and the Schrödinger equation. Next, we implemented all the math we learned in code, forcing us to gain a more rigorous understanding. In the end, we created a fully functional, interactive, and internet-accessible simulation of the Quantum Checkers design challenge. For the third module, my group and I did the Quantum Switches research question. This module really focused on algorithm design, where we had a problem that we could solve trivially classically but more efficiently and not-so-trivially quantumly. We spent a lot of time bashing at this problem, coming up with multiple quantum-superior if not elegant solutions in the end. This module allowed us to focus on the utilization of the quantum traits we had learned about as opposed to the quantum traits themselves — combining what we had learned and teaching us how to apply it. For our final module, my group and I did the Strong Free Will writing prompt. It was a cool opportunity to explore proofs in the context of QIC, as well as allow for some more philosophical exploration of the topics we have been learning about. Given the makeup of our group, I decided that a play would probably be best. And even though — at the last minute — everything that could go wrong did go wrong, it was still a fun experience that I'm glad I got to experience with the seniors before they leave. 
 
-For our final module, my group and I did the Strong Free Will writing prompt. Given the makeup of our group, I decided that a play would probably be best. It was also a cool opportunity to 
+This semester felt like starting from the beginning again. Climbing into a foreign world and trying to wrap my head around what it is and how to use it was an incredibly interesting experience — and I have a feeling that it's something I will be doing a lot in my future, especially as the rate at which the world changes continues to accelerate. At a lower level of abstraction, QIC has combined (and validated, which isn't necessary but is still nice) everything I'm learning in Linear Algebra, Modern Physics, and Advanced Probability to allow me to learn a topic that I'm sure will be very big in the not-so-distant future. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Thanks so much for the wonderful semester.

@@ -82,18 +82,34 @@ something that tells you what you have tracked at the top of the log screen
 	- works!
 - logs data to a file: works
 - push to db: breaks.
+	- [ ] set up some dummy files so i can debug database rules
+
+- recording while phone is off: doesn't work.
+	- onboard storage??
 
 
+- onboard storage
+	- telling sensor to connect || js → swift → sensor
+	- request the data               || js → swift → sensor
+		- on button press
+		- upsert data given log id into db
+	- store times for start and stop of logs
 
 
+***
+deliverables: 
 
+- dummy code to let me push files to the db 
+	- debug the actual pushing!
+	
+- get nick the xcode!
+	- get nick the laptop w/ new user
 
+	- dependendant:
+		- get onboard storage working
 
-
-
-
-
-
+- fix the wack css/ionic bug
+- package
 
 
 
