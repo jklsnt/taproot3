@@ -30,8 +30,7 @@ gradient? https://codepen.io/grayghostvisuals/pen/gpROOz
 ## bugs
 - reload on day doesnt show / fetch the data
 
-## database planning
-*alright.*
+## database planning *alright.*
 
 
 have a table with
@@ -78,13 +77,11 @@ something that tells you what you have tracked at the top of the log screen
 
 
 
-
-
-
-
-
-
-
+## still todo
+- connecting: 
+	- works!
+- logs data to a file: works
+- push to db: breaks.
 
 
 
