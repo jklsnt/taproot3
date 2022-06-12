@@ -250,15 +250,31 @@ Thanks so much for the wonderful semester.
 
 > How has our class influenced your worldview?
 
+Linear algebra has shown me the beauty of math like nothing before. My appreciation for math has skyrocketed because of it. I've also started seeing it quite literally everywhere.
+
 > What is one thing you are proud of having learned in our class?
+
+I'm proud of having gone so far with graphical linear algebra with such little time. Moving into an entirely different representation system and working to gain an intuition about how to solve problems with it is something I am very proud of. 
 
 > How have you grown as a learner in our class?
 
+Linear algebra has made me realize more than ever that intuition truly does reign supreme over everything else. Working to rigorously gain this intuition and truly understand concepts — not just their definitions — is something that linear algebra required, and something that I plan to apply to my future learning adventures.
+
 > What role did collaboration play for you in our class?
+
+Working on math together with friends is of course insanely valuable and insanely efficient and of course more than the sum of its parts, but it is also one of the activities that I enjoy the most. Putting our minds together to solve a hard problem have seemed to form the defining moments of my high school career.
 
 > What have you enjoyed about your experience in our class?
 
+The consistency of mind-blowing moments from the concepts we are learning about.
+
 > What would you change in our class?
+
+I want to cover duality! Even if it is just a lecture or two.
+
+Also, I would work on syncing up the endpoints between the two different linear algebra classes a bit. Coming into the second semester of linear algebra with no knowledge of eigenvectors was a little jarring.
+
+And finally, I would definitely have Tim give a talk if he is able to :)
 
 
 ### portfolio essay
@@ -272,22 +288,19 @@ Thanks so much for the wonderful semester.
 
 
 
-Linear algebra has quickly become my favorite field of math. The interconnectedness, beauty, but also applicability of linear algebra is simply staggering. A common joke between my friends and I is that all of our classes are just linear algebra — it truly does show up everywhere (especially during conversations with my friends over lunch). Taking linear algebra this year has made me rethink the way I think about understanding. It's a subject where intuition reigns supreme, and relationships dominate the learning content. Before linear algebra, math was primarily just a tool to me. Now, I see that math has so much elegance in its own right, and has more explanatory power than I ever could have imagined. So many concepts in conversations seemingly not at all related to math have been communicated with ideas of linear independence, bases, injectivity, eigenvectors, and etc. 
+Linear algebra has quickly become my favorite field of math. The interconnectedness, beauty, but also applicability of linear algebra is simply staggering. A common joke between my friends and I is that all of our classes are just linear algebra — it truly does show up everywhere (especially during conversations with my friends over lunch). Taking linear algebra this year has made me rethink the way I think about understanding. It's a subject where intuition reigns supreme, and relationships dominate the learning content. Before linear algebra, math was primarily just a tool to me. Now, I see that math has so much elegance in its own right, and has more explanatory power than I ever could have imagined. So many concepts in conversations seemingly not at all related to math have been communicated with ideas of linear independence, bases, injectivity, eigenvectors, and etc. The modules that have helped me build up this appreciation are as follows.
 
+The first challenge I did this semester was creating the force-directed-graph space for linear algebra concepts. This project focused on meaning emergent through the connections of the different concepts in the graph. One of the innovations of the project was hosting information content in the edges between nodes, as opposed to only having nodes host content. I haven't seen this done before, and I think that concept illustrates how I was thinking about linear algebra after my first semester. It also had a major focus on collaboration, which was very annoying to implement in the code :)
 
+Next, my group and I tackled the Tensor Products computational challenge. This module introduced to me the concept of multilinear algebra, and showed me the power of navigating through dimensionality. It also helped me further grok the generalizability of concepts in linear algebra.
 
+From there, I moved onto doing approximations in the Wavelet Expansion computational challenge with my group. For this project, a lot of my time was dedicated to my mathematical modeling competition, but it still counts because we used linear algebra in the competition! We did end up winning first place in the national competition (wish us luck for globals!) so I would maintain that it was worth it, but I did not get to spend nearly as much time as I would have liked on the project. That being said, this module still showed me some of the immense applicability of barely-removed-from-pure linear algebra. Especially after having spent time working with and implementing much worse approximation schemes, the one that we explored based in linear algebra was shockingly effective. 
 
+For the next module, Selina and I took on diving head-first into graphical linear algebra. It wasn't one of the module options, but it was something I had wanted to explore for a long time; so with Selina on board, I decided to just go for it. And I'm so glad I did. Seeing the same concepts in a completely different representation system — one not even remotely similar to anything I considered math — was mind blowing. It was perhaps the final straw in me removing my understanding of math as a whole from the concept of its representation. The truths go so much deeper than the letters we describe them with. With no final goal — only a hunger to keep understanding — zeroing in on something to make a video on wasn't nearly as streamlined. The night spent making the video was certainly one to remember, but I wasn't done with graphical linear algebra after that! There is so so much more to learn with it, and I spent so much time during trips pursuing this learning that my friends actually started taking videos of me just reading about graphical linear algebra on my phone in various locations. 
 
+For the final module, my group and I did the Data Topology challenge. The dive into topology was incredibly interesting, and has inspired me to do a lot more learning about it over the summer. One of my biggest takeaways from this project was frankly how much fun math is. Hours — of which there were many — spent on call trying to understand different concepts or implement different parts of the algorithm together is what I choose to point to as my high school experience. Doing stuff like this is what I enjoy, and worth so much more to me than canonical high school activities. Perhaps the imminent end of the year, or the imminent college application process, has contributed to this being my takeaway from the project, but it's a takeaway I feel is important for me to recognize. 
 
-
-
-
-
-
-
-
-
-
+Linear algebra has been life-changing, and I'm so glad I got to take it. Thanks so much for the wonderful semester :)
 
 
 
