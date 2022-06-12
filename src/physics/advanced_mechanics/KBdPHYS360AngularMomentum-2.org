@@ -143,17 +143,41 @@ We can now integrate this with respect to $r$, from $-\frac{L}{2}$ to $\frac{L}{
 
 
 * 5)
-We can first take an equation for the angular momentum of a point, and integrate it polar-ly and then about $R$. We take some inspiration from Problem 4:
+
+We know that to find the angular momentum of the ring, we need to sum the angular momentum of every point on the disk.
+We know the density of the ring itself. We also know that the infinitessimal area of a ring given an infinitessimal thickness is $da &= 2\pi r\,dr$.
+
+Then, we can find the infinitessimal mass of that ring:
 \begin{aligned}
-\vec{L}_{\theta, r} &= r^2\omega\sigma\hat{k} \,d\theta dr \\
+dm &= \sigma\,da \\
+&= \frac{M}{\pi R^2}\,da \\
+&= \frac{M}{\pi R^2} 2\pi r\,dr \\
+&= \frac{2Mr}{R^2}\,dr \\
 \end{aligned}
-Now we integrate:
+
+We also know how to find the angular momentum of a ring:
 \begin{aligned}
-\vec{L} &= \int \int_{A} \vec{L}_{\theta, r} \, d\theta dr \\
-&= \int_{0}^{R} \int_{0}^{2\pi} r^2\omega\sigma\hat{k} \,d\theta dr \\
-&= \omega\sigma\hat{k} \int_{0}^{R} \int_{0}^{2\pi} r^2 \,d\theta dr \\
-&= \omega\sigma\hat{k} \int_{0}^{R} 2\pi r^2 \,dr \\
-&= \omega\sigma\hat{k} \cdot 2\pi \frac{R^3}{3} \\
-&= \omega\hat{k} \cdot 2\pi \frac{M}{\pi R^2} \cdot \frac{R^3}{3} \\
-&= \omega\hat{k} \cdot \frac{2MR}{3} \\
+\vec{L}_{ring} &= r\hat{i}\times mv\hat{j} \\
+&= r\hat{i}\times mr\omega\hat{j} \\
+&= mr^2\omega \hat{k} \\
 \end{aligned}
+
+Plugging in what we found for $dm$ for $m$, we get
+
+\begin{aligned}
+\vec{L}_{ring} &= r^2\omega\hat{k}\,dm \\
+&= r^2\omega\hat{k}\, \frac{2Mr}{R^2}\,dr \\
+&= \frac{2Mr^3\omega}{R^2}\,dr \\
+\end{aligned}
+
+We then integrate:
+
+\begin{aligned}
+\vec{L} &= \int_{0}^{R} \vec{L}_{ring} &= \int_{0}^{R} \frac{2Mr^3\omega}{R^2}\hat{k} \,dr \\
+&= \frac{2M\omega}{R^2}\hat{k} \int_{0}^{R} r^3\,dr \\
+&= \frac{2M\omega}{R^2} [\frac{r^4}{4}]^{R}_{0} \hat{k} \\
+&= \frac{2M\omega}{R^2}\cdot \frac{R^4}{4} \hat{k} \\
+&= frac{2M\omegaR^2}{4}\hat{k} \\
+&= \frac{1}{2}MR^2\omega\hat{k} \\
+\end{aligned}
+
