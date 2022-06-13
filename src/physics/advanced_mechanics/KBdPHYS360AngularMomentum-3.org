@@ -23,8 +23,8 @@ We expand:
 
 \begin{aligned}
 I &= \sum_{i = 1}^{N} m_i \vec{l_i'}^2 \\
-&= \sum_{i = 1}^{N} m_i (\vec{R_{CM}}^2 + \vec{l_i}^2 + 2\vec{R_{CM}}\vec{l_i}) \\
-&= \vec{R}^2_{CM} \sum_{i = 1}^{N} m_i + \sum_{i = 1}^{N} m_i \vec{l_i}^2 + 2\vec{R}_{CM} \sum_{i = 1}^{N} m_i \vec{l_i} \\
+&= \sum_{i = 1}^{N} m_i (\vec{R_{CM}}^2 + \vec{l_i}^2 + 2\vec{R_{CM}}\cdot\vec{l_i}) \\
+&= \vec{R}^2_{CM} \sum_{i = 1}^{N} m_i + \sum_{i = 1}^{N} m_i \vec{l_i}^2 + 2\vec{R}_{CM} \cdot \sum_{i = 1}^{N} m_i \vec{l_i} \\
 \end{aligned}
 
 Recall that $\vec{l_i}$ is the distance from the center of mass to the point on the object. This means that the rightmost term represents the center of mass, from the reference frame of the center of mass, i.e. zero:
@@ -34,8 +34,9 @@ Recall that $\vec{l_i}$ is the distance from the center of mass to the point on 
 \end{aligned}
 
 As such, we simplify $I$ further:
+
 \begin{aligned}
-I &= \vec{R}_{CM}^2 \sum_{i = 1}^{N} + \sum_{i = 1}^{N} m_i \vec{l_i}^2 \\
+I &= \vec{R}_{CM}^2 \sum_{i} m_i = 1}^{N} + \sum_{i = 1}^{N} m_i \vec{l_i}^2 \\
 &= \vec{R}_{CM}^2 \cdot M + I_{CM} \\
 &= D^2 M + I_{CM} \\
 \end{aligned}
@@ -155,15 +156,17 @@ Again, $\vec{\theta}(0) &= 0$, so $C = 0$:
 * Problem 4)
 We first find the rotational inertia of a thin slice of dimensions $W\times H$. Then, we integrate along $L$ to find the total inertia. We can do this because we can use the parallel axis theorem for each slice, where the distance is the distance of the slice from the center of mass.
 
-First, we solve for the inertia of the slice. The mass density can be given by
+First, we solve for the inertia of a strip of the slice along the x axis. The mass density can be given by
 
 \begin{aligned}
-M_{Strip} &= \frac{M}{HWL} \\
+\sigma &= \frac{M}{HWL} \\
 \end{aligned}
 
 because we assume the density of the rod is constant.
+
 We can now find the inertia of the slice. First, we integrate along the $\hat{i}$ axis to find to find the inertia of a small strip, then integrate again along $\hat{k}$ to find the final integral of the slice.
-We recall the integral for inertia:
+
+We first integrate along $\hat{i}$, effectively finding the angular momentum of a horizontal strip of the cross section:
 
 \begin{aligned}
 I_{strip} &= \int_{-\frac{W}{2}}^{\frac{W}{2}} l^2 \,dm \\
