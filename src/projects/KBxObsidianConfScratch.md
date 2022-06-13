@@ -24,7 +24,7 @@ date: 2022-05-27
 
 ## possibilities
 react components! + custom dict in various complements for easy insert
-var
+various complements for admonitions
 
 ## to configure
 [https://github.com/Exr0nProjects/obsidian-sage](https://github.com/Exr0nProjects/obsidian-sage "https://github.com/Exr0nProjects/obsidian-sage")
