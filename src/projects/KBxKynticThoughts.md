@@ -108,7 +108,7 @@ deliverables:
 	- dependendant:
 		- get onboard storage working
 
-- fix the wack css/ionic bug
+- fix the wack css/ionic bug :: done!
 - package
 
 

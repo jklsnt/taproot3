@@ -168,51 +168,56 @@ Therefore, the original sum can be rewritten:
 \sum_{i} \vec{r_{i}}' \times \vec{F_{i}} &= \sum_{i} \vec{r_{i}}' \times \vec{F}_{i,net\, ext} + \sum_{i} \vec{r_{i}}' \times \vec{F}_{i,net\, int} \\
 &= \sum_{i} \vec{r_{i}}' \times \vec{F}_{i,net\,ext} \\
 \vec{\tau}_{net} &= \vec{R} \times \vec{F}_{net} + \sum \vec{r_{i}}' \times \vec{F}_{i} \\
-&= \vec{R} \times \vec{F}_{net} + \sum \vec{r_{i}}' \times \vec{F}_{i,net\,int} \\
+&= \vec{R} \times \vec{F}_{net} + \sum \vec{r_{i}}' \times \vec{F}_{i,net\,ext} \\
 \end{aligned}
 
 * Theorem 4
 We combine Theorem 2 and 3 to find an equivelence relation between the net torque from the reference frame of the Center of Mass and the time derivative of the net angular momentum from the reference frame of the Center of Mass.
 
-First, we take our equations for the net torque and time derivative of net angular momentum from an arbitrary reference frame and modify them to fit the reference frame of the Center of Mass.
-
 In the case of the net torque, our original equation is as follows:
 
 \begin{aligned}
-\vec{\tau}_{net} &= \vec{R} \times \vec{F}_{net} + \sum \vec{r_{i}}' \times \vec{F}_{i,net\,int} \\
+\vec{\tau}_{net} &= \vec{R} \times \vec{F}_{net} + \sum \vec{r_{i}}' \times \vec{F}_{i,net\,ext} \\
 \end{aligned}
 
-From the reference frame of the Center of Mass, the position of the Center of Mass is at zero. As such, the torque equation becomes
+We also know that the time derivative of net angular momentum is given by:
 
 \begin{aligned}
-\vec{\tau}_{net}' &= \sum \vec{r_{i}}' \times \vec{F}_{i,net\,int} \\
+\frac{d\vec{L}_{net}}{dt} &= \vec{R}\times M\vec{a}_{cm} + \sum \vec{r_{i}}' \times m_{i}\vec{a}_{i}' \\
 \end{aligned}
 
-Similarly, the derivative of the net angular velocity is as follows:
+By Newton's first law, force is mass times acceleration. We know that the force of a system is equivalent to the force applied on the center of mass. As such, we know that $\vec{F}_{net} = M\vec{a}_{cm}$.
+
+We know that the torque of a system is equivalent to the time derivative of the angular momentum of a system. Then:
 
 \begin{aligned}
-\frac{d L_{net}}{dt} &= \vec{R} \times M\vec{a}_{CM} + \sum \vec{r_{i}}' \times m_i \vec{a_{i}}' \\
+\vec{\tau}_{net} &= \frac{d\vec{L}_{net}}{dt} \\
+\vec{R} \times \vec{F}_{net} + \sum \vec{r_i}'\times \vec{F}_{i,net\,ext} &= \vec{R}\times M\vec{a}_{cm} + \sum \vec{r_i}'\times m_{i}\vec{a}_{i}' \\
+\vec{R}\times \vec{F}_{net} + \sum \vec{r_i}'\times \vec{F}_{i,net\,ext} &= \vec{R}\times \vec{F}_{net} + \sum \vec{r_i}'\times m_{i}\vec{a}_{i}' \\
+\sum \vec{r_i}'\times \vec{F}_{i,net\,ext} &= \sum \vec{r_i}'\times m_{i}\vec{a}_{i}' \\
 \end{aligned}
 
-Again, $\vec{R} &= 0$:
+We are given definitions for $\vec{\tau}'_{net}$ and $\vec{L}'_{net}$:
 
 \begin{aligned}
-\frac{d L_{net}'}{dt} &= \sum \vec{r_{i}}' \times m_{i}\vec{a_{i}}' \\
+\vec{\tau}'_{net} &= \sum \vec{r_i}' \times \vec{F}_{i,net\,ext} \\
+\vec{L}'_{net} &= \sum \vec{r_i}' \times m_{i}\vec{v}'_{i} \\
 \end{aligned}
 
-The mass of an object multiplied by its acceleration is equal to its force:
+Then:
 
 \begin{aligned}
-\frac{dL_{net}'}{dt} &= \sum \vec{r_{i}}' \times F_{i} \\
+\frac{d\vec{L}'_{net}}{dt} &= \frac{d}{dt} \sum \vec{r_i}' \times m_{i}\vec{v}'_{i} \\
+&= \sum \vec{r_i}' \times m_{i}\vec{a}'_{i} \\
 \end{aligned}
 
-Recall that in theorem 3 we stated that the sum of torque of all objects from the CM reference frame is equivalent to the sum of torque of all objects by external forces (from the CM reference frame). In theorem 3, we used this to "simplify" our equation and helped deepen our understanding; in this proof, we reverse the process:
+As such:
 
 \begin{aligned}
-\vec{\tau}_{net}' &= \sum \vec{r_{i}}' \times \vec{F}_{i,net\,int} \\
-&= \sum \vec{r_{i}}' \times \vec{F}_{i} \\
-&= \frac{dL_{net}'}{dt} \\
+\sum \vec{r_i}' \times \vec{F}'_{i,net\,ext} &= \sum \vec{r_i}' \times m_{i}\vec{a_i}' \\
+\vec{\tau}'_{net} &= \frac{d\vec{L}'_{net}}{dt} \\
 \end{aligned}
+
 
 * Theorem 5
 We try to find the angular momentum of a rigid body in the reference frame of the Center of Mass. Note that we hold true that the axis of rotation passes through the center of mass.
