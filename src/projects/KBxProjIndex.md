@@ -18,6 +18,7 @@ date: 2021-12-23
 - [[KBxQuestScratch22]]
 - [[KBxCondutionScratch]]
 - [[KBxRefConfig]]
+- [[KBxMantraBioIndex]]
 
 ## blender things
 - [[KBxBlenderFractals]]
