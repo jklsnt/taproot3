@@ -25,3 +25,4 @@ date: 2022-05-25
 - and the settings page..
 - meta-data display on the task (project, dates, ect)
 - extension packing
+- 
