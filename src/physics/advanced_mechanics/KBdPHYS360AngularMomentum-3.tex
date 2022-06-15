@@ -1,0 +1,276 @@
+% Created 2022-06-15 Wed 15:27
+% Intended LaTeX compiler: xelatex
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\setlength{\parindent}{0pt}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{svg}
+\usepackage{tikz}
+\usepackage{cancel}
+\usepackage{pgfplots}
+\usepackage{indentfirst}
+\setmainfont[ItalicFont = HelveticaNeue-Italic, BoldFont = HelveticaNeue-Bold, BoldItalicFont = HelveticaNeue-BoldItalic]{HelveticaNeue}
+\newfontfamily\NHLight[ItalicFont = HelveticaNeue-LightItalic, BoldFont       = HelveticaNeue-UltraLight, BoldItalicFont = HelveticaNeue-UltraLightItalic]{HelveticaNeue-Light}
+\newcommand\textrmlf[1]{{\NHLight#1}}
+\newcommand\textitlf[1]{{\NHLight\itshape#1}}
+\let\textbflf\textrm
+\newcommand\textulf[1]{{\NHLight\bfseries#1}}
+\newcommand\textuitlf[1]{{\NHLight\bfseries\itshape#1}}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\pagestyle{fancy}
+\usepackage{titlesec}
+\usepackage{titling}
+\makeatletter
+\lhead{\textbf{\@title}}
+\makeatother
+\rhead{\textrmlf{Written} \today}
+\lfoot{\theauthor\ \textbullet \ \textbf{2021-2022}}
+\cfoot{}
+\rfoot{\textrmlf{Page} \thepage}
+\renewcommand{\tableofcontents}{}
+\titleformat{\section} {\Large} {\textrmlf{\thesection} {|}} {0.3em} {\textbf}
+\titleformat{\subsection} {\large} {\textrmlf{\thesubsection} {|}} {0.2em} {\textbf}
+\titleformat{\subsubsection} {\large} {\textrmlf{\thesubsubsection} {|}} {0.1em} {\textbf}
+\setlength{\parskip}{0.45em}
+\renewcommand\maketitle{}
+\author{Dyan Wallace}
+\date{\today}
+\title{Torque and Angular Momentum 3}
+\hypersetup{
+ pdfauthor={Dyan Wallace},
+ pdftitle={Torque and Angular Momentum 3},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.91 (Org mode 9.5.2)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Problem 1)}
+\label{sec:org9438722}
+
+Given an object with a center of mass at \(\vec{r}_{CM}\) rotating around an axis \(z\), we can evaluate the inertia of the object from a different frame of reference rotating around an axis \(z'\) parallel to \(z\).
+First, the rotational inertia of an object around a particular axis can be thought of as the sum of the rotational inertia of each of its horizontal slices (with respect to the axis). This means that our equation can take into consideration only 2 dimensions and still work with 3 dimensions.
+We can also consider that we can translate between the two axis by a constant vector, the distance between the axes:
+
+\begin{aligned}
+\vec{l}_{i}' &= \vec{R}_{CM} + \vec{l}_{i} \\
+\end{aligned}
+
+Note that we will consider the origin of the system as the point on \(z'\) such that the distance from it to the center of mass is minimized. In other words, the center of mass is located at \(\vec{R}_{CM}\).
+
+Now, we can evaluate the inertia of a particular slice from the reference frame of the origin:
+
+\begin{aligned}
+I &= \sum_{i = 1}^{N} m_i \vec{l_i'}^2 \\
+\end{aligned}
+
+We expand:
+
+\begin{aligned}
+I &= \sum_{i = 1}^{N} m_i \vec{l_i'}^2 \\
+&= \sum_{i = 1}^{N} m_i (\vec{R_{CM}}^2 + \vec{l_i}^2 + 2\vec{R_{CM}}\cdot\vec{l_i}) \\
+&= \vec{R}^2_{CM} \sum_{i = 1}^{N} m_i + \sum_{i = 1}^{N} m_i \vec{l_i}^2 + 2\vec{R}_{CM} \cdot \sum_{i = 1}^{N} m_i \vec{l_i} \\
+\end{aligned}
+
+Recall that \(\vec{l_i}\) is the distance from the center of mass to the point on the object. This means that the rightmost term represents the center of mass, from the reference frame of the center of mass, i.e. zero:
+
+\begin{aligned}
+\sum_{i = 1}^{N} m_i \vec{l_i} &= 0
+\end{aligned}
+
+As such, we simplify \(I\) further:
+
+\begin{aligned}
+I &= \vec{R}_{CM}^2 \sum_{i} m_i = 1}^{N} + \sum_{i = 1}^{N} m_i \vec{l_i}^2 \\
+&= \vec{R}_{CM}^2 \cdot M + I_{CM} \\
+&= D^2 M + I_{CM} \\
+\end{aligned}
+
+
+\section{Problem 2)}
+\label{sec:org2855267}
+
+First, we evaluate the rotational inertia of each circle from the reference frame of their center. We know this is just \(\frac{1}{5}MR^2\) for each circle.
+We know that one circle has its center as the origin of the system, while the other four have their centers \(2R\) away from the origin. As such:
+
+\begin{aligned}
+I &= \frac{1}{5}MR^2 + 4\cdot (\frac{1}{5}MD^2 + \frac{1}{5}MR^2) \\
+&= \frac{1}{5}MR^2 + 4\cdot (\frac{4}{5}MR^2 + \frac{1}{5}MR^2) \\
+&= \frac{1}{5}MR^2 + 4\cdot (MR^2) \\
+&= \frac{21}{5}MR^2 \\
+\end{aligned}
+
+\section{Problem 3)}
+\label{sec:org5a37d53}
+\subsection{a)}
+\label{sec:orgb8b9e6d}
+We consider the force applied by the string is \(\vec{F}_{0} &= F_{0}\hat{x}\). The force is applied at \(z = H\), where the radius of the object is \(R\). We also know that the string's contact point is tangential to the object. As such, the point at which \(\vec{F}_{0}\) is applied can be given by
+
+\begin{aligned}
+\vec{r} &= R\hat{y} + H\hat{z} \\
+\end{aligned}
+
+From this we can calculate torque:
+
+\begin{aligned}
+\vec{\tau} &= \vec{r} \times \vec{F}_{0} \\
+&= R\hat{y} \times F_{0}\hat{x} + H\vec{z} \times F_{0}\hat{x} \\
+&= HF_{0}\hat{y} -RF_{0}\hat{z}
+\end{aligned}
+
+\subsection{c)}
+\label{sec:org0efca17}
+We know the torque that \(\vec{F}_{0}\) contributes to the system:
+
+\begin{aligned}
+\vec{\tau}_{0} &= HF_{0}\hat{y} - RF_{0}\hat{z} \\
+\end{aligned}
+
+We know that \(\vec{F}_{1}\) is at the origin so it contributes no torque.
+We can calculate the torque that \(\vec{F}_{2}\) contributes to the system. We know that \(\vec{F}_{2}\) is in the \(\hat{x}\) direction because it counteracts the torque by \(\vec{F}_{0}\):
+
+\begin{aligned}
+\vec{\tau}_{2} &= -\frac{H}{2}\hat{z} \times F_{2}\hat{x} \\
+&= -\frac{F_{2}H}{2}\hat{y} \\
+\end{aligned}
+
+If the object only rotates around the \(\hat{z}\) axis, then the torque along the \(\hat{y}\) axis by the two forces should cancel out:
+
+\begin{aligned}
+HF_{0} - \frac{F_{2}H}{2} &= 0 \\
+F_{0} - \frac{F_{2}}{2} &= 0 \\
+F_{2} &= 2F_{0} \\
+\end{aligned}
+
+We know that \(\vec{F}_{1}\) is counteracting the forces on the object, but not the torque, so the sum of all forces should add up to zero:
+
+\begin{aligned}
+\vec{F}_{0} + \vec{F}_{1} + \vec{F}_{2} &= 0 \\
+F_{0}\hat{x} + \vec{F}_{1} + F_{2}\hat{x} &= 0 \\
+3F_{0}\hat{x} + \vec{F}_{1} &= 0 \\
+\vec{F}_{1} &= -3F_{0}\hat{x} \\
+\end{aligned}
+
+\subsection{d)}
+\label{sec:org858a37e}
+
+We already solved for our net torque. We already established that \(\tau_{0}\) and \(\tau_{2}\) in the \(\hat{y}\) direction cancel out. Therefore,
+
+\begin{aligned}
+\vec{\tau}_{Net} &= -RF_{0}\hat{z} \\
+\end{aligned}
+
+Newton 2 establishes that
+
+\begin{aligned}
+\vec{\tau}_{Net} &= I\vec{\alpha} \\
+\end{aligned}
+
+Therefore, if the top has rotational inertia \(I_{0}\), the angular acceleration should be
+
+\begin{aligned}
+\vec{\alpha} &= \frac{\vec{\tau}_{Net}}{I_{0}} \\
+&= -\frac{RF_{0}}{I_{0}}\hat{z} \\
+\end{aligned}
+
+\subsection{e)}
+\label{sec:orgbebbeec}
+We know \(\vec{\alpha}(t)\). We need to solve for \(\vec{\omega}(t)\) and \(\vec{\theta}(t)\). We can just integrate \(\vec{\alpha}(t)\) to solve for these functions.
+First, we solve for \(\vec{\omega}(t)\):
+
+\begin{aligned}
+\vec{\omega}(t) &= \int \vec{\alpha}(t) \,dt \\
+&= \int -\frac{RF_{0}}{I_{0}} \hat{z} \,dt \\
+&= -\frac{RF_{0}}{I_{0}}t \hat{z} + C\\
+\end{aligned}
+
+We know that at \(\vec{\omega}(0) &= 0\), so we know that \(C = 0\) and the function just becomes
+
+\begin{aligned}
+\vec{\omega}(t) &= -\frac{RF_{0}}{I_{0}}t\hat{z} \\
+\end{aligned}
+
+We can now integrate this function to solve for \(\vec{\theta}(t)\):
+
+\begin{aligned}
+\vec{\theta}(t) &= \int \vec{\omega}(t) \,dt \\
+&= \int -\frac{RF_{0}}{I_{0}}t\hat{z} \,dt \\
+&= -\frac{RF_{0}}{2I_{0}}t^2\hat{z} + C \\
+\end{aligned}
+
+Again, \(\vec{\theta}(0) &= 0\), so \(C = 0\):
+
+\begin{aligned}
+\vec{\theta}(t) &= -\frac{RF_{0}}{2I_{0}}t^2\hat{z} \\
+\end{aligned}
+
+\section{Problem 4)}
+\label{sec:orgfe68f57}
+We first find the rotational inertia of a thin slice of dimensions \(W\times H\). Then, we integrate along \(L\) to find the total inertia. We can do this because we can use the parallel axis theorem for each slice, where the distance is the distance of the slice from the center of mass.
+
+First, we solve for the inertia of a strip of the slice along the x axis. The mass density can be given by
+
+\begin{aligned}
+\sigma &= \frac{M}{HWL} \\
+\end{aligned}
+
+because we assume the density of the rod is constant.
+
+We can now find the inertia of the slice. First, we integrate along the \(\hat{i}\) axis to find to find the inertia of a small strip, then integrate again along \(\hat{k}\) to find the final integral of the slice.
+
+We first integrate along \(\hat{i}\), effectively finding the angular momentum of a horizontal strip of the cross section:
+
+\begin{aligned}
+I_{strip} &= \int_{-\frac{W}{2}}^{\frac{W}{2}} l^2 \,dm \\
+&= \int_{-\frac{W}{2}}^{\frac{W}{2}} l^2 \frac{M}{HWL} \,dl \\
+&= \frac{M}{HWL} \int_{-\frac{W}{2}}^{\frac{W}{2}} l^2 \,dl \\
+&= \frac{M}{HWL} \left[\frac{l^3}{3}\right]_{-\frac{W}{2}}^{\frac{W}{2}} \\
+&= \frac{M}{HWL} \left(\frac{W^3}{24} - \frac{-W^3}{24}\right) \\
+&= \frac{M}{HWL} \left(\frac{W^3}{12}\right) \\
+&= \frac{MW^2}{12HL} \\
+\end{aligned}
+
+To find the slice inertia, we just need to integrate along the \(\hat{k}\) axis. Because the slice is rotating along the same axis, the integral will just take the form of a product along \(H\):
+
+\begin{aligned}
+I_{slice} &= H I_{strip} \\
+&= \frac{MW^2}{12L} \\
+\end{aligned}
+
+Now, we can just integrate from \(-\frac{L}{2}\) to \(\frac{L}{2}\). We can use the parallel axis theorem to find the inertia at each distance from the center.
+
+\begin{aligned}
+I_{slice} &= \frac{MW^2}{12L} \\
+I_{slice,CM} &= I_{slice} + mD^2 \\
+\end{aligned}
+
+We know that \(m &= \frac{M}{L}\). We also know that the distance between the slice and the center of mass is the variable that we integrate along.
+
+\begin{aligned}
+I_{Net} &= \int_{-\frac{L}{2}}^{\frac{L}{2}} I_{slice,CM} \,dD \\
+&= \int_{-\frac{L}{2}}^{\frac{L}{2}} I_{slice} + ml^2 \,dl \\
+&= \int_{-\frac{L}{2}}^{\frac{L}{2}} \frac{MW^2}{12L} + \frac{M}{L}l^2 \,dl \\
+&= \frac{MW^2}{12} + \frac{M}{L} \int_{-\frac{L}{2}}^{\frac{L}{2}} l^2 \,dl \\
+&= \frac{MW^2}{12} + \frac{M}{L} \left[\frac{l^3}{3}\right]_{-\frac{L}{2}}^{\frac{L}{2}} \\
+&= \frac{MW^2}{12} + \frac{M}{L} \left(\frac{L^3}{24} - \frac{-L^3}{24}\right) \\
+&= \frac{MW^2}{12} + \frac{M}{L} \left(\frac{L^3}{12}\right) \\
+&= \frac{MW^2}{12} + \frac{ML^2}{12} \\
+&= \frac{M(W^2 + L^2)}{12} \\
+&= \frac{1}{12}M(W^2 + L^2) \\
+\end{aligned}
+\end{document}
