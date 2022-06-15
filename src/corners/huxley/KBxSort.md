@@ -1,6 +1,11 @@
 n
 ***
 
+ https://www.youtube.com/watch?v=a_uaqvREsFw&ab_channel=Khamurai blender curve thing that i tried to do earlier and failed
+ also cool ambient occlusion color trick!
+
+***
+
  https://casper.com/pillows/foam-pillow/?material=snow cooler pillow, might be interesting
 
 ***
