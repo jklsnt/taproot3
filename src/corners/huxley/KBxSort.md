@@ -1,7 +1,7 @@
 n
 ***
 
- https://casper.com/pillows/foam-pillow/?material=snow cooler pillor, might be interesting
+ https://casper.com/pillows/foam-pillow/?material=snow cooler pillow, might be interesting
 
 ***
 
