@@ -26,3 +26,6 @@ date: 2022-05-25
 - meta-data display on the task (project, dates, ect)
 - extension packing
 - fuzzy deadlines?
+
+
+- embed the tasks into actual t
