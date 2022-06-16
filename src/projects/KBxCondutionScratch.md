@@ -28,4 +28,10 @@ date: 2022-05-25
 - fuzzy deadlines?
 
 
-- embed the tasks into actual t
+- embed the tasks into actual text, and be able to export from notes to text
+
+
+
+
+
+
