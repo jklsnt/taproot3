@@ -130,13 +130,13 @@ We now consider the length of the lever arm. To clarify the ambiguity, we will a
 \vec{R}_{lever} &= (b\sin{(\theta)} + R)\hat{y} \\
 \end{aligned}
 
-Now, all that is left is to find the net torque.
+Now, all that is left is to find the net torque. Recall that net torque is the sum of torque from forces around the center of mass and forces from the center of mass. Then, we must add the center of mass torque to the calculation:
 
 \begin{aligned}
-\vec{\tau}_{net} &= \vec{R}_{lever} \times \vec{F}_{net} \\
-&= (b\sin{(\theta)} + R)\hat{y} \times (Mg\sin{(\theta)} - F_{f})\hat{x}\\
-&= -(b\sin{(\theta)} + R)(Mg\sin{(\theta)} - F_{f})\hat{z} \\
-\End{aligned}
+\vec{\tau}_{net} &= \vec{R}_{lever} \times \vec{F}_{net} + \vec{\tau}'_{net} \\
+&= (b\sin{(\theta)} + R)\hat{y} \times (Mg\sin{(\theta)} - F_{f})\hat{x} - RF_{f}\hat{z}\\
+&= -((b\sin{(\theta)} + R)(Mg\sin{(\theta)} - F_{f}) - RF_{f})\hat{z} \\
+\end{aligned}
 
 ** f)
 We know that $\vec{L}' &= I_{CM}\vec{\omega}'$. Therefore, we know that
@@ -170,18 +170,27 @@ We take the time derivative:
 
 We know that _e_ and _f_ are equivalent if we plug in _b_ and _c_.
 
-Recall that according to _b_ and _c_, the acceleration of the cylinder and the rotational acceleration of the cylinder are $3m/s^2$ and $5\frac{rad}{s^2}$.
-
-And, we get from _e_ and _f_ the following:
+First are a few statements we know for a fact:
 
 \begin{aligned}
-\vec{\tau}_{net} &= -(b\sin{(\theta)} + R)(Mg\sin{(\theta)} + F_{f})\hat{z} \\
-\frac{d\vec{L}}{dt} &= -((b\sin{(\theta)} + R)Ma_{CM} + I_{CM}\alpha')\hat{z} \\
+a_{ramp} &= \frac{gM\sin{(\theta)} - F_{f}}{M} \\
+I_{CM}\alpha &= \vec{\tau}'_{net} = -RF_{f}\\
 \end{aligned}
 
-Then, we plug in:
+We also know from _e_ and _f_:
 
 \begin{aligned}
-\frac{d\vec{L}}{dt} &= -((b\sin{(\theta)} + R)M(3) + I_{CM}(5))\hat{z} \\
-&= 
+\vec{\tau}_{net} &= -((b\sin{(\theta)} + R)(Mg\sin{(\theta)} - F_{f}) - RF_{f}) \\
+\frac{d\vec{L}}{dt} &= -((b\sin{(\theta)} + R)Ma_{CM} + I_{CM}\alpha') \\
+\end{aligned}
+
+Then, we can start replacing:
+
+\begin{aligned}
+\frac{d\vec{L}}{dt} &= -((b\sin{(\theta)} + R)Ma_{CM} + I_{CM}\alpha') \\
+&= -((b\sin{(\theta)} + R)M\cdot \frac{gM\sin{(\theta)} - F_{f}}{M} + I_{CM}\alpha') \\
+&= -((b\sin{(\theta)} + R)(Mg\sin{(\theta)} - F_{f}) + I_{CM}\alpha')\\
+&= -((b\sin{(\theta)} + R)(Mg\sin{(\theta)} - F_{f}) + (\vec{\tau}'_{net}))\\
+&= -((b\sin{(\theta)} + R)(Mg\sin{(\theta)} - F_{f}) - RF_{f}) \\
+&= \vec{\tau}_{net} \\
 \end{aligned}
