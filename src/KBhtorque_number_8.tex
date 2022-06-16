@@ -1,4 +1,4 @@
-% Created 2022-04-12 Tue 21:55
+% Created 2022-06-16 Thu 10:45
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -56,14 +56,15 @@
  pdflang={English}}
 \begin{document}
 
+\maketitle
 \tableofcontents
 
 
 \section{Problem 5: Energy Approach}
-\label{sec:orgc636056}
+\label{sec:org054d4a8}
 
 \subsection{Velocity and Angular Velocity}
-\label{sec:orgd99673e}
+\label{sec:orgcb5e9e1}
 Velocity at the top of the ramp: \(0\). Because there are no sliding (hence there are no heat), there is not going to be another component (beyond rotational, translational, and potential energy.)
 
 We know, then:
@@ -123,11 +124,11 @@ v_f = R\sqrt{\frac{2Mgh}{M R^2 + I_0}}\ \blacksquare
 \end{equation}
 
 \subsection{Acceleration and Angular Acceleration}
-\label{sec:orgb630b38}
+\label{sec:orgfe031e1}
 Taking the timed derivative of \(v_f\):
 
 \begin{equation}
-   a_{CM} = \frac{R}{2\sqrt{\frac{2Mgh}{M R^2 + I_0}}} \frac{2Mgh}{M R^2 + I_0}} \frac{dh}{dt}
+   a_{CM} = \frac{R}{2\sqrt{\frac{2Mg}{M R^2 + I_0}}} \frac{2Mgh}{M R^2 + I_0}} \frac{dh}{dt}
 \end{equation}
 
 to figure change in height, we see that, because of the ramp:
@@ -153,24 +154,24 @@ Hence:
 Substituting this back to the expression:
 
 \begin{align}
-   a_{CM} &= \frac{R}{2\sqrt{\frac{2Mgh}{M R^2 + I_0}}} \frac{2Mgh}{M R^2 + I_0}  R\sqrt{\frac{2Mgh}{M R^2 + I_0}}\sin\theta\\
-&= R^2  \frac{Mgh}{M R^2 + I_0} \sin\theta\ \blacksquare
+   a_{CM} &= \frac{R}{2\sqrt{\frac{2Mgh}{M R^2 + I_0}}} \frac{2Mg}{M R^2 + I_0}  R\sqrt{\frac{2Mgh}{M R^2 + I_0}}\sin\theta\\
+&= R^2  \frac{Mg}{M R^2 + I_0} \sin\theta\ \blacksquare
 \end{align}
 
 The same logic follows for \(\alpha\), simply without an extra constant of \(R\) being multiplied. To figure out its derivative, then we can again divide \(R\) out from the above expression to result in:
 
 \begin{align}
-   \alpha_{CM} &= R \frac{Mgh}{M R^2 + I_0} \sin\theta\ \blacksquare
+   \alpha_{CM} &= R \frac{Mg}{M R^2 + I_0} \sin\theta\ \blacksquare
 \end{align}
 
 \section{Problem 6: Force and Torque}
-\label{sec:org6918f76}
+\label{sec:org5abc2e0}
 
 \subsection{Figuring Torque}
-\label{sec:org521e807}
+\label{sec:orge597245}
 We will figure torque for the object, then use it for calculations. We will set the origin of the system to the lower-left of the triangle.
 
-We will set the origin as being at the center of mass at the top of the ramp. Gravity and normal force, therefore, is coaxial with the center of mass and hence not accounted for here.
+We will set the origin as being at the center of mass at the top of the ramp. Gravity and normal force, therefore, is coaxial with the center of mass in the world coordinate frame and hence not accounted for here.
 
 We see that:
 
@@ -178,7 +179,7 @@ We see that:
    I_0\alpha = -RF 
 \end{equation}
 
-Relating the slide down the ramp:
+Relating the slide down the ramp, by projecting the gravity vector onto the direction down the ramp; given that \(\theta\) is the vertical incline of the ramp, \(\sin\theta\) is the "horizontal" projection along the ramp:
 
 \begin{equation}
 Mg\sin\theta - F = Ma_x
@@ -193,7 +194,7 @@ And finally, relating rotational and acceleration movements, given no sliding:
 We now have three expressions relating unknowns \(\alpha\), \(F\), and \(a_x\). Substituting both expressions into the second:
 
 \begin{align}
-   &F = \frac{-I_0\alpha}{R} \\
+   &F = \frac{I_0\alpha}{R} \\
 \Rightarrow & Ma_x = Mg\sin\theta - \frac{I_0\alpha}{R} \\
 \Rightarrow & MR\alpha = Mg\sin\theta - \frac{I_0\alpha}{R} \\
 \Rightarrow & MR\alpha + \frac{I_0\alpha}{R}= Mg\sin\theta  \\
@@ -203,7 +204,7 @@ We now have three expressions relating unknowns \(\alpha\), \(F\), and \(a_x\). 
 \Rightarrow & \alpha= R\left\frac{Mg\sin\theta }{MR^2+I_0}\right\ \blacksquare
 \end{align}
 
-We can see that the expression derived here is exactly the same as that found with energetic methods above.
+We can see that the expression derived here is now exactly the same as that found with energetic methods above.
 
 We can figure \(a_{CM}\) by simply multiplying again the above expression with \(R\):
 
@@ -212,7 +213,7 @@ We can figure \(a_{CM}\) by simply multiplying again the above expression with \
 \end{equation}
 
 \subsection{Time to reach bottom}
-\label{sec:org84319d8}
+\label{sec:org64ada9e}
 We can figure the time to reach bottom by integrating \(a_{CM}\) twice then solving for time.
 
 \begin{equation}
@@ -235,7 +236,7 @@ To figure the time at the bottom of the ramp, we solve the above-derived express
 \end{align}
 
 \subsection{Angular Velocity at the Bottom}
-\label{sec:org5ff4a23}
+\label{sec:org6dbbe8e}
 We can figure the angular velocity at the bottom by taking a single integral of the expression for angular acceleration, then supplying the right-derived expression for \(t\).
 
 \begin{equation}
@@ -254,7 +255,7 @@ Supplying the expression for \(t\) above herein:
 We can see that this result agrees with that above.
 
 \section{Foods for Thought}
-\label{sec:orge33d45a}
+\label{sec:orgfd4c8dc}
 \begin{itemize}
 \item The object is currently rolling perfectly; apart from counteracting slide, friction does not translate the point of contact (otherwise, it would be doing sliding) at all---hence doing no work.
 \item The slope of the ramp, \(\theta\) is not in the expression for \(\omega_f\) --- meaning it has no influence on the final angular velocity.
