@@ -61,49 +61,36 @@ We've established in a different problemset that the following is true:
 \end{aligned}
 
 We know the rotational inertia. We can solve for the torque of the cylinder and divide by inertia to find acceleration.
-We can find the torque by adding up all torques by all forces. To find the torque, we define a coordinate system where $\hat{z}$ is pointing towards the page. We also consider "right" to be $\hat{x}$ and "up" to be $\hat{y}$.
+We can find the torque by adding up all torques by all forces. To find the torque, we define a coordinate system where $\hat{z}$ is pointing out of the page. We also consider "right" to be $\hat{x}$ and "up" to be $\hat{y}$.
 
-First, we compute gravitational torque. We know that the torque on a rigid body by gravity is equivalent to the torque by gravity on the center of mass. Therefore, we can consider the torque as the torque applied by gravity on the point of contact of the cylinder on the ramp:
-
-\begin{aligned}
-\vec{\tau}_{g} &= \vec{R} \times \vec{F}_{g} \\
-&= (-R\sin{(\theta)}\hat{x} - R\cos{(\theta)}\hat{y}) \times -Mg\hat{y} \\
-&= -R\sin{(\theta)}\hat{x} \times -Mg\hat{y} + -R\cos{(\theta)}\hat{y} \times -Mg\hat{y} \\
-&= -R\sin{(\theta)}\hat{x} \times -Mg\hat{y} \\
-&= RMg\sin{(\theta)}\hat{z} \\
-\end{aligned}
-
-We can effectively do the same thing with the force of friction, as it is also a force being applied to the cylinder at a point. We know that the force of friction is perpendicular to the point of contact vector:
+To find net torque, we add up all torque components induced by every force. The forces acting on the object are gravity and friction. But gravity is a force applied to the center of mass of the object, so we can ignore it. As such, we just need to find the torque induced by friction, as that will be our net torque. We know that the direction of the force of friction is perpendicular to its position vector with respect to the center of mass, 
 
 \begin{aligned}
-\vec{\tau}_{f} &= \vec{R} \times \vec{F}_{f} \\
+\vec{\tau}_{f}' &= \vec{R} \times \vec{F}_{f} \\
 &= -RF_{f}\hat{z} \\
 \end{aligned}
 
-We sum the two to get the net torque:
+Because friction acts in the opposite direction as the ball's acceleration, we know that the torque has to be "into" the page. As a result, we just get:
 
 \begin{aligned}
-\vec{\tau}_{net}' &= \vec{\tau}_{g}' + \vec{\tau}_{f}'
-&= \vec{\tau}_{g} + \vec{\tau}_{f} \\
-&= RMg\sin{(\theta)}\hat{z} - RF_{f} \hat{z} \\
-&= R(Mg\sin{(\theta)} - F_f)\hat{z} \\
+\vec{\tau}'_{net} &= \vec{\tau}'_{f} &= -RF_{f} \hat{z} \\
 \end{aligned}
 
 As such,
 
 \begin{aligned}
 \vec{\alpha}' &= \frac{\vec{\tau}_{net}'}{I_{0}} \\
-&= \frac{R(Mg\sin{(\theta)} - F_{f})}{I_{0}}\hat{z} \\
+&= -\frac{RF_{f}}{I_{0}}\hat{z} \\
 \end{aligned}
 
 We plug in values:
 
 \begin{aligned}
-\vec{a}' &= \frac{0.5m(1.0kg \cdot 10ms^{-2}\cdot \sin{(30^{\cdot})} - 2.0 N)}{0.2 kg\cdotm^2} \\
-&= \frac{0.5m(5N - 2N)}{0.2kg\cdot m^2} \\
-&= \frac{1.5 kg\cdot m^2s^{-2}}{0.2kg\cdot m^2} \\
-&= 7.5 \frac{rad}{s^{2}} \\
+\vec{\alpha}' &= -\frac{(0.5)(2)}{(0.2)}\hat{z} \\
+&= -5\hat{z} \\
 \end{aligned}
+
+We can verify this using intuition: the acceleration is in the negative z direction, or into the page, meaning that the ball is accelerating in the forwards direction as it rolls.
 
 ** d)
 If the cylinder slides, the friction is considered dynamic. If it does not, it is considered static.
