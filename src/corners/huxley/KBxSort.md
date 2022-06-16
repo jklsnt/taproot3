@@ -410,6 +410,7 @@ https://github.com/akinsho/bufferline.nvim
 
 
  this is crazy #cool, https://www.youtube.com/watch?v=-th6w_ZIvpA&ab_channel=BenThroop
+ boids
 
 ***
 
@@ -503,7 +504,7 @@ but it sounds cool!
 *** 
 
  defining new term: gardening, as the term for knowledge organization.
-	
+
 ***
 
 explanation of power of emergent property: "that even when the underlying rules for a system are extremely simple, the behavior of the system as a whole can be essentially arbitrarily rich and complex." ~wolfram

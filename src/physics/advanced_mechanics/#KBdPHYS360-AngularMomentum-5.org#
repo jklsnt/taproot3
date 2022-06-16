@@ -1,0 +1,200 @@
+#+TITLE: Rotational Dynamics Theorem: Torque and Angular Momentum 5
+#+AUTHOR: Dylan Wallace
+
+* Problem 1)
+We will take the liberty of claiming that $g &= 10 ms^{-2}$ for the simple reason that I am lazy and that we are dealing with objects that we can hold in our hands, hypothetically, and therefore this level of precision is adequate.
+** a)
+We know the force of friction that is acting on the cylinder. We can find the friction coefficient by solving for the normal and dividing it from the force of friction.
+We know the mass of the cylinder, so we know the force of gravity. We also know the angle of the ramp. Therefore, we can calculate the normal force as being
+
+\begin{aligned}
+F_{N} &= Mg\cos{(\theta)} \\
+\end{aligned}
+
+Therefore,
+
+\begin{aligned}
+\mu \ge \frac{F_f}{F_N} &= \frac{F_f}{Mg\cos{(\theta)}}
+\end{aligned}
+
+We plug in our values:
+
+\begin{aligned}
+\mu \ge \frac{2N}{1kg \cdot 9.8ms^{-2}\cdot \cos{(30^{\circ})}} \\
+&= \frac{2N}{10N \cdot \frac{\sqrt{3}}{2}} \\
+&= \frac{2N}{10N} \cdot \frac{2}{\sqrt{3}} \\
+&= \frac{4\sqrt{3}}{10\cdot 3} \\
+&= \frac{2\sqrt{3}}{15} \\
+\end{aligned}
+** b)
+We can find the linear acceleration of the CM by summing all the forces and dividing by the mass.
+The forces acting on the cylinder are those of gravity, normal force, and friction. Note that the force of friction applies in the opposite direction as the direction of the sum of gravity and normal force. Due to the normal force, we can disregard any force perpendicular to the ramp:
+
+\begin{aligned}
+F_{net} &= F_{g,ramp} - F_{f} \\
+F_{g,ramp} &= -F_{g}\sin{(\theta)} \\
+&= gM\sin{(\theta)} \\
+F_{net} &= gM\sin{(\theta)} - F_{f} \\
+\end{aligned}
+
+We know that $F &= ma$, so
+
+\begin{aligned}
+a_{ramp} &= \frac{F_{net}}{M} \\
+&= \frac{gM\sin{(\theta)} - F_{f}}{M} \\
+&= g\sin{(\theta)} - \frac{F_{f}}{M} \\
+\end{aligned}
+
+Plugging in values:
+\begin{aligned}
+a_{ramp} &= 10 ms^{-2} \sin{(30^{\circ})} - \frac{2.0N}{1.0 kg} \\
+&= 5ms^{-2} - 2ms^{-2} \\
+&= 3ms^{-2} \\
+\end{aligned}
+
+** c)
+We've established in a different problemset that the following is true:
+
+\begin{aligned}
+\vec{\tau}_{net}' &= I_{CM}\vec{\alpha}' \\
+\vec{\alpha}' &= \frac{\vec{\tau}_{net}'}{I_{CM}} \\
+\end{aligned}
+
+We know the rotational inertia. We can solve for the torque of the cylinder and divide by inertia to find acceleration.
+We can find the torque by adding up all torques by all forces. To find the torque, we define a coordinate system where $\hat{z}$ is pointing out of the page. We also consider "right" to be $\hat{x}$ and "up" to be $\hat{y}$.
+
+First, we compute gravitational torque. We know that the torque on a rigid body by gravity is equivalent to the torque by gravity on the center of mass. Therefore, we can consider the torque as the torque applied by gravity on the point of contact of the cylinder on the ramp:
+
+\begin{aligned}
+\vec{\tau}_{g} &= \vec{R} \times \vec{F}_{g} \\
+&= (-R\sin{(\theta)}\hat{x} - R\cos{(\theta)}\hat{y}) \times -Mg\hat{y} \\
+&= -R\sin{(\theta)}\hat{x} \times -Mg\hat{y} + -R\cos{(\theta)}\hat{y} \times -Mg\hat{y} \\
+&= -R\sin{(\theta)}\hat{x} \times -Mg\hat{y} \\
+&= RMg\sin{(\theta)}\hat{z} \\
+\end{aligned}
+
+We can effectively do the same thing with the force of friction, as it is also a force being applied to the cylinder at a point. We know that the force of friction is perpendicular to the point of contact vector:
+
+\begin{aligned}
+\vec{\tau}_{f} &= \vec{R} \times \vec{F}_{f} \\
+&= -RF_{f}\hat{z} \\
+\end{aligned}
+
+We sum the two to get the net torque:
+
+\begin{aligned}
+\vec{\tau}_{net}' &= \vec{\tau}_{g}' + \vec{\tau}_{f}'
+&= \vec{\tau}_{g} + \vec{\tau}_{f} \\
+&= RMg\sin{(\theta)}\hat{z} - RF_{f} \hat{z} \\
+&= R(Mg\sin{(\theta)} - F_f)\hat{z} \\
+\end{aligned}
+
+As such,
+
+\begin{aligned}
+\vec{\alpha}' &= \frac{\vec{\tau}_{net}'}{I_{0}} \\
+&= \frac{R(Mg\sin{(\theta)} - F_{f})}{I_{0}}\hat{z} \\
+\end{aligned}
+
+We plug in values:
+
+\begin{aligned}
+\vec{a}' &= \frac{0.5m(1.0kg \cdot 10ms^{-2}\cdot \sin{(30^{\cdot})} - 2.0 N)}{0.2 kg\cdotm^2} \\
+&= \frac{0.5m(5N - 2N)}{0.2kg\cdot m^2} \\
+&= \frac{1.5 kg\cdot m^2s^{-2}}{0.2kg\cdot m^2} \\
+&= 7.5 \frac{rad}{s^{2}} \\
+\end{aligned}
+
+** d)
+If the cylinder slides, the friction is considered dynamic. If it does not, it is considered static.
+If the cylinder slides, the acceleration calculated by the torque should be higher than the acceleration calculated from the linear acceleration. We can find this acceleration simply by dividing by the radius:
+
+\begin{aligned}
+\alpha &= \frac{a_{ramp}}{R} \\
+&= \frac{3ms^{-2}}{0.5m} \\
+&= 6\frac{rad}{s^2} \\
+\end{aligned}
+
+This value is less than the $7.5 \frac{rad}{s^2}$ we got from the torque method, so we know that the cylinder slips, and the coefficient is kinetic.
+
+** e)
+To find the initial torque of the cylinder from the reference frame of the right vertex of the triangle, we need the distance from the vertex to the Center of Mass of the cylinder, as well as the net force acting on the cylinder.
+
+We know the net force acting on the cylinder to be the following:
+
+\begin{aligned}
+\vec{F_{net}} &= \vec{F}_{g} + \vec{F}_{N} + \vec{F}_{f} \\
+&= -Mg\hat{y} + Mg\cos^2{(\theta)}\hat{x} + Mg\cos{(\theta)}\sin{(\theta)}\hat{y} + \vec{F}_{f} \\
+&= Mg\cos{(\theta)}(\cos{(\theta)}\hat{x} + (\sin{(\theta)} - 1)\hat{y}) + \vec{F}_{f} \\
+\end{aligned}
+
+Friction acts against the sum of gravity and normal force, so
+
+\begin{aligned}
+\vec{F}_{net} &= (Mg\cos{(\theta)} - F_{f})(\cos{(\theta)}\hat{x} + (\sin{(\theta)}  -1)\hat{y}) \\
+\end{aligned}
+
+In addition, given a base length $b$ and a ramp length $L$, we can solve the position of the point where the cylinder makes contact with the ramp:
+
+\begin{aligned}
+\vec{R}_{contact} &= (b - L\cos{(\theta)})\hat{x} + L\sin{(\theta)}\hat{y} \\
+\end{aligned}
+
+We make an assumption about the nature of $b$ and $L$, namely that $L &= b\cos{(\theta)}$, meaning that the two segments form a right triangle at $\vec{R}_{contact}$. This has two added benefits. First, we can easily compute the magnitude of $\vec{R}_{contact}$ as $b\sin{(\theta)}$. Second, in this case $\vec{R}_{CM} \perp \vec{F}_{net}$, which means that their cross product will have magnitude $R_{contact}\cdot F_{net}$. The direction of the cross product is also trivial: $\vec{R}_{CM}$ points in the $\hat{x} + \hat{y}$ direction, roughly, while $\vec{F}_{net}$ points in the $\hat{x} - \hat{y}$ direction; their cross product will point in the $-\hat{z}$ direction, or pointing into the page/screen.
+
+Notice that we only have the position vector of the point where the cylinder makes contact with the ramp. The position of the center of mass is in the same direction as the point of contact, which keeps the previous statements correct. The magnitude of the new vector is merely $R_{CM} &= R_{contact} + R$.
+
+Also, recall that we solved for the magnitude of the net force on the cylinder in a previous problem, rendering our computations for the net force for this problem redundant (although they were a good exercise). The magnitude of the force is given by
+
+\begin{aligned}
+F_{net} &= Mg\sin{(\theta)} - F_f \\
+\end{aligned}
+
+Recall that the net torque of a system is given by the sum of the torque from the net force on the center of mass and the torque around the center of mass:
+
+\begin{aligned}
+\vec{\tau}_{net} &= \vec{R}_{CM} \times \vec{F}_{net} + \sum \vec{r_{i}}' \times \vec{F}_{i,net\,ext} \\
+&= \vec{R}_{CM} \times \vec{F}_{net} + \sum \vec{r_{i}}' \times \vec{F}_{net} \\
+\end{aligned}
+
+We can now calculate torque:
+
+\begin{aligned}
+\vec{\tau}_{net} &= \vec{R}_{CM} \times \vec{F}_{net} \\
+&= -(R_{contact} + R)(Mg\sin{(\theta)} - F_f)\hat{z} \\
+&= -(b\sin{(\theta)} + R)(Mg\sin{(\theta)} - F_f)\hat{z} \\
+&= -(bMg\sin^2{(\theta)} + (RMg - bF_f)\sin{(\theta) - RF_f})\hat{z} \\
+\end{aligned}
+
+** f)
+We know that $\vec{L}' &= I_{CM}\vec{\omega}'$. Therefore, we know that
+
+\begin{aligned}
+\vec{L}_{sys} &= \vec{R} \times M\vec{v}_{CM} + \sum \vec{r_{i}}' \times m_i \vec{v_{i}}' \\
+&= \vec{R} \times M\vec{v}_{CM} + \vec{L}' \\
+&= \vec{R} \times M\vec{v}_{CM} + I_{CM}\vec{\omega}' \\
+\end{aligned}
+
+We established above that the length of the position vector is $b\sin{(\theta)} + R$. In addition, we know that the velocity of the center of mass is in the same direction as the net force, so the cross product will be in the direction $-\hat{z}$. We get
+
+\begin{aligned}
+\vec{L}_{sys} &= -(b\sin{(\theta)} + R)Mv_{CM} \hat{z} + I_{CM} \vec{\omega}' \\
+\end{aligned}
+
+In fact, we already know that our angular velocity is in the direction $\hat{z}$ because from our frame the cylinder is rotating clockwise:
+
+\begin{aligned}
+\vec{L}_{sys} &= -((b\sin{(\theta)} + R)Mv_{CM} + I_{CM}\omega')\hat{z} \\
+\end{aligned}
+
+We take the time derivative:
+
+\begin{aligned}
+\frac{d\vec{L}}{dt} &= -\frac{d}{dt} (b\sin{(\theta)} + R)Mv_{CM}\hat{z} - \frac{d}{dt} I_{CM}\omega'\hat{z} \\
+&= -((b\sin{(\theta)} + R)Ma_{CM} + I_{CM}\alpha')\hat{z} \\
+\end{aligned}
+** g)
+
+We know that _e_ and _f_ are equivalent if we plug in _b_ and _c_.
+
+Recall that according to _b_ and _c_,
