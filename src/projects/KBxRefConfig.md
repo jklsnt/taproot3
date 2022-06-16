@@ -32,6 +32,7 @@ date: 2022-06-02
 - collaborative editing in vim??
 - learn ag rq
 - buy new headphones
+- actual keyboard cable!
 
 
 
