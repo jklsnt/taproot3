@@ -4,8 +4,68 @@
 Personal Note: Video/transcript available online (on youtube) so notes will be running(?) in nature
 
 * Background
-* Comonads & coalgebras, monads & algebras
-* Topological space: Points C_p(1) , basic opens M_p(1)
-* Two toposes associated to p
-* Monad map M_p -> [C_p, M_p+1]
+This research is mainly about the connection that we can study between thinking in terms of trees and thinking in terms of dynamic states (I don't fully get this connection tbh).
+There's a claim, that $Poly$ is the true language of computation". This claim is made frequently because:
+- Dependant type theory and polynomial monads, which are important in the field of computation, naturally reside in $Poly$;
+- Database theory, which is also important in computation, and data migration functors (TODO link 7ACT) also reside in $Poly$;
+- and State machines, things like turing machines, processors, etc which are so fundamental to computation also reside in $Poly$.
+This, in addition to the connection of language to physical objects motivated this research by Spivak.
 
+The language model is a theme throughout this lecture:
+- Language :: syntax tree, represented by a free monad
+- Material :: state machine, represented by a cofree comonad
+The connection between the two is a topology.
+There are 2 toposes that arise: $p-coalg$, and $Shv(S_p)$.
+
+** Background for $p$-functors
+The morphism $Set\rightarrow Set$ is a set.
+We can think of a functor $y^{A}$ from $Set$ to $Set$:  $y^A:\, X\mapsto Set(A, X)$.
+A *Polynomial Functor* is a sum of _representables_, or the functor of the form $y^A$. (We use y for convenience)
+For example, the functor $p = y^3 + 2y^2 + 4$ is a polynomial functor. ($4 = 4y^0$)
+One cool property of polynomial functors is that for any polynomial functor $p$, $p(1)$ is the number of representables that are summed to make up $p$.
+
+We can now think of a category $Poly$:
+- The objects of $Poly$ are sums of representables, or polynomial functors;
+- and the morphisms in $Poly$ are the natural transformations between two functors.
+
+We can define composition of polynomials as well. (I won't do this here)
+We write $p^{\circ N}$ where $N \in \mathbb{N}$ to mean $p\circ p\circ p\circ...\circ p$ N times.
+
+Polynomial functor products and coproducts are natural: Products are normal products, and coproducts are additions. (ie it just works)
+
+* Comonads & coalgebras, monads & algebras
+p-coalgebras can be thought of as a dynamical system.
+The example Spivak gives is the following p-coalgebra: $\{(S, f) | S: Set, f: S\rightarrow p(S)\}$ for some $p$.
+He gives an example for $p$: $p = \{:smiley:, :frown:\}y^{\{true, false\}} + \{:dead:\}$
+I don't fully understand this part, but I think that what this functor does is it takes in some state, represented as a set, and then maps it to some emotion plus a particular map from ${true, false}$ to another state.
+So, each state is paired with an emotion and a pair of "paths" that take it to different states. In that way, this $p$-coalgebra is almost like a dynamic state machine.
+
+The comonad on $p$ is given by $C_{p} = lim(...y\times p\circ (y\times p\circ (...y\times p(1)))\rightarrow y\times p(1) \rightarrow 1)$.
+The comonad represents (maybe?) "infinite" trees: each root is labeled by $I\in p(1)$, and branches by each polynomial in $p(1)$.
+
+Some examples:
+- $C_{2y}$ :: represents "big streams", nodes are labeled either 0 or 1?
+- etc
+
+Some theorems attached to this:
+1. $p-coalg = Func(C_{p}, Set)$ is a topos (and a comonad in $Poly$ is a category)
+2. $C_{p}(1)$ is the terminal $p$-coalg
+3. $C_{p}\cong y\times (p\circ C_{p})$
+4. $C_{p}$ is cofree
+
+Of course, $C_{p}(1) = lim(...\rightarrow p^{\circ N}(1)\rightarrow ... p\circ p(1)\right p(1)\right 1)$
+
+In addition to the cofree comonad, we can think of a free monad on $p$, $M_{p}$ (where p is finite).
+We define $M_{p} = colim(...\leftarrow y + p\circ (y + p\circ ...)\leftarrow y + p\circ 0 \leftarrow 0)$
+We can think of this as a finite tree, one like the one we see with the p-coalg, but finite and not necessarily uniform depth: We are allowed to stop anytime.
+
+Some theorems attached to this:
+1. $p-alg = M_{p}-alg$ something something lambek, I didn't catch this
+2. $M_{p}(0)$ is the initial algebra
+3. $M_{p}(x) \cong M_{p+x}(0)$
+4. $M_{p} \cong y + (p\circ M_{p})$
+5. $M_{p}$ is a free monad
+
+* Topological space: Points $C_{p}(1)$ , basic opens $M_{p}(1)$
+The cofree comonad and the free monad over $p$ forms a topological space, where the points are given by $C_{p}(1)$ and the basis is given by $M_{p}(1)$.
+Recall that every infinite tree can be truncated into a finite tree!
