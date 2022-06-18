@@ -1,4 +1,4 @@
-% Created 2022-06-18 Sat 14:29
+% Created 2022-06-18 Sat 15:09
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -59,21 +59,28 @@
 
 \tableofcontents
 
+Note that I will use semicolon notation rather than composition notation.
+That is, \(f;g = g(f(x))\).
 
 \section{Basic stuff first}
-\label{sec:org7899e9b}
+\label{sec:org6ae5bbd}
 \subsection{Partitions}
-\label{sec:org1fa2e23}
+\label{sec:org9abc443}
 We can divide a set into a set of subsets of the original set, such that their disjoint union is the original set. We call this a \uline{partition} on the original set.
 For example, if \(A = \{1, 2, 3, 4\}\), then the set of subsets \(Part_{A} = \{\{1, 2\}, \{3, 4\}}\) is a partition on \(A\).
 We can think of a partition as a surjective map from the original set to another set, such that elements with the same image are in the same set in the partition.
 That is, formally, a partition "is" a surjective map \(f: A \twoheadrightarrow X\), where the partition is given by \(Part_{f} = \{\{f(b)|b\in A, f(a) = f(b)\}|a\in A\}\).
 
 \subsection{Preorders}
-\label{sec:org2630ce1}
+\label{sec:org8caef09}
 A preorder (also sometimes called a poset) is a set with a relation, notated in tuple notation as \((P, \leq)\). The relation helps "order" the set. For example, there's an implicit order to numbers, so \(\mathbb{N}\) can be thought of as a preorder.
 By the way, in this context, a relation is a function of the form \(\leq: a\times b \rightarrow Bool\).
 Note that you can make a partition from a preorder. If two elements are equivalent, i.e. \(a \leq b\) and \(b \leq a\), then you can place them in the same partition.
 An \uline{upper set} of a preorder is the set of elements in the preorder that are greater than or equal to a certain element.
 The \uline{cartesian product} of a preorder is what you would expect the cartesian product would be. The relation is defined based on component-wise relations.
+
+\subsubsection{Monotone maps}
+\label{sec:orgc92418e}
+A monotone map is a mapping between two preorders that preserves structure.
+If you have two preorders \(A\) and \(B\) and two monotone maps \(f: A\rightarrow B\) and \(g: B\rightarrow A\) such that \(f;g = id_{A}\) and \(g;f = id_{B}\), then \(A\) and \(B\) are said to be \uline{isomorphic}.
 \end{document}
