@@ -22,11 +22,9 @@ date: 2022-06-18
 - mRNA Vaccine
 - big bang
 - start of life
-- 
 
 
-
-
+- thermodynamics?
 
 
 
