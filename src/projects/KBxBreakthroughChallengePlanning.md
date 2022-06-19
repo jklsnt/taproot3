@@ -32,7 +32,7 @@ date: 2022-06-18
 
 
 ### videos
-https://www.youtube.com/watch?v=NulOtSJhhvA
+https://www.youtube.com/watch?v=NulOtSJhhvA crazy high production quality??
 
 
 
