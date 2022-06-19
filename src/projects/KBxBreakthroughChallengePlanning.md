@@ -20,7 +20,9 @@ date: 2022-06-18
 
 ### brainstorming topics
 - mRNA Vaccine
--
+- big bang
+- start of life
+- 
 
 
 
