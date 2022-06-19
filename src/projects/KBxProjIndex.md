@@ -22,6 +22,7 @@ date: 2021-12-23
 
 ## blender things
 - [[KBxBlenderFractals]]
+- [[KBxInterestingBlenderBin]]
 
 ## flowy
 - [[KBxTaprootv4Thoughts]]
