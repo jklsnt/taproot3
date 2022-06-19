@@ -24,8 +24,8 @@ date: 2022-06-18
 - start of life
 
 
+- non-euclidian geometry 
 - thermodynamics?
-
 
 
 
