@@ -23,7 +23,7 @@ date: 2022-06-18
 - big bang
 - start of life
 
-
+- mitocondria
 - non-euclidian geometry 
 - thermodynamics?
 
