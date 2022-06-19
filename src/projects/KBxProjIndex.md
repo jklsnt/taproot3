@@ -27,6 +27,7 @@ date: 2021-12-23
 ## flowy
 - [[KBxTaprootv4Thoughts]]
 - [[KBxKynticThoughts]]
+- [[KBxBreakthroughChallengePlanning]]
 
 
 ## the stack
