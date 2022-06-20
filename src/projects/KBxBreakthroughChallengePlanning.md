@@ -40,7 +40,7 @@ date: 2022-06-18
 	
 - higgs boson?
 - GMO
-- 
+- negative tempatur
 
 ### videos
 https://www.youtube.com/watch?v=NulOtSJhhvA crazy high production quality??
