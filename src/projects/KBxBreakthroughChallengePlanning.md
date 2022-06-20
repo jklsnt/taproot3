@@ -39,6 +39,7 @@ date: 2022-06-18
 	- cold fusion
 	
 - higgs boson?
+- GMO
 - 
 
 ### videos
