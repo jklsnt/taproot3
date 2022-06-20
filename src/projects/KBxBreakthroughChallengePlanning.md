@@ -37,8 +37,7 @@ date: 2022-06-18
 - superconductors
 - fusion
 	- cold fusion
-	
-- higgs boson?
+	 - higgs boson?
 - GMO
 - negative tempatures
 
@@ -51,6 +50,7 @@ https://www.youtube.com/watch?v=NulOtSJhhvA crazy high production quality??
 - graphics need to look homemade
 - aha-moment 
 - creative explanation
+- concretization of explanation
 
 
 ### resources
