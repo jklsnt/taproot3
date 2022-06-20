@@ -55,7 +55,7 @@ https://www.youtube.com/watch?v=NulOtSJhhvA crazy high production quality??
 
 ### resources
 - youtube audio library
-
+- https://www.youtube.com/watch?v=C5Jkgvw-Z6E fractals
 
 
 
