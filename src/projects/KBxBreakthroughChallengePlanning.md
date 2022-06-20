@@ -32,7 +32,8 @@ date: 2022-06-18
 - non-euclidian geometry 
 - thermodynamics?
 
-
+- ice and crystal structures
+	- ice 9 
 
 
 
