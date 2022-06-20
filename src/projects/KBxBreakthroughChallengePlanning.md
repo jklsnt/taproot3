@@ -49,7 +49,8 @@ https://www.youtube.com/watch?v=NulOtSJhhvA crazy high production quality??
 
 ### winning aspects
 - graphics need to look homemade
-- aha
+- aha-moment 
+- 
 
 
 
