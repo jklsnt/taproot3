@@ -23,6 +23,11 @@ date: 2022-06-18
 - big bang
 - start of life
 
+- optical illusions
+- fractals
+- chaos
+- penrose tiles
+
 - mitocondria
 - non-euclidian geometry 
 - thermodynamics?
