@@ -60,7 +60,7 @@ https://www.youtube.com/watch?v=NulOtSJhhvA crazy high production quality??
 
 
 ***
- **-    mRNA Vaccine
+-    mRNA Vaccine
     
 -    big bang
     
@@ -110,6 +110,6 @@ https://www.youtube.com/watch?v=NulOtSJhhvA crazy high production quality??
     
 -   // GMO
     
--   // negative tempatures**
+-   // negative tempatures
 
 
