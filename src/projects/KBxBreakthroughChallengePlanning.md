@@ -35,7 +35,9 @@ date: 2022-06-18
 - ice and crystal structures
 	- ice 9 
 - superconductors
-
+- fusion
+	- cold fusion
+- 
 
 ### videos
 https://www.youtube.com/watch?v=NulOtSJhhvA crazy high production quality??
