@@ -21,6 +21,7 @@ date: 2022-06-02
 	 - https://github.com/rothgar/awesome-tmux#status-bar
 	 - https://github.com/gcla/tmux-wormhole
 	 - https://github.com/fcsonline/tmux-thumbs
+ - notion instead of draft as start.
 
 ## todo!
 - fix darkreader on macos..
