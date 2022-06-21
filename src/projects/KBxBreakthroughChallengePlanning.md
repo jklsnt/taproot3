@@ -94,7 +94,7 @@ https://www.youtube.com/watch?v=Zlp2GQ3OLeE
 | lends itself to creative explanation | harder lesson?                |
 | similar to previous years winner     |                               |
 | fits format. ie. concept first       |                               |
-| very intricate                       |                               |
+| very readily intricate               |                               |
 
 **chaos and fractals**
 | pros                                           | cons                         |
