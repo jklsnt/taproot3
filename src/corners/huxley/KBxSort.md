@@ -1,7 +1,7 @@
 n
 ***
 
- a "dilemme" is di-lemma — two confliction lemmas
+ a "dilemme" is di-lemma — two conflicting lemmas!
 
 ***
 
