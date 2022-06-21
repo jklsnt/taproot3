@@ -96,7 +96,9 @@ https://www.youtube.com/watch?v=Zlp2GQ3OLeE
 | fits format. ie. concept first       |                               |
 
 **chaos and fractals**
-|pros|cons|
+| pros | cons |
+| ---- | ---- |
+|      |      |
 
 
 
