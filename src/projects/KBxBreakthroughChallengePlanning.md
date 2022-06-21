@@ -68,3 +68,6 @@ https://www.youtube.com/watch?v=NulOtSJhhvA crazy high production quality??
 	- in three axes if we want
 - holes allow for quantum locking
 - worry about type1 and t2?
+
+- bose-enstein condensate
+- heisenberg uncertainty principle
