@@ -100,7 +100,7 @@ https://www.youtube.com/watch?v=Zlp2GQ3OLeE
 | pros                                           | cons                         |
 | ---------------------------------------------- | ---------------------------- |
 | really elegant and beautiful                   | doesn't fit format well?     |
-| easily explainable and understandable          | doesn't seem super diffucult | 
+| easily explainable and understandable          | doesn't seem super difficult | 
 | great wow factor and ahah moment               |                              |
 | really good visuals (down to earth, and showy) |                              |
 
