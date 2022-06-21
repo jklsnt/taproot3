@@ -93,6 +93,7 @@ https://www.youtube.com/watch?v=Zlp2GQ3OLeE
 | well known                           |      |
 | lends itself to creative explanation |      |
 | similar to previous years winner     |      |
+| fits format. ie. concept first                                      |      |
 
 
 
