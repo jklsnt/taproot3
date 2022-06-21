@@ -96,9 +96,10 @@ https://www.youtube.com/watch?v=Zlp2GQ3OLeE
 | fits format. ie. concept first       |                               |
 
 **chaos and fractals**
-| pros | cons |
-| ---- | ---- |
-| really elegant and beautiful      |      |
+| pros                                 | cons |
+| ------------------------------------ | ---- |
+| really elegant and beautiful         |      |
+| easily explainable and understanable |      |
 
 
 
