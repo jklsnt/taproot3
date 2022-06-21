@@ -95,9 +95,8 @@ https://www.youtube.com/watch?v=Zlp2GQ3OLeE
 | similar to previous years winner     |                               |
 | fits format. ie. concept first       |                               |
 
-
-***
-
+**chaos and fractals**
+|pros|cons|
 
 
 
