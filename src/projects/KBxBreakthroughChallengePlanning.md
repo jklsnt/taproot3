@@ -101,7 +101,7 @@ https://www.youtube.com/watch?v=Zlp2GQ3OLeE
 | really elegant and beautiful          |      |
 | easily explainable and understandable |      |
 | great wow factor and ahah moment      |      |
-| super                                      |      |
+| really good visuals (dte                                      |      |
 
 
 
