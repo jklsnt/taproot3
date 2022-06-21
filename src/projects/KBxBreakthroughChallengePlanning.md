@@ -85,7 +85,9 @@ https://www.youtube.com/watch?v=bD2M7P6dTVA
 https://www.youtube.com/watch?v=Zlp2GQ3OLeE
 
 ### superconductor and chaos pros / cons
-|pros | cons 
+superconductor 
+| pros | cons |
+| ---- | ---- |
 
 
 
