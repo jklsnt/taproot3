@@ -60,56 +60,10 @@ https://www.youtube.com/watch?v=NulOtSJhhvA crazy high production quality??
 
 
 ***
--    mRNA Vaccine
-    
--    big bang
-    
-
--   Background radiation
-    
-
--    start of life (RNA)
-    
-
-  
-
--    optical illusions
-    
--    Fractals / Chaos (Butterfly effect)
-    
--    // penrose tiles
-    
-
-  
-
--    mitocondria
-    
--    // non-euclidian geometry 
-    
--   //  thermodynamics?
-    
-
-  
-
--   // ice and crystal structures
-    
-
--    ice 9 
-    
-
-  
-
--   Superconductors
-    
--   Fusion
-    
-
-- cold fusion
-
--   higgs boson?
-    
--   // GMO
-    
--   // negative tempatures
 
 
+
+### random super conductor thoughts
+- can show a phase diagram
+	- in three axes if we want
+	- 
