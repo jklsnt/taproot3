@@ -98,7 +98,7 @@ https://www.youtube.com/watch?v=Zlp2GQ3OLeE
 **chaos and fractals**
 | pros | cons |
 | ---- | ---- |
-|      |      |
+| really elegant and beautiful      |      |
 
 
 
