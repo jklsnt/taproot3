@@ -87,11 +87,12 @@ https://www.youtube.com/watch?v=Zlp2GQ3OLeE
 ### superconductor and chaos pros / cons
 
 **superconductors**
-| pros                     | cons |
-| ------------------------ | ---- |
-| high on difficulty scale |      |
-| well known               |      |
-| lends itself to creative explanation                          |      |
+| pros                                 | cons |
+| ------------------------------------ | ---- |
+| high on difficulty scale             |      |
+| well known                           |      |
+| lends itself to creative explanation |      |
+| similar to previous years winner     |      |
 
 
 
