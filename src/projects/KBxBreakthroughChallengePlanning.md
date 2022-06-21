@@ -99,7 +99,7 @@ https://www.youtube.com/watch?v=Zlp2GQ3OLeE
 | pros                                 | cons |
 | ------------------------------------ | ---- |
 | really elegant and beautiful         |      |
-| easily explainable and understanable |      |
+| easily explainable and understandable |      |
 
 
 
