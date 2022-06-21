@@ -84,5 +84,30 @@ https://www.youtube.com/watch?v=NulOtSJhhvA crazy high production quality??
 https://www.youtube.com/watch?v=bD2M7P6dTVA
 https://www.youtube.com/watch?v=Zlp2GQ3OLeE
 
-### superconductor and cha
+### superconductor and chaos pros / cons
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
