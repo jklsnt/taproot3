@@ -71,3 +71,14 @@ https://www.youtube.com/watch?v=NulOtSJhhvA crazy high production quality??
 
 - bose-enstein condensate
 - heisenberg uncertainty principle
+
+
+
+
+
+
+
+
+
+
+https://www.youtube.com/watch?v=bD2M7P6dTVA
