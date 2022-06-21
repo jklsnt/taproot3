@@ -91,9 +91,10 @@ https://www.youtube.com/watch?v=Zlp2GQ3OLeE
 | ------------------------------------ | ----------------------------- |
 | high on difficulty scale             | too hard to explain??         |
 | well known                           | not as inherently interesting |
-| lends itself to creative explanation | harder lesson?                | 
+| lends itself to creative explanation | harder lesson?                |
 | similar to previous years winner     |                               |
 | fits format. ie. concept first       |                               |
+| very intricate                       |                               |
 
 **chaos and fractals**
 | pros                                           | cons                         |
