@@ -96,12 +96,12 @@ https://www.youtube.com/watch?v=Zlp2GQ3OLeE
 | fits format. ie. concept first       |                               |
 
 **chaos and fractals**
-| pros                                  | cons |
-| ------------------------------------- | ---- |
-| really elegant and beautiful          |      |
-| easily explainable and understandable |      |
-| great wow factor and ahah moment      |      |
-| really good visuals (dte                                      |      |
+| pros                                           | cons |
+| ---------------------------------------------- | ---- |
+| really elegant and beautiful                   |       |
+| easily explainable and understandable          |      |
+| great wow factor and ahah moment               |      |
+| really good visuals (down to earth, and showy) |      |
 
 
 
