@@ -73,7 +73,9 @@ https://www.youtube.com/watch?v=NulOtSJhhvA crazy high production quality??
 - heisenberg uncertainty principle
 
 
-- paulli exclus
+- paulli exclusion
+- boson fermion
+- 
 
 
 
