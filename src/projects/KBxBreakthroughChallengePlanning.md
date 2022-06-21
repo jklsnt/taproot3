@@ -97,12 +97,12 @@ https://www.youtube.com/watch?v=Zlp2GQ3OLeE
 | very readily intricate               |                               |
 
 **chaos and fractals**
-| pros                                           | cons                         |
-| ---------------------------------------------- | ---------------------------- |
-| really elegant and beautiful                   | doesn't fit format well?     |
-| easily explainable and understandable          | doesn't seem super difficult | 
-| great wow factor and ahah moment               | demos are not nesasarrily original                             |
-| really good visuals (down to earth, and showy) |                              |
+| pros                                           | cons                               |
+| ---------------------------------------------- | ---------------------------------- |
+| really elegant and beautiful                   | doesn't fit format well?           |
+| easily explainable and understandable          | doesn't seem super difficult       |
+| great wow factor and ahah moment               | demos are not necessarily original | 
+| really good visuals (down to earth, and showy) |                                    |
 
 
 
