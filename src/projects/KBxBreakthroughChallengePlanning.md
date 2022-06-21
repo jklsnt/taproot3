@@ -66,4 +66,4 @@ https://www.youtube.com/watch?v=NulOtSJhhvA crazy high production quality??
 ### random super conductor thoughts
 - can show a phase diagram
 	- in three axes if we want
-	- 
+- 
