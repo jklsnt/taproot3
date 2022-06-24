@@ -106,8 +106,8 @@ https://www.youtube.com/watch?v=Zlp2GQ3OLeE
 | great wow factor and ahah moment               | demos are not necessarily original | 
 | really good visuals (down to earth, and showy) |                                    |
 
-
-
+## color correction with micah
+- set blakc
 
 
 
