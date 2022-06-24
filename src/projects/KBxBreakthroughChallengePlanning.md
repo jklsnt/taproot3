@@ -114,7 +114,7 @@ use the scopes and histograms!
 	- 96
 
 - play with temp
-- 
+- consistent temp
 
 
 
