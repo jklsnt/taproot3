@@ -107,11 +107,12 @@ https://www.youtube.com/watch?v=Zlp2GQ3OLeE
 | really good visuals (down to earth, and showy) |                                    |
 
 ## color correction with micah
+use the scopes and histograms!
 - set blacks
 	- 3-4
 - set whites
 	- 96
--
+
 
 
 
