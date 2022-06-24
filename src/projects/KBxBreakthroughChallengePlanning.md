@@ -113,8 +113,8 @@ use the scopes and histograms!
 - set whites
 	- 96
 
-
-
+- play with temp
+- 
 
 
 
