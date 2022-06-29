@@ -1,6 +1,10 @@
 n
 ***
 
+ https://tmate.io is frickin sick. live and instant terminal sharing, which works with things like vim and ect!
+
+***
+
  https://www.youtube.com/watch?v=c6TopwNu7Ok i want this 
 
 ***
