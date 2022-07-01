@@ -1,6 +1,10 @@
 n
 ***
 
+ https://github.com/github/copilot.vim yooooooooooooooo (get this set up)
+
+***
+
  https://tmate.io is frickin sick. live and instant terminal sharing, which works with things like vim and ect!
 
 ***
