@@ -60,6 +60,9 @@ looking at what happens if 1=2
 
 - wave function collapse fun!
 	- wave function collapse but off text prompts, which are then made into images by ml?
+	- wave function collapse with audio??
+	- wave function collapse with memory
+		- kinda lstm style  
 
 
 ## ctf 
