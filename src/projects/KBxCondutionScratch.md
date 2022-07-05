@@ -35,3 +35,7 @@ date: 2022-05-25
 
 
 
+## settings page!
+
+### keybinds
+https://www.npmjs.com/package/react-keybind
