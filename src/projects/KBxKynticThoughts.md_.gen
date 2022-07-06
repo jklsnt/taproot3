@@ -82,7 +82,7 @@ something that tells you what you have tracked at the top of the log screen
 	- works!
 - logs data to a file: works
 - push to db: breaks.
-	- [ ] set up some dummy files so i can debug database rules
+	- [x] set up some dummy files so i can debug database rules
 
 - recording while phone is off: doesn't work.
 	- onboard storage??
