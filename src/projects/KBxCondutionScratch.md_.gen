@@ -40,3 +40,19 @@ date: 2022-05-25
 ### keybinds
 https://www.npmjs.com/package/react-keybind
 but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
+
+#### defaults
+- projects
+- 
+
+
+
+
+
+
+
+
+
+
+
+
