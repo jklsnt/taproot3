@@ -17,6 +17,7 @@ date: 2022-06-13
 - [[ignoreMantraStackoverflowRunning]]
 - [[ignoreMantraBioScratch]]
 
+https://jonathan-hui.medium.com/graph-neural-networks-gnn-gae-stgnn-1ac0b5c99550
 
 
 
