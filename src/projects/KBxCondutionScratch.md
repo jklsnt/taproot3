@@ -43,7 +43,8 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 
 #### defaults
 - projects
-	- 
+	- add a task
+	- app a project
 
 
 
