@@ -100,7 +100,7 @@ It seems that it is safe, and won't do harm.
 
 ![[Pasted image 20220710225102.png||500]]
 
-
+- long covid symptoms co-occur more as time increases
 
 
 
