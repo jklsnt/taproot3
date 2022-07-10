@@ -82,9 +82,23 @@ It seems that it is safe, and won't do harm.
 	- note: not nearly as many data points here
 	- positive association with male, 
 	- diabetes became much more significant
-- 
+	
+- related symptoms prior:
+	- most important: number of symptoms
+		- so lets track them! 
+	- general health status, ofc
+	- and thenc
 
 
+
+## the plan
+compiled.
+
+
+- meditation
+- chinese medicine
+- tracking!
+- air
 
 
 
