@@ -87,7 +87,9 @@ It seems that it is safe, and won't do harm.
 	- most important: number of symptoms
 		- so lets track them! 
 	- general health status, ofc
-	- and thenc
+	- and then classical covid symptoms
+	
+- 
 
 
 
