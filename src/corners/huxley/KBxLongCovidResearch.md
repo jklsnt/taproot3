@@ -79,8 +79,10 @@ It seems that it is safe, and won't do harm.
 	- ive seen this elsewhere as well
 - weak associations with BMI and age
 - however, things change over 70:
-	- positve association with male, 
-	- 
+	- note: not nearly as many data points here
+	- positive association with male, 
+	- diabetes became much more significant
+- 
 
 
 
