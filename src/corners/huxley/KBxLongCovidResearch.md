@@ -98,7 +98,7 @@ It seems that it is safe, and won't do harm.
 	- aka. covid leads to broader levels of programatic changes within the immune system
 - 
 
-
+![[Pasted image 20220710225102.png||400]]
 
 
 
