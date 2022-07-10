@@ -78,6 +78,9 @@ It seems that it is safe, and won't do harm.
 - being female is a risk factor for long covid
 	- ive seen this elsewhere as well
 - weak associations with BMI and age
+- however, things change over 70:
+	- positve association with male, 
+	- 
 
 
 
