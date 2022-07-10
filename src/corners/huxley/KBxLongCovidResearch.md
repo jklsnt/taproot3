@@ -122,6 +122,7 @@ compiled.
 ### concerns
 
 - does father have good food available?
+- does father have capabilities to take of himself alone?
 - 
 
 
