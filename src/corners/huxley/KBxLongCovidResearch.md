@@ -24,6 +24,11 @@ date: 2022-07-10
 	- monoclonal antibody infusion
 - 
 
+### geusses for things that could be good
+- meditation
+- blood thinners (prevents clotting)
+
+
 ## flo on [this](https://www.youtube.com/watch?v=AXY6QUdMSIY)
 
 - lots of data collection from a covid symptom tracker app
