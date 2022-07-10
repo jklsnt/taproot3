@@ -94,7 +94,9 @@ It seems that it is safe, and won't do harm.
 
 ***
 
-
+- long covid can manifest as changes in allergies? can develop strong new allergies after having covid
+	- aka. covid leads to broader levels of programatic changes within the immune system
+- 
 
 
 
