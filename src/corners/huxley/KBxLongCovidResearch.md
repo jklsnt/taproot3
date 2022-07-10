@@ -15,6 +15,7 @@ date: 2022-07-10
 
 ## accumulated tips
 -  莲花清瘟 @jemoka
+- maintaining fresh air @jemoka 
 - 
 
 
