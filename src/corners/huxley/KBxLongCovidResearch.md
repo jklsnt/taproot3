@@ -17,6 +17,7 @@ date: 2022-07-10
 
 ## flo on [this](https://www.youtube.com/watch?v=AXY6QUdMSIY)
 
+- lots of data collection from a covid symptom tracker app
 - 
 
 
