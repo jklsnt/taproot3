@@ -20,7 +20,7 @@ date: 2022-07-10
 - lots of data collection from a covid symptom tracker app
 	- data is skewed towards older and white (~54yo)
 
-![[Pasted image 20220710211822.png]]
+![[Pasted image 20220710211822.png||400]]
 
 
 
