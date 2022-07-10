@@ -91,7 +91,8 @@ It seems that it is safe, and won't do harm.
 	
 -  "limited activity" seems to be a risk factor. this is classified as those who "have a condition that limites physical activity"
 - nothing from the above on children, as selected for only adults.
-- 
+
+***
 
 
 
