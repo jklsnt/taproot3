@@ -14,9 +14,15 @@ date: 2022-07-10
 # Long Covid Research
 
 ## accumulated tips
+- zinc, vitamin C and D
+	- zinc can cause stomach troubles. is this worse?
+
 -  莲花清瘟 @jemoka
 - maintaining fresh air @jemoka 
-- 
+- general health tips!
+	- sleep! 
+	- hydrate!
+	
 
 - treatments:
 	- vaccines (can still help even after getting the virus?)
