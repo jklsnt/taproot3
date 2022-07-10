@@ -89,6 +89,7 @@ It seems that it is safe, and won't do harm.
 	- general health status, ofc
 	- and then classical covid symptoms
 	
+-  "limited activity" seems to be a risk factor. this is classified as those who "have a condition that limites physical activity"
 - 
 
 
