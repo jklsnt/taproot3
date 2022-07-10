@@ -18,6 +18,11 @@ date: 2022-07-10
 - maintaining fresh air @jemoka 
 - 
 
+- treatments:
+	- vaccines (can still help even after getting the virus?)
+	- paxlovid
+	- monoclonal antibody infusion
+- 
 
 ## flo on [this](https://www.youtube.com/watch?v=AXY6QUdMSIY)
 
