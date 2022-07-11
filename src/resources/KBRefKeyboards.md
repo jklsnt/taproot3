@@ -26,6 +26,7 @@ date: 2022-01-08
 -  https://www.youtube.com/watch?v=CVXLoQWRnG0 creamsicles!
 -  https://www.youtube.com/watch?v=406xiD_kgps&ab_channel=LilShoosh crazy pop and nice keys
 -  https://www.youtube.com/watch?v=EfGFygmGpHo&ab_channel=LilShoosh so clean
+- https://www.youtube.com/watch?v=CorB0q9QImw&ab_channel=LilShoosh amazing.
 
 
 
