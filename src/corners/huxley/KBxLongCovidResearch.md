@@ -28,7 +28,13 @@ date: 2022-07-10
 	- vaccines (can still help even after getting the virus?)
 	- paxlovid
 	- monoclonal antibody infusion
-- 
+	
+- nato is good?
+
+- some people think:
+	- this is not a respiratory disease! this is a vascular disease. and that is what messes up the platelets and what leads to brain fog and all the clotting and ect.
+	
+- short, cold shower three times a day
 
 ### geusses for things that could be good
 - meditation
