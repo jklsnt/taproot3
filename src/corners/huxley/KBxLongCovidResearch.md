@@ -131,7 +131,8 @@ compiled.
 - does father have capabilities to take of himself alone?
 - 
 
-
+## to read
+https://www.uc.edu/news/articles/2022/03/huffpost--is-there-any-way-to-reduce-your-risk-of-long-covid-if-you-get-sick.html
 
 
 
