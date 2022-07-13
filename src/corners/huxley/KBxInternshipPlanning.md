@@ -61,7 +61,7 @@ date: 2022-02-26
 
 
 
-$\sim{M_{david}(t)}$
+$\widetilde{M_{david}(t)}$
 
 
 
