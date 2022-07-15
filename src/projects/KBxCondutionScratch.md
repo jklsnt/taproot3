@@ -51,6 +51,7 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 	- command pallete
 	- quick switcher
 	- back / forwards in history
+	- launch settings page
 
 
 
