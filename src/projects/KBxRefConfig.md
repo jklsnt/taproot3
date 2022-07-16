@@ -34,6 +34,7 @@ date: 2022-06-02
 - learn ag rq
 - buy new headphones
 - actual keyboard cable!
+- keybind to insert logging in whatever language 
 
 
 
