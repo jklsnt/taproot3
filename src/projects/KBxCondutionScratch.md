@@ -54,7 +54,8 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 	- back / forwards in history
 	- launch settings page
 
-
+- calender
+	- next and this
 
 
 
