@@ -46,6 +46,7 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 	- add a task
 	- app a project
 	- focus a task..?
+	- seq toggle
 
 - global
 	- command pallete
