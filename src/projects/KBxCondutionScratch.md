@@ -51,16 +51,15 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 - global
 	- command pallete
 	- quick switcher || done
-	- back / forwards in history
-	- launch settings page
+	- back / forwards in history || done
+	- launch settings page || done
 
 - calender
-	- next and this
+	- next and this || wip
 	
 - completed
 	- movin and editing and such
 	- fetch more
-
 
 - upcoming
 	- movin and the such
