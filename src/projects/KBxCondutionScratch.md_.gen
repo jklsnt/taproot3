@@ -65,7 +65,8 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 	- movin and the such
 	- toggle timeline
 
-
+- settings page
+	- 
 
 
 
