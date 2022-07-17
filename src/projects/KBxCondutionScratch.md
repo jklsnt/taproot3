@@ -59,6 +59,7 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 	
 - completed
 	- movin and editing and such
+	- fetch more
 
 
 
