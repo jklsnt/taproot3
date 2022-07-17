@@ -56,6 +56,9 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 
 - calender
 	- next and this
+	
+- completed
+	- movin and editing and such
 
 
 
