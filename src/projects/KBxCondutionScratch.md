@@ -68,7 +68,10 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 - settings page
 	- 
 
-
+- command pallete!
+	- theme
+	- keybinds
+	- vim mode?
 
 
 
