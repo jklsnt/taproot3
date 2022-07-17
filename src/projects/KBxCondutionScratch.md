@@ -43,14 +43,14 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 
 #### defaults
 - projects
-	- add a task
-	- app a project
-	- focus a task..?
+	- add a task || done
+	- app a project || done
+	- focus a task..? || done
 	- seq toggle
 
 - global
 	- command pallete
-	- quick switcher
+	- quick switcher || done
 	- back / forwards in history
 	- launch settings page
 
