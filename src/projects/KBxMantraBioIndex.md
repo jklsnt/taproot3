@@ -31,7 +31,8 @@ https://jonathan-hui.medium.com/graph-neural-networks-gnn-gae-stgnn-1ac0b5c99550
 - pick smallest class, then trim other classes to len
 
 - per class
-	- 
+	- plug into clustal $\Omega$ 
+		- check sequences (no heavy gaps!)
 	- generate MSAs
 
 
