@@ -25,7 +25,14 @@ https://jonathan-hui.medium.com/graph-neural-networks-gnn-gae-stgnn-1ac0b5c99550
 
 
 
+- histogram 
+	- of length
+- prune outliers
+- pick smallest class, then trim other classes to len
 
+- per class
+	- 
+	- generate MSAs
 
 
 
