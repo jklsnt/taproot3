@@ -80,6 +80,8 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 - sync themeing to something
 - make settings mobile friendly? (question mark?)
 - add a quickswitcher and command pallete button
+	- next to the logout button!
+	- 
 
 
 
