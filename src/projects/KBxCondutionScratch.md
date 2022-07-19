@@ -75,7 +75,11 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 	- vim mode?
 
 
+***
 
+- sync themeing to something
+- make settings mobile friendly? (question mark?)
+- add a quickswitcher and command pallete button
 
 
 
