@@ -46,25 +46,25 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 	- add a task || done
 	- app a project || done
 	- focus a task..? || done
-	- seq toggle
+	- seq toggle || nah
 
 - global
-	- command pallete
+	- command pallete || done!!
 	- quick switcher || done
 	- back / forwards in history || done
 	- launch settings page || done
 
 - calender
-	- next and this || wip
+	- next and this || done
 	
 	
 - completed
-	- movin and editing and such
-	- fetch more
+	- movin and editing and such || done
+	- fetch more || done
 
 - upcoming
-	- movin and the such
-	- toggle timeline
+	- movin and the such || done
+	- toggle timeline || done
 
 - settings page
 	- 
