@@ -22,7 +22,7 @@ date: 2022-07-20
 we could use GNNs? message passing convolution *is* infection.
 
 
-
+super cheap camera tempature sensor for fever detection of others..? 
 
 
 
