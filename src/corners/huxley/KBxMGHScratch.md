@@ -11,7 +11,7 @@ date: 2022-07-20
 
 ## mgh!
 
-
+- start off just by graphing it? seeing if it moves like weather.
 
 
 
