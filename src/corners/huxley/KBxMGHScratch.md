@@ -35,7 +35,7 @@ super cheap camera tempature sensor for fever detection of others..?
 
 
 - ofc, can use other sicknesses (common cold)
-	- and then do some type of transformation which relates them
+	- and then do some type of transformation which relates them, thx @exr0n!
 
 
 
