@@ -38,7 +38,7 @@ super cheap camera tempature sensor for fever detection of others..?
 	- and then do some type of transformation which relates them, thx @exr0n!
 
 
-
+- alignment of covid cases in different locations
 
 
 
