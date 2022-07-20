@@ -29,7 +29,8 @@ super cheap camera tempature sensor for fever detection of others..?
 
 
 
-- try to trace connections between known cases? think
+- try to trace connections between known cases? essentially, edge prediction task for covid modeling.
+- 
 
 
 
