@@ -16,7 +16,7 @@ date: 2022-07-20
 
 - predict mutation and mutation speed?
 
-- 
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8250893/ LMAO they use *actual* weather, not weather techniques
 
 
 
