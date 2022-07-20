@@ -29,7 +29,7 @@ super cheap camera tempature sensor for fever detection of others..?
 
 
 
-
+- try to trace connections between known cases? think
 
 
 
