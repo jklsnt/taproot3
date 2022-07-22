@@ -85,7 +85,7 @@ rendering sprites, instead.
 - add the valunex logo on the top
 - change the colors around? || done
 - test out performance on less beefy machine
-- experiment with hover such
+- experiment with hover and such || done
 - try out other csvs
 - package? comment? idk.
 
