@@ -81,9 +81,9 @@ rendering sprites, instead.
 
 ## alright. let's go.
 
-- style the button
+- style the button || done
 - add the valunex logo on the top
-- change the colors around?
+- change the colors around? || done
 - test out performance on less beefy machine
 - experiment with hover such
 - try out other csvs
