@@ -93,7 +93,6 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 - look back into getting the app on the macos app store
 
 
-
 ### places to market
 - ads!
 	- youtube
@@ -101,6 +100,8 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 - news peoples
 	- articles
 	- and the videos
+	- the story:
+		- we are a highschool team, who made this app. 
 - sponsor / review people
 	- go people on youtube!
 		- ben awad
