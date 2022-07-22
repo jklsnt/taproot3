@@ -111,6 +111,7 @@ rendering sprites, instead.
 - comment? idk. || @huxley @albert 
 - make a new gh repo || @huxley, or @albert if he wants
 	- transfer!
+- make electron app?
 
 
 
