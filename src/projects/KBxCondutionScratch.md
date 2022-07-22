@@ -117,7 +117,13 @@ hard
 	- completable and deletable
 - tasks
 	- markdown description
-	- 
+	- tags
+	- global
+	- repeating
+	- defer date
+	- start date
+- quickswitcher
+- command pallete
 
 
 
