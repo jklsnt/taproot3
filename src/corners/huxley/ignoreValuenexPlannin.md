@@ -91,7 +91,7 @@ rendering sprites, instead.
 
 
 - fix the hard coded!
-- fix the starting position + timeline
+- fix the starting position + timeline || done
 - look into extensions
 	- tooltips!
 	
