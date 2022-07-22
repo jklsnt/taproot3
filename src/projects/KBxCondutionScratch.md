@@ -88,9 +88,16 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 
 ## marketing moments
 
+### things i need from others
+- tracking! i need to know where people are downloading, and where we are getting clicks.
+- look back into gett
+
 ### literally every feature we have
 
-
+- open source
+- completely free
+- simple ui?
+	- (except perspective editor)
 ***
 soft
 ***
