@@ -42,6 +42,18 @@ super cheap camera tempature sensor for fever detection of others..?
 	- or, just predict transformations between them
 
 
+***
+
+
+
+
+
+
+
+
+
+
+
 
 
 
