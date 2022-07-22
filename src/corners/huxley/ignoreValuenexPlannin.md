@@ -107,7 +107,8 @@ rendering sprites, instead.
 ### STILL TODO:
 - test out performance on less beefy machine || @huxley
 - try out other csvs || nah
-- package? comment? idk. || @
+- package? || @albert
+- comment? idk. || @huxley @albert 
 - comment? docstrings? build? 
 - make a new gh repo
 	- transfer!
