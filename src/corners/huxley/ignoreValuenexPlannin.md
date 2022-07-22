@@ -88,6 +88,8 @@ rendering sprites, instead.
 
 - fix the hard coded!
 - fix the starting position + timeline
+- look into extensions
+
 
 
 
