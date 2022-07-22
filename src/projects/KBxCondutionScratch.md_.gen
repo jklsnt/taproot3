@@ -115,6 +115,7 @@ hard
 - projects
 	- infinently nestable
 	- completable and deletable
+	- progress bar
 - tasks
 	- markdown description
 	- tags
