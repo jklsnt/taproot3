@@ -157,6 +157,8 @@ hard
 
 ### content to generate
 - a blog.
+- quick yt ad?
+- quick instagram ad?
 
 
 
