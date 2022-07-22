@@ -75,6 +75,20 @@ rendering sprites, instead.
 	- how does addition work with transparency?
 	- how do we handle normalization?
 
+## alright. let's go.
+
+- style the button
+- add the valunex logo on the top
+- change the colors around?
+- test out performance on less beefy machine
+- try out 
+
+
+
+
+
+
+
 
 
 
