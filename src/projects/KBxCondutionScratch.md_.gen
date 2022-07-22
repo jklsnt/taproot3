@@ -103,7 +103,9 @@ hard
 	- unsorted
 	- timeline
 - worspaces!
-- 
+	- email sharing 
+	- link sharing
+	- no need to have an account? TODO confirm
 - completed page
 - calender view
 	- with weights!
