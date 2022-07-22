@@ -97,6 +97,7 @@ rendering sprites, instead.
 - comment? docstrings? build? 
 - make a new gh repo
 	- transfer!
+- soup it up. add in the og shade.mjs
 
 
 
