@@ -90,7 +90,8 @@ rendering sprites, instead.
 - fix the starting position + timeline
 - look into extensions
 	- tooltips!
-- 
+	
+- make electron app?
 
 ### before we release. 
 - comment? docstrings? build? 
