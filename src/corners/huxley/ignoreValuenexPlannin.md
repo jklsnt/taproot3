@@ -86,6 +86,8 @@ rendering sprites, instead.
 - package? comment? idk.
 
 
+- fix the hard coded!
+- fix the starting position + timeline
 
 
 
