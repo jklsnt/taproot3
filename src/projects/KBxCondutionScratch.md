@@ -96,10 +96,21 @@ soft
 ***
 hard
 ***
+- abtib
 - upcoming page
 	- due soon
 	- unsorted
 	- timeline
+- worspaces!
+- completed page
+- calender view
+	- with weights!
+- perspectives
+	- with perspective filtering 
+		- TODO extend
+- projects
+	- infinently nestable
+	- completable and 
 
 
 
