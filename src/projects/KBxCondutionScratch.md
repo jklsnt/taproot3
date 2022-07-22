@@ -90,7 +90,7 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 
 ### things i need from others
 - tracking! i need to know where people are downloading, and where we are getting clicks.
-- look back into gett
+- look back into getting the app on the macos app store
 
 ### literally every feature we have
 
