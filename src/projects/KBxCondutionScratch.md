@@ -92,6 +92,9 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 - tracking! i need to know where people are downloading, and where we are getting clicks.
 - look back into getting the app on the macos app store
 
+### story time
+high schoolers!
+we were told we couldn't do it?
 
 ### places to market
 - ads!
