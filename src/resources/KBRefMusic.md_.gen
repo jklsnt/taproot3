@@ -58,6 +58,7 @@ date: 2021-12-26
 - [Your Choice - Fabiel Tell](https://www.youtube.com/watch?v=E6mLk0m4iA0&ab_channel=FabienTell-Topic) - brad outro song
 - [Here's Hoping](https://www.youtube.com/watch?v=RuddydvmGzI&ab_channel=FabienTell-Topic) - really upbeat happy instrumental music 
 	- feels like winning an adventure
+- [Sickick - G.O.M.D.](https://www.youtube.com/watch?v=gGOMuIffC2k&ab_channel=SickickMusic) - fake lyrics with good drop at start. could be good for something short
 
 ## For working
 - [Limitless Dada Da Dada Da The Black Keys - Howlin' For You](https://www.youtube.com/watch?v=57TAXjGmiIc&ab_channel=0Daftpunks0) - the song from limitless. i mean, cmon
