@@ -84,16 +84,16 @@ rendering sprites, instead.
 - style the button || done
 - add the valunex logo on the top
 - change the colors around? || done
-- test out performance on less beefy machine
 - experiment with hover and such || done
+- test out performance on less beefy machine
 - try out other csvs
 - package? comment? idk.
 
 
 - fix the hard coded!
 - fix the starting position + timeline || done
-- look into extensions
-	- tooltips!
+- look into extensions || done
+	- tooltips! || done
 	
 - make electron app?
 
