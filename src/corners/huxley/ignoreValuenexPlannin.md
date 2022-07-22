@@ -90,7 +90,7 @@ rendering sprites, instead.
 - package? comment? idk.
 
 
-- fix the hard coded!
+- fix the hard coded! || nah
 - fix the starting position + timeline || done
 - look into extensions || done
 	- tooltips! || done
