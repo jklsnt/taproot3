@@ -101,7 +101,16 @@ rendering sprites, instead.
 - comment? docstrings? build? 
 - make a new gh repo
 	- transfer!
-- soup it up. add in the og shade.mjs
+- soup it up. add in the og shade.mjs || done
+
+*** 
+### STILL TODO:
+- test out performance on less beefy machine || @huxley
+- try out other csvs || nah
+- package? comment? idk. || @
+- comment? docstrings? build? 
+- make a new gh repo
+	- transfer!
 
 
 
