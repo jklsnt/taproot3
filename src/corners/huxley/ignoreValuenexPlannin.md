@@ -109,8 +109,7 @@ rendering sprites, instead.
 - try out other csvs || nah
 - package? || @albert
 - comment? idk. || @huxley @albert 
-- comment? docstrings? build? 
-- make a new gh repo
+- make a new gh repo || @huxley, or @albert if he wants
 	- transfer!
 
 
