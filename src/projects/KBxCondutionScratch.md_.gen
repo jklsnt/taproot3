@@ -156,7 +156,7 @@ hard
 - command pallete
 
 ### content to generate
-
+- a blog.
 
 
 
