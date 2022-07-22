@@ -97,11 +97,13 @@ soft
 hard
 ***
 - abtib
+	- natural language dates
 - upcoming page
 	- due soon
 	- unsorted
 	- timeline
 - worspaces!
+- 
 - completed page
 - calender view
 	- with weights!
@@ -110,7 +112,10 @@ hard
 		- TODO extend
 - projects
 	- infinently nestable
-	- completable and 
+	- completable and deletable
+- tasks
+	- markdown description
+	- 
 
 
 
