@@ -86,11 +86,16 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 
 
 
+## marketing moments
+
+### literally every feature we have
 
 
-
-
-
+***
+soft
+***
+hard
+***
 
 
 
