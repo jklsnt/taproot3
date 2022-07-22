@@ -92,9 +92,10 @@ rendering sprites, instead.
 	- tooltips!
 - 
 
-
-
-
+### before we release. 
+- comment? docstrings? build? 
+- make a new gh repo
+	- transfer!
 
 
 
