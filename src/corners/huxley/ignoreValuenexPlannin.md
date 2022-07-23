@@ -108,8 +108,9 @@ rendering sprites, instead.
 
 *** 
 ### STILL TODO:
-- test out performance on less beefy machine || @huxley
 - try out other csvs || nah
+
+- test out performance on less beefy machine || @huxley
 - package? || @albert
 - comment? idk. || @huxley @albert 
 - make a new gh repo || @huxley, or @albert if he wants
