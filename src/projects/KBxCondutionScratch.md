@@ -155,6 +155,12 @@ hard
 - quickswitcher
 - command pallete
 
+#### most important
+- sync everywhere
+- total privacy
+- share across
+
+
 ### content to generate
 - a blog.
 - quick yt ad?
