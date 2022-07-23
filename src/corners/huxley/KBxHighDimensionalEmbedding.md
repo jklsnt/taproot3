@@ -17,5 +17,9 @@ date: 2022-07-23
 [https://distill.pub/2016/misread-tsne/](https://distill.pub/2016/misread-tsne/ "https://distill.pub/2016/misread-tsne/")
 https://www.researchgate.net/figure/Visual-representation-of-an-embedding-in-two-dimensions-with-songs-from-selected-artists_fig3_254464343
 www.researchgate.net/publication/254464343_Playlist_prediction_via_metric_embedding/
+- embedding 
+
+
+
 
 
