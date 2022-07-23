@@ -110,12 +110,16 @@ rendering sprites, instead.
 ### STILL TODO:
 - try out other csvs || nah
 
-- test out performance on less beefy machine || @huxley
+- test out performance on less beefy machine || @huxley || done
 - package? || @albert
-- comment? idk. || @huxley @albert 
+	- website and the electron app
+- comment? idk. || @huxley || done || @albert 
+
 - make a new gh repo || @huxley, or @albert if he wants
 	- transfer!
-- make electron app?
+
+- make electron app? || done
+
 
 
 
