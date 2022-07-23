@@ -26,6 +26,8 @@ https://link.springer.com/article/10.1007/s00521-018-3923-1
 
 traditional skip-gram and cbow utilises the existing context 
 we don't have that.
+jk, yes we do! segments a given song into *slices*
+
 
 
 
