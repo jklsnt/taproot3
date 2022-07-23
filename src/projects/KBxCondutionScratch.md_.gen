@@ -158,7 +158,8 @@ hard
 #### most important
 - sync everywhere
 - total privacy
-- share across
+- workspaces and sharing
+- 
 
 
 ### content to generate
