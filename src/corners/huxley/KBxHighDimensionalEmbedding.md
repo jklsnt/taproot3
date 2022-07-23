@@ -21,7 +21,8 @@ www.researchgate.net/publication/254464343_Playlist_prediction_via_metric_embedd
 
 - looks like a lot of *playlist* prediction
 
-
+https://link.springer.com/article/10.1007/s00521-018-3923-1
+-  these guys are actually doing it word2vec style with the audio?
 
 
 
