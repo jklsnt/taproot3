@@ -159,7 +159,8 @@ hard
 - sync everywhere
 - total privacy
 - workspaces and sharing
-- 
+- filtering
+- beautiful
 
 
 ### content to generate
