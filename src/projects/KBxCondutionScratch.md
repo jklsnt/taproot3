@@ -218,6 +218,8 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 		- talks about ipad apps a lot
 	- https://www.youtube.com/watch?v=2V3bmX9uyqo&ab_channel=KeepProductive%3AProductivityAppNews%26Reviews
 		- small youtuber who reviews productitivity stuff
+	- https://www.youtube.com/watch?v=T6hmdrsLQj8&ab_channel=AliAbdaal
+		- idk
 	- 
 
 
