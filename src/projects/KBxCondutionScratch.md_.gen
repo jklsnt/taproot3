@@ -251,6 +251,8 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 		- sfgate
 	- https://sfist.com/news/
 		- no idea who these guys are
+	- https://www.hillsdale.net
+		- hillsdale news!
 
 
 
