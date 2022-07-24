@@ -78,7 +78,7 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 - make settings mobile friendly? (question mark?) || @tbd || done
 - add a quickswitcher and command pallete button || @zach & @exr0n
 	- next to the logout button!
-- keybind editor component || @huxley @jack 
+- keybind editor component || @huxley || done || @jack 
 
 
 
