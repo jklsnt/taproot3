@@ -222,7 +222,9 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 		- idk
 	- https://www.youtube.com/watch?v=BQKfAxFgi-E&ab_channel=ThomasFrank
 		- this man does windows
-		
+	- https://www.youtube.com/watch?v=9TtG5U7CAOU&ab_channel=SamBeckman
+		- this man shows off a lot of apps
+	- 
 
 
 
