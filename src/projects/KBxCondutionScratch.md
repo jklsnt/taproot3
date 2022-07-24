@@ -237,6 +237,8 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 - news
 	- https://www.smdailyjournal.com/site/contact.html
 		- san mateo daily journal
+	- https://abc7news.com
+		- are these the sf guys?
 
 
 
