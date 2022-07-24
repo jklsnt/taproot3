@@ -192,7 +192,11 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 
 - https://futo.org/grants
 	- they provide grants and such to open source projects
-- 
+
+- tutorial youtubers
+	- https://twitter.com/developedbyed
+		- dev ed, the guy i learned react from
+	- 
 
 
 
