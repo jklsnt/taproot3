@@ -245,6 +245,9 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 		- cortex. can we ask these guys?
 	- https://www.mercurynews.com/location/san-mateo-county/
 		- san mateo local
+	- https://www.sfchronicle.com
+		- the sf chronicle!
+	- 
 
 
 
