@@ -249,6 +249,8 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 		- the sf chronicle!
 	- https://www.sfgate.com
 		- sfgate
+	- https://sfist.com/news/
+		- no idea who these guys are
 
 
 
