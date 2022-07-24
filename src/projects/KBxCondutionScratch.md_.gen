@@ -220,7 +220,9 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 		- small youtuber who reviews productitivity stuff
 	- https://www.youtube.com/watch?v=T6hmdrsLQj8&ab_channel=AliAbdaal
 		- idk
-	- 
+	- https://www.youtube.com/watch?v=BQKfAxFgi-E&ab_channel=ThomasFrank
+		- this man does windows
+		
 
 
 
