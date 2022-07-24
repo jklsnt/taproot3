@@ -235,7 +235,8 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 	- https://www.youtube.com/watch?v=ydBP5_zvMGg&ab_channel=SamBeckman
 		- mid size, talks about free and open source
 - news
-	- 
+	- https://www.smdailyjournal.com/site/contact.html
+		- san mateo daily journal
 
 
 
