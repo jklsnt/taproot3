@@ -243,6 +243,8 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 		- sf local news twitter..?
 	- https://www.relay.fm/cortex
 		- cortex. can we ask these guys?
+	- https://www.mercurynews.com/location/san-mateo-county/
+		- san mateo local
 
 
 
