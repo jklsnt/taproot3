@@ -214,6 +214,8 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 		- idrk tbh
 	- https://www.youtube.com/watch?v=bP8wTapHsbc&ab_channel=JeffSu
 		- this guy is really big on todoist
+	- https://www.youtube.com/watch?v=boqczE0Kr0A&ab_channel=ChristopherLawley
+		- talks about ipad apps a lot
 
 
 
