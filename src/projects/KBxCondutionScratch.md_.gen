@@ -230,6 +230,8 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 		- small youtuber 
 	- https://www.youtube.com/watch?v=vmNfnkZDWhY&ab_channel=JohnMavrick
 		- clear thinking smallish yter
+	- https://www.youtube.com/watch?v=He7MeJSYesE&ab_channel=KaiNotebook
+		- is a student, uses google tasks and loves notion
 
 
 
