@@ -228,6 +228,8 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 		- super small. idk 
 	- https://www.youtube.com/watch?v=vmNfnkZDWhY&ab_channel=JohnMavrick
 		- small youtuber 
+	- https://www.youtube.com/watch?v=vmNfnkZDWhY&ab_channel=JohnMavrick
+		- clear thinking smallish yter
 
 
 
