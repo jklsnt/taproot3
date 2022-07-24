@@ -216,6 +216,8 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 		- this guy is really big on todoist
 	- https://www.youtube.com/watch?v=boqczE0Kr0A&ab_channel=ChristopherLawley
 		- talks about ipad apps a lot
+	- https://www.youtube.com/watch?v=2V3bmX9uyqo&ab_channel=KeepProductive%3AProductivityAppNews%26Reviews
+		- small youtuber
 
 
 
