@@ -198,6 +198,8 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 		- dev ed, the guy i learned react from
 	- kyle@webdevsimplified.com
 		- another react ytber
+	- https://twitter.com/fireship_dev 
+		- fireship man!
 
 
 
