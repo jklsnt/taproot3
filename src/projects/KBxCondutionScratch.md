@@ -163,6 +163,10 @@ hard
 - beautiful
 - natural language
 
+- powerful
+- beautiful 
+- free
+
 
 ### content to generate
 - a blog.
