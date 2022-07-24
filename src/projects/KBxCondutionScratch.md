@@ -241,6 +241,8 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 		- are these the sf guys?
 	- https://twitter.com/sfexaminer
 		- sf local news twitter..?
+	- https://www.relay.fm/cortex
+		- cortex. can we ask these guys?
 
 
 
