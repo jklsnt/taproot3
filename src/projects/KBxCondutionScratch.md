@@ -161,6 +161,7 @@ hard
 - workspaces and sharing
 - filtering
 - beautiful
+- natural language
 
 
 ### content to generate
