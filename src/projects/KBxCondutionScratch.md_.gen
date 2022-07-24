@@ -188,7 +188,11 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 	- https://artlist.io/song/89484/chonklap!
 
 
+## people i am going to contact
 
+- https://futo.org/grants
+	- they provide grants and such to open source projects
+- 
 
 
 
