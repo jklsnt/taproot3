@@ -239,6 +239,8 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 		- san mateo daily journal
 	- https://abc7news.com
 		- are these the sf guys?
+	- https://twitter.com/sfexaminer
+		- sf local news twitter..?
 
 
 
