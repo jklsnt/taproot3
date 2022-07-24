@@ -232,6 +232,8 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 		- clear thinking smallish yter
 	- https://www.youtube.com/watch?v=He7MeJSYesE&ab_channel=KaiNotebook
 		- is a student, uses google tasks and loves notion
+	- https://www.youtube.com/watch?v=ydBP5_zvMGg&ab_channel=SamBeckman
+		- mid size, talks about free and open source
 
 
 
