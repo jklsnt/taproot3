@@ -212,6 +212,8 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 - workflow youtubers
 	- https://www.instagram.com/kallehallden/
 		- idrk tbh
+	- https://www.youtube.com/watch?v=bP8wTapHsbc&ab_channel=JeffSu
+		- this guy is really big on todoist
 
 
 
