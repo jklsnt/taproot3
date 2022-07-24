@@ -226,6 +226,8 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 		- this man shows off a lot of apps
 	- https://www.youtube.com/watch?v=_3IuqU8coRs&ab_channel=MicaGonzalez—ThatProductivityGirl
 		- super small. idk 
+	- https://www.youtube.com/watch?v=vmNfnkZDWhY&ab_channel=JohnMavrick
+		- small youtuber 
 
 
 
