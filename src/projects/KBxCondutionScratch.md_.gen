@@ -200,6 +200,8 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 		- another react ytber
 	- https://twitter.com/fireship_dev 
 		- fireship man!
+	- https://www.instagram.com/developerfilip/
+		- does reactions to people
 
 
 
