@@ -4,7 +4,8 @@ n
  https://www.youtube.com/watch?v=dQJ5aEsP6Fs 3d cellular automata
 and cell based game of life! https://www.youtube.com/watch?v=Z_zmZ23grXE&t=0s
 man these are #cool.
-
+https://softology.pro/gallery/gallery.htm 
+also these
 ***
 
  https://github.com/github/copilot.vim yooooooooooooooo (get this set up)
