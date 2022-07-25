@@ -1,6 +1,10 @@
 n
 ***
 
+ https://www.youtube.com/watch?v=dQJ5aEsP6Fs 3d conways game of life. 
+
+***
+
  https://github.com/github/copilot.vim yooooooooooooooo (get this set up)
 
 ***
