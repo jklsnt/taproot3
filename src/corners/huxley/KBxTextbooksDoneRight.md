@@ -5,8 +5,34 @@ author:  Huxley Marvit
 date: 2022-07-25
 ---
 
-#flo #ret #ref
+#ref
 #disorganized #incomplete
-#inclass 
 
 ***
+
+# Textbooks done right!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
