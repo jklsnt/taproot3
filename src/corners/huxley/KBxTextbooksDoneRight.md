@@ -14,7 +14,8 @@ date: 2022-07-25
 
 ## data structure
 
-
+- definitions
+- uses?
 
 
 
