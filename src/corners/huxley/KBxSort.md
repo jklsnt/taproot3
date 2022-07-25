@@ -1,7 +1,7 @@
 n
 ***
 
- https://www.youtube.com/watch?v=dQJ5aEsP6Fs 3d conways game of life. 
+ https://www.youtube.com/watch?v=dQJ5aEsP6Fs 3d cellular automata
 
 ***
 
