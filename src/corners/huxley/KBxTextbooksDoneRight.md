@@ -12,6 +12,7 @@ date: 2022-07-25
 
 # Textbooks done right!
 
+## data structure
 
 
 
