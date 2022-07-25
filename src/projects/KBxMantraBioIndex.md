@@ -35,7 +35,7 @@ https://jonathan-hui.medium.com/graph-neural-networks-gnn-gae-stgnn-1ac0b5c99550
 		- check sequences (no heavy gaps!)
 	- generate MSAs
 
-
+- 0008305
 
 
 
