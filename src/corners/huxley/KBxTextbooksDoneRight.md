@@ -20,6 +20,8 @@ date: 2022-07-25
 
 
 - definition 
+	- proof
+	- results?
 - usage
 
 
