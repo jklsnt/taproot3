@@ -37,6 +37,11 @@ pages are in `props.children[1].props.children[3].props.children`
 	- definition boxes
 	- theorems
 		- blue boxes
+		
+	- uses
+		- natural uses
+		- examples
+		- 
 
 
 
