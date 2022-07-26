@@ -34,7 +34,9 @@ pages are in `props.children[1].props.children[3].props.children`
 ### objects
 
 - definitions
-	- definition boxex
+	- definition boxes
+	- theorems
+		- blue boxes
 
 
 
