@@ -31,6 +31,10 @@ date: 2022-07-25
 
 pages are in `props.children[1].props.children[3].props.children`
 
+### objects
+
+- definitions
+	- definition boxex
 
 
 
