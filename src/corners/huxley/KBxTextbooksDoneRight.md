@@ -50,9 +50,9 @@ proofs??
 ## random plannin
 store a dict of objects, which contains:
 - key: first bit of content? some type of id?
-- type [blue, def, usage, ect.]
+- type: [blue, def, usage, ect.]
 - html content
-- 
+- adjacencys: 
 
 
 
