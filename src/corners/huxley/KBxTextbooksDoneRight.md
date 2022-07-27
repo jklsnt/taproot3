@@ -48,7 +48,8 @@ notation??
 proofs??
 
 ## random plannin
-
+store an array of objects, which contains:
+- type [blue, def, usage, ect.]
 
 
 
