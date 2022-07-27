@@ -48,7 +48,7 @@ notation??
 proofs??
 
 ## random plannin
-store an array of objects, which contains:
+store a dict of objects, which contains:
 - type [blue, def, usage, ect.]
 - html content
 - 
