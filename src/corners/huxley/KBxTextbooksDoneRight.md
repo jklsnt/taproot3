@@ -62,7 +62,9 @@ https://dev.to/paolimi/reparenting-is-now-possible-with-react-3ci0
 - no more sorting into blocks!
 - instead, we:
 	- find the bounding box, and render a thing
-	- render transclusions 
+	- render transclusions as instances of the book at the right location
+	- stuff on the sides?
+	- need INF SCROLL!
 
 
 
