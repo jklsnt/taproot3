@@ -61,7 +61,8 @@ https://dev.to/paolimi/reparenting-is-now-possible-with-react-3ci0
 ## new plan! but with STERIODS! (aka alb :p)
 - no more sorting into blocks!
 - instead, we:
-	- find the bounding box, and render a thing 
+	- find the bounding box, and render a thing
+	- render transclusions 
 
 
 
