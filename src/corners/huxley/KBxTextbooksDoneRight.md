@@ -58,6 +58,25 @@ store a dict of objects, which contains:
 https://dev.to/paolimi/reparenting-is-now-possible-with-react-3ci0
 
 
+## new plan! but with STERIODS! (aka alb :p)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
