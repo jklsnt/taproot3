@@ -63,14 +63,14 @@ Note that I will use semicolon notation rather than composition notation.
 That is, \(f;g = g(f(x))\).
 
 \section{Partitions}
-\label{sec:org97c8fc6}
+\label{sec:org43771fd}
 We can divide a set into a set of subsets of the original set, such that their disjoint union is the original set. We call this a \uline{partition} on the original set.
 For example, if \(A = \{1, 2, 3, 4\}\), then the set of subsets \(Part_{A} = \{\{1, 2\}, \{3, 4\}}\) is a partition on \(A\).
 We can think of a partition as a surjective map from the original set to another set, such that elements with the same image are in the same set in the partition.
 That is, formally, a partition "is" a surjective map \(f: A \twoheadrightarrow X\), where the partition is given by \(Part_{f} = \{\{f(b)|b\in A, f(a) = f(b)\}|a\in A\}\).
 
 \section{Preorders}
-\label{sec:orge4d9282}
+\label{sec:org15e4d92}
 A preorder (also sometimes called a poset) is a set with a relation, notated in tuple notation as \((P, \leq)\). The relation helps "order" the set. For example, there's an implicit order to numbers, so \(\mathbb{N}\) can be thought of as a preorder.
 By the way, in this context, a relation is a function of the form \(\leq: a\times b \rightarrow Bool\).
 Note that you can make a partition from a preorder. If two elements are equivalent, i.e. \(a \leq b\) and \(b \leq a\), then you can place them in the same partition.
@@ -78,12 +78,12 @@ An \uline{upper set} of a preorder is the set of elements in the preorder that a
 The \uline{cartesian product} of a preorder is what you would expect the cartesian product would be. The relation is defined based on component-wise relations.
 
 \subsection{Monotone maps}
-\label{sec:orge06d94f}
+\label{sec:orgc27020d}
 A monotone map is a mapping between two preorders that preserves structure.
 If you have two preorders \(A\) and \(B\) and two monotone maps \(f: A\rightarrow B\) and \(g: B\rightarrow A\) such that \(f;g = id_{A}\) and \(g;f = id_{B}\), then \(A\) and \(B\) are said to be \uline{isomorphic}.
 
 \subsection{Meets}
-\label{sec:org0c872b6}
+\label{sec:org66ee404}
 A \uline{meet} of a subset of a preorder \(a\subset A\) is the greatest element of \(A\) such that it is less than any element in \(a\).
 Similarly, the \uline{join} of a subset of a preorder \(a\subset A\) is the smallest element of \(A\) such that it is greater than any element in \(a\).
 Note that we can form a preorder on the set of all sets, where we define one set to be greater than another set if it is a superset of that set.
@@ -94,14 +94,14 @@ A monotone map preserves meets/joins if the map of a meet/join is the same as th
 If a monotone map doesn't preserve joins, it's said to have a "generative effect".
 
 \subsection{Galois connections}
-\label{sec:org8e564ff}
+\label{sec:orgdaa0621}
 A Galois connection is a superset of preorder isomorphisms (i.e. it's a generalization). Notably, it is a pair of monotone maps \(f: P\rightarrow Q\) and \(g: Q\rightarrow P\) such that \(f(p) \leq q\, \text{iff}\, p \leq g(q)\).
 In this case, \(f\) is called the \uline{left adjoint} and \(g\) is called the \uline{right adjoint}.
 We know that \(f\) and \(g\) where \(f\) is left adjoint to \(g\) form a Galois connection, if and only if for all \(p, q\), \(p \leq g(f(p))\) and \(f(g(q)) \leq q\).
 A map is a right adjoint iff it preserve meets, and is a left adjoint iff it preserves joins. That is, \(g(\wedge A) \cong \wedge g(A)\) and \(f(\vee A) \cong \vee f(A)\).
 
 \subsubsection{Clojure}
-\label{sec:org705a1de}
+\label{sec:orgf6f02ba}
 If \(f\) is left-adjoint to \(g\), then the operator \(g;f\) has a special property, given by \(p \leq f;g(p)\) and \(f;g;f;g(p) \cong f;g(p)\). That is, the image of \(g;f\) will always be mapped to itself.
 You can go from clojures to adjunctions and adjunctions to clojures. The adjunction to clojure is natural as we've shown above, but the clojure to adjunction is given by the clojure and the inclusion induced by the clojure.
 You can use clojures to do cool things because of their property. For example, simplifying an equation is a clojure operation because a simplified equation can only be simplified to itself.
