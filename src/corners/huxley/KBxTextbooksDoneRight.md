@@ -67,7 +67,7 @@ https://dev.to/paolimi/reparenting-is-now-possible-with-react-3ci0
 	- need INF SCROLL!
 
 
-
+init the height as looking backwards when it gets rendered with a func
 
 
 
