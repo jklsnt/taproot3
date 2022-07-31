@@ -262,6 +262,7 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 	- https://padailypost.com
 		- also palto alto
 
+## short ad
 
 
 
