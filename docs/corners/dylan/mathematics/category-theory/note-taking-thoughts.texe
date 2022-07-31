@@ -1,4 +1,4 @@
-% Created 2022-07-31 Sun 07:26
+% Created 2022-07-31 Sun 07:27
 % Intended LaTeX compiler: xelatex
 \documentclass[letterpaper]{article}
 \usepackage{graphicx}
@@ -61,7 +61,7 @@
 
 
 \section{Structure of knowledge}
-\label{sec:org5763495}
+\label{sec:orga78a1aa}
 I think that most people agree that the structure of knowledge is fundamentally relational. That is, when mapping out knowledge, it takes the form of nodes representing ideas, and edges representing how those ideas intertwine.
 
 I think that Spivak's theory of \href{https://math.mit.edu/\~dspivak/informatics/ologs--basic.pdf}{Ologs} is a "better" description of the structure of knowledge. Not only does knowledge take the structure of connected ideas, but the ideas themselves are only labels, and the relations between ideas ("morphisms") give each idea "meaning". Although every relation between two ideas is local in nature (i.e. the relation is defined only in terms of the two ideas), due to the infinitessimally large number of ideas, and therefore relations, every idea has, associated with it, an infinitessimal amount of relations to other ideas, enough to distinguish itself from another idea. Because ologs are categories, the yoneda lemma applies: An object is defined by its relation to others. As such, one implicit implication of Spivak's theory of ologs is that ideas are defined by their relationship to other ideas.
@@ -75,7 +75,7 @@ If every idea is defined in relation to others, we can make these relations expl
 To get more technical, we can think of the set of all relations from an idea to other ideas as the image of the functor \(O(X, -)\), where \(O\) is the olog in question and \(X\) is the object (=idea) in question. Then, we can think of a functor from \(O\) to the category of functors (op) that maps every object \(X\) to the functor \(O(X, -)\). Every morphism in \(O(X, Y)\) is taken to a natural transformation from \(O(Y, -)\) to \(O(X, -)\), or a pullback along that morphism. (I think my math is right).
 
 \section{Subjective and Objective knowledge and ideas}
-\label{sec:orgc31c778}
+\label{sec:org4ce2664}
 One thing that Spivak covers is the notion of subjective and objective knowledge. Spivak takes the position that ologs are a representation of a "mode" of thinking (that isn't a reference but a paraphrase), rather than being an objective portrayal of ideas. That is, ologs operate under a certain context.
 
 One of my goals with this research project is to find a way to somehow create an atomic note-taking system with \uline{minimum redundancies} that facilitates \uline{collaboration with ease}. The hard part is mainly the collaboration. To have collaboration without redundancies, we need participants of the note-taking system to work on the same ideas/notes rather than create a new note for every idea like they would in a personal note system. This is difficult for a few reasons:
@@ -88,12 +88,12 @@ One of my goals with this research project is to find a way to somehow create an
 Of the two, the second is the "solvable" problem. The first problem is a problem that has to do with the knowledge of each participant, which can't be solved by the structure/form of the note-taking system. But I believe we should be able to do something about the second problem.
 
 \subsection{The actual model of note-taking}
-\label{sec:org28dd46e}
+\label{sec:orgce71822}
 We've established in section 1 that a set of idea-morphism list pairs is a way of representing an olog. Something like Wikipedia forms a category (in the most general sense).
 I will further establish that a \uline{personal note-taking system} in our context is an olog that represents the notes that a person has taken.
 
 \section{Collaborative note-taking}
-\label{sec:org9ef4918}
+\label{sec:org9093eaf}
 A categorical way of looking at collaborative note taking in the way that I envision it is a union between different people's note-taking systems. I can think of a way of doing this.
 
 First, every person's note \(N_{i}\) is turned into a product category \(N_{i} \times \{i\}\) in the category \(\mathsf{Olg} \times \mathsf{Set}\). This category should be isomorphic to the original note category. Unless otherwise specified, we will be dealing with objects in \(\mathsf{Olg} \times \mathsf{Set}\) from here on out.
@@ -105,7 +105,7 @@ After an aggregate category is created, a more condensed category \(N_{cond}\) i
 The result is a category much like if we had unioned everybody's note networks, but with each object and relation labeled based on where they had come from. In effect, we have created a disjoint union of sorts of categories, but have condensed them further.
 
 \section{Three? main problems with this model}
-\label{sec:orgb22b579}
+\label{sec:org333e814}
 There's a few problems with this model, that definitely are interesting research topics.
 
 \begin{enumerate}
@@ -114,7 +114,7 @@ There's a few problems with this model, that definitely are interesting research
 \end{enumerate}
 
 \section{How do we verify that two note ologs by different people work together?}
-\label{sec:org23c0c25}
+\label{sec:orgf80eb55}
 We can define two ologs "working together" if in the category \(N_{i+j}\), for any two morphisms \(f_{i}: X\rightarrow Y\) and \(g_{j}: Y\rightarrow Z\) from categories \(N_{i}\) and \(N_{j}\) respectively, there exists a morphism \(f;g = g_{j}\circ f_{i}\) that is the composition of those two morphisms. In other words, any two morphisms from different categories should compose nicely.
 
 But this definition won't consider situations where ideas are defined by contradictory ideas. For example, say Albert defines a car by having three wheels and Betsy defines a car by having four wheels. This is illustrated by the diagram below.
@@ -132,6 +132,6 @@ We condense this into the following diagram:
 Note that we have a direct contradiction between "A quantity of 3" and "A quantity of 4". But, these objects occupy virtually the same position in the structure of the olog. There needs to be a way to differentiate between the two ideas so that we can know when ideas are contradictory.
 
 \subsection{My idea}
-\label{sec:org0a23368}
+\label{sec:orge60850a}
 One way to try to validate a category and check that it isn't contradictory is to have an implicit structure on ideas that outlines ideas that are contradictory. For example, if we knew that there can't be 4 of something and 3 of something at the same time, then we can have a relation that would prohibit this. This could be implemented through another, implicit object and morphism.
 \end{document}
