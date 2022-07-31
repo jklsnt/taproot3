@@ -36,7 +36,7 @@ date: 2022-06-02
 - actual keyboard cable!
 - keybind to insert logging in whatever language 
 - [https://www.reddit.com/r/neovim/comments/wc86sm/introducing_oxocarbonnvim_neovim_colorscheme/](https://www.reddit.com/r/neovim/comments/wc86sm/introducing_oxocarbonnvim_neovim_colorscheme/ "https://www.reddit.com/r/neovim/comments/wc86sm/introducing_oxocarbonnvim_neovim_colorscheme/")
-- 
+- [https://github.com/glacambre/firenvim](https://github.com/glacambre/firenvim "https://github.com/glacambre/firenvim")
 
 
 
