@@ -265,6 +265,12 @@ https://www.youtube.com/watch?v=3nJr_LBDx38&ab_channel=Miro
 ## short ad
 tasks done collaboratively!
 
+- outside space
+- COLLABORATIVE :: switch workpaces
+- TASK :: nlp abtib
+- MANAGEMENT :: `john` checks off the task (show cursor)
+
+
 
 
 
