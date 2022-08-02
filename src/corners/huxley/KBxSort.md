@@ -1,6 +1,10 @@
 n
 ***
 
+ https://www.youtube.com/watch?v=WTUafAwrunE cool manim / AE alternative
+
+***
+
  https://www.youtube.com/watch?v=dQJ5aEsP6Fs 3d cellular automata
 and cell based game of life! https://www.youtube.com/watch?v=Z_zmZ23grXE&t=0s
 man these are #cool.
