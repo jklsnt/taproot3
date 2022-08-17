@@ -21,6 +21,8 @@ date: 2022-06-02
 	 - https://github.com/gcla/tmux-wormhole
 	 - https://github.com/fcsonline/tmux-thumbs
  - notion instead of draft as start.
+ - https://github.com/jesseduffield/lazygit woahhh this is so nice
+	 - also has a vim plugin! get this setup.
 
 ## todo!
 - fix darkreader on macos..

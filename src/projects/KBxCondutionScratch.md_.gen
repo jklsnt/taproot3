@@ -74,12 +74,12 @@ but https://github.com/JohannesKlauss/react-hotkeys-hook might be nicer
 
 ***
 
-- sync themeing to something || @jack
+- sync themeing to something || @jack || done by hux
 - make settings mobile friendly? (question mark?) || @tbd || done
-- add a quickswitcher and command pallete button || @zach & @exr0n
+- add a quickswitcher and command pallete button || @zach & @exr0n || done by jack and hux
 	- next to the logout button!
-- keybind editor component || @huxley || done || @jack 
-
+- keybind editor component || @huxley || done || @jack || done by hux 
+niceu.
 
 
 
