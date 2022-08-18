@@ -602,7 +602,17 @@ lesson: be RIGORIOUS about checking the answers. no, wishy washy "yeah that look
 
 #
 
-
 https://studentscores.collegeboard.org/viewscore/testquestions
+
+
+
+
+# 
+
+
+
+
+
+
 
 
