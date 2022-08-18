@@ -609,7 +609,7 @@ https://studentscores.collegeboard.org/viewscore/testquestions
 
 # 
 
-37.5
+37.5 => 1.875
 
 
 
