@@ -613,6 +613,11 @@ https://studentscores.collegeboard.org/viewscore/testquestions
 37.5 => 1.875
 
 
+## again.
+### practice test #1 nocalc section
+- felt slow on systems of euqations. 
+- felt clunky with decimals
+
 
 
 
