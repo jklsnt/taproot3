@@ -615,11 +615,12 @@ https://studentscores.collegeboard.org/viewscore/testquestions
 
 ## again.
 ### practice test #1 nocalc section
+#### notes
 - felt slow on systems of equations
 - felt clunky with decimals
 
-
-
+#### lessons
+- when doing systems of equations, look for relations between the equations. 
 
 
 
