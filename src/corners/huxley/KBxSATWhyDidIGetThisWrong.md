@@ -621,6 +621,8 @@ https://studentscores.collegeboard.org/viewscore/testquestions
 
 #### lessons
 - when doing systems of equations, look for relations between the equations.
+- when doing exponents, look to see if you can make things the same base
+	- when you do, remember to stack things inside of parens
 
 
 
