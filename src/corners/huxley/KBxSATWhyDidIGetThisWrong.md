@@ -620,7 +620,7 @@ https://studentscores.collegeboard.org/viewscore/testquestions
 - felt clunky with decimals
 
 #### lessons
-- when doing systems of equations, look for relations between the equations. 
+- when doing systems of equations, look for relations between the equations.
 
 
 
