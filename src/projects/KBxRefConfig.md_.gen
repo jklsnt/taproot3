@@ -23,6 +23,8 @@ date: 2022-06-02
  - notion instead of draft as start.
  - https://github.com/jesseduffield/lazygit woahhh this is so nice
 	 - also has a vim plugin! get this setup.
+ - https://github.com/gpanders/vim-medieval
+	 - runnable code blocks in md!! les go.
 
 ## todo!
 - fix darkreader on macos..
