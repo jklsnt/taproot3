@@ -18,3 +18,5 @@ date: 2022-06-19
 	- https://www.youtube.com/watch?v=NiwJL_u1Yis
 - 3d voronoi cells!
 	- also, intertwine that with cut outs of real objects
+- moving grass that GLOWS :)
+	- porter robinson dull scyth video
