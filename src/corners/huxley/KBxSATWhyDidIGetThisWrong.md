@@ -611,7 +611,7 @@ https://studentscores.collegeboard.org/viewscore/testquestions
 # 
 
 37.5 => 1.875
-
+82.5, 41.25
 
 
 ## again.
