@@ -629,7 +629,7 @@ https://studentscores.collegeboard.org/viewscore/testquestions
 
 pt1cm16: i got this wrong because i didn't consider the axes. always consider the axis! that is a common way they will try to trick you when it comes to graphs.
 
-pt1cm20: i got this wrong because i solved for the wrong value.
+pt1cm20: i got this wrong because i solved for the wrong value. if answer choices are one algebraic operation away then be aware of them. one of the ways they will try to trick you is to get you to solve for the wrong thing. don't let them!
 
 
 
