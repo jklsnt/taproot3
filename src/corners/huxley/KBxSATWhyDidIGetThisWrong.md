@@ -627,7 +627,7 @@ https://studentscores.collegeboard.org/viewscore/testquestions
 
 
 
-
+pt1cm16: i got this wrong because i didn't consider the axes. always consider the axis! that is a common way they will try to trick you when it comes to graphs.
 
 
 
