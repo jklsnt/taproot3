@@ -20,3 +20,4 @@ date: 2022-06-19
 	- also, intertwine that with cut outs of real objects
 - moving grass that GLOWS :)
 	- porter robinson dull scyth video
+- 3d scribbles
