@@ -637,7 +637,7 @@ pt1cm38: i got this wrong because i rounded incorrectly. i rounded to the neares
 
 ptmar21cm35: i got this wrong because i looked at the label for a point on the axis and assumed it was the point of interest. make sure to be very rigourous about the info you get from a graph! look at axes, and look at *placement* of labels.
 
-ptmar21cm37: i got this wrong because i looked at the label for a point on the axis and assumed it was the point of interest. make sure to be very rigourous about the info you get from a graph! look at axes, and look at *placement* of labels.
+ptmar21cm37: i got this wrong because i gridded a decimal instead of a percentage. always check what you are submitting! look for formating 
 
 
 
