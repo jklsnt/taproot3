@@ -633,7 +633,7 @@ pt1cm20: i got this wrong because i solved for the wrong value. if answer choice
 
 pt1cm38: i got this wrong because i rounded incorrectly. i rounded to the nearest dollar instead of the nearest cent. always look for answer formatting! ALWAYS double check what the answer should look like!
 
-
+pt
 
 
 
