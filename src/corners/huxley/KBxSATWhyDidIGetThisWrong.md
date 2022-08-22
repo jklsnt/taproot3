@@ -633,7 +633,7 @@ pt1cm20: i got this wrong because i solved for the wrong value. if answer choice
 
 pt1cm38: i got this wrong because i rounded incorrectly. i rounded to the nearest dollar instead of the nearest cent. always look for answer formatting! ALWAYS double check what the answer should look like!
 
-pt
+ptmar21cm35: i got this wrong because i looked at the label for a point on the axis and assumed it was the point of interest. 
 
 
 
