@@ -625,6 +625,7 @@ https://studentscores.collegeboard.org/viewscore/testquestions
 - when doing exponents, look to see if you can make things the same base
 	- when you do, remember to stack exponents inside of parens when replacing. ie $8^{x}= (2^3)^{x}$ $\neq 2^{x+2}$
 - when something seems wrong, it's most likely wrong! do not sit with it. recheck everything.
+- graphs will try to trick you with axes and also point labels. don't let them!
 
 
 
@@ -634,7 +635,7 @@ pt1cm20: i got this wrong because i solved for the wrong value. if answer choice
 
 pt1cm38: i got this wrong because i rounded incorrectly. i rounded to the nearest dollar instead of the nearest cent. always look for answer formatting! ALWAYS double check what the answer should look like!
 
-ptmar21cm35: i got this wrong because i looked at the label for a point on the axis and assumed it was the point of interest. 
+ptmar21cm35: i got this wrong because i looked at the label for a point on the axis and assumed it was the point of interest. make sure to be very rigourous about the info you get from a graph! look at axes, and look at *placement* of labels.
 
 
 
