@@ -610,10 +610,9 @@ https://studentscores.collegeboard.org/viewscore/testquestions
 
 # 
 
+52.5 
 37.5 => 1.875
 82.5, 41.25
-52.5 
-
 
 ## again.
 ### practice test #1 math sections
