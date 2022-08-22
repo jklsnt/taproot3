@@ -624,6 +624,7 @@ https://studentscores.collegeboard.org/viewscore/testquestions
 - when doing systems of equations, look for relations between the equations.
 - when doing exponents, look to see if you can make things the same base
 	- when you do, remember to stack exponents inside of parens when replacing. ie $8^{x}= (2^3)^{x}$ $\neq 2^{x+2}$
+- when something seems wrong, it's most likely wrong! do not sit with it. recheck everything.
 
 
 
