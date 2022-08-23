@@ -638,9 +638,9 @@ pt1cm20: i got this wrong because i solved for the wrong value. if answer choice
 
 pt1cm38: i got this wrong because i rounded incorrectly. i rounded to the nearest dollar instead of the nearest cent. always look for answer formatting! ALWAYS double check what the answer should look like!
 
-ptmar21cm35: i got this wrong because i looked at the label for a point on the axis and assumed it was the point of interest. make sure to be very rigourous about the info you get from a graph! look at axes, and look at *placement* of labels.
+ptmar21cm35: i got this wrong because i looked at the label for a point on the axis and assumed it was the point of interest. make sure to be very rigorous about the info you get from a graph! look at axes, and look at *placement* of labels.
 
-ptmar21cm37: i got this wrong because i gridded a decimal instead of a percentage. always check what you are submitting! look for formating specifications before you answer, especially on grid ins!!
+ptmar21cm37: i got this wrong because i gridded a decimal instead of a percentage. always check what you are submitting! look for formatting specifications before you answer, especially on grid ins!!
 
 
 
