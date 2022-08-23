@@ -642,7 +642,7 @@ ptmar21cm35: i got this wrong because i looked at the label for a point on the a
 
 ptmar21cm37: i got this wrong because i gridded a decimal instead of a percentage. always check what you are submitting! look for formatting specifications before you answer, especially on grid ins!!
 
-ptapr21w20: i got this wrong because i didn't rigorously or correctly identify the noun that the verb was modifying. when the question is about plurality, make sure to identity what is being modified! don't get trapped in local context
+ptapr21w20: i got this wrong because i didn't rigorously or correctly identify the noun that the verb was modifying. when the question is about plurality, make sure to identity what is being modified! don't get trapped in local context. also, when a question has tenses, also be on the lookout for plurality.
 
 
 
