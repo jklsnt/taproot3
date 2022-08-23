@@ -645,7 +645,7 @@ ptmar21cm37: i got this wrong because i gridded a decimal instead of a percentag
 ptapr21w20: i got this wrong because i didn't rigorously or correctly identify the noun that the verb was modifying. when the question is about plurality, make sure to identity what is being modified! don't get trapped in local context. also, when a question has tenses, also be on the lookout for plurality.
 
 
-ptapr21cm19: i got this wrong because i neglected to add up all the results in the table that I needed to. 
+ptapr21cm19: i got this wrong because i neglected to add up all the results in the table that I needed to. when reading data from a table and doing probs, segment the steps! make sure to check what needs to go ontop and what needs to go on the bottom. don't fuck up and only use one cell. 
 
 
 
