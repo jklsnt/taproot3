@@ -667,6 +667,8 @@ ptmay21w36: i got this wrong because i didn't know the rules and then didn't tru
 
 ptmay21w43: i got this wrong because i didn't consider the actual noun that my verb was modifying! when there is plurality, ALWAYS locate the object that is being modified before continuing.
 
+ptmay21cm43: i got this wrong because i didn't consider the actual noun that my verb was modifying! when there is plurality, ALWAYS locate the object that is being modified before continuing.
+
 
 
 
