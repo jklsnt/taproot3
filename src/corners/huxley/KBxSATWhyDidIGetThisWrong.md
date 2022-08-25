@@ -659,6 +659,8 @@ ptapr21w20: i got this wrong because i didn't rigorously or correctly identify t
 
 ptapr21cm19: i got this wrong because i neglected to add up all the results in the table that I needed to. when reading data from a table and doing probs, segment the steps! make sure to check what needs to go ontop and what needs to go on the bottom. don't fuck up and only use one cell. 
 
+ptmay21r6
+
 
 
 
