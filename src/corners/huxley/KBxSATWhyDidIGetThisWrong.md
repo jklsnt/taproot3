@@ -665,7 +665,7 @@ ptmay21r49: i got this wrong because i didn't think critically about what my ans
 
 ptmay21w36: i got this wrong because i didn't know the rules and then didn't trust my gut. now i know, that for titles and introductions, replace the title with "mister" and do what sounds right. 
 
-ptmay21w43: i got this wrong because i didn't consider the actual word that my verb
+ptmay21w43: i got this wrong because i didn't consider the actual noun that my verb was modifying! when there is plurality, ALWAYS locate the object that is being modified before continuing.
 
 
 
