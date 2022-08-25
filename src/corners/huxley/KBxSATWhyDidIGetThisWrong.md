@@ -663,6 +663,10 @@ ptmay21r6: i got this wrong because i wasn't rigourous enough about considering 
 
 ptmay21r49: i got this wrong because i didn't think critically about what my answers imply, and i didn't read the context in the question. i also should have spotted the "may" vs. "are" in the "reasonable conclusion" and thought twice about choosing the "are."
 
+ptmay21w36: i got this wrong because i didn't know the rules 
+
+
+
 
 
 
