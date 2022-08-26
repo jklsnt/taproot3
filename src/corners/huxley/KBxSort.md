@@ -1,6 +1,10 @@
 n
 ***
 
+ https://www.youtube.com/watch?v=3H79ZcBuw4M neural cellular automota??
+
+***
+
  https://www.youtube.com/watch?v=0Kx4Y9TVMGg i gotta do this in 3d man
 
 ***
