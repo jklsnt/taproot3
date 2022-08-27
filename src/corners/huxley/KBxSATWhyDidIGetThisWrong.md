@@ -672,7 +672,7 @@ ptmay21cm32: i got this wrong because i thought that zero was considered positiv
 ptmay21cm37: i got this wrong because i didn't consider the units of my answer. i also had a clue inside some weird wording that i didn't make sense of. always make sense of the wording! if it's weird, then most likely that is where the trick is! always consider what the units of your answer are. also, be wary of axis-label-less graphs which still try to trick you with axis.
 
 
-
+hey. you got this :)
 
 
 
