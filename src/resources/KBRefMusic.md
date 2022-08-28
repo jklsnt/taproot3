@@ -44,7 +44,7 @@ date: 2021-12-26
 - [Vengeance](https://www.youtube.com/watch?v=pQGPEEKRrUI&ab_channel=ZackHemsey-Topic) - epic, v slow build song
 - [RATATAT - CREAM ON CHROME](https://www.youtube.com/watch?v=xlcywgEMuGI&ab_channel=ratatatmusicratatatmusicVerified) - good, chill but sleak background
 - [OP-1 | slacker - plswaveback](https://www.youtube.com/watch?v=TyXoFG-HPQs) - happy backround music
-- [Summertime](https://www.youtube.com/watch?v=ymwtuzIdhfY) - weeb, but super chill and very nice
+- [Summertime](https://www.youtube.com/watch?v=nUrDEkXUK2k&list=OLAK5uy_mgim49K_JwWSuRaIiJ7SeV4hZMwokzpcc) - weeb, but super chill and very nice
 - [Dylan Sitts - Rain Check](https://www.youtube.com/watch?v=qZIbwNAmRjQ) -  crazy viby unintelligable lyrics background music
 	-  sad-ish
 - [Covet - "shibuya" (ft.San Holo) (official video)](https://www.youtube.com/watch?v=RXGwVJCdV6A) -  really chill background acousticy music
