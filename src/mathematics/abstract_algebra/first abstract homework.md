@@ -38,8 +38,8 @@ $$ \begin{align*}
 &\therefore (a+b)+c = a+(b+c)&\blacksquare 
 \end{align*}$$
 
+or,
 
-
-
+![[first abstract homework 2022-08-29 20.57.38.excalidraw]]
 
 
