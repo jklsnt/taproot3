@@ -7,7 +7,7 @@ legacy-name: KB20200825134500
 ---
 
 # Groups
-- definition
+- definition ^8d012c
 	- closed
 		- if $a, b \in S$ then $a + b \in S$
 	- has an identity $e$
