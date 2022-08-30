@@ -38,6 +38,8 @@ date: 2022-06-02
 - buy new headphones
 - actual keyboard cable!
 - keybind to insert logging in whatever language 
+- dropdown for missives 
+	- and maybe symlinks to my actual notes?
 
 
 
