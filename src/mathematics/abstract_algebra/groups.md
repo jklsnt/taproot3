@@ -11,7 +11,7 @@ date: 2022-08-30
 
 # Groups!
 
-- ![[KBe2020math530refGroups]] 
+![[KBe2020math530refGroups]] 
 - [[KBxLInAlgDayTwo#Groups]]
 
 
