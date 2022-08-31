@@ -25,8 +25,7 @@ date: 2022-08-30
 $$I_{1} \cdot I_{2} = I_{1} = I_{2} \text{ } \blacksquare$$
 
 ## Addition on Integers is associative
-$$ \begin{align*}
-&
+$$ \begin{align*} &
 (a+b) = a+b \\ &
  (a+b)-a = b\\ &\\
 &
