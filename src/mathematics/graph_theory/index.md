@@ -11,3 +11,8 @@ date: 2022-08-29
 
 # graph theory!
 - [[graph theory over 45 years]]
+
+
+
+https://d3gt.com/unit.html looks interesting
+
