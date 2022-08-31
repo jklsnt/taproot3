@@ -19,6 +19,6 @@ course: MATH520
 
 
 #  anew
-- [[mvc ps#2]]
+- [[mvc ps2]]
 
 
