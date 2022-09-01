@@ -87,16 +87,6 @@ $$
 &p(1) = \boxed{10+12\cdot120 = 1450}
 \end{align*}
 $$
-
-```desmos-graph
-left=-40;
-right=80;
-top=5000;
-bottom=-3000;
----
-10\cdot x+12\cdot\frac{120}{x}
-```
-
 > 5.b $\displaystyle \int x^3 + 3\sqrt[5]{x} + 8x^{2/3} + bx + a \, dx$
 
 $$
@@ -124,8 +114,10 @@ $$
 \int_{-2}^{-1} f(x) \, dx= \frac{-91}{6}-\frac{584}{3} = \boxed{-\frac{1259}{6}}
 \end{align*}
 $$
+## Arc length
 
-
-
+$$
+\int_{x_1}^{x_{2}} 
+$$
 
 

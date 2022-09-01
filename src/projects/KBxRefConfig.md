@@ -40,7 +40,7 @@ date: 2022-06-02
 - keybind to insert logging in whatever language 
 - dropdown for missives 
 	- and maybe symlinks to my actual notes?
-- suggestion from @exr
+- suggestion from @exr0n: move forward one character in insert mode `C-f`
 
 
 
