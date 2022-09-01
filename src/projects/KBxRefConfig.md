@@ -40,6 +40,7 @@ date: 2022-06-02
 - keybind to insert logging in whatever language 
 - dropdown for missives 
 	- and maybe symlinks to my actual notes?
+- suggestion from @exr
 
 
 
