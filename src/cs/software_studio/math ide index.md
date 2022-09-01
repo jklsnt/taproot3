@@ -12,4 +12,4 @@ date: 2022-09-01
 # math :clap: ide :clap:
 *but not actually cus now it's a scratchpad on steroids uwu*
 
-- [[math idea user stories]]
+- [[math ide user stories]]

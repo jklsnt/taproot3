@@ -16,7 +16,8 @@ date: 2022-08-30
 
 ## Homeworks
 - [[KBxGroupAndMatricesIntro]]
-- [[first abstract homework]]
+- [[first abstract hw]]
+- [[finite groups hw]]
 
 
 
