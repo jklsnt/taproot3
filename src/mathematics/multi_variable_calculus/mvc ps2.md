@@ -48,13 +48,16 @@ $$
 &g(x) = (x^2+1)^{3},g'(x)=6x(x^2+1)^2&\text{chain rule}\\
 &\dd{x} (3x(x^2+1)^{3}=
 3x\cdot(3(x^2+1)^2\cdot 2x)+3(x^2+1)^3 = 3x\cdot6x(x^2+1)^2+3(x^2+1)^3&\text{substitute}\\\\
-
 & 3x\cdot6x(x^2+1)^2+3(x^2+1)^3+\dd{x} (\cos\big(\sin(x)\big) + \frac{x^9 + x^4}{2x + 5})\\
 & =3x\cdot6x(x^2+1)^2+3(x^2+1)^3-\sin(\sin(x))\cdot\cos(x)+\dd{x}(\frac{x^9 + x^4}{2x + 5})\\\\
 
 & \dd{x} \frac{f(x)}{g(x)} = \frac{g(x) f'(x) - f(x) g'(x)}{g(x)^2}&\text{quotient rule}\\
 &\dd{x} \frac{x^9 + x^4}{2x + 5} = \frac{(2x+5)(9x^8+4x^3)-(x^9+x^4)\cdot 2}{(2x+5)^2}\\\\
 
+
+\end{align*}
+$$
+$$\begin{align*}
 &3x\cdot6x(x^2+1)^2+3(x^2+1)^3-\sin(\sin(x))\cdot\cos(x)+\frac{(2x+5)(9x^8+4x^3)-(x^9+x^4)\cdot 2}{(2x+5)^2}\\
 &=\boxed{18x^2(x^2+1)^2+3(x^2+1)^3-\sin(\sin(x))\cdot\cos(x)+\frac{16x^9+45x^8+6x^4+20x^3}{(2x+5)^2}}&\text{simplify}
 
@@ -114,10 +117,4 @@ $$
 \int_{-2}^{-1} f(x) \, dx= \frac{-91}{6}-\frac{584}{3} = \boxed{-\frac{1259}{6}}
 \end{align*}
 $$
-## Arc length
-
-$$
-\int_{x_1}^{x_{2}} 
-$$
-
 
