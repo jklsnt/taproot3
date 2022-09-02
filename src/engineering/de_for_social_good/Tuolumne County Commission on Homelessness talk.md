@@ -53,8 +53,7 @@ dana keeps talking about how to make things politically viable, or how to show t
 
 > "always keep in mind the people you are trying to help." 
 > don't get caught up in the minute drama! come back to "the face of someone you are trying to help."
-
-
+> don't "let the perfect be the enemy"
 
 
 
