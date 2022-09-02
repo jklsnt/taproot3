@@ -2,7 +2,7 @@
 title:   Advanced Probability
 ---
 
-#ref
+#ref #index
 
 ***
 

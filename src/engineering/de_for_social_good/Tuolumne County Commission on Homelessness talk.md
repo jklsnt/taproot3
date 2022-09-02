@@ -51,7 +51,8 @@ dana keeps talking about how to make things politically viable, or how to show t
 	- truly somewhere where you can make an impact.
 		- so, get to know the local decision makers!
 
-
+> "always keep in mind the people you are trying to help." 
+> don't get caught up in the minute drama! come back to "the face of someone you are trying to help."
 
 
 
