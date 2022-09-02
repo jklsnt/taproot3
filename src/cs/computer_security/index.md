@@ -3,7 +3,7 @@ title: CS240 Master Index
 ---
 
 # CS240 master index
-
+#index
 ## Day 1
 - [[KBhCS240Day1]]
 - [[KBxDayOneCompSec]]

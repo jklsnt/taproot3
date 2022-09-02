@@ -5,6 +5,8 @@ author: Exr0n
 source: #index
 ---
 
+#index 
+
 Master Index: [[KBe2020math530index]]
 
 Homework index: [[KBe2020math530refExr0nRetIndex]]

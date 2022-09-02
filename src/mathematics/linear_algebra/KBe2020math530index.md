@@ -5,7 +5,7 @@ author: Exr0n
 source: #index
 legacy-name: 00-Topic-KB20200825085410
 ---
-
+#index
 | | |
 |-|-|
 Intro | [[KBe2020math530flo1]]

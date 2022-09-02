@@ -4,7 +4,7 @@ course: 2020math530
 author: Exr0n
 source: #index
 ---
-
+#index
 Flow index: [[KBe2020math530floIndex]]
 
 ## Homeworks
