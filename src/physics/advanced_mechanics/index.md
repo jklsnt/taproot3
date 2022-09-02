@@ -4,7 +4,8 @@ source: #index
 course: PHYS360
 ---
 
-#flo  #uncompiled
+#flo  #uncompiled #index 
+***
 
 # Day 1
 
