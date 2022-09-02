@@ -1,7 +1,8 @@
 ---
 title: Quantum Master Index
 ---
-
+#index 
+***
 - [[KBhQuantumDay1]] 
 - [[KBxQuantumDay1]]
 - [[KBxQuantumDay2]]

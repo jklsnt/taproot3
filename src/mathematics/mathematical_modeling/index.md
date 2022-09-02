@@ -5,7 +5,7 @@ author:  Huxley Marvit
 source:  #index
 ---
 
-#flo #ref #disorganized 
+#flo #ref #disorganized #index
 
 ---
 

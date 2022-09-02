@@ -5,7 +5,7 @@ author:  Huxley Marvit
 source:  #index
 ---
 
-#ref
+#ref #index
 
 ---
 
