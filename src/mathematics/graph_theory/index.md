@@ -19,7 +19,7 @@ date: 2022-08-29
 
 ## terminology
 
-- 
+- [[regular graph]]
 
 https://d3gt.com/unit.html looks interesting
 
