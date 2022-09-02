@@ -41,8 +41,10 @@ import pprint
 a, b, c = range(3)
 
 ops = [[a, b, c], [c, a, b], [b, c, a], [a, c, b], [c, b, a], [b, a, c]]
-symbols = ['△', '->', '<-', '⍋', "◹", "⊿"]
-symbols = ['EE', 'RR', 'RL', '⍋', "◹", "⊿"]
+ops = [[a, b, c], [c, a, b], [b, c, a], [a, c, b], [b, a, c], [c, b, a]]
+#symbols = ['△', '->', '<-', '⍋', "◹", "⊿"]
+#symbols = ['EE', 'RR', 'RL', 'MA', "MB", "MC"]
+symbols = ['EE', 'R1', 'R2', 'S1', "S2", "S3"]
 
 labels = dict([(str(x), symbols[i]) for i,x in enumerate(ops)])
 

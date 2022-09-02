@@ -12,3 +12,4 @@ date: 2022-08-30
 # bioorganic chemistery
 
 - [[stoichiometry review]]
+- [[hexane lab]]
