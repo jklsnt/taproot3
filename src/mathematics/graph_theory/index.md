@@ -17,5 +17,9 @@ date: 2022-08-29
 - [[what is a graph lecture]]
 
 
+## terminology
+
+- 
+
 https://d3gt.com/unit.html looks interesting
 
