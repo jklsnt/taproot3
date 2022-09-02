@@ -5,7 +5,7 @@ course: BIO101
 source: #index
 ---
 
-#source 
+#source #index
 
 ## Introductions
 * [[00-Topic-KB202008251020]] Day one, but not broken

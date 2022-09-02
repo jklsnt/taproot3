@@ -5,7 +5,7 @@ course: HIST201
 source: #index
 ---
 
-#ref #source
+#ref #source #index
 
 # The History Index
 

@@ -4,6 +4,8 @@ course: HIST301
 source: #index 
 ---
 
+#index
+***
 # Day 1, day 2 - Dylan: [[KBdHIST301HWIndigenousPeoplesHistory]]
 - Huxley: [[KBxIndigenousPeoplesHistoftheUS]]
 - Dylan: [[KBdHIST301Day2]]
