@@ -42,6 +42,7 @@ a, b, c = range(3)
 
 ops = [[a, b, c], [c, a, b], [b, c, a], [a, c, b], [c, b, a], [b, a, c]]
 symbols = ['△', '->', '<-', '⍋', "◹", "⊿"]
+symbols = ['EE', 'RR', 'RL', '⍋', "◹", "⊿"]
 
 labels = dict([(str(x), symbols[i]) for i,x in enumerate(ops)])
 
