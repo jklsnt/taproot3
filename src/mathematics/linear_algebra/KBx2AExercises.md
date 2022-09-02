@@ -100,7 +100,7 @@ In class review #extract
 [[KBxDirectSum]]
 
 #question how do finite fields work?
-field is just 0 and 1? but what about being closed under addition?
+field is just 0 and 1? but what about being closed under addition? ^319b41
 
 
 **Trivial**: the simplest one? how do you quantify that? #question

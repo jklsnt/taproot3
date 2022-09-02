@@ -65,5 +65,5 @@ pprint.pprint(answers)
 ```
 
 
-
+and also, [[finite fields and rings hw]] 
 
