@@ -18,6 +18,7 @@ date: 2022-08-30
 - [[KBxGroupAndMatricesIntro]]
 - [[first abstract hw]]
 - [[finite groups hw]]
+- [[finite fields and rings hw]]
 
 
 
