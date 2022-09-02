@@ -10,7 +10,7 @@ date: 2022-09-02
 ***
 
 # halogen lab
-
+[the lab](https://nuevaschool.instructure.com/courses/4254/files/folder/Atomic%20structure?preview=508206)
 
 > water → hexane
 

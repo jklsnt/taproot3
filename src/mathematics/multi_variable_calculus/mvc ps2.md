@@ -63,7 +63,7 @@ $$\begin{align*}
 
 \end{align*}
 $$
-> 3. You want to build an enclosure for your prize-winning Highland cow, Bessie. You want the enclosure to be a 120-square-foot rectangle, with two of the sides made out of material that costs $5 per foot, and the other two sides made out of material that costs $6 per foot. Assuming you want to spend the least amount of money, what should the dimensions be? How much will you spend? If you want to spend the greatest amount of money, what will the dimensions be? How much will you spend?
+> 3. You want to build an enclosure for your prize-winning Highland cow, Bessie. You want the enclosure to be a 120-square-foot rectangle, with two of the sides made out of material that costs $5 per foot, and the other two sides made out of material that costs $6 per foot. Assuming you want to spend the least amount of money, what should the dimensions be? How much will you spend? If you []()want to spend the greatest amount of money, what will the dimensions be? How much will you spend?
 
 ![[mvc ps2 2022-08-31 15.02.30.excalidraw||200]]
 

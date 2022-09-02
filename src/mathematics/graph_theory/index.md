@@ -10,8 +10,11 @@ date: 2022-08-29
 ***
 
 # graph theory!
-- [[graph theory over 45 years]]
+[the modules!](https://docs.google.com/document/d/1_h_A7DdpynFMOksDXgo_WRZGIVBiJrniHNcEWXwK-jU/edit)
+[and the old ones](https://docs.google.com/document/d/1PiklkOA35FXYdsUiWFOWIAmUsAexDEOHweePiVNqKJQ/edit)
 
+- [[graph theory over 45 years]]
+- [[what is a graph lecture]]
 
 
 https://d3gt.com/unit.html looks interesting
