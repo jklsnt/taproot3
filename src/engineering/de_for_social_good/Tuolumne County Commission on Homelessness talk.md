@@ -55,9 +55,24 @@ dana keeps talking about how to make things politically viable, or how to show t
 > don't get caught up in the minute drama! come back to "the face of someone you are trying to help."
 > don't "let the perfect be the enemy"
 
+## to morgan
+> "what type of initiative do you wish you could support in your community?"
+> "what ideas do you have to start getting involved or increase your involvement"
 
+- homelessness
+- misinformation
+- echo chambers
+- covid 
 
+Hi Morgan!
 
+In my immediate community, I see a lot of my peers struggling with mental health issues. I also see the ways that the pandemic is being managed as needing some support. However, I don't know if I'm the right one to provide this support.
 
+I also wish I get could involved in solving the issues of homelessness, especially after growing up in SF and reading more about the current activism over the past few days. An issue I don't see a lot of activism over is the issue of misinformation and echo chambers. I would love to try and get involved in tackling these issues.
+
+As for getting involved, I think the first step to all of these is learning about the issue. I find that often the causes and pathways of issues like these are significantly different than what is expected, and reading up on the actual pathways and the work done by people who have already done deep thinking about the issue with an open mind is crucial.
+
+ Thanks,
+- Huxley
 
 

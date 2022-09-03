@@ -34,7 +34,7 @@ Otherwise your operations are not mathematically valid due to conservation of ma
 
 1 mol of $C_{6}H_{12}O_{6}$ produces 2 mol of $CO_2$
 0.3 mol of $C_{6}H_{12}O_{6}$ produces 0.6 mol of $CO_2$
-
+Do 
 >2.b How many grams of $C_6H_12O_6$ are needed to form 2.00 g of $C_2H_5OH$?
 
 The molar mass of $C_2H_5OH$ is $46 \frac{g}{mol}$. Thus, $2g \cdot \frac{mol}{48g} = \frac{1}{23} \text{mol } C_2H_5OH$. The molar mass of $C_6H_12O_{6}= 180 \frac{g}{mol}$, which means that $\frac{1}{46} \text{mol } \cdot 180 \frac{g}{mol }  C_6H_12O_{6} \sim 3.913g \text{ }C_6H_12O_{6}$
