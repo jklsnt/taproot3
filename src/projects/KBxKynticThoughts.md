@@ -112,17 +112,63 @@ deliverables:
 - package
 
 
+## submitting the damn thing
+https://appstoreconnect.apple.com/apps/1643229581/appstore/reviewsubmissions/details/b1d2ecd4-cd05-48f5-a271-664e143f8906
+
+Hi App Review team,
+
+Guideline 2.1
+This Kyntic app does not participate in health-related human subject research as the data is written for the benefit of user's own records, and not harvested on our end for any type of research. 
+
+Our main features are as follows: 
+- Allow the user to input information about their day, such as their sleep, mood, and activities. 
+- Allow the user to visualize this data over a time frame. 
+- Optionally record movement sensor data from an external MBIENTlab sensor that we will be providing to those who need to download the app.
+
+Guideline 4.3
+My apologies! I initially submitted the app under my personal developer account (FILL), but got rejected on the grounds that this type of app needed to be submitted under an organization account. I tried to transfer the app, but app transfers are only allowed if a version of the app has already been approved. After talking to Apple Support, they recommended changing the name of the original submission in my personal account and re-uploading the app here with my Shabang Systems, LLC developer account.
+
+Apologies for the confusion, and thanks so much!
+- Huxley
+
+***
+
+Hi App Review team,
+
+Guideline 2.1
+This app (Kyntic) is **not** for conducting health-related human subject research! Kyntic serves as a digital analogue to an already existing paper-driven journaling system. Currently, Comprehensive Behavioral Intervention for Tics (CBIT) therapists — therapists who help those with Tourette's syndrome manage their symptoms — rely on a paper journal/notebook that patients are meant to fill out during the day. Many people find it cumbersome to fill out a paper journal every day, and CBIT therapists find it hard to organize and view trends in data that is contained in a paper notebook. After working with CBIT therapists as well as those with Tourrette's, we developed Kyntic, a better system that allows patients to fill out a digital version of the same form.
+
+Additionally, because Kyntic allows the move from the physical to the digital, instead of asking those with Tourrette's to estimate the severity of their symptoms, we can optionally detect tics as they happen.
+
+Our main features are as follows:
+- Allow the user to input information about their day, such as their sleep, mood, and activities.
+- Allow the user to visualize this data over a time frame.
+- Optionally record movement sensor data from an external MBIENTlab sensor that we will be providing to those who need to download the app.
+
+Guideline 4.3
+My apologies! I initially submitted the app under my personal developer account (huxley.marvit@icloud.com), but got rejected on the grounds that this type of app needed to be submitted under an organization account. I tried to transfer the app, but app transfers are only allowed if a version of the app has already been approved. After talking to Apple Support, they recommended changing the name of the original submission in my personal account and re-uploading the app here with my Shabang Systems, LLC developer account.
+
+Apologies for the confusion, and thanks so much!
+- Huxley
 
 
 
+### **Guideline 2.1 - Information Needed**
+We’re looking forward to completing the review of your app, but we need more information to continue.
 
+**Next Steps**
+Please provide detailed answers to the following questions in your reply to this message in App Store Connect:
 
+- Is this app for conducting health-related human subject research?
+- What are the main features of the app?
 
+### **Guideline 4.3 - Design**
 
+This app duplicates the content and functionality of other apps submitted by you or another developer to the App Store, which is considered a form of spam.
 
-![[Recording 20220902173346.webm]]
+Specifically, this app appears to be available in the same territories as another identical app submitted to the App Store. It would be appropriate to restrict the available territories for individual apps to those areas in which you intend to market and sell it and ensure none of the selected territories overlap.
 
+Apps that simply duplicate content or functionality create clutter, diminish the overall experience for the end user, and reduce the ability of developers to market their apps.
 
-
-
+The next submission of this app may require a longer review time, and this app will not be eligible for an expedited review until this issue is resolved.
 
