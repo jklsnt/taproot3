@@ -21,6 +21,7 @@ date: 2022-08-30
 
 ## Homeworks
 - [[first abstract hw]]
+- [[finite groups hw]]
 - [[finite fields and rings hw]]
 - [[isomorphic groups hw]]
 

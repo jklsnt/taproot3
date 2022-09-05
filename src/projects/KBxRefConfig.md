@@ -5,7 +5,7 @@ author:  Huxley Marvit
 date: 2022-06-02
 ---
 
- #ref
+ #ref 
 
 *** 
 # Config!
@@ -28,6 +28,7 @@ date: 2022-06-02
  - https://github.com/nvbn/thefuck
 	 - this is p cool
  - obsidian://show-plugin?id=obsidian-latex-suite gahh should really learn this
+ - obsidian://show-plugin?id=obisidian-note-linker and this..
 
 ## todo!
 - fix darkreader on macos..
@@ -44,6 +45,7 @@ date: 2022-06-02
 - dropdown for missives 
 	- and maybe symlinks to my actual notes?
 - suggestion from @exr0n: move forward one character in insert mode `C-f`
+- obi plugin that searches for file names and auto links
 
 
 
