@@ -14,12 +14,14 @@ date: 2022-08-30
 ## Resources
 [the canvas](https://nuevaschool.instructure.com/courses/4390)
 
-
 ## Notes
 - [[groups]]
 - [[isomorphic]]
 - [[ring]]
 
-
+## Homeworks
+- [[first abstract hw]]
+- [[finite fields and rings hw]]
+- [[isomorphic groups hw]]
 
 
