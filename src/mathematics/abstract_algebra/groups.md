@@ -5,7 +5,7 @@ author:  Huxley Marvit
 date: 2022-08-30
 ---
 
-#ref
+#ref #atomic
 
 ***
 
