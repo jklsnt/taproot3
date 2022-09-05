@@ -25,6 +25,9 @@ date: 2022-06-02
 	 - also has a vim plugin! get this setup.
  - https://github.com/gpanders/vim-medieval
 	 - runnable code blocks in md!! les go.
+ - https://github.com/nvbn/thefuck
+	 - this is p cool
+ - obsidian://show-plugin?id=obsidian-latex-suite gahh should really learn this
 
 ## todo!
 - fix darkreader on macos..
