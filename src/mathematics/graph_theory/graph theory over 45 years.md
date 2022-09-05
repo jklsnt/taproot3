@@ -10,7 +10,6 @@ date: 2022-08-29
 ***
 
 # graph theory over 45 years
-
 [the assignment](https://nuevaschool.instructure.com/courses/4369/assignments/71290)
 
 

@@ -15,7 +15,7 @@ date: 2022-08-30
 [the canvas](https://nuevaschool.instructure.com/courses/4390)
 
 ## Notes
-- [[groups]]
+- [[group]]
 - [[isomorphic]]
 - [[ring]]
 

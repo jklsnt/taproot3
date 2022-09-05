@@ -14,7 +14,7 @@ date: 2022-09-04
 
 You had some interesting conjectures today! Notably:
 
-1) all [[groups]] of the same size are [[isomorphic]]
+1) all [[group]]s of the same size are [[isomorphic]]
 2) isomorphic groups have matching sets of [[subgroups]]
 Try to prove/disprove (you already noticed that proving the second would disprove the first).
 If you didn't find all the [[ring#subring|subrings]] of $\mathbb{Z_{4}} \times \mathbb{Z_{4}}$, do so.
@@ -23,7 +23,7 @@ Try some exercises on subgroups from 3.D-3.G in Pinter
 ***
 
 
-> prove or disprove: all [[groups]] of the same size are [[isomorphic]]
+> prove or disprove: all [[group]]s of the same size are [[isomorphic]]
 
 $$
 \begin{align*}
@@ -52,7 +52,7 @@ Thus, equal size does not imply [[isomorphic|isomorphism]].
 
 > prove or disprove: isomorphic groups have matching sets of subgroups
 
-Consider two [[isomorphic]] [[groups]] $(X, *)$ and $(Y, \odot)$.
+Consider two [[isomorphic]] [[group]]s $(X, *)$ and $(Y, \odot)$.
 
 To generate [[subgroups]] from each group $((A, *) \in (X, *)$ and $((B, \odot) \in (Y, \odot)$, first choose one element from each $x \in X$ and $T(x) = y \in Y$ where $T: X \to Y$ is an [[isomorphic|isomorphism]]. To close each group, add $x * x$ to A and $y \odot y$ to B. Since X and Y are [[isomorphic]], $T(x*x) = y \odot y$. Since every pair of corresponding new elements added to the sets will satisfy the [[isomorphic|isomorphism]], the [[subgroups]] generated will be [[isomorphic]].
 
@@ -92,13 +92,22 @@ $$
 | I   | I   | v   | h   | d   |
 | v   | v   | I   | d   | h   |
 | h   | h   | d   | I   | v   |
-| d   | d   | h   | v   |  i |
+| d   | d   | h   | v   | I   |
 
+$(G, *)$ satisfies all the requirements necessary for a [[group]], including:
+- closure: restricted to board
+- identity: I
+- inverse: each operation is its own inverse
+- assoc: given
 
+> Pinter 38 3.F.4, 5, 7
 
-
-
-
-
-
+$(0_1, \dots,0_n)$, $(a_1, \dots, a_n)$
+$$\begin{align*}\\
+a+b&=a-b\\
+a+b&=c\\
+&\\
+a-b&=c\\
+a&=b+c
+\end{align*}$$
 
