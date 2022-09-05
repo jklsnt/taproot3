@@ -56,6 +56,8 @@ pretty simple proof, just using the definitions very closely.
 
 ### isomorphic vec spaces
 
+^fba579
+
 'essentially the same,' bar the names of the elems
 
 ```ad-def
@@ -63,6 +65,9 @@ title: isomorphism, isomorphic
 - An isomorphism is an invertible linear map
 - two vector spaces are called isomorphic if there is an isomorphism from one vector space onto the other one
 ```
+
+^c51d06
+
 which means they are bijective.
 
 essentially relabeling $v$ as $Tv$.
@@ -71,6 +76,9 @@ essentially relabeling $v$ as $Tv$.
 isomorphic means equal shape in greek
 isos -> equal, morph -> shape
 ```
+
+^34a7c4
+
 but people use isomprhism when they want to emphazise how two spaces can be essentially the same
 
 ```ad-def
